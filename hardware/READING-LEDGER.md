@@ -53,3 +53,4 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | digikit findings 45, 47, 48, 51, 53, 57, 60, 73, 76, 77, 91, 100 | results and key sections | digitakt-2, dt2-dn2-limits-and-audio-chain, A28, A29 |
 | Digiwerk notes T1.3, T1.4, T1.5, OB01, DT01, DC01/DC02, SC01, release 0.2.1 | answers and key sections | recovery, overbridge-usb, digitone-2-internals, A30 |
 | dnfw docs: PRINCIPLES, hardware, code-caves, mod-memory-regions, os-update-path, version-gate, sharc-load, sharc-cycle-model, sharc-stall-probe, sharc-ddr, waverider-dsp-silence, for-digikit-waverider-dsp-stop | full / key sections | digitone-2, memory-maps, os-update-protocol, machines-sampler-sharc, A31, A32 |
+| digikit findings 14, 16, 25; dnfw service-commands, mods-compatibility | key sections | sysex-and-midi, agent-workflow |

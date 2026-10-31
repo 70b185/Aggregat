@@ -77,3 +77,10 @@ Lessons: keep byte-identity checks strict (a resealed modified bootstrap was cau
 - **Everything version- or device-specific lives in anchors, device profiles and adapters.** A new OS version means new anchors plus adapter fixes; modules and SDK stay unchanged. A checker (`layercheck`) enforces it.
 - Apps never patch. A hook costs at most one flag check on a hot path when no module uses it. Modules are never unloaded, so every pointer handed to the UI must be static.
 
+## Making several ColdFire mods combine (dnfw `mods-compatibility.md`) {dn2-mods}
+- **Every mod checks the stock bytes it replaces.** Applying in the wrong order then fails with an error instead of producing a broken image.
+- dnfw generates a pairwise matrix: "yes" means disjoint bytes in both orders, "order" means one order only. Only one triple ran on hardware. **Disjoint bytes do not mean no functional clash.**
+- **One shared loader and one appended area** for all mods; separate loaders at the same start-up site never combine.
+- **A hook bus** owns the contested instructions and dispatches to each mod, so two mods can hook the same place. Without it, two mods hooking `0x400dc02a` could not coexist.
+- The same idea at a larger scale is digikit's adapter layer. Mixing two platforms in one image collides (see `dt2-dn2-limits-and-audio-chain.md` section 6).
+

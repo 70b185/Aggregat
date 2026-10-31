@@ -59,8 +59,11 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [ ] dn2-cfw `notes/` beyond T1.7, T2.2 and the release history; dnfw `docs/` beyond flashing, ele3-format, mainos-image, bootstrap, memory-map, os-versions.
 
 ## Next from the 2026-10-31 clones (not yet read)
-- [ ] digikit `docs/MIDI-SYSEX-RPC.md` (all 44 RPC commands), `docs/ARCHITECTURE.md`, `docs/sharc/` address map; findings 01, 25, 37, 52, 57, 60, 72, 100
-- [ ] dnfw docs: `hardware.md`, `PRINCIPLES.md`, `mod-memory-regions.md`, `code-caves.md`, `version-gate.md`, `os-update-path.md`, `service-commands.md`, `midi-rpc.md`, `mods-compatibility.md`
-- [ ] Digiwerk (dn2-cfw) `docs/DEVELOPERS.md`, notes T1.3-T1.5, OB01 (Overbridge), USB01, T1.11 (DT2 in place), `prior-art-2026-10.md`
+- [x] digikit `MIDI-SYSEX-RPC.md`, `ARCHITECTURE.md`, `SHARC-ADDRESS-MAP.md`, `SAMPLES.md`; findings 14, 16, 25, 45, 47, 48, 51, 53, 57, 60, 73, 76, 77, 91, 100
+- [ ] digikit findings still unread: 01-05, 09-13, 15, 17, 19-24, 26-44, 46, 49, 50, 52, 54-56, 58, 61-69, 71, 72, 74 (many are emulator/runtime internals)
+- [x] dnfw docs: hardware, PRINCIPLES, mod-memory-regions, code-caves, version-gate, os-update-path, service-commands, mods-compatibility, sharc-load/-cycle-model/-stall-probe/-ddr, waverider-dsp-silence
+- [ ] dnfw docs still unread: midi-rpc, usbprobe, bootstrap (partly), audio-dma, dsp-control-block, the waverider-* series, lfo4-*, sharc-voice-path, dt2-machine-port, lalzart-dt2-crosscheck
+- [x] Digiwerk DEVELOPERS.md, notes T1.3, T1.4, T1.5, OB01, T1.11, DT01, DC01/DC02, SC01, SP02, release 0.2.1
+- [ ] Digiwerk notes still unread: USB01, T1.7 brickcheck/redteam, T2.x (MIDI voices, arp, live control), T3.x (selache, sharc db/memmap, fx frame), prior-art-2026-10.md
 - [ ] Overtone v1.2 release notes
 

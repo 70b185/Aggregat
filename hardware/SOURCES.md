@@ -163,3 +163,6 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2-stall | dnfw `docs/sharc-stall-probe.md` (stall probe, selas Type 5a bug) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/sharc-stall-probe.md |
 | dn2-ddr | dnfw `docs/sharc-ddr.md` (DSP DDR size and free range, measured) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/sharc-ddr.md |
 | dn2-sharcload | dnfw `docs/sharc-load.md` (stock cycle count, idle-task load, bursts) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/sharc-load.md |
+| digikit-f25 | ElekLabs/digikit finding 25, arena and card-store safety, MIDI ports, menu paths | https://github.com/ElekLabs/digikit/blob/main/docs/findings/25-digikit-safety.md |
+| dn2-service | dnfw `docs/service-commands.md`, the factory service console | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/service-commands.md |
+| dn2-mods | dnfw `docs/mods-compatibility.md`, which mods combine, platform loader and hook bus | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/mods-compatibility.md |

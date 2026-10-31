@@ -51,6 +51,10 @@ Mods for different OS versions cannot be combined and flashing between them can 
 
   digikit's Syntakt 1.42 reading (an FPGA section, a second ColdFire program) fits. `[?]` {dn2-hw}
 
+- **Cross-device transplant (armio's T1E2, DN2 1.11):** the Digitakt II 1.16 sample machines and their UI (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE, stereo samples, sample browsing) run on a Digitone II. Donor routines are extracted from the official DT2 file and relocated at build time.
+  - The same build makes **USB AUDIO class-compliant with 42 capture channels** (48 kHz/24 bit, 21 stereo pairs) and a stereo return. Digiwerk's USB01 note sketched this.
+  - Each of the 115 + 46 build stages is hash-pinned. "Stable" was owner-tested with USB streaming. `[hw]` {armio-t1e2}
+
 ## Parameter table
 - 1.12: one OS table of **321 rows**, no free space after it. dn2-cfw's patch GT00 copies it at start-up into free memory with room for **384 rows**; GT01 adds 17 hidden rows (3-band compressor). `[hw]` {dn2-cfw}
 - **Projects store values by slot, not by row**, so moving the table keeps the saved format; new rows follow `docs/parameter-table-growth.md` (not read yet). Table growth was first done on 1.11 for the LFO4 mod in dn2_firmware_explore. `[doc]` {dn2-cfw}

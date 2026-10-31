@@ -1587,6 +1587,32 @@
    "COPYING*"
   ]
  },
+ "dn2-dt2-firmware-research": {
+  "checked": "2026-10-31 17:00 UTC",
+  "files": {
+   "LICENSE": "be3f7b28e564",
+   "README.md": "6d295604a80d",
+   "THIRD_PARTY.md": "66f165e462cc",
+   "docs/publication.md": "e0f481e54eba",
+   "port/dsp/README.md": "37d6fd62cf28",
+   "port/main/README.md": "84b9ef9e4652",
+   "port/tools/README.md": "94ba42e4552b",
+   "port/tools/dnfw/README.md": "874ab9d53cf7",
+   "port/tools/elektron-firmware-tool/PROVENANCE.md": "7364885b02c6",
+   "port/tools/elektron-firmware-tool/README.md": "59f813f399eb"
+  },
+  "head": "e434ffd67f50312b4a9ecf70f465043f0357b987",
+  "repo": "https://github.com/armio/dn2-dt2-firmware-research",
+  "seen": "2026-10-31 17:00 UTC",
+  "tags": [],
+  "watch": [
+   "*.md",
+   "*/mod.json",
+   "*.toml",
+   "LICENSE*",
+   "COPYING*"
+  ]
+ },
  "dn2-firmware-explore": {
   "checked": "2026-11-01 11:52 UTC",
   "files": {

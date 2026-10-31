@@ -13,12 +13,13 @@ Data last verified: 2026-10-31
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **RingTone (master ring mod / wavefold / EQ)** (DigiAlchemydsp) | mod | wip | 2.0o (2026-09-30); Digitone mk1 / Digitone Keys OS 1.43 | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/RingTone) · [releases](https://github.com/DigiAlchemydsp/RingTone/releases) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
-| **DigiSplash** (DigiAlchemydsp) | mod | unverified | - | - | [repo](https://github.com/DigiAlchemydsp/DigiSplash) |
-| **digihealth** (pina (irpina)) | mod | unverified | - | - | [repo](https://github.com/irpina/digihealth) |
-| **digitables** (pina (irpina)) | mod | unverified | - | - | [repo](https://github.com/irpina/digitables) |
-| **Tone+FX** (DigiAlchemydsp) | mod | unverified | - | - | [repo](https://github.com/DigiAlchemydsp/Tone-FX) |
-| **DigiCosm** (pina (irpina)) | mod | unverified | - | - | [repo](https://github.com/irpina/digicosm) |
-| **DigiChroma** (pina (irpina)) | mod | unverified | - | - | [repo](https://github.com/irpina/digichroma) |
+| **DigiSplash** (DigiAlchemydsp) | mod | unlabeled | Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | - | [repo](https://github.com/DigiAlchemydsp/DigiSplash) |
+| **digihealth** (pina (irpina)) | mod | wip | 1.0 / 1.1; Digitakt mk1 OS 1.53 (digihealth 1.0); Digitone mk1 + Keys OS 1.43 (1.1, SYSTEM INFO only) | - | [repo](https://github.com/irpina/digihealth) |
+| **DigiCandy** (DigiAlchemydsp) | mod | wip | digicandy-v1.0; Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | - | [repo](https://github.com/DigiAlchemydsp/DigiCandy) |
+| **digitables** (pina (irpina)) | mod | released | 1.4; Digitone mk1 OS 1.43 and 1.44 (needs core-dn1 3.0); Keys same OS file, untried | - | [repo](https://github.com/irpina/digitables) |
+| **Tone+FX** (DigiAlchemydsp) | mod | wip | packages: core-dn1-2.0a, digimeter-1.1, digieq-1.0, digiring-1.0, digifold-1.0, digifilter-1.0, digictl-1.3; Digitone mk1 + Keys OS 1.43 | - | [repo](https://github.com/DigiAlchemydsp/Tone-FX) |
+| **DigiCosm** (pina (irpina)) | mod | pre-release | 0.1; Digitone mk1 OS 1.43 and 1.44 (core-dn1 3.2), checked in digikit's emulator | - | [repo](https://github.com/irpina/digicosm) |
+| **DigiChroma** (pina (irpina)) | mod | pre-release | 0.1; Digitone mk1 OS 1.43 and 1.44 (core-dn1 3.2; source option DIGITONE needs unreleased core-dn1 3.3) | - | [repo](https://github.com/irpina/digichroma) |
 | **Elektroid** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/elektroid) |
 | **Overwitch** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/overwitch) |
 | **ghidra-dsp56300** (roblg) | research | unverified | - | - | [repo](https://github.com/roblg/ghidra-dsp56300) |
@@ -51,7 +52,7 @@ _Sources: forum thread 20_
 
 ### RingTone (master ring mod / wavefold / EQ)
 
-Master effects with a DIGI FX page. Tested on hardware and in digiemu. Open items per author: encoder acceleration, saving state at pattern level. Built with elekloader.
+Master effects with a DIGI FX page. Tested on hardware and in digiemu. Open items per author: encoder acceleration, saving state at pattern level. Built with elekloader. The newer Tone+FX repo of the same author calls this "the older RingTone repo" (successor, see tone-fx).
 
 _Sources: GitHub release 2.0o_
 
@@ -69,39 +70,45 @@ _Sources: forum overview_
 
 ### DigiSplash
 
-Custom boot animations.
+Boot-splash mods incl. animated screens and a PNG/GIF generator. Prebuilt .elemod files sit in a releases/ folder of the repo (no tagged release). GPL-2.0, 13 commits.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### digihealth
 
-Lower DSP load (FAST AUDIO) and a SYSTEM INFO page. Version 1.1 adds Digitone support per elekloader v0.4.0.
+Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). On Digitone: FAST AUDIO not ported, not yet on a unit. GPL-2.0, 3 commits.
 
-_Sources: lapin-list, elekloader release v0.2.0, elekloader release v0.4.0_
+_Sources: GitHub README, lapin-list, elekloader release v0.4.0_
+
+### DigiCandy
+
+Full-panel 128x64 image overlay on command. README: work in progress, "tested on real hardware - expect the occasional rough edge". GPL-2.0-or-later, 7 commits.
+
+_Sources: GitHub README, lapin-list_
 
 ### digitables
 
-Pitch tables in the style of the M8, with an editor.
+M8-style pitch tables (TBL page, editor, up to 1500 steps/s). Features through 1.3 have run on a Digitone; the 1.44 build (1.4) only in an emulator. GPL-2.0-or-later, 5 commits.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### Tone+FX
 
-Master effects (ring mod, EQ, lo-fi, wavefolder). Possibly the same project as RingTone, which we track under the same author - to be checked.
+Master effect suite (ring mod, EQ, lo-fi, wavefolder, meter). "Work in progress, emulator-tested". Release-only repo, source lives in a separate dev repo. Its README calls RingTone "the older RingTone repo" - so Tone+FX looks like the successor of RingTone, not the same repo. GPL-2.0, 4 commits.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### DigiCosm
 
-Microcosm-style effects for the audio inputs.
+Microcosm-style effects for the audio inputs. "Nothing has run on a Keys". Not yet: saving loops, program changes, expression pedal. GPL-2.0-or-later, 2 commits, 3 stars.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### DigiChroma
 
-Chroma Console-style effects for the audio inputs.
+Chroma Console-style effects pedal for the inputs: four reorderable modules, five effects each. Emulator only, not on hardware. GPL-2.0-or-later, 1 commit.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### Elektroid
 

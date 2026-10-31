@@ -17,18 +17,18 @@ Data last verified: 2026-10-31
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Digisophie / Sophie for Digitakt** (Soejrd) | mod | unknown | Digitakt mk1 OS 1.53 | 2026-09-30 | [repo](https://github.com/soejrd/digisophie) · [news](https://www.synthtopia.com/content/2026/09/30/unofficial-mods-for-elektron-digitakt-adds-metallic-percussion-synth-machine/) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
-| **digistring** (Alez22) | mod | unverified | - | - | [repo](https://github.com/Alez22/digistring) |
-| **DigiFilter** (DigiAlchemydsp) | mod | unverified | - | - | [repo](https://github.com/DigiAlchemydsp/DigiFilter) |
-| **DigiSplash** (DigiAlchemydsp) | mod | unverified | - | - | [repo](https://github.com/DigiAlchemydsp/DigiSplash) |
-| **digi1_mods** (gdeo607) | mod | unverified | - | - | [repo](https://github.com/gdeo607/digi1_mods) |
-| **digislicer** (pina (irpina)) | mod | unverified | - | - | [repo](https://github.com/irpina/digislicer) |
-| **DT-FM** (mtalikka) | mod | unverified | - | - | [repo](https://github.com/mtalikka/DT-FM) |
-| **Digidrum** (soejrd) | mod | unverified | - | - | [repo](https://github.com/soejrd/digidrum) |
-| **digigrain** (lucykowal) | mod | unverified | - | - | [repo](https://github.com/lucykowal/digigrain) |
-| **digihealth** (pina (irpina)) | mod | unverified | - | - | [repo](https://github.com/irpina/digihealth) |
-| **digirta** (Alez22) | mod | unverified | - | - | [repo](https://github.com/Alez22/digirta) |
-| **DigiCandy** (DigiAlchemydsp) | mod | unverified | - | - | [repo](https://github.com/DigiAlchemydsp/DigiCandy) |
-| **screendump** (jakobbak) | tool | unverified | - | - | [repo](https://github.com/jakobbak/screendump) |
+| **digistring** (Alez22) | mod | released | v0.7.0; Digitakt mk1 OS 1.53 only | - | [repo](https://github.com/Alez22/digistring) |
+| **DigiFilter** (DigiAlchemydsp) | mod | wip | Digitakt mk1 OS 1.53 (Digitakt II explicitly out of scope) | - | [repo](https://github.com/DigiAlchemydsp/DigiFilter) |
+| **DigiSplash** (DigiAlchemydsp) | mod | unlabeled | Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | - | [repo](https://github.com/DigiAlchemydsp/DigiSplash) |
+| **digi1_mods** (gdeo607) | mod | wip | builds v3p, v3q-spectrum, v3r-all; elekloader build 2.0d; Digitakt mk1 OS 1.53 | - | [repo](https://github.com/gdeo607/digi1_mods) |
+| **digislicer** (pina (irpina)) | mod | released | 1.2; Digitakt mk1 OS 1.53 only | - | [repo](https://github.com/irpina/digislicer) |
+| **DT-FM** (mtalikka) | mod | released | 1.0.1 (firmware S034); Digitakt mk1 OS 1.53 | - | [repo](https://github.com/mtalikka/DT-FM) |
+| **Digidrum** (soejrd) | mod | alpha | Digitakt mk1 OS 1.53 (Digitone and Syntakt are stated goals, not current targets) | - | [repo](https://github.com/soejrd/digidrum) |
+| **digigrain** (lucykowal) | mod | wip | Digitakt mk1 OS 1.53 | - | [repo](https://github.com/lucykowal/digigrain) |
+| **digihealth** (pina (irpina)) | mod | wip | 1.0 / 1.1; Digitakt mk1 OS 1.53 (digihealth 1.0); Digitone mk1 + Keys OS 1.43 (1.1, SYSTEM INFO only) | - | [repo](https://github.com/irpina/digihealth) |
+| **digirta** (Alez22) | mod | unlabeled | 0.3.0 (build file name, no published release); Digitakt mk1 OS 1.53 only | - | [repo](https://github.com/Alez22/digirta) |
+| **DigiCandy** (DigiAlchemydsp) | mod | wip | digicandy-v1.0; Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | - | [repo](https://github.com/DigiAlchemydsp/DigiCandy) |
+| **screendump** (jakobbak) | tool | unlabeled | no firmware change needed; Digitakt only (--instrument dt) | - | [repo](https://github.com/jakobbak/screendump) |
 | **Elektroid** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/elektroid) |
 | **Overwitch** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/overwitch) |
 | **ghidra-dsp56300** (roblg) | research | unverified | - | - | [repo](https://github.com/roblg/ghidra-dsp56300) |
@@ -103,75 +103,75 @@ _Sources: forum overview_
 
 ### digistring
 
-Karplus-Strong plucked-string machine.
+Karplus-Strong plucked-string machine, elekloader mod. MIT, 13 commits.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### DigiFilter
 
-Extra filter modes (BP, BP2, COMB, TRASH).
+Extra per-track filter modes (BP, BP2, COMB, TRASH). README: audio path done and validated, FLTR response curve cosmetic gap, known BP clipping at some frequencies. GPL-2.0-or-later, 6 commits. Note: the Tone+FX package list also names a digifilter-1.0 package.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### DigiSplash
 
-Custom boot animations.
+Boot-splash mods incl. animated screens and a PNG/GIF generator. Prebuilt .elemod files sit in a releases/ folder of the repo (no tagged release). GPL-2.0, 13 commits.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### digi1_mods
 
-Synth machines, LFO matrix, scope, tuner, EQ, polyphony.
+Patch set with a POLY core, synth machines and utility pages. "Unofficial and unsupported". Hardware test state per README: v3r-all confirmed on a unit, v3p / v3q not yet tested, 2.0d build only checked in emulation. MIT for the author's code, 6 commits, 4 stars.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### digislicer
 
-Slice editor / auto-slicing for the SLICE machine. Also appears as a mod in elekloader.
+Slicer for the Digitakt mk1. 1.2 notes say "not yet tried on a unit" (emulator only). GPL-2.0-or-later, 5 commits. Also a "curated mod" in the elekloader shop.
 
-_Sources: lapin-list, elekloader release v0.2.0_
+_Sources: GitHub README, lapin-list, elekloader release v0.2.0_
 
 ### DT-FM
 
-Four-operator FM machine.
+4-operator FM, based on digisophie by soejrd. Author states the code is largely AI-generated and not proofread. MIT (digihealth part GPL-2.0-or-later), 35 commits.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### Digidrum
 
-Machinedrum-style machines, starting with TRX.
+Machinedrum-style sounds. README warns "super alpha ... experimental firmware not ready for use", crashes and CPU overload possible. 27 commits. License not stated.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### digigrain
 
-Granular playback machine.
+Granular playback engine. "Verified in the emulator on the real firmware", hardware tests still open (8 open issues, 1 open PR). 22 commits. License not stated.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### digihealth
 
-Lower DSP load (FAST AUDIO) and a SYSTEM INFO page. Version 1.1 adds Digitone support per elekloader v0.4.0.
+Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). On Digitone: FAST AUDIO not ported, not yet on a unit. GPL-2.0, 3 commits.
 
-_Sources: lapin-list, elekloader release v0.2.0, elekloader release v0.4.0_
+_Sources: GitHub README, lapin-list, elekloader release v0.4.0_
 
 ### digirta
 
-Octave-band analyzer.
+Octave-band real-time analyzer. MIT, 1 commit.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### DigiCandy
 
-Full-screen image overlay on a key combination.
+Full-panel 128x64 image overlay on command. README: work in progress, "tested on real hardware - expect the occasional rough edge". GPL-2.0-or-later, 7 commits.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### screendump
 
-Captures the device screen over MIDI. Which generation(s) it supports is not stated in the list.
+Terminal tool that dumps the screen buffer. Only the Digitakt is implemented. README lists Digitakt II, Digitone I/II, Syntakt, Analog Heat and others as known but NOT implemented. Works on macOS, awaits tests on Linux/Windows. MIT, 14 commits.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### Elektroid
 

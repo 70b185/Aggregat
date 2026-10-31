@@ -8,7 +8,8 @@
 #   devices        list of device slugs (see devices.yml)
 #   repo           primary source repository (null if none known)
 #   links          other URLs: homepage / releases / forum thread
-#   status         active | beta | alpha | stable | wip | done | request | unknown
+#   status         active | beta | alpha | stable | wip | pre-release | released | done | request
+#                  | unlabeled (README gives no maturity label) | unknown (could not be determined)
 #   base_os        stock OS versions the project targets (as stated by the author)
 #   version        latest version/release named in the sources
 #   last_activity  YYYY-MM-DD of the latest forum post / release we saw (not a commit date)
@@ -207,6 +208,7 @@ projects:
     notes: >
       Master effects with a DIGI FX page. Tested on hardware and in digiemu. Open items per
       author: encoder acceleration, saving state at pattern level. Built with elekloader.
+      The newer Tone+FX repo of the same author calls this "the older RingTone repo" (successor, see tone-fx).
     sources: [GitHub release 2.0o]
 
   # ---------------------------------------------------------------- Digitone II
@@ -334,3 +336,250 @@ projects:
       Forum thread listing stock firmware. Not fetched in detail yet. Remember: this aggregator
       links to stock firmware sources but never hosts them.
     sources: [forum overview]
+
+  # ================================================================ verified 2026-10-31 (from the candidate list)
+  # GitHub's file listing showed no commit dates when we read these pages, so last_activity is
+  # null for them. "unlabeled" = the README gives no maturity label. Commit counts are on the main branch.
+
+  # ---------------------------------------------------------------- Digitakt (mk1) mods
+  - id: digistring
+    name: digistring
+    author: Alez22
+    kind: mod
+    devices: [digitakt]
+    repo: https://github.com/Alez22/digistring
+    status: released
+    base_os: "Digitakt mk1 OS 1.53 only"
+    version: v0.7.0
+    last_activity: null
+    notes: Karplus-Strong plucked-string machine, elekloader mod. MIT, 13 commits.
+    sources: [GitHub README, lapin-list]
+
+  - id: digifilter
+    name: DigiFilter
+    author: DigiAlchemydsp
+    kind: mod
+    devices: [digitakt]
+    repo: https://github.com/DigiAlchemydsp/DigiFilter
+    status: wip
+    base_os: "Digitakt mk1 OS 1.53 (Digitakt II explicitly out of scope)"
+    version: null
+    last_activity: null
+    notes: >
+      Extra per-track filter modes (BP, BP2, COMB, TRASH). README: audio path done and validated,
+      FLTR response curve cosmetic gap, known BP clipping at some frequencies. GPL-2.0-or-later, 6 commits.
+      Note: the Tone+FX package list also names a digifilter-1.0 package.
+    sources: [GitHub README, lapin-list]
+
+  - id: digisplash
+    name: DigiSplash
+    author: DigiAlchemydsp
+    kind: mod
+    devices: [digitakt, digitone]
+    repo: https://github.com/DigiAlchemydsp/DigiSplash
+    status: unlabeled
+    base_os: "Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43"
+    version: null
+    last_activity: null
+    notes: >
+      Boot-splash mods incl. animated screens and a PNG/GIF generator. Prebuilt .elemod files sit in a
+      releases/ folder of the repo (no tagged release). GPL-2.0, 13 commits.
+    sources: [GitHub README, lapin-list]
+
+  - id: digi1-mods
+    name: digi1_mods
+    author: gdeo607
+    kind: mod
+    devices: [digitakt]
+    repo: https://github.com/gdeo607/digi1_mods
+    status: wip
+    base_os: "Digitakt mk1 OS 1.53"
+    version: "builds v3p, v3q-spectrum, v3r-all; elekloader build 2.0d"
+    last_activity: null
+    notes: >
+      Patch set with a POLY core, synth machines and utility pages. "Unofficial and unsupported".
+      Hardware test state per README: v3r-all confirmed on a unit, v3p / v3q not yet tested, 2.0d build
+      only checked in emulation. MIT for the author's code, 6 commits, 4 stars.
+    sources: [GitHub README, lapin-list]
+
+  - id: digislicer
+    name: digislicer
+    author: pina (irpina)
+    kind: mod
+    devices: [digitakt]
+    repo: https://github.com/irpina/digislicer
+    status: released
+    base_os: "Digitakt mk1 OS 1.53 only"
+    version: "1.2"
+    last_activity: null
+    notes: >
+      Slicer for the Digitakt mk1. 1.2 notes say "not yet tried on a unit" (emulator only).
+      GPL-2.0-or-later, 5 commits. Also a "curated mod" in the elekloader shop.
+    sources: [GitHub README, lapin-list, elekloader release v0.2.0]
+
+  - id: dt-fm
+    name: DT-FM
+    author: mtalikka
+    kind: mod
+    devices: [digitakt]
+    repo: https://github.com/mtalikka/DT-FM
+    status: released
+    base_os: "Digitakt mk1 OS 1.53"
+    version: "1.0.1 (firmware S034)"
+    last_activity: null
+    notes: >
+      4-operator FM, based on digisophie by soejrd. Author states the code is largely AI-generated and
+      not proofread. MIT (digihealth part GPL-2.0-or-later), 35 commits.
+    sources: [GitHub README, lapin-list]
+
+  - id: digidrum
+    name: Digidrum
+    author: soejrd
+    kind: mod
+    devices: [digitakt]
+    repo: https://github.com/soejrd/digidrum
+    status: alpha
+    base_os: "Digitakt mk1 OS 1.53 (Digitone and Syntakt are stated goals, not current targets)"
+    version: null
+    last_activity: null
+    notes: >
+      Machinedrum-style sounds. README warns "super alpha ... experimental firmware not ready for use",
+      crashes and CPU overload possible. 27 commits. License not stated.
+    sources: [GitHub README, lapin-list]
+
+  - id: digigrain
+    name: digigrain
+    author: lucykowal
+    kind: mod
+    devices: [digitakt]
+    repo: https://github.com/lucykowal/digigrain
+    status: wip
+    base_os: "Digitakt mk1 OS 1.53"
+    version: null
+    last_activity: null
+    notes: >
+      Granular playback engine. "Verified in the emulator on the real firmware", hardware tests still
+      open (8 open issues, 1 open PR). 22 commits. License not stated.
+    sources: [GitHub README, lapin-list]
+
+  - id: digihealth
+    name: digihealth
+    author: pina (irpina)
+    kind: mod
+    devices: [digitakt, digitone]
+    repo: https://github.com/irpina/digihealth
+    status: wip
+    base_os: "Digitakt mk1 OS 1.53 (digihealth 1.0); Digitone mk1 + Keys OS 1.43 (1.1, SYSTEM INFO only)"
+    version: "1.0 / 1.1"
+    last_activity: null
+    notes: >
+      Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). On Digitone:
+      FAST AUDIO not ported, not yet on a unit. GPL-2.0, 3 commits.
+    sources: [GitHub README, lapin-list, elekloader release v0.4.0]
+
+  - id: digirta
+    name: digirta
+    author: Alez22
+    kind: mod
+    devices: [digitakt]
+    repo: https://github.com/Alez22/digirta
+    status: unlabeled
+    base_os: "Digitakt mk1 OS 1.53 only"
+    version: "0.3.0 (build file name, no published release)"
+    last_activity: null
+    notes: Octave-band real-time analyzer. MIT, 1 commit.
+    sources: [GitHub README, lapin-list]
+
+  - id: digicandy
+    name: DigiCandy
+    author: DigiAlchemydsp
+    kind: mod
+    devices: [digitakt, digitone]
+    repo: https://github.com/DigiAlchemydsp/DigiCandy
+    status: wip
+    base_os: "Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43"
+    version: digicandy-v1.0
+    last_activity: null
+    notes: >
+      Full-panel 128x64 image overlay on command. README: work in progress, "tested on real hardware -
+      expect the occasional rough edge". GPL-2.0-or-later, 7 commits.
+    sources: [GitHub README, lapin-list]
+
+  - id: screendump
+    name: screendump
+    author: jakobbak
+    kind: tool
+    devices: [digitakt]
+    repo: https://github.com/jakobbak/screendump
+    status: unlabeled
+    base_os: "no firmware change needed; Digitakt only (--instrument dt)"
+    version: null
+    last_activity: null
+    notes: >
+      Terminal tool that dumps the screen buffer. Only the Digitakt is implemented. README lists
+      Digitakt II, Digitone I/II, Syntakt, Analog Heat and others as known but NOT implemented.
+      Works on macOS, awaits tests on Linux/Windows. MIT, 14 commits.
+    sources: [GitHub README, lapin-list]
+
+  # ---------------------------------------------------------------- Digitone (mk1) mods
+  - id: digitables
+    name: digitables
+    author: pina (irpina)
+    kind: mod
+    devices: [digitone]
+    repo: https://github.com/irpina/digitables
+    status: released
+    base_os: "Digitone mk1 OS 1.43 and 1.44 (needs core-dn1 3.0); Keys same OS file, untried"
+    version: "1.4"
+    last_activity: null
+    notes: >
+      M8-style pitch tables (TBL page, editor, up to 1500 steps/s). Features through 1.3 have run on a
+      Digitone; the 1.44 build (1.4) only in an emulator. GPL-2.0-or-later, 5 commits.
+    sources: [GitHub README, lapin-list]
+
+  - id: tone-fx
+    name: Tone+FX
+    author: DigiAlchemydsp
+    kind: mod
+    devices: [digitone]
+    repo: https://github.com/DigiAlchemydsp/Tone-FX
+    status: wip
+    base_os: "Digitone mk1 + Keys OS 1.43"
+    version: "packages: core-dn1-2.0a, digimeter-1.1, digieq-1.0, digiring-1.0, digifold-1.0, digifilter-1.0, digictl-1.3"
+    last_activity: null
+    notes: >
+      Master effect suite (ring mod, EQ, lo-fi, wavefolder, meter). "Work in progress, emulator-tested".
+      Release-only repo, source lives in a separate dev repo. Its README calls RingTone "the older
+      RingTone repo" - so Tone+FX looks like the successor of RingTone, not the same repo.
+      GPL-2.0, 4 commits.
+    sources: [GitHub README, lapin-list]
+
+  - id: digicosm
+    name: DigiCosm
+    author: pina (irpina)
+    kind: mod
+    devices: [digitone]
+    repo: https://github.com/irpina/digicosm
+    status: pre-release
+    base_os: "Digitone mk1 OS 1.43 and 1.44 (core-dn1 3.2), checked in digikit's emulator"
+    version: "0.1"
+    last_activity: null
+    notes: >
+      Microcosm-style effects for the audio inputs. "Nothing has run on a Keys". Not yet: saving loops,
+      program changes, expression pedal. GPL-2.0-or-later, 2 commits, 3 stars.
+    sources: [GitHub README, lapin-list]
+
+  - id: digichroma
+    name: DigiChroma
+    author: pina (irpina)
+    kind: mod
+    devices: [digitone]
+    repo: https://github.com/irpina/digichroma
+    status: pre-release
+    base_os: "Digitone mk1 OS 1.43 and 1.44 (core-dn1 3.2; source option DIGITONE needs unreleased core-dn1 3.3)"
+    version: "0.1"
+    last_activity: null
+    notes: >
+      Chroma Console-style effects pedal for the inputs: four reorderable modules, five effects each.
+      Emulator only, not on hardware. GPL-2.0-or-later, 1 commit.
+    sources: [GitHub README, lapin-list]

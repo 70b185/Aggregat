@@ -9,6 +9,10 @@ Data last verified: 2026-10-31
 | **Synthack-OS (Syntakt MAX 1.0, SY FM4 modular builder)** (kariGardarsson) | mod | beta | modular builder RC1 (2026-10-20); Syntakt MAX 1.0 first public beta (2026-10-17); Syntakt OS 1.41 | 2026-10-21 | [repo](https://github.com/karigardarsson/Synthack-OS) · [release max](https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-v1.0) · [release builder](https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-modular-builder-rc1) · [forum max](https://elektronmods.com/thread-81-good-news-everyone-syntakt-max-1-0-multiple-custom-firmware) · [forum fm4](https://elektronmods.com/thread-85-good-news-everyone-sy-fm4-is-here-a-fully-modular-syntakt) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
+| **syntakt-firmware-workbench** (Bezronczek) | mod | unverified | - | - | [repo](https://github.com/Bezronczek/syntakt-firmware-workbench) |
+| **sympakt** (sinedied) | tool | unverified | - | - | [repo](https://github.com/sinedied/sympakt) |
+| **Elektroid** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/elektroid) |
+| **ghidra-dsp56300** (roblg) | research | unverified | - | - | [repo](https://github.com/roblg/ghidra-dsp56300) |
 
 ## Details
 
@@ -29,3 +33,27 @@ _Sources: forum threads 81 and 85_
 Forum thread listing stock firmware. Not fetched in detail yet. Remember: this aggregator links to stock firmware sources but never hosts them.
 
 _Sources: forum overview_
+
+### syntakt-firmware-workbench
+
+Put your own waveforms into the SY CHORD engine.
+
+_Sources: lapin-list_
+
+### sympakt
+
+Browser sample manager.
+
+_Sources: lapin-list_
+
+### Elektroid
+
+Sample and SysEx manager for most Elektron devices. Which of our six devices it supports still has to be checked.
+
+_Sources: lapin-list_
+
+### ghidra-dsp56300
+
+Ghidra module for the DSP56300 used in several devices. Which of ours is a guess until checked.
+
+_Sources: lapin-list_

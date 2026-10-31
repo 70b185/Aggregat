@@ -11,6 +11,14 @@ Data last verified: 2026-10-31
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | 2026-10-13 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
+| **screendump** (jakobbak) | tool | unverified | - | - | [repo](https://github.com/jakobbak/screendump) |
+| **digikit** (m-dwyer) | emulator | unverified | - | - | [repo](https://github.com/m-dwyer/digikit) |
+| **digitakt-ii-firmware-research** (lalzart) | research | unverified | - | - | [repo](https://github.com/lalzart/digitakt-ii-firmware-research-public) |
+| **digi-roll** (zooloo303) | editor | unverified | - | - | [repo](https://github.com/zooloo303/digi-roll) |
+| **digitakt2-perform** (toonst) | mod | unverified | - | - | [repo](https://github.com/toonst/digitakt2-perform) |
+| **dt2-machine-lab** (lalzart) | mod | unverified | - | - | [repo](https://github.com/lalzart/dt2-machine-lab) |
+| **DigiSplash-II** (Fadedlimes) | mod | unverified | - | - | [repo](https://github.com/Fadedlimes/digisplash-ii) |
+| **Elektroid** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/elektroid) |
 
 ## Details
 
@@ -43,3 +51,51 @@ _Sources: forum threads 80 and 83_
 Forum thread listing stock firmware. Not fetched in detail yet. Remember: this aggregator links to stock firmware sources but never hosts them.
 
 _Sources: forum overview_
+
+### screendump
+
+Captures the device screen over MIDI. Which generation(s) it supports is not stated in the list.
+
+_Sources: lapin-list_
+
+### digikit
+
+Emulator and analysis tools. elekloader's release notes mention checking its core in 'digikit's emulator'.
+
+_Sources: lapin-list, elekloader release v0.2.0_
+
+### digitakt-ii-firmware-research
+
+Architecture notes for the Digitakt II. Not the same repo as karigardarsson/digitakt-ii-research.
+
+_Sources: lapin-list_
+
+### digi-roll
+
+Browser piano roll over SysEx.
+
+_Sources: lapin-list_
+
+### digitakt2-perform
+
+Faster perform-kit toggle, keeps track levels.
+
+_Sources: lapin-list_
+
+### dt2-machine-lab
+
+Build custom machines, including a Plaits port.
+
+_Sources: lapin-list_
+
+### DigiSplash-II
+
+Custom boot animations.
+
+_Sources: lapin-list_
+
+### Elektroid
+
+Sample and SysEx manager for most Elektron devices. Which of our six devices it supports still has to be checked.
+
+_Sources: lapin-list_

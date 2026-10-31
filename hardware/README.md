@@ -25,11 +25,16 @@ Every fact also names its source key in brackets, e.g. `{elekloader-adapting}`. 
 [`SOURCES.md`](SOURCES.md). All of it is **second-hand**: re-check against the source before you
 rely on an address or a byte pattern.
 
+## A finer evidence ladder to adopt when a source uses it
+digitakt-ii-research grades its own statements as SOURCE/STATIC -> HOST -> SYNTHETIC UNICORN -> NATURAL EMULATED -> HARDWARE. Our `emu` tag lumps the middle three together; when a source draws that distinction, keep it in the note.
+
 ## Status of this folder (2026-10-31)
 
 First pass, built from README-level reading of: elekloader (+ADAPTING.md), digikit, dn2-cfw,
 dn2_firmware_explore, elektron-firmware-tool, digitakt-ii-research, Synthack-OS and Elektron's own
 Analog Heat pages. Open reading list: [`MINING.md`](MINING.md).
+
+Deep dives: [`devices/digitone-2-os111-reference.md`](devices/digitone-2-os111-reference.md) (Digitone II OS 1.11 engineering reference) and [`common/agent-workflow.md`](common/agent-workflow.md) (the loop an agent should follow).
 
 Coverage per device: Digitakt mk1 **good**, Digitone mk1 **good** (via elekloader), Digitakt II **medium**,
 Digitone II **medium**, Syntakt **thin**, Analog Heat **only official facts, no mod knowledge**.

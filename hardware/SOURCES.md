@@ -55,4 +55,11 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2-cfw-param-table | naturarum/dn2-cfw `docs/parameter-table-growth.md` (OS 1.12) | https://github.com/naturarum/dn2-cfw/blob/main/docs/parameter-table-growth.md |
 | dn2-flashing | angellinares/dn2_firmware_explore `docs/flashing.md` | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/flashing.md |
 | digikit-tools | ElekLabs/digikit `docs/TOOLS.md` | https://github.com/ElekLabs/digikit/blob/main/docs/TOOLS.md |
+| dn2-skill-md | digitone-2-modding-skill `SKILL.md` (56 lines: workflow, 20 rules, tool list) | https://github.com/complex-ping/digitone-2-modding-skill/blob/main/skills/digitone-2-modding-skill/SKILL.md |
+| dn2-skill-setup | digitone-2-modding-skill `references/setup.md` | https://github.com/complex-ping/digitone-2-modding-skill/blob/main/skills/digitone-2-modding-skill/references/setup.md |
+| dn2-skill-firmware | digitone-2-modding-skill `references/firmware.md` (OS 1.11 addresses, frame, free memory) | https://github.com/complex-ping/digitone-2-modding-skill/blob/main/skills/digitone-2-modding-skill/references/firmware.md |
+| dn2-skill-coldfire | digitone-2-modding-skill `references/coldfire.md` (hook rules, ISR budget, slots) | https://github.com/complex-ping/digitone-2-modding-skill/blob/main/skills/digitone-2-modding-skill/references/coldfire.md |
+| dn2-skill-sharc | digitone-2-modding-skill `references/sharc.md` (DSP rules, incidents) | https://github.com/complex-ping/digitone-2-modding-skill/blob/main/skills/digitone-2-modding-skill/references/sharc.md |
+| dn2-skill-emulators | digitone-2-modding-skill `references/emulators.md` | https://github.com/complex-ping/digitone-2-modding-skill/blob/main/skills/digitone-2-modding-skill/references/emulators.md |
+| dn2-skill-workflow | digitone-2-modding-skill `references/workflow.md` | https://github.com/complex-ping/digitone-2-modding-skill/blob/main/skills/digitone-2-modding-skill/references/workflow.md |
 

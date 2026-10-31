@@ -138,3 +138,17 @@ the saved format. New rows are only safe if they follow the author's growth rule
 **F5.** Never run parsers across device generations (Digitone mk1 device ID 0x0D vs Digitone II, Analog Four gen-1 vs gen-2). `[doc]` {syxgrid} {digi-roll-studio}
 **F6.** Treat file-write / delete commands of the +Drive API as dangerous: only single-chunk writes were hardware-verified; move/copy/delete are not implemented anywhere we know. `[hw]` {digi-roll-studio}
 
+## G. Working method (from the digitone-2-modding-skill - the one public agent skill that shipped a firmware mod)
+Full loop, spec questions and triage in [`common/agent-workflow.md`](common/agent-workflow.md). Short form:
+**G1.** Ask the spec questions in one round before building. **G2.** Reproduce every bug as a failing test with a stock control before fixing it.
+**G3.** Test what the hardware consumes, never by reading back what your own patch wrote. **G4.** Run emulator and static checks before every flash;
+the unit should only judge sound and feel. **G5.** Flash one clearly named image with its SHA-256 and a list of what to try; never overwrite older images.
+**G6.** After two failed flashes on the same problem stop and restate goal, proven facts, unknowns and options. **G7.** Ask the user before cloning or installing anything.
+**G8.** Keep levels honest: measure worst cases, add no unrequested gain compensation, clamp audio output, never read memory you did not write.
+`[doc]` {dn2-skill-md} {dn2-skill-workflow}
+
+**G9. DSP rules the emulators cannot check** (Digitone II, each reportedly silenced or crashed a real unit): whole 32-byte boot blocks, stock instruction encodings only
+(incl. sign bits of negative shift immediates), PRM loop/DAG/branch rules, no L2 above `0x200B0000`, never read unwritten DDR (power-on NaN), preserve registers at hooks
+(clobbered R8 at the FX-bus mixer hook lost all audio), count memory accesses not instructions. Details and addresses in
+[`devices/digitone-2-os111-reference.md`](devices/digitone-2-os111-reference.md). `[hw]` {dn2-skill-sharc}
+

@@ -2,8 +2,6 @@
 
 **A metadata index and agent knowledge base for unofficial firmware and tooling on Elektron's small boxes** - Digitakt (MKI/II), Digitone (MKI/Keys/II), Syntakt and Analog Heat (MKI/MKII/+FX).
 
-> **Deutsch, kurz:** Dieses Repo sammelt *nur Metadaten* zu Community-Projekten rund um Elektron-Firmware: wo liegt welches Projekt, für welches Gerät und welche OS-Version, und wie ist der aktuelle Stand. Dazu kommt mit [`hardware/`](hardware/) eine Wissensbasis, die KI-Agenten beim Entwickeln lesen sollen, statt jedes Mal alle Repos zu durchsuchen. Es enthält keine Firmware, keine Binärdateien und keinen fremden Code.
-
 ---
 
 ## What is in here

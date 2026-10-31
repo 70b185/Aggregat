@@ -48,3 +48,9 @@ Commands `0x57/0x58/0x59` (file write) verified on hardware for a single chunk a
 - Never write to a unit's storage with an unverified format: back up via Transfer first, work on throwaway projects, read back and compare.
 - Treat every "best-guess" request format as unsafe until you have captured the real traffic with a MIDI monitor.
 - Do not use libraries that parse a different device generation (Digitone mk1 vs II, Analog Four gen-1 vs gen-2) - the formats differ.
+
+## Elektroid (dagargo) - a general sample/SysEx client
+- Supported (README list): Analog Four MKI/MKII/Keys, **Analog Heat MKI/MKII/+FX**, Analog Rytm MKI/MKII, Digitakt I/II, Digitone I/II/Keys, Model:Cycles/Samples, Monomachine MKII, Syntakt, plus non-Elektron gear (Arturia, Casio CZ-101, Eventide, KORG, MFB, Moog, Novation, MIDI SDS samplers). No per-device capability table; `elektroid-cli info <device>` shows the compatible filesystems. `[doc]` {elektroid-readme}
+- Connectors: `system` (local computer, for format conversion), `elektron`, `cz`, `sds`, `efactor_preset`. Elektron filesystem families: raw/sample (`raw`, `preset-raw`, `sample`), data (`data`, `project`, `preset`, `preset-takt-ii`, `sound`), memory (`ram`, `track`). The Digitakt II "Preset" filesystem is implemented as `preset-takt-ii`. `raw` and `data` are for testing only and not compatible with Transfer formats. A firmware `upgrade` command exists in the CLI (which devices is not stated). Device definitions come from `~/.config/elektroid/elektron/devices.json` if present. Elektron samples cannot be swapped. `[doc]` {elektroid-readme}
+- Backends: ALSA MIDI and PulseAudio by default on Linux, RtMidi/RtAudio elsewhere. 2,506 commits, 19 open issues; no version shown on the page (altstrument lists v3.4, 2026-08-22).
+

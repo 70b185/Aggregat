@@ -89,4 +89,14 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2mk2-sampler | dn2mk2-firmware `docs/sampler.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/sampler.md |
 | dn2mk2-reports | dn2mk2-firmware `docs/user-reports.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/user-reports.md |
 | dn2mk2-changes | dn2mk2-firmware `docs/CHANGES-FROM-UPSTREAM.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/CHANGES-FROM-UPSTREAM.md |
+| overwitch-readme | dagargo/overwitch README (device list, protocol versions, Heat +FX layout) | https://github.com/dagargo/overwitch |
+| elektroid-readme | dagargo/elektroid README (device list, connectors, filesystems) | https://github.com/dagargo/elektroid |
+| elekloader-agents | elekloader `AGENTS.md` (repo root) | https://github.com/elekloader/elekloader/blob/main/AGENTS.md |
+| elekloader-cores | elekloader `docs/CORES.md` | https://github.com/elekloader/elekloader/blob/main/docs/CORES.md |
+| elekloader-format | elekloader `docs/FORMAT.md` | https://github.com/elekloader/elekloader/blob/main/docs/FORMAT.md |
+| elekloader-building | elekloader `docs/BUILDING.md` | https://github.com/elekloader/elekloader/blob/main/docs/BUILDING.md |
+| dt2-recovery | karigardarsson/digitakt-ii-research `docs/RECOVERY.md` | https://github.com/karigardarsson/digitakt-ii-research/blob/main/docs/RECOVERY.md |
+| dt2-install | karigardarsson/digitakt-ii-research `docs/INSTALLATION.md` (All-in-One v0.3.0) | https://github.com/karigardarsson/digitakt-ii-research/blob/main/docs/INSTALLATION.md |
+| synthack-recovery | Angelo-politek/Synthack-OS `RECOVERY.md` | https://github.com/Angelo-politek/Synthack-OS/blob/main/RECOVERY.md |
+| machine45-handoff | Humgic/syntakt-machine45-research `MACHINE45_TECHNICAL_HANDOFF.md` (2026-10-28) | https://github.com/Humgic/syntakt-machine45-research/blob/main/MACHINE45_TECHNICAL_HANDOFF.md |
 

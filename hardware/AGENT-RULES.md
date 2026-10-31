@@ -56,6 +56,10 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A16. Withdraw builds that lose sound.** Digiwerk withdrew its six spring-reverb builds after finding that two of them stop the sound on a Digitone II; dn2mk2 withdrew v0.4-v0.7 for oversized images. Keep a visible list of withdrawn builds with the reason. `[hw]` {alt-digitone-ii} {dn2mk2-firmware-md}
 
+**A17. In the startup menu never press TRIG 2 or TRIG 3 by habit** (Syntakt: empty reset and factory reset erase data); only TRIG 4 (OS UPGRADE) belongs to recovery. State this in every recovery instruction you generate. `[doc]` {synthack-recovery}
+
+**A18. "Not hardware-tested" must travel with the file.** digitakt-ii-research's All-in-One v0.3.0 states in its install guide that "this exact release image is not hardware-tested", that a Plaits trigger click remains and that earlier Plaits builds failed normal Transfer updates at 0%/PREPARING. Put such statements next to the download and in the build log, not only in a changelog. `[doc]` {dt2-install}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.
@@ -158,6 +162,8 @@ the unit should only judge sound and feel. **G5.** Flash one clearly named image
 **G6.** After two failed flashes on the same problem stop and restate goal, proven facts, unknowns and options. **G7.** Ask the user before cloning or installing anything.
 **G8.** Keep levels honest: measure worst cases, add no unrequested gain compensation, clamp audio output, never read memory you did not write.
 `[doc]` {dn2-skill-md} {dn2-skill-workflow}
+
+**G10. Repo conventions to adopt from elekloader's AGENTS.md:** never weaken a check to make a test pass; a skipped test is not a pass - report which tests ran; keep device facts in profile files; check whether a core event already exists before adding a code site; keep byte-exact writer tests. `[doc]` {elekloader-agents}
 
 **G9. DSP rules the emulators cannot check** (Digitone II, each reportedly silenced or crashed a real unit): whole 32-byte boot blocks, stock instruction encodings only
 (incl. sign bits of negative shift immediates), PRM loop/DAG/branch rules, no L2 above `0x200B0000`, never read unwritten DDR (power-on NaN), preserve registers at hooks

@@ -76,6 +76,8 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A26. On DT2, publish to reply words 670-676 only.** Words 1-6 and 677+ are rewritten by the firmware. Word k is at DM `base + 4k`, written to both copies. `[hw]` {own-dt2-notes}
 
+**A27. Analog Heat +FX: change only section 3 (MAIN OS), and keep custom code below `0x40206000`.** Everything above is cleared at boot. Never touch the bootstrap (it holds the STARTUP menu and recovery), the FPGA bitstream, or the MAIN OS factory console (`#UPGRADE`, `#FACTORY_DUMP`, calibration blob). `[hw]` {own-heatfx-notes}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.

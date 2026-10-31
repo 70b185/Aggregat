@@ -38,7 +38,7 @@ digitakt-ii-research grades its own statements as SOURCE/STATIC -> HOST -> SYNTH
 7. **Test ladder and logging:** failing test with a stock control first, emulator before every flash, one named image with SHA-256, stop after two failed flashes. (G1-G8; `common/agent-workflow.md`)
 8. **Control-side tools must write safely:** back up, allowlist OS builds, change only needed bytes, read back and compare. (F1-F6; `common/sysex-and-midi.md`)
 9. **Memory maps differ per device and per core version** - use `common/memory-maps.md` as a checklist, not as gospel. (D11)
-10. **Analog Heat is the white spot:** only official OS/recovery facts, the Overbridge channel layout and tool support lists exist; no teardown, no mod. (`devices/analog-heat.md`, `common/overbridge-usb.md`)
+10. **Analog Heat +FX is barely charted:** one private research line (the owner's) has a first OS 1.02 profile: unsigned ELE3, MCF5441x, audio on the ColdFire with no DSP, FPGA bitstream, MAIN-only changes ran on a unit. Nothing public, nothing for MKI/MKII. (A27, `devices/analog-heat.md`)
 
 ## All files in this folder
 
@@ -48,7 +48,7 @@ digitakt-ii-research grades its own statements as SOURCE/STATIC -> HOST -> SYNTH
 - [`common/flash-procedure.md`](common/flash-procedure.md) - Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw)
 - [`common/memory-maps.md`](common/memory-maps.md) - Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era)
 - [`common/os-update-protocol.md`](common/os-update-protocol.md) - How Digitakt II and Digitone II take an OS update from the running OS (DT2 1.17, DN2 1.12)
-- [`common/overbridge-usb.md`](common/overbridge-usb.md) - Overbridge over USB (what Overwitch's README reveals) - the only deep source on Analog Heat +FX so far
+- [`common/overbridge-usb.md`](common/overbridge-usb.md) - Overbridge over USB (what Overwitch's README reveals)
 - [`common/recovery.md`](common/recovery.md) - Recovery and flashing
 - [`common/sysex-and-midi.md`](common/sysex-and-midi.md) - SysEx and MIDI control (talking to a unit without flashing it)
 - [`common/toolchain-and-emulators.md`](common/toolchain-and-emulators.md) - Toolchains and emulators
@@ -67,4 +67,4 @@ digitakt-ii-research grades its own statements as SOURCE/STATIC -> HOST -> SYNTH
 ## Status of this folder (2026-10-31, after the "read everything" pass)
 Built from README- and docs-level reading of more than 40 repositories, the altstrument and elektronmods directories, two official release-note sets, forum threads and one journalistic audit. The exact depth per source, the pages that were blocked and the ones that need an approval are in [`READING-LEDGER.md`](READING-LEDGER.md); the open reading list is [`MINING.md`](MINING.md).
 
-Coverage per device: Digitakt mk1 **good** (ecosystem + memory map), Digitone mk1 **good**, Digitakt II **medium-good** (static analysis, install/recovery, protocol, one hardware-verified mod line), Digitone II **good** (the best documented box: container, flash layout, DSP/ColdFire rules, machines, sampler, incidents), Syntakt **medium** (recovery, OS 1.41 static analysis, SY FM4), Analog Heat **official facts only, no mod knowledge**.
+Coverage per device: Digitakt mk1 **good** (ecosystem + memory map), Digitone mk1 **good**, Digitakt II **good** (static analysis, install/recovery, protocol, SHARC timing and RTOS measured on a unit), Digitone II **good** (the best documented box: container, flash layout, DSP/ColdFire rules, machines, sampler, incidents), Syntakt **medium** (recovery, OS 1.41 static analysis, SY FM4), Analog Heat +FX **thin** (first OS 1.02 profile from the owner's research, two test builds ran on a unit), Heat MKI/MKII **official facts only**.

@@ -136,3 +136,4 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | digikit-f08 | ElekLabs/digikit finding 08, hardware identification and Ghidra | https://github.com/ElekLabs/digikit/blob/main/docs/findings/08-hardware-and-ghidra.md |
 | digikit-agents | ElekLabs/digikit `AGENTS.md` | https://github.com/ElekLabs/digikit/blob/main/AGENTS.md |
 | own-dt2-notes | Own measurements and notes by **70b185** (owner of this repo) from a private Digitakt II DSP project (device findings, load and safety notes, long-sample notes; OS 1.17, up to 2026-10-29). Private: not linked and not listed in INDEX | - |
+| own-heatfx-notes | Own analysis and device tests by **70b185** (owner of this repo) on the Analog Heat +FX OS 1.02, from a private research repo (as of 2026-10-28). Private: not linked and not listed in INDEX | - |

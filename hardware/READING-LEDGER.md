@@ -48,3 +48,4 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | digikit findings 08 (hardware/Ghidra), 42 (USB routes), 59 (card regions) | sections on platform, USB, card | common/memory-maps.md, common/overbridge-usb.md, A24 |
 | digikit AGENTS.md | full | common/agent-workflow.md |
 | owner's private DT2 DSP notes (device findings in full; state, long-sample and load notes; firmware facts) | full / sections | devices/digitakt-2-sharc-measured.md, A25, A26 |
+| owner's private Heat +FX research notes (device facts, research, test log, environment, status) | full | devices/analog-heat.md, common/memory-maps.md, common/firmware-container.md, A27 |

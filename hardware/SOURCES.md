@@ -62,4 +62,24 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2-skill-sharc | digitone-2-modding-skill `references/sharc.md` (DSP rules, incidents) | https://github.com/complex-ping/digitone-2-modding-skill/blob/main/skills/digitone-2-modding-skill/references/sharc.md |
 | dn2-skill-emulators | digitone-2-modding-skill `references/emulators.md` | https://github.com/complex-ping/digitone-2-modding-skill/blob/main/skills/digitone-2-modding-skill/references/emulators.md |
 | dn2-skill-workflow | digitone-2-modding-skill `references/workflow.md` | https://github.com/complex-ping/digitone-2-modding-skill/blob/main/skills/digitone-2-modding-skill/references/workflow.md |
+| dn2-mainos-image | angellinares/dn2_firmware_explore `docs/mainos-image.md` | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/mainos-image.md |
+| dn2-ele3 | angellinares/dn2_firmware_explore `docs/ele3-format.md` | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/ele3-format.md |
+| dn2-cfw-roadmap | naturarum/dn2-cfw `ROADMAP.md` | https://github.com/naturarum/dn2-cfw/blob/main/ROADMAP.md |
+| dn2-cfw-handoff | naturarum/dn2-cfw `HANDOFF.md` (running log; later entries supersede; the part read is dated 2026-10-06) | https://github.com/naturarum/dn2-cfw/blob/main/HANDOFF.md |
+| dn2-cfw-firmware | naturarum/dn2-cfw `FIRMWARE.md` | https://github.com/naturarum/dn2-cfw/blob/main/FIRMWARE.md |
+| digikit-findings | ElekLabs/digikit `docs/FINDINGS.md` (index of findings 01-51) | https://github.com/ElekLabs/digikit/blob/main/docs/FINDINGS.md |
+| digirust-readme | nzimas/digirust README | https://github.com/nzimas/digirust |
+| digirust-features | nzimas/digirust `docs/FEATURES.md` | https://github.com/nzimas/digirust/blob/main/docs/FEATURES.md |
+| alt-digitakt | altstrument.org Digitakt (mk1) device page | https://altstrument.org/devices/elektron-digitakt |
+| alt-digitakt-ii | altstrument.org Digitakt II device page | https://altstrument.org/devices/elektron-digitakt-ii |
+| alt-digitone | altstrument.org Digitone (mk1) device page | https://altstrument.org/devices/elektron-digitone |
+| alt-digitone-ii | altstrument.org Digitone II device page | https://altstrument.org/devices/elektron-digitone-ii |
+| alt-syntakt | altstrument.org Syntakt device page | https://altstrument.org/devices/elektron-syntakt |
+| alt-tools | altstrument.org Elektron cross-device tools | https://altstrument.org/devices/elektron-tools |
+| em-list | elektronmods GitHub Mod List (59 entries, device filters, recent changes) | https://elektronmods.com/mods.php |
+| elekloader-main | elekloader/elekloader README and releases page (v0.9.0) | https://github.com/elekloader/elekloader |
+| synthack-upstream | Angelo-politek/Synthack-OS README | https://github.com/Angelo-politek/Synthack-OS |
+| machine45 | Humgic/syntakt-machine45-research README | https://github.com/Humgic/syntakt-machine45-research |
+| dnx-page | elektronmods DNX entry (id 39) | https://elektronmods.com/mods.php?id=39 |
+| elektron-emu | xerydian/elektron-emu README | https://github.com/xerydian/elektron-emu |
 

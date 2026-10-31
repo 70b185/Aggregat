@@ -3,6 +3,8 @@
 Coverage: **medium-good** - the most documented small box right now (dn2_firmware_explore, dn2-cfw, Overtone, dn2mk2, the modding skill).
 Projects: [../../devices/digitone-2.md](../../devices/digitone-2.md)
 
+> Internals from the research repos (image identity, stock hashes, flash layout, loader margins, DSP landmarks, +Drive, disassembly pitfalls): [`digitone-2-internals.md`](digitone-2-internals.md).
+>
 > Deep dive for OS 1.11 (addresses, frame format, free memory, ColdFire/SHARC rules, emulator limits): [`digitone-2-os111-reference.md`](digitone-2-os111-reference.md). Working method for agents: [`../common/agent-workflow.md`](../common/agent-workflow.md).
 
 ## The OS-version split (read this first)

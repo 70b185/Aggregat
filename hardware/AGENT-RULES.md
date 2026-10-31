@@ -64,6 +64,8 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A20. The progress bar is not proof.** On the Digitone II the recovery bar counts received packets only; the write and the decompression (next boot) come later, and a single bad packet stops the transfer silently. `[doc]` {dn2-bootstrap}
 
+**A21. Upload over USB without auto-commit, then commit explicitly.** On the Digitone II the "upload complete" event can be lost on the first upload after boot (unit stuck on "Receiving"); send Start without auto-commit, all blocks, then End(1); keep USB silent ~90 s while flash is written; one upload, no blind retries - look at the screen first. `[hw]` {dn2-skill-scripts}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.

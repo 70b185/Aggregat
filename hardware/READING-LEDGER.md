@@ -38,4 +38,5 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | elektronmods thread 27 remainder (offset 100000) | full (no further content) | - |
 | Digitone II manual (OS 1.12) and Digitakt II manual (OS 1.17), PDF | **partial** - text extraction yields ~95,000 characters and stops before the startup-menu chapter and the MIDI appendices | devices/digitone-2.md, devices/digitakt-2.md |
 | Analog Heat +FX manual | not found by URL (a forum post shows a truncated CDN link); KVR/Equipboard snippets only | devices/analog-heat.md |
+| digitone-2-modding-skill **full git clone**: references/*.md raw, all scripts' docstrings, hwrules.py and bootblocks.py in full, examples | full (emulator sources sim.py/simc_core.c/emu.py not read line by line) | devices/digitone-2-os111-firmware-map.md |
 

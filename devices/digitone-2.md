@@ -8,6 +8,7 @@ Data last verified: 2026-10-31
 |---|---|---|---|---|---|
 | **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo (per maintainer)) | emulator | wip | Digitakt II target 1.17 (emulator also runs 1.16 as default file; 1.15C kept for old analysis); Digitone II target 1.12 (also runs 1.11 as default file; 1.10E kept for old analysis) | 2026-10-31 | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
 | **Overtone** (complex-ping) | mod | released | 1.0.1 (2026-10-29); Digitone II OS 1.12 only (patcher refuses any other file); NOT compatible with dn2mk2 (OS 1.11) | 2026-10-30 | [repo](https://github.com/complex-ping/overtone) · [forum](https://elektronmods.com/thread-90-overtone-custom-digitone-2-firmware) · [releases](https://github.com/complex-ping/overtone/releases) |
+| **coldfire-rs** (FirestormAudio) | tool | wip | not firmware-specific; targets the NXP ColdFire V4e chips MCF54410 and MCF54415-MCF54418 | 2026-10-25 | [repo](https://github.com/FirestormAudio/coldfire-rs) |
 | **Request: D50-type PCM / sample machine** (River5tyx) | request | request | - | 2026-10-19 | [forum](https://elektronmods.com/thread-84-d50-type-pcm-sample-based-machine) |
 | **dn2-cfw** (naturarum) | research | active | status note 2026-10-13; Digitone II OS 1.12 (macOS Apple silicon; Linux likely) | 2026-10-13 | [repo](https://github.com/naturarum/dn2-cfw) |
 | **DigiRust** (nzimas) | mod | beta | v1.2.0 (2026-10-12); Digitone II OS 1.12 (internal version stays 1.12) | 2026-10-12 | [repo](https://github.com/nzimas/digirust) · [release](https://github.com/nzimas/digirust/releases/tag/v1.2.0) |
@@ -107,6 +108,12 @@ _Sources: GitHub README, FIRMWARE.md, patcher web page_
 Agent skill (Claude Code, Codex, Cursor; install with `npx skills add`) for developing Digitone II firmware mods: ColdFire MAIN OS patching in C, SHARC DSP audio code, verification in two emulators (digikit + a whole-DSP SHARC emulator), rebuild/re-sign/flash over USB. Encodes stock-firmware addresses, hook sites, the ColdFire-to-DSP frame format, free memory and "hardware rules the emulators cannot check, which each once silenced a real unit" (contents not yet read by us - see hardware/MINING.md). Examples: double_time (sequencer clock hook), track_trim (-6 dB on track 1). Needs Python 3.11+, dnfw, m68k GCC, digikit. MIT (digikit-derived files GPL-2.0), 2 commits, 10 stars. Overtone was built with it. Closest existing relative of this repo's hardware/ folder.
 
 _Sources: GitHub README, Overtone README_
+
+### coldfire-rs
+
+Rust stack for ColdFire V4e (MCF5441x): toolchain (rustc_codegen_gcc + libgccjit for m68k-elf), runtime, PAC generated from an SVD, and an Embassy HAL (GPIO, PIT, INTC, eDMA, UART, DSPI, eSDHC eMMC block reads, SSI/I2S, USB OTG device mode). Not an emulator and not an Elektron mod: the README never mentions Elektron or digikit, the only link is the topic tag "digitakt". It is relevant here because digikit names the MCF54415 as the control CPU of Digitakt II (and the Digitone II is described as ColdFire too). Drivers were run on the author's own MCF54415 board. README: API is young and may change before 1.0. 33 commits, Apache-2.0 OR MIT. Same owner also has deluge-sdk (Synthstrom Deluge, out of scope). Org shows no public members; no relation to ElekLabs/Em D found.
+
+_Sources: GitHub README, FirestormAudio profile page_
 
 ### selache (SHARC+ toolchain)
 

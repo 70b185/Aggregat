@@ -18,6 +18,7 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2mk2 | De-Pattern/dn2mk2-firmware README and patcher page | https://github.com/De-Pattern/dn2mk2-firmware , https://de-pattern.github.io/dn2mk2/patcher.html |
 | dn2mk2-firmware-md | De-Pattern/dn2mk2-firmware `FIRMWARE.md` (cut off in v0.20) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/FIRMWARE.md |
 | dn2-modding-skill | complex-ping/digitone-2-modding-skill README | https://github.com/complex-ping/digitone-2-modding-skill |
+| coldfire-rs | FirestormAudio/coldfire-rs README (generic MCF5441x Rust stack; no Elektron mention) | https://github.com/FirestormAudio/coldfire-rs |
 | digiemu | irpina/digiemu | https://github.com/irpina/digiemu |
 | digi-roll | zooloo303/digi-roll README | https://github.com/zooloo303/digi-roll |
 | digislicer, digifilter, digihealth, digisplash, digicandy, digitables, digicosm, digichroma, tone-fx, dt-fm, digitakt2-perform | READMEs of the like-named repos | see `../data/projects.yml` for each repo URL |

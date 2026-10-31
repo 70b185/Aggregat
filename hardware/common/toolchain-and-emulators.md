@@ -17,6 +17,13 @@ Second-hand facts (tags as in `../README.md`). Names in braces are source keys.
 - SHARC+ DSP code in portable C: **selache** (SHARC+ C compiler/assembler by js216, GPL-3.0); dn2-cfw compiles effects with `selcc` and splices them into the DSP section with `tools/dspsplice`. `[doc]` {dn2-cfw} {dn2mk2}
 - `tools/sharcvm` (dn2-cfw) interprets the stock DSP handler to render chorus/delay/reverb/master compressor offline. `[doc]` {dn2-cfw}
 
+## Generic ColdFire MCF5441x facts (not Elektron-specific)
+Source: {coldfire-rs}. These describe the chip family that digikit names as the Digitakt II control CPU (MCF54415); nothing here says the Elektron firmware uses a given peripheral or mode. `[doc]`
+- Family covered: MCF54410 and MCF54415-MCF54418. Peripherals with drivers: GPIO, PIT, INTC, eDMA, UART, DSPI, eSDHC (eMMC block **reads** via eDMA), SSI (I2S/network audio, full-duplex eDMA rings), USB OTG device mode (high speed via ULPI PHY; 54415-54418 only). Not implemented there: eSDHC writes, EPORT, DMA timers, I2C, RTC, PWM, ADC/DAC, FlexCAN, Ethernet, NAND, USB host.
+- Vector table goes at the region origin, which must be **1 MB aligned** (VBR keeps bits 31..20 only); code starts at origin + 0x400.
+- Boot modes: cold boot (serial/NOR/NAND, image sets up PLL and DDR) or via a bootloader.
+- Rust for this chip: rustc_codegen_gcc with libgccjit targeting `m68k-elf`; default CPU in that toolchain is the 54418. Potential route for writing ColdFire-side mod code in Rust instead of C - unproven for Elektron firmware.
+
 ## Emulators
 - **digiemu** (irpina): Digitakt/Digitone mk1 emulator, runs the user's own OS behind a clickable panel. {digiemu}
 - **digikit** (current home ElekLabs/digikit, `[doc]` {digikit}): native Rust emulator running ColdFire and SHARC+ firmware together with front panel, display and audio; web panel (WASM) and Tauri desktop app; `patchkit` applies modules to the user's own `.syx` and refuses to change sections 2, 4 and 8; headless scenario runner with pinned PCM hashes; control socket for patch injection; ColdFire/DSP analysis databases and Ghidra tooling. Targets: Digitakt II 1.17 (also runs 1.16; 1.15C for old analysis), Digitone II 1.12 (also runs 1.11; 1.10E for old analysis). Caveats: DSP not real-time yet; browser host parked on `wip/browser-host`; no patched firmware installed on a device by the author; bootstrap-menu recovery untested on hardware. AGPL-3.0-or-later with NOTICE terms asking for the credit "digikit by Em D".

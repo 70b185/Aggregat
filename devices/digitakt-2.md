@@ -7,6 +7,7 @@ Data last verified: 2026-10-31
 | Project | Kind | Status | Version / OS | Last seen | Links |
 |---|---|---|---|---|---|
 | **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo (per maintainer)) | emulator | wip | Digitakt II target 1.17 (emulator also runs 1.16 as default file; 1.15C kept for old analysis); Digitone II target 1.12 (also runs 1.11 as default file; 1.10E kept for old analysis) | 2026-10-31 | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
+| **coldfire-rs** (FirestormAudio) | tool | wip | not firmware-specific; targets the NXP ColdFire V4e chips MCF54410 and MCF54415-MCF54418 | 2026-10-25 | [repo](https://github.com/FirestormAudio/coldfire-rs) |
 | **digitakt-ii-research (Déjà Vu LFOs, waveform zoom)** (kariGardarsson) | mod | beta | v0.2.0-beta; Digitakt II OS 1.16, 1.17 | 2026-10-21 | [repo](https://github.com/karigardarsson/digitakt-ii-research) · [release](https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.2.0-beta) · [forum deja vu](https://elektronmods.com/thread-80-good-news-everyone-i-got-deja-vu-lfos-running-on-the) · [forum waveform zoom](https://elektronmods.com/thread-83-good-news-everyone-i-added-waveform-zoom-to-the-digitakt-ii) |
 | **elekloader** (pina (irpina)) | loader | active | v0.4.0 (2026-10-02); Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental hook bus) | 2026-10-19 | [repo](https://github.com/irpina/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | 2026-10-13 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
@@ -100,6 +101,12 @@ _Sources: GitHub README, lapin-list_
 Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII and Heat +FX, Digitakt I/II, Digitone I/II/Keys, Syntakt. Overbridge 1 devices (Analog Four MKI, Analog Keys, Rytm MKI) not supported. GPL-3.0, 671 commits.
 
 _Sources: GitHub README, lapin-list_
+
+### coldfire-rs
+
+Rust stack for ColdFire V4e (MCF5441x): toolchain (rustc_codegen_gcc + libgccjit for m68k-elf), runtime, PAC generated from an SVD, and an Embassy HAL (GPIO, PIT, INTC, eDMA, UART, DSPI, eSDHC eMMC block reads, SSI/I2S, USB OTG device mode). Not an emulator and not an Elektron mod: the README never mentions Elektron or digikit, the only link is the topic tag "digitakt". It is relevant here because digikit names the MCF54415 as the control CPU of Digitakt II (and the Digitone II is described as ColdFire too). Drivers were run on the author's own MCF54415 board. README: API is young and may change before 1.0. 33 commits, Apache-2.0 OR MIT. Same owner also has deluge-sdk (Synthstrom Deluge, out of scope). Org shows no public members; no relation to ElekLabs/Em D found.
+
+_Sources: GitHub README, FirestormAudio profile page_
 
 ### selache (SHARC+ toolchain)
 

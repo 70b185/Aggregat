@@ -99,4 +99,14 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dt2-install | karigardarsson/digitakt-ii-research `docs/INSTALLATION.md` (All-in-One v0.3.0) | https://github.com/karigardarsson/digitakt-ii-research/blob/main/docs/INSTALLATION.md |
 | synthack-recovery | Angelo-politek/Synthack-OS `RECOVERY.md` | https://github.com/Angelo-politek/Synthack-OS/blob/main/RECOVERY.md |
 | machine45-handoff | Humgic/syntakt-machine45-research `MACHINE45_TECHNICAL_HANDOFF.md` (2026-10-28) | https://github.com/Humgic/syntakt-machine45-research/blob/main/MACHINE45_TECHNICAL_HANDOFF.md |
+| digiemu-readme | irpina/digiemu README | https://github.com/irpina/digiemu |
+| digislicer-readme | irpina/digislicer README | https://github.com/irpina/digislicer |
+| digifilter-readme | DigiAlchemydsp/DigiFilter README | https://github.com/DigiAlchemydsp/DigiFilter |
+| tonefx-readme | DigiAlchemydsp/Tone-FX README | https://github.com/DigiAlchemydsp/Tone-FX |
+| digi1-readme | gdeo607/digi1_mods README | https://github.com/gdeo607/digi1_mods |
+| digisophie-readme | soejrd/digisophie README | https://github.com/soejrd/digisophie |
+| digiprism-readme | irpina/digiprism README (DigiChroma renamed) | https://github.com/irpina/digiprism |
+| digiswarm-readme | irpina/digiswarm README (DigiCosm renamed) | https://github.com/irpina/digiswarm |
+| syfm4-readme | Rxuting/sy-fm4 README | https://github.com/Rxuting/sy-fm4 |
+| digipools-page | elektronmods DigiPools entry (id 57; repo freeze157-prog/digipools) | https://elektronmods.com/mods.php?id=57 |
 

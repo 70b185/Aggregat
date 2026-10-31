@@ -31,10 +31,14 @@ _Sources: forum overview_
 
 Sample and SysEx manager. README device list includes Analog Heat MKI, MKII and +FX, Digitakt I and II, Digitone I/II/Keys, Syntakt (also Analog Four/Rytm/Keys, Model:Cycles/Samples, Monomachine MKII). GPL-3.0, 2,506 commits, 425 stars. No version/date visible.
 
+_Latest seen (2026-10-31, secondary directories): altstrument: v3.4 (2026-08-22) adds Syntakt samples; also KORG logue and Monomachine; GPL-3.0-or-later; author's tool does not change firmware._
+
 _Sources: GitHub README, lapin-list_
 
 ### Overwitch
 
 Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII and Heat +FX, Digitakt I/II, Digitone I/II/Keys, Syntakt. Overbridge 1 devices (Analog Four MKI, Analog Keys, Rytm MKI) not supported. GPL-3.0, 671 commits.
+
+_Latest seen (2026-10-31, secondary directories): altstrument: v2.2 (2025-12-21), GPL-3.0-or-later, JACK clients streaming multitrack Overbridge 2 audio._
 
 _Sources: GitHub README, lapin-list_

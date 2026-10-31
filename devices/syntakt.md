@@ -6,7 +6,11 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Last seen | Links |
 |---|---|---|---|---|---|
+| **syntakt-machine45-research** (Humgic) | research | wip | main @ 9511030 (2026-10-28), no tagged releases; Syntakt OS 1.41 | 2026-10-28 | [repo](https://github.com/Humgic/syntakt-machine45-research) |
 | **Synthack-OS (Syntakt MAX 1.0, SY FM4 modular builder)** (kariGardarsson) | mod | beta | modular builder RC1 (2026-10-20); Syntakt MAX 1.0 first public beta (2026-10-17); Syntakt OS 1.41 | 2026-10-21 | [repo](https://github.com/karigardarsson/Synthack-OS) · [release max](https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-v1.0) · [release builder](https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-modular-builder-rc1) · [forum max](https://elektronmods.com/thread-81-good-news-everyone-syntakt-max-1-0-multiple-custom-firmware) · [forum fm4](https://elektronmods.com/thread-85-good-news-everyone-sy-fm4-is-here-a-fully-modular-syntakt) |
+| **SyntHack OS (upstream)** (Angelo-politek) | mod | beta | v0.9.0 (2026-10-19) per altstrument; README text said v0.8.0; Syntakt OS 1.41 | 2026-10-19 | [repo](https://github.com/Angelo-politek/Synthack-OS) |
+| **Elektron Emu** (xerydian) | emulator | wip | one OS version per machine (named in each plug-in's README); not read by us | 2026-10-17 | [repo](https://github.com/xerydian/elektron-emu) |
+| **SY FM4** (Rxuting) | mod | wip | main @ a596b63 (2026-10-15), no tagged releases; Syntakt OS 1.40A only (the other Syntakt mods target 1.41) | 2026-10-15 | [repo](https://github.com/Rxuting/sy-fm4) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
 | **syntakt-firmware-workbench** (Bezronczek) | mod | wip | Syntakt OS 1.41 only (other files refused, not changed) | - | [repo](https://github.com/Bezronczek/syntakt-firmware-workbench) |
@@ -26,6 +30,8 @@ _Sources: forum mod list (mods.php?id=7), forum thread 8_
 
 Several firmware mods in one build; SY FM4 included. Builder is a Windows app (a user asked for a web version). Needs the user's own OS 1.41.
 
+_Latest seen (2026-10-31, secondary directories): Upstream is Angelo-politek/Synthack-OS ("SyntHack OS", MIT, v0.9.0 on 2026-10-19: performance FX on all tracks replace beat repeat, quantized retrig, separate IN R page; v0.8.1 fixes boot crashes with sample projects; v0.8.0 adds the third send). This entry is the fork by karigardarsson, branded "Syntakt MAX": Modular Builder RC2 (2026-10-20) restores native MIDI parameter ownership for the third send, compressor and beat repeat; RC1 (2026-10-19) adds SY FM4 and per-feature selection; MAX 1.0 (2026-10-17) was a fixed seven-feature bundle. Brick-risk flag set on altstrument._
+
 _Sources: forum threads 81 and 85_
 
 ### Elektron Firmware Download List
@@ -44,11 +50,15 @@ _Sources: GitHub README, lapin-list_
 
 Browser sample-pack manager (64-slot banks, preview, export). Not a firmware mod. MIT, 81 commits, 40 stars.
 
+_Latest seen (2026-10-31, secondary directories): altstrument: maintained, main @ 08a7fc8 (2026-05-26); runs via browser installer using WebMIDI/WebUSB with previews, loop and slice editing, exports converted WAV in a ZIP._
+
 _Sources: GitHub README, lapin-list_
 
 ### Elektroid
 
 Sample and SysEx manager. README device list includes Analog Heat MKI, MKII and +FX, Digitakt I and II, Digitone I/II/Keys, Syntakt (also Analog Four/Rytm/Keys, Model:Cycles/Samples, Monomachine MKII). GPL-3.0, 2,506 commits, 425 stars. No version/date visible.
+
+_Latest seen (2026-10-31, secondary directories): altstrument: v3.4 (2026-08-22) adds Syntakt samples; also KORG logue and Monomachine; GPL-3.0-or-later; author's tool does not change firmware._
 
 _Sources: GitHub README, lapin-list_
 
@@ -56,4 +66,30 @@ _Sources: GitHub README, lapin-list_
 
 Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII and Heat +FX, Digitakt I/II, Digitone I/II/Keys, Syntakt. Overbridge 1 devices (Analog Four MKI, Analog Keys, Rytm MKI) not supported. GPL-3.0, 671 commits.
 
+_Latest seen (2026-10-31, secondary directories): altstrument: v2.2 (2025-12-21), GPL-3.0-or-later, JACK clients streaming multitrack Overbridge 2 audio._
+
 _Sources: GitHub README, lapin-list_
+
+### SyntHack OS (upstream)
+
+Unofficial modular patch set for the Syntakt: master compressor (THR/ATK/REL/MUP/RAT with meter, saved per pattern or global), dual-mono external input levels, boot splash, readable parameter values (Hz, dB, ms, %), beat repeat (v0.6.0), third send FX SND3 into chorus/flanger/phaser/crusher (v0.8.0). Mod area: 64 KB RAM, stored compressed and unpacked at boot. Each mods/<name>/patch.json lists the patch location, a hash of the expected original bytes and the new bytes; tools/build/build.py refuses the wrong OS, overlapping patches and protected sections. tools/emu is a ColdFire emulator (Unicorn + EMAC model); every mod is tested there before flashing. A git hook (tools/hooks) blocks firmware files from commits - a practice worth copying. README: seven mods running on real hardware (v0.8.0); RECOVERY.md exists. Planned: PIN lock, new LFO shapes, 3rd LFO/mod matrix, arpeggiator, resampling, new machines (RISER/DOWNFILTER, SY SWARM+), web builder. MIT, 66 commits, 9 stars. Brick-risk flag set on altstrument. Fork "Syntakt MAX" is the synthack-os entry.
+
+_Sources: GitHub README, altstrument Syntakt page_
+
+### SY FM4
+
+Four-operator FM machine that replaces SY TONE in place; eleven operator algorithms and a second parameter page. Build from source. MIT. Brick-risk flag set on altstrument. Syntakt MAX integrates an SY FM4 engine for 1.41 (see synthack-os).
+
+_Sources: altstrument Syntakt page_
+
+### syntakt-machine45-research
+
+Documentation, a C header and tools/check_stock_metadata.py (standard-library only; checks exact input hashes and selected metadata of the user's own extracted MAIN and section-7 files) for adding a separate 46th Machine with public ID 45 while keeping stock IDs 0-44. Claims: a distinct MAIN raw ID 45 and menu/metadata edits confirmed by static analysis; mapping of public ID 45 to compact selector 45 and implementation family e12 "strongly supported"; entering/leaving the machine, Sound-lock precedence and the p-lock lifecycle not verified end-to-end; arbitrary native DSP installation blocked/unproven; docs/DSP_ABI.md describes eight raw controls. Explicitly makes no claim of a hardware-working new Machine; the original private candidate is frozen. Files: MACHINE45_TECHNICAL_HANDOFF.md, EVIDENCE_INDEX.md (refers to a private 803-file census), docs/FROZEN_BASELINE.md, docs/PUBLICATION_POLICY.md. Excludes firmware images, opcode/disassembly dumps, coefficient tables, binary diffs and deployable packages. MIT. Meant to complement SyntHack OS and SY FM4 (FM4 extends machine 4; this concerns ID 45).
+
+_Sources: GitHub README, altstrument Syntakt page_
+
+### Elektron Emu
+
+Five VST3 plug-ins (Mac, Windows) that run each machine's real OS in an emulated CPU: Digitakt II, Syntakt, Analog Rytm MKII, Digitone II, Model:Cycles. Firmware not included; the user places the .syx from Elektron's site in a per-machine folder. +Drive emulated and persisted; WAV loading on DT2, Rytm and DN2. Digitone II's DSP is compiled locally on first open (needs a C compiler, else a slow interpreter that renders offline only). Caveats: Rytm analog voices/effects are a custom model that does not sound like the real machine; Syntakt analog tracks 9-12 missing; Mac builds unsigned. 2 commits, 19 stars, no licence stated. Personal project, not affiliated with Elektron (panel photos belong to Elektron).
+
+_Sources: GitHub README, altstrument tools page_

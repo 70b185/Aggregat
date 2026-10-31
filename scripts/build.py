@@ -61,6 +61,8 @@ for d in devices:
         for p in rows:
             md.append(f"### {p['name']}\n")
             md.append(" ".join(str(p.get("notes", "")).split()) + "\n")
+            if p.get("latest_seen"):
+                md.append("_Latest seen (2026-10-31, secondary directories): " + " ".join(str(p["latest_seen"]).split()) + "_\n")
             md.append(f"_Sources: {', '.join(map(str, p.get('sources', [])))}_\n")
     else:
         md.append("No projects collected yet.\n")

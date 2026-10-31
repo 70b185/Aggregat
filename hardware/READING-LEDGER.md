@@ -47,3 +47,4 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | digikit findings 70 (Syntakt 1.42), 75 (OS upgrade receive path) | full | devices/syntakt.md, common/os-update-protocol.md, common/firmware-container.md, A22, A23 |
 | digikit findings 08 (hardware/Ghidra), 42 (USB routes), 59 (card regions) | sections on platform, USB, card | common/memory-maps.md, common/overbridge-usb.md, A24 |
 | digikit AGENTS.md | full | common/agent-workflow.md |
+| owner's private DT2 DSP notes (device findings in full; state, long-sample and load notes; firmware facts) | full / sections | devices/digitakt-2-sharc-measured.md, A25, A26 |

@@ -74,5 +74,8 @@ Core support: elekloader lists core-dt2-1.0 as unreleased (build from source) wi
 ## Control from outside
 SysEx/MIDI facts, NRPN groups and the safe-write ceremony are in [`../common/sysex-and-midi.md`](../common/sysex-and-midi.md). elekloader's simonjohansson fork supports Digitakt II 1.17 as experimental (core checked in digikit; a key-swap mod works on a unit). {elekloader-simonjohansson}
 
+## SHARC measured on a real unit
+Clock (1.000 GHz, 666,667 cycles/block), FreeRTOS task map, free reply words, missed-block behaviour, the STRETCH contract, memory limits and selcc traps: [`digitakt-2-sharc-measured.md`](digitakt-2-sharc-measured.md). `[hw]` {own-dt2-notes}
+
 ## Gaps
 Memory map beyond the numbers above, DSP memory, machine API, parameter-table layout: not collected yet (see `../MINING.md`).

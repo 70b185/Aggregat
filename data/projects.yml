@@ -244,8 +244,8 @@ projects:
       releases: https://github.com/complex-ping/overtone/releases
     status: released
     base_os: "Digitone II OS 1.12 only (patcher refuses any other file); NOT compatible with dn2mk2 (OS 1.11)"
-    version: "v1.1 (2026-10-30)"
-    last_activity: 2026-10-30
+    version: "v1.2 (tag seen 2026-10-31; release notes not read yet)"
+    last_activity: 2026-10-31
     notes: >
       Python 3.11+ patcher (patcher/patch.py) that builds Overtone from the user's own OS 1.12 and only saves
       the result if it matches the tested build byte for byte; install via Elektron Transfer over USB.

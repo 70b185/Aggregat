@@ -2,6 +2,12 @@
 
 Source: dagargo/overwitch README (JACK clients for Overbridge 2 devices, GPL-3.0; protocol work based on Stefan Rehm's USB reverse engineering in `dtdump`), read 2026-10-31. It does **not** document the USB protocol in detail (no class, endpoint or control-request tables); the facts below are what it states. Second-hand; tags as in `../README.md`. Key: {overwitch-readme}.
 
+## USB device side of Digitakt II / Digitone II (digikit finding 42, static, DT2 1.16)
+- Controller: MCF5441x USB OTG at `0xFC0B0000`, device mode, external ULPI PHY, **high speed** (480 Mb/s; descriptors have 512-byte bulk packets; DEVICE_QUALIFIER stalled = HS-only). Only endpoints EP0-EP3 exist. VID `0x1935`. `[doc]` {digikit-f42}
+- Modes -> descriptors: **USB MIDI** PID `0x012b` (EP1 bulk pair, 2 cables); **USB AUDIO/MIDI** PID `0x102b` (UAC2 iso on EP2/EP3 + MIDI on EP1); **OVERBRIDGE** PID `0x0b2b` (vendor class 0xFF: interrupt EP3 in/out, EP2 OUT bulk 512 + EP2 IN interrupt 64, plus MIDI on EP1); a **service** mode PID `0xffff` with CDC-ACM. No MS-OS/BOS descriptors - Windows will not bind WinUSB on its own. `[doc]` {digikit-f42}
+- SysEx throughput is limited by the ColdFire's per-byte handling (about 32 instructions per wire byte just to split USB-MIDI events, two 512-byte receive buffers in flight); digikit estimates 0.8-1.4 MB/s at best for an own SysEx route. Transfer's file-write RPC: OpenFileForWrite `0x40`, WriteFileV1 `0x42` (handle, length, offset, data), CloseFileWriter `0x41`. `[doc]` {digikit-f42}
+- **Samples are not converted on the device:** the native file is a 0x40-byte header (+1 stereo flag, +4 length, +8 rate 48000) + big-endian int16 PCM + 16-byte trailer; no WAV parser in the image. The host must resample to 48 kHz and convert. `[doc]` {digikit-f42}
+
 ## Which devices
 - **Overbridge 2 devices supported:** Analog Four MKII, Analog Rytm MKII, Digitakt, Digitakt II, Digitone, Digitone II, Digitone Keys, **Analog Heat, Analog Heat MKII, Analog Heat +FX**, Syntakt. **Not supported:** the Overbridge 1 devices (Analog Four MKI, Analog Keys, Analog Rytm MKI). `[doc]`
 - Device IDs are listed as vendor:product: Digitakt `1935:0b2c`; Analog Heat +FX has product id 2899. `[doc]`

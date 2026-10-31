@@ -40,3 +40,10 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | Analog Heat +FX manual | not found by URL (a forum post shows a truncated CDN link); KVR/Equipboard snippets only | devices/analog-heat.md |
 | digitone-2-modding-skill **full git clone**: references/*.md raw, all scripts' docstrings, hwrules.py and bootblocks.py in full, examples | full (emulator sources sim.py/simc_core.c/emu.py not read line by line) | devices/digitone-2-os111-firmware-map.md |
 
+
+## Pass 2026-10-31 (developer docs, from git clones)
+| Source | Depth | Folded into |
+|---|---|---|
+| digikit findings 70 (Syntakt 1.42), 75 (OS upgrade receive path) | full | devices/syntakt.md, common/os-update-protocol.md, common/firmware-container.md, A22, A23 |
+| digikit findings 08 (hardware/Ghidra), 42 (USB routes), 59 (card regions) | sections on platform, USB, card | common/memory-maps.md, common/overbridge-usb.md, A24 |
+| digikit AGENTS.md | full | common/agent-workflow.md |

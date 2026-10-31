@@ -129,4 +129,10 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | kvr-heatfx | KVR forum thread on Analog Heat +FX (users quoting the manual on the analog-only mode) | https://www.kvraudio.com/forum/viewtopic.php?p=8846331 |
 | equipboard-heatfx | Equipboard Analog Heat +FX listing (specs, FAQ) | https://equipboard.com/items/elektron-analog-heat-fx-dynamic-sound-processor |
 | dn2-skill-scripts | digitone-2-modding-skill `scripts/*` docstrings and `examples/` (read from a git clone, 2026-10-31) | https://github.com/complex-ping/digitone-2-modding-skill |
+| digikit-f75 | ElekLabs/digikit finding 75, OS upgrade receive path (DT2 1.17, DN2 1.12) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/75-os-upgrade-receive.md |
+| digikit-f70 | ElekLabs/digikit finding 70, Syntakt OS 1.42 container, CPUs, peer link | https://github.com/ElekLabs/digikit/blob/main/docs/findings/70-syntakt-1-42.md |
+| digikit-f42 | ElekLabs/digikit finding 42, USB transfer routes | https://github.com/ElekLabs/digikit/blob/main/docs/findings/42-usb-transfer-routes.md |
+| digikit-f59 | ElekLabs/digikit finding 59, card storage regions | https://github.com/ElekLabs/digikit/blob/main/docs/findings/59-storage-regions.md |
+| digikit-f08 | ElekLabs/digikit finding 08, hardware identification and Ghidra | https://github.com/ElekLabs/digikit/blob/main/docs/findings/08-hardware-and-ghidra.md |
+| digikit-agents | ElekLabs/digikit `AGENTS.md` | https://github.com/ElekLabs/digikit/blob/main/AGENTS.md |
 

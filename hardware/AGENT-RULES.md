@@ -66,6 +66,12 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A21. Upload over USB without auto-commit, then commit explicitly.** On the Digitone II the "upload complete" event can be lost on the first upload after boot (unit stuck on "Receiving"); send Start without auto-commit, all blocks, then End(1); keep USB silent ~90 s while flash is written; one upload, no blind retries - look at the screen first. `[hw]` {dn2-skill-scripts}
 
+**A22. Never touch an FPGA bitstream or its configuration path** (Syntakt section 1 and bootstrap); a wrong configuration can harm analog circuitry. Do not emulate or reconfigure the FPGA; stub its status only. `[doc]` {digikit-f70}
+
+**A23. "Success! Rebooting" is not proof.** The DT2/DN2 in-OS flash writer ignores erase/program return codes. Verify after reboot. Prefer the RPC route with an explicit End; send End 0 on every abort. Details: [`common/os-update-protocol.md`](common/os-update-protocol.md). `[doc]` {digikit-f75}
+
+**A24. Keep private card data above the MmcFs guard and above `0x800000`;** never write the factory sample area (DT2 `0x458000-0x5D7FFF`). Lower areas can be overwritten by firmware, FORMAT or a crafted Data-API request. `[doc]` {digikit-f59}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.

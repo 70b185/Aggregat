@@ -57,3 +57,12 @@ Twelve deliberately unsafe Digitone II 1.12 candidates were run through `tools/b
 Plus: literal-only scanning misses the chip-erase word stored as data.
 Lessons: keep byte-identity checks strict (a resealed modified bootstrap was caught by byte identity, not by the seal); **a skipped step must end as "incomplete", never as "accept"**; protected ranges need exact end addresses; pin the upgrade validator; treat changed DSP code as unvalidated unless an intended DSP image is supplied; static scans are tripwires, the real gate is byte-identical flash drivers plus a **dynamic watch of erase/program addresses during an emulated in-OS upgrade**; drive key, USB and upgrade sessions in the emulator so code off the cold-boot path is executed. `[doc]` {dn2-cfw-redteam}
 
+## Rules digikit gives its own agents (AGENTS.md, read 2026-10-31) {digikit-agents}
+- Pin the analysis target: digikit works on **DT2 OS 1.17 and DN2 OS 1.12**; older images are references only - resolve every address on the current image first.
+- Never commit firmware or anything derived from it (sections, card images, users' samples). Never name, copy or quote the vendor DSP toolchain; cite only the public manuals.
+- Evidence marks **[V]** (a second agent checked against image bytes), **[D]** (measured/read once), **[O]** open, **[C]** corrects an earlier claim. Our `[doc]` tag covers their [D] and [V] when we only read about it.
+- An empty caller list is not proof of dead code (Ghidra misses functions reached only through pointers; check raw references).
+- Static evidence first; bound every emulator run (`--limit`/`--seconds`); stop only your own processes.
+- For performance claims: give the theoretical ceiling first, then one paired A/B measurement.
+- Before work likely to take more than a day: state payoff and confidence, recommend stopping when weak.
+

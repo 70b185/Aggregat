@@ -120,6 +120,8 @@ resources (`sysex:`, `settings:`, `drive:`, `ui:`, `machine:` names; other memor
 (Digitakt mk1, core 2.1): 4 = NEIGHBOR, 5 = DIGISLICER. Pick a free ID, then register it in
 [`devices/digitakt.md`](devices/digitakt.md). `[doc]` {elekloader-adapting}
 
+**D6b. Digitone II machine IDs:** synths 5-31 and filters 6-31 are separate namespaces, permanent, and there is no allocator - agree IDs with other authors before shipping; saved sounds of an absent mod keep their ID and show as MISSING. `[doc]` {elekloader-machines-dn2}
+
 **D7. Do not mix format 1 (whole build) with format 2 (linkable) mods** - whole builds cannot be combined. `[doc]` {elekloader-adapting}
 
 **D8. Keep the audio interrupt handlers (`ev_render_in/out`) short.** `[doc]` {elekloader-adapting}
@@ -129,6 +131,10 @@ resources (`sysex:`, `settings:`, `drive:`, `ui:`, `machine:` names; other memor
 
 **D10. Disclose AI-generated code** the way DT-FM does ("largely AI-generated, not proofread"). Not a technical rule,
 but readers decide on risk from it. `[doc]` {dt-fm}
+
+**D11. An address that exists or maps onto another is not thereby free.** Prove an area unused (stock data pointers, caches, DMA buffers, boot ROM sharing) before placing code or data there; an unreferenced-looking L2 block once stopped a unit from starting. `[hw]` {elekloader-sharc-dn2} {dn2-skill-firmware}
+
+**D12. Budget voices, not tracks.** Dynamic voice allocation can need far more voices than tracks; guard the DSP frame time and expose a CPU indicator. `[hw]` {dn2mk2-reports}
 
 ## E. Changing parameter tables / saved data (Digitone II)
 

@@ -9,7 +9,7 @@ Coverage: **good**. Everything below targets OS 1.53 unless stated. Projects: [.
 - Recovery: hold FUNC at power-on -> TRIG 4 (OS UPGRADE) -> send the stock `.syx`. `[doc]` {elekloader-readme}
 
 ## Memory and code placement (core 2.x, elekloader)
-- Budget shared by all mods: **128 KB for `.run` + `.bss`**, **2304 bytes of fast SRAM** (`.fast`). `[doc]` {elekloader-adapting}
+- Budget shared by all mods (ADAPTING.md, core 2.x era): **128 KB for `.run` + `.bss`**, **2304 bytes of fast SRAM** (`.fast`). Newer cores differ: elekloader kit 0.6.0 gives 4.0 cores a 256 KB Digitakt area, DEVICES.md lists `core_ddr` at `0x47BC0000-0x47C00000` (256 KB) for Digitakt mk1 - see [`../common/memory-maps.md`](../common/memory-maps.md). `[doc]` {elekloader-adapting} {elekloader-devices}
 - Main OS ends at `0x4025CA40` (1.53); an appended blob runs there (`__run_start`, `__bss_end`, `__fast_start`, `__fast_len`). `[doc]` {elekloader-adapting}
 - FAST AUDIO copies the render block `0x400716c0-0x4007629a` to SRAM; hook sites inside it must be absolute, not PC-relative. `[doc]` {elekloader-adapting}
 - Relocations supported: 32-bit absolute, 32/16-bit PC-relative; 16-bit absolute is refused. `[doc]` {elekloader-adapting}

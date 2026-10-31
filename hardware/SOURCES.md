@@ -82,4 +82,11 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | machine45 | Humgic/syntakt-machine45-research README | https://github.com/Humgic/syntakt-machine45-research |
 | dnx-page | elektronmods DNX entry (id 39) | https://elektronmods.com/mods.php?id=39 |
 | elektron-emu | xerydian/elektron-emu README | https://github.com/xerydian/elektron-emu |
+| elekloader-devices | elekloader `docs/DEVICES.md` | https://github.com/elekloader/elekloader/blob/main/docs/DEVICES.md |
+| elekloader-machines-dn2 | elekloader `docs/MACHINES-DN2.md` | https://github.com/elekloader/elekloader/blob/main/docs/MACHINES-DN2.md |
+| elekloader-sharc-dn2 | elekloader `docs/SHARC-DN2.md` | https://github.com/elekloader/elekloader/blob/main/docs/SHARC-DN2.md |
+| dn2mk2-emulator | dn2mk2-firmware `docs/emulator.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/emulator.md |
+| dn2mk2-sampler | dn2mk2-firmware `docs/sampler.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/sampler.md |
+| dn2mk2-reports | dn2mk2-firmware `docs/user-reports.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/user-reports.md |
+| dn2mk2-changes | dn2mk2-firmware `docs/CHANGES-FROM-UPSTREAM.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/CHANGES-FROM-UPSTREAM.md |
 

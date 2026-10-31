@@ -8,7 +8,7 @@ published by the authors, and rules.
 ## How to use
 
 1. Read [`AGENT-RULES.md`](AGENT-RULES.md) first (safety and process rules, valid for every device).
-2. Read [`common/firmware-container.md`](common/firmware-container.md) and [`common/recovery.md`](common/recovery.md).
+2. Read [`common/firmware-container.md`](common/firmware-container.md), [`common/recovery.md`](common/recovery.md), and - if you only talk to a unit over MIDI/SysEx - [`common/sysex-and-midi.md`](common/sysex-and-midi.md).
 3. Read the file for your device in [`devices/`](devices/).
 4. Look up the project you build on in [`../INDEX.md`](../INDEX.md) (who maintains what, which OS, which state).
 

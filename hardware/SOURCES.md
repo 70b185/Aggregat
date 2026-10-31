@@ -32,4 +32,22 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | elektronauts-heatfx | Elektronauts: "Analog Heat + FX - Can't update OS via Transfer" | https://www.elektronauts.com/t/analog-heat-fx-cant-update-os-via-transfer-resolved/217204 |
 | elektronauts-dn2-pcb | Elektronauts: "Digitone II PCB" (forum user claims) | https://elektronauts.com/t/digitone-ii-pcb/223042 |
 | synthanatomy-heat | Synth Anatomy: Analog Heat OS 1.2 | https://synthanatomy.com/2019/10/elektron-analog-heat-os-1-2-adds-audio-over-usb-overbridge-support.html |
-| letsdatascience | summary of Elektron's forum policy (via WeRaveYou, secondary) | https://letsdatascience.com/news/ai-coding-tools-drive-surge-in-custom-music-hardware-firmwar-bbbd0a1e |
+| elektron-dt2-notes | Digitakt II OS release notes, elektron.se (page "last updated Oct 1, 2026"; newest 1.17, also 1.16 ... 1.01) | https://www.elektron.se/release-notes/digitakt-ii |
+| elektron-dn2-notes | Digitone II OS release notes, elektron.se (page "last updated Oct 1, 2026"; newest 1.12, 1.11, 1.10E ...) | https://elektron.se/release-notes/digitone-ii |
+| elektronauts-policy | Elektron's policy post on modified firmware, Elektronauts, 2026-09-16 (updated 09-17) | https://www.elektronauts.com/t/elektronauts-topics-and-comments-regarding-modified-firmware/255891 |
+| dt1-teardown | lomn: Tearing down the Elektron Digitakt (GitHub, author's reading of the board; revision not named) | https://github.com/lomn/Tearing-down-the-elektron-digitakt-for-funzies |
+| elektronauts-dt2-intro | Elektronauts "Introducing Digitakt II", page 68 (forum users compare DT1 and DT2 boards) | https://www.elektronauts.com/t/introducing-digitakt-ii/212312?page=68 |
+| elektronauts-dt2-pcb | Elektronauts "Digitakt II PCB" (only a search snippet readable: main CPU a legacy chip launched Dec 2017) | https://www.elektronauts.com/t/digitakt-ii-pcb/212504 |
+| elektronauts-dt2-sample-slot | Elektronauts "Controlling Sample Slot on Digitakt 2 via Midi" | https://www.elektronauts.com/t/controlling-sample-slot-on-digitakt-2-via-midi/222058 |
+| syxgrid | xrcstrecords/syxgrid-digitone-ii README and sysexmap/ | https://github.com/xrcstrecords/syxgrid-digitone-ii |
+| digi-roll-studio | zooloo303/digi-roll-studio README | https://github.com/zooloo303/digi-roll-studio |
+| digitakt-midi-mcp | feamster/digitakt-midi-mcp README | https://github.com/feamster/digitakt-midi-mcp |
+| libanalogrytm | bsp2/libanalogrytm README (Analog Rytm only) | https://github.com/bsp2/libanalogrytm |
+| elk-herd | mzero/elk-herd stub README (moved off GitHub) | https://github.com/mzero/elk-herd |
+| elekloader-simonjohansson | simonjohansson/elekloader README (fork with Digitakt II / Digitone II support) | https://github.com/simonjohansson/elekloader |
+| gearnews-heatfx | Gearnews: Analog Heat +FX OS 1.01 upgrade (exclusive to +FX) | https://www.gearnews.com/elektron-turns-up-with-the-analog-heat-fx/ |
+| synthtopia-heatfx | Synthtopia: Elektron launches Analog Heat +FX | https://synthtopia.com/?p=136578 |
+| sos-heatfx | Sound On Sound: Elektron launch Analog Heat +FX | https://www.soundonsound.com/node/4930446 |
+| musicradar-heatfx | MusicRadar: Analog Heat +FX at Superbooth 2023 | https://www.musicradar.com/news/elektron-analog-heat-plus-fx |
+| gearnews-dn2-overbridge | Gearnews: Elektron update, Digitone II gets Overbridge | https://www.gearnews.com/elektron-update-digitakt-ii-digitone-ii |
+| digikit-forks | Bezronczek/digikit, naturarum/digikit, simonjohansson/digikit READMEs (search snippets) | https://github.com/simonjohansson/digikit |

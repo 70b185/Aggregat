@@ -30,3 +30,14 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [ ] altstrument.org device pages (Digitakt 12, Digitakt II 3, Digitone 5, Digitone II 3, Syntakt 4 firmwares listed) against `data/projects.yml`
 - [ ] Lapin list: re-read weekly for new Elektron entries
 - [ ] Hardware facts above were extracted from READMEs by summarising tools; spot-check numbers (addresses, sizes) against the original files before depending on them.
+
+## Added 2026-10-31 (knowledge-source search)
+- [ ] mzero/elk-herd: new home (README obfuscates the address) - the protocol reference several projects port from; respect its no-AI-issues rule
+- [ ] xrcstrecords/syxgrid-digitone-ii `sysexmap/` in full (45 mappings with evidence) -> fold level-A mappings into `common/sysex-and-midi.md`
+- [ ] zerubeus/dn-deobfuscator (`.dn2prj` project-file research); Elektronauts "Digitone 2 pattern manager" thread; emnyeca/digitone-syx-toolkit `docs/`
+- [ ] ElekLabs/digikit `docs/TOOLS.md`, `docs/FINDINGS.md`, `docs/findings/*`, newest `HANDOVER-*.md`; naturarum/digikit and Bezronczek/digikit for divergences
+- [ ] simonjohansson/elekloader `docs/DEVICES.md` and the Digitakt II / Digitone II core docs (control-side hook bus on DT2/DN2)
+- [ ] Elektron manuals: MIDI implementation tables (CC/NRPN) for Digitakt II and Digitone II - official numbers instead of the MCP project's list
+- [ ] Analog Heat +FX: manual (MIDI implementation, modulation matrix), Overbridge 2 USB protocol via Overwitch source; no teardown exists in what we found - ask whether anyone has opened one
+- [ ] libanalogrytm `sysex.c` as the best-documented Elektron container/encoding reference (Rytm) to compare against Digitakt II dumps
+

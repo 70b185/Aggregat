@@ -14,6 +14,7 @@ Data last verified: 2026-10-31
 | **DigiRust** (nzimas) | mod | beta | v1.2.0 (2026-10-12); Digitone II OS 1.12 (internal version stays 1.12) | 2026-10-12 | [repo](https://github.com/nzimas/digirust) · [release](https://github.com/nzimas/digirust/releases/tag/v1.2.0) |
 | **SYXGRID v2** (xrcstrecords) | editor | active | v2.4 | 2026-10-11 | [repo](https://github.com/xrcstrecords/syxgrid-digitone-ii) · [web app](https://syxgrid.xrcst.com) · [forum](https://elektronmods.com/thread-43-syxgrid-v2-a-free-editor-for-digitone-ii-projects) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
+| **digi-roll-studio** (zooloo303) | editor | beta | v0.5.4 (2026-09-09); hardware-verified: Digitakt II 1.16 (0079), Digitone II 1.11 (0059), Analog Four 1.55D (0201); the numbers in parentheses are not explained on the page | 2026-09-09 | [repo](https://github.com/zooloo303/digi-roll-studio) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
 | **digi-roll** (zooloo303) | editor | active | per-device OS-build allowlist (build numbers not listed on the page) | - | [repo](https://github.com/zooloo303/digi-roll) · [web app](https://zooloo303.github.io/digi-roll/) |
 | **dn2_firmware_explore** (angellinares) | research | active | Digitone II (example: OS 1.10E); README also covers Digitone / Keys | - | [repo](https://github.com/angellinares/dn2_firmware_explore) |
@@ -21,7 +22,10 @@ Data last verified: 2026-10-31
 | **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | - | [repo](https://github.com/dagargo/overwitch) |
 | **DN2 mk2 Mod (dn2mk2-firmware)** (De-Pattern (README says: built on the upstream project by Angel Linares / xrcstrecords - not verified by us)) | mod | wip | v0.33 (STEADY) per FIRMWARE.md; the web patcher page still mentions v0.27-v0.29; Digitone II stock OS 1.11 ONLY (1.10 must update to 1.11 first; 1.12+ must go back to 1.11). Also needs the user's own Digitakt II OS 1.17 (or 1.16), Machinedrum UW OS 1.63 and Monomachine SFX-6 OS 1.32B files | - | [repo](https://github.com/De-Pattern/dn2mk2-firmware) · [patcher web](https://de-pattern.github.io/dn2mk2/patcher.html) · [import tool web](https://de-pattern.github.io/dn2mk2/) · [version history](https://github.com/De-Pattern/dn2mk2-firmware/blob/main/FIRMWARE.md) · [safety doc](https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/SAFETY.md) |
 | **digitone-2-modding-skill** (complex-ping) | agent-skill | wip | Digitone II OS 1.11 (user supplies the .syx; repo gives a SHA-256 prefix to check it) | - | [repo](https://github.com/complex-ping/digitone-2-modding-skill) |
+| **elekloader (simonjohansson fork - Digitakt II / Digitone II support)** (simonjohansson) | loader | wip | Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept) | - | [repo](https://github.com/simonjohansson/elekloader) · [plan digitone ii](https://github.com/simonjohansson/elekloader/issues/13) · [devices doc](https://github.com/simonjohansson/elekloader/blob/main/docs/DEVICES.md) |
+| **digitone-syx-toolkit** (emnyeca) | tool | wip | - | - | [repo](https://github.com/emnyeca/digitone-syx-toolkit) |
 | **selache (SHARC+ toolchain)** (js216 (ElekLabs keeps a fork)) | tool | unverified | - | - | [repo](https://github.com/js216/selache) |
+| **dn-deobfuscator** (zerubeus) | research | unverified | - | - | [repo](https://github.com/zerubeus/dn-deobfuscator) |
 
 ## Details
 
@@ -45,7 +49,7 @@ _Sources: GitHub release v1.2.0_
 
 ### SYXGRID v2
 
-Free browser-based project editor; not a firmware mod.
+Free browser-based pattern/sequence editor, not a firmware mod. Repo includes sysexmap/, a public reverse-engineered SysEx format map (CC BY 4.0): 45 mappings, map version 1.13.0, each with a confidence level (A = hardware-confirmed on a DN2: 23; B = corpus-confirmed by repo fixtures: 12; C = inherited, one value exercised: 9; D = unknown, do not rely: 1). Narrowed by bisection on 2026-09-08 against a Digitone II (OS 1.10E) and a Digitakt II. Not decoded: parameter locks, sound parameters (filter, amp, FX, LFO), synth machine choice. Needs the DN2 in SYSEX RECEIVE mode; Web MIDI needs Chromium over HTTPS or localhost (Chrome/Edge 152 break SysEx receive on macOS). App is AGPLv3 since v22.46 (MIT through v22.37). 6 commits.
 
 _Sources: forum thread 43_
 
@@ -115,8 +119,32 @@ Rust stack for ColdFire V4e (MCF5441x): toolchain (rustc_codegen_gcc + libgccjit
 
 _Sources: GitHub README, FirestormAudio profile page_
 
+### elekloader (simonjohansson fork - Digitakt II / Digitone II support)
+
+GitHub says forked from elekloader/elekloader (not irpina's repo); 173 commits, GPL-2.0-or-later, NOTICE covers digikit code. Per README: Digitakt II 1.17 experimental - whole builds and linkable mods with their own core work, core checked in digikit's emulator, a key-swap mod works on a unit. Digitone II 1.12 experimental - whole builds, linkable mods, SHARC (DSP) mods and selectable synth/filter mods work; UI events and remote input checked on a unit, sine variants ran ten-minute note sweeps plus limited project/effects checks. Analog Rytm MKII 1.74 linkable mods with own core, builds with the core work on a unit; Analog Four MKII 1.56 hook bus, mod storage, unused DDR and recovery checked on a unit. Issue #13 plans Digitone II control-side support modelled on the Digitakt II implementation (hash-based stock-file recognition, devices/digitakt_mk2.py profile). 22 open issues.
+
+_Sources: GitHub README, GitHub issue 13, search 2026-10-31_
+
+### digi-roll-studio
+
+Native Rust desktop sequencer for Digitakt II, Digitone II and Analog Four, built from digi-roll. Writes to hardware: README recommends throwaway projects. Safe-write ceremony of five rules (re-read and back up the destination pattern first, OS build on an allowlist, user confirmation, change only needed bytes, read back and byte-compare). Gen-2 dump protocol (digis) vs gen-1 (Analog Four). +Drive file-write commands 0x57/0x58/0x59 hardware-verified for a single chunk only, not called by the app (writes above 16 KiB refused); 0x5A/0x5B/0x5C (move/copy/delete) not implemented. Protocol code ported from elk-herd (BSD-2, (c) mzero). Fixtures: 34 real .syx dumps. 124 commits, GPL-3.0-or-later. Not firmware modding. Windows/Linux write testing incomplete.
+
+_Sources: GitHub README, search 2026-10-31_
+
+### digitone-syx-toolkit
+
+Python CLI (+ Tkinter GUI) to capture, replay, diff and hex-view SysEx, and to generate Digitone II PATTERN .syx from an empty template. README (Japanese) says Digitone II only. Hardware-validated: pattern-wide mode, tracks 1-8, steps 1-128, normal trigs, pitch, velocity, length (inherit/explicit/INF), tempo/speed/total steps, import/send. Not supported: chords, track-default rewriting, condition/probability/micro timing/retrig, non-destructive editing. Length encoding per README: inherit = 0xFF, explicit INF = 0x7F, finite 0x00..0x7E. 47 commits, licence not shown.
+
+_Sources: GitHub README, SYXGRID README_
+
 ### selache (SHARC+ toolchain)
 
 Open-source toolchain for SHARC+ DSP (assembler/C compiler), GPL-3.0. Named in the dn2mk2 and dn2-cfw docs as the way to build Digitone II DSP code; ElekLabs/selache is a fork updated 2026-10-30. Original repo not read by us yet.
 
 _Sources: dn2mk2 README, ElekLabs org page_
+
+### dn-deobfuscator
+
+Named by SYXGRID as research on the .dn2prj Digitone II project-file format. Not opened by us yet.
+
+_Sources: SYXGRID README_

@@ -12,6 +12,7 @@ Data last verified: 2026-10-31
 | **elekloader** (pina (irpina)) | loader | active | v0.4.0 (2026-10-02); Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental hook bus) | 2026-10-19 | [repo](https://github.com/irpina/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | 2026-10-13 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
+| **digi-roll-studio** (zooloo303) | editor | beta | v0.5.4 (2026-09-09); hardware-verified: Digitakt II 1.16 (0079), Digitone II 1.11 (0059), Analog Four 1.55D (0201); the numbers in parentheses are not explained on the page | 2026-09-09 | [repo](https://github.com/zooloo303/digi-roll-studio) |
 | **digitakt-ii-firmware-research** (lalzart) | research | unlabeled | publication snapshot 2026-08-16; Digitakt II OS 1.15C | 2026-08-16 | [repo](https://github.com/lalzart/digitakt-ii-firmware-research-public) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
 | **digi-roll** (zooloo303) | editor | active | per-device OS-build allowlist (build numbers not listed on the page) | - | [repo](https://github.com/zooloo303/digi-roll) · [web app](https://zooloo303.github.io/digi-roll/) |
@@ -20,13 +21,16 @@ Data last verified: 2026-10-31
 | **DigiSplash-II** (Fadedlimes) | mod | unlabeled | Digitakt II OS 1.17; host Linux/macOS with Python 3.9+ | - | [repo](https://github.com/Fadedlimes/digisplash-ii) |
 | **Elektroid** (dagargo) | tool | active | - | - | [repo](https://github.com/dagargo/elektroid) |
 | **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | - | [repo](https://github.com/dagargo/overwitch) |
+| **elekloader (simonjohansson fork - Digitakt II / Digitone II support)** (simonjohansson) | loader | wip | Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept) | - | [repo](https://github.com/simonjohansson/elekloader) · [plan digitone ii](https://github.com/simonjohansson/elekloader/issues/13) · [devices doc](https://github.com/simonjohansson/elekloader/blob/main/docs/DEVICES.md) |
+| **digitakt-midi-mcp** (feamster) | tool | unlabeled | Digitakt II; README points to the manual (OS 1.03) Appendix B for the full CC map | - | [repo](https://github.com/feamster/digitakt-midi-mcp) |
+| **elk-herd** (mzero (Mark Lentczner)) | tool | unknown | - | - | [repo](https://github.com/mzero/elk-herd) |
 | **selache (SHARC+ toolchain)** (js216 (ElekLabs keeps a fork)) | tool | unverified | - | - | [repo](https://github.com/js216/selache) |
 
 ## Details
 
 ### elekloader
 
-Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. Also covers Octatrack and (proof of concept) Analog Four MKII, which are out of scope for now. Canonical repo is unclear: the forum post also embeds github.com/elekloader/elekloader (web app at elekloader.github.io/elekloader); forks exist (AvroraPolnareff, naturarum, toonst). Forum: builder issue reported 2026-10-19. Licence GPL-2.0-or-later.
+Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. Also covers Octatrack and (proof of concept) Analog Four MKII, which are out of scope for now. Canonical repo is unclear: the forum post also embeds github.com/elekloader/elekloader (web app at elekloader.github.io/elekloader); forks exist (AvroraPolnareff, naturarum, toonst, simonjohansson - the last one adds Digitakt II / Digitone II / Analog Rytm MKII support, see elekloader-simonjohansson). Forum: builder issue reported 2026-10-19. Licence GPL-2.0-or-later.
 
 _Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
 
@@ -107,6 +111,30 @@ _Sources: GitHub README, lapin-list_
 Rust stack for ColdFire V4e (MCF5441x): toolchain (rustc_codegen_gcc + libgccjit for m68k-elf), runtime, PAC generated from an SVD, and an Embassy HAL (GPIO, PIT, INTC, eDMA, UART, DSPI, eSDHC eMMC block reads, SSI/I2S, USB OTG device mode). Not an emulator and not an Elektron mod: the README never mentions Elektron or digikit, the only link is the topic tag "digitakt". It is relevant here because digikit names the MCF54415 as the control CPU of Digitakt II (and the Digitone II is described as ColdFire too). Drivers were run on the author's own MCF54415 board. README: API is young and may change before 1.0. 33 commits, Apache-2.0 OR MIT. Same owner also has deluge-sdk (Synthstrom Deluge, out of scope). Org shows no public members; no relation to ElekLabs/Em D found.
 
 _Sources: GitHub README, FirestormAudio profile page_
+
+### elekloader (simonjohansson fork - Digitakt II / Digitone II support)
+
+GitHub says forked from elekloader/elekloader (not irpina's repo); 173 commits, GPL-2.0-or-later, NOTICE covers digikit code. Per README: Digitakt II 1.17 experimental - whole builds and linkable mods with their own core work, core checked in digikit's emulator, a key-swap mod works on a unit. Digitone II 1.12 experimental - whole builds, linkable mods, SHARC (DSP) mods and selectable synth/filter mods work; UI events and remote input checked on a unit, sine variants ran ten-minute note sweeps plus limited project/effects checks. Analog Rytm MKII 1.74 linkable mods with own core, builds with the core work on a unit; Analog Four MKII 1.56 hook bus, mod storage, unused DDR and recovery checked on a unit. Issue #13 plans Digitone II control-side support modelled on the Digitakt II implementation (hash-based stock-file recognition, devices/digitakt_mk2.py profile). 22 open issues.
+
+_Sources: GitHub README, GitHub issue 13, search 2026-10-31_
+
+### digi-roll-studio
+
+Native Rust desktop sequencer for Digitakt II, Digitone II and Analog Four, built from digi-roll. Writes to hardware: README recommends throwaway projects. Safe-write ceremony of five rules (re-read and back up the destination pattern first, OS build on an allowlist, user confirmation, change only needed bytes, read back and byte-compare). Gen-2 dump protocol (digis) vs gen-1 (Analog Four). +Drive file-write commands 0x57/0x58/0x59 hardware-verified for a single chunk only, not called by the app (writes above 16 KiB refused); 0x5A/0x5B/0x5C (move/copy/delete) not implemented. Protocol code ported from elk-herd (BSD-2, (c) mzero). Fixtures: 34 real .syx dumps. 124 commits, GPL-3.0-or-later. Not firmware modding. Windows/Linux write testing incomplete.
+
+_Sources: GitHub README, search 2026-10-31_
+
+### digitakt-midi-mcp
+
+MCP server to control a Digitakt II over MIDI (notes, CC, NRPN, transport, raw SysEx) over USB with Overbridge. Includes nrpn_constants.py (full NRPN list per README) and tests that need the physical unit; mappings rest on the manual and the author's code, no independent verification claimed. SysEx tools are experimental and "best-guess" - the README says Elektron has not published the pattern SysEx format. MIT, 46 commits, 11 stars. One of the few agent-facing Elektron tools; relevant model for how an agent can talk to a unit.
+
+_Sources: GitHub README, search 2026-10-31_
+
+### elk-herd
+
+"Elektron device manager". Other projects call it the de-facto public documentation of Elektron's SysEx protocol (digi-roll-studio) and port its 7-bit SysEx codec and F0 00 20 3C framing (SYXGRID). BSD-2-Clause per those projects. The GitHub page is a stub: README says the project has migrated away from GitHub to an obfuscated address (not decoded by us) and that issues and pull requests generated by AI will be summarily rejected - do not open AI-generated ones. Device support is not stated on the stub; SYXGRID says elk-herd does not support the Digitone family; the Digitakt II entry is an inference from digi-roll (which ports its protocol for DT2/DN2). 70 stars.
+
+_Sources: GitHub stub, digi-roll-studio README, SYXGRID README_
 
 ### selache (SHARC+ toolchain)
 

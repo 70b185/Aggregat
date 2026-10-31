@@ -31,12 +31,13 @@ Data last verified: 2026-10-31
 | **screendump** (jakobbak) | tool | unlabeled | no firmware change needed; Digitakt only (--instrument dt) | - | [repo](https://github.com/jakobbak/screendump) |
 | **Elektroid** (dagargo) | tool | active | - | - | [repo](https://github.com/dagargo/elektroid) |
 | **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | - | [repo](https://github.com/dagargo/overwitch) |
+| **elekloader (simonjohansson fork - Digitakt II / Digitone II support)** (simonjohansson) | loader | wip | Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept) | - | [repo](https://github.com/simonjohansson/elekloader) · [plan digitone ii](https://github.com/simonjohansson/elekloader/issues/13) · [devices doc](https://github.com/simonjohansson/elekloader/blob/main/docs/DEVICES.md) |
 
 ## Details
 
 ### elekloader
 
-Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. Also covers Octatrack and (proof of concept) Analog Four MKII, which are out of scope for now. Canonical repo is unclear: the forum post also embeds github.com/elekloader/elekloader (web app at elekloader.github.io/elekloader); forks exist (AvroraPolnareff, naturarum, toonst). Forum: builder issue reported 2026-10-19. Licence GPL-2.0-or-later.
+Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. Also covers Octatrack and (proof of concept) Analog Four MKII, which are out of scope for now. Canonical repo is unclear: the forum post also embeds github.com/elekloader/elekloader (web app at elekloader.github.io/elekloader); forks exist (AvroraPolnareff, naturarum, toonst, simonjohansson - the last one adds Digitakt II / Digitone II / Analog Rytm MKII support, see elekloader-simonjohansson). Forum: builder issue reported 2026-10-19. Licence GPL-2.0-or-later.
 
 _Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
 
@@ -183,3 +184,9 @@ _Sources: GitHub README, lapin-list_
 Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII and Heat +FX, Digitakt I/II, Digitone I/II/Keys, Syntakt. Overbridge 1 devices (Analog Four MKI, Analog Keys, Rytm MKI) not supported. GPL-3.0, 671 commits.
 
 _Sources: GitHub README, lapin-list_
+
+### elekloader (simonjohansson fork - Digitakt II / Digitone II support)
+
+GitHub says forked from elekloader/elekloader (not irpina's repo); 173 commits, GPL-2.0-or-later, NOTICE covers digikit code. Per README: Digitakt II 1.17 experimental - whole builds and linkable mods with their own core work, core checked in digikit's emulator, a key-swap mod works on a unit. Digitone II 1.12 experimental - whole builds, linkable mods, SHARC (DSP) mods and selectable synth/filter mods work; UI events and remote input checked on a unit, sine variants ran ten-minute note sweeps plus limited project/effects checks. Analog Rytm MKII 1.74 linkable mods with own core, builds with the core work on a unit; Analog Four MKII 1.56 hook bus, mod storage, unused DDR and recovery checked on a unit. Issue #13 plans Digitone II control-side support modelled on the Digitakt II implementation (hash-based stock-file recognition, devices/digitakt_mk2.py profile). 22 open issues.
+
+_Sources: GitHub README, GitHub issue 13, search 2026-10-31_

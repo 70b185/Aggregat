@@ -41,3 +41,7 @@ Source: {coldfire-rs}. These describe the chip family that digikit names as the 
 | Disassembly | Ghidra passes dnfw's check, Capstone fails; dsp56300 Ghidra module exists but is not tied to Elektron by its own README |
 | Send OS / backups | Elektron Transfer (USB; legacy OS upgrade mode for DIN MIDI recovery) |
 | Linux Overbridge | Overwitch; sample/SysEx manager Elektroid |
+
+## Copies and forks of digikit seen in search results
+Several repos carry the digikit tooling: Bezronczek/digikit (README title "Digitakt II firmware research"), naturarum/digikit ("Never change section 2 (bootstrap) or section 4 (updater)", firmware table: DT2 1.16 and 1.15C, DN2 1.11), simonjohansson/digikit (supported: Digitakt II 1.17 and Digitone II 1.12; "device work so far is on the Digitakt II"; flash flow: drop the image on Transfer while the main screen is shown, press YES). Their docs index `docs/TOOLS.md` and `docs/findings/` (indexed from `docs/FINDINGS.md`) are the next reads. Treat the ElekLabs repo as the reference; check forks for divergent claims. `[doc]` {digikit-forks}
+

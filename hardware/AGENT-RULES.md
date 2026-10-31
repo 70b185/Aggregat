@@ -93,6 +93,8 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A33. Never store a DAG register through its own DAG, and keep SIMD data moves where stock has them.** Both ran bit-exactly in the emulator and hung a real Digitakt II's DSP. Save I/M/L/B registers through an R register. Do SIMD compute on registers, and move data in SISD unless a one-variable probe image has proven the access mode on silicon. `[hw]` {dt2-plaits}
 
+**A34. On ColdFire-audio devices (Syntakt, Digitakt mk1, Digitone mk1), the audio interrupt is the budget.** The Syntakt's CPU #1 sits at ~89 % at rest, so a few thousand instructions per block make the UI lag. Measure cost per block in the emulator, keep a regression test, and make effects idle when silent. Never use RAM above the BSS for mod code on the Syntakt: sample loading overwrites it. `[hw]` {synthack-docs} {synthack-guide}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.

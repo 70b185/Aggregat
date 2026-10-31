@@ -171,3 +171,6 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2-cfw-t3 | Digiwerk notes T3.2 (DSP memory map), T3.3 (FX frame), T2.1 (MIDI voices), T2.4b/c (audio clock, MIDI, LEDs) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T3.3-fx-frame.md |
 | dt2-plaits | digitakt-ii-research All-in-One: PLAITS `OPTIMIZING.md` and `HARDWARE-TEST.md` | https://github.com/karigardarsson/digitakt-ii-research/blob/main/all-in-one/source/digikit/modules/machines/plaits/OPTIMIZING.md |
 | dt2-research | digitakt-ii-research `research/` notes (hook ABI, memory ownership, startup integration; OS 1.16) | https://github.com/karigardarsson/digitakt-ii-research/blob/main/research/hook-abi-audit.md |
+| synthack-docs | Angelo-politek/Synthack-OS `docs/` (memory-map, firmware-format, audio-path, emulation), OS 1.41, v0.9.0 | https://github.com/Angelo-politek/Synthack-OS/blob/main/docs/audio-path.md |
+| synthack-guide | Angelo-politek/Synthack-OS `docs/modding-guide.md` | https://github.com/Angelo-politek/Synthack-OS/blob/main/docs/modding-guide.md |
+| syntakt-workbench | Bezronczek/syntakt-firmware-workbench README | https://github.com/Bezronczek/syntakt-firmware-workbench |

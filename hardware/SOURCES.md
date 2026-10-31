@@ -124,4 +124,8 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2-cfw-arp | dn2-cfw `notes/T2.2-arp-midi-v2.md` (arp vs MIDI tracks, OS 1.12) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T2.2-arp-midi-v2.md |
 | elektron-dt2-support | elektron.se Digitakt II support page (OS 1.17 dated 2026-10-01, manual, FAQ) | https://elektron.se/support-downloads/digitakt-ii |
 | elektron-dn2-support | elektron.se Digitone II support page (OS 1.12 dated 2026-10-01, manual dated 2026-10-08, FAQ) | https://elektron.se/support-downloads/digitone-ii |
+| dn2-manual | Digitone II User Manual, English, OS 1.12 (dated 2026-10-08) - only the first ~95,000 extracted characters are readable by our tool; appendices not reached | https://www.elektron.se/wp-content/uploads/2026/10/Digitone-2-User-Manual_ENG_OS1.12_261008.pdf |
+| dt2-manual | Digitakt II User Manual, English, OS 1.17 - same extraction limit | https://www.elektron.se/wp-content/uploads/2026/10/Digitakt-2-User-Manual_ENG_OS1.17_260930.pdf |
+| kvr-heatfx | KVR forum thread on Analog Heat +FX (users quoting the manual on the analog-only mode) | https://www.kvraudio.com/forum/viewtopic.php?p=8846331 |
+| equipboard-heatfx | Equipboard Analog Heat +FX listing (specs, FAQ) | https://equipboard.com/items/elektron-analog-heat-fx-dynamic-sound-processor |
 

@@ -36,4 +36,6 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | dnfw `docs/bootstrap.md`, `docs/memory-map.md`, `docs/os-versions.md`; dn2-cfw `notes/dn2-release-history.md`, `notes/T1.7-redteam.md`, `notes/T2.2-arp-midi-v2.md` | full | devices/digitone-2-internals.md, common/agent-workflow.md, AGENT-RULES |
 | elekloader `docs/ADAPTING.md` (current, both parts) | full (second part only covers Octatrack USB) | AGENT-RULES D10b |
 | elektronmods thread 27 remainder (offset 100000) | full (no further content) | - |
+| Digitone II manual (OS 1.12) and Digitakt II manual (OS 1.17), PDF | **partial** - text extraction yields ~95,000 characters and stops before the startup-menu chapter and the MIDI appendices | devices/digitone-2.md, devices/digitakt-2.md |
+| Analog Heat +FX manual | not found by URL (a forum post shows a truncated CDN link); KVR/Equipboard snippets only | devices/analog-heat.md |
 

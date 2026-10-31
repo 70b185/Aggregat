@@ -54,6 +54,7 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [~] elektron.se support pages: Digitakt II and Digitone II read; Analog Heat +FX at `https://www.elektron.se/en/download-support-analog-heat-fx`, Digitakt II, Digitone II) and the +FX explorer/spec page - for current OS dates, manual links (MIDI implementation tables, OS upgrade steps), FAQ answers. The fetch was blocked on a permission prompt nobody answered; retry when the user is present.
 - [x] Remaining characters of elektronmods thread 27 (nothing new).
 - [ ] Elektronauts "Digitone 2 pattern manager" and "Introducing Digitakt II / Analog Heat +FX" threads for hardware chatter on the Heat +FX (the +FX thread is at `elektronauts.com/t/introducing-analog-heat-fx/193814`).
-- [ ] Official manuals (PDF) for Digitakt II OS 1.17 and Digitone II OS 1.12 - MIDI implementation appendices; links are on the support pages.
+- [~] Official manuals (PDF) for Digitakt II OS 1.17 and Digitone II OS 1.12: first ~95,000 characters read; **appendix B/C (CC/NRPN tables) and the startup-menu chapter are beyond what the fetch tool extracts** - needs the PDF attached to a chat or a local text extraction.
+- [ ] Analog Heat +FX manual (URL truncated in a forum post: `cdn.www.elektron.se/media/downl...230510.pdf`).
 - [ ] dn2-cfw `notes/` beyond T1.7, T2.2 and the release history; dnfw `docs/` beyond flashing, ele3-format, mainos-image, bootstrap, memory-map, os-versions.
 

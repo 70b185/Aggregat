@@ -91,6 +91,8 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A32. Store each section the way the original stores it.** Some sections are aPLib streams and some are raw, and this differs between devices. Decide from the original (do its bytes depack?), never from an argument. A wrongly compressed or raw section passes every checksum and bricks the unit. Mirror the original's own integrity fields and re-verify the written file. `[doc]` {dn2-principles}
 
+**A33. Never store a DAG register through its own DAG, and keep SIMD data moves where stock has them.** Both ran bit-exactly in the emulator and hung a real Digitakt II's DSP. Save I/M/L/B registers through an R register. Do SIMD compute on registers, and move data in SISD unless a one-variable probe image has proven the access mode on silicon. `[hw]` {dt2-plaits}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.

@@ -54,6 +54,7 @@ digitakt-ii-research grades its own statements as SOURCE/STATIC -> HOST -> SYNTH
 - [`common/sysex-and-midi.md`](common/sysex-and-midi.md) - SysEx and MIDI control (talking to a unit without flashing it)
 - [`common/toolchain-and-emulators.md`](common/toolchain-and-emulators.md) - Toolchains and emulators
 - [`devices/analog-heat.md`](devices/analog-heat.md) - Analog Heat (MKI, MKII, +FX)
+- [`devices/digitakt-2-dsp-optimizing.md`](devices/digitakt-2-dsp-optimizing.md) - Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port
 - [`devices/digitakt-2-sharc-measured.md`](devices/digitakt-2-sharc-measured.md) - Digitakt II (OS 1.17) - SHARC facts measured on a real unit
 - [`devices/digitakt-2.md`](devices/digitakt-2.md) - Digitakt II
 - [`devices/digitakt.md`](devices/digitakt.md) - Digitakt (mk1)

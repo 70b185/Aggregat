@@ -3,7 +3,7 @@
 Ordered by expected value for an agent that builds mods. Tick off and fold the result into the matching device file.
 
 ## Digitone II (highest value)
-- [x] complex-ping/digitone-2-modding-skill: SKILL.md + references/{setup,firmware,coldfire,sharc,emulators,workflow}.md (-> devices/digitone-2-os111-reference.md, common/agent-workflow.md); [ ] `examples/` code, `scripts/hwrules.py` source, THIRD-PARTY.md
+- [x] complex-ping/digitone-2-modding-skill: SKILL.md + references/{setup,firmware,coldfire,sharc,emulators,workflow}.md (-> devices/digitone-2-os111-reference.md, common/agent-workflow.md); [x] examples, hwrules.py, script docstrings (git clone works where the tree page was blocked)
 - [x] angellinares/dn2_firmware_explore: `docs/flashing.md` (-> common/flash-procedure.md); [ ] `docs/mainos-image.md`, `docs/ele3-format.md`
 - [x] naturarum/dn2-cfw: `docs/parameter-table-growth.md` (-> devices/digitone-2.md); [ ] T1.4/T1.5 notes (flash-write audit, STARTUP independence), `tools/brickcheck` (the 12 checks)
 - [x] De-Pattern/dn2mk2-firmware: `docs/SAFETY.md` (-> common/flash-procedure.md); [ ] `docs/emulator.md`, `docs/user-reports.md`, FIRMWARE.md v0.20 and older

@@ -3,6 +3,8 @@
 Coverage: **medium-good** - the most documented small box right now (dn2_firmware_explore, dn2-cfw, Overtone, dn2mk2, the modding skill).
 Projects: [../../devices/digitone-2.md](../../devices/digitone-2.md)
 
+> Deep dive for OS 1.11 (addresses, frame format, free memory, ColdFire/SHARC rules, emulator limits): [`digitone-2-os111-reference.md`](digitone-2-os111-reference.md). Working method for agents: [`../common/agent-workflow.md`](../common/agent-workflow.md).
+
 ## The OS-version split (read this first)
 | OS | Who targets it | Consequence |
 |---|---|---|
@@ -50,6 +52,11 @@ Protected: sections **2, 4, 5 and 8** (bootstrap, updater and others) must stay 
 - Known: Overtone 1.0 could stall on "Receiving"/"PREPARING..." when an OS was sent with Transfer; power-cycle and use the STARTUP menu, install 1.0.1. `[hw]` {overtone}
 - Pre-flash safety kit: back up +Drive, keep the stock OS file for the exact version, volume down, DIN cable ready, check the file's SHA-256 against the gate record (`certutil -hashfile FILE SHA256` on Windows). `[doc]` {dn2mk2-firmware-md}
 - dn2_firmware_explore: own rebuilt images stall at ~80% in the recovery path (fix built, untested). `[doc]` {dn2-firmware-explore}
+
+## dn2-cfw working set (README "Getting started")
+Prerequisites: macOS on Apple silicon (Linux likely for most), Python 3, the user's own `Digitone_II_OS1_12.syx` in `elektron-firmware/`. Upstream tools are cloned into `vendor/` at the commits in `VENDOR.md`; digikit and elekloader come as the author's forks on branch `dn2-1.12` (digikit: 1.12 support, audio clock, DIN MIDI, LEDs, live play; elekloader: a Digitone II 1.12 profile and the `core-dn2` hook bus). Every candidate image must pass `tools/brickcheck` (12 checks) before it is flashed; compile C to SHARC code with selache/selcc and splice with `tools/dspsplice`; use elektron-firmware-tool for the `.syx` format and rebuild. The README does not give a flashing procedure (see `../common/flash-procedure.md`). `[doc]` {dn2-cfw}
+Build ladder, all reported as run on the unit: EF01 (renamed stock: proves rebuild/seal/flash), FLG1 (flanger in place of chorus), FTD1 (+ one-head tape delay with loop filters, wow/flutter, wear, pitch bends on TIME), DH01 (core + MIDI test mod), FTN1 (screens renamed), GT00 (parameter table moved, +63 knob ids), GT01 (+17 hidden rows, 3-band compressor prerequisite). Not yet on the unit: the 3-band compressor and a Space-Echo-style delay. `[hw]` {dn2-cfw}
+Notes in the repo mark each claim `[verified]` or `[inferred]` - copy that convention. `[doc]` {dn2-cfw}
 
 ## Hardware test evidence
 - dn2-cfw: EF01 (renamed stock 1.12) proved rebuild/seal/flash; FLG1 (flanger), FTD1, DH01 (hook bus), FTN1, GT00, GT01 ran on the unit. `[hw]` {dn2-cfw}

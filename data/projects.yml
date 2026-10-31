@@ -173,24 +173,35 @@ projects:
 
   # ---------------------------------------------------------------- Digitakt II
   - id: digitakt-ii-research
-    name: digitakt-ii-research (Déjà Vu LFOs, waveform zoom)
+    name: digitakt-ii-research (Deja Vu LFOs, ONESHOT zoom)
     author: kariGardarsson
     kind: mod
     devices: [digitakt-2]
     repo: https://github.com/karigardarsson/digitakt-ii-research
     links:
-      release: https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.2.0-beta
+      releases: https://github.com/karigardarsson/digitakt-ii-research/releases
+      release_latest: https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.2.0-beta
       forum_deja_vu: https://elektronmods.com/thread-80-good-news-everyone-i-got-deja-vu-lfos-running-on-the
       forum_waveform_zoom: https://elektronmods.com/thread-83-good-news-everyone-i-added-waveform-zoom-to-the-digitakt-ii
     status: beta
-    base_os: "Digitakt II OS 1.16, 1.17"
-    version: v0.2.0-beta
+    base_os: "Digitakt II OS 1.17 (recommended; Deja Vu + ONESHOT zoom) and 1.16 (Deja Vu only)"
+    version: "v0.2.0-beta (18 Oct); earlier v0.1.1-beta (17 Oct, adds OS 1.17), v0.1.0-beta (16 Oct, 1.16 only)"
     last_activity: 2026-10-21
     notes: >
-      Windows standalone builder that needs the user's own official OS file. Author calls it
-      "still experimental". OS 1.16 is no longer on Elektron's download page (author suggests
-      asking Elektron support).
-    sources: ["forum threads 80 and 83"]
+      Windows standalone builder (portable, no Python/Git/WSL needed) that takes the user's own official OS file, identifies it by
+      SHA-256, writes the patched .syx; the user installs it with Elektron Transfer. The builder never connects to the instrument
+      and never flashes. Adds two random-loop LFO waveforms on all three LFOs: DV-F (WAVE 7, free-running) and DV-T (WAVE 8, read
+      position resets on track trigger); MODE = 2/4/8/16/32 steps; SPH = randomness (0 new values each step, 64 locks values and
+      order, 127 keeps values but reorders, in between blends); stock WAVE 0-6 stay on stock paths. v0.2.0-beta adds a ONESHOT waveform
+      zoom (encoder C cycles 1x, 2x, 3.75x, turning C pans; only in the combined 1.17 edition). Hardware: all three outputs validated
+      on a physical unit for normal boot and operation, described by the author as beta evidence, not exhaustive. Open: broad MIDI /
+      sequencer / transport / sync regression, save-reload-power-cycle persistence, long-duration stability. Unsigned .exe (SmartScreen
+      warns). Repo: docs/INSTALLATION.md and docs/RECOVERY.md, windows-builder/, src/dv/ (host model), coldfire/ (DV, routing, trampoline,
+      startup-allocation source), research/ (byte-backed findings), tools/midisniff.py (passive SysEx capture, does not transmit).
+      Evidence ladder used by the author: SOURCE/STATIC, HOST, SYNTHETIC UNICORN, NATURAL EMULATED, HARDWARE. MIT, 7 commits, 4 stars.
+      Credits: Marbles (concept only), Bezronczek's Syntakt Firmware Workbench (behavioural reference), ElekLabs digikit (research tooling,
+      not bundled), elektron-firmware-tool (vendored).
+    sources: [forum threads 80 and 83, GitHub README, GitHub releases]
 
   # ---------------------------------------------------------------- Digitone (mk1 / Keys)
   - id: ringtone
@@ -744,8 +755,17 @@ projects:
     last_activity: 2026-10-13
     notes: >
       Public lab notebook: notes, tools and new effects, no Elektron firmware included. Seven builds run
-      on real hardware per README; next: 3-band compressor, Space-Echo-style delay. Rule of the author:
-      "nothing counts as working until it has run on my unit". 28 commits, GPL-2.0(-or-later).
+      on real hardware per README (EF01 renamed stock, FLG1 flanger replacing the chorus, FTD1 + one-head tape delay, DH01 core/hook
+      bus with a MIDI test mod, FTN1 renamed screens, GT00 parameter table moved, GT01 + 17 hidden rows for the 3-band compressor);
+      not yet on the unit: the 3-band compressor and a Space-Echo-style delay (fx/spaceecho.c). Rule of the author:
+      "nothing counts as working until it has run on my unit". Getting started (README): macOS on Apple silicon (Linux likely for most),
+      Python 3, the user's own Digitone_II_OS1_12.syx in elektron-firmware/, upstream tools cloned into vendor/ (VENDOR.md) - for digikit
+      and elekloader the author's forks on branch dn2-1.12 (digikit: 1.12 support, audio clock, DIN MIDI, LEDs, live play; elekloader:
+      Digitone II 1.12 profile and the core-dn2 hook bus), commands scripts/dn2-emu-112.sh all, scripts/dn2-live.sh, fx make test/renders,
+      tools/brickcheck/brickcheck CANDIDATE.syx (12 checks, must pass before any flash). README gives no step-by-step flashing procedure.
+      Docs: ROADMAP.md, HANDOFF.md (later entries supersede earlier), FIRMWARE.md (sha256s), VENDOR.md, docs/parameter-table-growth.md,
+      notes/ (one report per task, claims marked [verified] or [inferred]), analysis/ (class hierarchy recovered from RTTI).
+      28 commits, GPL-2.0(-or-later).
     sources: [GitHub README, lapin-list]
 
   # ---------------------------------------------------------------- Syntakt
@@ -870,7 +890,11 @@ projects:
       firmware mods: ColdFire MAIN OS patching in C, SHARC DSP audio code, verification in two emulators
       (digikit + a whole-DSP SHARC emulator), rebuild/re-sign/flash over USB. Encodes stock-firmware addresses,
       hook sites, the ColdFire-to-DSP frame format, free memory and "hardware rules the emulators cannot check,
-      which each once silenced a real unit" (contents not yet read by us - see hardware/MINING.md).
+      which each once silenced a real unit" - read on 2026-10-31 via SKILL.md and references/*.md (SKILL.md has 20 rules incl. whole 32-byte
+      boot blocks, stock encodings only, no L2 above 0x200B0000, never read unwritten DDR, 2 MiB image / section 7 under 1 MiB, stop after
+      two failed flashes; scripts include hwrules.py, shapecheck.py, encodecheck.py, bootblocks.py, sim.py/simc.py, cfmod.py, rpc_flash.py).
+      Facts and rules are folded into hardware/devices/digitone-2-os111-reference.md and hardware/common/agent-workflow.md.
+      Note: tree pages are blocked for our fetcher by robots.txt; the blob pages were readable.
       Examples: double_time (sequencer clock hook), track_trim (-6 dB on track 1). Needs Python 3.11+, dnfw,
       m68k GCC, digikit. MIT (digikit-derived files GPL-2.0), 2 commits, 10 stars. Overtone was built with it.
       Closest existing relative of this repo's hardware/ folder.

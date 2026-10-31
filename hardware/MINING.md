@@ -3,7 +3,7 @@
 Ordered by expected value for an agent that builds mods. Tick off and fold the result into the matching device file.
 
 ## Digitone II (highest value)
-- [ ] complex-ping/digitone-2-modding-skill: `skills/.../references/*` - addresses, hook sites, ColdFire-to-DSP frame format, free memory, and the **hardware rules the emulators cannot check** (each "once silenced a real unit")
+- [x] complex-ping/digitone-2-modding-skill: SKILL.md + references/{setup,firmware,coldfire,sharc,emulators,workflow}.md (-> devices/digitone-2-os111-reference.md, common/agent-workflow.md); [ ] `examples/` code, `scripts/hwrules.py` source, THIRD-PARTY.md
 - [x] angellinares/dn2_firmware_explore: `docs/flashing.md` (-> common/flash-procedure.md); [ ] `docs/mainos-image.md`, `docs/ele3-format.md`
 - [x] naturarum/dn2-cfw: `docs/parameter-table-growth.md` (-> devices/digitone-2.md); [ ] T1.4/T1.5 notes (flash-write audit, STARTUP independence), `tools/brickcheck` (the 12 checks)
 - [x] De-Pattern/dn2mk2-firmware: `docs/SAFETY.md` (-> common/flash-procedure.md); [ ] `docs/emulator.md`, `docs/user-reports.md`, FIRMWARE.md v0.20 and older
@@ -44,4 +44,9 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 ## Blocked or skipped (2026-10-31)
 - xrcstrecords/syxgrid-digitone-ii `sysexmap/` and complex-ping/digitone-2-modding-skill `skills/.../` tree pages: our fetcher is refused by the site's robots.txt (`robots_disallowed`). Not worked around. Options: the maintainer pastes the files, or the upstream authors publish them elsewhere.
 - mzero/elk-herd new home: the README obfuscates the address on purpose and asks that AI-generated issues/PRs are not sent; not decoded, not contacted.
+- [ ] naturarum/dn2-cfw: `ROADMAP.md`, `HANDOFF.md`, `notes/` (addresses with [verified]/[inferred]), `analysis/` (RTTI class hierarchy), `tools/brickcheck` source (the 12 checks)
+- [ ] karigardarsson/digitakt-ii-research: `docs/INSTALLATION.md`, `docs/RECOVERY.md`, `research/` (byte-backed findings), `coldfire/` trampoline and startup-allocation source, `tools/midisniff.py`
+- [ ] Cross-check the two Digitakt II routes: digitakt-ii-research (trampoline + startup allocation, 1.16/1.17) vs. dt2-machine-lab (profile dt2-1.16) vs. elekloader fork (core, 1.17)
+- [ ] Verify the skill's OS 1.11 addresses against 1.12 (Overtone, dn2-cfw use 1.12: parameter table `0x401f83a4`, `pg_boot` call `0x40000568`) - build an address-translation note once both sets are confirmed
+- [ ] Resolve the CPU naming discrepancy: skill says MCF5445x, digikit says MCF54415 (and coldfire-rs covers MCF5441x)
 

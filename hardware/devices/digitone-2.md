@@ -3,6 +3,8 @@
 Coverage: **medium-good** - the most documented small box right now (dn2_firmware_explore, dn2-cfw, Overtone, dn2mk2, the modding skill).
 Projects: [../../devices/digitone-2.md](../../devices/digitone-2.md)
 
+> **Lookup table for OS 1.11** (ColdFire and SHARC function/data map, boot-stream format, static-check rules, USB RPC upload protocol, build pipeline): [`digitone-2-os111-firmware-map.md`](digitone-2-os111-firmware-map.md).
+>
 > Machines, SHARC link, sampler/+Drive layout and field incidents: [`digitone-2-machines-sampler-sharc.md`](digitone-2-machines-sampler-sharc.md). Memory/mod areas of all devices: [`../common/memory-maps.md`](../common/memory-maps.md).
 >
 > Internals from the research repos (image identity, stock hashes, flash layout, loader margins, DSP landmarks, +Drive, disassembly pitfalls): [`digitone-2-internals.md`](digitone-2-internals.md).

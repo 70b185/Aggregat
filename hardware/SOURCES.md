@@ -128,4 +128,5 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dt2-manual | Digitakt II User Manual, English, OS 1.17 - same extraction limit | https://www.elektron.se/wp-content/uploads/2026/10/Digitakt-2-User-Manual_ENG_OS1.17_260930.pdf |
 | kvr-heatfx | KVR forum thread on Analog Heat +FX (users quoting the manual on the analog-only mode) | https://www.kvraudio.com/forum/viewtopic.php?p=8846331 |
 | equipboard-heatfx | Equipboard Analog Heat +FX listing (specs, FAQ) | https://equipboard.com/items/elektron-analog-heat-fx-dynamic-sound-processor |
+| dn2-skill-scripts | digitone-2-modding-skill `scripts/*` docstrings and `examples/` (read from a git clone, 2026-10-31) | https://github.com/complex-ping/digitone-2-modding-skill |
 

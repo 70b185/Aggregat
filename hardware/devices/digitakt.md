@@ -8,6 +8,10 @@ Coverage: **good**. Everything below targets OS 1.53 unless stated. Projects: [.
 - Container unsigned? Not stated for Digitakt; Digitone mk1 is unsigned (trailer = 32 zero bytes). `[?]`
 - Recovery: hold FUNC at power-on -> TRIG 4 (OS UPGRADE) -> send the stock `.syx`. `[doc]` {elekloader-readme}
 
+## Where the audio runs (Digiwerk prior-art survey, 2026-10) {dn2-cfw-prior}
+- **The Digitakt mk1 renders all its audio on the ColdFire itself**, in the render interrupt (vector 191). It has no DSP chip. New machines and filters (DigiFilter, digistring, digisophie, digineighbor, digislicer) are ColdFire C built with `m68k-elf-gcc -mcpu=54455`, hooked in the render ISR through elekloader. `[doc]`
+- **Measuring load the digihealth way:** read DMA timer 0's counter (`DTCN0`, `0xFC07000C`) at render entry and exit, and add the idle task's time at the RTOS context switch (`0x40000438` on DT mk1). `[doc]`
+
 ## Memory and code placement (core 2.x, elekloader)
 - Budget shared by all mods (ADAPTING.md, core 2.x era): **128 KB for `.run` + `.bss`**, **2304 bytes of fast SRAM** (`.fast`). Newer cores differ: elekloader kit 0.6.0 gives 4.0 cores a 256 KB Digitakt area, DEVICES.md lists `core_ddr` at `0x47BC0000-0x47C00000` (256 KB) for Digitakt mk1 - see [`../common/memory-maps.md`](../common/memory-maps.md). `[doc]` {elekloader-adapting} {elekloader-devices}
 - Main OS ends at `0x4025CA40` (1.53); an appended blob runs there (`__run_start`, `__bss_end`, `__fast_start`, `__fast_len`). `[doc]` {elekloader-adapting}

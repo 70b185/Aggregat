@@ -17,6 +17,23 @@ Complements [`digitone-2.md`](digitone-2.md) (overview) and [`digitone-2-os111-r
 - **Their safety lesson:** stock code never puts a load into an I register directly before a 48-bit instruction that uses it (0 of ~14 cases; there is always work in between). The SHARC emulator does not model the pipeline, so the cautious pass refuses that pairing. Copy the rule: **do not create instruction pairings the stock code never has.** `[doc]`
 - Load model used: load = (1.30 x emulated instructions + 11k) / 666,667. For one build it predicted ~74 % where the unit showed ~50-60 %, so the model overestimates. `[?]`
 
+## The ColdFire-to-DSP frame and the panel (Digiwerk T3.2, T3.3, T2.1, T2.4b/c; DN2 1.12) {dn2-cfw-t3}
+- **Frame:** 0xa80 bytes from `0x80005e60`, sent by DSPI2 (16-bit DMA, 1,374 halfwords); the reply arrives at `0x800053a4`, every block (1,500/s).
+  - **All send-FX, compressor, external-input and master parameters are one block of big-endian words at `0x9fa + 2*(k-25)`** (`k` = the parameter row's mirror index; chorus is k 25-31).
+  - Compressor routing is at `0xd4` (track bits) and `0xd6`.
+  - 16 per-voice rows of `0x92` bytes start at `0xda`. **A row is a voice, not a track:** a track parameter goes to every row whose owner (`0xa5a + 2r`) is that track. `[emu]`
+- **Audio clock:** SSI0 with eDMA 48 (RX) / 50 (TX), 96,000 requests/s. One major loop is one 32-sample block, and vector 170 forces vector 191 (the frame handler). The emulator needs this clock for PLAY to run the sequencer. `[emu]`
+- **Panel and MIDI:**
+  - Panel MCU on UART8 at 156,250 baud, sent through eDMA 35. LED messages: `B9 i v` (LED i, palette entry v) and `B5 i r g b` (palette entry).
+  - DIN MIDI on UART9 at 31,250 baud: out by eDMA 37 (bulk) plus direct writes for realtime bytes, in by eDMA 36. `[emu]`
+- **Notes:**
+  - MIDI tracks have **no voice limit** in the output engine; the "4 notes" are only the UI's NOT2-NOT4 rows.
+  - A pattern's note pool holds 8,192 notes, with at most 16 notes per step.
+  - The MIDI note-output length is a byte counter over a 1,024-byte buffer.
+  - Stock 1.12 plays more than 4 notes per trig from a modded project. `[doc]`
+- **DSP free memory (static):** L1 block 2 is never written by the stream (128 KB), the L1 block 1 tail `0x2dd52c-0x2effff`, and L2 from `0x2008823c`. **Correction:** the startup turns on all three L1 caches, so `0x39c000-0x39ffff`, `0x2ec000-0x2effff` and `0x31c000-0x31ffff` are cache, not free. dnfw's proven code area is `0x2dd600-0x2e7000`. `[doc]`
+- **Emulator pitfall:** digikit's Unicorn got EMAC **fractional mode** wrong (MACSR F/I = 1). The frame handler uses it, so values that pass through EMAC can be off in the emulator. `[emu]`
+
 ## Image identity
 - MAIN OS = section id 3 of the ELE3 container; **load address `0x40000400`** on Digitone II and Digitone mk1; big-endian; 16-byte header, first instruction `46 FC 27 00` (`MOVE #$2700,SR`) at `0x40000410`. Depacked size: DN2 1.10E **3,085,696 B**, DN2 1.11 about 3.19 MB (3,192,192 B per the modding skill), DN1 1.42A 2,420,912 B. CPU ColdFire V4e (octabam loads MAIN OS at the same address). Mutable state lives in SDRAM at `0x80000000`; the bootstrap (section 2) is read at load base `0x800003fc`. `[doc]` {dn2-mainos-image} {dn2-skill-firmware}
 - Internal C++ namespace: `Digisharc` on DN2, `Digitone` on DN1; 454 Itanium-ABI type names recovered from DN2 1.10E (candidates only - the symbol script gives false positives such as `3VVE`). `[doc]` {dn2-mainos-image}

@@ -6,12 +6,12 @@ Data last verified: 2026-10-31
 
 > No community firmware mod found yet (2026-10-31). Generic tooling covers it: elektron-firmware-tool (firmware container), Elektroid (sample/SysEx manager) and Overwitch (Overbridge audio on Linux) list Analog Heat MKI/MKII/+FX. screendump names it as 'not implemented'. Neither the Lapin list nor altstrument.org has a firmware entry for it. Last official OS we saw on elektron.se: Analog Heat MKI/MKII OS 1.22 (2024-10-16); the +FX has its own OS (release notes last updated 2024-10-16) and MKII firmware is not interchangeable with +FX.
 
-| Project | Kind | Status | Version / OS | Last seen | Links |
-|---|---|---|---|---|---|
-| **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
-| **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
-| **Elektroid** (dagargo) | tool | active | - | - | [repo](https://github.com/dagargo/elektroid) |
-| **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | - | [repo](https://github.com/dagargo/overwitch) |
+| Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
+|---|---|---|---|---|---|---|
+| **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | - | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
+| **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
+| **Elektroid** (dagargo) | tool | active | - | 3.4 | - | [repo](https://github.com/dagargo/elektroid) |
+| **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | 2.2 | - | [repo](https://github.com/dagargo/overwitch) |
 
 ## Details
 

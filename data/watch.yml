@@ -1,0 +1,43 @@
+# Change-detection config for scripts/check_updates.py
+#
+# Every project in data/projects.yml (and data/candidates.yml) with a GitHub repo is watched automatically.
+# A repo counts as "unchanged" when its default-branch HEAD and its tag set match state/fingerprints.json -
+# that check costs one `git ls-remote` per repo and no file content.
+# Only when HEAD moved does the script list the tree (blobless clone, no file contents) and compare the
+# blob hashes of the watched paths below.
+
+# Paths watched in every project repo (fnmatch globs, matched against the full path).
+default_watch:
+  - "*.md"            # README, FIRMWARE.md, CHANGELOG.md, HANDOFF.md, ROADMAP.md, AGENTS.md ... at any depth
+  - "*/mod.json"      # elekloader-style mod manifests
+  - "*.toml"          # digikit device profiles
+  - "LICENSE*"
+  - "COPYING*"
+
+# Extra or narrower watch lists per project id (replace default_watch for that id).
+overrides:
+  elekloader:
+    - "*.md"
+    - "devices/*"
+    - "LICENSE*"
+  digikit:
+    - "*.md"
+    - "devices/*.toml"
+    - "LICENSE*"
+    - "NOTICE*"
+
+# Repos that are not projects but directories - watched to discover NEW projects.
+# For these the report lists added/removed paths under the watch globs.
+directories:
+  - id: dir-altstrument
+    repo: https://github.com/philmillman/altstrument
+    watch:
+      - "src/content/firmwares/elektron-*"
+      - "src/content/devices/elektron-*"
+  - id: dir-lapin
+    repo: https://github.com/Lapin/awesome-music-gear-firmware
+    watch:
+      - "README.md"
+
+# Sources without git (forum pages, vendor pages) cannot be fingerprinted by this script.
+# Check them by hand occasionally; the list lives in hardware/MINING.md.

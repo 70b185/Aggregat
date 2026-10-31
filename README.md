@@ -16,6 +16,8 @@
 | [`data/candidates.yml`](data/candidates.yml) | Entries seen in other directories but not yet checked against their repo | contributors |
 | [`data/devices.yml`](data/devices.yml) | Device catalogue and scope phases | scripts |
 | [`hardware/`](hardware/) | **Knowledge base for AI agents**: rules, recovery, firmware container, memory maps, toolchains, per-device internals - every fact with an evidence tag and a source | agents and humans writing mods |
+| [`state/CHANGES.md`](state/CHANGES.md) | Latest change report from the fingerprint check - **read this first when updating** | agents, maintainers |
+| [`docs/UPDATING.md`](docs/UPDATING.md) | Token-cheap update procedure (fingerprints, diffs, daily GitHub Action) | agents, maintainers |
 | [`docs/BACKLOG.md`](docs/BACKLOG.md) | Research backlog and phase-2 devices | maintainers |
 | [`scripts/build.py`](scripts/build.py) | Regenerates `INDEX.md` and `devices/*.md` from `data/` | maintainers |
 
@@ -48,7 +50,7 @@ pip install pyyaml
 python3 scripts/build.py      # regenerates INDEX.md and devices/*.md
 ```
 
-Entry fields are documented at the top of `data/projects.yml`. Generated files carry a marker - edit the YAML, not the Markdown.
+Entry fields are documented at the top of `data/projects.yml`. To find out *what* needs updating, run `python3 scripts/check_updates.py` (or read `state/CHANGES.md`, written daily by the GitHub Action) - see [`docs/UPDATING.md`](docs/UPDATING.md). Generated files carry a marker - edit the YAML, not the Markdown.
 
 ## Status and scope
 

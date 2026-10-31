@@ -1,0 +1,34 @@
+name: check-updates
+
+# Fingerprints every watched repo (git ls-remote + blobless tree listing, no API token needed)
+# and commits state/fingerprints.json + state/CHANGES.md when something moved.
+on:
+  schedule:
+    - cron: "17 5 * * *"   # daily 05:17 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Check watched repos
+        run: python3 scripts/check_updates.py --update
+      - name: Rebuild pages (latest-tag column)
+        run: python3 scripts/build.py
+      - name: Commit if anything changed
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "aggregat-bot"
+            git config user.email "aggregat-bot@users.noreply.github.com"
+            git add state INDEX.md devices
+            git commit -m "check-updates: $(head -3 state/CHANGES.md | tail -1)"
+            git push
+          fi

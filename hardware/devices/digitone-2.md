@@ -12,6 +12,12 @@ Projects: [../../devices/digitone-2.md](../../devices/digitone-2.md)
 ## Official support page (read 2026-10-31)
 OS **1.12** dated 2026-10-01 ("adds some Outbox 8-related features"; distributed as `Digitone_II_OS1.12_dist.zip`); English manual for OS 1.12 dated 2026-10-08; Japanese manual only for OS 1.00A; Elektron Transfer 1.10.3 (2026-03-04). The page allows personal use of its files and prohibits editing, modifying or redistributing them - one more reason never to commit stock files. `[doc]` {elektron-dn2-support}
 
+## From the official manual (OS 1.12; first part only - the MIDI appendix C was not reachable)
+- 16 tracks, each audio (SYN machine) or MIDI; **16 audio voices** (one per track) each with SYN machine, bit reduction, filter, amp and LFO; 12 V DC via PSU-3c; balanced/unbalanced 1/4" I/O, inputs also over USB; MIDI IN, OUT/SYNC A, THRU/SYNC B (SYNC outputs can send DIN sync); USB type B, class compliant, audio + MIDI, Overbridge. Wait at least 30 s after power-off before powering on again; ambient max 40 deg C. `[doc]` {dn2-manual}
+- **Data model:** +Drive holds up to 128 projects and a library of 2,048 presets; a project = 128 patterns (8 banks x 16), 16 songs, a 128-preset pool and general settings; a pattern holds up to 16 presets (one per track), sequencer data, TRIG page settings, BPM, length, swing, time signature, MIDI track parameters; a preset holds SYN1, SYN2, FLTR, AMP and LFO pages. Digitone I projects can be imported but patterns may differ - re-save on Digitone II before exporting. `[doc]` {dn2-manual}
+- **MIDI in:** notes 0-15 trigger tracks 1-16 (default channels), notes 16-84 (E2-C7) play the active track chromatically (C5 = 60 is middle C), program change 0-127 selects patterns A01-H16, tap tempo by note C0 on the FX CONTROL channel; MIDI tracks: up to 16 notes per step, pitch bend, aftertouch, 16 assignable CCs (CC1-8 on the FLTR page, 9-16 on AMP); the lowest-numbered track wins when tracks share a channel. TRIG modes: TRACKS, VELOCITIES (TRIG 1-15 = velocity 8..120 in steps of 8, TRIG 16 = 127), RETRIGS (1/1 ... 1/64). `[doc]` {dn2-manual}
+- Appendix C groups (numbers not extracted): C.1 Track, C.2 Trig, C.3 Source, C.4 Filter, C.5 Amp, C.6 Euclidean, C.7 FX, C.8 MOD, C.9 Send FX, C.10 Mixer, C.11 VAL, C.12 MISC. Startup menu entries: TEST MODE, EMPTY RESET, FACTORY RESET, OS UPGRADE, EXIT (other sources: TRIG 4 = OS UPGRADE). `[doc]` {dn2-manual}
+
 ## The OS-version split (read this first)
 | OS | Who targets it | Consequence |
 |---|---|---|

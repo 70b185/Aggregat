@@ -43,12 +43,13 @@ digitakt-ii-research grades its own statements as SOURCE/STATIC -> HOST -> SYNTH
 ## All files in this folder
 
 - [`common/agent-workflow.md`](common/agent-workflow.md) - Agent workflow for firmware mods (distilled from the digitone-2-modding-skill)
+- [`common/dt2-dn2-limits-and-audio-chain.md`](common/dt2-dn2-limits-and-audio-chain.md) - Digitakt II / Digitone II - firmware limits, DSP calling convention and the audio chain (DT2 1.17, DN2 1.12)
 - [`common/ecosystem-lessons.md`](common/ecosystem-lessons.md) - Ecosystem lessons - how the 2026 custom-firmware wave is built, verified and what goes wrong
 - [`common/firmware-container.md`](common/firmware-container.md) - Firmware container (.syx) - facts shared by the devices
 - [`common/flash-procedure.md`](common/flash-procedure.md) - Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw)
 - [`common/memory-maps.md`](common/memory-maps.md) - Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era)
 - [`common/os-update-protocol.md`](common/os-update-protocol.md) - How Digitakt II and Digitone II take an OS update from the running OS (DT2 1.17, DN2 1.12)
-- [`common/overbridge-usb.md`](common/overbridge-usb.md) - Overbridge over USB (what Overwitch's README reveals)
+- [`common/overbridge-usb.md`](common/overbridge-usb.md) - Overbridge over USB (what Overwitch's README reveals) - the only deep source on Analog Heat +FX so far
 - [`common/recovery.md`](common/recovery.md) - Recovery and flashing
 - [`common/sysex-and-midi.md`](common/sysex-and-midi.md) - SysEx and MIDI control (talking to a unit without flashing it)
 - [`common/toolchain-and-emulators.md`](common/toolchain-and-emulators.md) - Toolchains and emulators

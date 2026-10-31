@@ -20,6 +20,11 @@ The page does not mention Analog Heat or any other planned device. `[doc]` {elek
 - **NOR flash 16 MiB**, S25FL127S-class (RDID mfg 0x01, id 0x2018); the bootstrap's flash loop uses 512-byte pages and 256 KB erase blocks. The in-OS writer (finding 75) uses 0x100-byte pages and 0x10000 sectors from flash `0x80000` - two code paths, two geometries `[?]`. `[doc]` {digikit-f08} {digikit-f75}
 - UART8 receive is done by eDMA (channel 34), not by reading the data register - an emulator must model eDMA, not just the UART. `[emu]` {digikit-f08}
 - **eMMC card (both, about 32 GB part, 0x2E1A000 sectors assumed):** sectors `0x0-0x457FFF` belong to the firmware (boot, tables, projects, pools, presets); **MmcFs refuses writes at `0x457FFF` and above**. DT2 1.17: factory sample table "MaGj" at `0x458000` and 1,265 factory samples to `0x5D7FFF` - never touch; +Drive (ekFS) `0x5D8000-0x2DF017F`; `0x2DF0180` to the end unused. DN2 1.12: nothing stock writes at `0x458000` and up; FORMAT trims only up to `0x457FFF`. Unchecked bank ids in the Data API can reach every sector **below `0x800000`** over USB - put any private store above that line (digikit: DT2 `0x2DF1000+`, DN2 `0x800000+`). Not checked on a real card. `[doc]` {digikit-f59}
+- **Card pools inside the firmware area (MmcFs)** `[emu]` {digikit-samples}:
+  - Fixed slots: projects 0-127 (16 MiB each on both), sounds 0-2047 (DT2 4 KiB, DN2 1 KiB), kits 0-1023 (DT2 64 KiB, DN2 32 KiB).
+  - The bitmaps at sector `0x800` are **write-protect padlocks, not occupancy**.
+  - The boot project (magic "COKi") has two copies at sectors `0x40000` and `0x48000`. The working project is at `0x50000` and is rewritten from the boot copy at every start.
+  - **The DT2 has a path filesystem (ekFS +Drive) for samples. The DN2 has none**: only the MmcFs pools. Card layouts are device data (digikit `devices/<device>.toml`).
 
 ## Details per device
 - **Digitakt mk1:** ELE3, device byte `0x14` (the same byte the page also gives for Digitakt II; dnfw's table lists DT2 as `0x14`, DN2 `0x15`, DN1 `0x0D` - treat the DT1 value as `[?]`), six-plus sections, main OS staged at `0x40200000`. DDR is free RAM. Hook sites: no numeric list on the page; the first eight sites of the Digitone mk1 are described as the Digitakt mk1's.

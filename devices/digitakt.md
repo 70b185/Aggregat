@@ -6,28 +6,30 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Last seen | Links |
 |---|---|---|---|---|---|
-| **Digineighbor (NEIGHBOR machine)** (pina (irpina)) | mod | alpha | 0.6 (prototype, per elekloader v0.4.0 notes); Digitakt mk1 1.53, 1.54 | 2026-10-25 | [repo](https://github.com/irpina/digineighbor) · [forum](https://elektronmods.com/thread-21-digineighor-a-neighbor-machine-for-the-digitakt-mk1) |
-| **elekloader** (pina (irpina)) | loader | active | v0.4.0 (2026-10-02); Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental hook bus) | 2026-10-19 | [repo](https://github.com/irpina/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
+| **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | 2026-10-30 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
+| **DigiFilter** (DigiAlchemydsp) | mod | wip | v1.3 (2026-10-24); Digitakt mk1 OS 1.53 (Digitakt II explicitly out of scope) | 2026-10-24 | [repo](https://github.com/DigiAlchemydsp/DigiFilter) |
+| **DigiPools** (freeze157-prog) | mod | unknown | Digitakt mk1 OS 1.54 | 2026-10-24 | [forum](https://elektronmods.com/mods.php?id=57) |
+| **digislicer** (pina (irpina)) | mod | released | 2.5 (2026-10-20); Digitakt mk1 OS 1.53 only | 2026-10-20 | [repo](https://github.com/irpina/digislicer) |
+| **digiscreen** (irpina) | tool | active | main @ 2faefb1 (2026-10-19), untagged | 2026-10-19 | [repo](https://github.com/irpina/digiscreen) |
 | **Request: additional sequencer pages for DN1/DT1** (ChopChop) | request | request | - | 2026-10-18 | [forum](https://elektronmods.com/thread-78-additional-sequencerpages-for-dn1-dt1) |
 | **Request: DT MIDI retrigger** (TGN) | request | request | - | 2026-10-18 | [forum](https://elektronmods.com/thread-82-dt-midi-retrigger) |
 | **takt1ccname (MIDI CC naming)** (vegadw) | mod | done | Digitakt mk1 | 2026-10-16 | [repo](https://github.com/triode-the-andrewsarchus/takt1ccname) · [forum](https://elektronmods.com/thread-66-digitakt-mk1-midi-cc-naming) |
 | **digirequests (Digitakt request mods)** (sumedho) | mod | unknown | - | 2026-10-16 | [repo](https://github.com/sumedho/digirequests) · [cc names module](https://github.com/sumedho/digirequests/tree/main/modules/cc-names) |
+| **digihealth** (pina (irpina)) | mod | wip | v1.1.1 (2026-10-14); Digitakt mk1 OS 1.53 (digihealth 1.0); Digitone mk1 + Keys OS 1.43 (1.1, SYSTEM INFO only) | 2026-10-14 | [repo](https://github.com/irpina/digihealth) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | 2026-10-13 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
+| **Digineighbor (NEIGHBOR machine)** (pina (irpina)) | mod | alpha | 0.7 (commit 2026-10-09; latest tagged release v0.6, 2026-10-02); Digitakt mk1 1.53, 1.54 | 2026-10-09 | [repo](https://github.com/irpina/digineighbor) · [forum](https://elektronmods.com/thread-21-digineighor-a-neighbor-machine-for-the-digitakt-mk1) |
+| **DT-FM** (mtalikka) | mod | released | v1.2.1 (2026-10-09); Digitakt mk1 OS 1.53 | 2026-10-09 | [repo](https://github.com/mtalikka/DT-FM) |
+| **Digidrum** (soejrd) | mod | alpha | v0.4.1-alpha.1 (2026-10-06); Digitakt mk1 OS 1.53 (Digitone and Syntakt are stated goals, not current targets) | 2026-10-06 | [repo](https://github.com/soejrd/digidrum) |
 | **digiemu** (pina (irpina)) | emulator | stable | firmware from the forum's firmware list; one user reports it needs 1.43 | 2026-10-05 | [repo](https://github.com/irpina/digiemu) · [forum](https://elektronmods.com/thread-20-digiemu-a-digitakt-and-digitone-emulator) |
+| **digistring** (Alez22) | mod | released | v0.8.0 (2026-10-05); Digitakt mk1 OS 1.53 only | 2026-10-05 | [repo](https://github.com/Alez22/digistring) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
-| **Digisophie / Sophie for Digitakt** (Soejrd) | mod | unknown | Digitakt mk1 OS 1.53 | 2026-09-30 | [repo](https://github.com/soejrd/digisophie) · [news](https://www.synthtopia.com/content/2026/09/30/unofficial-mods-for-elektron-digitakt-adds-metallic-percussion-synth-machine/) |
+| **Digisophie / Sophie for Digitakt** (Soejrd) | mod | unknown | v1.1.13 (2026-10-02); Digitakt mk1 OS 1.53 | 2026-10-02 | [repo](https://github.com/soejrd/digisophie) · [news](https://www.synthtopia.com/content/2026/09/30/unofficial-mods-for-elektron-digitakt-adds-metallic-percussion-synth-machine/) |
+| **DigiSplash** (DigiAlchemydsp) | mod | unlabeled | v1.1 (2026-09-30); Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/DigiSplash) |
+| **DigiCandy** (DigiAlchemydsp) | mod | wip | v1.0 (2026-09-30); Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/DigiCandy) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
-| **digistring** (Alez22) | mod | released | v0.7.0; Digitakt mk1 OS 1.53 only | - | [repo](https://github.com/Alez22/digistring) |
-| **DigiFilter** (DigiAlchemydsp) | mod | wip | Digitakt mk1 OS 1.53 (Digitakt II explicitly out of scope) | - | [repo](https://github.com/DigiAlchemydsp/DigiFilter) |
-| **DigiSplash** (DigiAlchemydsp) | mod | unlabeled | Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | - | [repo](https://github.com/DigiAlchemydsp/DigiSplash) |
 | **digi1_mods** (gdeo607) | mod | wip | builds v3p, v3q-spectrum, v3r-all; elekloader build 2.0d; Digitakt mk1 OS 1.53 | - | [repo](https://github.com/gdeo607/digi1_mods) |
-| **digislicer** (pina (irpina)) | mod | released | 1.2; Digitakt mk1 OS 1.53 only | - | [repo](https://github.com/irpina/digislicer) |
-| **DT-FM** (mtalikka) | mod | released | 1.0.1 (firmware S034); Digitakt mk1 OS 1.53 | - | [repo](https://github.com/mtalikka/DT-FM) |
-| **Digidrum** (soejrd) | mod | alpha | Digitakt mk1 OS 1.53 (Digitone and Syntakt are stated goals, not current targets) | - | [repo](https://github.com/soejrd/digidrum) |
 | **digigrain** (lucykowal) | mod | wip | Digitakt mk1 OS 1.53 | - | [repo](https://github.com/lucykowal/digigrain) |
-| **digihealth** (pina (irpina)) | mod | wip | 1.0 / 1.1; Digitakt mk1 OS 1.53 (digihealth 1.0); Digitone mk1 + Keys OS 1.43 (1.1, SYSTEM INFO only) | - | [repo](https://github.com/irpina/digihealth) |
 | **digirta** (Alez22) | mod | unlabeled | 0.3.0 (build file name, no published release); Digitakt mk1 OS 1.53 only | - | [repo](https://github.com/Alez22/digirta) |
-| **DigiCandy** (DigiAlchemydsp) | mod | wip | digicandy-v1.0; Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | - | [repo](https://github.com/DigiAlchemydsp/DigiCandy) |
 | **screendump** (jakobbak) | tool | unlabeled | no firmware change needed; Digitakt only (--instrument dt) | - | [repo](https://github.com/jakobbak/screendump) |
 | **Elektroid** (dagargo) | tool | active | - | - | [repo](https://github.com/dagargo/elektroid) |
 | **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | - | [repo](https://github.com/dagargo/overwitch) |
@@ -38,6 +40,8 @@ Data last verified: 2026-10-31
 ### elekloader
 
 Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. Also covers Octatrack and (proof of concept) Analog Four MKII, which are out of scope for now. Canonical repo is unclear: the forum post also embeds github.com/elekloader/elekloader (web app at elekloader.github.io/elekloader); forks exist (AvroraPolnareff, naturarum, toonst, simonjohansson - the last one adds Digitakt II / Digitone II / Analog Rytm MKII support, see elekloader-simonjohansson). Forum: builder issue reported 2026-10-19. Licence GPL-2.0-or-later.
+
+_Latest seen (2026-10-31, secondary directories): altstrument.org and the repo (read 2026-10-31): canonical repo is github.com/elekloader/elekloader (183 commits, 103 stars, GPL-2.0-or-later); web app moved to elekloader.github.io/elekloader; the Mac app was absent from v0.9.0 because signing secrets need renewing. v0.9.0 cores: core-4.1 and core-4.1-os1.54 (Digitakt mk1), core-dn1-4.1.1 and -os1.44 (Digitone mk1), core-ar2-0.8 (Analog Rytm MKII 1.74), core-ot-0.8 (Octatrack 1.40C), core-mc-0.3 (Model:Cycles), core-ms-0.1 (Model:Samples), core-a4 0.1-0.4 (Analog Four MKII 1.56). Kit 0.7.0 catalog: 19 cores, 88 mods. machine-pages 1.2/1.3/1.5 need core 3.0+ on Digitakt mk1 and refuse NEIGHBOR 0.6, SOPHIE 1.1.13 and digichain-based machine mods beside them; fxkit 0.1 gives Digitone effect mods a shared mixer, two LFOs, pattern p-locks and a CPU guard; core-dn1 4.1 adds ev_note_queue; kit 0.6.0 gives 4.0 cores larger RAM areas (256 KB Digitakt, 1.25 MB Digitone). docs/ includes AGENTS.md, DEVICES.md, MACHINES-DN2, SHARC-DN2, CORES, FORMAT, BUILDING, ADAPTING (not all read yet - see hardware/MINING.md). The earlier irpina/elekloader repo is where the author's older releases lived._
 
 _Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
 
@@ -57,17 +61,23 @@ _Sources: forum mod list (mods.php?id=7), forum thread 8_
 
 Emulator for testing mods without hardware. GitHub description also lists Model:Cycles and Model:Samples. A Mac release is mentioned in the thread but no link was given. A user reported an audio issue.
 
+_Latest seen (2026-10-31, secondary directories): altstrument: v0.4.1 (2026-10-09); elektronmods: Windows and Apple silicon; covers Digitakt, Digitone (mk1), Model:Cycles, Model:Samples._
+
 _Sources: forum thread 20_
 
 ### Digineighbor (NEIGHBOR machine)
 
 Users ask for a Digitone version. Installed via elekloader.
 
+_Latest seen (2026-10-31, secondary directories): altstrument: 0.7 needs the core 3.0 machine pages; OS 1.53/1.54._
+
 _Sources: forum thread 21, elekloader release v0.4.0_
 
 ### Digisophie / Sophie for Digitakt
 
 Metallic percussion machine (FUSE, BOOM, PIPE, SHARD), fixed-point adaptation of "Sophie for Schwung" by mestela. Repo distributes source only. Needs elekloader. last_activity = Synthtopia article date.
+
+_Latest seen (2026-10-31, secondary directories): altstrument: four models FUSE, BOOM, PIPE, SHARD, parameter-lockable; OS 1.53/1.54; MIT._
 
 _Sources: synthtopia, gearnews_
 
@@ -105,17 +115,23 @@ _Sources: forum overview_
 
 Karplus-Strong plucked-string machine, elekloader mod. MIT, 13 commits.
 
+_Latest seen (2026-10-31, secondary directories): altstrument: v0.8.0 adds OS 1.54 support; v0.7.0 adds STRING-fast._
+
 _Sources: GitHub README, lapin-list_
 
 ### DigiFilter
 
 Extra per-track filter modes (BP, BP2, COMB, TRASH). README: audio path done and validated, FLTR response curve cosmetic gap, known BP clipping at some frequencies. GPL-2.0-or-later, 6 commits. Note: the Tone+FX package list also names a digifilter-1.0 package.
 
+_Latest seen (2026-10-31, secondary directories): altstrument: v1.3 adds a Digitone mk1/Keys build (six filter modes) and splits Filter+FX into its own project; v1.2 caps Digitakt OB resonance at 75 %; v1.1b lowers per-voice cost. Stock OS: Digitakt 1.54, Digitone 1.44. GPL-2.0-or-later._
+
 _Sources: GitHub README, lapin-list_
 
 ### DigiSplash
 
 Boot-splash mods incl. animated screens and a PNG/GIF generator. Prebuilt .elemod files sit in a releases/ folder of the repo (no tagged release). GPL-2.0, 13 commits.
+
+_Latest seen (2026-10-31, secondary directories): altstrument: animated splashes, the stock rare animation, PNG/GIF generator; v1.0 was 2026-09-29._
 
 _Sources: GitHub README, lapin-list_
 
@@ -129,17 +145,23 @@ _Sources: GitHub README, lapin-list_
 
 Slicer for the Digitakt mk1. 1.2 notes say "not yet tried on a unit" (emulator only). GPL-2.0-or-later, 5 commits. Also a "curated mod" in the elekloader shop.
 
+_Latest seen (2026-10-31, secondary directories): altstrument: 2.5 replaces GRID with a STRETCH control; needs core 3.0+ and the machine-pages mod; OS 1.53/1.54._
+
 _Sources: GitHub README, lapin-list, elekloader release v0.2.0_
 
 ### DT-FM
 
 4-operator FM, based on digisophie by soejrd. Author states the code is largely AI-generated and not proofread. MIT (digihealth part GPL-2.0-or-later), 35 commits.
 
+_Latest seen (2026-10-31, secondary directories): altstrument: eight algorithms, based on digisophie; v1.2.1 adds parameter locks on the SRC page; OS 1.53/1.54; MIT._
+
 _Sources: GitHub README, lapin-list_
 
 ### Digidrum
 
 Machinedrum-style sounds. README warns "super alpha ... experimental firmware not ready for use", crashes and CPU overload possible. 27 commits. License not stated.
+
+_Latest seen (2026-10-31, secondary directories): altstrument: recreates Machinedrum machines as playable engines, starting with TRX and PI; build from source; licence unspecified._
 
 _Sources: GitHub README, lapin-list_
 
@@ -152,6 +174,8 @@ _Sources: GitHub README, lapin-list_
 ### digihealth
 
 Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). On Digitone: FAST AUDIO not ported, not yet on a unit. GPL-2.0, 3 commits.
+
+_Latest seen (2026-10-31, secondary directories): altstrument: FAST AUDIO runs hot code from SRAM to cut DSP load; v1.1.1 adds a Digitone build (targets 1.44)._
 
 _Sources: GitHub README, lapin-list, elekloader release v0.4.0_
 
@@ -171,17 +195,23 @@ _Sources: GitHub README, lapin-list_
 
 Terminal tool that dumps the screen buffer. Only the Digitakt is implemented. README lists Digitakt II, Digitone I/II, Syntakt, Analog Heat and others as known but NOT implemented. Works on macOS, awaits tests on Linux/Windows. MIT, 14 commits.
 
+_Latest seen (2026-10-31, secondary directories): altstrument: main @ 33e2888 (2026-09-19), no tagged releases; also records GIFs and video with audio._
+
 _Sources: GitHub README, lapin-list_
 
 ### Elektroid
 
 Sample and SysEx manager. README device list includes Analog Heat MKI, MKII and +FX, Digitakt I and II, Digitone I/II/Keys, Syntakt (also Analog Four/Rytm/Keys, Model:Cycles/Samples, Monomachine MKII). GPL-3.0, 2,506 commits, 425 stars. No version/date visible.
 
+_Latest seen (2026-10-31, secondary directories): altstrument: v3.4 (2026-08-22) adds Syntakt samples; also KORG logue and Monomachine; GPL-3.0-or-later; author's tool does not change firmware._
+
 _Sources: GitHub README, lapin-list_
 
 ### Overwitch
 
 Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII and Heat +FX, Digitakt I/II, Digitone I/II/Keys, Syntakt. Overbridge 1 devices (Analog Four MKI, Analog Keys, Rytm MKI) not supported. GPL-3.0, 671 commits.
+
+_Latest seen (2026-10-31, secondary directories): altstrument: v2.2 (2025-12-21), GPL-3.0-or-later, JACK clients streaming multitrack Overbridge 2 audio._
 
 _Sources: GitHub README, lapin-list_
 
@@ -190,3 +220,15 @@ _Sources: GitHub README, lapin-list_
 GitHub says forked from elekloader/elekloader (not irpina's repo); 173 commits, GPL-2.0-or-later, NOTICE covers digikit code. Per README: Digitakt II 1.17 experimental - whole builds and linkable mods with their own core work, core checked in digikit's emulator, a key-swap mod works on a unit. Digitone II 1.12 experimental - whole builds, linkable mods, SHARC (DSP) mods and selectable synth/filter mods work; UI events and remote input checked on a unit, sine variants ran ten-minute note sweeps plus limited project/effects checks. Analog Rytm MKII 1.74 linkable mods with own core, builds with the core work on a unit; Analog Four MKII 1.56 hook bus, mod storage, unused DDR and recovery checked on a unit. Issue #13 plans Digitone II control-side support modelled on the Digitakt II implementation (hash-based stock-file recognition, devices/digitakt_mk2.py profile). 22 open issues.
 
 _Sources: GitHub README, GitHub issue 13, search 2026-10-31_
+
+### digiscreen
+
+Android web page that mirrors the 128x64 screen over USB MIDI, read-only. Digitakt mk1, Digitone mk1, Model:Cycles, Model:Samples. GPL-2.0-or-later.
+
+_Sources: altstrument tools page_
+
+### DigiPools
+
+SRC machine for Digitakt mk1 built on elekloader, played from the Chromatic keyboard; listed on elektronmods 2026-10-24. Repository URL not read yet.
+
+_Sources: elektronmods list_

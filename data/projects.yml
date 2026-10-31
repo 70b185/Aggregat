@@ -1,0 +1,336 @@
+# Aggregat – project metadata (links + status only, no firmware, no binaries)
+#
+# Fields
+#   id             unique slug
+#   name           project name
+#   author         handle(s) as published
+#   kind           mod | loader | emulator | editor | tool | research | resource | request
+#   devices        list of device slugs (see devices.yml)
+#   repo           primary source repository (null if none known)
+#   links          other URLs: homepage / releases / forum thread
+#   status         active | beta | alpha | stable | wip | done | request | unknown
+#   base_os        stock OS versions the project targets (as stated by the author)
+#   version        latest version/release named in the sources
+#   last_activity  YYYY-MM-DD of the latest forum post / release we saw (not a commit date)
+#   notes          short free text
+#   sources        where the information came from
+#
+# All entries last verified on 2026-10-31 (see `checked`). Status values are
+# taken from the authors' own wording where available.
+
+checked: 2026-10-31
+
+projects:
+  # ---------------------------------------------------------------- loaders / hubs
+  - id: elekloader
+    name: elekloader
+    author: pina (irpina)
+    kind: loader
+    devices: [digitakt, digitone, digitakt-2]
+    repo: https://github.com/irpina/elekloader
+    links:
+      web_app: https://irpina.github.io/elekloader/
+      releases: https://github.com/irpina/elekloader/releases
+      forum: https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices
+    status: active
+    base_os: "Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental hook bus)"
+    version: v0.4.0 (2026-10-02)
+    last_activity: 2026-10-19
+    notes: >
+      Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally.
+      Also covers Octatrack and (proof of concept) Analog Four MKII, which are out of scope for now.
+      Canonical repo is unclear: the forum post also embeds github.com/elekloader/elekloader
+      (web app at elekloader.github.io/elekloader); forks exist (AvroraPolnareff, naturarum, toonst).
+      Forum: builder issue reported 2026-10-19. Licence GPL-2.0-or-later.
+    sources: [forum thread 30, GitHub release v0.4.0, gearnews, dubspot]
+
+  - id: modwerk
+    name: Modwerk (formerly Octamod)
+    author: "not named in sources (SDK repo owner repeat98)"
+    kind: loader
+    devices: [digitakt, digitone, digitakt-2]
+    repo: https://github.com/repeat98/modwerk
+    links:
+      web_app: https://modwerk.app/
+      forum: https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods
+    status: active
+    base_os: "Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing"
+    version: null
+    last_activity: 2026-10-13
+    notes: >
+      Browser-based hub, builds locally from the user's own stock OS. Browse mods by device,
+      forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still
+      early prototypes. last_activity = date of the Dubspot article, not a forum post.
+    sources: [gearnews, dubspot, forum thread 36]
+
+  - id: elektron-firmware-tool
+    name: elektron-firmware-tool
+    author: mischa85
+    kind: tool
+    devices: [digitakt, digitakt-2, digitone, digitone-2, syntakt, analog-heat]
+    repo: https://github.com/mischa85/elektron-firmware-tool
+    links:
+      forum_mod_list: https://elektronmods.com/mods.php?id=7
+      tutorial: https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack
+    status: active
+    base_os: any (generic .syx unpack/repack with checksum verification)
+    version: null
+    last_activity: 2026-10-03
+    notes: >
+      C, MIT licence. Unpacks Elektron .syx firmware and repacks it as a valid file.
+      Lists Analog Heat MKI, MKII and +FX among supported devices - currently the only
+      Analog Heat-relevant tool we found. Forum listing: 113 stars, repo created 2026-07-22,
+      "last commit 1 month ago" at the time of listing.
+    sources: ["forum mod list (mods.php?id=7)", forum thread 8]
+
+  # ---------------------------------------------------------------- Digitakt (mk1)
+  - id: digiemu
+    name: digiemu
+    author: pina (irpina)
+    kind: emulator
+    devices: [digitakt, digitone]
+    repo: https://github.com/irpina/digiemu
+    links:
+      forum: https://elektronmods.com/thread-20-digiemu-a-digitakt-and-digitone-emulator
+    status: stable
+    base_os: "firmware from the forum's firmware list; one user reports it needs 1.43"
+    version: null
+    last_activity: 2026-10-05
+    notes: >
+      Emulator for testing mods without hardware. GitHub description also lists Model:Cycles and
+      Model:Samples. A Mac release is mentioned in the thread but no link was given. A user
+      reported an audio issue.
+    sources: [forum thread 20]
+
+  - id: digineighbor
+    name: Digineighbor (NEIGHBOR machine)
+    author: pina (irpina)
+    kind: mod
+    devices: [digitakt]
+    repo: https://github.com/irpina/digineighbor
+    links:
+      forum: https://elektronmods.com/thread-21-digineighor-a-neighbor-machine-for-the-digitakt-mk1
+    status: alpha
+    base_os: "Digitakt mk1 1.53, 1.54"
+    version: "0.6 (prototype, per elekloader v0.4.0 notes)"
+    last_activity: 2026-10-25
+    notes: Users ask for a Digitone version. Installed via elekloader.
+    sources: [forum thread 21, elekloader release v0.4.0]
+
+  - id: digisophie
+    name: Digisophie / Sophie for Digitakt
+    author: Soejrd
+    kind: mod
+    devices: [digitakt]
+    repo: https://github.com/soejrd/digisophie
+    links:
+      news: https://www.synthtopia.com/content/2026/09/30/unofficial-mods-for-elektron-digitakt-adds-metallic-percussion-synth-machine/
+    status: unknown
+    base_os: "Digitakt mk1 OS 1.53"
+    version: null
+    last_activity: 2026-09-30
+    notes: >
+      Metallic percussion machine (FUSE, BOOM, PIPE, SHARD), fixed-point adaptation of
+      "Sophie for Schwung" by mestela. Repo distributes source only. Needs elekloader.
+      last_activity = Synthtopia article date.
+    sources: [synthtopia, gearnews]
+
+  - id: takt1ccname
+    name: takt1ccname (MIDI CC naming)
+    author: vegadw
+    kind: mod
+    devices: [digitakt]
+    repo: https://github.com/triode-the-andrewsarchus/takt1ccname
+    links:
+      forum: https://elektronmods.com/thread-66-digitakt-mk1-midi-cc-naming
+    status: done
+    base_os: "Digitakt mk1"
+    version: null
+    last_activity: 2026-10-16
+    notes: >
+      Author says it is "done and as good as it's going to get" (2026-10-15). Uses a compile-time
+      list of 64 preset words per knob. Earlier report: names did not survive a reboot (fix not
+      confirmed). Users ask for a merge into Modwerk.
+    sources: [forum thread 66]
+
+  - id: digirequests
+    name: digirequests (Digitakt request mods)
+    author: sumedho
+    kind: mod
+    devices: [digitakt]
+    repo: https://github.com/sumedho/digirequests
+    links:
+      cc_names_module: https://github.com/sumedho/digirequests/tree/main/modules/cc-names
+    status: unknown
+    base_os: null
+    version: null
+    last_activity: 2026-10-16
+    notes: >
+      Module collection suggested in the CC-naming thread. Its cc-names module reportedly has
+      memory/storage problems (per vegadw). Needs a closer look.
+    sources: [forum thread 66]
+
+  # ---------------------------------------------------------------- Digitakt II
+  - id: digitakt-ii-research
+    name: digitakt-ii-research (Déjà Vu LFOs, waveform zoom)
+    author: kariGardarsson
+    kind: mod
+    devices: [digitakt-2]
+    repo: https://github.com/karigardarsson/digitakt-ii-research
+    links:
+      release: https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.2.0-beta
+      forum_deja_vu: https://elektronmods.com/thread-80-good-news-everyone-i-got-deja-vu-lfos-running-on-the
+      forum_waveform_zoom: https://elektronmods.com/thread-83-good-news-everyone-i-added-waveform-zoom-to-the-digitakt-ii
+    status: beta
+    base_os: "Digitakt II OS 1.16, 1.17"
+    version: v0.2.0-beta
+    last_activity: 2026-10-21
+    notes: >
+      Windows standalone builder that needs the user's own official OS file. Author calls it
+      "still experimental". OS 1.16 is no longer on Elektron's download page (author suggests
+      asking Elektron support).
+    sources: ["forum threads 80 and 83"]
+
+  # ---------------------------------------------------------------- Digitone (mk1 / Keys)
+  - id: ringtone
+    name: RingTone (master ring mod / wavefold / EQ)
+    author: DigiAlchemydsp
+    kind: mod
+    devices: [digitone]
+    repo: https://github.com/DigiAlchemydsp/RingTone
+    links:
+      releases: https://github.com/DigiAlchemydsp/RingTone/releases
+    status: wip
+    base_os: "Digitone mk1 / Digitone Keys OS 1.43"
+    version: 2.0o (2026-09-30)
+    last_activity: 2026-09-30
+    notes: >
+      Master effects with a DIGI FX page. Tested on hardware and in digiemu. Open items per
+      author: encoder acceleration, saving state at pattern level. Built with elekloader.
+    sources: [GitHub release 2.0o]
+
+  # ---------------------------------------------------------------- Digitone II
+  - id: overtone
+    name: Overtone
+    author: complex-ping
+    kind: mod
+    devices: [digitone-2]
+    repo: https://github.com/complex-ping/overtone
+    links:
+      forum: https://elektronmods.com/thread-90-overtone-custom-digitone-2-firmware
+    status: active
+    base_os: "Digitone II OS 1.12"
+    version: null
+    last_activity: 2026-10-30
+    notes: Python patcher that converts the user's own OS 1.12 download. No firmware shared.
+    sources: [forum thread 90]
+
+  - id: digirust
+    name: DigiRust
+    author: nzimas
+    kind: mod
+    devices: [digitone-2]
+    repo: https://github.com/nzimas/digirust
+    links:
+      release: https://github.com/nzimas/digirust/releases/tag/v1.2.0
+    status: beta
+    base_os: "Digitone II OS 1.12 (internal version stays 1.12)"
+    version: v1.2.0 (2026-10-12)
+    last_activity: 2026-10-12
+    notes: >
+      macOS patcher, "experimental Digitone II tools", use at own risk. Features include drone
+      latch and Perform Kit restoration (see docs/FEATURES.md in the repo). Creates a verified
+      copy locally, never talks to the instrument.
+    sources: [GitHub release v1.2.0]
+
+  - id: syxgrid
+    name: SYXGRID v2
+    author: xrcstrecords
+    kind: editor
+    devices: [digitone-2]
+    repo: https://github.com/xrcstrecords/syxgrid-digitone-ii
+    links:
+      web_app: https://syxgrid.xrcst.com
+      forum: https://elektronmods.com/thread-43-syxgrid-v2-a-free-editor-for-digitone-ii-projects
+    status: active
+    base_os: null
+    version: v2.4
+    last_activity: 2026-10-11
+    notes: Free browser-based project editor; not a firmware mod.
+    sources: [forum thread 43]
+
+  # ---------------------------------------------------------------- Syntakt
+  - id: synthack-os
+    name: Synthack-OS (Syntakt MAX 1.0, SY FM4 modular builder)
+    author: kariGardarsson
+    kind: mod
+    devices: [syntakt]
+    repo: https://github.com/karigardarsson/Synthack-OS
+    links:
+      release_max: https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-v1.0
+      release_builder: https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-modular-builder-rc1
+      forum_max: https://elektronmods.com/thread-81-good-news-everyone-syntakt-max-1-0-multiple-custom-firmware
+      forum_fm4: https://elektronmods.com/thread-85-good-news-everyone-sy-fm4-is-here-a-fully-modular-syntakt
+    status: beta
+    base_os: "Syntakt OS 1.41"
+    version: "modular builder RC1 (2026-10-20); Syntakt MAX 1.0 first public beta (2026-10-17)"
+    last_activity: 2026-10-21
+    notes: >
+      Several firmware mods in one build; SY FM4 included. Builder is a Windows app (a user asked
+      for a web version). Needs the user's own OS 1.41.
+    sources: ["forum threads 81 and 85"]
+
+  # ---------------------------------------------------------------- requests / resources
+  - id: req-d50-pcm-machine
+    name: "Request: D50-type PCM / sample machine"
+    author: River5tyx
+    kind: request
+    devices: [digitone-2]
+    repo: null
+    links:
+      forum: https://elektronmods.com/thread-84-d50-type-pcm-sample-based-machine
+    status: request
+    last_activity: 2026-10-19
+    notes: Open request, 0 replies at time of reading.
+    sources: [forum thread 84]
+
+  - id: req-sequencer-pages
+    name: "Request: additional sequencer pages for DN1/DT1"
+    author: ChopChop
+    kind: request
+    devices: [digitakt, digitone]
+    repo: null
+    links:
+      forum: https://elektronmods.com/thread-78-additional-sequencerpages-for-dn1-dt1
+    status: request
+    last_activity: 2026-10-18
+    notes: Open request, one supportive reply.
+    sources: [forum thread 78]
+
+  - id: req-midi-retrigger
+    name: "Request: DT MIDI retrigger"
+    author: TGN
+    kind: request
+    devices: [digitakt]
+    repo: null
+    links:
+      forum: https://elektronmods.com/thread-82-dt-midi-retrigger
+    status: request
+    last_activity: 2026-10-18
+    notes: Open request; the device is only implied by the title ("DT").
+    sources: [forum thread 82]
+
+  - id: elektron-firmware-download-list
+    name: Elektron Firmware Download List
+    author: elektronmods forum
+    kind: resource
+    devices: [digitakt, digitakt-2, digitone, digitone-2, syntakt, analog-heat]
+    repo: null
+    links:
+      forum: https://elektronmods.com/thread-27-elektron-firmware-download-list
+    status: unknown
+    last_activity: null
+    notes: >
+      Forum thread listing stock firmware. Not fetched in detail yet. Remember: this aggregator
+      links to stock firmware sources but never hosts them.
+    sources: [forum overview]

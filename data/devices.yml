@@ -1,0 +1,34 @@
+# Device catalogue. Focus phase 1: the small boxes (Digitakt, Digitone, Syntakt, Analog Heat),
+# including their MKII / second-generation versions.
+# phase 2 (later): Octatrack, Analog Four/Rytm/Keys, Model:Cycles/Samples, Tonverk, Machinedrum, ...
+
+devices:
+  - slug: digitakt
+    name: Digitakt (MKI)
+    family: Digitakt
+    phase: 1
+  - slug: digitakt-2
+    name: Digitakt II
+    family: Digitakt
+    phase: 1
+  - slug: digitone
+    name: Digitone (MKI) / Digitone Keys
+    family: Digitone
+    phase: 1
+  - slug: digitone-2
+    name: Digitone II
+    family: Digitone
+    phase: 1
+  - slug: syntakt
+    name: Syntakt
+    family: Syntakt
+    phase: 1
+  - slug: analog-heat
+    name: Analog Heat (MKI, MKII, +FX)
+    family: Analog Heat
+    phase: 1
+    note: >
+      No community mod found yet (2026-10-31). Only generic tooling (elektron-firmware-tool) lists
+      Analog Heat MKI/MKII/+FX. Last official OS we saw on elektron.se: Analog Heat MKI/MKII OS 1.22
+      (2024-10-16); the +FX has its own OS (release notes last updated 2024-10-16) and MKII firmware
+      is not interchangeable with +FX.

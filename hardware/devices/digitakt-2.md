@@ -56,6 +56,11 @@ Hashes agree across independent repos where two sources exist (1.16). Always com
 - The Digitone II board has the same part number PCBA0109B as the Digitakt II (32 GB Kingston eMMC), so both likely run the same hardware with different OS images and header boards. `[?]` {elektronauts-dn2-pcb}
 - Specs from reviews: 400 MB sample memory, 20 GB internal storage, 16 tracks (synthtopia summary); sample memory pool of dn2mk2 on the Digitone II is also 400 MB. `[doc]` {dn2mk2-firmware-md}
 
+## digitakt-ii-research "All-in-One" v0.3.0 (install guide, 2026-10)
+Windows executable (`DT2-All-in-One-Builder.exe`, release zip `DT2-All-in-One-v0.3.0-beta-Windows-r2.zip`), OS 1.17 only, offline, never connects to or flashes a device; the builder must show "Detected OS: Digitakt II 1.17"; input SHA-256 `26c22f66...334350d5` (1.17 stock), generated firmware SHA-256 `426dd1be...d95eec76` - hashes of the older v0.2.0 builder do not apply. Warnings in the guide: the exact release image is **not hardware-tested**, a recurring Plaits trigger click remains, earlier Plaits builds failed normal Transfer updates at 0%/PREPARING, no support or future-OS compatibility is promised, do not redistribute the generated `.syx` (it contains Elektron material). Backups of projects, Sounds and samples and a working DIN recovery connection are required before starting. `[doc]` {dt2-install}
+Recovery steps in this repo's `RECOVERY.md` are summarised in [`../common/recovery.md`](../common/recovery.md) (DIN only; Transfer's SYSEX TRANSFER page, "OS upgrade via device startup menu"; recovery not guaranteed; no hardware test reported). `[doc]` {dt2-recovery}
+Core support: elekloader lists core-dt2-1.0 as unreleased (build from source) with SETTINGS and PERSONALIZE rows and `.fast` code in SRAM; **no render events** because audio renders on the DSP. `[doc]` {elekloader-cores}
+
 ## Control from outside
 SysEx/MIDI facts, NRPN groups and the safe-write ceremony are in [`../common/sysex-and-midi.md`](../common/sysex-and-midi.md). elekloader's simonjohansson fork supports Digitakt II 1.17 as experimental (core checked in digikit; a key-swap mod works on a unit). {elekloader-simonjohansson}
 

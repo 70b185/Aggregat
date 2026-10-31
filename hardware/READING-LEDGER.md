@@ -23,5 +23,8 @@ Updated as the "read everything" pass proceeds (started 2026-10-31). Depth: **fu
 | mzero/elk-herd new home | skipped on purpose (address obfuscated by the author) | - |
 | dn2mk2 `docs/emulator.md`, `docs/sampler.md`, `docs/user-reports.md` (report CSV "B01-B19" not included), `docs/CHANGES-FROM-UPSTREAM.md`, `FIRMWARE.md` table v0.1-v0.20 | full | devices/digitone-2-machines-sampler-sharc.md |
 | elekloader `docs/DEVICES.md`, `docs/MACHINES-DN2.md`, `docs/SHARC-DN2.md` | full | common/memory-maps.md, devices/digitone-2-machines-sampler-sharc.md |
-| elekloader `docs/AGENTS.md` | fetch error (client_error at that path); try repo-root AGENTS.md | - |
+| elekloader repo-root `AGENTS.md`, `docs/CORES.md`, `docs/FORMAT.md`, `docs/BUILDING.md` | full | common/agent-workflow.md, common/recovery.md, devices/digitakt-2.md |
+| digitakt-ii-research `docs/RECOVERY.md`, `docs/INSTALLATION.md` | full | common/recovery.md, devices/digitakt-2.md |
+| SyntHack OS `RECOVERY.md`; syntakt-machine45-research handoff | full | common/recovery.md, devices/syntakt.md |
+| dagargo/overwitch README, dagargo/elektroid README | full (no USB protocol tables in either) | common/overbridge-usb.md, common/sysex-and-midi.md |
 

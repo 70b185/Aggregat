@@ -9,6 +9,6 @@ Data last verified: 2026-10-31
 | [Digitakt (MKI)](devices/digitakt.md) | 22 | 0 | 3 |
 | [Digitakt II](devices/digitakt-2.md) | 12 | 0 | 1 |
 | [Digitone (MKI) / Digitone Keys](devices/digitone.md) | 15 | 0 | 2 |
-| [Digitone II](devices/digitone-2.md) | 10 | 0 | 2 |
+| [Digitone II](devices/digitone-2.md) | 12 | 0 | 2 |
 | [Syntakt](devices/syntakt.md) | 6 | 0 | 1 |
 | [Analog Heat (MKI, MKII, +FX)](devices/analog-heat.md) | 3 | 0 | 1 |

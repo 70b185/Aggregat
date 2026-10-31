@@ -6,7 +6,7 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Last seen | Links |
 |---|---|---|---|---|---|
-| **Overtone** (complex-ping) | mod | active | Digitone II OS 1.12 | 2026-10-30 | [repo](https://github.com/complex-ping/overtone) · [forum](https://elektronmods.com/thread-90-overtone-custom-digitone-2-firmware) |
+| **Overtone** (complex-ping) | mod | released | 1.0.1 (2026-10-29); Digitone II OS 1.12 only (patcher refuses any other file); NOT compatible with dn2mk2 (OS 1.11) | 2026-10-30 | [repo](https://github.com/complex-ping/overtone) · [forum](https://elektronmods.com/thread-90-overtone-custom-digitone-2-firmware) · [releases](https://github.com/complex-ping/overtone/releases) |
 | **Request: D50-type PCM / sample machine** (River5tyx) | request | request | - | 2026-10-19 | [forum](https://elektronmods.com/thread-84-d50-type-pcm-sample-based-machine) |
 | **dn2-cfw** (naturarum) | research | active | status note 2026-10-13; Digitone II OS 1.12 (macOS Apple silicon; Linux likely) | 2026-10-13 | [repo](https://github.com/naturarum/dn2-cfw) |
 | **DigiRust** (nzimas) | mod | beta | v1.2.0 (2026-10-12); Digitone II OS 1.12 (internal version stays 1.12) | 2026-10-12 | [repo](https://github.com/nzimas/digirust) · [release](https://github.com/nzimas/digirust/releases/tag/v1.2.0) |
@@ -18,6 +18,8 @@ Data last verified: 2026-10-31
 | **dn2_firmware_explore** (angellinares) | research | active | Digitone II (example: OS 1.10E); README also covers Digitone / Keys | - | [repo](https://github.com/angellinares/dn2_firmware_explore) |
 | **Elektroid** (dagargo) | tool | active | - | - | [repo](https://github.com/dagargo/elektroid) |
 | **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | - | [repo](https://github.com/dagargo/overwitch) |
+| **DN2 mk2 Mod (dn2mk2-firmware)** (De-Pattern (README says: built on the upstream project by Angel Linares / xrcstrecords - not verified by us)) | mod | wip | v0.33 (STEADY) per FIRMWARE.md; the web patcher page still mentions v0.27-v0.29; Digitone II stock OS 1.11 ONLY (1.10 must update to 1.11 first; 1.12+ must go back to 1.11). Also needs the user's own Digitakt II OS 1.17 (or 1.16), Machinedrum UW OS 1.63 and Monomachine SFX-6 OS 1.32B files | - | [repo](https://github.com/De-Pattern/dn2mk2-firmware) · [patcher web](https://de-pattern.github.io/dn2mk2/patcher.html) · [import tool web](https://de-pattern.github.io/dn2mk2/) · [version history](https://github.com/De-Pattern/dn2mk2-firmware/blob/main/FIRMWARE.md) · [safety doc](https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/SAFETY.md) |
+| **digitone-2-modding-skill** (complex-ping) | agent-skill | wip | Digitone II OS 1.11 (user supplies the .syx; repo gives a SHA-256 prefix to check it) | - | [repo](https://github.com/complex-ping/digitone-2-modding-skill) |
 
 ## Details
 
@@ -29,9 +31,9 @@ _Sources: forum mod list (mods.php?id=7), forum thread 8_
 
 ### Overtone
 
-Python patcher that converts the user's own OS 1.12 download. No firmware shared.
+Python 3.11+ patcher (patcher/patch.py) that builds Overtone from the user's own OS 1.12 and only saves the result if it matches the tested build byte for byte; install via Elektron Transfer over USB. Adds machines SOPHIE, MACHINEDRUM, LOOP, THRU, per-track insert effects, envelope followers, two arpeggiators, parameter slides and GROOVE (replaces swing). 1.0.1 fixes installing an OS sent with Transfer while Overtone runs. About 160 checks per build in two emulators (digikit for the main OS, a SHARC emulator for the DSP program); author states 1.0.1 passes all of them, is played on a Digitone II and Transfer installs were checked on the unit. Opening Overtone projects on stock OS is untested. Recovery section is detailed (FUNC + TRIG 4, DIN MIDI, ~15 min). AGPL-3.0-or-later (includes dnfw), 5 commits. Related: dnfw, digikit, dn2-cfw, Schwung Sophie (MIT), and the author's digitone-2-modding-skill used with Claude Code.
 
-_Sources: forum thread 90_
+_Sources: forum thread 90, GitHub README_
 
 ### DigiRust
 
@@ -92,3 +94,15 @@ _Sources: GitHub README, lapin-list_
 Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII and Heat +FX, Digitakt I/II, Digitone I/II/Keys, Syntakt. Overbridge 1 devices (Analog Four MKI, Analog Keys, Rytm MKI) not supported. GPL-3.0, 671 commits.
 
 _Sources: GitHub README, lapin-list_
+
+### DN2 mk2 Mod (dn2mk2-firmware)
+
+Adds Digitakt II sample machines (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE) with sample browser and recorder, PERC (34 Machinedrum machines incl. TRX, EFM, GND, P-I), Monomachine voices (SID 6581, DPRO WAVE/DDRW/DENS, VO-6) and a CPU guard. Browser-based patcher builds from the user's own files ("nothing is uploaded") and saves only if the output sha256 matches a build that passed scripts/ship_gate.py. Hardware: README says verification is pending per version; FIRMWARE.md says nearly every v0.21-v0.33 entry was checked in emulators and "not seen on hardware yet". Main open problem: DSP time (heavy voices cut sound). Flashing a 1.12 unit takes it back to a 1.11 base, projects saved under the newer OS may not open. 1,491 commits, 8 stars, AGPL-3.0-or-later. FIRMWARE.md says built firmware is kept on the repo's `builds` branch (not main) - unlike most projects here, which only ship patchers; we link only to the repo and docs, not to builds. Withdrawn builds: v0.4-v0.7 (oversized image).
+
+_Sources: GitHub README, FIRMWARE.md, patcher web page_
+
+### digitone-2-modding-skill
+
+Agent skill (Claude Code, Codex, Cursor; install with `npx skills add`) for developing Digitone II firmware mods: ColdFire MAIN OS patching in C, SHARC DSP audio code, verification in two emulators (digikit + a whole-DSP SHARC emulator), rebuild/re-sign/flash over USB. Encodes stock-firmware addresses, hook sites, the ColdFire-to-DSP frame format, free memory and "hardware rules the emulators cannot check, which each once silenced a real unit" (contents not yet read by us - see hardware/MINING.md). Examples: double_time (sequencer clock hook), track_trim (-6 dB on track 1). Needs Python 3.11+, dnfw, m68k GCC, digikit. MIT (digikit-derived files GPL-2.0), 2 commits, 10 stars. Overtone was built with it. Closest existing relative of this repo's hardware/ folder.
+
+_Sources: GitHub README, Overtone README_

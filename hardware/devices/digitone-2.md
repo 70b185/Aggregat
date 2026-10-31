@@ -9,6 +9,9 @@ Projects: [../../devices/digitone-2.md](../../devices/digitone-2.md)
 >
 > Deep dive for OS 1.11 (addresses, frame format, free memory, ColdFire/SHARC rules, emulator limits): [`digitone-2-os111-reference.md`](digitone-2-os111-reference.md). Working method for agents: [`../common/agent-workflow.md`](../common/agent-workflow.md).
 
+## Official support page (read 2026-10-31)
+OS **1.12** dated 2026-10-01 ("adds some Outbox 8-related features"; distributed as `Digitone_II_OS1.12_dist.zip`); English manual for OS 1.12 dated 2026-10-08; Japanese manual only for OS 1.00A; Elektron Transfer 1.10.3 (2026-03-04). The page allows personal use of its files and prohibits editing, modifying or redistributing them - one more reason never to commit stock files. `[doc]` {elektron-dn2-support}
+
 ## The OS-version split (read this first)
 | OS | Who targets it | Consequence |
 |---|---|---|

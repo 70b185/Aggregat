@@ -116,4 +116,12 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | elektronauts-dt2-teardown | Elektronauts "DigiTakt II teardown" thread (photos from Discord, hedged identifications) | https://www.elektronauts.com/t/digitakt-ii-teardown/212476 |
 | heat-fx-specs | Spec snippets from CDM, Music Matter, Music Store listings (marketing level; not read from elektron.se) | https://cdm.link/elektron-analog-heat-fx-tweakable-multi-effects-analog-distortions-modulation/ |
 | elektronauts-heat-midi | Elektronauts "Analog Heat as MIDI interface?" (forum users quoting the manual) | https://www.elektronauts.com/t/analog-heat-as-midi-interface/32420 |
+| dn2-bootstrap | dnfw `docs/bootstrap.md` (1.10E image) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/bootstrap.md |
+| dn2-memory-map | dnfw `docs/memory-map.md` (MAIN OS 1.11, build 40059) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/memory-map.md |
+| dn2-os-versions | dnfw `docs/os-versions.md` (1.10D, 1.10E, 1.11) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/os-versions.md |
+| dn2-cfw-release-history | dn2-cfw `notes/dn2-release-history.md` (1.00A-1.12) | https://github.com/naturarum/dn2-cfw/blob/main/notes/dn2-release-history.md |
+| dn2-cfw-redteam | dn2-cfw `notes/T1.7-redteam.md` (attacks on the brick checker) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T1.7-redteam.md |
+| dn2-cfw-arp | dn2-cfw `notes/T2.2-arp-midi-v2.md` (arp vs MIDI tracks, OS 1.12) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T2.2-arp-midi-v2.md |
+| elektron-dt2-support | elektron.se Digitakt II support page (OS 1.17 dated 2026-10-01, manual, FAQ) | https://elektron.se/support-downloads/digitakt-ii |
+| elektron-dn2-support | elektron.se Digitone II support page (OS 1.12 dated 2026-10-01, manual dated 2026-10-08, FAQ) | https://elektron.se/support-downloads/digitone-ii |
 

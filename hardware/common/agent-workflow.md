@@ -49,3 +49,11 @@ The DSP never ran a block. Compare builds for what the emulator cannot model: bl
 - **Docs hygiene:** describe the current state once, in its home (a doc-hygiene skill with an audit exists in `.claude/skills/`). `[doc]` {elekloader-agents}
 - **Format rules worth copying:** a mod stores a hash of stock bytes, never the bytes themselves; where its bytes repeat firmware it writes a `["stock", addr, len]` reference and the loader copies them from the user's own hash-checked image; a `code` site must cover whole instructions; the linker checks stock hashes, overlaps, memory regions within free areas, duplicates, unresolved imports and core versions, lays out the core first and then mods sorted by ID (output independent of input order), and **verifies that the built image differs from stock only inside declared sites and appended code**. `[doc]` {elekloader-format}
 
+## Designing a safety gate (lessons from dn2-cfw's red team against its own brick checker)
+Twelve deliberately unsafe Digitone II 1.12 candidates were run through `tools/brickcheck` (the note describes ten checks): 8 refused, 1 "incomplete", **3 accepted** - the real gaps:
+1. A **neutered in-OS upgrade validator** (`0x400dbdb0` patched to always return 1) passed: it sat **two bytes past** the protected updater range and is never executed during a cold boot.
+2. An **unchecked DSP section 7** passed: the gate only confirmed that it depacks; nothing ran the DSP.
+3. A **flash-write gadget with a computed address** reached the NOR driver's write-enable routine without tripping the literal-address scan, and sat off the cold-boot path.
+Plus: literal-only scanning misses the chip-erase word stored as data.
+Lessons: keep byte-identity checks strict (a resealed modified bootstrap was caught by byte identity, not by the seal); **a skipped step must end as "incomplete", never as "accept"**; protected ranges need exact end addresses; pin the upgrade validator; treat changed DSP code as unvalidated unless an intended DSP image is supplied; static scans are tripwires, the real gate is byte-identical flash drivers plus a **dynamic watch of erase/program addresses during an emulated in-OS upgrade**; drive key, USB and upgrade sessions in the emulator so code off the cold-boot path is executed. `[doc]` {dn2-cfw-redteam}
+

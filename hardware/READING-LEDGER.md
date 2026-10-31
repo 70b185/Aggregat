@@ -29,7 +29,11 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | dagargo/overwitch README, dagargo/elektroid README | full (no USB protocol tables in either) | common/overbridge-usb.md, common/sysex-and-midi.md |
 | digiemu, digislicer, DigiFilter, Tone-FX, digi1_mods, digisophie, DigiPrism, DigiSwarm READMEs; SY FM4 README; elektronmods DigiPools entry | full (READMEs only; their `docs/` and CHANGELOG files not opened) | devices/digitakt.md, devices/digitone.md, devices/syntakt.md |
 | elektronmods threads 25, 27 (first 100,000 of 116,789 characters), 8; Dubspot article; Elektronauts policy post and DT2 teardown thread; Elektron-manual and Heat +FX web searches (snippets only) | full / partial / snippets | common/ecosystem-lessons.md, devices/analog-heat.md, common/sysex-and-midi.md |
-| elektron.se support pages for Analog Heat +FX, Digitakt II, Digitone II and the +FX explorer page | **not read - the fetch needed an approval nobody answered (2026-10-31); not retried** | - |
+| elektron.se support pages Digitakt II and Digitone II | full (second attempt) | devices/digitakt-2.md, devices/digitone-2.md, common/recovery.md |
+| elektron.se Analog Heat +FX support and explorer pages | **site error (client_error) on the second attempt**; unread | - |
 | Lapin list beyond the Elektron section, altstrument pages of non-Elektron brands, Elektron Octatrack/Rytm/Four/Model projects | out of phase-1 scope, not read in detail | - |
 | ElekLabs/digikit `docs/findings/01-51`, dn2-cfw `notes/`, `analysis/`, `docs/`, dnfw other docs, Overtone `docs/`, elekloader `docs/ADAPTING.md` update, DigiAlchemy CHANGELOGs, mod `docs/` folders | **not read yet** (README/index level only) | - |
+| dnfw `docs/bootstrap.md`, `docs/memory-map.md`, `docs/os-versions.md`; dn2-cfw `notes/dn2-release-history.md`, `notes/T1.7-redteam.md`, `notes/T2.2-arp-midi-v2.md` | full | devices/digitone-2-internals.md, common/agent-workflow.md, AGENT-RULES |
+| elekloader `docs/ADAPTING.md` (current, both parts) | full (second part only covers Octatrack USB) | AGENT-RULES D10b |
+| elektronmods thread 27 remainder (offset 100000) | full (no further content) | - |
 

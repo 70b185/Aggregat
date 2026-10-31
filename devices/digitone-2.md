@@ -7,6 +7,7 @@ Data last verified: 2026-10-31
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **Overtone** (complex-ping) | mod | released | v1.2 (tag seen 2026-10-31; release notes not read yet); Digitone II OS 1.12 only (patcher refuses any other file); NOT compatible with dn2mk2 (OS 1.11) | v1.2 | 2026-10-31 | [repo](https://github.com/complex-ping/overtone) · [forum](https://elektronmods.com/thread-90-overtone-custom-digitone-2-firmware) · [releases](https://github.com/complex-ping/overtone/releases) |
+| **DN2 DT2 firmware research (T1E2)** (armio) | firmware | released | T1E2 (stable designation 2026-10-15; source published 2026-10-31); Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally | - | 2026-10-31 | [repo](https://github.com/armio/dn2-dt2-firmware-research) |
 | **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo (per maintainer)) | emulator | wip | Digitakt II target 1.17 (emulator also runs 1.16 as default file; 1.15C kept for old analysis); Digitone II target 1.12 (also runs 1.11 as default file; 1.10E kept for old analysis) | - | 2026-10-31 | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
 | **dn2-cfw** (naturarum) | research | active | Digiwerk v0.2.1 (2026-10-30); Digitone II OS 1.12 (macOS Apple silicon; Linux likely) | v0.2.1 | 2026-10-30 | [repo](https://github.com/naturarum/dn2-cfw) |
 | **DNX** (NoiseAndMatter) | tool | beta | 0.9.0-beta.8; no OS versions stated; Digitone II product id 0x15 | stable/pre-analysis | 2026-10-30 | [repo](https://github.com/NoiseAndMatter/DNX) · [web app](https://noiseandmatter.github.io/DNX/) · [forum](https://elektronmods.com/mods.php?id=39) |
@@ -56,6 +57,12 @@ _Sources: GitHub release v1.2.0_
 Free browser-based pattern/sequence editor, not a firmware mod. Repo includes sysexmap/, a public reverse-engineered SysEx format map (CC BY 4.0): 45 mappings, map version 1.13.0, each with a confidence level (A = hardware-confirmed on a DN2: 23; B = corpus-confirmed by repo fixtures: 12; C = inherited, one value exercised: 9; D = unknown, do not rely: 1). Narrowed by bisection on 2026-09-08 against a Digitone II (OS 1.10E) and a Digitakt II. Not decoded: parameter locks, sound parameters (filter, amp, FX, LFO), synth machine choice. Needs the DN2 in SYSEX RECEIVE mode; Web MIDI needs Chromium over HTTPS or localhost (Chrome/Edge 152 break SysEx receive on macOS). App is AGPLv3 since v22.46 (MIT through v22.37). 6 commits.
 
 _Sources: forum thread 43_
+
+### DN2 DT2 firmware research (T1E2)
+
+Source-only recipes that rebuild T1E2, a Digitone II 1.11 research firmware that transplants the Digitakt II sample machines (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE) with stereo samples, sample browsing, DT2 parameter graphics and a SLICES trig mode, plus class-compliant USB audio with 42 capture channels at 48 kHz/24 bit (21 pairs: MAIN, tracks 1-16, DELAY, REVERB, CHORUS, INPUT; stereo return). Donor code, fonts and graphics are extracted at build time from the user's official DN2 1.11 and DT2 1.16 files; 115 MAIN stages and 46 DSP stages are each hash-checked, and the output must match a pinned SHA-256 (2,537,120 bytes, c79c42d2...). Exact reproduction also needs the author's private 47,104-byte sample bank, which is not distributed, so without it the build cannot match the release. Builds on dnfw (angellinares/dn2_firmware_explore), selache, digikit and elektron-firmware-tool (pinned commits). Stable = owner-tested with USB streaming, not every workflow. Nothing is flashed by the tools. AGPL-3.0-or-later. One commit at first sight.
+
+_Sources: GitHub README, releases/t1e2.json_
 
 ### Request: D50-type PCM / sample machine
 

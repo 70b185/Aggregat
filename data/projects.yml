@@ -302,6 +302,29 @@ projects:
       receive on macOS). App is AGPLv3 since v22.46 (MIT through v22.37). 6 commits.
     sources: [forum thread 43]
 
+  - id: dn2-dt2-firmware-research
+    name: DN2 DT2 firmware research (T1E2)
+    author: armio
+    kind: firmware
+    devices: [digitone-2, digitakt-2]
+    repo: https://github.com/armio/dn2-dt2-firmware-research
+    status: released
+    base_os: "Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally"
+    version: "T1E2 (stable designation 2026-10-15; source published 2026-10-31)"
+    last_activity: 2026-10-31
+    notes: >
+      Source-only recipes that rebuild T1E2, a Digitone II 1.11 research firmware that transplants the Digitakt II
+      sample machines (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE) with stereo samples, sample browsing, DT2
+      parameter graphics and a SLICES trig mode, plus class-compliant USB audio with 42 capture channels at
+      48 kHz/24 bit (21 pairs: MAIN, tracks 1-16, DELAY, REVERB, CHORUS, INPUT; stereo return). Donor code, fonts and
+      graphics are extracted at build time from the user's official DN2 1.11 and DT2 1.16 files; 115 MAIN stages and
+      46 DSP stages are each hash-checked, and the output must match a pinned SHA-256 (2,537,120 bytes, c79c42d2...).
+      Exact reproduction also needs the author's private 47,104-byte sample bank, which is not distributed, so
+      without it the build cannot match the release. Builds on dnfw (angellinares/dn2_firmware_explore), selache,
+      digikit and elektron-firmware-tool (pinned commits). Stable = owner-tested with USB streaming, not every workflow.
+      Nothing is flashed by the tools. AGPL-3.0-or-later. One commit at first sight.
+    sources: [GitHub README, releases/t1e2.json]
+
   # ---------------------------------------------------------------- Syntakt
   - id: synthack-os
     name: Synthack-OS (Syntakt MAX 1.0, SY FM4 modular builder)

@@ -6,6 +6,7 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **DN2 DT2 firmware research (T1E2)** (armio) | firmware | released | T1E2 (stable designation 2026-10-15; source published 2026-10-31); Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally | - | 2026-10-31 | [repo](https://github.com/armio/dn2-dt2-firmware-research) |
 | **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo (per maintainer)) | emulator | wip | Digitakt II target 1.17 (emulator also runs 1.16 as default file; 1.15C kept for old analysis); Digitone II target 1.12 (also runs 1.11 as default file; 1.10E kept for old analysis) | - | 2026-10-31 | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
 | **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-10-30 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **coldfire-rs** (FirestormAudio) | tool | wip | not firmware-specific; targets the NXP ColdFire V4e chips MCF54410 and MCF54415-MCF54418 | mcf5441x-pac-v0.1.0 | 2026-10-25 | [repo](https://github.com/FirestormAudio/coldfire-rs) |
@@ -56,6 +57,12 @@ Windows standalone builder (portable, no Python/Git/WSL needed) that takes the u
 _Latest seen (2026-10-31, secondary directories): altstrument lists it as "Digitakt II All-in-One" v0.3.0-beta (2026-10-23) for OS 1.17: patches in Plaits models, DX7 banks, the Deja Vu random-loop LFO, WAVE tables and the one-shot zoom; brick-risk flag set. LICENSE CONFLICT: the repo README/LICENSE we read says MIT, altstrument says AGPL-3.0-or-later - check the repo before reuse. Earlier releases 0.2.0-beta (2026-10-18), 0.1.1-beta (2026-10-17)._
 
 _Sources: forum threads 80 and 83, GitHub README, GitHub releases_
+
+### DN2 DT2 firmware research (T1E2)
+
+Source-only recipes that rebuild T1E2, a Digitone II 1.11 research firmware that transplants the Digitakt II sample machines (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE) with stereo samples, sample browsing, DT2 parameter graphics and a SLICES trig mode, plus class-compliant USB audio with 42 capture channels at 48 kHz/24 bit (21 pairs: MAIN, tracks 1-16, DELAY, REVERB, CHORUS, INPUT; stereo return). Donor code, fonts and graphics are extracted at build time from the user's official DN2 1.11 and DT2 1.16 files; 115 MAIN stages and 46 DSP stages are each hash-checked, and the output must match a pinned SHA-256 (2,537,120 bytes, c79c42d2...). Exact reproduction also needs the author's private 47,104-byte sample bank, which is not distributed, so without it the build cannot match the release. Builds on dnfw (angellinares/dn2_firmware_explore), selache, digikit and elektron-firmware-tool (pinned commits). Stable = owner-tested with USB streaming, not every workflow. Nothing is flashed by the tools. AGPL-3.0-or-later. One commit at first sight.
+
+_Sources: GitHub README, releases/t1e2.json_
 
 ### Elektron Firmware Download List
 

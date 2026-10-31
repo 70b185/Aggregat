@@ -34,6 +34,8 @@ First pass, built from README-level reading of: elekloader (+ADAPTING.md), digik
 dn2_firmware_explore, elektron-firmware-tool, digitakt-ii-research, Synthack-OS and Elektron's own
 Analog Heat pages. Open reading list: [`MINING.md`](MINING.md).
 
+Ecosystem, practices and legal context: [`common/ecosystem-lessons.md`](common/ecosystem-lessons.md); Overbridge USB: [`common/overbridge-usb.md`](common/overbridge-usb.md).
+
 Deep dives: [`common/memory-maps.md`](common/memory-maps.md) (mod areas and flash budgets per device), [`devices/digitone-2-internals.md`](devices/digitone-2-internals.md), [`devices/digitone-2-machines-sampler-sharc.md`](devices/digitone-2-machines-sampler-sharc.md), [`devices/digitone-2-os111-reference.md`](devices/digitone-2-os111-reference.md) (Digitone II OS 1.11 engineering reference) and [`common/agent-workflow.md`](common/agent-workflow.md) (the loop an agent should follow).
 
 Coverage per device: Digitakt mk1 **good**, Digitone mk1 **good** (via elekloader), Digitakt II **medium**,

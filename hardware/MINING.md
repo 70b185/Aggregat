@@ -50,3 +50,8 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [ ] Verify the skill's OS 1.11 addresses against 1.12 (Overtone, dn2-cfw use 1.12: parameter table `0x401f83a4`, `pg_boot` call `0x40000568`) - build an address-translation note once both sets are confirmed
 - [ ] Resolve the CPU naming discrepancy: skill says MCF5445x, digikit says MCF54415 (and coldfire-rs covers MCF5441x)
 
+## Needs approval / not retried (2026-10-31)
+- [ ] elektron.se support pages (Analog Heat +FX at `https://www.elektron.se/en/download-support-analog-heat-fx`, Digitakt II, Digitone II) and the +FX explorer/spec page - for current OS dates, manual links (MIDI implementation tables, OS upgrade steps), FAQ answers. The fetch was blocked on a permission prompt nobody answered; retry when the user is present.
+- [ ] Remaining 16,789 characters of elektronmods thread 27 (offset 100000).
+- [ ] Elektronauts "Digitone 2 pattern manager" and "Introducing Digitakt II / Analog Heat +FX" threads for hardware chatter on the Heat +FX (the +FX thread is at `elektronauts.com/t/introducing-analog-heat-fx/193814`).
+

@@ -109,4 +109,11 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | digiswarm-readme | irpina/digiswarm README (DigiCosm renamed) | https://github.com/irpina/digiswarm |
 | syfm4-readme | Rxuting/sy-fm4 README | https://github.com/Rxuting/sy-fm4 |
 | digipools-page | elektronmods DigiPools entry (id 57; repo freeze157-prog/digipools) | https://elektronmods.com/mods.php?id=57 |
+| dubspot | Dubspot, "The Custom Firmware Boom" (2026-10-13), journalistic audit | https://blog.dubspot.com/custom-firmware-vibe-coding-music-hardware-2026 |
+| em-firmware-list | elektronmods thread 27, Elektron Firmware Download List | https://elektronmods.com/thread-27-elektron-firmware-download-list |
+| em-tutorial | elektronmods thread 8, First Steps in Elektron Firmware Modding | https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack |
+| em-project-scripts | elektronmods thread 25, project file extraction/compaction scripts | https://elektronmods.com/thread-25-elektron-project-file-extraction-compaction-scripts-tested-w |
+| elektronauts-dt2-teardown | Elektronauts "DigiTakt II teardown" thread (photos from Discord, hedged identifications) | https://www.elektronauts.com/t/digitakt-ii-teardown/212476 |
+| heat-fx-specs | Spec snippets from CDM, Music Matter, Music Store listings (marketing level; not read from elektron.se) | https://cdm.link/elektron-analog-heat-fx-tweakable-multi-effects-analog-distortions-modulation/ |
+| elektronauts-heat-midi | Elektronauts "Analog Heat as MIDI interface?" (forum users quoting the manual) | https://www.elektronauts.com/t/analog-heat-as-midi-interface/32420 |
 

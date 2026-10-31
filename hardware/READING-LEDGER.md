@@ -28,4 +28,8 @@ Updated as the "read everything" pass proceeds (started 2026-10-31). Depth: **fu
 | SyntHack OS `RECOVERY.md`; syntakt-machine45-research handoff | full | common/recovery.md, devices/syntakt.md |
 | dagargo/overwitch README, dagargo/elektroid README | full (no USB protocol tables in either) | common/overbridge-usb.md, common/sysex-and-midi.md |
 | digiemu, digislicer, DigiFilter, Tone-FX, digi1_mods, digisophie, DigiPrism, DigiSwarm READMEs; SY FM4 README; elektronmods DigiPools entry | full (READMEs only; their `docs/` and CHANGELOG files not opened) | devices/digitakt.md, devices/digitone.md, devices/syntakt.md |
+| elektronmods threads 25, 27 (first 100,000 of 116,789 characters), 8; Dubspot article; Elektronauts policy post and DT2 teardown thread; Elektron-manual and Heat +FX web searches (snippets only) | full / partial / snippets | common/ecosystem-lessons.md, devices/analog-heat.md, common/sysex-and-midi.md |
+| elektron.se support pages for Analog Heat +FX, Digitakt II, Digitone II and the +FX explorer page | **not read - the fetch needed an approval nobody answered (2026-10-31); not retried** | - |
+| Lapin list beyond the Elektron section, altstrument pages of non-Elektron brands, Elektron Octatrack/Rytm/Four/Model projects | out of phase-1 scope, not read in detail | - |
+| ElekLabs/digikit `docs/findings/01-51`, dn2-cfw `notes/`, `analysis/`, `docs/`, dnfw other docs, Overtone `docs/`, elekloader `docs/ADAPTING.md` update, DigiAlchemy CHANGELOGs, mod `docs/` folders | **not read yet** (README/index level only) | - |
 

@@ -18,6 +18,12 @@ Projects/tools: [../../devices/analog-heat.md](../../devices/analog-heat.md)
 - A forum post says the +FX is "just an iterative upgrade to the MKII" (opinion, no hardware evidence). `[?]`
 - **No teardown, PCB photo, chip list or reverse-engineering note for any Analog Heat was found** in two search rounds (2026-10-31).
 
+## More Heat facts from listings and forum posts (marketing/forum level, not firmware evidence)
+- **+FX modulation and storage** (CDM listing): 1 assignable envelope generator/follower with two destinations, **3 assignable LFOs** (two destinations each), **512 user preset slots**, 128x64 OLED, MIDI In/Out/Thru with DIN Sync out, 24-bit/48 kHz converters, 215 x 184 x 63 mm, ~1.5 kg. The MKII has 1 assignable LFO, 1 envelope/follower and **128 user presets** (listings); the +FX ships with PSU-3c, the MKII with PSU-3b. Headphone out peak +19 dBu (+FX listing). Two CV/expression/footswitch input jacks. `[?]` {heat-fx-specs}
+- **MIDI behaviour (forum users citing the manual):** the Heat can send MIDI clock and program change (manual p.18 of the MKI-era manual); forwarding notes received over USB to MIDI Out is reported as not possible; the MKI-era manual recommended a TM-1 TurboMIDI interface for sending OS upgrades to the MIDI In port (the current +FX notes recommend the C6 - SysEx Tool). `[?]` {elektronauts-heat-midi}
+- **Third-generation naming:** a merchant calls the +FX "the third generation"; Elektronauts users joke about an "Analog Heat III+FX". Not a hardware statement. `[?]`
+- Needed but not read (the fetch was not approved): the elektron.se support pages for Analog Heat +FX, the explorer/spec page and the manuals (MIDI implementation, modulation matrix, OS upgrade steps). See [`../MINING.md`](../MINING.md).
+
 ## Tooling that already lists the Heat
 - elektron-firmware-tool names Analog Heat MKI, MKII and +FX among supported devices (container tool, not a mod). {elektron-firmware-tool}
 - Elektroid (sample/SysEx manager) lists Analog Heat MKI, MKII and +FX. Overwitch (Overbridge audio on Linux) lists Analog Heat, MKII and +FX. {elektroid} {overwitch}

@@ -37,7 +37,7 @@ Rules and the frame layout are in [`digitone-2-os111-reference.md`](digitone-2-o
 ## SHARC (DSP, section 7) map
 | Area | Facts (OS 1.11 DSP; identical in 1.12) |
 |---|---|
-| Addressing | addresses are short words (sw). Load byte address: L2 = 2 x sw + 0x28000000; L1 = 0x20000000 + 2 x (sw - 0xB80000); DDR code sw 0x800000.. = 0x80A00000..; data `0x002xxxxx` in code = loader `0x282xxxxx` |
+| Addressing | addresses are short words (sw). Load byte address: L2 = 2 x sw + 0x28000000; L1 = 0x20000000 + 2 x (sw - 0xB80000); DDR code sw 0x800000.. = 0x80A00000..; data `0x002xxxxx` in code = loader `0x282xxxxx`. **Naming conflict `[?]`:** the skill calls `0x28xxxxxx` L2 and `0x20000000` L1; digikit (`SHARC-ADDRESS-MAP.md`, corrected with the ADI reference manuals) says the opposite (`0x28xxxxxx` = L1, four aliased blocks; `0x20000000` = L2, one SRAM). The formulas are the same; only the labels differ. Trust the numbers. {digikit-sharcmap} |
 | Audio task | `0x1c9fe7` -> `0x1c9d6b` (reads EMUCLK before/after: the DSP measures its own load -> reply word 0) -> command 3 -> render `0x1c2712` |
 | Render chain `[hw]` | copy the 672-word frame to `0x25c48c` (at `0x1c302d`, just before the voice render; converters before it read the PREVIOUS block's copy) -> voice render `0x1c8ef1` -> FX-bus mixer `0x1c1738` -> main mix `0x1c1f1e` -> outputs `0x1c244d` -> soft clipper `0x1c30cd` (+/-0.693); main out floats at `0x268438` (L 0..31, R 32..63) |
 | Link frames `[hw]` | in = `0x2c29d0 + (bank << 12)`, reply = `0x2c49d0 + (bank << 12)`, bank = DM(`0x2c0450`); the SPI receive DMA ping-pongs between the two in-banks; its completion callback `0x1ca04a` (registered at `0x1cb7dc`) toggles the bank |

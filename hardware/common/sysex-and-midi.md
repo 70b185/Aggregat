@@ -25,6 +25,41 @@ Elektron has not published the pattern/sound SysEx formats; all of it is reverse
 
 Not decoded yet (per SYXGRID): parameter locks, sound parameters (filter, amp, FX, LFO), synth machine choice. `[doc]`
 
+## The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) {digikit-rpc}
+This is what Elektron Transfer and Elektroid speak to a running Digitakt II or Digitone II over USB MIDI. No menu setting or handshake is needed. Close Transfer and Overbridge first if they hold the port.
+
+**Frame.** `F0 00 20 3C 10 00 <8-in-7 packed body> F7`.
+- Unpacked request body: `seq_hi seq_lo 00 00 type payload...`. **The two bytes after seq must be `00 00`.** A non-zero byte there and the unit never replies.
+- Unpacked reply: `counter16 seq16 (type|0x80) payload...`. The first pair is a device-side counter, not the seq; the echoed seq is the second pair.
+- The whole body is 8-in-7 packed, one collector per 7 bytes. Short bodies (Ping, `ReadDir /`) look unpacked, which misled early tools. Longer payloads must be packed or the unit answers "Invalid path".
+- All integers are big-endian, strings are NUL-terminated (< 256 bytes), and no checksum is used.
+- Status: hardware round-trip `[hw]` for Ping, SoftwareVersion ("1.16"), DeviceUID, StorageSpace and ReadDir; the rest `[emu]`.
+
+**The 44 commands the unit advertises** (the Ping reply lists them, then the name "Digitakt II"):
+| Group | Types |
+|---|---|
+| Info/control | Ping `01`, SoftwareVersion `02`, DeviceUID `03`, **Screenshot `04`**, StorageSpace `05`, TempoRead `06`, TempoWrite `07`, Query `09` (feature keys such as `sample_file.interleaved_stereo_support`) |
+| +Drive files (by path) | ReadDir `10`, CreateDir `11` (mkdir -p), DeleteDir `12` (empty only), EnumerateFiles `13`, ListRam `17`, ClearRam `18`, Assign `19`, DeleteFile `20`, RenameFile `21`, GetFileInfo `22`/`23`/`28`, MemoryCompaction `29`, read Open/Close/Read `30`/`31`/`32` (+V2 `36`), write Open/Close/Write `40`/`41`/`42` (+V2 `46`) |
+| Data objects (projects, soundbanks, kits) | DataList `53`, Read Open/Partial/Close `54`-`56`, Write Open/Partial/Close `57`-`59`, Move `5a`, Copy `5b`, Clear `5c`, Swap `5d`, Rename `5e` |
+| OS upgrade | Start `50`, Write `51`, End `52` (see [`os-update-protocol.md`](os-update-protocol.md)) |
+Not advertised and dead: all `FsRaw*` (unsandboxed paths) and DataSetTags `5f`. `[doc]`
+
+**Facts you need when writing a client** `[emu]` unless marked:
+- **Screenshot `0x04`** returns a 9-byte header (`01`, width 128, height 64, length 1024) plus the 1,024-byte OLED buffer (byte `(7 - y/8) + 8x`, bit `y mod 8`). It works the same on DN2 1.12. This is a no-mod way to see the screen remotely.
+- **Writing a sample:**
+  1. `CreateDir` the folder.
+  2. `OpenFileForWrite 0x40`: `u32` (any value), then the path **with a leading slash**. A bare name creates a *folder*.
+  3. `WriteFileV1 0x42`: handle, length, sequential offset, data.
+  4. **`CloseFileWriter 0x41` takes the handle AND the byte count.** With the handle alone it fails.
+- The firmware appends a 16-byte trailer and stores `content_hash(data ++ 16 zero bytes) | 1`, so a host can verify the upload. An idle writer is closed after 20 s, leaving a half file.
+- Chunks of 2-16 KiB work in the emulator (limit ~100 KiB). Device tools keep 2,048 bytes until real USB timing is known.
+- The device does no WAV conversion: send the native file (0x40-byte header, 48 kHz big-endian int16, see [`overbridge-usb.md`](overbridge-usb.md)).
+- **StorageSpace** (drive 1 = +Drive) returns status, `u64` free and `u64` total.
+- **ReadFileV1** layout is still unsettled (it returned no data in the emulator).
+- **No wire-controlled memory read or write exists over MidiRpc.** Eight surfaces were audited (Data partial R/W, path resolvers, FsRaw, the backup streams, the route table, the full type factory). Live RAM is not reachable this way; the OS-upgrade path writes flash only. `[doc]`
+- `F0 7E ...` always goes to the Sample Dump Standard handler. A Universal Device Inquiry gets `F0 7E 00 7C 00 F7` (WAIT), not an identity. `[hw]`
+- **The factory debug console is on UART8, not MIDI:** `#HELLO`, `#READ`/`#WRITE` (an 11-name parameter table, not memory), `#DUMP_AUDIO`, `#ENTER_TEST_MODE`, `#MRAM_DUMP` (a fixed 13.8 MiB factory/calibration blob, magic "COKi"), `#MMCDUMP` (raw eMMC sectors). It is not known to be reachable from outside. **Agents: leave it alone.** `[doc]`
+
 ## Safe writing to a unit (digi-roll-studio's ceremony - copy it)
 1. Re-read and back up the whole destination pattern first; abort if the backup fails.
 2. The target's OS build must be on an allowlist.

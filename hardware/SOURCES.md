@@ -137,3 +137,16 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | digikit-agents | ElekLabs/digikit `AGENTS.md` | https://github.com/ElekLabs/digikit/blob/main/AGENTS.md |
 | own-dt2-notes | Own measurements and notes by **70b185** (owner of this repo) from a private Digitakt II DSP project (device findings, load and safety notes, long-sample notes; OS 1.17, up to 2026-10-29). Private: not linked and not listed in INDEX | - |
 | own-heatfx-notes | Own analysis and device tests by **70b185** (owner of this repo) on the Analog Heat +FX OS 1.02, from a private research repo (as of 2026-10-28). Private: not linked and not listed in INDEX | - |
+| digikit-rpc | ElekLabs/digikit `docs/MIDI-SYSEX-RPC.md`, the live MidiRpc protocol (DT2 1.16/1.17) | https://github.com/ElekLabs/digikit/blob/main/docs/MIDI-SYSEX-RPC.md |
+| digikit-sharcmap | ElekLabs/digikit `docs/SHARC-ADDRESS-MAP.md` (contributed from dn2_firmware_explore) | https://github.com/ElekLabs/digikit/blob/main/docs/SHARC-ADDRESS-MAP.md |
+| digikit-arch | ElekLabs/digikit `docs/ARCHITECTURE.md`, module layers | https://github.com/ElekLabs/digikit/blob/main/docs/ARCHITECTURE.md |
+| digikit-samples | ElekLabs/digikit `docs/SAMPLES.md`, the emulated +Drive and card pools | https://github.com/ElekLabs/digikit/blob/main/docs/SAMPLES.md |
+| digikit-f47 | ElekLabs/digikit finding 47, flash rungs on a real Digitakt II | https://github.com/ElekLabs/digikit/blob/main/docs/findings/47-dt2-device-rungs.md |
+| digikit-f91 | ElekLabs/digikit finding 91, hardware loop ends and DSP link cache | https://github.com/ElekLabs/digikit/blob/main/docs/findings/91-hardware-loop-ends-and-dsp-link-cache.md |
+| digikit-f51 | ElekLabs/digikit finding 51, NaN from an LFO silenced every track | https://github.com/ElekLabs/digikit/blob/main/docs/findings/51-pluck-tune-guard.md |
+| digikit-f48 | ElekLabs/digikit finding 48, DSP breadcrumbs | https://github.com/ElekLabs/digikit/blob/main/docs/findings/48-dsp-breadcrumbs.md |
+| digikit-f77 | ElekLabs/digikit finding 77, fault trace and hang record | https://github.com/ElekLabs/digikit/blob/main/docs/findings/77-fault-trace.md |
+| digikit-f100 | ElekLabs/digikit finding 100, limits for content modules (DT2 1.17, DN2 1.12) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/100-module-limits.md |
+| digikit-f53 | ElekLabs/digikit finding 53, shape of stock machines, effects, parameters | https://github.com/ElekLabs/digikit/blob/main/docs/findings/53-stock-dsp-shape.md |
+| digikit-f57 | ElekLabs/digikit finding 57, capacity and isolation of run-time modules | https://github.com/ElekLabs/digikit/blob/main/docs/findings/57-capacity-isolation.md |
+| digikit-f73 | ElekLabs/digikit finding 73, dnfw and digikit in one image | https://github.com/ElekLabs/digikit/blob/main/docs/findings/73-dnfw-coexistence.md |

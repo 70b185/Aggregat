@@ -66,3 +66,14 @@ Lessons: keep byte-identity checks strict (a resealed modified bootstrap was cau
 - For performance claims: give the theoretical ceiling first, then one paired A/B measurement.
 - Before work likely to take more than a day: state payoff and confidence, recommend stopping when weak.
 
+## How digikit separates firmware from mods (ARCHITECTURE.md, worth copying) {digikit-arch}
+- Layers, each depending only on the one below:
+  - **content modules** (`.dkm` machines/FX/tools, loaded from the card at run time);
+  - **apps** (menus);
+  - **SDK contract**;
+  - **runtime** (loads `.dkm`, links imports);
+  - **adapters** (one per firmware plug-in point: the only code that hooks the firmware);
+  - **firmware**, found by hash-pinned anchors.
+- **Everything version- or device-specific lives in anchors, device profiles and adapters.** A new OS version means new anchors plus adapter fixes; modules and SDK stay unchanged. A checker (`layercheck`) enforces it.
+- Apps never patch. A hook costs at most one flag check on a hot path when no module uses it. Modules are never unloaded, so every pointer handed to the UI must be static.
+

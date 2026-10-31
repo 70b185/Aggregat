@@ -78,6 +78,10 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A27. Analog Heat +FX: change only section 3 (MAIN OS), and keep custom code below `0x40206000`.** Everything above is cleared at boot. Never touch the bootstrap (it holds the STARTUP menu and recovery), the FPGA bitstream, or the MAIN OS factory console (`#UPGRADE`, `#FACTORY_DUMP`, calibration blob). `[hw]` {own-heatfx-notes}
 
+**A28. Code you copy into SHARC memory at run time must be written back from the data cache before it runs.** Use a write-back invalidation of the DM and PM caches together (`SHL1C_CFG`), then an instruction-cache invalidation, and keep the 12 instructions after every cache-register write 48-bit. Never mix invalidation and write-back-invalidation in one write. The emulator has no cache model. `[hw]` {digikit-f91}
+
+**A29. Leave a trail the ColdFire can read when the DSP stops.** Write a breadcrumb word (step, voice, type) straight into both reply records before each risky step, and keep a heartbeat. A stopped core never reaches the block-tail copy. On a stall, write a hang record to RAM that survives a soft reset (digikit uses `0x47fe0000`), then boot into a safe mode. `[hw]` {digikit-f48} {digikit-f77}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.

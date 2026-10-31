@@ -17,6 +17,21 @@ Data last verified: 2026-10-31
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Digisophie / Sophie for Digitakt** (Soejrd) | mod | unknown | Digitakt mk1 OS 1.53 | 2026-09-30 | [repo](https://github.com/soejrd/digisophie) · [news](https://www.synthtopia.com/content/2026/09/30/unofficial-mods-for-elektron-digitakt-adds-metallic-percussion-synth-machine/) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
+| **digistring** (Alez22) | mod | unverified | - | - | [repo](https://github.com/Alez22/digistring) |
+| **DigiFilter** (DigiAlchemydsp) | mod | unverified | - | - | [repo](https://github.com/DigiAlchemydsp/DigiFilter) |
+| **DigiSplash** (DigiAlchemydsp) | mod | unverified | - | - | [repo](https://github.com/DigiAlchemydsp/DigiSplash) |
+| **digi1_mods** (gdeo607) | mod | unverified | - | - | [repo](https://github.com/gdeo607/digi1_mods) |
+| **digislicer** (pina (irpina)) | mod | unverified | - | - | [repo](https://github.com/irpina/digislicer) |
+| **DT-FM** (mtalikka) | mod | unverified | - | - | [repo](https://github.com/mtalikka/DT-FM) |
+| **Digidrum** (soejrd) | mod | unverified | - | - | [repo](https://github.com/soejrd/digidrum) |
+| **digigrain** (lucykowal) | mod | unverified | - | - | [repo](https://github.com/lucykowal/digigrain) |
+| **digihealth** (pina (irpina)) | mod | unverified | - | - | [repo](https://github.com/irpina/digihealth) |
+| **digirta** (Alez22) | mod | unverified | - | - | [repo](https://github.com/Alez22/digirta) |
+| **DigiCandy** (DigiAlchemydsp) | mod | unverified | - | - | [repo](https://github.com/DigiAlchemydsp/DigiCandy) |
+| **screendump** (jakobbak) | tool | unverified | - | - | [repo](https://github.com/jakobbak/screendump) |
+| **Elektroid** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/elektroid) |
+| **Overwitch** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/overwitch) |
+| **ghidra-dsp56300** (roblg) | research | unverified | - | - | [repo](https://github.com/roblg/ghidra-dsp56300) |
 
 ## Details
 
@@ -85,3 +100,93 @@ _Sources: forum thread 82_
 Forum thread listing stock firmware. Not fetched in detail yet. Remember: this aggregator links to stock firmware sources but never hosts them.
 
 _Sources: forum overview_
+
+### digistring
+
+Karplus-Strong plucked-string machine.
+
+_Sources: lapin-list_
+
+### DigiFilter
+
+Extra filter modes (BP, BP2, COMB, TRASH).
+
+_Sources: lapin-list_
+
+### DigiSplash
+
+Custom boot animations.
+
+_Sources: lapin-list_
+
+### digi1_mods
+
+Synth machines, LFO matrix, scope, tuner, EQ, polyphony.
+
+_Sources: lapin-list_
+
+### digislicer
+
+Slice editor / auto-slicing for the SLICE machine. Also appears as a mod in elekloader.
+
+_Sources: lapin-list, elekloader release v0.2.0_
+
+### DT-FM
+
+Four-operator FM machine.
+
+_Sources: lapin-list_
+
+### Digidrum
+
+Machinedrum-style machines, starting with TRX.
+
+_Sources: lapin-list_
+
+### digigrain
+
+Granular playback machine.
+
+_Sources: lapin-list_
+
+### digihealth
+
+Lower DSP load (FAST AUDIO) and a SYSTEM INFO page. Version 1.1 adds Digitone support per elekloader v0.4.0.
+
+_Sources: lapin-list, elekloader release v0.2.0, elekloader release v0.4.0_
+
+### digirta
+
+Octave-band analyzer.
+
+_Sources: lapin-list_
+
+### DigiCandy
+
+Full-screen image overlay on a key combination.
+
+_Sources: lapin-list_
+
+### screendump
+
+Captures the device screen over MIDI. Which generation(s) it supports is not stated in the list.
+
+_Sources: lapin-list_
+
+### Elektroid
+
+Sample and SysEx manager for most Elektron devices. Which of our six devices it supports still has to be checked.
+
+_Sources: lapin-list_
+
+### Overwitch
+
+Multitrack Overbridge audio on Linux. Supported devices (Analog Heat?) to be checked.
+
+_Sources: lapin-list_
+
+### ghidra-dsp56300
+
+Ghidra module for the DSP56300 used in several devices. Which of ours is a guess until checked.
+
+_Sources: lapin-list_

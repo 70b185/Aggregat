@@ -10,6 +10,9 @@ Data last verified: 2026-10-31
 |---|---|---|---|---|---|
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
+| **Elektroid** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/elektroid) |
+| **Overwitch** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/overwitch) |
+| **ghidra-dsp56300** (roblg) | research | unverified | - | - | [repo](https://github.com/roblg/ghidra-dsp56300) |
 
 ## Details
 
@@ -24,3 +27,21 @@ _Sources: forum mod list (mods.php?id=7), forum thread 8_
 Forum thread listing stock firmware. Not fetched in detail yet. Remember: this aggregator links to stock firmware sources but never hosts them.
 
 _Sources: forum overview_
+
+### Elektroid
+
+Sample and SysEx manager for most Elektron devices. Which of our six devices it supports still has to be checked.
+
+_Sources: lapin-list_
+
+### Overwitch
+
+Multitrack Overbridge audio on Linux. Supported devices (Analog Heat?) to be checked.
+
+_Sources: lapin-list_
+
+### ghidra-dsp56300
+
+Ghidra module for the DSP56300 used in several devices. Which of ours is a guess until checked.
+
+_Sources: lapin-list_

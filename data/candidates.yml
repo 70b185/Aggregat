@@ -1,0 +1,48 @@
+# Candidates: entries taken from other directories, NOT yet verified by us.
+# Workflow: check the repo/release page, fill in status/version/base_os/last_activity,
+# then move the entry to projects.yml (status != unverified).
+# Descriptions are our own short paraphrases of the list entries, not copied text.
+#
+# Origin of all entries below: Lapin/awesome-music-gear-firmware (read 2026-10-31).
+
+checked: 2026-10-31
+
+projects:
+  # ------------------------------------------------------------- Digitakt (mk1)
+  - {id: digistring, name: digistring, author: Alez22, kind: mod, devices: [digitakt], repo: "https://github.com/Alez22/digistring", status: unverified, notes: "Karplus-Strong plucked-string machine.", sources: [lapin-list]}
+  - {id: digifilter, name: DigiFilter, author: DigiAlchemydsp, kind: mod, devices: [digitakt], repo: "https://github.com/DigiAlchemydsp/DigiFilter", status: unverified, notes: "Extra filter modes (BP, BP2, COMB, TRASH).", sources: [lapin-list]}
+  - {id: digisplash, name: DigiSplash, author: DigiAlchemydsp, kind: mod, devices: [digitakt, digitone], repo: "https://github.com/DigiAlchemydsp/DigiSplash", status: unverified, notes: "Custom boot animations.", sources: [lapin-list]}
+  - {id: digi1-mods, name: digi1_mods, author: gdeo607, kind: mod, devices: [digitakt], repo: "https://github.com/gdeo607/digi1_mods", status: unverified, notes: "Synth machines, LFO matrix, scope, tuner, EQ, polyphony.", sources: [lapin-list]}
+  - {id: digislicer, name: digislicer, author: pina (irpina), kind: mod, devices: [digitakt], repo: "https://github.com/irpina/digislicer", status: unverified, notes: "Slice editor / auto-slicing for the SLICE machine. Also appears as a mod in elekloader.", sources: [lapin-list, elekloader release v0.2.0]}
+  - {id: dt-fm, name: DT-FM, author: mtalikka, kind: mod, devices: [digitakt], repo: "https://github.com/mtalikka/DT-FM", status: unverified, notes: "Four-operator FM machine.", sources: [lapin-list]}
+  - {id: digidrum, name: Digidrum, author: soejrd, kind: mod, devices: [digitakt], repo: "https://github.com/soejrd/digidrum", status: unverified, notes: "Machinedrum-style machines, starting with TRX.", sources: [lapin-list]}
+  - {id: digigrain, name: digigrain, author: lucykowal, kind: mod, devices: [digitakt], repo: "https://github.com/lucykowal/digigrain", status: unverified, notes: "Granular playback machine.", sources: [lapin-list]}
+  - {id: digihealth, name: digihealth, author: pina (irpina), kind: mod, devices: [digitakt, digitone], repo: "https://github.com/irpina/digihealth", status: unverified, notes: "Lower DSP load (FAST AUDIO) and a SYSTEM INFO page. Version 1.1 adds Digitone support per elekloader v0.4.0.", sources: [lapin-list, elekloader release v0.2.0, elekloader release v0.4.0]}
+  - {id: digirta, name: digirta, author: Alez22, kind: mod, devices: [digitakt], repo: "https://github.com/Alez22/digirta", status: unverified, notes: "Octave-band analyzer.", sources: [lapin-list]}
+  - {id: digicandy, name: DigiCandy, author: DigiAlchemydsp, kind: mod, devices: [digitakt], repo: "https://github.com/DigiAlchemydsp/DigiCandy", status: unverified, notes: "Full-screen image overlay on a key combination.", sources: [lapin-list]}
+  - {id: screendump, name: screendump, author: jakobbak, kind: tool, devices: [digitakt, digitakt-2], repo: "https://github.com/jakobbak/screendump", status: unverified, notes: "Captures the device screen over MIDI. Which generation(s) it supports is not stated in the list.", sources: [lapin-list]}
+
+  # ------------------------------------------------------------- Digitone (mk1)
+  - {id: digitables, name: digitables, author: pina (irpina), kind: mod, devices: [digitone], repo: "https://github.com/irpina/digitables", status: unverified, notes: "Pitch tables in the style of the M8, with an editor.", sources: [lapin-list]}
+  - {id: tone-fx, name: Tone+FX, author: DigiAlchemydsp, kind: mod, devices: [digitone], repo: "https://github.com/DigiAlchemydsp/Tone-FX", status: unverified, notes: "Master effects (ring mod, EQ, lo-fi, wavefolder). Possibly the same project as RingTone, which we track under the same author - to be checked.", sources: [lapin-list]}
+  - {id: digicosm, name: DigiCosm, author: pina (irpina), kind: mod, devices: [digitone], repo: "https://github.com/irpina/digicosm", status: unverified, notes: "Microcosm-style effects for the audio inputs.", sources: [lapin-list]}
+  - {id: digichroma, name: DigiChroma, author: pina (irpina), kind: mod, devices: [digitone], repo: "https://github.com/irpina/digichroma", status: unverified, notes: "Chroma Console-style effects for the audio inputs.", sources: [lapin-list]}
+
+  # ------------------------------------------------------------- Digitakt II / Digitone II
+  - {id: digikit, name: digikit, author: m-dwyer, kind: emulator, devices: [digitakt-2, digitone-2], repo: "https://github.com/m-dwyer/digikit", status: unverified, notes: "Emulator and analysis tools. elekloader's release notes mention checking its core in 'digikit's emulator'.", sources: [lapin-list, elekloader release v0.2.0]}
+  - {id: dt2-firmware-research, name: digitakt-ii-firmware-research, author: lalzart, kind: research, devices: [digitakt-2], repo: "https://github.com/lalzart/digitakt-ii-firmware-research-public", status: unverified, notes: "Architecture notes for the Digitakt II. Not the same repo as karigardarsson/digitakt-ii-research.", sources: [lapin-list]}
+  - {id: digi-roll, name: digi-roll, author: zooloo303, kind: editor, devices: [digitakt-2, digitone-2], repo: "https://github.com/zooloo303/digi-roll", status: unverified, notes: "Browser piano roll over SysEx.", sources: [lapin-list]}
+  - {id: digitakt2-perform, name: digitakt2-perform, author: toonst, kind: mod, devices: [digitakt-2], repo: "https://github.com/toonst/digitakt2-perform", status: unverified, notes: "Faster perform-kit toggle, keeps track levels.", sources: [lapin-list]}
+  - {id: dt2-machine-lab, name: dt2-machine-lab, author: lalzart, kind: mod, devices: [digitakt-2], repo: "https://github.com/lalzart/dt2-machine-lab", status: unverified, notes: "Build custom machines, including a Plaits port.", sources: [lapin-list]}
+  - {id: digisplash-ii, name: DigiSplash-II, author: Fadedlimes, kind: mod, devices: [digitakt-2], repo: "https://github.com/Fadedlimes/digisplash-ii", status: unverified, notes: "Custom boot animations.", sources: [lapin-list]}
+  - {id: dn2-firmware-explore, name: dn2_firmware_explore, author: angellinares, kind: research, devices: [digitone-2], repo: "https://github.com/angellinares/dn2_firmware_explore", status: unverified, notes: "Inspect, modify and rebuild the firmware.", sources: [lapin-list]}
+  - {id: dn2-cfw, name: dn2-cfw, author: naturarum, kind: research, devices: [digitone-2], repo: "https://github.com/naturarum/dn2-cfw", status: unverified, notes: "Research and tools, with a flanger running on the DSP. naturarum also has an elekloader fork.", sources: [lapin-list]}
+
+  # ------------------------------------------------------------- Syntakt
+  - {id: syntakt-firmware-workbench, name: syntakt-firmware-workbench, author: Bezronczek, kind: mod, devices: [syntakt], repo: "https://github.com/Bezronczek/syntakt-firmware-workbench", status: unverified, notes: "Put your own waveforms into the SY CHORD engine.", sources: [lapin-list]}
+  - {id: sympakt, name: sympakt, author: sinedied, kind: tool, devices: [syntakt], repo: "https://github.com/sinedied/sympakt", status: unverified, notes: "Browser sample manager.", sources: [lapin-list]}
+
+  # ------------------------------------------------------------- cross-device tools (device support to verify)
+  - {id: elektroid, name: Elektroid, author: dagargo, kind: tool, devices: [digitakt, digitakt-2, digitone, digitone-2, syntakt, analog-heat], repo: "https://github.com/dagargo/elektroid", status: unverified, notes: "Sample and SysEx manager for most Elektron devices. Which of our six devices it supports still has to be checked.", sources: [lapin-list]}
+  - {id: overwitch, name: Overwitch, author: dagargo, kind: tool, devices: [digitakt, digitone, analog-heat], repo: "https://github.com/dagargo/overwitch", status: unverified, notes: "Multitrack Overbridge audio on Linux. Supported devices (Analog Heat?) to be checked.", sources: [lapin-list]}
+  - {id: ghidra-dsp56300, name: ghidra-dsp56300, author: roblg, kind: research, devices: [digitakt, digitone, syntakt, analog-heat], repo: "https://github.com/roblg/ghidra-dsp56300", status: unverified, notes: "Ghidra module for the DSP56300 used in several devices. Which of ours is a guess until checked.", sources: [lapin-list]}

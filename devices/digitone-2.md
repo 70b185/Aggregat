@@ -12,6 +12,11 @@ Data last verified: 2026-10-31
 | **SYXGRID v2** (xrcstrecords) | editor | active | v2.4 | 2026-10-11 | [repo](https://github.com/xrcstrecords/syxgrid-digitone-ii) · [web app](https://syxgrid.xrcst.com) · [forum](https://elektronmods.com/thread-43-syxgrid-v2-a-free-editor-for-digitone-ii-projects) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
+| **digikit** (m-dwyer) | emulator | unverified | - | - | [repo](https://github.com/m-dwyer/digikit) |
+| **digi-roll** (zooloo303) | editor | unverified | - | - | [repo](https://github.com/zooloo303/digi-roll) |
+| **dn2_firmware_explore** (angellinares) | research | unverified | - | - | [repo](https://github.com/angellinares/dn2_firmware_explore) |
+| **dn2-cfw** (naturarum) | research | unverified | - | - | [repo](https://github.com/naturarum/dn2-cfw) |
+| **Elektroid** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/elektroid) |
 
 ## Details
 
@@ -50,3 +55,33 @@ _Sources: forum thread 84_
 Forum thread listing stock firmware. Not fetched in detail yet. Remember: this aggregator links to stock firmware sources but never hosts them.
 
 _Sources: forum overview_
+
+### digikit
+
+Emulator and analysis tools. elekloader's release notes mention checking its core in 'digikit's emulator'.
+
+_Sources: lapin-list, elekloader release v0.2.0_
+
+### digi-roll
+
+Browser piano roll over SysEx.
+
+_Sources: lapin-list_
+
+### dn2_firmware_explore
+
+Inspect, modify and rebuild the firmware.
+
+_Sources: lapin-list_
+
+### dn2-cfw
+
+Research and tools, with a flanger running on the DSP. naturarum also has an elekloader fork.
+
+_Sources: lapin-list_
+
+### Elektroid
+
+Sample and SysEx manager for most Elektron devices. Which of our six devices it supports still has to be checked.
+
+_Sources: lapin-list_

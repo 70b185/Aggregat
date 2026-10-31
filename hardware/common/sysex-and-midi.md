@@ -60,7 +60,14 @@ Not advertised and dead: all `FsRaw*` (unsandboxed paths) and DataSetTags `5f`. 
 - `F0 7E ...` always goes to the Sample Dump Standard handler. A Universal Device Inquiry gets `F0 7E 00 7C 00 F7` (WAIT), not an identity. `[hw]`
 - **The factory debug console is on UART8, not MIDI:** `#HELLO`, `#READ`/`#WRITE` (an 11-name parameter table, not memory), `#DUMP_AUDIO`, `#ENTER_TEST_MODE`, `#MRAM_DUMP` (a fixed 13.8 MiB factory/calibration blob, magic "COKi"), `#MMCDUMP` (raw eMMC sectors). It is not known to be reachable from outside. **Agents: leave it alone.** `[doc]`
 
-## Safe writing to a unit (digi-roll-studio's ceremony - copy it)
+## Hardware ports and the hidden service console (DT2 1.16 / DN2 1.11) {digikit-f25} {dn2-service}
+- **DIN MIDI runs on UART9** (`0xec074000`, 31,250 baud, receive by eDMA channel 36). The front panel talks over **UART8** (`0xec070000`). Panel key codes used by emulators: SETTINGS 8, FUNC 17, YES 10, NO 12, UP 11, DOWN 14, LEFT 13, RIGHT 15. `[emu]`
+- **Maintenance mode** (a power-on key combination, or a reboot marker) presents a **USB CDC-ACM serial port, VID `0x1935` PID `0xFFFF`**. It speaks a line protocol: `#COMMAND\n` text lines, `!` + 4-byte big-endian length for binary frames.
+  - About 60 factory commands. Read-only examples: `#HELLO` (answers "HOW DO YOU DO?"), `#STATUS` (reports `PLATFORM PCBA0109..`, `PRODUCT 52;5;15;Digitone II`), `#READ_SERIAL` (the "SERI" record at flash `0x3C0000`).
+  - **Writing commands change persistent state:** `#WRITE_SERIAL`, `#WRITE_TESTED`, `#WRITE_UI_TESTED`, `#WRITE_AUDIO_TESTED`, `#MMC_RECONFIGURE`, `#WRITE`, `#UPGRADE`, `#FULL_UPGRADE` (unchecked flash path, see `os-update-protocol.md`).
+  - **Agents never send these.** `[doc]`
+
+ (digi-roll-studio's ceremony - copy it)
 1. Re-read and back up the whole destination pattern first; abort if the backup fails.
 2. The target's OS build must be on an allowlist.
 3. The user confirms a dialog listing the changes.

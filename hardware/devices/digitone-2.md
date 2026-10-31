@@ -45,5 +45,12 @@ Mods for different OS versions cannot be combined and flashing between them can 
 - dn2mk2: v0.21-v0.33 mostly emulator-only, hardware checks outstanding; user reports of p-lock clicks and silence were the reason for the DSP guard (v0.27) and AMD fix (v0.30.1). `[emu]` {dn2mk2-firmware-md}
 - Emulators do not model the two chips' timing: overruns show only on a unit. `[doc]` {dn2mk2-firmware-md}
 
+## Official OS list (elektron.se release notes, page updated 2026-10-01)
+Newest **1.12** (adds routing of the Main outputs through Outbox 8 and FUNC+UP/DOWN channel navigation in the Outbox 8 configuration menus), then 1.11, 1.10E, 1.10D, 1.10C, 1.10B, 1.10A, 1.10, 1.00A. No dates per version. So Overtone (1.12) targets the **current** OS and dn2mk2 (1.11) a one-version-old OS. `[doc]` {elektron-dn2-notes}
+Digitone II reached Overbridge streaming with OS 1.10 (plugin followed later). `[doc]` {gearnews-dn2-overbridge}
+
+## Control from outside
+SysEx/MIDI facts, the SYXGRID format map (45 mappings, confidence levels) and digitone-syx-toolkit are in [`../common/sysex-and-midi.md`](../common/sysex-and-midi.md). elekloader's simonjohansson fork supports Digitone II 1.12 as experimental (whole builds, linkable mods, SHARC mods, selectable synth/filter mods; UI events and remote input checked on a unit). {elekloader-simonjohansson}
+
 ## Gaps
 `docs/flashing.md`, `docs/mainos-image.md`, `docs/parameter-table-growth.md`, dn2mk2 `docs/SAFETY.md`, and the skill's "hardware rules the emulators cannot check" are the next reads (see `../MINING.md`).

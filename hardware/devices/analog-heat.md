@@ -7,8 +7,16 @@ Projects/tools: [../../devices/analog-heat.md](../../devices/analog-heat.md)
 - Analog Heat MKI and MKII: latest OS **1.22** (2024-10-16, "added support for Overbridge 2.13"). `[doc]` {elektron-heat-mkii-page}
 - The **+FX** has its own OS and release notes (last updated 2024-10-16). **The MKII file is rejected on +FX** ("Incompatible OS" in Transfer). `[doc]` {elektron-heat-fx-notes} {elektronauts-heatfx}
 - Minimum OS for updating via Transfer: 1.20. Product IDs from Elektron's FAQ: Analog Heat 000A, Analog Heat MKII 0016 (meaning of the field not shown). `[doc]`/`[?]` {elektron-support} {elektron-faq}
-- Update/recovery: hold ACTIVE (MKI) or ON (MKII) while powering on -> STARTUP menu -> [LFO] = OS UPGRADE -> send the SysEx file via MIDI In (or USB MIDI In from within the OS). `[doc]` {elektron-heat-notes}
+- Update/recovery MKI/MKII: hold ACTIVE (MKI) or ON (MKII) while powering on -> STARTUP menu -> [LFO] = OS UPGRADE -> send the SysEx file via MIDI In (or USB MIDI In from within the OS). `[doc]` {elektron-heat-notes}
+- Update/recovery +FX differs: hold ACTIVE, then **MOD** = OS UPGRADE (see below). `[doc]` {elektron-heat-fx-notes}
 - Elektron Transfer 1.10.4 (2026-06-23) covers Heat +FX; Overbridge integration since OS 1.2 (USB audio streaming, MKII Overbridge). `[doc]` {elektron-heat-mkii-page} {synthanatomy-heat}
+
+## Analog Heat +FX (official, elektron.se release notes, page updated 2024-10-16)
+- OS **1.02** is the newest listed (adds Overbridge 2.13 support); **1.01** added a momentary mode for ACTIVE (SETTINGS > OPTIONS), OUTPUT GAIN (PRESET SETUP), FX TO USB (AUDIO ROUTING), randomize/reset on parameter pages, LFO RND slew, and fixed MIDI input on further channels, modulation matrix DEPTH resolution, BANK/SBANK MIDI support, LFO trigger timing and VU/clip display. 1.00 is only the baseline. No release dates are given per version. `[doc]` {elektron-heat-fx-notes}
+- 1.01 was announced as exclusive to the +FX: not compatible with Analog Heat MKI/MKII. `[doc]` {gearnews-heatfx}
+- Product facts from reviews/shops (not firmware): released 2023-05 (Superbooth), $999 / EUR 999; the analog "heat block" keeps 8 stereo distortion circuits, a 7-mode analog filter and a 2-band EQ, adds a noise gate and a chain of digital effects (reverb, delay, chorus, warble, bits, compressor, bass focus) with reorderable routing; 128x64 OLED; MIDI In/Out/Thru; two CV/expression/footswitch inputs; class-compliant USB audio and Overbridge. `[doc]` {synthtopia-heatfx} {sos-heatfx} {musicradar-heatfx}
+- A forum post says the +FX is "just an iterative upgrade to the MKII" (opinion, no hardware evidence). `[?]`
+- **No teardown, PCB photo, chip list or reverse-engineering note for any Analog Heat was found** in two search rounds (2026-10-31).
 
 ## Tooling that already lists the Heat
 - elektron-firmware-tool names Analog Heat MKI, MKII and +FX among supported devices (container tool, not a mod). {elektron-firmware-tool}

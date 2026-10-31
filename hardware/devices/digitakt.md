@@ -29,6 +29,10 @@ Coverage: **good**. Everything below targets OS 1.53 unless stated. Projects: [.
 | 5 | DIGISLICER | {elekloader-adapting} |
 | others | other machine mods (digisophie, DT-FM, digigrain, digidrum, digistring ...) use IDs we have not read | to mine |
 
+## Hardware (teardown reports, not verified)
+- One teardown (revision not named by the author) reads: CPU NXP MCF54415 (ColdFire), eMMC KLM461FETE (4 GB per one line, "4Gb" in another), Spansion 128 Mb flash ("FL128", partial name), Nanya NT5U128M8HE RAM (author says 1 GB, but that part number suggests 1 Gbit = 128 MB - likely a unit error), audio codec AK4621EF, a MIDI transceiver and 6N137 opto-isolator; analog and digital sides separated by optocouplers; a debug header (JTAG/UART guessed, not verified). Author speculates the 128 Mb flash holds boot code or all code, with the rest loaded from eMMC - unknown. `[?]` {dt1-teardown}
+- A forum photo comparison names the eMMC differently (THGBMDG5D1LBAIT, 4 GB) and the CPU MCF54415CMJ250 - the sources disagree on the eMMC part. `[?]` {elektronauts-dt2-intro}
+
 ## Facts about specific mods (for compatibility)
 - Digitakt II is explicitly out of scope for the mk1 mods (e.g. DigiFilter). {digifilter}
 - digihealth's FAST AUDIO gives a lower DSP load with the same audio (elekloader v0.2.0 notes; checked alone in digikit's emulator with cold boot). {elekloader-readme}

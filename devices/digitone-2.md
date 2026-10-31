@@ -6,6 +6,7 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Last seen | Links |
 |---|---|---|---|---|---|
+| **digikit** (Em D (GitHub m-dwyer); current repo sits in the ElekLabs organisation) | emulator | wip | Digitakt II target 1.17 (emulator also runs 1.16 as default file; 1.15C kept for old analysis); Digitone II target 1.12 (also runs 1.11 as default file; 1.10E kept for old analysis) | 2026-10-31 | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
 | **Overtone** (complex-ping) | mod | released | 1.0.1 (2026-10-29); Digitone II OS 1.12 only (patcher refuses any other file); NOT compatible with dn2mk2 (OS 1.11) | 2026-10-30 | [repo](https://github.com/complex-ping/overtone) · [forum](https://elektronmods.com/thread-90-overtone-custom-digitone-2-firmware) · [releases](https://github.com/complex-ping/overtone/releases) |
 | **Request: D50-type PCM / sample machine** (River5tyx) | request | request | - | 2026-10-19 | [forum](https://elektronmods.com/thread-84-d50-type-pcm-sample-based-machine) |
 | **dn2-cfw** (naturarum) | research | active | status note 2026-10-13; Digitone II OS 1.12 (macOS Apple silicon; Linux likely) | 2026-10-13 | [repo](https://github.com/naturarum/dn2-cfw) |
@@ -13,13 +14,13 @@ Data last verified: 2026-10-31
 | **SYXGRID v2** (xrcstrecords) | editor | active | v2.4 | 2026-10-11 | [repo](https://github.com/xrcstrecords/syxgrid-digitone-ii) · [web app](https://syxgrid.xrcst.com) · [forum](https://elektronmods.com/thread-43-syxgrid-v2-a-free-editor-for-digitone-ii-projects) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
-| **digikit** (m-dwyer) | emulator | wip | Digitakt II OS 1.15C (only build stated as tested); Digitone II OS 1.10E shown in quick start | - | [repo](https://github.com/m-dwyer/digikit) |
 | **digi-roll** (zooloo303) | editor | active | per-device OS-build allowlist (build numbers not listed on the page) | - | [repo](https://github.com/zooloo303/digi-roll) · [web app](https://zooloo303.github.io/digi-roll/) |
 | **dn2_firmware_explore** (angellinares) | research | active | Digitone II (example: OS 1.10E); README also covers Digitone / Keys | - | [repo](https://github.com/angellinares/dn2_firmware_explore) |
 | **Elektroid** (dagargo) | tool | active | - | - | [repo](https://github.com/dagargo/elektroid) |
 | **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | - | [repo](https://github.com/dagargo/overwitch) |
 | **DN2 mk2 Mod (dn2mk2-firmware)** (De-Pattern (README says: built on the upstream project by Angel Linares / xrcstrecords - not verified by us)) | mod | wip | v0.33 (STEADY) per FIRMWARE.md; the web patcher page still mentions v0.27-v0.29; Digitone II stock OS 1.11 ONLY (1.10 must update to 1.11 first; 1.12+ must go back to 1.11). Also needs the user's own Digitakt II OS 1.17 (or 1.16), Machinedrum UW OS 1.63 and Monomachine SFX-6 OS 1.32B files | - | [repo](https://github.com/De-Pattern/dn2mk2-firmware) · [patcher web](https://de-pattern.github.io/dn2mk2/patcher.html) · [import tool web](https://de-pattern.github.io/dn2mk2/) · [version history](https://github.com/De-Pattern/dn2mk2-firmware/blob/main/FIRMWARE.md) · [safety doc](https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/SAFETY.md) |
 | **digitone-2-modding-skill** (complex-ping) | agent-skill | wip | Digitone II OS 1.11 (user supplies the .syx; repo gives a SHA-256 prefix to check it) | - | [repo](https://github.com/complex-ping/digitone-2-modding-skill) |
+| **selache (SHARC+ toolchain)** (js216 (ElekLabs keeps a fork)) | tool | unverified | - | - | [repo](https://github.com/js216/selache) |
 
 ## Details
 
@@ -61,9 +62,9 @@ _Sources: forum overview_
 
 ### digikit
 
-Emulator and custom-firmware tools. README: "a research instrument, not a Digitakt you can play" (no audio, no input, storage not supported yet). Decompressor reads 1.16 and 1.11 files. Licence changed from MIT to GPL-2.0-or-later on 2026-09-13. 196 commits. Other mods' READMEs (digitakt2-perform, digicosm) use it to check their builds.
+Native Rust emulator that runs the ColdFire and SHARC+ firmware together, with front panel, display and audio, plus a web panel (WASM core), a Tauri desktop app, the patch toolchain "patchkit" (applies modules to the user's own .syx), a headless scenario runner with pinned PCM hashes, a control socket for patch injection and DSP/ColdFire analysis databases with Ghidra tooling. README caveats: the DSP "does not run in real time yet", the browser host is parked on branch wip/browser-host, "no patched firmware has been installed on a device", and recovery via the bootstrap menu is "not tested on hardware". patchkit refuses to change sections 2, 4 and 8. 982 commits, AGPL-3.0-or-later with extra section-7 terms (attribution, origin, names) in NOTICE; page shows 46 open issues. GitHub marks it as not a fork. The org ElekLabs has 2 public repos: digikit and a fork of js216/selache. Original author: the GitHub profile m-dwyer is named "Em D" (Melbourne), which is exactly the credit ElekLabs' NOTICE requires ("digikit by Em D"); Overtone credits digikit to "Em D" as well. The earlier repo m-dwyer/digikit (196 commits, 4 stars, GPL-2.0-or-later, README at the time: "no audio", last visible file HANDOVER-2026-09-16) shows no move/archive notice and does not mention ElekLabs. ElekLabs has no public members, so we cannot confirm who runs it (own organisation vs. continuation by others); the licence changed from GPL-2.0-or-later to AGPL-3.0-or-later with extra terms. Treat both as the same project line. Mod READMEs that say "digikit's emulator" mean this project.
 
-_Sources: GitHub README, lapin-list_
+_Sources: GitHub README ElekLabs/digikit, GitHub README m-dwyer/digikit, lapin-list_
 
 ### digi-roll
 
@@ -106,3 +107,9 @@ _Sources: GitHub README, FIRMWARE.md, patcher web page_
 Agent skill (Claude Code, Codex, Cursor; install with `npx skills add`) for developing Digitone II firmware mods: ColdFire MAIN OS patching in C, SHARC DSP audio code, verification in two emulators (digikit + a whole-DSP SHARC emulator), rebuild/re-sign/flash over USB. Encodes stock-firmware addresses, hook sites, the ColdFire-to-DSP frame format, free memory and "hardware rules the emulators cannot check, which each once silenced a real unit" (contents not yet read by us - see hardware/MINING.md). Examples: double_time (sequencer clock hook), track_trim (-6 dB on track 1). Needs Python 3.11+, dnfw, m68k GCC, digikit. MIT (digikit-derived files GPL-2.0), 2 commits, 10 stars. Overtone was built with it. Closest existing relative of this repo's hardware/ folder.
 
 _Sources: GitHub README, Overtone README_
+
+### selache (SHARC+ toolchain)
+
+Open-source toolchain for SHARC+ DSP (assembler/C compiler), GPL-3.0. Named in the dn2mk2 and dn2-cfw docs as the way to build Digitone II DSP code; ElekLabs/selache is a fork updated 2026-10-30. Original repo not read by us yet.
+
+_Sources: dn2mk2 README, ElekLabs org page_

@@ -6,19 +6,20 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Last seen | Links |
 |---|---|---|---|---|---|
+| **digikit** (Em D (GitHub m-dwyer); current repo sits in the ElekLabs organisation) | emulator | wip | Digitakt II target 1.17 (emulator also runs 1.16 as default file; 1.15C kept for old analysis); Digitone II target 1.12 (also runs 1.11 as default file; 1.10E kept for old analysis) | 2026-10-31 | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
 | **digitakt-ii-research (Déjà Vu LFOs, waveform zoom)** (kariGardarsson) | mod | beta | v0.2.0-beta; Digitakt II OS 1.16, 1.17 | 2026-10-21 | [repo](https://github.com/karigardarsson/digitakt-ii-research) · [release](https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.2.0-beta) · [forum deja vu](https://elektronmods.com/thread-80-good-news-everyone-i-got-deja-vu-lfos-running-on-the) · [forum waveform zoom](https://elektronmods.com/thread-83-good-news-everyone-i-added-waveform-zoom-to-the-digitakt-ii) |
 | **elekloader** (pina (irpina)) | loader | active | v0.4.0 (2026-10-02); Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental hook bus) | 2026-10-19 | [repo](https://github.com/irpina/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | 2026-10-13 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **digitakt-ii-firmware-research** (lalzart) | research | unlabeled | publication snapshot 2026-08-16; Digitakt II OS 1.15C | 2026-08-16 | [repo](https://github.com/lalzart/digitakt-ii-firmware-research-public) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
-| **digikit** (m-dwyer) | emulator | wip | Digitakt II OS 1.15C (only build stated as tested); Digitone II OS 1.10E shown in quick start | - | [repo](https://github.com/m-dwyer/digikit) |
 | **digi-roll** (zooloo303) | editor | active | per-device OS-build allowlist (build numbers not listed on the page) | - | [repo](https://github.com/zooloo303/digi-roll) · [web app](https://zooloo303.github.io/digi-roll/) |
 | **digitakt2-perform** (toonst) | mod | wip | 1.0 (build name, no tagged release); Digitakt II OS 1.17 (1.18+ would need addresses found again) | - | [repo](https://github.com/toonst/digitakt2-perform) |
 | **dt2-machine-lab** (lalzart) | research | wip | Digitakt II OS 1.16 (profiles/dt2-1.16); validated host fixture macOS arm64 | - | [repo](https://github.com/lalzart/dt2-machine-lab) |
 | **DigiSplash-II** (Fadedlimes) | mod | unlabeled | Digitakt II OS 1.17; host Linux/macOS with Python 3.9+ | - | [repo](https://github.com/Fadedlimes/digisplash-ii) |
 | **Elektroid** (dagargo) | tool | active | - | - | [repo](https://github.com/dagargo/elektroid) |
 | **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | - | [repo](https://github.com/dagargo/overwitch) |
+| **selache (SHARC+ toolchain)** (js216 (ElekLabs keeps a fork)) | tool | unverified | - | - | [repo](https://github.com/js216/selache) |
 
 ## Details
 
@@ -54,9 +55,9 @@ _Sources: forum overview_
 
 ### digikit
 
-Emulator and custom-firmware tools. README: "a research instrument, not a Digitakt you can play" (no audio, no input, storage not supported yet). Decompressor reads 1.16 and 1.11 files. Licence changed from MIT to GPL-2.0-or-later on 2026-09-13. 196 commits. Other mods' READMEs (digitakt2-perform, digicosm) use it to check their builds.
+Native Rust emulator that runs the ColdFire and SHARC+ firmware together, with front panel, display and audio, plus a web panel (WASM core), a Tauri desktop app, the patch toolchain "patchkit" (applies modules to the user's own .syx), a headless scenario runner with pinned PCM hashes, a control socket for patch injection and DSP/ColdFire analysis databases with Ghidra tooling. README caveats: the DSP "does not run in real time yet", the browser host is parked on branch wip/browser-host, "no patched firmware has been installed on a device", and recovery via the bootstrap menu is "not tested on hardware". patchkit refuses to change sections 2, 4 and 8. 982 commits, AGPL-3.0-or-later with extra section-7 terms (attribution, origin, names) in NOTICE; page shows 46 open issues. GitHub marks it as not a fork. The org ElekLabs has 2 public repos: digikit and a fork of js216/selache. Original author: the GitHub profile m-dwyer is named "Em D" (Melbourne), which is exactly the credit ElekLabs' NOTICE requires ("digikit by Em D"); Overtone credits digikit to "Em D" as well. The earlier repo m-dwyer/digikit (196 commits, 4 stars, GPL-2.0-or-later, README at the time: "no audio", last visible file HANDOVER-2026-09-16) shows no move/archive notice and does not mention ElekLabs. ElekLabs has no public members, so we cannot confirm who runs it (own organisation vs. continuation by others); the licence changed from GPL-2.0-or-later to AGPL-3.0-or-later with extra terms. Treat both as the same project line. Mod READMEs that say "digikit's emulator" mean this project.
 
-_Sources: GitHub README, lapin-list_
+_Sources: GitHub README ElekLabs/digikit, GitHub README m-dwyer/digikit, lapin-list_
 
 ### digitakt-ii-firmware-research
 
@@ -99,3 +100,9 @@ _Sources: GitHub README, lapin-list_
 Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII and Heat +FX, Digitakt I/II, Digitone I/II/Keys, Syntakt. Overbridge 1 devices (Analog Four MKI, Analog Keys, Rytm MKI) not supported. GPL-3.0, 671 commits.
 
 _Sources: GitHub README, lapin-list_
+
+### selache (SHARC+ toolchain)
+
+Open-source toolchain for SHARC+ DSP (assembler/C compiler), GPL-3.0. Named in the dn2mk2 and dn2-cfw docs as the way to build Digitone II DSP code; ElekLabs/selache is a fork updated 2026-10-30. Original repo not read by us yet.
+
+_Sources: dn2mk2 README, ElekLabs org page_

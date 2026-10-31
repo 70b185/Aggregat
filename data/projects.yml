@@ -598,20 +598,33 @@ projects:
   # ---------------------------------------------------------------- Digitakt II / Digitone II
   - id: digikit
     name: digikit
-    author: m-dwyer
+    author: "Em D (GitHub m-dwyer); current repo sits in the ElekLabs organisation"
     kind: emulator
     devices: [digitakt-2, digitone-2]
-    repo: https://github.com/m-dwyer/digikit
+    repo: https://github.com/ElekLabs/digikit
+    links:
+      earlier_repo: https://github.com/m-dwyer/digikit
     status: wip
-    base_os: "Digitakt II OS 1.15C (only build stated as tested); Digitone II OS 1.10E shown in quick start"
+    base_os: "Digitakt II target 1.17 (emulator also runs 1.16 as default file; 1.15C kept for old analysis); Digitone II target 1.12 (also runs 1.11 as default file; 1.10E kept for old analysis)"
     version: null
-    last_activity: null
+    last_activity: 2026-10-31
     notes: >
-      Emulator and custom-firmware tools. README: "a research instrument, not a Digitakt you can play"
-      (no audio, no input, storage not supported yet). Decompressor reads 1.16 and 1.11 files.
-      Licence changed from MIT to GPL-2.0-or-later on 2026-09-13. 196 commits. Other mods' READMEs
-      (digitakt2-perform, digicosm) use it to check their builds.
-    sources: [GitHub README, lapin-list]
+      Native Rust emulator that runs the ColdFire and SHARC+ firmware together, with front panel, display and audio,
+      plus a web panel (WASM core), a Tauri desktop app, the patch toolchain "patchkit" (applies modules to the
+      user's own .syx), a headless scenario runner with pinned PCM hashes, a control socket for patch injection and
+      DSP/ColdFire analysis databases with Ghidra tooling. README caveats: the DSP "does not run in real time yet",
+      the browser host is parked on branch wip/browser-host, "no patched firmware has been installed on a device",
+      and recovery via the bootstrap menu is "not tested on hardware". patchkit refuses to change sections 2, 4 and 8.
+      982 commits, AGPL-3.0-or-later with extra section-7 terms (attribution, origin, names) in NOTICE; page shows
+      46 open issues. GitHub marks it as not a fork. The org ElekLabs has 2 public repos: digikit and a fork of
+      js216/selache. Original author: the GitHub profile m-dwyer is named "Em D" (Melbourne), which is exactly the
+      credit ElekLabs' NOTICE requires ("digikit by Em D"); Overtone credits digikit to "Em D" as well. The earlier
+      repo m-dwyer/digikit (196 commits, 4 stars, GPL-2.0-or-later, README at the time: "no audio", last visible
+      file HANDOVER-2026-09-16) shows no move/archive notice and does not mention ElekLabs. ElekLabs has no public
+      members, so we cannot confirm who runs it (own organisation vs. continuation by others); the licence changed
+      from GPL-2.0-or-later to AGPL-3.0-or-later with extra terms. Treat both as the same project line.
+      Mod READMEs that say "digikit's emulator" mean this project.
+    sources: [GitHub README ElekLabs/digikit, GitHub README m-dwyer/digikit, lapin-list]
 
   - id: dt2-firmware-research
     name: digitakt-ii-firmware-research

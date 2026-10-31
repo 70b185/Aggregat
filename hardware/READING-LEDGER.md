@@ -55,3 +55,4 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | dnfw docs: PRINCIPLES, hardware, code-caves, mod-memory-regions, os-update-path, version-gate, sharc-load, sharc-cycle-model, sharc-stall-probe, sharc-ddr, waverider-dsp-silence, for-digikit-waverider-dsp-stop | full / key sections | digitone-2, memory-maps, os-update-protocol, machines-sampler-sharc, A31, A32 |
 | digikit findings 14, 16, 25; dnfw service-commands, mods-compatibility | key sections | sysex-and-midi, agent-workflow |
 | Digiwerk notes T1.7, T1.7b, T2.1, T2.4a-c, T3.2, T3.3, USB01, prior-art-2026-10 | answers and key sections | agent-workflow (brick checker), digitone-2-internals, digitakt, digitone |
+| karigardarsson/digitakt-ii-research: research/*.md, PLAITS OPTIMIZING.md and HARDWARE-TEST.md (headings + key entries), VALIDATION, KNOWN_LIMITATIONS | full / key sections | digitakt-2, digitakt-2-dsp-optimizing, A33 |

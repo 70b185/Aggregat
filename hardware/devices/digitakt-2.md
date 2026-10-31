@@ -44,6 +44,20 @@ Coverage: **medium**. Projects: [../../devices/digitakt-2.md](../../devices/digi
   - After both fixes, freqshift ran on the send and master routes (2026-10-30).
 - An LFO at large depth on a run-time machine's TUNE drove Inf/NaN into the send FX and **silenced every track until reboot**, while the DSP kept running. The fix was a parameter clamp plus a per-voice guard in the wrapper; the guarded build ran on a unit with 0 faults. `[hw]` {digikit-f51}
 
+- **PLAITS port (digitakt-ii-research All-in-One):** 25 models flashed step by step on a unit, plus one SIMD kernel that hung the DSP. Lessons: [`digitakt-2-dsp-optimizing.md`](digitakt-2-dsp-optimizing.md). `[hw]` {dt2-plaits}
+
+## ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator) {dt2-research}
+- **LFO tick** `0x40139342` (caller `0x4002e912`):
+  - Parameter rows relative to A3: SPD -6, MULT -4, FADE -2, DEST 0, WAVE +2, SPH +4, MODE +6, DEP +8.
+  - WAVE is clamped to 0-6 at `0x401393c6`. WAVE 0-5 dispatch through a 6-entry table at `0x4022231c`; WAVE 6 is RAND.
+  - **The table cannot be extended by appending**: the RAND slew data sits right after it.
+  - The shared RNG is `(A,B) -> (B, A+B)` at `0x402b62c8/cc`.
+  - The phase increment is in D5 (signed); the stored phase is in D2.
+  - Raw WAVE 7/8 clamp to 6 and play RAND on stock. This is why Deja Vu needs two paired hooks, not one dispatch hook. `[emu]`
+- **Firmware heap:** `malloc` at `0x4011e674` (size at `4(A7)`, pointer in D0, mutex `0x44e08654`), `free` at `0x4011e87a` (it checks bounds and 16-byte alignment with `illegal`). The heap is a 32 MiB buddy heap `0x44f39c40-0x46f39c40` with metadata at `0x402b406c`. It sits inside the reset clear and initialises on first call. An 8 KiB block allocated once stayed untouched for 10 M emulated instructions. `[emu]`
+- **A persistent flashed cave** `0x403117c4-0x40312000` (2,108 B) ends exactly at the reset clear and survives boot. `0x4031be59-0x4031ff60` is inside the clear and **cannot hold flashed code**. The priority-6 task entry `0x40133646` is a candidate one-shot startup hook, after the heap is initialised. `[emu]`
+- These are 1.16 addresses; resolve them on 1.17 before use (rule C1).
+
 ## Ecosystem snapshot, Digitakt II (altstrument 2026-10-31: 3 firmware + 2 tools; elektronmods: SYXGRID, digi-roll-studio, digitakt2-perform, digikit, lalzart's research, Overwitch, firmware-tool)
 Listings: {alt-digitakt-ii}. **Digitakt II All-in-One** (digitakt-ii-research; v0.3.0-beta 2026-10-23, AGPL-3.0-or-later on altstrument although the repo README said MIT, OS 1.17, brick-risk flag), **digitakt2-perform** (v1.0, 2026-10-04, OS 1.17, GPL-2.0-or-later, elekloader mods), **dt2-machine-lab** (emulator-only, OS 1.16, SINE test machine plus SHARC ports of Plaits engines VA, 2-op FM, bass drum, waveshaping, additive, granular formant), **DigiSplash-II** (OS 1.17, converts an image/GIF to the OLED format and injects it), **digitakt-ii-firmware-research-public** (OS 1.15C architecture notes, CC0). The directory's own summary: early, OS 1.16/1.17 targeted, nothing yet polished, elekloader's 1.17 support experimental. `[doc]` {alt-digitakt-ii}
 

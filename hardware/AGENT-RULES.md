@@ -60,6 +60,10 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A18. "Not hardware-tested" must travel with the file.** digitakt-ii-research's All-in-One v0.3.0 states in its install guide that "this exact release image is not hardware-tested", that a Plaits trigger click remains and that earlier Plaits builds failed normal Transfer updates at 0%/PREPARING. Put such statements next to the download and in the build log, not only in a changelog. `[doc]` {dt2-install}
 
+**A19. Red-team your own safety gate.** Build deliberately unsafe candidates (patched upgrade validator, changed DSP, computed flash addresses) and make sure the gate refuses them; "incomplete" is never "accept"; protected ranges need exact end addresses. Details in [`common/agent-workflow.md`](common/agent-workflow.md). `[doc]` {dn2-cfw-redteam}
+
+**A20. The progress bar is not proof.** On the Digitone II the recovery bar counts received packets only; the write and the decompression (next boot) come later, and a single bad packet stops the transfer silently. `[doc]` {dn2-bootstrap}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.
@@ -107,6 +111,8 @@ reports the emulators do not model the two chips' timing. DSP overruns show up o
 **C6. Report honestly.** "Nothing counts as working until it has run on my unit" is the standard the more careful
 authors apply. `[doc]` {dn2-cfw}
 
+**C7. Porting to a new OS version = re-locating, not re-applying.** Diff decoded content, check bootstrap and updater separately, re-find every patch by masked pattern (`find`/`expect`) and pin the build by hash; inspect unfamiliar sections first. (Digitone II 1.11 vs 1.12 MAIN images share only their first 28 bytes.) `[doc]` {dn2-os-versions} {dn2-cfw-release-history}
+
 ## D. Writing mods (format-2 / linkable, Digitakt mk1 and Digitone mk1)
 
 **D1. Prefer events over raw patch sites.** The core mod owns the shared hook sites; subscribe via its event
@@ -137,6 +143,8 @@ resources (`sysex:`, `settings:`, `drive:`, `ui:`, `machine:` names; other memor
 
 **D10. Disclose AI-generated code** the way DT-FM does ("largely AI-generated, not proofread"). Not a technical rule,
 but readers decide on risk from it. `[doc]` {dt-fm}
+
+**D10b. Device-specific core rules (elekloader ADAPTING.md, 2026-10):** Digitakt II has no render events (audio runs on the DSP) - subscribe only `.run` code to `ev_key`/`ev_enc` before the first tick; Digitone II has no `.fast` code (such mods are refused), remote panel input uses `core_keys_set`/`core_keys_clear`, SysEx uses `ev_sysex`, SHARC mods run at the master output in 32-sample blocks at 48 kHz with a 428-byte stack; RAM budgets: Digitakt mk1 128 KB (256 KB with core 4.0) plus 2,304 B fast SRAM, Analog Rytm MKII 128 KB and no fast SRAM; Digitone mk1 core 4.1.1 changed SETTINGS-row allocation (before it two rows could stall a first boot); each feature needs a minimum core version in `resources.core`. `[doc]` {elekloader-adapting}
 
 **D11. An address that exists or maps onto another is not thereby free.** Prove an area unused (stock data pointers, caches, DMA buffers, boot ROM sharing) before placing code or data there; an unreferenced-looking L2 block once stopped a unit from starting. `[hw]` {elekloader-sharc-dn2} {dn2-skill-firmware}
 

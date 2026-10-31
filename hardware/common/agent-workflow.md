@@ -84,3 +84,25 @@ Lessons: keep byte-identity checks strict (a resealed modified bootstrap was cau
 - **A hook bus** owns the contested instructions and dispatches to each mod, so two mods can hook the same place. Without it, two mods hooking `0x400dc02a` could not coexist.
 - The same idea at a larger scale is digikit's adapter layer. Mixing two platforms in one image collides (see `dt2-dn2-limits-and-audio-chain.md` section 6).
 
+## A brick checker to copy: Digiwerk's 12 checks (DN2 1.12; notes T1.7, T1.7b) {dn2-cfw-t17}
+The checker returns "accept" only if all checks pass, "refuse" on any FAIL, and **"incomplete" on any SKIP, never accept**. A full run takes ~15-55 minutes, mostly in the emulator.
+1. **Stock pinned by hash.** The transport must be clean: framing sizes, Elektron id, device id, every message checksum, counters, padding. Two independent decoders must agree.
+2. **Section list, order and destinations as stock.** The section-2 table entry must be byte-exact. Sections 2, 4, 5 and 8 must be identical. The header must be stock except the version field.
+3. **Sizes:** the container and the received stream at most `0x200000`, and the flash end at most `0x380000`.
+4. **Four judges of the seal agree:** the tool's own checksum/HMAC, the bootstrap's verify-and-commit run in an emulator, and the main OS validator. The derived key is first proven on stock's own seal.
+5. **Depack equals the intended image, and both in-place margins are at least 1 byte.** Both the bootstrap's and section 4's loaders, run in an emulator, must reach the main OS entry.
+6. **Protected ranges byte-identical:** the NOR driver, the flash writers, the upgrade validator and its whole crypto callee closure. *This is the real flash gate.*
+7. **Tripwire:** no new literal reference to the flash driver or writers, no DSPI0 words, no reset marker. This can be defeated by computed addresses, so it is not the gate.
+8. **Emulated cold boot** to the main screen with a flash-command watch: no write, erase or protect command.
+9. **Recovery harness:** FUNC must reach the STARTUP menu with the candidate's container, for every panel answer.
+10. **Report** with changed ranges and names.
+11. **DSP section** (added after the red team):
+    - Section 7 must equal a declared intended image, or the result is incomplete.
+    - Size at most 1 MiB; the boot stream parses and ends with FINAL.
+    - No load block lands in a cache range: I-cache `0x39c000-0x3a0000`, DM `0x2ec000-0x2f0000`, PM `0x31c000-0x320000`, L2 `0x200fa000-0x20100000`.
+    - No mis-encoded negative shift.
+    - A dynamic run of the effect init and block handler: refuse on a trap, NaN/Inf, or output above 4.0. Warn above 1.5x the stock 320,281 instructions/block.
+12. **The in-OS upgrade writer run under a flash watch:** every erase and program must stay at or above `0x80000`.
+
+The known residual is a gadget off both the boot path and the upgrade path, reached through a computed address. Nothing static or dynamic here sees it. `[doc]`
+

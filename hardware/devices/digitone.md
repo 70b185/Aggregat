@@ -10,6 +10,10 @@ Coverage: **good** (almost entirely through the elekloader family). Projects: [.
 - Official minimum OS for Transfer-based update: 1.30. `[doc]` {elektron-support}
 - Recovery: the sources we read do not state it separately; assume the Digitakt pattern (FUNC at power-on, TRIG 4) and verify. `[?]`
 
+## Where the audio runs (Digiwerk prior-art survey, 2026-10) {dn2-cfw-prior}
+- **The Digitone mk1's "DSP" is a second ColdFire.** Section 7 is ColdFire code running only the FM voices; the main ColdFire runs the effects and the mix. Master-effect mods (RingTone, Tone+FX) are therefore ColdFire C hooked through elekloader. `[doc]`
+- dnfw's instruction census fits this: DN1 1.43 has 613 MAC/MSAC instructions in a tight ~20 KB region against 50 in DN2 1.11. A third-party board list names two MCF54415 plus a Spartan XC3S50A. `[?]` {dn2-hw}
+
 ## Core mods (elekloader)
 | Core | Covers | Notes |
 |---|---|---|

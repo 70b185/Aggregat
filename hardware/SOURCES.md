@@ -166,3 +166,6 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | digikit-f25 | ElekLabs/digikit finding 25, arena and card-store safety, MIDI ports, menu paths | https://github.com/ElekLabs/digikit/blob/main/docs/findings/25-digikit-safety.md |
 | dn2-service | dnfw `docs/service-commands.md`, the factory service console | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/service-commands.md |
 | dn2-mods | dnfw `docs/mods-compatibility.md`, which mods combine, platform loader and hook bus | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/mods-compatibility.md |
+| dn2-cfw-t17 | Digiwerk notes T1.7 (the brick checker) and T1.7b (hardening) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T1.7-brickcheck.md |
+| dn2-cfw-prior | Digiwerk note `prior-art-2026-10.md` (survey of community work, late Sept to 6 Oct 2026) | https://github.com/naturarum/dn2-cfw/blob/main/notes/prior-art-2026-10.md |
+| dn2-cfw-t3 | Digiwerk notes T3.2 (DSP memory map), T3.3 (FX frame), T2.1 (MIDI voices), T2.4b/c (audio clock, MIDI, LEDs) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T3.3-fx-frame.md |

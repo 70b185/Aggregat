@@ -56,3 +56,4 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | digikit findings 14, 16, 25; dnfw service-commands, mods-compatibility | key sections | sysex-and-midi, agent-workflow |
 | Digiwerk notes T1.7, T1.7b, T2.1, T2.4a-c, T3.2, T3.3, USB01, prior-art-2026-10 | answers and key sections | agent-workflow (brick checker), digitone-2-internals, digitakt, digitone |
 | karigardarsson/digitakt-ii-research: research/*.md, PLAITS OPTIMIZING.md and HARDWARE-TEST.md (headings + key entries), VALIDATION, KNOWN_LIMITATIONS | full / key sections | digitakt-2, digitakt-2-dsp-optimizing, A33 |
+| Angelo-politek/Synthack-OS docs (memory-map, firmware-format, audio-path, emulation, modding-guide), README, RECOVERY; SY FM4 DESIGN; machine45 DSP_ABI; syntakt-firmware-workbench README | full | devices/syntakt, A34 |

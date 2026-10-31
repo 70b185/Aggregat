@@ -8,15 +8,16 @@ Data last verified: 2026-10-31
 |---|---|---|---|---|---|
 | **Overtone** (complex-ping) | mod | active | Digitone II OS 1.12 | 2026-10-30 | [repo](https://github.com/complex-ping/overtone) · [forum](https://elektronmods.com/thread-90-overtone-custom-digitone-2-firmware) |
 | **Request: D50-type PCM / sample machine** (River5tyx) | request | request | - | 2026-10-19 | [forum](https://elektronmods.com/thread-84-d50-type-pcm-sample-based-machine) |
+| **dn2-cfw** (naturarum) | research | active | status note 2026-10-13; Digitone II OS 1.12 (macOS Apple silicon; Linux likely) | 2026-10-13 | [repo](https://github.com/naturarum/dn2-cfw) |
 | **DigiRust** (nzimas) | mod | beta | v1.2.0 (2026-10-12); Digitone II OS 1.12 (internal version stays 1.12) | 2026-10-12 | [repo](https://github.com/nzimas/digirust) · [release](https://github.com/nzimas/digirust/releases/tag/v1.2.0) |
 | **SYXGRID v2** (xrcstrecords) | editor | active | v2.4 | 2026-10-11 | [repo](https://github.com/xrcstrecords/syxgrid-digitone-ii) · [web app](https://syxgrid.xrcst.com) · [forum](https://elektronmods.com/thread-43-syxgrid-v2-a-free-editor-for-digitone-ii-projects) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
-| **digikit** (m-dwyer) | emulator | unverified | - | - | [repo](https://github.com/m-dwyer/digikit) |
-| **digi-roll** (zooloo303) | editor | unverified | - | - | [repo](https://github.com/zooloo303/digi-roll) |
-| **dn2_firmware_explore** (angellinares) | research | unverified | - | - | [repo](https://github.com/angellinares/dn2_firmware_explore) |
-| **dn2-cfw** (naturarum) | research | unverified | - | - | [repo](https://github.com/naturarum/dn2-cfw) |
-| **Elektroid** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/elektroid) |
+| **digikit** (m-dwyer) | emulator | wip | Digitakt II OS 1.15C (only build stated as tested); Digitone II OS 1.10E shown in quick start | - | [repo](https://github.com/m-dwyer/digikit) |
+| **digi-roll** (zooloo303) | editor | active | per-device OS-build allowlist (build numbers not listed on the page) | - | [repo](https://github.com/zooloo303/digi-roll) · [web app](https://zooloo303.github.io/digi-roll/) |
+| **dn2_firmware_explore** (angellinares) | research | active | Digitone II (example: OS 1.10E); README also covers Digitone / Keys | - | [repo](https://github.com/angellinares/dn2_firmware_explore) |
+| **Elektroid** (dagargo) | tool | active | - | - | [repo](https://github.com/dagargo/elektroid) |
+| **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | - | [repo](https://github.com/dagargo/overwitch) |
 
 ## Details
 
@@ -58,30 +59,36 @@ _Sources: forum overview_
 
 ### digikit
 
-Emulator and analysis tools. elekloader's release notes mention checking its core in 'digikit's emulator'.
+Emulator and custom-firmware tools. README: "a research instrument, not a Digitakt you can play" (no audio, no input, storage not supported yet). Decompressor reads 1.16 and 1.11 files. Licence changed from MIT to GPL-2.0-or-later on 2026-09-13. 196 commits. Other mods' READMEs (digitakt2-perform, digicosm) use it to check their builds.
 
-_Sources: lapin-list, elekloader release v0.2.0_
+_Sources: GitHub README, lapin-list_
 
 ### digi-roll
 
-Browser piano roll over SysEx.
+Browser piano roll that writes patterns over SysEx. Digitakt II / Digitone II: full write path, hardware-verified ("built and tested on hardware 2026-08-09"). Per-trig condition writing not yet smoke-tested. Original Digitakt: project backup and pattern import only; Digitone I: live-record fallback. Not a firmware mod. 57 commits, licence not stated.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### dn2_firmware_explore
 
-Inspect, modify and rebuild the firmware.
+Tools to inspect, modify and rebuild Digitone firmware. README status table: recovery path proven on hardware, a patch confirmed on the instrument; open: own images stall at ~80% in the recovery path ("fix built, awaiting a test"), fourth LFO planned. AGPL-3.0-or-later, 269 commits.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### dn2-cfw
 
-Research and tools, with a flanger running on the DSP. naturarum also has an elekloader fork.
+Public lab notebook: notes, tools and new effects, no Elektron firmware included. Seven builds run on real hardware per README; next: 3-band compressor, Space-Echo-style delay. Rule of the author: "nothing counts as working until it has run on my unit". 28 commits, GPL-2.0(-or-later).
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### Elektroid
 
-Sample and SysEx manager for most Elektron devices. Which of our six devices it supports still has to be checked.
+Sample and SysEx manager. README device list includes Analog Heat MKI, MKII and +FX, Digitakt I and II, Digitone I/II/Keys, Syntakt (also Analog Four/Rytm/Keys, Model:Cycles/Samples, Monomachine MKII). GPL-3.0, 2,506 commits, 425 stars. No version/date visible.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
+
+### Overwitch
+
+Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII and Heat +FX, Digitakt I/II, Digitone I/II/Keys, Syntakt. Overbridge 1 devices (Analog Four MKI, Analog Keys, Rytm MKI) not supported. GPL-3.0, 671 commits.
+
+_Sources: GitHub README, lapin-list_

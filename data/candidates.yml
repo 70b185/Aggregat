@@ -13,20 +13,7 @@ projects:
   # ------------------------------------------------------------- Digitone (mk1)
 
   # ------------------------------------------------------------- Digitakt II / Digitone II
-  - {id: digikit, name: digikit, author: m-dwyer, kind: emulator, devices: [digitakt-2, digitone-2], repo: "https://github.com/m-dwyer/digikit", status: unverified, notes: "Emulator and analysis tools. elekloader's release notes mention checking its core in 'digikit's emulator'.", sources: [lapin-list, elekloader release v0.2.0]}
-  - {id: dt2-firmware-research, name: digitakt-ii-firmware-research, author: lalzart, kind: research, devices: [digitakt-2], repo: "https://github.com/lalzart/digitakt-ii-firmware-research-public", status: unverified, notes: "Architecture notes for the Digitakt II. Not the same repo as karigardarsson/digitakt-ii-research.", sources: [lapin-list]}
-  - {id: digi-roll, name: digi-roll, author: zooloo303, kind: editor, devices: [digitakt-2, digitone-2], repo: "https://github.com/zooloo303/digi-roll", status: unverified, notes: "Browser piano roll over SysEx.", sources: [lapin-list]}
-  - {id: digitakt2-perform, name: digitakt2-perform, author: toonst, kind: mod, devices: [digitakt-2], repo: "https://github.com/toonst/digitakt2-perform", status: unverified, notes: "Faster perform-kit toggle, keeps track levels.", sources: [lapin-list]}
-  - {id: dt2-machine-lab, name: dt2-machine-lab, author: lalzart, kind: mod, devices: [digitakt-2], repo: "https://github.com/lalzart/dt2-machine-lab", status: unverified, notes: "Build custom machines, including a Plaits port.", sources: [lapin-list]}
-  - {id: digisplash-ii, name: DigiSplash-II, author: Fadedlimes, kind: mod, devices: [digitakt-2], repo: "https://github.com/Fadedlimes/digisplash-ii", status: unverified, notes: "Custom boot animations.", sources: [lapin-list]}
-  - {id: dn2-firmware-explore, name: dn2_firmware_explore, author: angellinares, kind: research, devices: [digitone-2], repo: "https://github.com/angellinares/dn2_firmware_explore", status: unverified, notes: "Inspect, modify and rebuild the firmware.", sources: [lapin-list]}
-  - {id: dn2-cfw, name: dn2-cfw, author: naturarum, kind: research, devices: [digitone-2], repo: "https://github.com/naturarum/dn2-cfw", status: unverified, notes: "Research and tools, with a flanger running on the DSP. naturarum also has an elekloader fork.", sources: [lapin-list]}
 
   # ------------------------------------------------------------- Syntakt
-  - {id: syntakt-firmware-workbench, name: syntakt-firmware-workbench, author: Bezronczek, kind: mod, devices: [syntakt], repo: "https://github.com/Bezronczek/syntakt-firmware-workbench", status: unverified, notes: "Put your own waveforms into the SY CHORD engine.", sources: [lapin-list]}
-  - {id: sympakt, name: sympakt, author: sinedied, kind: tool, devices: [syntakt], repo: "https://github.com/sinedied/sympakt", status: unverified, notes: "Browser sample manager.", sources: [lapin-list]}
 
   # ------------------------------------------------------------- cross-device tools (device support to verify)
-  - {id: elektroid, name: Elektroid, author: dagargo, kind: tool, devices: [digitakt, digitakt-2, digitone, digitone-2, syntakt, analog-heat], repo: "https://github.com/dagargo/elektroid", status: unverified, notes: "Sample and SysEx manager for most Elektron devices. Which of our six devices it supports still has to be checked.", sources: [lapin-list]}
-  - {id: overwitch, name: Overwitch, author: dagargo, kind: tool, devices: [digitakt, digitone, analog-heat], repo: "https://github.com/dagargo/overwitch", status: unverified, notes: "Multitrack Overbridge audio on Linux. Supported devices (Analog Heat?) to be checked.", sources: [lapin-list]}
-  - {id: ghidra-dsp56300, name: ghidra-dsp56300, author: roblg, kind: research, devices: [digitakt, digitone, syntakt, analog-heat], repo: "https://github.com/roblg/ghidra-dsp56300", status: unverified, notes: "Ghidra module for the DSP56300 used in several devices. Which of ours is a guess until checked.", sources: [lapin-list]}

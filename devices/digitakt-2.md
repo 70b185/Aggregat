@@ -10,14 +10,15 @@ Data last verified: 2026-10-31
 | **elekloader** (pina (irpina)) | loader | active | v0.4.0 (2026-10-02); Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental hook bus) | 2026-10-19 | [repo](https://github.com/irpina/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | 2026-10-13 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
+| **digitakt-ii-firmware-research** (lalzart) | research | unlabeled | publication snapshot 2026-08-16; Digitakt II OS 1.15C | 2026-08-16 | [repo](https://github.com/lalzart/digitakt-ii-firmware-research-public) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
-| **digikit** (m-dwyer) | emulator | unverified | - | - | [repo](https://github.com/m-dwyer/digikit) |
-| **digitakt-ii-firmware-research** (lalzart) | research | unverified | - | - | [repo](https://github.com/lalzart/digitakt-ii-firmware-research-public) |
-| **digi-roll** (zooloo303) | editor | unverified | - | - | [repo](https://github.com/zooloo303/digi-roll) |
-| **digitakt2-perform** (toonst) | mod | unverified | - | - | [repo](https://github.com/toonst/digitakt2-perform) |
-| **dt2-machine-lab** (lalzart) | mod | unverified | - | - | [repo](https://github.com/lalzart/dt2-machine-lab) |
-| **DigiSplash-II** (Fadedlimes) | mod | unverified | - | - | [repo](https://github.com/Fadedlimes/digisplash-ii) |
-| **Elektroid** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/elektroid) |
+| **digikit** (m-dwyer) | emulator | wip | Digitakt II OS 1.15C (only build stated as tested); Digitone II OS 1.10E shown in quick start | - | [repo](https://github.com/m-dwyer/digikit) |
+| **digi-roll** (zooloo303) | editor | active | per-device OS-build allowlist (build numbers not listed on the page) | - | [repo](https://github.com/zooloo303/digi-roll) · [web app](https://zooloo303.github.io/digi-roll/) |
+| **digitakt2-perform** (toonst) | mod | wip | 1.0 (build name, no tagged release); Digitakt II OS 1.17 (1.18+ would need addresses found again) | - | [repo](https://github.com/toonst/digitakt2-perform) |
+| **dt2-machine-lab** (lalzart) | research | wip | Digitakt II OS 1.16 (profiles/dt2-1.16); validated host fixture macOS arm64 | - | [repo](https://github.com/lalzart/dt2-machine-lab) |
+| **DigiSplash-II** (Fadedlimes) | mod | unlabeled | Digitakt II OS 1.17; host Linux/macOS with Python 3.9+ | - | [repo](https://github.com/Fadedlimes/digisplash-ii) |
+| **Elektroid** (dagargo) | tool | active | - | - | [repo](https://github.com/dagargo/elektroid) |
+| **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | - | [repo](https://github.com/dagargo/overwitch) |
 
 ## Details
 
@@ -53,42 +54,48 @@ _Sources: forum overview_
 
 ### digikit
 
-Emulator and analysis tools. elekloader's release notes mention checking its core in 'digikit's emulator'.
+Emulator and custom-firmware tools. README: "a research instrument, not a Digitakt you can play" (no audio, no input, storage not supported yet). Decompressor reads 1.16 and 1.11 files. Licence changed from MIT to GPL-2.0-or-later on 2026-09-13. 196 commits. Other mods' READMEs (digitakt2-perform, digicosm) use it to check their builds.
 
-_Sources: lapin-list, elekloader release v0.2.0_
+_Sources: GitHub README, lapin-list_
 
 ### digitakt-ii-firmware-research
 
-Architecture notes for the Digitakt II. Not the same repo as karigardarsson/digitakt-ii-research.
+"Sanitized" architecture documentation, explicitly not a reproduction kit or modified-firmware project. Hardware evidence limited to board photographs. 3 commits, licence not stated. Not the same repo as karigardarsson/digitakt-ii-research.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### digi-roll
 
-Browser piano roll over SysEx.
+Browser piano roll that writes patterns over SysEx. Digitakt II / Digitone II: full write path, hardware-verified ("built and tested on hardware 2026-08-09"). Per-trig condition writing not yet smoke-tested. Original Digitakt: project backup and pattern import only; Digitone I: live-record fallback. Not a firmware mod. 57 commits, licence not stated.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### digitakt2-perform
 
-Faster perform-kit toggle, keeps track levels.
+PERFORM KIT mods: [PRESET] toggles directly, track levels survive leaving the mode. "perform-levels works" and the key swap works on a unit; the two together are only linted and built. Stock behaviour tested in digikit's emulator. GPL-2.0-or-later, 1 commit.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### dt2-machine-lab
 
-Build custom machines, including a Plaits port.
+Local source, builds and offline tests for custom Digitakt II machines. README: experimental, does not establish final mixer/DAC behaviour, timing or hardware operation; "prepared-fixture replay, not yet a rebuild from only the original .syx". Default branch name initial-machine-lab, 7 commits, licence not stated.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### DigiSplash-II
 
-Custom boot animations.
+Injects static logos or animated boot sequences into the user's own firmware. 6 commits, licence not stated.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### Elektroid
 
-Sample and SysEx manager for most Elektron devices. Which of our six devices it supports still has to be checked.
+Sample and SysEx manager. README device list includes Analog Heat MKI, MKII and +FX, Digitakt I and II, Digitone I/II/Keys, Syntakt (also Analog Four/Rytm/Keys, Model:Cycles/Samples, Monomachine MKII). GPL-3.0, 2,506 commits, 425 stars. No version/date visible.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
+
+### Overwitch
+
+Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII and Heat +FX, Digitakt I/II, Digitone I/II/Keys, Syntakt. Overbridge 1 devices (Analog Four MKI, Analog Keys, Rytm MKI) not supported. GPL-3.0, 671 commits.
+
+_Sources: GitHub README, lapin-list_

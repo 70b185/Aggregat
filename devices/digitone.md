@@ -20,9 +20,9 @@ Data last verified: 2026-10-31
 | **Tone+FX** (DigiAlchemydsp) | mod | wip | packages: core-dn1-2.0a, digimeter-1.1, digieq-1.0, digiring-1.0, digifold-1.0, digifilter-1.0, digictl-1.3; Digitone mk1 + Keys OS 1.43 | - | [repo](https://github.com/DigiAlchemydsp/Tone-FX) |
 | **DigiCosm** (pina (irpina)) | mod | pre-release | 0.1; Digitone mk1 OS 1.43 and 1.44 (core-dn1 3.2), checked in digikit's emulator | - | [repo](https://github.com/irpina/digicosm) |
 | **DigiChroma** (pina (irpina)) | mod | pre-release | 0.1; Digitone mk1 OS 1.43 and 1.44 (core-dn1 3.2; source option DIGITONE needs unreleased core-dn1 3.3) | - | [repo](https://github.com/irpina/digichroma) |
-| **Elektroid** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/elektroid) |
-| **Overwitch** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/overwitch) |
-| **ghidra-dsp56300** (roblg) | research | unverified | - | - | [repo](https://github.com/roblg/ghidra-dsp56300) |
+| **dn2_firmware_explore** (angellinares) | research | active | Digitone II (example: OS 1.10E); README also covers Digitone / Keys | - | [repo](https://github.com/angellinares/dn2_firmware_explore) |
+| **Elektroid** (dagargo) | tool | active | - | - | [repo](https://github.com/dagargo/elektroid) |
+| **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | - | [repo](https://github.com/dagargo/overwitch) |
 
 ## Details
 
@@ -110,20 +110,20 @@ Chroma Console-style effects pedal for the inputs: four reorderable modules, fiv
 
 _Sources: GitHub README, lapin-list_
 
+### dn2_firmware_explore
+
+Tools to inspect, modify and rebuild Digitone firmware. README status table: recovery path proven on hardware, a patch confirmed on the instrument; open: own images stall at ~80% in the recovery path ("fix built, awaiting a test"), fourth LFO planned. AGPL-3.0-or-later, 269 commits.
+
+_Sources: GitHub README, lapin-list_
+
 ### Elektroid
 
-Sample and SysEx manager for most Elektron devices. Which of our six devices it supports still has to be checked.
+Sample and SysEx manager. README device list includes Analog Heat MKI, MKII and +FX, Digitakt I and II, Digitone I/II/Keys, Syntakt (also Analog Four/Rytm/Keys, Model:Cycles/Samples, Monomachine MKII). GPL-3.0, 2,506 commits, 425 stars. No version/date visible.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### Overwitch
 
-Multitrack Overbridge audio on Linux. Supported devices (Analog Heat?) to be checked.
+Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII and Heat +FX, Digitakt I/II, Digitone I/II/Keys, Syntakt. Overbridge 1 devices (Analog Four MKI, Analog Keys, Rytm MKI) not supported. GPL-3.0, 671 commits.
 
-_Sources: lapin-list_
-
-### ghidra-dsp56300
-
-Ghidra module for the DSP56300 used in several devices. Which of ours is a guess until checked.
-
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_

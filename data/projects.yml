@@ -583,3 +583,214 @@ projects:
       Chroma Console-style effects pedal for the inputs: four reorderable modules, five effects each.
       Emulator only, not on hardware. GPL-2.0-or-later, 1 commit.
     sources: [GitHub README, lapin-list]
+
+  # ---------------------------------------------------------------- Digitakt II / Digitone II
+  - id: digikit
+    name: digikit
+    author: m-dwyer
+    kind: emulator
+    devices: [digitakt-2, digitone-2]
+    repo: https://github.com/m-dwyer/digikit
+    status: wip
+    base_os: "Digitakt II OS 1.15C (only build stated as tested); Digitone II OS 1.10E shown in quick start"
+    version: null
+    last_activity: null
+    notes: >
+      Emulator and custom-firmware tools. README: "a research instrument, not a Digitakt you can play"
+      (no audio, no input, storage not supported yet). Decompressor reads 1.16 and 1.11 files.
+      Licence changed from MIT to GPL-2.0-or-later on 2026-09-13. 196 commits. Other mods' READMEs
+      (digitakt2-perform, digicosm) use it to check their builds.
+    sources: [GitHub README, lapin-list]
+
+  - id: dt2-firmware-research
+    name: digitakt-ii-firmware-research
+    author: lalzart
+    kind: research
+    devices: [digitakt-2]
+    repo: https://github.com/lalzart/digitakt-ii-firmware-research-public
+    status: unlabeled
+    base_os: "Digitakt II OS 1.15C"
+    version: "publication snapshot 2026-08-16"
+    last_activity: 2026-08-16
+    notes: >
+      "Sanitized" architecture documentation, explicitly not a reproduction kit or modified-firmware
+      project. Hardware evidence limited to board photographs. 3 commits, licence not stated.
+      Not the same repo as karigardarsson/digitakt-ii-research.
+    sources: [GitHub README, lapin-list]
+
+  - id: digi-roll
+    name: digi-roll
+    author: zooloo303
+    kind: editor
+    devices: [digitakt-2, digitone-2]
+    repo: https://github.com/zooloo303/digi-roll
+    links:
+      web_app: https://zooloo303.github.io/digi-roll/
+    status: active
+    base_os: "per-device OS-build allowlist (build numbers not listed on the page)"
+    version: null
+    last_activity: null
+    notes: >
+      Browser piano roll that writes patterns over SysEx. Digitakt II / Digitone II: full write path,
+      hardware-verified ("built and tested on hardware 2026-08-09"). Per-trig condition writing not yet
+      smoke-tested. Original Digitakt: project backup and pattern import only; Digitone I: live-record
+      fallback. Not a firmware mod. 57 commits, licence not stated.
+    sources: [GitHub README, lapin-list]
+
+  - id: digitakt2-perform
+    name: digitakt2-perform
+    author: toonst
+    kind: mod
+    devices: [digitakt-2]
+    repo: https://github.com/toonst/digitakt2-perform
+    status: wip
+    base_os: "Digitakt II OS 1.17 (1.18+ would need addresses found again)"
+    version: "1.0 (build name, no tagged release)"
+    last_activity: null
+    notes: >
+      PERFORM KIT mods: [PRESET] toggles directly, track levels survive leaving the mode.
+      "perform-levels works" and the key swap works on a unit; the two together are only linted and
+      built. Stock behaviour tested in digikit's emulator. GPL-2.0-or-later, 1 commit.
+    sources: [GitHub README, lapin-list]
+
+  - id: dt2-machine-lab
+    name: dt2-machine-lab
+    author: lalzart
+    kind: research
+    devices: [digitakt-2]
+    repo: https://github.com/lalzart/dt2-machine-lab
+    status: wip
+    base_os: "Digitakt II OS 1.16 (profiles/dt2-1.16); validated host fixture macOS arm64"
+    version: null
+    last_activity: null
+    notes: >
+      Local source, builds and offline tests for custom Digitakt II machines. README: experimental,
+      does not establish final mixer/DAC behaviour, timing or hardware operation; "prepared-fixture
+      replay, not yet a rebuild from only the original .syx". Default branch name initial-machine-lab,
+      7 commits, licence not stated.
+    sources: [GitHub README, lapin-list]
+
+  - id: digisplash-ii
+    name: DigiSplash-II
+    author: Fadedlimes
+    kind: mod
+    devices: [digitakt-2]
+    repo: https://github.com/Fadedlimes/digisplash-ii
+    status: unlabeled
+    base_os: "Digitakt II OS 1.17; host Linux/macOS with Python 3.9+"
+    version: null
+    last_activity: null
+    notes: Injects static logos or animated boot sequences into the user's own firmware. 6 commits, licence not stated.
+    sources: [GitHub README, lapin-list]
+
+  - id: dn2-firmware-explore
+    name: dn2_firmware_explore
+    author: angellinares
+    kind: research
+    devices: [digitone-2, digitone]
+    repo: https://github.com/angellinares/dn2_firmware_explore
+    status: active
+    base_os: "Digitone II (example: OS 1.10E); README also covers Digitone / Keys"
+    version: null
+    last_activity: null
+    notes: >
+      Tools to inspect, modify and rebuild Digitone firmware. README status table: recovery path proven
+      on hardware, a patch confirmed on the instrument; open: own images stall at ~80% in the recovery
+      path ("fix built, awaiting a test"), fourth LFO planned. AGPL-3.0-or-later, 269 commits.
+    sources: [GitHub README, lapin-list]
+
+  - id: dn2-cfw
+    name: dn2-cfw
+    author: naturarum
+    kind: research
+    devices: [digitone-2]
+    repo: https://github.com/naturarum/dn2-cfw
+    status: active
+    base_os: "Digitone II OS 1.12 (macOS Apple silicon; Linux likely)"
+    version: "status note 2026-10-13"
+    last_activity: 2026-10-13
+    notes: >
+      Public lab notebook: notes, tools and new effects, no Elektron firmware included. Seven builds run
+      on real hardware per README; next: 3-band compressor, Space-Echo-style delay. Rule of the author:
+      "nothing counts as working until it has run on my unit". 28 commits, GPL-2.0(-or-later).
+    sources: [GitHub README, lapin-list]
+
+  # ---------------------------------------------------------------- Syntakt
+  - id: syntakt-firmware-workbench
+    name: syntakt-firmware-workbench
+    author: Bezronczek
+    kind: mod
+    devices: [syntakt]
+    repo: https://github.com/Bezronczek/syntakt-firmware-workbench
+    status: wip
+    base_os: "Syntakt OS 1.41 only (other files refused, not changed)"
+    version: null
+    last_activity: null
+    notes: >
+      Browser workbench, use your own official file; put your own waves into SY CHORD. In progress:
+      safer test loop that runs program-code changes in an emulator before hardware. MIT, 8 commits.
+    sources: [GitHub README, lapin-list]
+
+  - id: sympakt
+    name: sympakt
+    author: sinedied
+    kind: tool
+    devices: [syntakt]
+    repo: https://github.com/sinedied/sympakt
+    links:
+      web_app: https://sinedied.github.io/sympakt/
+    status: active
+    base_os: null
+    version: null
+    last_activity: null
+    notes: Browser sample-pack manager (64-slot banks, preview, export). Not a firmware mod. MIT, 81 commits, 40 stars.
+    sources: [GitHub README, lapin-list]
+
+  # ---------------------------------------------------------------- cross-device tools
+  - id: elektroid
+    name: Elektroid
+    author: dagargo
+    kind: tool
+    devices: [digitakt, digitakt-2, digitone, digitone-2, syntakt, analog-heat]
+    repo: https://github.com/dagargo/elektroid
+    status: active
+    base_os: null
+    version: null
+    last_activity: null
+    notes: >
+      Sample and SysEx manager. README device list includes Analog Heat MKI, MKII and +FX, Digitakt I
+      and II, Digitone I/II/Keys, Syntakt (also Analog Four/Rytm/Keys, Model:Cycles/Samples,
+      Monomachine MKII). GPL-3.0, 2,506 commits, 425 stars. No version/date visible.
+    sources: [GitHub README, lapin-list]
+
+  - id: overwitch
+    name: Overwitch
+    author: dagargo
+    kind: tool
+    devices: [digitakt, digitakt-2, digitone, digitone-2, syntakt, analog-heat]
+    repo: https://github.com/dagargo/overwitch
+    status: active
+    base_os: null
+    version: "2.1 (only seen in CLI help output)"
+    last_activity: null
+    notes: >
+      Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII
+      and Heat +FX, Digitakt I/II, Digitone I/II/Keys, Syntakt. Overbridge 1 devices (Analog Four MKI,
+      Analog Keys, Rytm MKI) not supported. GPL-3.0, 671 commits.
+    sources: [GitHub README, lapin-list]
+
+  - id: ghidra-dsp56300
+    name: ghidra-dsp56300
+    author: roblg
+    kind: research
+    devices: []
+    repo: https://github.com/roblg/ghidra-dsp56300
+    status: unlabeled
+    base_os: null
+    version: null
+    last_activity: null
+    notes: >
+      Ghidra processor module for the DSP56300 family. The repo itself never mentions Elektron; the link
+      to Elektron devices comes only from the Lapin list ("DSP56300 used in several devices").
+      Apache-2.0, 8 commits. Kept without a device until a source ties it to one of ours.
+    sources: [GitHub README, lapin-list]

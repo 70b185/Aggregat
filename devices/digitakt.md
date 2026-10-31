@@ -29,9 +29,8 @@ Data last verified: 2026-10-31
 | **digirta** (Alez22) | mod | unlabeled | 0.3.0 (build file name, no published release); Digitakt mk1 OS 1.53 only | - | [repo](https://github.com/Alez22/digirta) |
 | **DigiCandy** (DigiAlchemydsp) | mod | wip | digicandy-v1.0; Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | - | [repo](https://github.com/DigiAlchemydsp/DigiCandy) |
 | **screendump** (jakobbak) | tool | unlabeled | no firmware change needed; Digitakt only (--instrument dt) | - | [repo](https://github.com/jakobbak/screendump) |
-| **Elektroid** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/elektroid) |
-| **Overwitch** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/overwitch) |
-| **ghidra-dsp56300** (roblg) | research | unverified | - | - | [repo](https://github.com/roblg/ghidra-dsp56300) |
+| **Elektroid** (dagargo) | tool | active | - | - | [repo](https://github.com/dagargo/elektroid) |
+| **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | - | [repo](https://github.com/dagargo/overwitch) |
 
 ## Details
 
@@ -175,18 +174,12 @@ _Sources: GitHub README, lapin-list_
 
 ### Elektroid
 
-Sample and SysEx manager for most Elektron devices. Which of our six devices it supports still has to be checked.
+Sample and SysEx manager. README device list includes Analog Heat MKI, MKII and +FX, Digitakt I and II, Digitone I/II/Keys, Syntakt (also Analog Four/Rytm/Keys, Model:Cycles/Samples, Monomachine MKII). GPL-3.0, 2,506 commits, 425 stars. No version/date visible.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### Overwitch
 
-Multitrack Overbridge audio on Linux. Supported devices (Analog Heat?) to be checked.
+Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII and Heat +FX, Digitakt I/II, Digitone I/II/Keys, Syntakt. Overbridge 1 devices (Analog Four MKI, Analog Keys, Rytm MKI) not supported. GPL-3.0, 671 commits.
 
-_Sources: lapin-list_
-
-### ghidra-dsp56300
-
-Ghidra module for the DSP56300 used in several devices. Which of ours is a guess until checked.
-
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_

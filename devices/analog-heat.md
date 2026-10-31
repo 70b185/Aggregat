@@ -4,15 +4,14 @@
 
 Data last verified: 2026-10-31
 
-> No community mod found yet (2026-10-31). Only generic tooling (elektron-firmware-tool) lists Analog Heat MKI/MKII/+FX. Last official OS we saw on elektron.se: Analog Heat MKI/MKII OS 1.22 (2024-10-16); the +FX has its own OS (release notes last updated 2024-10-16) and MKII firmware is not interchangeable with +FX.
+> No community firmware mod found yet (2026-10-31). Generic tooling covers it: elektron-firmware-tool (firmware container), Elektroid (sample/SysEx manager) and Overwitch (Overbridge audio on Linux) list Analog Heat MKI/MKII/+FX. screendump names it as 'not implemented'. Neither the Lapin list nor altstrument.org has a firmware entry for it. Last official OS we saw on elektron.se: Analog Heat MKI/MKII OS 1.22 (2024-10-16); the +FX has its own OS (release notes last updated 2024-10-16) and MKII firmware is not interchangeable with +FX.
 
 | Project | Kind | Status | Version / OS | Last seen | Links |
 |---|---|---|---|---|---|
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
-| **Elektroid** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/elektroid) |
-| **Overwitch** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/overwitch) |
-| **ghidra-dsp56300** (roblg) | research | unverified | - | - | [repo](https://github.com/roblg/ghidra-dsp56300) |
+| **Elektroid** (dagargo) | tool | active | - | - | [repo](https://github.com/dagargo/elektroid) |
+| **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | - | [repo](https://github.com/dagargo/overwitch) |
 
 ## Details
 
@@ -30,18 +29,12 @@ _Sources: forum overview_
 
 ### Elektroid
 
-Sample and SysEx manager for most Elektron devices. Which of our six devices it supports still has to be checked.
+Sample and SysEx manager. README device list includes Analog Heat MKI, MKII and +FX, Digitakt I and II, Digitone I/II/Keys, Syntakt (also Analog Four/Rytm/Keys, Model:Cycles/Samples, Monomachine MKII). GPL-3.0, 2,506 commits, 425 stars. No version/date visible.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### Overwitch
 
-Multitrack Overbridge audio on Linux. Supported devices (Analog Heat?) to be checked.
+Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII and Heat +FX, Digitakt I/II, Digitone I/II/Keys, Syntakt. Overbridge 1 devices (Analog Four MKI, Analog Keys, Rytm MKI) not supported. GPL-3.0, 671 commits.
 
-_Sources: lapin-list_
-
-### ghidra-dsp56300
-
-Ghidra module for the DSP56300 used in several devices. Which of ours is a guess until checked.
-
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_

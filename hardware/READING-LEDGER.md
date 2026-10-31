@@ -1,6 +1,6 @@
 # Reading ledger - what was read, how deep, and what was blocked
 
-Updated as the "read everything" pass proceeds (started 2026-10-31). Depth: **full** = whole page/file read through the fetch tool (the tool summarises long pages, so very long files may be cut); **index** = only a table of contents or listing was available; **blocked** = refused by robots.txt or unreachable (not worked around).
+Updated as the "read everything" pass proceeds (started 2026-10-31; paused when an elektron.se fetch needed an approval nobody answered). Depth: **full** = whole page/file read through the fetch tool (the tool summarises long pages, so very long files may be cut); **index** = only a table of contents or listing was available; **blocked** = refused by robots.txt or unreachable (not worked around).
 
 | Source | Depth | Folded into |
 |---|---|---|

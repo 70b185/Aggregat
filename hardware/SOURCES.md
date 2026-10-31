@@ -51,3 +51,8 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | musicradar-heatfx | MusicRadar: Analog Heat +FX at Superbooth 2023 | https://www.musicradar.com/news/elektron-analog-heat-plus-fx |
 | gearnews-dn2-overbridge | Gearnews: Elektron update, Digitone II gets Overbridge | https://www.gearnews.com/elektron-update-digitakt-ii-digitone-ii |
 | digikit-forks | Bezronczek/digikit, naturarum/digikit, simonjohansson/digikit READMEs (search snippets) | https://github.com/simonjohansson/digikit |
+| dn2mk2-safety | De-Pattern/dn2mk2-firmware `docs/SAFETY.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/SAFETY.md |
+| dn2-cfw-param-table | naturarum/dn2-cfw `docs/parameter-table-growth.md` (OS 1.12) | https://github.com/naturarum/dn2-cfw/blob/main/docs/parameter-table-growth.md |
+| dn2-flashing | angellinares/dn2_firmware_explore `docs/flashing.md` | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/flashing.md |
+| digikit-tools | ElekLabs/digikit `docs/TOOLS.md` | https://github.com/ElekLabs/digikit/blob/main/docs/TOOLS.md |
+

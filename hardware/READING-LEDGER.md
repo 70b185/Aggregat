@@ -27,4 +27,5 @@ Updated as the "read everything" pass proceeds (started 2026-10-31). Depth: **fu
 | digitakt-ii-research `docs/RECOVERY.md`, `docs/INSTALLATION.md` | full | common/recovery.md, devices/digitakt-2.md |
 | SyntHack OS `RECOVERY.md`; syntakt-machine45-research handoff | full | common/recovery.md, devices/syntakt.md |
 | dagargo/overwitch README, dagargo/elektroid README | full (no USB protocol tables in either) | common/overbridge-usb.md, common/sysex-and-midi.md |
+| digiemu, digislicer, DigiFilter, Tone-FX, digi1_mods, digisophie, DigiPrism, DigiSwarm READMEs; SY FM4 README; elektronmods DigiPools entry | full (READMEs only; their `docs/` and CHANGELOG files not opened) | devices/digitakt.md, devices/digitone.md, devices/syntakt.md |
 

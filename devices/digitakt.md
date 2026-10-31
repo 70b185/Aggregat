@@ -8,7 +8,7 @@ Data last verified: 2026-10-31
 |---|---|---|---|---|---|
 | **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | 2026-10-30 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **DigiFilter** (DigiAlchemydsp) | mod | wip | v1.3 (2026-10-24); Digitakt mk1 OS 1.53 (Digitakt II explicitly out of scope) | 2026-10-24 | [repo](https://github.com/DigiAlchemydsp/DigiFilter) |
-| **DigiPools** (freeze157-prog) | mod | unknown | Digitakt mk1 OS 1.54 | 2026-10-24 | [forum](https://elektronmods.com/mods.php?id=57) |
+| **DigiPools** (freeze157-prog) | mod | unknown | Digitakt mk1 OS 1.54 | 2026-10-24 | [repo](https://github.com/freeze157-prog/digipools) · [forum](https://elektronmods.com/mods.php?id=57) |
 | **digislicer** (pina (irpina)) | mod | released | 2.5 (2026-10-20); Digitakt mk1 OS 1.53 only | 2026-10-20 | [repo](https://github.com/irpina/digislicer) |
 | **digiscreen** (irpina) | tool | active | main @ 2faefb1 (2026-10-19), untagged | 2026-10-19 | [repo](https://github.com/irpina/digiscreen) |
 | **Request: additional sequencer pages for DN1/DT1** (ChopChop) | request | request | - | 2026-10-18 | [forum](https://elektronmods.com/thread-78-additional-sequencerpages-for-dn1-dt1) |
@@ -229,6 +229,6 @@ _Sources: altstrument tools page_
 
 ### DigiPools
 
-SRC machine for Digitakt mk1 built on elekloader, played from the Chromatic keyboard; listed on elektronmods 2026-10-24. Repository URL not read yet.
+SRC machine for Digitakt mk1 built on elekloader, played from the Chromatic keyboard; listed on elektronmods 2026-10-24. POOL machine (version string DPLS) over the project's RAM sample slots 1..127 played from the Chromatic keyboard; recorded trigs get a SAMP lock; digipools-1.0.elemod; C; 2 stars.
 
 _Sources: elektronmods list_

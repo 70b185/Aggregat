@@ -1,6 +1,6 @@
 # Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era)
 
-elekloader's device profiles are the most systematic public record of "where is free memory, where may the container end, how does recovery work" per device. Read 2026-10-31, second-hand; the page reports evidence per device but numbers can change with each core version (core 2.x had a 128 KB mod area on Digitakt mk1, 4.0 cores have larger ones). Tags as in `../README.md`. Key: {elekloader-devices}.
+elekloader's device profiles are the most systematic public record of "where is free memory, where may the container end, how does recovery work" per device. Read 2026-10-31, second-hand; the page reports evidence per device but numbers can change with each core version (core 2.x had a 128 KB mod area on Digitakt mk1, 4.0 cores have larger ones). Tags as in `../README.md`. Keys: {elekloader-devices}; repo overview and release list: {elekloader-main}.
 
 | Device | OS | Maturity (as stated) | Mod RAM area | Flash budget | Recovery |
 |---|---|---|---|---|---|

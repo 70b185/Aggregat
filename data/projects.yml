@@ -1203,14 +1203,14 @@ projects:
     author: freeze157-prog
     kind: mod
     devices: [digitakt]
-    repo: null
+    repo: https://github.com/freeze157-prog/digipools
     links:
       forum: https://elektronmods.com/mods.php?id=57
     status: unknown
     base_os: "Digitakt mk1 OS 1.54"
     version: null
     last_activity: 2026-10-24
-    notes: SRC machine for Digitakt mk1 built on elekloader, played from the Chromatic keyboard; listed on elektronmods 2026-10-24. Repository URL not read yet.
+    notes: SRC machine for Digitakt mk1 built on elekloader, played from the Chromatic keyboard; listed on elektronmods 2026-10-24. POOL machine (version string DPLS) over the project's RAM sample slots 1..127 played from the Chromatic keyboard; recorded trigs get a SAMP lock; digipools-1.0.elemod; C; 2 stars.
     sources: [elektronmods list]
 
   - id: plock2sound

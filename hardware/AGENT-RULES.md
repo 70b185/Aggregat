@@ -72,6 +72,10 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A24. Keep private card data above the MmcFs guard and above `0x800000`;** never write the factory sample area (DT2 `0x458000-0x5D7FFF`). Lower areas can be overwritten by firmware, FORMAT or a crafted Data-API request. `[doc]` {digikit-f59}
 
+**A25. Guard each block, not the average (DT2/DN2 SHARC).** The stock engine fills a block to the edge without missing one. Code you add inside the Audio task must stop on a deadline measured from the block start, with margin, because one overrun drops a whole block. Put background work in a FreeRTOS task at priority 2-4, which cannot delay Audio. `[hw]` {own-dt2-notes}
+
+**A26. On DT2, publish to reply words 670-676 only.** Words 1-6 and 677+ are rewritten by the firmware. Word k is at DM `base + 4k`, written to both copies. `[hw]` {own-dt2-notes}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.

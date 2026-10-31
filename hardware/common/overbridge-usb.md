@@ -8,6 +8,11 @@ Source: dagargo/overwitch README (JACK clients for Overbridge 2 devices, GPL-3.0
 - SysEx throughput is limited by the ColdFire's per-byte handling (about 32 instructions per wire byte just to split USB-MIDI events, two 512-byte receive buffers in flight); digikit estimates 0.8-1.4 MB/s at best for an own SysEx route. Transfer's file-write RPC: OpenFileForWrite `0x40`, WriteFileV1 `0x42` (handle, length, offset, data), CloseFileWriter `0x41`. `[doc]` {digikit-f42}
 - **Samples are not converted on the device:** the native file is a 0x40-byte header (+1 stereo flag, +4 length, +8 rate 48000) + big-endian int16 PCM + 16-byte trailer; no WAV parser in the image. The host must resample to 48 kHz and convert. `[doc]` {digikit-f42}
 
+## Overbridge refuses a mod whose version field changed (Digiwerk OB01, DN2 1.12) {dn2-cfw-ob01}
+- The container's 4-byte version field (header `+0x14`, `1.12` on stock) is sent to the computer by the main OS. A build that writes its own name there (e.g. `CMP1`) makes the Overbridge plugin answer "Device is not running compatible OS Version" and fail to open. The engine itself connects; the refusal comes from the plugin. `[hw]`
+- Fix: patch the two main-OS sites that send the version so they send a header copy with `1.12`. The flash and the power-on screen keep the build's name. Overbridge and Transfer work again on the unit (2026-10-22). `[hw]`
+- **Rule: keep the version field the device expects, or patch only what is sent out.** Overbridge logs on macOS: `~/Library/Logs/Elektron Overbridge/`.
+
 ## Which devices
 - **Overbridge 2 devices supported:** Analog Four MKII, Analog Rytm MKII, Digitakt, Digitakt II, Digitone, Digitone II, Digitone Keys, **Analog Heat, Analog Heat MKII, Analog Heat +FX**, Syntakt. **Not supported:** the Overbridge 1 devices (Analog Four MKI, Analog Keys, Analog Rytm MKI). `[doc]`
 - Device IDs are listed as vendor:product: Digitakt `1935:0b2c`; Analog Heat +FX has product id 2899. `[doc]`

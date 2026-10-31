@@ -34,6 +34,23 @@ Mods for different OS versions cannot be combined and flashing between them can 
 - Container **signed with HMAC-SHA256**, key derived from material inside the image; a modified image can be signed correctly (the tools do it). `[doc]` {dn2-firmware-explore}
 - DSP works per block; the stock handler can be interpreted offline (sharcvm); new effects are portable C, compiled with selache/selcc and spliced into the DSP section. `[doc]` {dn2-cfw}
 
+- **Board PCBA0109B, read from photographs of the parts** (dnfw `docs/hardware.md`, 2026-09-12) {dn2-hw}. The same board number as the Digitakt II is reported.
+  - CPU: ColdFire **MCF5441SCMJ250** (MCF5441x, 250 MHz). Not the V4e that older notes inherited from the Octatrack.
+  - RAM: NANYA NT5TU128M8HE-AC, 128 MB DDR2.
+  - Flash: **Winbond W25Q128JV** (16 MB SPI NOR, by the ColdFire).
+  - Storage: Kingston EMMC32G-TX29 (32 GB eMMC).
+  - DSP: **ADSP-21569** (KBCZ10) with its own Kingston DDR3 beside it.
+  - Codec: **AKM AK4621EF**, 20 MHz crystal by the SHARC.
+  - There is no flash chip by the DSP: the ColdFire boots the SHARC (section 7 is its boot stream). `[hw]` (photos)
+- **Flash-part mismatch worth knowing:** the bootstrap's DYB sector protection (`0xE1`) is applied only on a Spansion S25FL (`0x01 2018`), and digikit's DT2 reading names that part. **On a unit with the Winbond part, that lock has no effect** (Digiwerk T1.5/T1.4). Do not count on hardware write protection of the bootstrap. `[?]` {dn2-hw} {dn2-cfw-t15}
+- Third-party claim about the family (not measured):
+  - Digitone mk1: two MCF54415 plus a Spartan XC3S50A.
+  - Digitakt mk1: one MCF54415.
+  - Digitakt II: one MCF54415-class part plus the ADSP-21569.
+  - Syntakt: two MCF54415, XC3S50A and XC3S200A (the latter driving the analog side).
+
+  digikit's Syntakt 1.42 reading (an FPGA section, a second ColdFire program) fits. `[?]` {dn2-hw}
+
 ## Parameter table
 - 1.12: one OS table of **321 rows**, no free space after it. dn2-cfw's patch GT00 copies it at start-up into free memory with room for **384 rows**; GT01 adds 17 hidden rows (3-band compressor). `[hw]` {dn2-cfw}
 - **Projects store values by slot, not by row**, so moving the table keeps the saved format; new rows follow `docs/parameter-table-growth.md` (not read yet). Table growth was first done on 1.11 for the LFO4 mod in dn2_firmware_explore. `[doc]` {dn2-cfw}

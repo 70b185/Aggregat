@@ -2,6 +2,21 @@
 
 Complements [`digitone-2.md`](digitone-2.md) (overview) and [`digitone-2-os111-reference.md`](digitone-2-os111-reference.md) (modding-skill reference, OS 1.11). Sources are the docs of dnfw (dn2_firmware_explore), dn2-cfw/Digiwerk, digikit and DigiRust, read 2026-10-31 and all **second-hand**. Evidence tags as in `../README.md`; digikit's own labels are kept where it gives them: **[V]** verified by running, **[D]** documented by prior research, **[O]** open, **[C]** corrects an earlier claim. Addresses differ between OS versions - each line says which one it was measured on (unknown = not stated).
 
+## Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) {dn2-cfw-t13}
+- Reset entry `0x400004e8`, stack top `0x48000000`.
+- SRAM copies: `0x402fd000-0x40305000` -> `0x80000000-0x80008000` and `0x40305000-0x4030c980` -> `0x80008000-0x8000f980`. The rest of SRAM is zeroed. **The free SRAM tail is only `0x8000f980-0x80010000` (1,664 B).** The DT2 has 3,840 B and a free block in the first half; the DN2 has none.
+- The DDR clear runs `0x402fd000-0x466b84d0`. DMA buffers are reached only through the uncached alias (`0x4e6c0000-0x4e709340`).
+- **Free DDR `0x46800000-0x47f00000` (23 MB).** It was never mapped or written in the emulated runs. `[emu]`
+
+## DSP code room and load on the DN2 (Digiwerk DT01, DC01/DC02, SC01) {dn2-cfw-dc01}
+- Proven room for added DSP code: **83,838 B over four regions** (L1 block 1 17,974 B, three code regions 9,798 / 31,606 / 24,460 B). Each function is placed first-fit.
+  - Packs that fit: compressor + flanger 48 KB; with the tape echo 80 KB.
+  - All four effects together (95 KB) do not fit.
+  - L2 code runs through the I-cache like stock L2 code. `[hw]` (builds ran on the unit)
+- **selcc output is about 10 % larger than needed** (field accesses cost 5 instructions). Digiwerk's peephole pass saves ~5-6 KB.
+- **Their safety lesson:** stock code never puts a load into an I register directly before a 48-bit instruction that uses it (0 of ~14 cases; there is always work in between). The SHARC emulator does not model the pipeline, so the cautious pass refuses that pairing. Copy the rule: **do not create instruction pairings the stock code never has.** `[doc]`
+- Load model used: load = (1.30 x emulated instructions + 11k) / 666,667. For one build it predicted ~74 % where the unit showed ~50-60 %, so the model overestimates. `[?]`
+
 ## Image identity
 - MAIN OS = section id 3 of the ELE3 container; **load address `0x40000400`** on Digitone II and Digitone mk1; big-endian; 16-byte header, first instruction `46 FC 27 00` (`MOVE #$2700,SR`) at `0x40000410`. Depacked size: DN2 1.10E **3,085,696 B**, DN2 1.11 about 3.19 MB (3,192,192 B per the modding skill), DN1 1.42A 2,420,912 B. CPU ColdFire V4e (octabam loads MAIN OS at the same address). Mutable state lives in SDRAM at `0x80000000`; the bootstrap (section 2) is read at load base `0x800003fc`. `[doc]` {dn2-mainos-image} {dn2-skill-firmware}
 - Internal C++ namespace: `Digisharc` on DN2, `Digitone` on DN1; 454 Itanium-ABI type names recovered from DN2 1.10E (candidates only - the symbol script gives false positives such as `3VVE`). `[doc]` {dn2-mainos-image}

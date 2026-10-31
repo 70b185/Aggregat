@@ -52,6 +52,9 @@ with no panel key (DT2 patched 1,531,152 bytes = 24 erases/5,982 programs; DN2 p
 Compare the skill's practice (Start without auto-commit, End(1) after a pause, because the "complete" event can be lost on the first upload after boot):
 [`../devices/digitone-2-os111-firmware-map.md`](../devices/digitone-2-os111-firmware-map.md).
 
+## The factory console's #UPGRADE is a different, unchecked path (DN2 1.11, dnfw `os-update-path.md`) {dn2-osupdate}
+In maintenance mode (entered with a power-on key combination), the service console's `#UPGRADE` / `#FULL_UPGRADE` take a bootstrap and then an OS over USB-CDC. It checks **only the ELE3 magic and the device type** (52), not the checksum or the HMAC, before it erases and writes from `0x80000`. `#FULL_UPGRADE` also writes the bootstrap. **Never script this path.** The normal path validates fully before any erase. `[doc]`
+
 ## Rules that follow
 - Prefer the RPC route with explicit End; send End 0 on every abort. Do not resend Writes blindly; a failed run costs only a new Start.
 - A "Success!" screen does not prove the flash was written correctly - verify by version string / behaviour after reboot.

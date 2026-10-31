@@ -150,3 +150,16 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | digikit-f53 | ElekLabs/digikit finding 53, shape of stock machines, effects, parameters | https://github.com/ElekLabs/digikit/blob/main/docs/findings/53-stock-dsp-shape.md |
 | digikit-f57 | ElekLabs/digikit finding 57, capacity and isolation of run-time modules | https://github.com/ElekLabs/digikit/blob/main/docs/findings/57-capacity-isolation.md |
 | digikit-f73 | ElekLabs/digikit finding 73, dnfw and digikit in one image | https://github.com/ElekLabs/digikit/blob/main/docs/findings/73-dnfw-coexistence.md |
+| dn2-cfw-t14 | naturarum/dn2-cfw (Digiwerk) note T1.4, flash-writer audit (DN2 1.12) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T1.4-flash-writers.md |
+| dn2-cfw-t15 | Digiwerk note T1.5, is the STARTUP menu always reachable | https://github.com/naturarum/dn2-cfw/blob/main/notes/T1.5-recovery-path.md |
+| dn2-cfw-ob01 | Digiwerk note OB01, why Overbridge refused the builds | https://github.com/naturarum/dn2-cfw/blob/main/notes/OB01-overbridge.md |
+| dn2-cfw-t13 | Digiwerk note T1.3, DN2 1.12 reset ranges, stack, free memory | https://github.com/naturarum/dn2-cfw/blob/main/notes/T1.3-dn2-memory.md |
+| dn2-cfw-dc01 | Digiwerk notes DT01 (code diet), DC01/DC02 (compiler peephole), SC01 (layout and load) | https://github.com/naturarum/dn2-cfw/blob/main/notes/DC01-compiler-fix.md |
+| dn2-hw | dnfw `docs/hardware.md`, Digitone II mainboard parts and a third-party family list | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/hardware.md |
+| dn2-principles | dnfw `docs/PRINCIPLES.md`, architecture principles 12-19 | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/PRINCIPLES.md |
+| dn2-caves | dnfw `docs/code-caves.md` and `docs/mod-memory-regions.md` | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/code-caves.md |
+| dn2-osupdate | dnfw `docs/os-update-path.md`, what the running OS checks before it erases | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/os-update-path.md |
+| dn2-dspstop | dnfw `docs/waverider-dsp-silence.md` (DSP stops on silicon, traps, L1 block 2 cache) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/waverider-dsp-silence.md |
+| dn2-stall | dnfw `docs/sharc-stall-probe.md` (stall probe, selas Type 5a bug) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/sharc-stall-probe.md |
+| dn2-ddr | dnfw `docs/sharc-ddr.md` (DSP DDR size and free range, measured) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/sharc-ddr.md |
+| dn2-sharcload | dnfw `docs/sharc-load.md` (stock cycle count, idle-task load, bursts) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/sharc-load.md |

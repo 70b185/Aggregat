@@ -38,7 +38,7 @@ All facts are second-hand (see evidence tags). Device-specific differences are i
   differ only in its 4-character version field and the framing only in its message count. `[doc]` {elekloader-readme}
 
 ## Signing per device (summary)
-Digitakt II and Digitone II: HMAC-SHA256 trailer, key derived from a string inside the image; Digitakt II additionally enforces a build floor ("0060") in the in-OS validator. Digitone mk1: unsigned (trailer zero). **Syntakt 1.42: unsigned** (no HMAC, trailer zero; content checksum only). Analog Heat: unknown. `[doc]` {dn2-ele3} {digikit-f75} {digikit-f70}
+Digitakt II and Digitone II: HMAC-SHA256 trailer, key derived from a string inside the image; Digitakt II additionally enforces a build floor ("0060") in the in-OS validator. Digitone mk1: unsigned (trailer zero). **Syntakt 1.42: unsigned** (no HMAC, trailer zero; content checksum only). **Analog Heat +FX 1.02: unsigned** (ELE3, device byte 0x13, no trailer; sections 5, 2, 1 FPGA, 3 MAIN, 4 updater) {own-heatfx-notes}. Heat MKI/MKII: unknown. `[doc]` {dn2-ele3} {digikit-f75} {digikit-f70}
 
 ## Tools
 - `elektron-firmware-tool` (mischa85, C, MIT): inspect, extract (`-d`), compress (`-c`), repack verbatim (`-r`). No firmware in the repo. {elektron-firmware-tool}

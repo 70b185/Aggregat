@@ -8,7 +8,7 @@
 #   devices        list of device slugs (see devices.yml)
 #   repo           primary source repository (null if none known)
 #   links          other URLs: homepage / releases / forum thread
-#   status         active | beta | alpha | stable | wip | pre-release | released | done | request
+#   status         unreachable (repo gone or private) | active | beta | alpha | stable | wip | pre-release | released | done | request
 #                  | unlabeled (README gives no maturity label) | unknown (could not be determined)
 #   base_os        stock OS versions the project targets (as stated by the author)
 #   version        latest version/release named in the sources
@@ -491,13 +491,14 @@ projects:
     kind: mod
     devices: [digitakt]
     repo: https://github.com/soejrd/digidrum
-    status: alpha
+    status: unreachable
     base_os: "Digitakt mk1 OS 1.53 (Digitone and Syntakt are stated goals, not current targets)"
     version: "v0.4.1-alpha.1 (2026-10-06)"
     last_activity: 2026-10-06
     notes: >
       Machinedrum-style sounds. README warns "super alpha ... experimental firmware not ready for use",
       crashes and CPU overload possible. 27 commits. License not stated.
+      2026-10-31: the repo no longer answers git requests (deleted or made private).
     latest_seen: >
       altstrument: recreates Machinedrum machines as playable engines, starting with TRX and PI; build from source; licence unspecified.
     sources: [GitHub README, lapin-list]

@@ -33,6 +33,27 @@ Know this **before** flashing a test unit. Sources are second-hand; check Elektr
 - **Other Elektron devices, from elekloader's BUILDING.md (for reference):** Analog Rytm MKII and Analog Four MKII - FUNC at power-on (STARTUP menu), TRIG 4, stock `.syx` over 5-pin DIN MIDI, USB does not work. Octatrack - hold FUNC at power-on, **TRIG 3 = MIDI UPGRADE**, DIN MIDI; normal flashing from the card (PROJECT > SYSTEM > USB DISK MODE, copy the `.bin`, then PROJECT > SYSTEM > OS UPGRADE, power-cycle once more before judging). Digitakt mk1 / Digitone mk1: FUNC, TRIG 4, legacy mode; the connection is not stated for these two. `[doc]` {elekloader-building}
 - **Transfer "PREPARING" stalls:** Overtone 1.0 could stall on "Receiving"/"PREPARING..." when an OS was sent while Overtone ran; the earlier Plaits builds in digitakt-ii-research's All-in-One line "failed normal Transfer updates at 0%/PREPARING" and the author says not to assume the route is reliable on every installation. Recovery from such a stall is a power cycle and the startup menu. `[hw]` {overtone} {dt2-install}
 
+## Why recovery survives a bad OS, and what would break it (Digitone II 1.12; Digiwerk notes T1.4, T1.5) {dn2-cfw-t14} {dn2-cfw-t15}
+**Result:** no content of flash at `0x80000` and above can stop the STARTUP menu when FUNC is held. This was checked statically and in 15 emulated boots with stock, corrupt, truncated, all-`0xFF` and hostile containers. The menu, the FUNC decision, the font and the OS UPGRADE receive all live in the bootstrap and read **no flash** until a transfer commits. `[emu]`
+
+**NOR flash map (16 MiB, DSPI0 `0xFC05C000`):**
+| Range | Content | Written by |
+|---|---|---|
+| `0x000000-0x040000` | NXP serial-boot image | no firmware path (factory only) |
+| `0x040000-0x080000` | **bootstrap** (section 2, version word `0x0201`), DYB-protected | only the bootstrap self-upgrade and the factory console `#FULL_UPGRADE` |
+| `0x080000-0x380000` | OS container (3 MB window; stock about 1.1 MB packed) | in-OS upgrade, console `#UPGRADE`, STARTUP-menu upgrade |
+| `0x380000` / `0x3c0000` | test/flag record / serial record (same on DT2) | factory console only |
+| `0x400000`, `0x800000`, `0xc00000` | legacy "COKi" persistence copies | boot migration to eMMC |
+The main OS has no chip-erase command, and no main-OS path writes below `0x40000`. `[doc]`
+
+**What a mod must never change** (keep all of these, and recovery stays intact):
+1. **Section 2 byte-identical, and its table entry version `0x0201`.** A higher version there plus a new section-2 image is the one way the boot-time self-upgrade rewrites the bootstrap. It runs on *every* boot, before the menu.
+2. **The container at most `0x200000` bytes.** The in-OS writer has no length clamp and wraps 24-bit addresses. An over-long container could erase `0x380000`/`0x3c0000` and, past `0xF80000`, wrap onto the bootstrap.
+3. **Section 4 (the factory board-test program and in-place loader) stock, and a non-negative depack margin** at both stages. If the panel read times out, the bootstrap boots through section 4. An underflowing build then hangs with no menu, a soft brick.
+4. **The panel-MCU firmware blob, its version word and its updater stock.** The main OS reflashes the panel when it reports a version below `0x15`, and FUNC and the menu keys depend on the panel.
+5. **The serial and test records intact.**
+6. **No new soft-reset paths** (`0xB0B0DADA` at `0x48000000`, 5-key, panel timeout): they set maintenance/section-4 flags.
+
 ## Factory reset (official FAQ on the support pages, 2026-10-31) - not a recovery, it overwrites data
 - **Digitakt II:** hold FUNC while powering on, press the key the startup menu shows; project slot 001 is overwritten with the factory project and the loaded project is cleared; sound/preset bank A is overwritten; other slots/banks untouched; **samples on the +Drive are kept**. `[doc]` {elektron-dt2-support}
 - **Digitone II:** same procedure; project slot 001 overwritten, loaded project cleared, **sound banks A and B** overwritten; other slots/banks untouched. Save the active project above slot 001 first. `[doc]` {elektron-dn2-support}

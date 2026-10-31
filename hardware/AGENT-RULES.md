@@ -82,6 +82,15 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A29. Leave a trail the ColdFire can read when the DSP stops.** Write a breadcrumb word (step, voice, type) straight into both reply records before each risky step, and keep a heartbeat. A stopped core never reaches the block-tail copy. On a stall, write a hang record to RAM that survives a soft reset (digikit uses `0x47fe0000`), then boot into a safe mode. `[hw]` {digikit-f48} {digikit-f77}
 
+**A30. Keep the container under `0x200000` bytes and section 2's table version stock.** The in-OS flash writer on DN2 1.12 has no length clamp and wraps addresses. A bumped section-2 version triggers the bootstrap self-upgrade on the next boot. Both are ways to lose recovery. `[doc]` {dn2-cfw-t14} {dn2-cfw-t15}
+
+**A31. A negative is only as good as the search that produced it.** Before you write "X is not there", run the same search on something you know is there. Say what the search covered (addresses, encodings, pages), and write "not found by <method>", not "not present". Every expensive wrong answer in dnfw's history was such a negative. Examples:
+- "no SHARC program in the update": it was a boot stream, not raw code;
+- "no upload path": it was on the DSPI next door;
+- "no references": the addresses live in another address space. `[doc]` {dn2-principles}
+
+**A32. Store each section the way the original stores it.** Some sections are aPLib streams and some are raw, and this differs between devices. Decide from the original (do its bytes depack?), never from an argument. A wrongly compressed or raw section passes every checksum and bricks the unit. Mirror the original's own integrity fields and re-verify the written file. `[doc]` {dn2-principles}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.

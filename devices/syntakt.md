@@ -9,10 +9,10 @@ Data last verified: 2026-10-31
 | **Synthack-OS (Syntakt MAX 1.0, SY FM4 modular builder)** (kariGardarsson) | mod | beta | modular builder RC1 (2026-10-20); Syntakt MAX 1.0 first public beta (2026-10-17); Syntakt OS 1.41 | 2026-10-21 | [repo](https://github.com/karigardarsson/Synthack-OS) · [release max](https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-v1.0) · [release builder](https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-modular-builder-rc1) · [forum max](https://elektronmods.com/thread-81-good-news-everyone-syntakt-max-1-0-multiple-custom-firmware) · [forum fm4](https://elektronmods.com/thread-85-good-news-everyone-sy-fm4-is-here-a-fully-modular-syntakt) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
-| **syntakt-firmware-workbench** (Bezronczek) | mod | unverified | - | - | [repo](https://github.com/Bezronczek/syntakt-firmware-workbench) |
-| **sympakt** (sinedied) | tool | unverified | - | - | [repo](https://github.com/sinedied/sympakt) |
-| **Elektroid** (dagargo) | tool | unverified | - | - | [repo](https://github.com/dagargo/elektroid) |
-| **ghidra-dsp56300** (roblg) | research | unverified | - | - | [repo](https://github.com/roblg/ghidra-dsp56300) |
+| **syntakt-firmware-workbench** (Bezronczek) | mod | wip | Syntakt OS 1.41 only (other files refused, not changed) | - | [repo](https://github.com/Bezronczek/syntakt-firmware-workbench) |
+| **sympakt** (sinedied) | tool | active | - | - | [repo](https://github.com/sinedied/sympakt) · [web app](https://sinedied.github.io/sympakt/) |
+| **Elektroid** (dagargo) | tool | active | - | - | [repo](https://github.com/dagargo/elektroid) |
+| **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | - | [repo](https://github.com/dagargo/overwitch) |
 
 ## Details
 
@@ -36,24 +36,24 @@ _Sources: forum overview_
 
 ### syntakt-firmware-workbench
 
-Put your own waveforms into the SY CHORD engine.
+Browser workbench, use your own official file; put your own waves into SY CHORD. In progress: safer test loop that runs program-code changes in an emulator before hardware. MIT, 8 commits.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### sympakt
 
-Browser sample manager.
+Browser sample-pack manager (64-slot banks, preview, export). Not a firmware mod. MIT, 81 commits, 40 stars.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
 ### Elektroid
 
-Sample and SysEx manager for most Elektron devices. Which of our six devices it supports still has to be checked.
+Sample and SysEx manager. README device list includes Analog Heat MKI, MKII and +FX, Digitakt I and II, Digitone I/II/Keys, Syntakt (also Analog Four/Rytm/Keys, Model:Cycles/Samples, Monomachine MKII). GPL-3.0, 2,506 commits, 425 stars. No version/date visible.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_
 
-### ghidra-dsp56300
+### Overwitch
 
-Ghidra module for the DSP56300 used in several devices. Which of ours is a guess until checked.
+Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII and Heat +FX, Digitakt I/II, Digitone I/II/Keys, Syntakt. Overbridge 1 devices (Analog Four MKI, Analog Keys, Rytm MKI) not supported. GPL-3.0, 671 commits.
 
-_Sources: lapin-list_
+_Sources: GitHub README, lapin-list_

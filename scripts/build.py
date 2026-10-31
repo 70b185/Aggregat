@@ -14,7 +14,7 @@ projects = projects_doc["projects"]
 checked = projects_doc["checked"]
 cand_file = ROOT / "data" / "candidates.yml"
 if cand_file.exists():  # unverified entries imported from other directories
-    projects = projects + yaml.safe_load(cand_file.read_text(encoding="utf-8"))["projects"]
+    projects = projects + (yaml.safe_load(cand_file.read_text(encoding="utf-8"))["projects"] or [])
 ids = [p["id"] for p in projects]
 assert len(ids) == len(set(ids)), f"duplicate ids: {sorted(i for i in ids if ids.count(i) > 1)}"
 

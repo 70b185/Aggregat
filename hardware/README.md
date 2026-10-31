@@ -28,15 +28,19 @@ rely on an address or a byte pattern.
 ## A finer evidence ladder to adopt when a source uses it
 digitakt-ii-research grades its own statements as SOURCE/STATIC -> HOST -> SYNTHETIC UNICORN -> NATURAL EMULATED -> HARDWARE. Our `emu` tag lumps the middle three together; when a source draws that distinction, keep it in the note.
 
-## Status of this folder (2026-10-31)
+## Ten things every agent should know first (details and sources inside)
+1. **Never touch the bootstrap/updater**; recovery is the startup menu (FUNC at power-on, TRIG 4) - **DIN MIDI only on Digitakt II, Digitone II, Syntakt**; avoid TRIG 2/3 (erase data). Prove the recovery once with a stock file before the first modified flash. (`AGENT-RULES` A1-A5, A11, A17; `common/recovery.md`, `common/flash-procedure.md`)
+2. **Nothing Elektron ships in the repo**; the user supplies the stock `.syx`, you identify it by SHA-256; keep stock files - old OS versions are no longer offered. (B1, B2, B6; `common/ecosystem-lessons.md`)
+3. **One mod = one exact OS build.** Digitone II is split between 1.11 (dn2mk2, skill) and 1.12 (Overtone, Digiwerk, DigiRust); Digitakt II 1.16/1.17; Syntakt 1.40A/1.41/1.42. (C1, A10)
+4. **Size limits bite before flash limits:** 2 MiB USB receive limit and the in-place loader margin (+31,182 B stock, -39,318 B with the default compressor level) on Digitone II; section 7 under 1 MiB. (A9, A14; `devices/digitone-2-internals.md`)
+5. **Emulators lie about DSP time, caches, power-on memory and NaNs.** Real incidents: 8n+4-byte boot blocks, zeroed shift sign bits, clobbered R8, uninitialised DDR, a removed sine table. (G9, D11-D13; `devices/digitone-2-os111-reference.md`)
+6. **Voices are not tracks**; count memory accesses, not instructions; guard DSP frame time. (D12)
+7. **Test ladder and logging:** failing test with a stock control first, emulator before every flash, one named image with SHA-256, stop after two failed flashes. (G1-G8; `common/agent-workflow.md`)
+8. **Control-side tools must write safely:** back up, allowlist OS builds, change only needed bytes, read back and compare. (F1-F6; `common/sysex-and-midi.md`)
+9. **Memory maps differ per device and per core version** - use `common/memory-maps.md` as a checklist, not as gospel. (D11)
+10. **Analog Heat is the white spot:** only official OS/recovery facts, the Overbridge channel layout and tool support lists exist; no teardown, no mod. (`devices/analog-heat.md`, `common/overbridge-usb.md`)
 
-First pass, built from README-level reading of: elekloader (+ADAPTING.md), digikit, dn2-cfw,
-dn2_firmware_explore, elektron-firmware-tool, digitakt-ii-research, Synthack-OS and Elektron's own
-Analog Heat pages. Open reading list: [`MINING.md`](MINING.md).
+## Status of this folder (2026-10-31, after the "read everything" pass)
+Built from README- and docs-level reading of more than 40 repositories, the altstrument and elektronmods directories, two official release-note sets, forum threads and one journalistic audit. The exact depth per source, the pages that were blocked and the ones that need an approval are in [`READING-LEDGER.md`](READING-LEDGER.md); the open reading list is [`MINING.md`](MINING.md).
 
-Ecosystem, practices and legal context: [`common/ecosystem-lessons.md`](common/ecosystem-lessons.md); Overbridge USB: [`common/overbridge-usb.md`](common/overbridge-usb.md).
-
-Deep dives: [`common/memory-maps.md`](common/memory-maps.md) (mod areas and flash budgets per device), [`devices/digitone-2-internals.md`](devices/digitone-2-internals.md), [`devices/digitone-2-machines-sampler-sharc.md`](devices/digitone-2-machines-sampler-sharc.md), [`devices/digitone-2-os111-reference.md`](devices/digitone-2-os111-reference.md) (Digitone II OS 1.11 engineering reference) and [`common/agent-workflow.md`](common/agent-workflow.md) (the loop an agent should follow).
-
-Coverage per device: Digitakt mk1 **good**, Digitone mk1 **good** (via elekloader), Digitakt II **medium**,
-Digitone II **medium**, Syntakt **thin**, Analog Heat **only official facts, no mod knowledge**.
+Coverage per device: Digitakt mk1 **good** (ecosystem + memory map), Digitone mk1 **good**, Digitakt II **medium-good** (static analysis, install/recovery, protocol, one hardware-verified mod line), Digitone II **good** (the best documented box: container, flash layout, DSP/ColdFire rules, machines, sampler, incidents), Syntakt **medium** (recovery, OS 1.41 static analysis, SY FM4), Analog Heat **official facts only, no mod knowledge**.

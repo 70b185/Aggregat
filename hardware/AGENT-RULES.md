@@ -50,6 +50,12 @@ Full procedure in [`common/flash-procedure.md`](common/flash-procedure.md). `[hw
 **A13. Gate DSP code against hardware rules the emulators cannot see.** dn2mk2 runs `gate_hwrules.py` (complex-ping's `hwrules.py`) because DSP code that
 runs in the emulator can fail on silicon with DSP silence until power cycle. Use a comparable static check and keep to instruction encodings found in stock. `[doc]` {dn2mk2-safety}
 
+**A14. Check the size margin at every loader stage, not just the file size.** On the Digitone II the in-place loader of section 4 has a stock margin of +31,182 bytes and the default compressor setting turns that into -39,318, corrupting the image; the receive buffer is 2 MiB and the stock container is `0x1CC740` bytes. Use a packer that respects Elektron's stream limits (1 MiB window, 2,048-byte matches) and verify the margin of both stages. `[hw]` {dn2-cfw-handoff} {dn2-ele3}
+
+**A15. Leave the panel-MCU blob, its updater and section 8 (Outbox 8 firmware) stock**, together with the bootstrap and updater. `[doc]` {dn2-cfw-handoff} {dn2-ele3}
+
+**A16. Withdraw builds that lose sound.** Digiwerk withdrew its six spring-reverb builds after finding that two of them stop the sound on a Digitone II; dn2mk2 withdrew v0.4-v0.7 for oversized images. Keep a visible list of withdrawn builds with the reason. `[hw]` {alt-digitone-ii} {dn2mk2-firmware-md}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.

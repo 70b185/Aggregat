@@ -6,7 +6,8 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 |---|---|---|
 | elekloader-adapting | elekloader `docs/ADAPTING.md` (mod-author rules, hook bus, memory) | https://github.com/irpina/elekloader/blob/main/docs/ADAPTING.md |
 | elekloader-readme | elekloader README and v0.2.0 / v0.4.0 release notes | https://github.com/irpina/elekloader |
-| digikit | m-dwyer/digikit README | https://github.com/m-dwyer/digikit |
+| digikit | ElekLabs/digikit README (current home; read 2026-10-31) | https://github.com/ElekLabs/digikit |
+| digikit-old | m-dwyer/digikit README (Em D's earlier repo and, per profile name and credits, the original author's; read earlier the same day; some statements are superseded by the ElekLabs README) | https://github.com/m-dwyer/digikit |
 | dn2-cfw | naturarum/dn2-cfw README | https://github.com/naturarum/dn2-cfw |
 | dn2-firmware-explore | angellinares/dn2_firmware_explore README | https://github.com/angellinares/dn2_firmware_explore |
 | elektron-firmware-tool | mischa85/elektron-firmware-tool README | https://github.com/mischa85/elektron-firmware-tool |

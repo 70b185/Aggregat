@@ -7,12 +7,12 @@ evidence. If a rule conflicts with a device file, the device file is more specif
 
 **A1. Do not touch the bootstrap/bootloader or the updater section.** Patch the main OS only.
 Then the stock OS file can always restore the unit. `[doc]` {elekloader-adapting} {elekloader-readme}
-{digikit} (DT2: sections 2 = bootstrap and 4 = updater must never be modified; sections 3 and 7 are the
+{digikit} (ElekLabs README: patchkit refuses to change sections 2, 4 and 8) {digikit-old} (earlier README: 2 = bootstrap and 4 = updater never modified; sections 3 and 7 were the
 patch targets) {dn2-cfw} (brick checker refuses any bootstrap change).
 
 **A2. Know the recovery path before anything is flashed.** Write it down in your output, with the exact
 button combination for the device (see [`common/recovery.md`](common/recovery.md)). Keep the stock OS file and,
-for Digitakt II / Digitone II, a physical DIN MIDI interface at hand. `[doc]` {digikit} {synthack-os}
+for Digitakt II / Digitone II, a physical DIN MIDI interface at hand. Note: digikit's README itself says recovery via the bootstrap menu is **"not tested on hardware"** - treat Digitakt II recovery as unproven, Digitone II recovery was exercised by dn2-cfw, Overtone and dn2mk2. `[doc]` {digikit} {digikit-old} {synthack-os}
 {dn2-cfw}
 
 **A3. Back up first.** Back up projects/sounds (+Drive) with Elektron Transfer before flashing. `[doc]` {dn2-cfw}
@@ -20,7 +20,7 @@ for Digitakt II / Digitone II, a physical DIN MIDI interface at hand. `[doc]` {d
 **A4. Never power off during an upgrade.** `[doc]` {elekloader-readme}
 
 **A5. BOOTSTRAP UPGRADE is the only irreversible step** (DT2 startup menu; runs only if the incoming
-bootstrap version is strictly higher). Never build or send an image with a higher bootstrap version. `[doc]` {digikit}
+bootstrap version is strictly higher). Never build or send an image with a higher bootstrap version. `[doc]` {digikit-old}
 
 **A6. Verify every candidate image before it is written** - re-read it, check all checksums, check
 that only the intended section differs from stock, check it fits the flash budget, check the main OS unpacks to
@@ -68,8 +68,9 @@ recover. A verifying build is well-formed, **not** proven to work. `[doc]` {elek
 **C3. Record the test state of every build** as `hw` / `emu` / `untested` in the project metadata. Several
 projects ship builds that are lint-clean but "not yet run on a unit". `[doc]` {digislicer} {digichroma} {digitakt2-perform}
 
-**C4. Emulators do not emulate audio.** digikit has no DSP emulation (Digitakt II: "no audio, no input,
-storage not supported"). Changes to audio code or DSP cannot be validated there. `[doc]` {digikit}
+**C4. Emulators do not prove real-time DSP behaviour.** The earlier digikit README said "no audio"; the current ElekLabs
+README has ColdFire + SHARC+ running together with audio, but the DSP "does not run in real time yet", and dn2mk2
+reports the emulators do not model the two chips' timing. DSP overruns show up only on a unit. `[doc]` {digikit-old}
 
 **C5. Windows:** the DN2 tooling needs an m68k objdump; use WSL. `[doc]` {dn2-firmware-explore}
 

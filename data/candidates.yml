@@ -17,3 +17,4 @@ projects:
   # ------------------------------------------------------------- Syntakt
 
   # ------------------------------------------------------------- cross-device tools (device support to verify)
+  - {id: selache, name: selache (SHARC+ toolchain), author: "js216 (ElekLabs keeps a fork)", kind: tool, devices: [digitakt-2, digitone-2], repo: "https://github.com/js216/selache", status: unverified, notes: "Open-source toolchain for SHARC+ DSP (assembler/C compiler), GPL-3.0. Named in the dn2mk2 and dn2-cfw docs as the way to build Digitone II DSP code; ElekLabs/selache is a fork updated 2026-10-30. Original repo not read by us yet.", sources: [dn2mk2 README, ElekLabs org page]}

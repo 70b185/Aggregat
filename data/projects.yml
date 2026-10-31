@@ -868,3 +868,23 @@ projects:
       m68k GCC, digikit. MIT (digikit-derived files GPL-2.0), 2 commits, 10 stars. Overtone was built with it.
       Closest existing relative of this repo's hardware/ folder.
     sources: [GitHub README, Overtone README]
+
+  - id: coldfire-rs
+    name: coldfire-rs
+    author: FirestormAudio
+    kind: tool
+    devices: [digitakt-2, digitone-2]
+    repo: https://github.com/FirestormAudio/coldfire-rs
+    status: wip
+    base_os: "not firmware-specific; targets the NXP ColdFire V4e chips MCF54410 and MCF54415-MCF54418"
+    version: null
+    last_activity: 2026-10-25
+    notes: >
+      Rust stack for ColdFire V4e (MCF5441x): toolchain (rustc_codegen_gcc + libgccjit for m68k-elf), runtime,
+      PAC generated from an SVD, and an Embassy HAL (GPIO, PIT, INTC, eDMA, UART, DSPI, eSDHC eMMC block reads, SSI/I2S,
+      USB OTG device mode). Not an emulator and not an Elektron mod: the README never mentions Elektron or digikit, the
+      only link is the topic tag "digitakt". It is relevant here because digikit names the MCF54415 as the control CPU of
+      Digitakt II (and the Digitone II is described as ColdFire too). Drivers were run on the author's own MCF54415 board.
+      README: API is young and may change before 1.0. 33 commits, Apache-2.0 OR MIT. Same owner also has deluge-sdk
+      (Synthstrom Deluge, out of scope). Org shows no public members; no relation to ElekLabs/Em D found.
+    sources: [GitHub README, FirestormAudio profile page]

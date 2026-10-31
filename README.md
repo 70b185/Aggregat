@@ -69,4 +69,7 @@ Aggregat differs from these by focusing on a few devices in depth: current versi
 
 ## Licence
 
-No licence has been chosen yet. Until one is, all rights are reserved by the repository owner; linked projects keep their own licences.
+Everything in this repository - texts, data and scripts - is dedicated to the public domain under
+[CC0 1.0 Universal](LICENSE). Use it for anything, no attribution required (a mention is welcome).
+The linked projects are not part of this repository and keep their own licences; check those before
+you reuse their code.

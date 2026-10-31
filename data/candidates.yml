@@ -9,24 +9,8 @@ checked: 2026-10-31
 
 projects:
   # ------------------------------------------------------------- Digitakt (mk1)
-  - {id: digistring, name: digistring, author: Alez22, kind: mod, devices: [digitakt], repo: "https://github.com/Alez22/digistring", status: unverified, notes: "Karplus-Strong plucked-string machine.", sources: [lapin-list]}
-  - {id: digifilter, name: DigiFilter, author: DigiAlchemydsp, kind: mod, devices: [digitakt], repo: "https://github.com/DigiAlchemydsp/DigiFilter", status: unverified, notes: "Extra filter modes (BP, BP2, COMB, TRASH).", sources: [lapin-list]}
-  - {id: digisplash, name: DigiSplash, author: DigiAlchemydsp, kind: mod, devices: [digitakt, digitone], repo: "https://github.com/DigiAlchemydsp/DigiSplash", status: unverified, notes: "Custom boot animations.", sources: [lapin-list]}
-  - {id: digi1-mods, name: digi1_mods, author: gdeo607, kind: mod, devices: [digitakt], repo: "https://github.com/gdeo607/digi1_mods", status: unverified, notes: "Synth machines, LFO matrix, scope, tuner, EQ, polyphony.", sources: [lapin-list]}
-  - {id: digislicer, name: digislicer, author: pina (irpina), kind: mod, devices: [digitakt], repo: "https://github.com/irpina/digislicer", status: unverified, notes: "Slice editor / auto-slicing for the SLICE machine. Also appears as a mod in elekloader.", sources: [lapin-list, elekloader release v0.2.0]}
-  - {id: dt-fm, name: DT-FM, author: mtalikka, kind: mod, devices: [digitakt], repo: "https://github.com/mtalikka/DT-FM", status: unverified, notes: "Four-operator FM machine.", sources: [lapin-list]}
-  - {id: digidrum, name: Digidrum, author: soejrd, kind: mod, devices: [digitakt], repo: "https://github.com/soejrd/digidrum", status: unverified, notes: "Machinedrum-style machines, starting with TRX.", sources: [lapin-list]}
-  - {id: digigrain, name: digigrain, author: lucykowal, kind: mod, devices: [digitakt], repo: "https://github.com/lucykowal/digigrain", status: unverified, notes: "Granular playback machine.", sources: [lapin-list]}
-  - {id: digihealth, name: digihealth, author: pina (irpina), kind: mod, devices: [digitakt, digitone], repo: "https://github.com/irpina/digihealth", status: unverified, notes: "Lower DSP load (FAST AUDIO) and a SYSTEM INFO page. Version 1.1 adds Digitone support per elekloader v0.4.0.", sources: [lapin-list, elekloader release v0.2.0, elekloader release v0.4.0]}
-  - {id: digirta, name: digirta, author: Alez22, kind: mod, devices: [digitakt], repo: "https://github.com/Alez22/digirta", status: unverified, notes: "Octave-band analyzer.", sources: [lapin-list]}
-  - {id: digicandy, name: DigiCandy, author: DigiAlchemydsp, kind: mod, devices: [digitakt], repo: "https://github.com/DigiAlchemydsp/DigiCandy", status: unverified, notes: "Full-screen image overlay on a key combination.", sources: [lapin-list]}
-  - {id: screendump, name: screendump, author: jakobbak, kind: tool, devices: [digitakt, digitakt-2], repo: "https://github.com/jakobbak/screendump", status: unverified, notes: "Captures the device screen over MIDI. Which generation(s) it supports is not stated in the list.", sources: [lapin-list]}
 
   # ------------------------------------------------------------- Digitone (mk1)
-  - {id: digitables, name: digitables, author: pina (irpina), kind: mod, devices: [digitone], repo: "https://github.com/irpina/digitables", status: unverified, notes: "Pitch tables in the style of the M8, with an editor.", sources: [lapin-list]}
-  - {id: tone-fx, name: Tone+FX, author: DigiAlchemydsp, kind: mod, devices: [digitone], repo: "https://github.com/DigiAlchemydsp/Tone-FX", status: unverified, notes: "Master effects (ring mod, EQ, lo-fi, wavefolder). Possibly the same project as RingTone, which we track under the same author - to be checked.", sources: [lapin-list]}
-  - {id: digicosm, name: DigiCosm, author: pina (irpina), kind: mod, devices: [digitone], repo: "https://github.com/irpina/digicosm", status: unverified, notes: "Microcosm-style effects for the audio inputs.", sources: [lapin-list]}
-  - {id: digichroma, name: DigiChroma, author: pina (irpina), kind: mod, devices: [digitone], repo: "https://github.com/irpina/digichroma", status: unverified, notes: "Chroma Console-style effects for the audio inputs.", sources: [lapin-list]}
 
   # ------------------------------------------------------------- Digitakt II / Digitone II
   - {id: digikit, name: digikit, author: m-dwyer, kind: emulator, devices: [digitakt-2, digitone-2], repo: "https://github.com/m-dwyer/digikit", status: unverified, notes: "Emulator and analysis tools. elekloader's release notes mention checking its core in 'digikit's emulator'.", sources: [lapin-list, elekloader release v0.2.0]}

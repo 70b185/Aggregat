@@ -6,9 +6,9 @@ Data last verified: 2026-10-31
 
 | Device | Verified | Unverified candidates | Requests / resources |
 |---|---|---|---|
-| [Digitakt (MKI)](devices/digitakt.md) | 8 | 15 | 3 |
-| [Digitakt II](devices/digitakt-2.md) | 4 | 8 | 1 |
-| [Digitone (MKI) / Digitone Keys](devices/digitone.md) | 5 | 9 | 2 |
+| [Digitakt (MKI)](devices/digitakt.md) | 20 | 3 | 3 |
+| [Digitakt II](devices/digitakt-2.md) | 4 | 7 | 1 |
+| [Digitone (MKI) / Digitone Keys](devices/digitone.md) | 12 | 3 | 2 |
 | [Digitone II](devices/digitone-2.md) | 4 | 5 | 2 |
 | [Syntakt](devices/syntakt.md) | 2 | 4 | 1 |
 | [Analog Heat (MKI, MKII, +FX)](devices/analog-heat.md) | 1 | 3 | 1 |

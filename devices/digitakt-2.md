@@ -11,7 +11,6 @@ Data last verified: 2026-10-31
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | 2026-10-13 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
-| **screendump** (jakobbak) | tool | unverified | - | - | [repo](https://github.com/jakobbak/screendump) |
 | **digikit** (m-dwyer) | emulator | unverified | - | - | [repo](https://github.com/m-dwyer/digikit) |
 | **digitakt-ii-firmware-research** (lalzart) | research | unverified | - | - | [repo](https://github.com/lalzart/digitakt-ii-firmware-research-public) |
 | **digi-roll** (zooloo303) | editor | unverified | - | - | [repo](https://github.com/zooloo303/digi-roll) |
@@ -51,12 +50,6 @@ _Sources: forum threads 80 and 83_
 Forum thread listing stock firmware. Not fetched in detail yet. Remember: this aggregator links to stock firmware sources but never hosts them.
 
 _Sources: forum overview_
-
-### screendump
-
-Captures the device screen over MIDI. Which generation(s) it supports is not stated in the list.
-
-_Sources: lapin-list_
 
 ### digikit
 

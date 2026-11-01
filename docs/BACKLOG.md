@@ -11,7 +11,10 @@
 - Digitone II and Digitakt II: other patchers besides Overtone, DigiRust and digitakt-ii-research.
 - Real "last commit" dates: the GitHub API was not reachable for non-attached repos, so `last_activity` currently comes from forum posts and release pages. A GitHub Action in this repo could fill commit/release dates automatically.
 
-## Phase 2 - other devices (not yet researched in depth)
+## Phase 2 - other devices
+Done 2026-11-01: catalogue of 45 projects for Octatrack, Analog Rytm, Analog Four/Keys, Model:Cycles/Samples, Machinedrum and Monomachine (from altstrument; facts only, our own notes). Next: read each repo's README like phase 1, then `hardware/` notes per platform (Octatrack: octabam/Modwerk DSP56300 + ColdFire; Model: Modded-Cycles; Rytm: rytm-fw-re, rytm-mods-src; Machinedrum: MDS/MDX, machinedrum-kit).
+
+Original notes:
 - Octatrack MKI/MKII: Modwerk/octabam (sambanks/octabam), "Octatrack Trifecta" (thread 6), Octamod hub (thread 36)
 - Model:Cycles / Model:Samples: Modded-Cycles (18nelli18), Model-TG (TinyGregAudio), Model-Tweaks (thread 41)
 - Analog Four / Rytm: ChopShop analog mods (thread 51), elekloader A4 MKII proof of concept

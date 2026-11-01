@@ -1259,3 +1259,721 @@ projects:
     notes: Turns one step's parameter locks into a saveable sound; Digitone mk1 and Keys; listed as not on GitHub. AvroraPolnareff also has an elekloader fork with Analog Four MKII proof-of-concept work.
     sources: [elektronmods list]
 
+  # ---------------------------------------------------------------- Phase 2 devices (imported 2026-11-01 from altstrument, facts only, notes our own)
+  - id: analog-rytm-mkii-research
+    name: analog-rytm-mkii-research
+    author: genosdk
+    kind: research
+    devices:
+    - analog-rytm
+    repo: https://github.com/genosdk/analog-rytm-mkii-research
+    status: active
+    base_os: '1.72'
+    version: main @ 14570ea (2026-09-25)
+    last_activity: '2026-09-25'
+    notes: 'RE workspace for Rytm MKII OS 1.72: a custom QEMU ColdFire machine, a desktop emulator that boots your
+      OS file, tracing scripts, audio-path notes. Licence: unspecified; distribution: source-only. Listed by altstrument;
+      repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: chopshop
+    name: Chopshop
+    author: Jesus Triana (bandersong)
+    kind: mod
+    devices:
+    - analog-rytm
+    - analog-four-keys
+    repo: https://github.com/bandersong/chopshop
+    status: active
+    base_os: 1.73 (Rytm), 1.56 (Keys); not 1.74
+    notes: 'Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog
+      Keys OS 1.56 (chord memory, joystick random). Not OS 1.74, not Analog Four. Licence: GPL-3.0-or-later; distribution:
+      browser-installer. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://chopshop-synth.pages.dev/
+  - id: libanalogrytm
+    name: libanalogrytm
+    author: bsp2
+    kind: library
+    devices:
+    - analog-rytm
+    repo: https://github.com/bsp2/libanalogrytm
+    status: dormant
+    version: master @ a0a19f6 (2023-12-21)
+    last_activity: '2023-12-21'
+    notes: 'C library that decodes and encodes Rytm SysEx (kits, sounds, patterns, settings, projects); no MIDI I/O.
+      Dormant since 2023. Licence: MIT; distribution: source-only. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: rytm-builder
+    name: rytm-builder
+    author: stampman3000-jpg
+    kind: tool
+    devices:
+    - analog-rytm
+    repo: https://github.com/stampman3000-jpg/rytm-builder
+    status: active
+    base_os: Analog Rytm OS 1.70 object layout
+    version: cursor/rytm-mac-app-0afb @ 90af848 (2026-10-14)
+    last_activity: '2026-10-14'
+    notes: 'Assembles Rytm project SysEx from a library of pattern/kit dumps (Rust CLI and a Mac app); does not send
+      MIDI. OS 1.70 object layout. Licence: MIT; distribution: source-only. Listed by altstrument; repo not read by
+      us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: rytm-fw-re
+    name: rytm-fw-re
+    author: ethernet
+    kind: research
+    devices:
+    - analog-rytm
+    repo: https://github.com/ethernet8023/rytm-fw-re
+    status: active
+    base_os: '1.74'
+    version: master @ 2f7f0c4 (2026-10-13)
+    last_activity: '2026-10-13'
+    notes: 'RE notes for Rytm MKII OS 1.74 (container, boot, display) and a tiny from-source replacement OS that boots
+      on a unit, plus same-size splash and LED-palette patches. Recovery only over DIN MIDI. Licence: unspecified;
+      distribution: source-only. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: rytm-mods-src
+    name: rytm-mods-src
+    author: MrScruff, ConnorWay32 (repost)
+    kind: mod
+    devices:
+    - analog-rytm
+    repo: https://github.com/ConnorWay32/rytm-mods-src
+    status: active
+    base_os: '1.73'
+    version: Mods 0000-0015 (2026-10-10)
+    last_activity: '2026-10-10'
+    notes: 'Public copy of MrScruff''s Rytm MKII OS 1.73 mods 0000-0015 (euclid accents, velocity humanise, random
+      LFO, kit A/B, slice loop, control-all and more). Licence: GPL-2.0-only; distribution: patch-your-own. Listed
+      by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: rytm1-mods
+    name: rytm1_mods
+    author: gdeo607
+    kind: mod
+    devices:
+    - analog-rytm
+    repo: https://github.com/gdeo607/rytm1_mods
+    status: active
+    base_os: '1.73'
+    notes: 'Port of the rytm-mods to Rytm MK1 OS 1.73 (per-track cuts, random LFO, euclid accents, humanise); also
+      emits elekloader .elemod files. Licence: unspecified; distribution: patch-your-own. Listed by altstrument; repo
+      not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: ems-machinedrum-firmware
+    name: ems-machinedrum-firmware
+    author: June Kiff (emuyia)
+    kind: firmware
+    devices:
+    - machinedrum
+    repo: https://github.com/emuyia/ems-machinedrum-firmware
+    status: active
+    version: 26A09-beta (2026-10-09)
+    last_activity: '2026-10-09'
+    notes: 'Custom Machinedrum OS (independent track lengths/speeds, trig conditions, microtiming, 128 kits, many
+      MDX-derived fixes), patched in the browser from your OS file. Patcher only, no source. Licence: unspecified;
+      distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://www.junes.website/goodies/fw-patcher
+  - id: fsdsp56k
+    name: fsdsp56k
+    author: smoothdeveloper
+    kind: tool
+    devices:
+    - machinedrum
+    repo: https://github.com/smoothdeveloper/fsdsp56k
+    status: active
+    base_os: MDX X.20 for running packed machines on hardware
+    version: main @ 2ac9d9b (2026-10-26)
+    last_activity: '2026-10-26'
+    notes: 'F# toolchain for DSP56300 machines: prototype and render on an emulated DSP, pack as MDS packages for
+      MDX X.20. Licence: AGPL-3.0-or-later; distribution: source-only. Listed by altstrument; repo not read by us
+      yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://smoothdeveloper.github.io/fsdsp56k/
+  - id: gearmulator-md-mm
+    name: Gearmulator MD/MM
+    author: Joe Landers
+    kind: emulator
+    devices:
+    - machinedrum
+    - monomachine
+    repo: https://github.com/joelanders/gearmulator-md-mm
+    status: active
+    base_os: Machinedrum and Monomachine OS files (supplied by you)
+    version: mdmm-v0.1.0-alpha.14 (2026-09-21)
+    last_activity: '2026-09-21'
+    notes: 'Plug-in and standalone emulation of Machinedrum and Monomachine (Gearmulator fork) booting your own OS
+      file. Licence: GPL-3.0-only; distribution: download. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://github.com/joelanders/gearmulator-md-mm/releases
+  - id: kitbasher
+    name: Kitbasher
+    author: etcetc000
+    kind: mod
+    devices:
+    - machinedrum
+    repo: https://github.com/etcetc000/kitbasher
+    status: active
+    base_os: 1.63 / X.14 / 26A09 beta / MDX X.20 B
+    version: main @ d965da3 (2026-10-19)
+    last_activity: '2026-10-19'
+    notes: 'Browser tool adding extra sound models next to the stock machines of a Machinedrum OS you load (1.63,
+      X.14, 26A09 beta, MDX X.20 B). Licence: GPL-3.0-or-later; distribution: browser-installer. Listed by altstrument;
+      repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://kitbasher.xyz
+  - id: machinedrum-kit
+    name: machinedrum-kit
+    author: Janne Heikkarainen
+    kind: research
+    devices:
+    - machinedrum
+    repo: https://github.com/janne808/machinedrum-kit
+    status: active
+    base_os: Machinedrum SPS-1UW OS 1.63 (supplied by you)
+    version: main @ 4ea4729 (2026-10-19)
+    last_activity: '2026-10-19'
+    notes: 'RE docs for Machinedrum OS 1.63 with a Python toolkit, headless emulator and example DSP machines to build
+      into your own image. Licence: GPL-3.0-only; distribution: source-only. Listed by altstrument; repo not read
+      by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: mdmm
+    name: MDMM (Machinedrum and Monomachine Editors)
+    author: radekdymacz
+    kind: tool
+    devices:
+    - machinedrum
+    - monomachine
+    repo: https://github.com/radekdymacz/mdmm
+    status: active
+    base_os: Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you)
+    version: mdmm-v0.8.1 (2026-10-29)
+    last_activity: '2026-10-29'
+    notes: 'Desktop editors for Machinedrum and Monomachine that run the unit''s own OS in an emulator (app or VST3/AU),
+      optional hardware MIDI mode. Licence: GPL-3.0-only; distribution: download. Listed by altstrument; repo not
+      read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://mdmm.dev
+  - id: mds
+    name: MDS (Machine Dump Standard)
+    author: Justin Mammarella
+    kind: library
+    devices:
+    - machinedrum
+    repo: https://github.com/jmamma/MDS
+    status: active
+    base_os: MDX 2.0 (X.20 or later)
+    version: main @ c446179 (2026-10-09)
+    last_activity: '2026-10-09'
+    notes: 'Machine Dump Standard: spec, example DSP machines and Python packers for custom machines in the USR slots
+      of MDX 2.0. Licence: unspecified; distribution: source-only. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: mdx
+    name: MDX
+    author: Justin Mammarella, Yatao Li
+    kind: firmware
+    devices:
+    - machinedrum
+    status: active
+    version: X.20 B (2026-10-09)
+    last_activity: '2026-10-09'
+    notes: 'Extended Machinedrum OS (bigger sequencer, new machines, MIDI additions), shipped as ready-made SysEx.
+      Binary only. Licence: unspecified; distribution: download. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://github.com/jmamma/MDX
+  - id: murdenihcam-usr-machines
+    name: murdenihcam USR machines
+    author: murdenihcam
+    kind: mod
+    devices:
+    - machinedrum
+    repo: https://github.com/murdenihcam/murdenihcam-usr-machines
+    status: active
+    base_os: MDX X.20 B
+    version: main @ ab92ccf (2026-10-15)
+    last_activity: '2026-10-15'
+    notes: 'Four user-machine families for MDX X.20 B: slicer, time stretcher, granulator, modulation effect. Licence:
+      unspecified; distribution: download. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: 1-bit-editor
+    name: 1-Bit Editor
+    author: durchgemacht
+    kind: tool
+    devices:
+    - model-cycles
+    - model-samples
+    repo: https://github.com/durchgemacht/1-Bit-Editor
+    status: active
+    version: v0.1 (2026-10-17)
+    last_activity: '2026-10-17'
+    notes: 'Browser pixel editor for 1-bit icons and sprites in the column-wise layout the Model OS uses. Licence:
+      MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://durchgemacht.github.io/1-Bit-Editor/
+  - id: chord-keys
+    name: Chord Keys
+    author: Nico Heuser
+    kind: mod
+    devices:
+    - model-cycles
+    repo: https://github.com/byNicoHeuser/Modded-Cycles
+    status: active
+    base_os: '1.13'
+    version: Second version (harmony pads, MIDI chords) (2026-10-07)
+    last_activity: '2026-10-07'
+    notes: 'Turns the trig keys into a scale-locked chord keyboard on a CHORD track (Model:Cycles 1.13); later versions
+      add harmony pads and MIDI chord out. Licence: unspecified; distribution: source-only. Listed by altstrument;
+      repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://18nelli18.github.io/Modded-Cycles/
+  - id: cycles-control-all-config
+    name: Control All Config
+    author: durchgemacht
+    kind: mod
+    devices:
+    - model-cycles
+    repo: https://github.com/durchgemacht/cycles-control-all-config
+    status: active
+    base_os: '1.13'
+    version: v1.0 (2026-10-17)
+    last_activity: '2026-10-17'
+    notes: 'Choose which of the six tracks follow Control All (Model:Cycles 1.13). Licence: MIT; distribution: patch-your-own.
+      Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: cycles-one-shot
+    name: Cycles One-Shot
+    author: durchgemacht
+    kind: mod
+    devices:
+    - model-cycles
+    repo: https://github.com/durchgemacht/cycles-one-shot
+    status: active
+    base_os: '1.13'
+    version: v0.12 (2026-10-30)
+    last_activity: '2026-10-30'
+    notes: 'SAMPLE as a seventh Model:Cycles machine playing one-shots from the +Drive, with a browser uploader. Licence:
+      MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: cyclesbridge
+    name: CyclesBridge
+    author: robertfrombadlistener
+    kind: tool
+    devices:
+    - model-cycles
+    repo: https://github.com/robertfrombadlistener/CyclesBridge
+    status: active
+    version: main @ 29b2017 (2026-10-01)
+    last_activity: '2026-10-01'
+    notes: 'Windows app and VST3 that bring six USB audio tracks of a modded Model:Cycles into a DAW. Licence: MIT;
+      distribution: download. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: modded-cycles
+    name: Modded Cycles
+    author: 18nelli18, Modded-Cycles contributors
+    kind: firmware
+    devices:
+    - model-cycles
+    - model-samples
+    repo: https://github.com/18nelli18/Modded-Cycles
+    status: active
+    base_os: '1.13'
+    version: Release 2.0 (2026-10-19)
+    last_activity: '2026-10-19'
+    notes: 'One community OS for Model:Cycles 1.13, built in a browser from your own files (needs a Syntakt 1.41/1.42
+      file for its engines): sampler, Syntakt engines, Braids and Open303 machines, extra LFOs, arp, 6-ch USB audio.
+      Experimental on Model:Samples. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not
+      read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://18nelli18.github.io/Modded-Cycles/
+  - id: model-tg
+    name: Model-TG
+    author: TinyGregAudio
+    kind: mod
+    devices:
+    - model-cycles
+    repo: https://github.com/TinyGregAudio/Model-TG
+    status: active
+    base_os: '1.13'
+    version: v1.1.0 (2026-10-02)
+    last_activity: '2026-10-02'
+    notes: 'Sampler as a seventh Model:Cycles machine (one-shot, loop, slice, granular, stretch, wavetable), resampling,
+      master FX. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: model27
+    name: model27
+    author: durchgemacht, 18nelli18
+    kind: firmware
+    devices:
+    - model-cycles
+    repo: https://github.com/durchgemacht/model27
+    status: active
+    base_os: '1.13'
+    version: main @ da51e17 (2026-11-01)
+    last_activity: '2026-11-01'
+    notes: 'Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution:
+      browser-installer. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://durchgemacht.github.io/model27/flasher/
+  - id: plaits-on-models
+    name: plaits-on-models
+    author: DMDaudio
+    kind: mod
+    devices:
+    - model-cycles
+    - model-samples
+    repo: https://github.com/DMDaudio/plaits-on-models
+    status: active
+    base_os: '1.13'
+    notes: 'Plaits engines in fixed point as a Model:Cycles machine; emulator only so far. Licence: MIT; distribution:
+      source-only. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: spokes
+    name: SPOKES
+    author: A.V.
+    kind: tool
+    devices:
+    - model-cycles
+    repo: https://github.com/AveyCole/SPOKES
+    status: active
+    base_os: '1.13'
+    version: main @ 1604cbf (2026-10-31)
+    last_activity: '2026-10-31'
+    notes: 'Browser hub that builds a chosen Model:Cycles community firmware from your OS 1.13 file and sends it over
+      Web MIDI. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://aveycole.github.io/SPOKES/
+  - id: supermodel-edition
+    name: Supermodel Edition
+    author: A.V., 18nelli18
+    kind: firmware
+    devices:
+    - model-cycles
+    repo: https://github.com/AveyCole/Supermodel
+    status: active
+    base_os: '1.13'
+    version: main @ cd6ae4c (2026-11-01)
+    last_activity: '2026-11-01'
+    notes: 'Fork of Modded Cycles with a 909-style kit flasher, ACID machine, sequence generator, second LFO. Licence:
+      unspecified; distribution: browser-installer. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://aveycole.github.io/Supermodel/flasher-supermodel-909/
+  - id: vladiktron-spoke
+    name: Vladiktron Spoke
+    author: imaf6971
+    kind: emulator
+    devices:
+    - model-cycles
+    repo: https://github.com/imaf6971/vladiktron-spoke
+    status: active
+    base_os: '1.13'
+    version: v0.1.0 (2026-10-30)
+    last_activity: '2026-10-30'
+    notes: 'macOS app running Elektron''s own Model:Cycles 1.13 OS on an emulated board, with screen, controls, audio
+      and MIDI. Licence: GPL-2.0-only; distribution: download. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: elektron-model-tweaks
+    name: elektron-model-tweaks
+    author: drumkilla
+    kind: mod
+    devices:
+    - model-samples
+    - model-cycles
+    repo: https://github.com/drumkilla/elektron-model-tweaks
+    status: active
+    base_os: '1.13'
+    version: v2.1.0 (2026-10-11)
+    last_activity: '2026-10-11'
+    notes: 'Web flasher and CLI tweaks for Model:Samples and Model:Cycles 1.13 (16-ch USB audio, latching mute, trig
+      preview, stereo samples on M:S). Licence: MIT; distribution: browser-installer. Listed by altstrument; repo
+      not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://drumkilla.github.io/elektron-model-tweaks/flasher/
+  - id: ms-multi-output
+    name: ms-multi-output
+    author: Scott Metoyer
+    kind: mod
+    devices:
+    - model-samples
+    - model-cycles
+    repo: https://github.com/scottmetoyer/ms-multi-output
+    status: active
+    base_os: '1.13'
+    notes: 'Six channels of per-track USB audio for Model:Samples and Model:Cycles; patch sources and build script
+      only. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: ems-monomachine-firmware
+    name: ems-monomachine-firmware
+    author: June Kiff (emuyia)
+    kind: firmware
+    devices:
+    - monomachine
+    repo: https://github.com/emuyia/ems-monomachine-firmware
+    status: active
+    base_os: 1.32B
+    version: 26A09-beta (2026-10-09)
+    last_activity: '2026-10-09'
+    notes: 'Custom Monomachine OS 1.32B (per-track lengths/speeds, trig conditions, song/pattern workflow, bug fixes),
+      patched in the browser. Patcher only. Licence: unspecified; distribution: patch-your-own. Listed by altstrument;
+      repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://www.junes.website/goodies/fw-patcher
+  - id: monomodule
+    name: Monomodule
+    author: shnolk
+    kind: emulator
+    devices:
+    - monomachine
+    repo: https://github.com/shnolk/monomodule
+    status: active
+    base_os: Monomachine OS 1.32B (supplied by you)
+    version: 1.0.0 (2026-09-24)
+    last_activity: '2026-09-24'
+    notes: 'DAW plug-ins and a SysEx library app running the Monomachine engine in a DSP56300 emulator from your OS
+      file. Licence: AGPL-3.0-only; distribution: download. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: ems-octakit
+    name: ems-octakit
+    author: June Kiff (emuyia)
+    kind: mod
+    devices:
+    - octatrack
+    repo: https://github.com/LyingDalai/ems-octakit
+    status: active
+    base_os: 1.40C
+    notes: 'Replaces four Parts per bank with 256 kits per project (OS 1.40C). Licence: MIT; distribution: patch-your-own.
+      Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: midisc-patcher
+    name: midisc-patcher
+    author: bkkbrls-del
+    kind: tool
+    devices:
+    - octatrack
+    repo: https://github.com/bkkbrls-del/midisc-patcher
+    status: active
+    base_os: 1.40C
+    version: main @ 1ce2245 (2026-09-18)
+    last_activity: '2026-09-18'
+    notes: 'Browser patcher for the frozen 1.40MIDISC8.1 Octatrack OS (MIDI scene locks) from your OS 1.40C file.
+      Licence: unspecified; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: midisc
+    name: midisc
+    author: bkkbrls-del
+    kind: mod
+    devices:
+    - octatrack
+    repo: https://github.com/bkkbrls-del/midisc
+    status: active
+    base_os: 1.40C
+    version: MIDISC2.1 (2026-10-08)
+    last_activity: '2026-10-08'
+    notes: 'MIDI scene locks for Octatrack OS 1.40C. Licence: MIT; distribution: patch-your-own. Listed by altstrument;
+      repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: octa-panel
+    name: octa-panel
+    author: Tim Hastie
+    kind: emulator
+    devices:
+    - octatrack
+    repo: https://github.com/timhastie/octa-panel
+    status: active
+    base_os: 1.40C
+    version: octatrick-2.9 (2026-09-29)
+    last_activity: '2026-09-29'
+    notes: 'Real-time Octatrack emulator with sound and virtual panel in the browser, for testing OS 1.40C mods; built
+      on octabam. Licence: MIT; distribution: source-only. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: octabam
+    name: octabam
+    author: Sam Banks, Contributors credited per module
+    kind: firmware
+    devices:
+    - octatrack
+    repo: https://github.com/sambanks/octabam
+    status: active
+    base_os: 1.40C
+    version: 'MIDI SCENES engine latch (PR #754) (2026-10-15)'
+    last_activity: '2026-10-15'
+    notes: 'Modular Octatrack OS 1.40C "remixer": bus and track effects, FM synth machine, 255 kits, USB audio/MIDI,
+      stock bug fixes. Base of Modwerk. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not
+      read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://modwerk.app/
+  - id: octachainer2
+    name: OctaChainer 2
+    author: Kai Drange
+    kind: tool
+    devices:
+    - octatrack
+    repo: https://github.com/KaiDrange/OctaChainer2
+    status: active
+    version: v2.0.0 (2026-08-05)
+    last_activity: '2026-08-05'
+    notes: 'Desktop app and VST3 that chain audio files and write the matching Octatrack slice file. Licence: GPL-3.0-only;
+      distribution: download. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://ticticelectro.com/2017/08/26/octachainer-v1-3/
+  - id: octamax
+    name: OCTAMAX
+    author: Maxolydian (mxldyn)
+    kind: mod
+    devices:
+    - octatrack
+    repo: https://github.com/mxldyn/octamax
+    status: active
+    base_os: 1.40C
+    version: 2.0 BETA
+    notes: 'RE toolkit for Octatrack MKII OS 1.40C plus opt-in behaviour patches (lazy part transitions, arp scales,
+      slice playhead, 256 static slots). Licence: unspecified; distribution: patch-your-own. Listed by altstrument;
+      repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: octaplay
+    name: Octaplay
+    author: devilfish707
+    kind: mod
+    devices:
+    - octatrack
+    repo: https://github.com/devilfish707/Octaplay
+    status: active
+    base_os: 1.40C
+    notes: 'Octabam module with playhead modes (reverse, ping-pong, random, shuffle) per track or shared. Licence:
+      MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: octatrack-kyoti-fw
+    name: OT Kyoti FW
+    author: Zac Kyoti
+    kind: firmware
+    devices:
+    - octatrack
+    repo: https://github.com/Zac-Kyoti/octatrack-kyoti-fw
+    status: active
+    base_os: 1.40C
+    version: KYOTI V1.6 (2026-10-22)
+    last_activity: '2026-10-22'
+    notes: 'Feature and fix builds keeping the stock feel: mute modes, pattern jump, sidechain compressor, varispeed,
+      repitch. Tested on an MKI. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read
+      by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: octatrack-manager
+    name: Octatrack Manager
+    author: David Ferlay
+    kind: tool
+    devices:
+    - octatrack
+    repo: https://github.com/davidferlay/octatrack-manager
+    status: active
+    base_os: Projects saved on OS 1.40 or later
+    version: v0.49.0 (2026-10-18)
+    last_activity: '2026-10-18'
+    notes: 'Desktop app to inspect and edit Octatrack projects, patterns, parts and sample pools on CF cards and backups.
+      Licence: GPL-3.0-only; distribution: download. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+    links:
+      homepage: https://davidferlay.github.io/octatrack-manager/
+  - id: octatrick
+    name: Octatrick
+    author: Tim Hastie
+    kind: mod
+    devices:
+    - octatrack
+    repo: https://github.com/timhastie/octatrick
+    status: active
+    base_os: 1.40C
+    version: MKI hardware-tested builds (2026-09-26)
+    last_activity: '2026-09-26'
+    notes: 'Four octabam additions for OS 1.40C (two-op FM machine, scale quantizer, pattern jump, tuner) plus USB
+      MIDI and 20-ch USB audio; MKI hardware-tested builds. Licence: MIT; distribution: patch-your-own. Listed by
+      altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: octemu
+    name: octemu
+    author: Mark Roberts (markandrus)
+    kind: emulator
+    devices:
+    - octatrack
+    repo: https://github.com/markandrus/octemu
+    status: active
+    base_os: 1.40C
+    notes: 'Octatrack emulator and development environment for firmware changes. Licence: MIT; distribution: source-only.
+      Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)
+  - id: passos
+    name: PassOS
+    author: theremoteviewer
+    kind: mod
+    devices:
+    - octatrack
+    repo: https://github.com/theremoteviewer/octa-passos
+    status: active
+    base_os: 1.40C
+    version: v1.0 (2026-09-28)
+    last_activity: '2026-09-28'
+    notes: 'Octatrack MK1 mod: 36 Digitone II scales on MIDI tracks and a STOP guard; nothing on the DSP. Licence:
+      MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
+    sources:
+    - altstrument (2026-11-01)

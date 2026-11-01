@@ -1,9 +1,6 @@
-# Change report 2026-11-01 17:45 UTC
+# Change report 2026-11-01 18:13 UTC
 
-changed 5 | code-only 0 | new 0 | errors 0 | unchanged 56
+changed 1 | code-only 0 | new 44 | errors 0 | unchanged 60
 
-- **dir-altstrument** (directory) https://github.com/philmillman/altstrument: ~src/content/firmwares/elektron-model-cycles/model27.yaml ~src/content/firmwares/elektron-model-cycles/spokes.yaml ~src/content/firmwares/elektron-model-cycles/supermodel-edition.yaml ~src/content/firmwares/elektron-tools/digikit.yaml
-- **dn2-dt2-firmware-research** (project) https://github.com/armio/dn2-dt2-firmware-research: +docs/recorder.md +docs/research-audits.md +docs/research/2026-10-31.md +docs/samples.md +port/recorder/README.md ~README.md ~THIRD_PARTY.md ~docs/publication.md
-- **dn2-firmware-explore** (project) https://github.com/angellinares/dn2_firmware_explore: ~CONTRIBUTING.md ~docs/mods-compatibility.md
-- **dn2mk2** (project) https://github.com/De-Pattern/dn2mk2-firmware: ~docs/ROADMAP.md
-- **modwerk** (project) https://github.com/repeat98/modwerk: +changelog/2026-11-01-agent-board-rytm-machine-ids.md +changelog/2026-11-01-digitakt-machine-ids.md +changelog/2026-11-01-octatrack-sdk-trap-register.md +changelog/2026-11-01-pr-triage-newest-run.md +changelog/2026-11-01-usb-clock-din.md +changelog/2026-11-01-usb-package-lag-note.md ~docs/ADD_A_MODULE.md ~docs/AGENT_BOARD.md ~docs/MAINTENANCE.md ~docs/OCTABAM_INFRASTRUCTURE.md ~docs/OCTATRACK_BETA_TEST_PLAN.md ~docs/OCTATRACK_HARDWARE_TRAPS.md ~docs/module-guides/machines.md ~sdk/machines/digitakt/README.md ~sdk/machines/octatrack/elekloader/README.md ~sdk/octabam/docs/TRAPS.md
+- **modwerk** (project) https://github.com/repeat98/modwerk: +changelog/2026-11-01-rytm-sound-settings.md +sdk/analog-rytm-mkii/modules/_submissions/sample-rate/README.md +sdk/analog-rytm-mkii/modules/_submissions/sample-rate/TESTING.md +sdk/analog-rytm-mkii/modules/_submissions/sample-rate/media/LICENSE.md +sdk/analog-rytm-mkii/modules/_submissions/temp-save/README.md +sdk/analog-rytm-mkii/modules/_submissions/temp-save/TESTING.md ~sdk/machines/analog-rytm-mkii/README.md
+- new baseline: 1-bit-editor, analog-rytm-mkii-research, chopshop, chord-keys, cycles-control-all-config, cycles-one-shot, cyclesbridge, elektron-model-tweaks, ems-machinedrum-firmware, ems-monomachine-firmware, ems-octakit, fsdsp56k, gearmulator-md-mm, kitbasher, libanalogrytm, machinedrum-kit, mdmm, mds, midisc, midisc-patcher, modded-cycles, model-tg, model27, monomodule, ms-multi-output, murdenihcam-usr-machines, octa-panel, octabam, octachainer2, octamax, octaplay, octatrack-kyoti-fw, octatrack-manager, octatrick, octemu, passos, plaits-on-models, rytm-builder, rytm-fw-re, rytm-mods-src, rytm1-mods, spokes, supermodel-edition, vladiktron-spoke

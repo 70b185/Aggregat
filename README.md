@@ -1,6 +1,6 @@
 # Aggregat
 
-**A metadata index and agent knowledge base for unofficial firmware and tooling on Elektron's small boxes** - Digitakt (MKI/II), Digitone (MKI/Keys/II), Syntakt and Analog Heat (MKI/MKII/+FX).
+**A metadata index and agent knowledge base for unofficial firmware and tooling on Elektron devices** - in depth for the small boxes (Digitakt MKI/II, Digitone MKI/Keys/II, Syntakt, Analog Heat MKI/MKII/+FX), as a catalogue for Octatrack, Analog Rytm/Four/Keys, Model:Cycles/Samples, Machinedrum and Monomachine.
 
 ---
 
@@ -52,8 +52,8 @@ Entry fields are documented at the top of `data/projects.yml`. To find out *what
 
 ## Status and scope
 
-- **Phase 1 (now):** Digitakt MKI/II, Digitone MKI/Keys/II, Syntakt, Analog Heat MKI/MKII/+FX.
-- **Phase 2 (later):** Octatrack, Analog Four/Rytm/Keys, Model:Cycles/Samples, Tonverk, Machinedrum/Monomachine - candidates are listed in [`docs/BACKLOG.md`](docs/BACKLOG.md).
+- **Phase 1 (in depth):** Digitakt MKI/II, Digitone MKI/Keys/II, Syntakt, Analog Heat MKI/MKII/+FX: project catalogue plus the agent knowledge base in [`hardware/`](hardware/).
+- **Phase 2 (catalogue, since 2026-11-01):** Octatrack, Analog Rytm, Analog Four/Keys, Model:Cycles, Model:Samples, Machinedrum, Monomachine: 45 projects imported from altstrument as facts with our own short notes, watched daily; repos not yet read, no hardware notes yet. Tonverk and non-Elektron gear: see [`docs/BACKLOG.md`](docs/BACKLOG.md).
 - **Known gap:** no community firmware work exists for the Analog Heat yet; only official facts, Overbridge channel layout and tool support lists are collected.
 - **Open reading list:** [`hardware/MINING.md`](hardware/MINING.md) (e.g. the MIDI appendices of the official manuals, which our tooling could not extract).
 

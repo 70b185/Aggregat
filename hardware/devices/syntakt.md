@@ -82,6 +82,27 @@ Normal case: Drop page in Transfer. If the OS does not boot: DIN MIDI, FUNC at p
   - SY FM4 reports its main-CPU render at 85.8k of 166.7k cycles per block (stock 85.0k). That is a different span of the same interrupt. `[?]`
 - Digital filter and amp run on CPU #2; the cutoff is computed on CPU #1. Analog voices and the FX track drive a **hardware envelope generator** with 20-bit rate codes. Measured curves: the digital biquad f0 = 4.918 Hz x e^(0.0655 x FREQ); the analog filter f = 14.645 Hz x e^(0.0574 x FREQ). Tempo is at `0x402D7010` (BPM x 120). `[hw]` (analog curves measured)
 
+## CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) {syncrackd-mm}
+- **Section 7 is byte-identical in 1.41 and 1.42** (SHA-256 `daf6451c...783bc2`). It is ColdFire ISA-C with EMAC, MCF5441x-class: compile with `-mcpu=54418`, disassemble with `-m m68k:isa-c:emac`. CPU #2 has **its own 128 MB SDRAM** at `0x40000000` (SP `0x48000000`, entry `0x40001070`). `[doc]`
+- **Only 39.8 KB is code** (`0x40000404-0x40009f88`: boot, audio interrupt, voice loop, 12 engines, sample loader), followed by 284 KB of tables and data. Code room for mods is almost nil: ~318 bytes in small pieces remained after SynCrackd's images.
+- **CPU #2 configures its own FPGA:** a packed bitstream at `0x40041060` is unpacked to `0x40042000` (54,664 bytes) at init. That is the same size as the Analog Heat +FX FPGA section, so it may be the same part `[?]`. Keep away from it (rule A22).
+- **The sample pool is in CPU #2's RAM:** 64 MB from `0x4004f750`, in BSS zeroed at boot. A 64-entry slot table `{u32 frames, u32 pointer}` is at `0x4404f754`.
+  - Format: 64 times `u32 frames` + big-endian int16 mono.
+  - The main CPU fills it at boot in 2 KB chunks through the shared window `0x800`, with an unchecked 16-bit index. This is the slow boot the manual mentions.
+  - Per slot at most 524,287 frames (10.9 s; positions are 20.12 fixed point). The stock UI limits slots to 5 s and "32 MB".
+- **Above the BSS, `0x4404f980-0x48000000` (63.7 MB) is not referenced by any section-7 instruction** and is used for SynCrackd's state. Leave the top megabyte for the stack (its depth is not measured). This is CPU #2's RAM, not the main CPU's region that sample loading overwrites (CONFLICTS O2). `[hw]` (alpha, one unit)
+- **Shared window** (CPU #2 `0x0-0x1000` = main CPU `0x10000000`, chip select 0, 16-bit, one wait state):
+  - `0x000-0x1b0`: the parameter block, copied to `0x80008000` every block;
+  - `0x1b0-0x5b0`: 8 mono track buffers, sent by eDMA 47;
+  - `0x5b0-0x800`: unused by stock;
+  - `0x800-0x1000`: the sample chunk at boot.
+- SRAM `0x80000000`: 8 voices of 1,800 B, 8 mono int32 output buffers, 8 parameter blocks of 142 B. The highest static reference is `0x8000f670`, so treat SRAM as full.
+- **Twinshot (engine 11, machine type 44)** reads the parameter slots 18-25: TUN1, SMP1, FLT1, MIX, TUN2, SMP2, loop flag, DEC1. **A sample select below the centre plays the slot in reverse.** `[emu]`
+- SynCrackd replaces Twinshot (and CY ALLOY) with a 64-slot stereo sampler, loops, slices, time stretch and transient triggers. It is OS 1.42 only, alpha, tested in emulation and on one unit, MIT.
+- Synfact (OS 1.41) adds DT mk1 sample machines, a per-project pool, polyphony across tracks and a third LFO.
+  - It ships its firmware change as a **zlib-compressed XOR mask** against the official file, pinned by hash.
+  - It needs a second mods file (515,808 B) sent with its own transfer tool after the flash. Boot and hardware validation are still pending. `[doc]` {synfact}
+
 ## How mods are built on the Syntakt (SyntHack modding guide, worth copying) {synthack-guide}
 - **Each change is stored with the SHA-256 of the original bytes**, so a different OS version fails the build instead of crashing. Every mod runs in a Unicorn emulator next to the original code before flashing.
   - **Stock Unicorn gets signed fractional EMAC wrong** (the audio comes out silent), so EMAC instructions are trapped and executed in Python from the NXP manual.

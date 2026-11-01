@@ -34,3 +34,52 @@ devices:
       nor altstrument.org has a firmware entry for it. Last official OS we saw on elektron.se: Analog Heat MKI/MKII OS 1.22
       (2024-10-16); the +FX has its own OS (release notes last updated 2024-10-16) and MKII firmware
       is not interchangeable with +FX.
+  - slug: octatrack
+    name: Octatrack (MKI, MKII)
+    family: Octatrack
+    phase: 2
+    note: >
+      Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
+
+  - slug: analog-rytm
+    name: Analog Rytm (MKI, MKII)
+    family: Analog Rytm
+    phase: 2
+    note: >
+      Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
+
+  - slug: analog-four-keys
+    name: Analog Four / Analog Keys
+    family: Analog Four
+    phase: 2
+    note: >
+      Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
+
+  - slug: model-cycles
+    name: Model:Cycles
+    family: Model
+    phase: 2
+    note: >
+      Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
+
+  - slug: model-samples
+    name: Model:Samples
+    family: Model
+    phase: 2
+    note: >
+      Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
+
+  - slug: machinedrum
+    name: Machinedrum (incl. UW)
+    family: Machinedrum
+    phase: 2
+    note: >
+      Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
+
+  - slug: monomachine
+    name: Monomachine
+    family: Monomachine
+    phase: 2
+    note: >
+      Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
+

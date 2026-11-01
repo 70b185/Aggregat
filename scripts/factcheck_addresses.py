@@ -5,7 +5,7 @@ without a local clone are skipped. Reads only; prints what it could not find.
 Usage: python3 scripts/factcheck_addresses.py"""
 import re,glob,os,subprocess,collections,sys
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..'))
-M=[('digikit','/tmp/src/digikit'),('dn2-cfw','/tmp/src/dn2-cfw'),('dn2-ele3','/tmp/src/dn2_firmware_explore'),('dn2-memory-map','/tmp/src/dn2_firmware_explore'),('dn2-bootstrap','/tmp/src/dn2_firmware_explore'),('dn2-hw','/tmp/src/dn2_firmware_explore'),('dn2-principles','/tmp/src/dn2_firmware_explore'),
+M=[('digikit','/tmp/src/digikit'),('dn2-cfw','/tmp/src/dn2-cfw'),('elekloader','/tmp/src/elekloader'),('dn2-ele3','/tmp/src/dn2_firmware_explore'),('dn2-memory-map','/tmp/src/dn2_firmware_explore'),('dn2-bootstrap','/tmp/src/dn2_firmware_explore'),('dn2-hw','/tmp/src/dn2_firmware_explore'),('dn2-principles','/tmp/src/dn2_firmware_explore'),
 ('dn2-caves','/tmp/src/dn2_firmware_explore'),('dn2-osupdate','/tmp/src/dn2_firmware_explore'),('dn2-dspstop','/tmp/src/dn2_firmware_explore'),('dn2-stall','/tmp/src/dn2_firmware_explore'),
 ('dn2-ddr','/tmp/src/dn2_firmware_explore'),('dn2-sharcload','/tmp/src/dn2_firmware_explore'),('dn2-service','/tmp/src/dn2_firmware_explore'),('dn2-mods','/tmp/src/dn2_firmware_explore'),
 ('dn2-dt2port','/tmp/src/dn2_firmware_explore'),('dn2-cfdsp','/tmp/src/dn2_firmware_explore'),('dn2-midirpc','/tmp/src/dn2_firmware_explore'),

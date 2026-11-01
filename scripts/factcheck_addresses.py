@@ -20,7 +20,7 @@ def text_of(d):
         out=subprocess.run(['git','-C',d,'grep','-h','-i','-I','-o','-E','0x[0-9a-f]+','--','*.md','*.s','*.S','*.inc','*.py','*.c','*.h','*.json','*.toml','*.txt'],capture_output=True,text=True).stdout
         cache[d]=set(x.lower() for x in out.split())
     return cache[d]
-tot=0;miss=collections.defaultdict(list)
+tot=0;miss=collections.defaultdict(list);elsewhere=collections.defaultdict(list)
 for f in glob.glob('hardware/**/*.md',recursive=True):
     if f.endswith(('SOURCES.md','CONFLICTS.md','READING-LEDGER.md','MINING.md')): continue
     for line in open(f):
@@ -29,8 +29,11 @@ for f in glob.glob('hardware/**/*.md',recursive=True):
         if not dirs: continue
         for h in set(re.findall(r'0x[0-9a-fA-F]{5,}',line)):
             tot+=1; hl=h.lower()
-            if not any(hl in text_of(d) or ('0x'+hl[2:].lstrip('0')) in text_of(d) for d in dirs):
-                miss[f].append(h)
-n=sum(len(v) for v in miss.values())
-print(f"checked {tot} addresses, not found verbatim in the cited clone: {n}")
-for f,v in miss.items(): print(f, sorted(set(v))[:25])
+            def found(ds): return any(hl in text_of(d) or ('0x'+hl[2:].lstrip('0')) in text_of(d) for d in ds)
+            if not found(dirs):
+                (elsewhere if found({d for _,d in M}) else miss)[f].append(h)
+n=sum(len(v) for v in miss.values()); e=sum(len(v) for v in elsewhere.values())
+print(f"checked {tot} addresses; in another local source than the one cited: {e}; not found anywhere: {n}")
+for f,v in elsewhere.items(): print("  elsewhere:", f, sorted(set(v))[:25])
+for f,v in miss.items(): print("  MISSING:", f, sorted(set(v))[:25])
+sys.exit(1 if n else 0)

@@ -182,3 +182,5 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | digikit-f15 | ElekLabs/digikit finding 15, the SHARC sample path (link port 0, slot table) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/15-sharc-sample-path.md |
 | digikit-f58 | ElekLabs/digikit finding 58, the panel input path | https://github.com/ElekLabs/digikit/blob/main/docs/findings/58-panel-input-path.md |
 | digikit-f41 | ElekLabs/digikit finding 41, CPU load, DSP block time, RAM | https://github.com/ElekLabs/digikit/blob/main/docs/findings/41-digikit-health.md |
+| syncrackd-mm | Vuulgaris/syncrackd `docs/MEMORY_MAP.md` and README (Syntakt OS 1.41/1.42) | https://github.com/Vuulgaris/syncrackd/blob/main/docs/MEMORY_MAP.md |
+| synfact | GSM1980/Synfact-release README | https://github.com/GSM1980/Synfact-release |

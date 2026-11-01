@@ -179,3 +179,6 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2-dt2port | dnfw `docs/dt2-machine-port.md` (DT2 machine port research) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/dt2-machine-port.md |
 | dn2-cfdsp | dnfw `docs/audio-dma.md`, `docs/dsp-control-block.md`, `docs/lalzart-dt2-crosscheck.md` | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/dsp-control-block.md |
 | dn2-midirpc | dnfw `docs/midi-rpc.md` (MidiRpc on a live DN2) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/midi-rpc.md |
+| digikit-f15 | ElekLabs/digikit finding 15, the SHARC sample path (link port 0, slot table) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/15-sharc-sample-path.md |
+| digikit-f58 | ElekLabs/digikit finding 58, the panel input path | https://github.com/ElekLabs/digikit/blob/main/docs/findings/58-panel-input-path.md |
+| digikit-f41 | ElekLabs/digikit finding 41, CPU load, DSP block time, RAM | https://github.com/ElekLabs/digikit/blob/main/docs/findings/41-digikit-health.md |

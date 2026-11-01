@@ -42,6 +42,15 @@ Code addresses marked "sw" are short-word SHARC addresses. DM data addresses are
 - Knob frame working copy: short at `0x2558dc + 0xde + 0x60*track` (the hidden CFADE slot, 0..0x7f00). **Routing a value through this "free" slot also feeds a stock per-voice flag that acts on the delay feedback** (`FUN_1c24e9`, slot struct `0x2506ec + v*0xdc + 0x10`). That leaked into the delay and once caused a sticky bitcrush. Check every reused slot with a memory-write diff of the stock chain. `[hw]`
 - The SHARC upload in MAIN OS checks only `length <= 1 MiB` (no fixed size). Insert new boot blocks before FINAL. `[doc]`
 
+## 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator) {digikit-f15}
+- **Samples go to the DSP over link port 0** (LP0_CTL `0x30FFE000`; SEC sources 81/82/168), not over the frame link. LP1 is unused.
+  - One transfer is 0x401 words: a tag and 1,024 payload words.
+  - Tag `0xFFFFFFFF` means a slot header: slot, startL, startR, rate, len. Stereo means startL != startR.
+  - A tag below `0x19200` is a page number into the 400 MiB DDR sample pool at `0x8422B9C8`.
+  - This is the RPC-task work the owner saw while samples load.
+- **Slot table:** 0x14-byte records at DM `0x257810 + slot*0x14` (start L/R relative to the pool, length, ...), at most 0x401 slots.
+- Track t owns voices 2t and 2t+1, with no dynamic allocation (unlike the DN2). The frame's trig mask is at payload `0x22` (bit t = track t). `[emu]`
+
 ## 6. Memory rules learned the hard way
 - **L2:** the static analysis says `0x2001ab7c..0x20100000` minus `0x200fa000..0x200fe000` is free, but going past **`0x200f5a74`** gave clicks and leaks into the delay on the unit. Keep your data at or below that. `[hw]`
 - **External DDR:** the stock output buffer (`0x8045b3c0`) and the sample data are in DDR. Per-sample stores to the DDR output buffer crashed the unit (continuous tone), although the emulator was bit-identical. **Render into L2 and copy once per block.** Read int16 samples two at a time. `[hw]`

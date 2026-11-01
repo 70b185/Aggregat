@@ -26,6 +26,9 @@ The page does not mention Analog Heat or any other planned device. `[doc]` {elek
   - The boot project (magic "COKi") has two copies at sectors `0x40000` and `0x48000`. The working project is at `0x50000` and is rewritten from the boot copy at every start.
   - **The DT2 has a path filesystem (ekFS +Drive) for samples. The DN2 has none**: only the MmcFs pools. Card layouts are device data (digikit `devices/<device>.toml`).
 
+## Measuring ColdFire load without a timer (digikit finding 41) {digikit-f41}
+The boot thread ends in an empty loop at the lowest priority. Replace its last call with a jump to a loop that counts iterations, and close a window every 1,500 DSP blocks. Load = 100 % - iterations / best window since boot. This measures the time the interrupts leave to tasks, not the whole CPU. An absolute calibration needs the device. The digihealth alternative (DMA timer counter at entry and exit) is in `devices/digitakt.md`. `[emu]`
+
 ## ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11) {dn2-caves}
 - **RAM aliases every `0x08000000`:** a byte answers at nine addresses up to `0x8c000000`. ACR0 caches only the first window, and stock reaches its DMA buffers through the second (`0x4e......`). **Scan all nine windows** before you call RAM unreferenced. `[doc]`
 - **Flashed bytes above the reset clear do not survive a reset** (DT2 1.16 clears from `0x40312000`; on the DN2 about 3,200 B separate the end of MAIN OS from the clear). Code placed there must be copied up by a loader *after* the clear. digikit, dnfw and elekloader all do this. `[hw]` (bytes lost on a DT2)

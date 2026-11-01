@@ -58,3 +58,4 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | karigardarsson/digitakt-ii-research: research/*.md, PLAITS OPTIMIZING.md and HARDWARE-TEST.md (headings + key entries), VALIDATION, KNOWN_LIMITATIONS | full / key sections | digitakt-2, digitakt-2-dsp-optimizing, A33 |
 | Angelo-politek/Synthack-OS docs (memory-map, firmware-format, audio-path, emulation, modding-guide), README, RECOVERY; SY FM4 DESIGN; machine45 DSP_ABI; syntakt-firmware-workbench README | full | devices/syntakt, A34 |
 | digikit findings 78, 101, 102, 103 (new 2026-11-01); dnfw AGENTS.md, audio-dma, dsp-control-block, sharc-voice-path, lalzart-dt2-crosscheck, midi-rpc, usbprobe, dt2-machine-port | full / key sections | digitakt-2-dsp-optimizing, digitone-2-internals, sysex-and-midi, A35 |
+| digikit findings 01, 03, 04, 09, 15, 19, 31, 41, 46, 52, 58 | headings + key sections | digitakt-2-sharc-measured, sysex-and-midi, memory-maps |

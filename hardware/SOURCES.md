@@ -175,3 +175,4 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | synthack-guide | Angelo-politek/Synthack-OS `docs/modding-guide.md` | https://github.com/Angelo-politek/Synthack-OS/blob/main/docs/modding-guide.md |
 | syntakt-workbench | Bezronczek/syntakt-firmware-workbench README | https://github.com/Bezronczek/syntakt-firmware-workbench |
 | armio-t1e2 | armio/dn2-dt2-firmware-research README and `releases/t1e2.json` | https://github.com/armio/dn2-dt2-firmware-research |
+| digikit-f103 | ElekLabs/digikit findings 103 (DSP facts on a Digitakt II and Digitone II), 102 (RECIPS/RSQRTS seeds), 101 (step word on hardware), 78 (reply in flight) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/103-dsp-facts-on-a-digitakt-ii.md |

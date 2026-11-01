@@ -56,7 +56,9 @@ def load_targets():
             continue
         for e in (yaml.safe_load(p.read_text(encoding="utf-8")) or {}).get("projects") or []:
             repo = (e.get("repo") or "").strip()
-            if GH.match(repo):
+            # Repos we already know are gone (deleted or private) are not polled daily;
+            # set their status back to something else to watch them again.
+            if GH.match(repo) and str(e.get("status", "")).lower() != "unreachable":
                 targets[e["id"]] = {"repo": repo, "watch": overrides.get(e["id"], default), "kind": "project"}
     for d in watch.get("directories") or []:
         targets[d["id"]] = {"repo": d["repo"], "watch": d["watch"], "kind": "directory"}

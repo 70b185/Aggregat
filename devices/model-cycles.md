@@ -9,16 +9,16 @@ Data last verified: 2026-10-31
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **model27** (durchgemacht, 18nelli18) | firmware | active | main @ da51e17 (2026-11-01); 1.13 | - | 2026-11-01 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
-| **Supermodel Edition** (A.V., 18nelli18) | firmware | active | main @ cd6ae4c (2026-11-01); 1.13 | - | 2026-11-01 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |
+| **Supermodel Edition** (A.V., 18nelli18) | firmware | active | main @ cd6ae4c (2026-11-01); 1.13 | wavetable-pack | 2026-11-01 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |
 | **SPOKES** (A.V.) | tool | active | main @ 1604cbf (2026-10-31); 1.13 | - | 2026-10-31 | [repo](https://github.com/AveyCole/SPOKES) · [homepage](https://aveycole.github.io/SPOKES/) |
-| **Cycles One-Shot** (durchgemacht) | mod | active | v0.12 (2026-10-30); 1.13 | - | 2026-10-30 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
-| **Vladiktron Spoke** (imaf6971) | emulator | active | v0.1.0 (2026-10-30); 1.13 | - | 2026-10-30 | [repo](https://github.com/imaf6971/vladiktron-spoke) |
-| **Modded Cycles** (18nelli18, Modded-Cycles contributors) | firmware | active | Release 2.0 (2026-10-19); 1.13 | - | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
-| **1-Bit Editor** (durchgemacht) | tool | active | v0.1 (2026-10-17) | - | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |
-| **Control All Config** (durchgemacht) | mod | active | v1.0 (2026-10-17); 1.13 | - | 2026-10-17 | [repo](https://github.com/durchgemacht/cycles-control-all-config) |
-| **elektron-model-tweaks** (drumkilla) | mod | active | v2.1.0 (2026-10-11); 1.13 | - | 2026-10-11 | [repo](https://github.com/drumkilla/elektron-model-tweaks) · [homepage](https://drumkilla.github.io/elektron-model-tweaks/flasher/) |
+| **Cycles One-Shot** (durchgemacht) | mod | active | v0.12 (2026-10-30); 1.13 | v0.12 | 2026-10-30 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
+| **Vladiktron Spoke** (imaf6971) | emulator | active | v0.1.0 (2026-10-30); 1.13 | v0.1.0 | 2026-10-30 | [repo](https://github.com/imaf6971/vladiktron-spoke) |
+| **Modded Cycles** (18nelli18, Modded-Cycles contributors) | firmware | active | Release 2.0 (2026-10-19); 1.13 | etude-optimisation-os-2026-10-18 | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
+| **1-Bit Editor** (durchgemacht) | tool | active | v0.1 (2026-10-17) | v0.1 | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |
+| **Control All Config** (durchgemacht) | mod | active | v1.0 (2026-10-17); 1.13 | v1.0 | 2026-10-17 | [repo](https://github.com/durchgemacht/cycles-control-all-config) |
+| **elektron-model-tweaks** (drumkilla) | mod | active | v2.1.0 (2026-10-11); 1.13 | v2.1.0 | 2026-10-11 | [repo](https://github.com/drumkilla/elektron-model-tweaks) · [homepage](https://drumkilla.github.io/elektron-model-tweaks/flasher/) |
 | **Chord Keys** (Nico Heuser) | mod | active | Second version (harmony pads, MIDI chords) (2026-10-07); 1.13 | - | 2026-10-07 | [repo](https://github.com/byNicoHeuser/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
-| **Model-TG** (TinyGregAudio) | mod | active | v1.1.0 (2026-10-02); 1.13 | - | 2026-10-02 | [repo](https://github.com/TinyGregAudio/Model-TG) |
+| **Model-TG** (TinyGregAudio) | mod | active | v1.1.0 (2026-10-02); 1.13 | v1.1.0 | 2026-10-02 | [repo](https://github.com/TinyGregAudio/Model-TG) |
 | **CyclesBridge** (robertfrombadlistener) | tool | active | main @ 29b2017 (2026-10-01) | - | 2026-10-01 | [repo](https://github.com/robertfrombadlistener/CyclesBridge) |
 | **plaits-on-models** (DMDaudio) | mod | active | 1.13 | - | - | [repo](https://github.com/DMDaudio/plaits-on-models) |
 | **ms-multi-output** (Scott Metoyer) | mod | active | 1.13 | - | - | [repo](https://github.com/scottmetoyer/ms-multi-output) |

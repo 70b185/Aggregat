@@ -8,10 +8,10 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.8.1 (2026-10-29); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | - | 2026-10-29 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
-| **ems-monomachine-firmware** (June Kiff (emuyia)) | firmware | active | 26A09-beta (2026-10-09); 1.32B | - | 2026-10-09 | [repo](https://github.com/emuyia/ems-monomachine-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
-| **Monomodule** (shnolk) | emulator | active | 1.0.0 (2026-09-24); Monomachine OS 1.32B (supplied by you) | - | 2026-09-24 | [repo](https://github.com/shnolk/monomodule) |
-| **Gearmulator MD/MM** (Joe Landers) | emulator | active | mdmm-v0.1.0-alpha.14 (2026-09-21); Machinedrum and Monomachine OS files (supplied by you) | - | 2026-09-21 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
+| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.8.1 (2026-10-29); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-10-29 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
+| **ems-monomachine-firmware** (June Kiff (emuyia)) | firmware | active | 26A09-beta (2026-10-09); 1.32B | 26910-release | 2026-10-09 | [repo](https://github.com/emuyia/ems-monomachine-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
+| **Monomodule** (shnolk) | emulator | active | 1.0.0 (2026-09-24); Monomachine OS 1.32B (supplied by you) | release | 2026-09-24 | [repo](https://github.com/shnolk/monomodule) |
+| **Gearmulator MD/MM** (Joe Landers) | emulator | active | mdmm-v0.1.0-alpha.14 (2026-09-21); Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-09-21 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
 
 ## Details
 

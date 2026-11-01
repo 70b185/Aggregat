@@ -27,3 +27,10 @@ Forum threads, vendor pages (elektron.se release notes), PDFs and non-git sites.
 
 ## Adding a repo
 Add the project to `data/projects.yml` with a `repo:` URL - it is watched automatically. For a narrower or wider watch list add an entry under `overrides` in `data/watch.yml`.
+
+## Finding new projects (cheap, run weekly or when asked)
+`python3 scripts/find_new.py --since <last run date>` searches GitHub for Elektron terms and prints only repos that are
+neither in `data/projects.yml` / `data/candidates.yml` nor in `data/ignore.yml`. Read each README start (a blobless
+`git clone --depth 1 --filter=blob:none --no-checkout` plus `git show HEAD:README.md` costs almost nothing), then either add
+an entry (own words, facts only) or add the repo to `data/ignore.yml` so it is not shown again. New entries get a
+fingerprint baseline on the next `check_updates.py --update`.

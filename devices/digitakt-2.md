@@ -6,15 +6,26 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **digitakt-digitone-mcp** (jamiew) | tool | active | - | - | 2026-11-01 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **DN2 DT2 firmware research (T1E2)** (armio) | firmware | released | T1E2 (stable designation 2026-10-15; source published 2026-10-31); Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally | - | 2026-10-31 | [repo](https://github.com/armio/dn2-dt2-firmware-research) |
 | **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo) | emulator | wip | Digitakt II target 1.17 (emulator also runs 1.16 as default file; 1.15C kept for old analysis); Digitone II target 1.12 (also runs 1.11 as default file; 1.10E kept for old analysis) | - | 2026-10-31 | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
 | **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-10-30 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
+| **Elektron-Screen-Tool** (Fadedlimes) | tool | active | - | - | 2026-10-30 | [repo](https://github.com/Fadedlimes/elektron-screen-tool) |
+| **macro-mode (digi_macro)** (toonst) | mod | wip | Digitakt II, Digitone II | - | 2026-10-29 | [repo](https://github.com/toonst/digi_macro) |
+| **digitakt-mods** (hillzeealex) | tool | active | Digitakt mk1 1.53/1.54, Digitakt II 1.17 | - | 2026-10-29 | [repo](https://github.com/hillzeealex/digitakt-mods) |
+| **Frame Lab (keyframer-lab)** (heavylight-industries) | tool | active | - | - | 2026-10-27 | [repo](https://github.com/heavylight-industries/keyframer-lab) |
 | **coldfire-rs** (FirestormAudio) | tool | wip | not firmware-specific; targets the NXP ColdFire V4e chips MCF54410 and MCF54415-MCF54418 | mcf5441x-pac-v0.1.0 | 2026-10-25 | [repo](https://github.com/FirestormAudio/coldfire-rs) |
+| **elkflash** (Iced-Cream) | tool | active | - | - | 2026-10-25 | [repo](https://github.com/Iced-Cream/elkflash) |
 | **digitakt-ii-research (Deja Vu LFOs, ONESHOT zoom)** (kariGardarsson) | mod | beta | v0.3.0-beta "All-in-One" (2026-10-23) per altstrument; GitHub releases page showed v0.2.0-beta (18 Oct) as newest when read; Digitakt II OS 1.17 (recommended; Deja Vu + ONESHOT zoom) and 1.16 (Deja Vu only) | v0.3.0-beta | 2026-10-21 | [repo](https://github.com/karigardarsson/digitakt-ii-research) · [releases](https://github.com/karigardarsson/digitakt-ii-research/releases) · [release latest](https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.2.0-beta) · [forum deja vu](https://elektronmods.com/thread-80-good-news-everyone-i-got-deja-vu-lfos-running-on-the) · [forum waveform zoom](https://elektronmods.com/thread-83-good-news-everyone-i-added-waveform-zoom-to-the-digitakt-ii) |
 | **Elektron Emu** (xerydian) | emulator | wip | one OS version per machine (named in each plug-in's README); not read by us | - | 2026-10-17 | [repo](https://github.com/xerydian/elektron-emu) |
+| **Elektron Emu (joshklomp)** (joshklomp) | emulator | wip | user-supplied OS files | - | 2026-10-17 | [repo](https://github.com/joshklomp/emu-elektron) |
+| **dt_song_mgmt** (zhelnov) | tool | active | Digitakt II project files | - | 2026-10-14 | [repo](https://github.com/zhelnov/dt_song_mgmt) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-10-13 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
+| **Digitakt II reverse-engineering knowledge base** (Fadedlimes) | research | unknown | Digitakt II OS 1.17 | - | 2026-10-07 | [repo](https://github.com/Fadedlimes/My-personal-Digitakt-II-reverse-engeneering-knowledge-base) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | - | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
+| **Digitakt II splash screens** (octplane) | mod | active | Digitakt II | - | 2026-09-25 | [repo](https://github.com/octplane/digitakt-ii-splash-screens) |
 | **digi-roll-studio** (zooloo303) | editor | beta | v0.5.4 (2026-09-09); hardware-verified: Digitakt II 1.16 (0079), Digitone II 1.11 (0059), Analog Four 1.55D (0201); the numbers in parentheses are not explained on the page | v0.5.5 | 2026-09-09 | [repo](https://github.com/zooloo303/digi-roll-studio) |
+| **Digi Battery** (JGuzak) | research | active | - | - | 2026-08-21 | [repo](https://github.com/JGuzak/digi_battery) |
 | **digitakt-ii-firmware-research** (lalzart) | research | unlabeled | publication snapshot 2026-08-16; Digitakt II OS 1.15C | - | 2026-08-16 | [repo](https://github.com/lalzart/digitakt-ii-firmware-research-public) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
 | **digi-roll** (zooloo303) | editor | active | per-device OS-build allowlist (build numbers not listed on the page) | v1.0.0 | - | [repo](https://github.com/zooloo303/digi-roll) · [web app](https://zooloo303.github.io/digi-roll/) |
@@ -169,6 +180,72 @@ _Sources: GitHub stub, digi-roll-studio README, SYXGRID README_
 Five VST3 plug-ins (Mac, Windows) that run each machine's real OS in an emulated CPU: Digitakt II, Syntakt, Analog Rytm MKII, Digitone II, Model:Cycles. Firmware not included; the user places the .syx from Elektron's site in a per-machine folder. +Drive emulated and persisted; WAV loading on DT2, Rytm and DN2. Digitone II's DSP is compiled locally on first open (needs a C compiler, else a slow interpreter that renders offline only). Caveats: Rytm analog voices/effects are a custom model that does not sound like the real machine; Syntakt analog tracks 9-12 missing; Mac builds unsigned. 2 commits, 19 stars, no licence stated. Personal project, not affiliated with Elektron (panel photos belong to Elektron).
 
 _Sources: GitHub README, altstrument tools page_
+
+### digitakt-digitone-mcp
+
+MCP servers that let an LLM play and edit a Digitakt or Digitone over MIDI (trigger tracks, shape FM, etc.). No firmware change. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Elektron-Screen-Tool
+
+The instrument's screen live in a terminal or window at 30 fps for OBS capture; fork of jakobbak/screendump. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Frame Lab (keyframer-lab)
+
+The Digitakt II keyframer time stretcher and its TKEO transient detector compiled from the unit's C to WebAssembly, runnable in the browser. AGPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### macro-mode (digi_macro)
+
+Eight performance macros (PAGE+MOD), each moving up to four parameters on chosen tracks. README: earlier builds ran on a DT2; the current per-kit build only in an emulator; the DN2 version never on a unit. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### digitakt-mods
+
+French-language collection of open-source .elemod mods for Digitakt mk1 and II, checked together and offered as ready packs with a step-by-step guide. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### elkflash
+
+Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Elektron Emu (joshklomp)
+
+VST3 plug-ins running the real OS of Digitakt II, Syntakt, Rytm MKII, Digitone II and Model:Cycles in an emulated CPU. Same description as xerydian/elektron-emu; relationship not verified. No licence file seen. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### dt_song_mgmt
+
+Dumps and restores song slots of a Transfer .dt2prj (LZ4-compressed 32 KiB blocks, 16 uncompressed song slots). No licence file seen. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Digitakt II reverse-engineering knowledge base
+
+Personal RE documentation of the DT2 (hardware contracts, post-mortems, SHARC audio pipeline, a granular machine, boot/splash) per the Digiwerk prior-art survey; no README text and no licence (no rights granted). Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Digitakt II splash screens
+
+A 16-byte patch that lets the DT2 pick among all five boot animations instead of one, plus scripts to apply it. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Digi Battery
+
+Hardware battery mod for Digitone, Digitone II, Digitakt and Digitakt II (soldering; at your own risk). CC licence. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
 
 ### selache (SHARC+ toolchain)
 

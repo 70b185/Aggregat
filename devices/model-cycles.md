@@ -13,9 +13,11 @@ Data last verified: 2026-10-31
 | **SPOKES** (A.V.) | tool | active | main @ 1604cbf (2026-10-31); 1.13 | - | 2026-10-31 | [repo](https://github.com/AveyCole/SPOKES) · [homepage](https://aveycole.github.io/SPOKES/) |
 | **Cycles One-Shot** (durchgemacht) | mod | active | v0.12 (2026-10-30); 1.13 | v0.12 | 2026-10-30 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
 | **Vladiktron Spoke** (imaf6971) | emulator | active | v0.1.0 (2026-10-30); 1.13 | v0.1.0 | 2026-10-30 | [repo](https://github.com/imaf6971/vladiktron-spoke) |
+| **Cycles Mods** (100demons) | mod | active | Model:Cycles | - | 2026-10-22 | [repo](https://github.com/100demons/cycles-mods) |
 | **Modded Cycles** (18nelli18, Modded-Cycles contributors) | firmware | active | Release 2.0 (2026-10-19); 1.13 | etude-optimisation-os-2026-10-18 | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
 | **1-Bit Editor** (durchgemacht) | tool | active | v0.1 (2026-10-17) | v0.1 | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |
 | **Control All Config** (durchgemacht) | mod | active | v1.0 (2026-10-17); 1.13 | v1.0 | 2026-10-17 | [repo](https://github.com/durchgemacht/cycles-control-all-config) |
+| **Elektron-Model-Machinedrum** (Talachan12) | mod | wip | Model:Cycles | - | 2026-10-12 | [repo](https://github.com/Talachan12/Elektron-Model-Machinedrum) |
 | **elektron-model-tweaks** (drumkilla) | mod | active | v2.1.0 (2026-10-11); 1.13 | v2.1.0 | 2026-10-11 | [repo](https://github.com/drumkilla/elektron-model-tweaks) · [homepage](https://drumkilla.github.io/elektron-model-tweaks/flasher/) |
 | **Chord Keys** (Nico Heuser) | mod | active | Second version (harmony pads, MIDI chords) (2026-10-07); 1.13 | - | 2026-10-07 | [repo](https://github.com/byNicoHeuser/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
 | **Model-TG** (TinyGregAudio) | mod | active | v1.1.0 (2026-10-02); 1.13 | v1.1.0 | 2026-10-02 | [repo](https://github.com/TinyGregAudio/Model-TG) |
@@ -108,3 +110,15 @@ _Sources: altstrument (2026-11-01)_
 Six channels of per-track USB audio for Model:Samples and Model:Cycles; patch sources and build script only. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
 _Sources: altstrument (2026-11-01)_
+
+### Cycles Mods
+
+Open-source Model:Cycles mods, one folder per mod with its own README and a download zip for use in any flasher. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Elektron-Model-Machinedrum
+
+Fork adding Machinedrum machines (TRX-B2, TRX-SD, TRX-CH, ported sample for sample) to the Model:Cycles, patched in the browser from official files. No licence file seen. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_

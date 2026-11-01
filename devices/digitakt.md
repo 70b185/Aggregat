@@ -6,13 +6,31 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **digitakt-digitone-mcp** (jamiew) | tool | active | - | - | 2026-11-01 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
+| **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
+| **SAY IT** (x2k77m1) | mod | wip | Digitone mk1, Digitakt mk1 | - | 2026-10-31 | [repo](https://github.com/x2k77m1/sayit) |
+| **DIGISEQ (Digitakt)** (ClaidArremer) | mod | wip | Digitakt mk1 | - | 2026-10-31 | [repo](https://github.com/ClaidArremer/digitakt-digiseq) |
+| **Sidecar (Digitakt mod)** (trigcondition) | mod | wip | Digitakt mk1 | - | 2026-10-31 | [repo](https://github.com/trigcondition/sidecar-digitakt) |
 | **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-10-30 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
+| **Digitakt integrated sidecar** (soejrd) | research | wip | Digitakt mk1 OS 1.54 | - | 2026-10-30 | [repo](https://github.com/soejrd/digitakt-sidecar) |
+| **Elektron-Screen-Tool** (Fadedlimes) | tool | active | - | - | 2026-10-30 | [repo](https://github.com/Fadedlimes/elektron-screen-tool) |
+| **digitakt-mods** (hillzeealex) | tool | active | Digitakt mk1 1.53/1.54, Digitakt II 1.17 | - | 2026-10-29 | [repo](https://github.com/hillzeealex/digitakt-mods) |
+| **Vampire Manga OS** (karlalex732-dotcom) | firmware | beta | Beta 0.1 (B01) | - | 2026-10-28 | [repo](https://github.com/karlalex732-dotcom/VAMPIRE-MANGA-OS-for-Elektron-Digitakt-OG-and-Digitone-OG) |
+| **DIGISNAKE (Digitakt)** (ClaidArremer) | mod | wip | Digitakt mk1 | - | 2026-10-27 | [repo](https://github.com/ClaidArremer/digitakt-digisnake) |
+| **elkflash** (Iced-Cream) | tool | active | - | - | 2026-10-25 | [repo](https://github.com/Iced-Cream/elkflash) |
 | **DigiFilter** (DigiAlchemydsp) | mod | wip | v1.3 (2026-10-24); Digitakt mk1 OS 1.53 (Digitakt II explicitly out of scope) | v1.3 | 2026-10-24 | [repo](https://github.com/DigiAlchemydsp/DigiFilter) |
 | **DigiPools** (freeze157-prog) | mod | unknown | Digitakt mk1 OS 1.54 | - | 2026-10-24 | [repo](https://github.com/freeze157-prog/digipools) · [forum](https://elektronmods.com/mods.php?id=57) |
+| **PUMP (Digitakt)** (ClaidArremer) | mod | wip | Digitakt mk1 | - | 2026-10-24 | [repo](https://github.com/ClaidArremer/digitakt-pump) |
+| **DIRECT JUMP (Digitakt)** (ClaidArremer) | mod | wip | Digitakt mk1 OS 1.54 | - | 2026-10-24 | [repo](https://github.com/ClaidArremer/digitakt-directjump) |
+| **OB-1 (elektrob-1)** (simonjohansson) | mod | wip | Digitakt mk1, Digitone mk1 / Keys | - | 2026-10-24 | [repo](https://github.com/simonjohansson/elektrob-1) |
 | **digislicer** (pina (irpina)) | mod | released | 2.5 (2026-10-20); Digitakt mk1 OS 1.53 only | v2.5 | 2026-10-20 | [repo](https://github.com/irpina/digislicer) |
+| **diginular** (Horhik) | mod | wip | Digitakt mk1 OS 1.54 | - | 2026-10-20 | [repo](https://github.com/Horhik/diginular) |
 | **digiscreen** (irpina) | tool | active | main @ 2faefb1 (2026-10-19), untagged | - | 2026-10-19 | [repo](https://github.com/irpina/digiscreen) |
+| **reslicer** (tonyrewin) | mod | wip | Digitakt mk1 | - | 2026-10-19 | [repo](https://github.com/tonyrewin/reslicer-digitakt) |
 | **Request: additional sequencer pages for DN1/DT1** (ChopChop) | request | request | - | - | 2026-10-18 | [forum](https://elektronmods.com/thread-78-additional-sequencerpages-for-dn1-dt1) |
 | **Request: DT MIDI retrigger** (TGN) | request | request | - | - | 2026-10-18 | [forum](https://elektronmods.com/thread-82-dt-midi-retrigger) |
+| **taktone** (water-feature) | firmware | wip | Digitakt 1.53/1.54 on Digitone mk1 hardware | - | 2026-10-18 | [repo](https://github.com/water-feature/taktone) |
+| **TRIG pages** (digitaktplus) | mod | wip | Digitakt mk1 OS 1.53 | - | 2026-10-17 | [repo](https://github.com/digitaktplus/trig-pages) |
 | **takt1ccname (MIDI CC naming)** (vegadw) | mod | done | Digitakt mk1 | - | 2026-10-16 | [repo](https://github.com/triode-the-andrewsarchus/takt1ccname) · [forum](https://elektronmods.com/thread-66-digitakt-mk1-midi-cc-naming) |
 | **digirequests (Digitakt request mods)** (sumedho) | mod | unknown | - | - | 2026-10-16 | [repo](https://github.com/sumedho/digirequests) · [cc names module](https://github.com/sumedho/digirequests/tree/main/modules/cc-names) |
 | **digihealth** (pina (irpina)) | mod | wip | v1.1.1 (2026-10-14); Digitakt mk1 OS 1.53 (digihealth 1.0); Digitone mk1 + Keys OS 1.43 (1.1, SYSTEM INFO only) | v1.1.1 | 2026-10-14 | [repo](https://github.com/irpina/digihealth) |
@@ -26,6 +44,8 @@ Data last verified: 2026-10-31
 | **Digisophie / Sophie for Digitakt** (Soejrd) | mod | unknown | v1.1.13 (2026-10-02); Digitakt mk1 OS 1.53 | v1.2.0 | 2026-10-02 | [repo](https://github.com/soejrd/digisophie) · [news](https://www.synthtopia.com/content/2026/09/30/unofficial-mods-for-elektron-digitakt-adds-metallic-percussion-synth-machine/) |
 | **DigiSplash** (DigiAlchemydsp) | mod | unlabeled | v1.1 (2026-09-30); Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | v1.1 | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/DigiSplash) |
 | **DigiCandy** (DigiAlchemydsp) | mod | wip | v1.0 (2026-09-30); Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | v1.0 | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/DigiCandy) |
+| **Digi Battery** (JGuzak) | research | active | - | - | 2026-08-21 | [repo](https://github.com/JGuzak/digi_battery) |
+| **dtdump** (droelfdroelf) | tool | archived | - | - | 2024-09-20 | [repo](https://github.com/droelfdroelf/dtdump) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
 | **digi1_mods** (gdeo607) | mod | wip | builds v3p, v3q-spectrum, v3r-all; elekloader build 2.0d; Digitakt mk1 OS 1.53 | - | - | [repo](https://github.com/gdeo607/digi1_mods) |
 | **digigrain** (lucykowal) | mod | wip | Digitakt mk1 OS 1.53 | - | - | [repo](https://github.com/lucykowal/digigrain) |
@@ -232,3 +252,123 @@ _Sources: altstrument tools page_
 SRC machine for Digitakt mk1 built on elekloader, played from the Chromatic keyboard; listed on elektronmods 2026-10-24. POOL machine (version string DPLS) over the project's RAM sample slots 1..127 played from the Chromatic keyboard; recorded trigs get a SAMP lock; digipools-1.0.elemod; C; 2 stars.
 
 _Sources: elektronmods list_
+
+### Vampire Manga OS
+
+Combined OS for Digitakt mk1 and Digitone mk1: new engines (DigiMono machines and MACRO engines on Digitakt; VA and GRAIN on Digitone), a tagged sound library, 34 insert effects in three serial slots per track. README: public-testing build, not qualified on hardware, CPU target not reached. No licence file seen. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### digitakt-digitone-mcp
+
+MCP servers that let an LLM play and edit a Digitakt or Digitone over MIDI (trigger tracks, shape FM, etc.). No firmware change. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### SAY IT
+
+S.A.M. (1982 speech synthesiser) as a machine: type a phrase on the naming screen and play its words. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### DIGISEQ (Digitakt)
+
+Per-track choice of sequencer on the TRIG page's second page (e.g. SNAKE walking a grid). elekloader mod; a separate Digitone build exists. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### PUMP (Digitakt)
+
+SP-303 Vinyl-Sim-style levelling master compressor in place of the stock compressor. elekloader mod (id pump-dt). GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### DIRECT JUMP (Digitakt)
+
+Direct pattern jump and start-on-bar settings for the Digitakt mk1. elekloader mod. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### DIGISNAKE (Digitakt)
+
+Cartesian sequencer after MDD Snake / Make Noise René. elekloader mod. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Sidecar (Digitakt mod)
+
+Plays a Sidecar expander from the Digitakt mk1. README: experimental, emulator only, never run on a unit. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Digitakt integrated sidecar
+
+Runs a TRX-B2 engine on a Raspberry Pi 4B, controlled from a Digitakt mk1 audio track with the audio returned through it. Early prototype. No licence file seen. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### analog-emu (rytm-emu)
+
+Emulator for Analog Rytm, Analog Four/Keys and the Syntakt that boots your own OS file (Syntakt: main screen, digital tracks and modelled analog tracks sound), for testing mods. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Elektron-Screen-Tool
+
+The instrument's screen live in a terminal or window at 30 fps for OBS capture; fork of jakobbak/screendump. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### reslicer
+
+Gives the SLICE knob beat divisions (1/1 to 1/16T) at the project tempo and a randomised slice order. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### digitakt-mods
+
+French-language collection of open-source .elemod mods for Digitakt mk1 and II, checked together and offered as ready packs with a step-by-step guide. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### OB-1 (elektrob-1)
+
+Oberheim OB-1 oscillator section as a machine, via elekloader. No licence file seen. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### diginular
+
+GRAIN, a granular SRC machine reading up to eight windowed grains from the track's sample. Experimental elekloader mod. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### elkflash
+
+Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### taktone
+
+Runs Digitakt mk1 firmware on Digitone mk1 hardware: taktone-core converts any stock or modded DT 1.53/1.54 image; taktone-extended uses the Digitone's second ColdFire (scenes on the extra buttons, Digisophie machines on the second core). Everything is erased on install; DIN MIDI needed for recovery. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### TRIG pages
+
+Framework adding TRIG sub-pages where each track picks a generator mod (first one: TURING). GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Digi Battery
+
+Hardware battery mod for Digitone, Digitone II, Digitakt and Digitakt II (soldering; at your own risk). CC licence. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### dtdump
+
+2019 proof of concept of an open Overbridge protocol implementation; points to Overwitch for active work. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_

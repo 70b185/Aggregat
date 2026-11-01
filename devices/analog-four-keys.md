@@ -8,6 +8,8 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
+| **analoghealth** (Iced-Cream) | mod | wip | Rytm MKII 1.74, A4 MKII 1.56 | - | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
 | **Chopshop** (Jesus Triana (bandersong)) | mod | active | 1.73 (Rytm), 1.56 (Keys); not 1.74 | - | - | [repo](https://github.com/bandersong/chopshop) · [homepage](https://chopshop-synth.pages.dev/) |
 
 ## Details
@@ -17,3 +19,15 @@ Data last verified: 2026-10-31
 Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog Keys OS 1.56 (chord memory, joystick random). Not OS 1.74, not Analog Four. Licence: GPL-3.0-or-later; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
 
 _Sources: altstrument (2026-11-01)_
+
+### analog-emu (rytm-emu)
+
+Emulator for Analog Rytm, Analog Four/Keys and the Syntakt that boots your own OS file (Syntakt: main screen, digital tracks and modelled analog tracks sound), for testing mods. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### analoghealth
+
+digihealth's SYSTEM INFO and REMOTE KEYS ported to the analog machines. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_

@@ -6,10 +6,16 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
+| **SynCrackd** (Vuulgaris) | mod | wip | Syntakt OS 1.42 | - | 2026-10-31 | [repo](https://github.com/Vuulgaris/syncrackd) |
+| **Synfact** (GSM1980) | mod | wip | - | - | 2026-10-30 | [repo](https://github.com/GSM1980/Synfact-release) |
+| **Elektron-Screen-Tool** (Fadedlimes) | tool | active | - | - | 2026-10-30 | [repo](https://github.com/Fadedlimes/elektron-screen-tool) |
 | **syntakt-machine45-research** (Humgic) | research | wip | main @ 9511030 (2026-10-28), no tagged releases; Syntakt OS 1.41 | - | 2026-10-28 | [repo](https://github.com/Humgic/syntakt-machine45-research) |
+| **elkflash** (Iced-Cream) | tool | active | - | - | 2026-10-25 | [repo](https://github.com/Iced-Cream/elkflash) |
 | **Synthack-OS (Syntakt MAX 1.0, SY FM4 modular builder)** (kariGardarsson) | mod | beta | modular builder RC1 (2026-10-20); Syntakt MAX 1.0 first public beta (2026-10-17); Syntakt OS 1.41 | syntakt-max-v1.0 | 2026-10-21 | [repo](https://github.com/karigardarsson/Synthack-OS) · [release max](https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-v1.0) · [release builder](https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-modular-builder-rc1) · [forum max](https://elektronmods.com/thread-81-good-news-everyone-syntakt-max-1-0-multiple-custom-firmware) · [forum fm4](https://elektronmods.com/thread-85-good-news-everyone-sy-fm4-is-here-a-fully-modular-syntakt) |
 | **SyntHack OS (upstream)** (Angelo-politek) | mod | beta | v0.9.0 (2026-10-19) per altstrument; README text said v0.8.0; Syntakt OS 1.41 | v0.9.0 | 2026-10-19 | [repo](https://github.com/Angelo-politek/Synthack-OS) |
 | **Elektron Emu** (xerydian) | emulator | wip | one OS version per machine (named in each plug-in's README); not read by us | - | 2026-10-17 | [repo](https://github.com/xerydian/elektron-emu) |
+| **Elektron Emu (joshklomp)** (joshklomp) | emulator | wip | user-supplied OS files | - | 2026-10-17 | [repo](https://github.com/joshklomp/emu-elektron) |
 | **SY FM4** (Rxuting) | mod | wip | main @ a596b63 (2026-10-15), no tagged releases; Syntakt OS 1.40A only (the other Syntakt mods target 1.41) | - | 2026-10-15 | [repo](https://github.com/Rxuting/sy-fm4) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | - | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
@@ -93,3 +99,39 @@ _Sources: GitHub README, altstrument Syntakt page_
 Five VST3 plug-ins (Mac, Windows) that run each machine's real OS in an emulated CPU: Digitakt II, Syntakt, Analog Rytm MKII, Digitone II, Model:Cycles. Firmware not included; the user places the .syx from Elektron's site in a per-machine folder. +Drive emulated and persisted; WAV loading on DT2, Rytm and DN2. Digitone II's DSP is compiled locally on first open (needs a C compiler, else a slow interpreter that renders offline only). Caveats: Rytm analog voices/effects are a custom model that does not sound like the real machine; Syntakt analog tracks 9-12 missing; Mac builds unsigned. 2 commits, 19 stars, no licence stated. Personal project, not affiliated with Elektron (panel photos belong to Elektron).
 
 _Sources: GitHub README, altstrument tools page_
+
+### Synfact
+
+Mod system for the Syntakt bringing Digitakt mk1 sample machines (ONE SHOT, WERP, REPITCH, SLICE), a per-project sample pool with long samples in slots 65-128 and a basic sample manager. Experimental. MIT. 18 stars at first sight. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### SynCrackd
+
+Sampler for the Syntakt as a patch to OS 1.42: replaces the Twinshot machine with a sample player (64 slots, 16-bit 48 kHz, 64 MB pool), loops, slices across the keys, tempo-following time stretch, a sampling page. MIT. Created 2026-10-30. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### analog-emu (rytm-emu)
+
+Emulator for Analog Rytm, Analog Four/Keys and the Syntakt that boots your own OS file (Syntakt: main screen, digital tracks and modelled analog tracks sound), for testing mods. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Elektron-Screen-Tool
+
+The instrument's screen live in a terminal or window at 30 fps for OBS capture; fork of jakobbak/screendump. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### elkflash
+
+Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Elektron Emu (joshklomp)
+
+VST3 plug-ins running the real OS of Digitakt II, Syntakt, Rytm MKII, Digitone II and Model:Cycles in an emulated CPU. Same description as xerydian/elektron-emu; relationship not verified. No licence file seen. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_

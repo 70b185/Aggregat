@@ -34,6 +34,19 @@ Complements [`digitone-2.md`](digitone-2.md) (overview) and [`digitone-2-os111-r
 - **DSP free memory (static):** L1 block 2 is never written by the stream (128 KB), the L1 block 1 tail `0x2dd52c-0x2effff`, and L2 from `0x2008823c`. **Correction:** the startup turns on all three L1 caches, so `0x39c000-0x39ffff`, `0x2ec000-0x2effff` and `0x31c000-0x31ffff` are cache, not free. dnfw's proven code area is `0x2dd600-0x2e7000`. `[doc]`
 - **Emulator pitfall:** digikit's Unicorn got EMAC **fractional mode** wrong (MACSR F/I = 1). The frame handler uses it, so values that pass through EMAC can be off in the emulator. `[emu]`
 
+## How much of a Digitakt II is inside a Digitone II (dnfw `dt2-machine-port.md`, DN2 1.11 vs DT2 1.16) {dn2-dt2port}
+- **SHARC:** 1,038 of 1,228 DT2 functions (85 %) have a relocation-tolerant twin in DN2. What is missing is exactly the audio engine: the per-slot dispatch `0x1c642a`, the per-track loop and unpack, and the sample players. `[doc]`
+- **ColdFire UI:** 884 of the DT2's 989 C++ classes exist in the DN2 with the same names, base chains and vtable sizes. So DT2 pages (records, formatters, knob lists) can be moved as data. `[doc]`
+- **The DT2 ONESHOT render** (`0x1c4ecf` + `0x1c4f81`, 4 functions and 611 instructions with its callees) was extracted from the user's own DT2 file, relocated into DN2 1.11, and ran **bit-identical to the DT2** for all four play modes in the emulator. dn2mk2 and armio's T1E2 later shipped full DT2 sample machines on DN2 1.11. `[emu]`
+- **Trap for new machine types:** the firmware's per-type voice **setup** dispatch (`0x8052db90[type]` at `0x1c91ad`) has only five entries. A new type 5 triggered from idle reads past the table and jumps to 0. Extend every per-type table, not only the render loop. `[emu]`
+
+## The three ColdFire <-> SHARC layers (dnfw `audio-dma.md`, `dsp-control-block.md`, lalzart cross-check) {dn2-cfdsp}
+1. **Boot:** section 7 is uploaded over DSPI.
+2. **Control:** a full-duplex frame of 0xabc = **2,748 bytes** over DSPI2 every block. The payload inside differs: **DT2 0x802 = 2,050 bytes, DN2 0xa80 = 2,688 bytes**. Part of it is a shared SRAM block at `0x80005xxx`.
+3. **Audio:** SSI0 with eDMA 48 (in) and 50 (out), double-buffered windows `0x4E6DF100` (in) and `0x4E6E0100` (out), 64-byte TDM frames.
+- **The audio slots are configuration, not constants:** the engine indexes the TDM frame through bytes at `0x80005366-0x80005368` (enable and slot pair), set by an applier (`0x40025982`) from settings and the kit. A per-stream routing mod would change those bytes. `[doc]`
+- Link alignment: a routine searches the receive half for the marker `0x007FFFFF` and, on a hit, slips the DMA by two frames by patching CITER/BITER. `[doc]`
+
 ## Image identity
 - MAIN OS = section id 3 of the ELE3 container; **load address `0x40000400`** on Digitone II and Digitone mk1; big-endian; 16-byte header, first instruction `46 FC 27 00` (`MOVE #$2700,SR`) at `0x40000410`. Depacked size: DN2 1.10E **3,085,696 B**, DN2 1.11 about 3.19 MB (3,192,192 B per the modding skill), DN1 1.42A 2,420,912 B. CPU ColdFire V4e (octabam loads MAIN OS at the same address). Mutable state lives in SDRAM at `0x80000000`; the bootstrap (section 2) is read at load base `0x800003fc`. `[doc]` {dn2-mainos-image} {dn2-skill-firmware}
 - Internal C++ namespace: `Digisharc` on DN2, `Digitone` on DN1; 454 Itanium-ABI type names recovered from DN2 1.10E (candidates only - the symbol script gives false positives such as `3VVE`). `[doc]` {dn2-mainos-image}

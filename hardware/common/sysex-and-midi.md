@@ -60,6 +60,13 @@ Not advertised and dead: all `FsRaw*` (unsandboxed paths) and DataSetTags `5f`. 
 - `F0 7E ...` always goes to the Sample Dump Standard handler. A Universal Device Inquiry gets `F0 7E 00 7C 00 F7` (WAIT), not an identity. `[hw]`
 - **The factory debug console is on UART8, not MIDI:** `#HELLO`, `#READ`/`#WRITE` (an 11-name parameter table, not memory), `#DUMP_AUDIO`, `#ENTER_TEST_MODE`, `#MRAM_DUMP` (a fixed 13.8 MiB factory/calibration blob, magic "COKi"), `#MMCDUMP` (raw eMMC sectors). It is not known to be reachable from outside. **Agents: leave it alone.** `[doc]`
 
+## Digitone II specifics and client pitfalls (dnfw `midi-rpc.md`, live on a DN2 1.11) {dn2-midirpc}
+- The DN2 answers the same MidiRpc framing: Ping replies with 22 command codes and the name "Digitone II". DNX reports the same set on 1.10E. **The file-API product id is `0x2b`; the dump protocol calls the same unit `0x15`.** `[hw]`
+- **The DN2 does not answer the MIDI Universal Device Inquiry** at all. The DT2 answers it with an SDS WAIT. `[hw]`
+- **A second application on the port corrupts replies:** with Overbridge holding the port, replies were cut at exactly **885 bytes**, and with Transfer open a preset list showed 35 of 256. Close Transfer, Overbridge and DNX before a client run. `[hw]`
+- Windows client bug, silent: using `MIM_ERROR` (0x3C5) instead of `MIM_LONGDATA` (0x3C4) drops every SysEx reply while short messages still arrive. Validate a client against a known reply first (rule A31). `[hw]`
+- Screenshot `0x04` returns the 128x64 frame; polling it gives a live mirror of the screen. `[hw]`
+
 ## Hardware ports and the hidden service console (DT2 1.16 / DN2 1.11) {digikit-f25} {dn2-service}
 - **DIN MIDI runs on UART9** (`0xec074000`, 31,250 baud, receive by eDMA channel 36). The front panel talks over **UART8** (`0xec070000`). Panel key codes used by emulators: SETTINGS 8, FUNC 17, YES 10, NO 12, UP 11, DOWN 14, LEFT 13, RIGHT 15. `[emu]`
 - **Maintenance mode** (a power-on key combination, or a reboot marker) presents a **USB CDC-ACM serial port, VID `0x1935` PID `0xFFFF`**. It speaks a line protocol: `#COMMAND\n` text lines, `!` + 4-byte big-endian length for binary frames.

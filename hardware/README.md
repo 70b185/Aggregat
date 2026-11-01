@@ -54,6 +54,7 @@ digitakt-ii-research grades its own statements as SOURCE/STATIC -> HOST -> SYNTH
 - [`common/sysex-and-midi.md`](common/sysex-and-midi.md) - SysEx and MIDI control (talking to a unit without flashing it)
 - [`common/toolchain-and-emulators.md`](common/toolchain-and-emulators.md) - Toolchains and emulators
 - [`devices/analog-heat.md`](devices/analog-heat.md) - Analog Heat (MKI, MKII, +FX)
+- [`devices/analog-rytm.md`](devices/analog-rytm.md) - Analog Rytm (MKI, MKII) - OS 1.73 / 1.74
 - [`devices/digitakt-2-dsp-optimizing.md`](devices/digitakt-2-dsp-optimizing.md) - Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port
 - [`devices/digitakt-2-sharc-measured.md`](devices/digitakt-2-sharc-measured.md) - Digitakt II (OS 1.17) - SHARC facts measured on a real unit
 - [`devices/digitakt-2.md`](devices/digitakt-2.md) - Digitakt II
@@ -64,9 +65,11 @@ digitakt-ii-research grades its own statements as SOURCE/STATIC -> HOST -> SYNTH
 - [`devices/digitone-2-os111-reference.md`](devices/digitone-2-os111-reference.md) - Digitone II (OS 1.11) - engineering reference from the digitone-2-modding-skill
 - [`devices/digitone-2.md`](devices/digitone-2.md) - Digitone II
 - [`devices/digitone.md`](devices/digitone.md) - Digitone (mk1) / Digitone Keys
+- [`devices/model-cycles-samples.md`](devices/model-cycles-samples.md) - Model:Cycles and Model:Samples - OS 1.13
+- [`devices/octatrack.md`](devices/octatrack.md) - Octatrack (MKI, MKII) - OS 1.40C
 - [`devices/syntakt.md`](devices/syntakt.md) - Syntakt
 
 ## Status of this folder (2026-10-31, after the "read everything" pass)
 Built from README- and docs-level reading of more than 40 repositories, the altstrument and elektronmods directories, two official release-note sets, forum threads and one journalistic audit. The exact depth per source, the pages that were blocked and the ones that need an approval are in [`READING-LEDGER.md`](READING-LEDGER.md); the open reading list is [`MINING.md`](MINING.md).
 
-Coverage per device: Digitakt mk1 **good** (ecosystem + memory map), Digitone mk1 **good**, Digitakt II **good** (static analysis, install/recovery, protocol, SHARC timing and RTOS measured on a unit), Digitone II **good** (the best documented box: container, flash layout, DSP/ColdFire rules, machines, sampler, incidents), Syntakt **medium-good** (platform, memory map, audio path, modding rules, recovery; 1.42 container), Analog Heat +FX **thin** (first OS 1.02 profile from the owner's research, two test builds ran on a unit), Heat MKI/MKII **official facts only**.
+Coverage per device: Digitakt mk1 **good** (ecosystem + memory map), Digitone mk1 **good**, Digitakt II **good** (static analysis, install/recovery, protocol, SHARC timing and RTOS measured on a unit), Digitone II **good** (the best documented box: container, flash layout, DSP/ColdFire rules, machines, sampler, incidents), Syntakt **medium-good** (platform, memory map, audio path, modding rules, recovery; 1.42 container), Analog Heat +FX **thin** (first OS 1.02 profile from the owner's research, two test builds ran on a unit), Heat MKI/MKII **official facts only**. Phase 2: Octatrack, Model:Cycles/Samples and Analog Rytm have **first profiles**; Analog Four/Keys, Machinedrum and Monomachine are catalogue only.

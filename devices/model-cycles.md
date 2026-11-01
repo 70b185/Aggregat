@@ -13,7 +13,7 @@ Data last verified: 2026-10-31
 | **SPOKES** (A.V.) | tool | active | main @ 1604cbf (2026-10-31); 1.13 | - | 2026-10-31 | [repo](https://github.com/AveyCole/SPOKES) · [homepage](https://aveycole.github.io/SPOKES/) |
 | **Cycles One-Shot** (durchgemacht) | mod | active | v0.12 (2026-10-30); 1.13 | v0.12 | 2026-10-30 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
 | **Vladiktron Spoke** (imaf6971) | emulator | active | v0.1.0 (2026-10-30); 1.13 | v0.1.0 | 2026-10-30 | [repo](https://github.com/imaf6971/vladiktron-spoke) |
-| **Cycles Mods** (100demons) | mod | active | Model:Cycles | - | 2026-10-22 | [repo](https://github.com/100demons/cycles-mods) |
+| **Cycles Mods** (100demons) | mod | active | Model:Cycles | v0.5.0 | 2026-10-22 | [repo](https://github.com/100demons/cycles-mods) |
 | **Modded Cycles** (18nelli18, Modded-Cycles contributors) | firmware | active | Release 2.0 (2026-10-19); 1.13 | etude-optimisation-os-2026-10-18 | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
 | **1-Bit Editor** (durchgemacht) | tool | active | v0.1 (2026-10-17) | v0.1 | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |
 | **Control All Config** (durchgemacht) | mod | active | v1.0 (2026-10-17); 1.13 | v1.0 | 2026-10-17 | [repo](https://github.com/durchgemacht/cycles-control-all-config) |

@@ -8,17 +8,17 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **OT Kyoti FW** (Zac Kyoti) | firmware | active | KYOTI V1.6 (2026-10-22); 1.40C | - | 2026-10-22 | [repo](https://github.com/Zac-Kyoti/octatrack-kyoti-fw) |
-| **Octatrack Manager** (David Ferlay) | tool | active | v0.49.0 (2026-10-18); Projects saved on OS 1.40 or later | - | 2026-10-18 | [repo](https://github.com/davidferlay/octatrack-manager) · [homepage](https://davidferlay.github.io/octatrack-manager/) |
-| **octabam** (Sam Banks, Contributors credited per module) | firmware | active | MIDI SCENES engine latch (PR #754) (2026-10-15); 1.40C | - | 2026-10-15 | [repo](https://github.com/sambanks/octabam) · [homepage](https://modwerk.app/) |
-| **midisc** (bkkbrls-del) | mod | active | MIDISC2.1 (2026-10-08); 1.40C | - | 2026-10-08 | [repo](https://github.com/bkkbrls-del/midisc) |
-| **octa-panel** (Tim Hastie) | emulator | active | octatrick-2.9 (2026-09-29); 1.40C | - | 2026-09-29 | [repo](https://github.com/timhastie/octa-panel) |
-| **PassOS** (theremoteviewer) | mod | active | v1.0 (2026-09-28); 1.40C | - | 2026-09-28 | [repo](https://github.com/theremoteviewer/octa-passos) |
+| **OT Kyoti FW** (Zac Kyoti) | firmware | active | KYOTI V1.6 (2026-10-22); 1.40C | ref/sp12-midside-vem7 | 2026-10-22 | [repo](https://github.com/Zac-Kyoti/octatrack-kyoti-fw) |
+| **Octatrack Manager** (David Ferlay) | tool | active | v0.49.0 (2026-10-18); Projects saved on OS 1.40 or later | v0.49.0 | 2026-10-18 | [repo](https://github.com/davidferlay/octatrack-manager) · [homepage](https://davidferlay.github.io/octatrack-manager/) |
+| **octabam** (Sam Banks, Contributors credited per module) | firmware | active | MIDI SCENES engine latch (PR #754) (2026-10-15); 1.40C | v0.1 | 2026-10-15 | [repo](https://github.com/sambanks/octabam) · [homepage](https://modwerk.app/) |
+| **midisc** (bkkbrls-del) | mod | active | MIDISC2.1 (2026-10-08); 1.40C | 1.40MIDISC | 2026-10-08 | [repo](https://github.com/bkkbrls-del/midisc) |
+| **octa-panel** (Tim Hastie) | emulator | active | octatrick-2.9 (2026-09-29); 1.40C | octatrick-2.9 | 2026-09-29 | [repo](https://github.com/timhastie/octa-panel) |
+| **PassOS** (theremoteviewer) | mod | active | v1.0 (2026-09-28); 1.40C | v1.0 | 2026-09-28 | [repo](https://github.com/theremoteviewer/octa-passos) |
 | **Octatrick** (Tim Hastie) | mod | active | MKI hardware-tested builds (2026-09-26); 1.40C | - | 2026-09-26 | [repo](https://github.com/timhastie/octatrick) |
 | **midisc-patcher** (bkkbrls-del) | tool | active | main @ 1ce2245 (2026-09-18); 1.40C | - | 2026-09-18 | [repo](https://github.com/bkkbrls-del/midisc-patcher) |
-| **OctaChainer 2** (Kai Drange) | tool | active | v2.0.0 (2026-08-05) | - | 2026-08-05 | [repo](https://github.com/KaiDrange/OctaChainer2) · [homepage](https://ticticelectro.com/2017/08/26/octachainer-v1-3/) |
+| **OctaChainer 2** (Kai Drange) | tool | active | v2.0.0 (2026-08-05) | v2.0.0 | 2026-08-05 | [repo](https://github.com/KaiDrange/OctaChainer2) · [homepage](https://ticticelectro.com/2017/08/26/octachainer-v1-3/) |
 | **ems-octakit** (June Kiff (emuyia)) | mod | active | 1.40C | - | - | [repo](https://github.com/LyingDalai/ems-octakit) |
-| **OCTAMAX** (Maxolydian (mxldyn)) | mod | active | 2.0 BETA; 1.40C | - | - | [repo](https://github.com/mxldyn/octamax) |
+| **OCTAMAX** (Maxolydian (mxldyn)) | mod | active | 2.0 BETA; 1.40C | dual256-v1 | - | [repo](https://github.com/mxldyn/octamax) |
 | **Octaplay** (devilfish707) | mod | active | 1.40C | - | - | [repo](https://github.com/devilfish707/Octaplay) |
 | **octemu** (Mark Roberts (markandrus)) | emulator | active | 1.40C | - | - | [repo](https://github.com/markandrus/octemu) |
 

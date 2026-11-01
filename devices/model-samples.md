@@ -8,9 +8,9 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **Modded Cycles** (18nelli18, Modded-Cycles contributors) | firmware | active | Release 2.0 (2026-10-19); 1.13 | - | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
-| **1-Bit Editor** (durchgemacht) | tool | active | v0.1 (2026-10-17) | - | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |
-| **elektron-model-tweaks** (drumkilla) | mod | active | v2.1.0 (2026-10-11); 1.13 | - | 2026-10-11 | [repo](https://github.com/drumkilla/elektron-model-tweaks) · [homepage](https://drumkilla.github.io/elektron-model-tweaks/flasher/) |
+| **Modded Cycles** (18nelli18, Modded-Cycles contributors) | firmware | active | Release 2.0 (2026-10-19); 1.13 | etude-optimisation-os-2026-10-18 | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
+| **1-Bit Editor** (durchgemacht) | tool | active | v0.1 (2026-10-17) | v0.1 | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |
+| **elektron-model-tweaks** (drumkilla) | mod | active | v2.1.0 (2026-10-11); 1.13 | v2.1.0 | 2026-10-11 | [repo](https://github.com/drumkilla/elektron-model-tweaks) · [homepage](https://drumkilla.github.io/elektron-model-tweaks/flasher/) |
 | **plaits-on-models** (DMDaudio) | mod | active | 1.13 | - | - | [repo](https://github.com/DMDaudio/plaits-on-models) |
 | **ms-multi-output** (Scott Metoyer) | mod | active | 1.13 | - | - | [repo](https://github.com/scottmetoyer/ms-multi-output) |
 

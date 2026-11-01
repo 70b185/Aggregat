@@ -8,15 +8,15 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.8.1 (2026-10-29); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | - | 2026-10-29 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
+| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.8.1 (2026-10-29); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-10-29 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
 | **fsdsp56k** (smoothdeveloper) | tool | active | main @ 2ac9d9b (2026-10-26); MDX X.20 for running packed machines on hardware | - | 2026-10-26 | [repo](https://github.com/smoothdeveloper/fsdsp56k) · [homepage](https://smoothdeveloper.github.io/fsdsp56k/) |
 | **Kitbasher** (etcetc000) | mod | active | main @ d965da3 (2026-10-19); 1.63 / X.14 / 26A09 beta / MDX X.20 B | - | 2026-10-19 | [repo](https://github.com/etcetc000/kitbasher) · [homepage](https://kitbasher.xyz) |
 | **machinedrum-kit** (Janne Heikkarainen) | research | active | main @ 4ea4729 (2026-10-19); Machinedrum SPS-1UW OS 1.63 (supplied by you) | - | 2026-10-19 | [repo](https://github.com/janne808/machinedrum-kit) |
 | **murdenihcam USR machines** (murdenihcam) | mod | active | main @ ab92ccf (2026-10-15); MDX X.20 B | - | 2026-10-15 | [repo](https://github.com/murdenihcam/murdenihcam-usr-machines) |
-| **ems-machinedrum-firmware** (June Kiff (emuyia)) | firmware | active | 26A09-beta (2026-10-09) | - | 2026-10-09 | [repo](https://github.com/emuyia/ems-machinedrum-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
+| **ems-machinedrum-firmware** (June Kiff (emuyia)) | firmware | active | 26A09-beta (2026-10-09) | 26A09-beta | 2026-10-09 | [repo](https://github.com/emuyia/ems-machinedrum-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
 | **MDS (Machine Dump Standard)** (Justin Mammarella) | library | active | main @ c446179 (2026-10-09); MDX 2.0 (X.20 or later) | - | 2026-10-09 | [repo](https://github.com/jmamma/MDS) |
 | **MDX** (Justin Mammarella, Yatao Li) | firmware | active | X.20 B (2026-10-09) | - | 2026-10-09 | [homepage](https://github.com/jmamma/MDX) |
-| **Gearmulator MD/MM** (Joe Landers) | emulator | active | mdmm-v0.1.0-alpha.14 (2026-09-21); Machinedrum and Monomachine OS files (supplied by you) | - | 2026-09-21 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
+| **Gearmulator MD/MM** (Joe Landers) | emulator | active | mdmm-v0.1.0-alpha.14 (2026-09-21); Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-09-21 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
 
 ## Details
 

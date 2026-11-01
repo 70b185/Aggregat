@@ -947,7 +947,7 @@ projects:
       safety_doc: https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/SAFETY.md
     status: wip
     base_os: "Digitone II stock OS 1.11 ONLY (1.10 must update to 1.11 first; 1.12+ must go back to 1.11). Also needs the user's own Digitakt II OS 1.17 (or 1.16), Machinedrum UW OS 1.63 and Monomachine SFX-6 OS 1.32B files"
-    version: "v0.35 (SWEEP, 2026-11-01), fixes only; v0.34 (TIMING) before it"
+    version: "v0.36 (VOICES, 2026-11-01); v0.35 SWEEP and v0.34 TIMING the same day"
     last_activity: 2026-11-01
     notes: >
       Adds Digitakt II sample machines (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE) with sample browser and
@@ -965,7 +965,10 @@ projects:
       guard record and scans DSP memory for bad values; the ColdFire emulator now fires the audio interrupt at its real rate,
       and DSP tests charge memory like the chip. v0.35 SWEEP (2026-11-01): fixes only (MACHINE SEL filter list, +DRIVE preview
       retrigger, SYN-held values, LOAD TO PROJ, deleted folders, LFO page names). Open: why P-I / VO-6 voices go bad on the
-      instrument. Same scope as armio's T1E2 (DT2 sample machines on DN2 1.11).
+      instrument. Same scope as armio's T1E2 (DT2 sample machines on DN2 1.11). v0.36 VOICES: the fixed two-voice
+      cap on Monomachine tracks is gone (the real-time DSP guard decides): SID, VO-6, DENS and DPRO WAVE play 4-note chords,
+      DDRW 2; when there is no room the oldest voice is dropped cleanly; DDRW/DENS tables moved to fast memory; a Diagnostics
+      section in the import page reads the instrument after a silent voice.
     sources: [GitHub README, FIRMWARE.md, patcher web page]
 
   - id: digitone-2-modding-skill

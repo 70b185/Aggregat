@@ -29,7 +29,7 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 ## Cross-checks
 - [ ] altstrument.org device pages (Digitakt 12, Digitakt II 3, Digitone 5, Digitone II 3, Syntakt 4 firmwares listed) against `data/projects.yml`
 - [ ] Lapin list: re-read weekly for new Elektron entries
-- [ ] Hardware facts above were extracted from READMEs by summarising tools; spot-check numbers (addresses, sizes) against the original files before depending on them.
+- [x] Spot-check 2026-11-01: `scripts/factcheck_addresses.py` found all 117 hex addresses on lines citing a locally cloned source verbatim in that source; sizes checked by hand (in-place margins, 2 MiB buffer, voice records, expansion region). Lines that cite only remote sources (READMEs, web pages) are not covered.
 
 ## Added 2026-10-31 (knowledge-source search)
 - [ ] mzero/elk-herd: new home (README obfuscates the address) - the protocol reference several projects port from; respect its no-AI-issues rule

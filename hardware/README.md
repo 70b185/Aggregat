@@ -7,7 +7,7 @@ published by the authors, and rules.
 
 ## How to use
 
-1. Read [`AGENT-RULES.md`](AGENT-RULES.md) first (safety and process rules, valid for every device).
+1. Read [`AGENT-RULES.md`](AGENT-RULES.md) first (safety and process rules, valid for every device), and check [`CONFLICTS.md`](CONFLICTS.md) for numbers that sources disagree on.
 2. Read [`common/firmware-container.md`](common/firmware-container.md), [`common/recovery.md`](common/recovery.md), [`common/flash-procedure.md`](common/flash-procedure.md) before any flash, and - if you only talk to a unit over MIDI/SysEx - [`common/sysex-and-midi.md`](common/sysex-and-midi.md).
 3. Read the file for your device in [`devices/`](devices/).
 4. Look up the project you build on in [`../INDEX.md`](../INDEX.md) (who maintains what, which OS, which state).
@@ -32,9 +32,9 @@ digitakt-ii-research grades its own statements as SOURCE/STATIC -> HOST -> SYNTH
 1. **Never touch the bootstrap/updater**; recovery is the startup menu (FUNC at power-on, TRIG 4) - **DIN MIDI only on Digitakt II, Digitone II, Syntakt**; avoid TRIG 2/3 (erase data). Prove the recovery once with a stock file before the first modified flash. (`AGENT-RULES` A1-A5, A11, A17; `common/recovery.md`, `common/flash-procedure.md`)
 2. **Nothing Elektron ships in the repo**; the user supplies the stock `.syx`, you identify it by SHA-256; keep stock files - old OS versions are no longer offered. (B1, B2, B6; `common/ecosystem-lessons.md`)
 3. **One mod = one exact OS build.** Digitone II is split between 1.11 (dn2mk2, skill) and 1.12 (Overtone, Digiwerk, DigiRust); Digitakt II 1.16/1.17; Syntakt 1.40A/1.41/1.42. (C1, A10)
-4. **Size limits bite before flash limits:** 2 MiB USB receive limit and the in-place loader margin (+31,182 B stock, -39,318 B with the default compressor level) on Digitone II; section 7 under 1 MiB. (A9, A14; `devices/digitone-2-internals.md`)
-5. **Emulators lie about DSP time, caches, power-on memory and NaNs.** Real incidents: 8n+4-byte boot blocks, zeroed shift sign bits, clobbered R8, uninitialised DDR, a removed sine table. (G9, D11-D13; `devices/digitone-2-os111-reference.md`)
-6. **Voices are not tracks**; count memory accesses, not instructions; guard DSP frame time. (D12)
+4. **Size limits bite before flash limits:** 2 MiB USB receive limit and the in-place unpack margin on DT2/DN2 (DN2 stock +31,182 B; a default-level recompress is -39,318 B); on the Syntakt a zero-padded image with -8,751 B of margin did not boot. Section 7 must stay under 1 MiB. (A9, A14, A30; `devices/digitone-2-internals.md`, `devices/syntakt.md`)
+5. **Emulators lie, and silicon has the last word.** Code that ran bit-exactly in the emulator hung real units: a same-DAG store, SIMD moves into L2, compressed loop ends, code copied without a cache write-back, negative shift immediates, 8n+4 boot blocks. **Silence means a DSP trap; a stuck tone means a stalled task.** (A28, A33, G9; `devices/digitakt-2-dsp-optimizing.md`, `devices/digitone-2-machines-sampler-sharc.md`)
+6. **Budget per block, in silicon cycles.** A block is 666,667 cycles at 1 GHz. Taken branches cost ~7, CALL+RTS ~14, an L2 miss ~58. The stock engine never misses a block by itself, so code you add must stop on a per-block deadline. On the Syntakt the ColdFire is already at ~89 % at rest. Voices are not tracks. (A25, A34, A35, D12)
 7. **Test ladder and logging:** failing test with a stock control first, emulator before every flash, one named image with SHA-256, stop after two failed flashes. (G1-G8; `common/agent-workflow.md`)
 8. **Control-side tools must write safely:** back up, allowlist OS builds, change only needed bytes, read back and compare. (F1-F6; `common/sysex-and-midi.md`)
 9. **Memory maps differ per device and per core version** - use `common/memory-maps.md` as a checklist, not as gospel. (D11)

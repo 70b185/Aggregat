@@ -60,10 +60,13 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 
 ## Next from the 2026-10-31 clones (not yet read)
 - [x] digikit `MIDI-SYSEX-RPC.md`, `ARCHITECTURE.md`, `SHARC-ADDRESS-MAP.md`, `SAMPLES.md`; findings 14, 16, 25, 45, 47, 48, 51, 53, 57, 60, 73, 76, 77, 91, 100
-- [ ] digikit findings still unread: 01-05, 09-13, 15, 17, 19-24, 26-44, 46, 49, 50, 52, 54-56, 58, 61-69, 71, 72, 74 (many are emulator/runtime internals)
+- [x] digikit findings 01, 03, 04, 09, 15, 19, 31, 41, 46, 52, 58, 78, 101-103
+- [ ] digikit findings still unread: 02, 05, 10-13, 17, 20-24, 26-30, 32-40, 42-44 (partly), 49, 50, 54-56, 61-69, 71, 72, 74 (mostly emulator/runtime internals)
 - [x] dnfw docs: hardware, PRINCIPLES, mod-memory-regions, code-caves, version-gate, os-update-path, service-commands, mods-compatibility, sharc-load/-cycle-model/-stall-probe/-ddr, waverider-dsp-silence
-- [ ] dnfw docs still unread: midi-rpc, usbprobe, bootstrap (partly), audio-dma, dsp-control-block, the waverider-* series, lfo4-*, sharc-voice-path, dt2-machine-port, lalzart-dt2-crosscheck
+- [x] dnfw midi-rpc, usbprobe, audio-dma, dsp-control-block, sharc-voice-path, dt2-machine-port, lalzart-dt2-crosscheck
+- [ ] dnfw docs still unread: the waverider-* series, lfo4-*, flashing.md (43 KB), bootstrap (partly)
 - [x] Digiwerk DEVELOPERS.md, notes T1.3, T1.4, T1.5, OB01, T1.11, DT01, DC01/DC02, SC01, SP02, release 0.2.1
-- [ ] Digiwerk notes still unread: USB01, T1.7 brickcheck/redteam, T2.x (MIDI voices, arp, live control), T3.x (selache, sharc db/memmap, fx frame), prior-art-2026-10.md
+- [x] Digiwerk USB01, T1.7/T1.7b, T2.1, T2.4a-c, T3.2, T3.3, prior-art-2026-10
+- [ ] Digiwerk notes still unread: T2.2 arp, T2.8 dejavu, T3.1/T3.4-T3.11, T5.x/T6.x effect notes
 - [ ] Overtone v1.2 release notes
 

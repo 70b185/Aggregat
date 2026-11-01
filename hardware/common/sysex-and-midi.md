@@ -67,6 +67,17 @@ Not advertised and dead: all `FsRaw*` (unsandboxed paths) and DataSetTags `5f`. 
 - Windows client bug, silent: using `MIM_ERROR` (0x3C5) instead of `MIM_LONGDATA` (0x3C4) drops every SysEx reply while short messages still arrive. Validate a client against a known reply first (rule A31). `[hw]`
 - Screenshot `0x04` returns the 128x64 frame; polling it gives a live mirror of the screen. `[hw]`
 
+## The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) {digikit-f58}
+- The panel MCU sends **2-byte packets on UART8**:
+  - key packet: `0x20 | channel`, then the channel's 8-bit button mask;
+  - encoder packet: `0x30 | (encoder-1)`, then a signed 8-bit delta;
+  - high nibble 7: the factory console.
+- Key code = `channel*8 + bit + 1` (codes 1-48, plus a few exceptions per device). There are nine encoders.
+- Toward the panel: `B9 idx val` sets an LED to a palette entry, `B5 i r g b` sets a palette entry.
+- **Remote control without touching the UART:** the firmware's button decoder `f(channel, new_mask)` (DT2 1.17 `0x4011e318`, DN2 1.12 `0x4011fc8c`) and encoder decoder `f(encoder0, delta)` (`0x4011e598` / `0x4011ff0c`) can be called from a mod.
+  - Mask SR to `0x2700` around the call; the decoders do unprotected read-modify-write.
+  - Neither checks the channel (safe: buttons 0-6, encoders 0-8). An encoder turn is ignored for 40 ticks after its click key is released. `[emu]`
+
 ## Hardware ports and the hidden service console (DT2 1.16 / DN2 1.11) {digikit-f25} {dn2-service}
 - **DIN MIDI runs on UART9** (`0xec074000`, 31,250 baud, receive by eDMA channel 36). The front panel talks over **UART8** (`0xec070000`). Panel key codes used by emulators: SETTINGS 8, FUNC 17, YES 10, NO 12, UP 11, DOWN 14, LEFT 13, RIGHT 15. `[emu]`
 - **Maintenance mode** (a power-on key combination, or a reboot marker) presents a **USB CDC-ACM serial port, VID `0x1935` PID `0xFFFF`**. It speaks a line protocol: `#COMMAND\n` text lines, `!` + 4-byte big-endian length for binary frames.

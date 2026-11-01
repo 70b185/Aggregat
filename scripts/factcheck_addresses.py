@@ -5,7 +5,7 @@ without a local clone are skipped. Reads only; prints what it could not find.
 Usage: python3 scripts/factcheck_addresses.py"""
 import re,glob,os,subprocess,collections,sys
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..'))
-M=[('digikit','/tmp/src/digikit'),('dn2-cfw','/tmp/src/dn2-cfw'),('elekloader','/tmp/src/elekloader'),('dn2-ele3','/tmp/src/dn2_firmware_explore'),('dn2-memory-map','/tmp/src/dn2_firmware_explore'),('dn2-bootstrap','/tmp/src/dn2_firmware_explore'),('dn2-hw','/tmp/src/dn2_firmware_explore'),('dn2-principles','/tmp/src/dn2_firmware_explore'),
+M=[('digikit','/tmp/src/digikit'),('dn2-cfw','/tmp/src/dn2-cfw'),('elekloader','/tmp/src/elekloader'),('dn2-skill','/tmp/src/skill'),('octabam','/tmp/src/sambanks_octabam'),('modded-cycles','/tmp/src/18nelli18_Modded-Cycles'),('rytm-fw-re','/tmp/src/ethernet8023_rytm-fw-re'),('syncrackd','/tmp/src/Vuulgaris_syncrackd'),('dn2-ele3','/tmp/src/dn2_firmware_explore'),('dn2-memory-map','/tmp/src/dn2_firmware_explore'),('dn2-bootstrap','/tmp/src/dn2_firmware_explore'),('dn2-hw','/tmp/src/dn2_firmware_explore'),('dn2-principles','/tmp/src/dn2_firmware_explore'),
 ('dn2-caves','/tmp/src/dn2_firmware_explore'),('dn2-osupdate','/tmp/src/dn2_firmware_explore'),('dn2-dspstop','/tmp/src/dn2_firmware_explore'),('dn2-stall','/tmp/src/dn2_firmware_explore'),
 ('dn2-ddr','/tmp/src/dn2_firmware_explore'),('dn2-sharcload','/tmp/src/dn2_firmware_explore'),('dn2-service','/tmp/src/dn2_firmware_explore'),('dn2-mods','/tmp/src/dn2_firmware_explore'),
 ('dn2-dt2port','/tmp/src/dn2_firmware_explore'),('dn2-cfdsp','/tmp/src/dn2_firmware_explore'),('dn2-midirpc','/tmp/src/dn2_firmware_explore'),
@@ -17,17 +17,18 @@ def clone_for(k):
 cache={}
 def text_of(d):
     if d not in cache:
-        out=subprocess.run(['git','-C',d,'grep','-h','-i','-I','-o','-E','0x[0-9a-f]+','--','*.md','*.s','*.S','*.inc','*.py','*.c','*.h','*.json','*.toml','*.txt'],capture_output=True,text=True).stdout
-        cache[d]=set(x.lower() for x in out.split())
+        out=subprocess.run(['git','-C',d,'grep','-h','-i','-I','-o','-E','(0x)?[0-9a-f]{5,}','--','*.md','*.s','*.S','*.inc','*.py','*.c','*.h','*.json','*.toml','*.txt'],capture_output=True,text=True).stdout
+        cache[d]=set(x.lower() for x in out.split())|{'0x'+x.lower() for x in out.split() if not x.lower().startswith('0x')}
     return cache[d]
 tot=0;miss=collections.defaultdict(list);elsewhere=collections.defaultdict(list)
 for f in glob.glob('hardware/**/*.md',recursive=True):
     if f.endswith(('SOURCES.md','CONFLICTS.md','READING-LEDGER.md','MINING.md')): continue
+    filekeys=re.findall(r'\{([a-z0-9-]+)\}',open(f).read())
     for line in open(f):
-        keys=re.findall(r'\{([a-z0-9-]+)\}',line)
+        keys=re.findall(r'\{([a-z0-9-]+)\}',line) or filekeys
         dirs={clone_for(k) for k in keys}-{None}
         if not dirs: continue
-        for h in set(re.findall(r'0x[0-9a-fA-F]{5,}',line)):
+        for h in set(re.findall(r'0x[0-9a-fA-F]{5,}(?![0-9a-zA-Z_])',line)):
             tot+=1; hl=h.lower()
             def found(ds): return any(hl in text_of(d) or ('0x'+hl[2:].lstrip('0')) in text_of(d) for d in ds)
             if not found(dirs):

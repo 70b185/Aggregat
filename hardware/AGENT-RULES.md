@@ -97,6 +97,8 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A35. Budget SHARC code with silicon costs, not instruction counts.** Measured on a DT2 and a DN2: taken branches ~7 cycles, CALL+RTS ~14, a dependent float multiply chain 1.5 per instruction, hardware-loop start-up 12, and ~58 cycles for every L2 data miss. Buffers spaced at 16 KiB multiples fight over one cache set. Emulator counts underestimate all of these. `[hw]` {digikit-f103}
 
+**A36. The startup-menu recovery listens to DIN MIDI only, on every Elektron box documented here.** USB updates are received by the running OS. Before flashing anything that replaces or deeply changes the OS, make sure the user has a working DIN (or 3.5 mm TRS on Model:Cycles) MIDI interface and has sent a stock file through it once. A custom OS without the in-OS USB update leaves DIN as the only way back. `[hw]` {rytm-fw-re} {modded-cycles} {octabam}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.

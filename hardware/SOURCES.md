@@ -184,3 +184,6 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | digikit-f41 | ElekLabs/digikit finding 41, CPU load, DSP block time, RAM | https://github.com/ElekLabs/digikit/blob/main/docs/findings/41-digikit-health.md |
 | syncrackd-mm | Vuulgaris/syncrackd `docs/MEMORY_MAP.md` and README (Syntakt OS 1.41/1.42) | https://github.com/Vuulgaris/syncrackd/blob/main/docs/MEMORY_MAP.md |
 | synfact | GSM1980/Synfact-release README | https://github.com/GSM1980/Synfact-release |
+| octabam | sambanks/octabam docs (CHIP, ARCHITECTURE, DSP, PLACEMENT, TRAPS, guide/BUILDING), Octatrack OS 1.40C | https://github.com/sambanks/octabam/blob/main/docs/firmware/CHIP.md |
+| modded-cycles | 18nelli18/Modded-Cycles (RECOVERY.md, agent skill references os-map.md and free-space.md, notes/), Model:Cycles OS 1.13 | https://github.com/18nelli18/Modded-Cycles/blob/main/RECOVERY.md |
+| rytm-fw-re | ethernet8023/rytm-fw-re STATUS.md and docs (flash-driver, usb-reflash), Analog Rytm MKII OS 1.74 | https://github.com/ethernet8023/rytm-fw-re/blob/master/STATUS.md |

@@ -7,8 +7,8 @@ Data last verified: 2026-10-31
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
-| **SynCrackd** (Vuulgaris) | mod | wip | Syntakt OS 1.42 | - | 2026-10-31 | [repo](https://github.com/Vuulgaris/syncrackd) |
-| **Synfact** (GSM1980) | mod | wip | - | - | 2026-10-30 | [repo](https://github.com/GSM1980/Synfact-release) |
+| **SynCrackd** (Vuulgaris) | mod | wip | Syntakt OS 1.42 | v0.1.2 | 2026-10-31 | [repo](https://github.com/Vuulgaris/syncrackd) |
+| **Synfact** (GSM1980) | mod | wip | - | v0.0.2 | 2026-10-30 | [repo](https://github.com/GSM1980/Synfact-release) |
 | **Elektron-Screen-Tool** (Fadedlimes) | tool | active | - | - | 2026-10-30 | [repo](https://github.com/Fadedlimes/elektron-screen-tool) |
 | **syntakt-machine45-research** (Humgic) | research | wip | main @ 9511030 (2026-10-28), no tagged releases; Syntakt OS 1.41 | - | 2026-10-28 | [repo](https://github.com/Humgic/syntakt-machine45-research) |
 | **elkflash** (Iced-Cream) | tool | active | - | - | 2026-10-25 | [repo](https://github.com/Iced-Cream/elkflash) |

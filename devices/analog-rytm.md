@@ -10,7 +10,7 @@ Data last verified: 2026-10-31
 |---|---|---|---|---|---|---|
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
 | **analoghealth** (Iced-Cream) | mod | wip | Rytm MKII 1.74, A4 MKII 1.56 | - | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
-| **rytm2_mods** (Iced-Cream) | mod | wip | Rytm MKII 1.73, 1.74 | - | 2026-10-24 | [repo](https://github.com/Iced-Cream/rytm2_mods) |
+| **rytm2_mods** (Iced-Cream) | mod | wip | Rytm MKII 1.73, 1.74 | v1.4 | 2026-10-24 | [repo](https://github.com/Iced-Cream/rytm2_mods) |
 | **rytm-builder** (stampman3000-jpg) | tool | active | cursor/rytm-mac-app-0afb @ 90af848 (2026-10-14); Analog Rytm OS 1.70 object layout | - | 2026-10-14 | [repo](https://github.com/stampman3000-jpg/rytm-builder) |
 | **rytm-fw-re** (ethernet) | research | active | master @ 2f7f0c4 (2026-10-13); 1.74 | - | 2026-10-13 | [repo](https://github.com/ethernet8023/rytm-fw-re) |
 | **rytm-mods-src** (MrScruff, ConnorWay32 (repost)) | mod | active | Mods 0000-0015 (2026-10-10); 1.73 | - | 2026-10-10 | [repo](https://github.com/ConnorWay32/rytm-mods-src) |

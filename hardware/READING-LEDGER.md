@@ -60,3 +60,4 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | digikit findings 78, 101, 102, 103 (new 2026-11-01); dnfw AGENTS.md, audio-dma, dsp-control-block, sharc-voice-path, lalzart-dt2-crosscheck, midi-rpc, usbprobe, dt2-machine-port | full / key sections | digitakt-2-dsp-optimizing, digitone-2-internals, sysex-and-midi, A35 |
 | digikit findings 01, 03, 04, 09, 15, 19, 31, 41, 46, 52, 58 | headings + key sections | digitakt-2-sharc-measured, sysex-and-midi, memory-maps |
 | SynCrackd MEMORY_MAP + README; Synfact README + transfer readme | full / key sections | devices/syntakt (CPU #2) |
+| octabam docs (CHIP, ARCHITECTURE, PLACEMENT, TRAPS headings, guide/BUILDING); Modded-Cycles (RECOVERY, os-map, free-space, notes heads); rytm-fw-re (STATUS, flash-driver, usb-reflash) | key sections | devices/octatrack, devices/model-cycles-samples, devices/analog-rytm, A36, CONFLICTS O8 |

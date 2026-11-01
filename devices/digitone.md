@@ -7,33 +7,33 @@ Data last verified: 2026-10-31
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **digitakt-digitone-mcp** (jamiew) | tool | active | - | - | 2026-11-01 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
-| **LFOX** (x2k77m1) | mod | wip | Digitone mk1 | - | 2026-11-01 | [repo](https://github.com/x2k77m1/lfox) |
-| **SAY IT** (x2k77m1) | mod | wip | Digitone mk1, Digitakt mk1 | - | 2026-10-31 | [repo](https://github.com/x2k77m1/sayit) |
+| **LFOX** (x2k77m1) | mod | wip | Digitone mk1 | v1.0a | 2026-11-01 | [repo](https://github.com/x2k77m1/lfox) |
+| **SAY IT** (x2k77m1) | mod | wip | Digitone mk1, Digitakt mk1 | v1.0b | 2026-10-31 | [repo](https://github.com/x2k77m1/sayit) |
 | **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-10-30 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **DNX** (NoiseAndMatter) | tool | beta | 0.9.0-beta.8; no OS versions stated; Digitone II product id 0x15 | stable/pre-analysis | 2026-10-30 | [repo](https://github.com/NoiseAndMatter/DNX) · [web app](https://noiseandmatter.github.io/DNX/) · [forum](https://elektronmods.com/mods.php?id=39) |
 | **Elektron-Screen-Tool** (Fadedlimes) | tool | active | - | - | 2026-10-30 | [repo](https://github.com/Fadedlimes/elektron-screen-tool) |
-| **Vampire Manga OS** (karlalex732-dotcom) | firmware | beta | Beta 0.1 (B01) | - | 2026-10-28 | [repo](https://github.com/karlalex732-dotcom/VAMPIRE-MANGA-OS-for-Elektron-Digitakt-OG-and-Digitone-OG) |
+| **Vampire Manga OS** (karlalex732-dotcom) | firmware | beta | Beta 0.1 (B01) | VM09 | 2026-10-28 | [repo](https://github.com/karlalex732-dotcom/VAMPIRE-MANGA-OS-for-Elektron-Digitakt-OG-and-Digitone-OG) |
 | **SampleTone** (x2k77m1) | mod | wip | Digitone mk1 / Keys OS 1.44 | - | 2026-10-27 | [repo](https://github.com/x2k77m1/sampletone) |
 | **DIGISEQ (Digitone)** (ClaidArremer) | mod | wip | Digitone mk1 / Keys | - | 2026-10-27 | [repo](https://github.com/ClaidArremer/digitone-digiseq) |
-| **PHREAKOID** (x2k77m1) | mod | wip | Digitone mk1 | - | 2026-10-26 | [repo](https://github.com/x2k77m1/phreakoid) |
+| **PHREAKOID** (x2k77m1) | mod | wip | Digitone mk1 | v1.0a | 2026-10-26 | [repo](https://github.com/x2k77m1/phreakoid) |
 | **Digitone MK1 Modding Project** (rumorismo) | research | wip | Digitone mk1 / Keys OS 1.44 | - | 2026-10-26 | [repo](https://github.com/rumorismo/Elektron-Mods) |
 | **DIGISNAKE (Digitone)** (ClaidArremer) | mod | wip | Digitone mk1 / Keys | - | 2026-10-25 | [repo](https://github.com/ClaidArremer/digitone-digisnake) |
 | **elkflash** (Iced-Cream) | tool | active | - | - | 2026-10-25 | [repo](https://github.com/Iced-Cream/elkflash) |
 | **PUMP (Digitone)** (ClaidArremer) | mod | wip | Digitone mk1 / Keys | - | 2026-10-24 | [repo](https://github.com/ClaidArremer/digitone-pump) |
 | **DIRECT JUMP (Digitone)** (ClaidArremer) | mod | wip | Digitone mk1 OS 1.44 | - | 2026-10-24 | [repo](https://github.com/ClaidArremer/digitone-directjump) |
-| **OB-1 (elektrob-1)** (simonjohansson) | mod | wip | Digitakt mk1, Digitone mk1 / Keys | - | 2026-10-24 | [repo](https://github.com/simonjohansson/elektrob-1) |
-| **Digitone arp modifications** (scotblock) | mod | wip | Digitone mk1 / Keys OS 1.44 | - | 2026-10-20 | [repo](https://github.com/scotblock/digitone-arp-mod) |
+| **OB-1 (elektrob-1)** (simonjohansson) | mod | wip | Digitakt mk1, Digitone mk1 / Keys | ob1-v0.6 | 2026-10-24 | [repo](https://github.com/simonjohansson/elektrob-1) |
+| **Digitone arp modifications** (scotblock) | mod | wip | Digitone mk1 / Keys OS 1.44 | patches-2026-10-20-e11 | 2026-10-20 | [repo](https://github.com/scotblock/digitone-arp-mod) |
 | **digiscreen** (irpina) | tool | active | main @ 2faefb1 (2026-10-19), untagged | - | 2026-10-19 | [repo](https://github.com/irpina/digiscreen) |
-| **VAWT** (x2k77m1) | mod | wip | Digitone mk1 / Keys OS 1.43, 1.44 | - | 2026-10-19 | [repo](https://github.com/x2k77m1/VAWT) |
+| **VAWT** (x2k77m1) | mod | wip | Digitone mk1 / Keys OS 1.43, 1.44 | v0.1z | 2026-10-19 | [repo](https://github.com/x2k77m1/VAWT) |
 | **Request: additional sequencer pages for DN1/DT1** (ChopChop) | request | request | - | - | 2026-10-18 | [forum](https://elektronmods.com/thread-78-additional-sequencerpages-for-dn1-dt1) |
-| **DigiTide** (irpina) | mod | beta | Digitone mk1 (elekloader core-dn1 3.2) | - | 2026-10-18 | [repo](https://github.com/irpina/digitide) |
-| **DigiTriad** (irpina) | mod | beta | Digitone mk1 (elekloader core-dn1 3.2) | - | 2026-10-18 | [repo](https://github.com/irpina/digitriad) |
-| **DigiReel** (irpina) | mod | beta | Digitone mk1 (elekloader core-dn1 3.2) | - | 2026-10-18 | [repo](https://github.com/irpina/digireel) |
-| **DigiHoard** (irpina) | mod | beta | Digitone mk1 (elekloader core-dn1 3.2) | - | 2026-10-18 | [repo](https://github.com/irpina/digihoard) |
-| **DigiHalo** (irpina) | mod | beta | Digitone mk1 (elekloader core-dn1 3.2) | - | 2026-10-18 | [repo](https://github.com/irpina/digihalo) |
+| **DigiTide** (irpina) | mod | beta | Digitone mk1 (elekloader core-dn1 3.2) | v0.2 | 2026-10-18 | [repo](https://github.com/irpina/digitide) |
+| **DigiTriad** (irpina) | mod | beta | Digitone mk1 (elekloader core-dn1 3.2) | v0.2 | 2026-10-18 | [repo](https://github.com/irpina/digitriad) |
+| **DigiReel** (irpina) | mod | beta | Digitone mk1 (elekloader core-dn1 3.2) | v0.2 | 2026-10-18 | [repo](https://github.com/irpina/digireel) |
+| **DigiHoard** (irpina) | mod | beta | Digitone mk1 (elekloader core-dn1 3.2) | v0.2 | 2026-10-18 | [repo](https://github.com/irpina/digihoard) |
+| **DigiHalo** (irpina) | mod | beta | Digitone mk1 (elekloader core-dn1 3.2) | v0.2 | 2026-10-18 | [repo](https://github.com/irpina/digihalo) |
 | **taktone** (water-feature) | firmware | wip | Digitakt 1.53/1.54 on Digitone mk1 hardware | - | 2026-10-18 | [repo](https://github.com/water-feature/taktone) |
 | **digihealth** (pina (irpina)) | mod | wip | v1.1.1 (2026-10-14); Digitakt mk1 OS 1.53 (digihealth 1.0); Digitone mk1 + Keys OS 1.43 (1.1, SYSTEM INFO only) | v1.1.1 | 2026-10-14 | [repo](https://github.com/irpina/digihealth) |
-| **DigiAlchemy GamePack Vol.1** (DigiAlchemydsp) | mod | wip | Digitone mk1 / Keys OS 1.43 | - | 2026-10-14 | [repo](https://github.com/DigiAlchemydsp/DigiAlchemy-GamePack-1) |
+| **DigiAlchemy GamePack Vol.1** (DigiAlchemydsp) | mod | wip | Digitone mk1 / Keys OS 1.43 | v0.21 | 2026-10-14 | [repo](https://github.com/DigiAlchemydsp/DigiAlchemy-GamePack-1) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-10-13 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **Tone+FX** (DigiAlchemydsp) | mod | wip | v3.2b (2026-10-12); Digitone mk1 + Keys OS 1.43 | v4.0c | 2026-10-12 | [repo](https://github.com/DigiAlchemydsp/Tone-FX) |
 | **digitables** (pina (irpina)) | mod | released | 1.4 (commit 2026-10-07; no GitHub release yet); Digitone mk1 OS 1.43 and 1.44 (needs core-dn1 3.0); Keys same OS file, untried | v1.3 | 2026-10-07 | [repo](https://github.com/irpina/digitables) |

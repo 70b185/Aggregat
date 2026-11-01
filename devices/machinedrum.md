@@ -9,6 +9,7 @@ Data last verified: 2026-10-31
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.8.1 (2026-10-29); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-10-29 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
+| **MoDule (MD Drums)** (c0remusic) | emulator | active | - | - | 2026-10-29 | [repo](https://github.com/c0remusic/MModule) |
 | **fsdsp56k** (smoothdeveloper) | tool | active | main @ 2ac9d9b (2026-10-26); MDX X.20 for running packed machines on hardware | - | 2026-10-26 | [repo](https://github.com/smoothdeveloper/fsdsp56k) · [homepage](https://smoothdeveloper.github.io/fsdsp56k/) |
 | **Kitbasher** (etcetc000) | mod | active | main @ d965da3 (2026-10-19); 1.63 / X.14 / 26A09 beta / MDX X.20 B | - | 2026-10-19 | [repo](https://github.com/etcetc000/kitbasher) · [homepage](https://kitbasher.xyz) |
 | **machinedrum-kit** (Janne Heikkarainen) | research | active | main @ 4ea4729 (2026-10-19); Machinedrum SPS-1UW OS 1.63 (supplied by you) | - | 2026-10-19 | [repo](https://github.com/janne808/machinedrum-kit) |
@@ -73,3 +74,9 @@ _Sources: altstrument (2026-11-01)_
 Four user-machine families for MDX X.20 B: slicer, time stretcher, granulator, modulation effect. Licence: unspecified; distribution: download. Listed by altstrument; repo not read by us yet.
 
 _Sources: altstrument (2026-11-01)_
+
+### MoDule (MD Drums)
+
+The Machinedrum's synthesis engines as a VST3 instrument edited like Overbridge. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_

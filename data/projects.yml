@@ -1980,3 +1980,800 @@ projects:
       MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+
+  # ---------------------------------------------------------------- found by GitHub search 2026-11-02 (README start read)
+  - id: vampire-manga-os
+    name: Vampire Manga OS
+    author: karlalex732-dotcom
+    kind: firmware
+    devices:
+    - digitakt
+    - digitone
+    repo: https://github.com/karlalex732-dotcom/VAMPIRE-MANGA-OS-for-Elektron-Digitakt-OG-and-Digitone-OG
+    status: beta
+    version: Beta 0.1 (B01)
+    last_activity: '2026-10-28'
+    notes: 'Combined OS for Digitakt mk1 and Digitone mk1: new engines (DigiMono machines and MACRO engines on Digitakt;
+      VA and GRAIN on Digitone), a tagged sound library, 34 insert effects in three serial slots per track. README:
+      public-testing build, not qualified on hardware, CPU target not reached. No licence file seen. Found by GitHub
+      search 2026-11-02; README start read.'
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: synfact
+    name: Synfact
+    author: GSM1980
+    kind: mod
+    devices:
+    - syntakt
+    repo: https://github.com/GSM1980/Synfact-release
+    status: wip
+    last_activity: '2026-10-30'
+    notes: Mod system for the Syntakt bringing Digitakt mk1 sample machines (ONE SHOT, WERP, REPITCH, SLICE), a per-project
+      sample pool with long samples in slots 65-128 and a basic sample manager. Experimental. MIT. 18 stars at first
+      sight. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: syncrackd
+    name: SynCrackd
+    author: Vuulgaris
+    kind: mod
+    devices:
+    - syntakt
+    repo: https://github.com/Vuulgaris/syncrackd
+    status: wip
+    base_os: Syntakt OS 1.42
+    last_activity: '2026-10-31'
+    notes: 'Sampler for the Syntakt as a patch to OS 1.42: replaces the Twinshot machine with a sample player (64
+      slots, 16-bit 48 kHz, 64 MB pool), loops, slices across the keys, tempo-following time stretch, a sampling page.
+      MIT. Created 2026-10-30. Found by GitHub search 2026-11-02; README start read.'
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digitide
+    name: DigiTide
+    author: irpina
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/irpina/digitide
+    status: beta
+    base_os: Digitone mk1 (elekloader core-dn1 3.2)
+    last_activity: '2026-10-18'
+    notes: 'Two-channel pedal for the Digitone mk1 audio inputs: a wet channel (reverb, delay, grab, freeze) and an
+      always-listening micro-looper. elekloader mod. GPL-2.0. Found by GitHub search 2026-11-02; README start read.'
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digitriad
+    name: DigiTriad
+    author: irpina
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/irpina/digitriad
+    status: beta
+    base_os: Digitone mk1 (elekloader core-dn1 3.2)
+    last_activity: '2026-10-18'
+    notes: Three-voice rhythmic pitch shifter for the Digitone mk1 inputs, chromatic or in a detected key, with microtune
+      and glide. elekloader mod. GPL-2.0. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digireel
+    name: DigiReel
+    author: irpina
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/irpina/digireel
+    status: beta
+    base_os: Digitone mk1 (elekloader core-dn1 3.2)
+    last_activity: '2026-10-18'
+    notes: 'Time-warp pedal for the Digitone mk1 inputs: an always-listening tape played at -2x to +2x in tempo windows.
+      elekloader mod. GPL-2.0. Found by GitHub search 2026-11-02; README start read.'
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digihoard
+    name: DigiHoard
+    author: irpina
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/irpina/digihoard
+    status: beta
+    base_os: Digitone mk1 (elekloader core-dn1 3.2)
+    last_activity: '2026-10-18'
+    notes: 'Echo collector for the Digitone mk1 inputs: a delay that plays from a 3-minute memory with scan and spread.
+      elekloader mod. GPL-2.0. Found by GitHub search 2026-11-02; README start read.'
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digihalo
+    name: DigiHalo
+    author: irpina
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/irpina/digihalo
+    status: beta
+    base_os: Digitone mk1 (elekloader core-dn1 3.2)
+    last_activity: '2026-10-18'
+    notes: Reverb pedal for the Digitone mk1 inputs with twelve reverb machines. elekloader mod. GPL-2.0. Found by
+      GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digitakt-digitone-mcp
+    name: digitakt-digitone-mcp
+    author: jamiew
+    kind: tool
+    devices:
+    - digitakt
+    - digitone
+    - digitakt-2
+    - digitone-2
+    repo: https://github.com/jamiew/digitakt-digitone-mcp
+    status: active
+    last_activity: '2026-11-01'
+    notes: MCP servers that let an LLM play and edit a Digitakt or Digitone over MIDI (trigger tracks, shape FM, etc.).
+      No firmware change. MIT. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: lfox
+    name: LFOX
+    author: x2k77m1
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/x2k77m1/lfox
+    status: wip
+    base_os: Digitone mk1
+    last_activity: '2026-11-01'
+    notes: A third LFO for the Digitone mk1 with its own page and all stock LFO controls (the LFO key cycles LFO1,
+      LFO2, LFOX). GPL. Created 2026-11-01. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: sayit
+    name: SAY IT
+    author: x2k77m1
+    kind: mod
+    devices:
+    - digitone
+    - digitakt
+    repo: https://github.com/x2k77m1/sayit
+    status: wip
+    base_os: Digitone mk1, Digitakt mk1
+    last_activity: '2026-10-31'
+    notes: 'S.A.M. (1982 speech synthesiser) as a machine: type a phrase on the naming screen and play its words.
+      GPL. Found by GitHub search 2026-11-02; README start read.'
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: sampletone
+    name: SampleTone
+    author: x2k77m1
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/x2k77m1/sampletone
+    status: wip
+    base_os: Digitone mk1 / Keys OS 1.44
+    last_activity: '2026-10-27'
+    notes: 'Sample-playback machine for the Digitone mk1: one mono one-shot per voice with start/end, reverse, loop,
+      pitch tracking, bit/rate reduction. GPL. Found by GitHub search 2026-11-02; README start read.'
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: phreakoid
+    name: PHREAKOID
+    author: x2k77m1
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/x2k77m1/phreakoid
+    status: wip
+    base_os: Digitone mk1
+    last_activity: '2026-10-26'
+    notes: 'Monophonic acid machine for the Digitone mk1: band-limited saw/square into a four-pole ladder filter with
+      accent and slide. GPL. Found by GitHub search 2026-11-02; README start read.'
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: vawt
+    name: VAWT
+    author: x2k77m1
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/x2k77m1/VAWT
+    status: wip
+    base_os: Digitone mk1 / Keys OS 1.43, 1.44
+    last_activity: '2026-10-19'
+    notes: Virtual-analogue and wavetable machine for the Digitone mk1 (VA oscillators, 24 replaceable wavetable banks,
+      sub, noise, wavefold). GPL. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digiseq-digitakt
+    name: DIGISEQ (Digitakt)
+    author: ClaidArremer
+    kind: mod
+    devices:
+    - digitakt
+    repo: https://github.com/ClaidArremer/digitakt-digiseq
+    status: wip
+    base_os: Digitakt mk1
+    last_activity: '2026-10-31'
+    notes: Per-track choice of sequencer on the TRIG page's second page (e.g. SNAKE walking a grid). elekloader mod;
+      a separate Digitone build exists. GPL. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digiseq-digitone
+    name: DIGISEQ (Digitone)
+    author: ClaidArremer
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/ClaidArremer/digitone-digiseq
+    status: wip
+    base_os: Digitone mk1 / Keys
+    last_activity: '2026-10-27'
+    notes: Digitone mk1 version of DIGISEQ (per-track sequencer choice). elekloader mod. GPL. Found by GitHub search
+      2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: pump-digitakt
+    name: PUMP (Digitakt)
+    author: ClaidArremer
+    kind: mod
+    devices:
+    - digitakt
+    repo: https://github.com/ClaidArremer/digitakt-pump
+    status: wip
+    base_os: Digitakt mk1
+    last_activity: '2026-10-24'
+    notes: SP-303 Vinyl-Sim-style levelling master compressor in place of the stock compressor. elekloader mod (id
+      pump-dt). GPL. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: pump-digitone
+    name: PUMP (Digitone)
+    author: ClaidArremer
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/ClaidArremer/digitone-pump
+    status: wip
+    base_os: Digitone mk1 / Keys
+    last_activity: '2026-10-24'
+    notes: Digitone version of the PUMP master compressor. elekloader mod (id pump). GPL. Found by GitHub search 2026-11-02;
+      README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: directjump-digitakt
+    name: DIRECT JUMP (Digitakt)
+    author: ClaidArremer
+    kind: mod
+    devices:
+    - digitakt
+    repo: https://github.com/ClaidArremer/digitakt-directjump
+    status: wip
+    base_os: Digitakt mk1 OS 1.54
+    last_activity: '2026-10-24'
+    notes: Direct pattern jump and start-on-bar settings for the Digitakt mk1. elekloader mod. GPL. Found by GitHub
+      search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: directjump-digitone
+    name: DIRECT JUMP (Digitone)
+    author: ClaidArremer
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/ClaidArremer/digitone-directjump
+    status: wip
+    base_os: Digitone mk1 OS 1.44
+    last_activity: '2026-10-24'
+    notes: Direct pattern jump and start-on-bar for the Digitone mk1. elekloader mod. GPL. Found by GitHub search
+      2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digisnake-digitakt
+    name: DIGISNAKE (Digitakt)
+    author: ClaidArremer
+    kind: mod
+    devices:
+    - digitakt
+    repo: https://github.com/ClaidArremer/digitakt-digisnake
+    status: wip
+    base_os: Digitakt mk1
+    last_activity: '2026-10-27'
+    notes: Cartesian sequencer after MDD Snake / Make Noise René. elekloader mod. GPL. Found by GitHub search 2026-11-02;
+      README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digisnake-digitone
+    name: DIGISNAKE (Digitone)
+    author: ClaidArremer
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/ClaidArremer/digitone-digisnake
+    status: wip
+    base_os: Digitone mk1 / Keys
+    last_activity: '2026-10-25'
+    notes: Digitone version of DIGISNAKE. elekloader mod. GPL. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: sidecar-digitakt
+    name: Sidecar (Digitakt mod)
+    author: trigcondition
+    kind: mod
+    devices:
+    - digitakt
+    repo: https://github.com/trigcondition/sidecar-digitakt
+    status: wip
+    base_os: Digitakt mk1
+    last_activity: '2026-10-31'
+    notes: 'Plays a Sidecar expander from the Digitakt mk1. README: experimental, emulator only, never run on a unit.
+      GPL. Found by GitHub search 2026-11-02; README start read.'
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digitakt-sidecar-pi
+    name: Digitakt integrated sidecar
+    author: soejrd
+    kind: research
+    devices:
+    - digitakt
+    repo: https://github.com/soejrd/digitakt-sidecar
+    status: wip
+    base_os: Digitakt mk1 OS 1.54
+    last_activity: '2026-10-30'
+    notes: Runs a TRX-B2 engine on a Raspberry Pi 4B, controlled from a Digitakt mk1 audio track with the audio returned
+      through it. Early prototype. No licence file seen. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: analog-emu
+    name: analog-emu (rytm-emu)
+    author: trigcondition
+    kind: emulator
+    devices:
+    - syntakt
+    - analog-rytm
+    - analog-four-keys
+    - digitakt
+    repo: https://github.com/trigcondition/analog-emu
+    status: wip
+    base_os: Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42
+    last_activity: '2026-11-01'
+    notes: 'Emulator for Analog Rytm, Analog Four/Keys and the Syntakt that boots your own OS file (Syntakt: main
+      screen, digital tracks and modelled analog tracks sound), for testing mods. MIT. Found by GitHub search 2026-11-02;
+      README start read.'
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: elektron-screen-tool
+    name: Elektron-Screen-Tool
+    author: Fadedlimes
+    kind: tool
+    devices:
+    - digitakt
+    - digitone
+    - digitakt-2
+    - digitone-2
+    - syntakt
+    repo: https://github.com/Fadedlimes/elektron-screen-tool
+    status: active
+    last_activity: '2026-10-30'
+    notes: The instrument's screen live in a terminal or window at 30 fps for OBS capture; fork of jakobbak/screendump.
+      MIT. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: reslicer-digitakt
+    name: reslicer
+    author: tonyrewin
+    kind: mod
+    devices:
+    - digitakt
+    repo: https://github.com/tonyrewin/reslicer-digitakt
+    status: wip
+    base_os: Digitakt mk1
+    last_activity: '2026-10-19'
+    notes: Gives the SLICE knob beat divisions (1/1 to 1/16T) at the project tempo and a randomised slice order. GPL.
+      Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: keyframer-lab
+    name: Frame Lab (keyframer-lab)
+    author: heavylight-industries
+    kind: tool
+    devices:
+    - digitakt-2
+    repo: https://github.com/heavylight-industries/keyframer-lab
+    status: active
+    last_activity: '2026-10-27'
+    notes: The Digitakt II keyframer time stretcher and its TKEO transient detector compiled from the unit's C to
+      WebAssembly, runnable in the browser. AGPL. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digi-macro
+    name: macro-mode (digi_macro)
+    author: toonst
+    kind: mod
+    devices:
+    - digitakt-2
+    - digitone-2
+    repo: https://github.com/toonst/digi_macro
+    status: wip
+    base_os: Digitakt II, Digitone II
+    last_activity: '2026-10-29'
+    notes: 'Eight performance macros (PAGE+MOD), each moving up to four parameters on chosen tracks. README: earlier
+      builds ran on a DT2; the current per-kit build only in an emulator; the DN2 version never on a unit. GPL. Found
+      by GitHub search 2026-11-02; README start read.'
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digitakt-mods-hillzeealex
+    name: digitakt-mods
+    author: hillzeealex
+    kind: tool
+    devices:
+    - digitakt
+    - digitakt-2
+    repo: https://github.com/hillzeealex/digitakt-mods
+    status: active
+    base_os: Digitakt mk1 1.53/1.54, Digitakt II 1.17
+    last_activity: '2026-10-29'
+    notes: French-language collection of open-source .elemod mods for Digitakt mk1 and II, checked together and offered
+      as ready packs with a step-by-step guide. MIT. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digitone-2-mod-hack
+    name: digitone-2-mod-hack
+    author: simonjohansson
+    kind: mod
+    devices:
+    - digitone-2
+    repo: https://github.com/simonjohansson/digitone-2-mod-hack
+    status: wip
+    base_os: Digitone II
+    last_activity: '2026-10-28'
+    notes: Selectable C synth (SINE, synth id 6) and LOWPASS filter mods for the Digitone II via elekloader / DigiHealth.
+      GPL. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: elektrob-1
+    name: OB-1 (elektrob-1)
+    author: simonjohansson
+    kind: mod
+    devices:
+    - digitakt
+    - digitone
+    repo: https://github.com/simonjohansson/elektrob-1
+    status: wip
+    base_os: Digitakt mk1, Digitone mk1 / Keys
+    last_activity: '2026-10-24'
+    notes: Oberheim OB-1 oscillator section as a machine, via elekloader. No licence file seen. Found by GitHub search
+      2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: diginular
+    name: diginular
+    author: Horhik
+    kind: mod
+    devices:
+    - digitakt
+    repo: https://github.com/Horhik/diginular
+    status: wip
+    base_os: Digitakt mk1 OS 1.54
+    last_activity: '2026-10-20'
+    notes: GRAIN, a granular SRC machine reading up to eight windowed grains from the track's sample. Experimental
+      elekloader mod. GPL. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: elkflash
+    name: elkflash
+    author: Iced-Cream
+    kind: tool
+    devices:
+    - digitakt
+    - digitone
+    - digitakt-2
+    - digitone-2
+    - syntakt
+    repo: https://github.com/Iced-Cream/elkflash
+    status: active
+    last_activity: '2026-10-25'
+    notes: Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as
+      Transfer and Elektroid do). MIT. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: emu-elektron-joshklomp
+    name: Elektron Emu (joshklomp)
+    author: joshklomp
+    kind: emulator
+    devices:
+    - digitakt-2
+    - digitone-2
+    - syntakt
+    repo: https://github.com/joshklomp/emu-elektron
+    status: wip
+    base_os: user-supplied OS files
+    last_activity: '2026-10-17'
+    notes: VST3 plug-ins running the real OS of Digitakt II, Syntakt, Rytm MKII, Digitone II and Model:Cycles in an
+      emulated CPU. Same description as xerydian/elektron-emu; relationship not verified. No licence file seen. Found
+      by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: taktone
+    name: taktone
+    author: water-feature
+    kind: firmware
+    devices:
+    - digitone
+    - digitakt
+    repo: https://github.com/water-feature/taktone
+    status: wip
+    base_os: Digitakt 1.53/1.54 on Digitone mk1 hardware
+    last_activity: '2026-10-18'
+    notes: 'Runs Digitakt mk1 firmware on Digitone mk1 hardware: taktone-core converts any stock or modded DT 1.53/1.54
+      image; taktone-extended uses the Digitone''s second ColdFire (scenes on the extra buttons, Digisophie machines
+      on the second core). Everything is erased on install; DIN MIDI needed for recovery. Found by GitHub search 2026-11-02;
+      README start read.'
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digitone-arp-mod
+    name: Digitone arp modifications
+    author: scotblock
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/scotblock/digitone-arp-mod
+    status: wip
+    base_os: Digitone mk1 / Keys OS 1.44
+    last_activity: '2026-10-20'
+    notes: 'Arp builds E05-E09: scale-constrained synth arp, offsets as scale degrees, arp notes over DIN MIDI, an
+      arp on MIDI tracks; several user-reported working on a unit. No licence file seen. Found by GitHub search 2026-11-02;
+      README start read.'
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: trig-pages
+    name: TRIG pages
+    author: digitaktplus
+    kind: mod
+    devices:
+    - digitakt
+    repo: https://github.com/digitaktplus/trig-pages
+    status: wip
+    base_os: Digitakt mk1 OS 1.53
+    last_activity: '2026-10-17'
+    notes: 'Framework adding TRIG sub-pages where each track picks a generator mod (first one: TURING). GPL. Found
+      by GitHub search 2026-11-02; README start read.'
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: dt-song-mgmt
+    name: dt_song_mgmt
+    author: zhelnov
+    kind: tool
+    devices:
+    - digitakt-2
+    repo: https://github.com/zhelnov/dt_song_mgmt
+    status: active
+    base_os: Digitakt II project files
+    last_activity: '2026-10-14'
+    notes: Dumps and restores song slots of a Transfer .dt2prj (LZ4-compressed 32 KiB blocks, 16 uncompressed song
+      slots). No licence file seen. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digialchemy-gamepack-1
+    name: DigiAlchemy GamePack Vol.1
+    author: DigiAlchemydsp
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/DigiAlchemydsp/DigiAlchemy-GamePack-1
+    status: wip
+    base_os: Digitone mk1 / Keys OS 1.43
+    last_activity: '2026-10-14'
+    notes: Three tiny games (raycaster, Space Invaders, Snake) on the 128x64 screen as one elekloader mod. GPL. Found
+      by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: fadedlimes-dt2-kb
+    name: Digitakt II reverse-engineering knowledge base
+    author: Fadedlimes
+    kind: research
+    devices:
+    - digitakt-2
+    repo: https://github.com/Fadedlimes/My-personal-Digitakt-II-reverse-engeneering-knowledge-base
+    status: unknown
+    base_os: Digitakt II OS 1.17
+    last_activity: '2026-10-07'
+    notes: Personal RE documentation of the DT2 (hardware contracts, post-mortems, SHARC audio pipeline, a granular
+      machine, boot/splash) per the Digiwerk prior-art survey; no README text and no licence (no rights granted).
+      Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digitakt-ii-splash-screens
+    name: Digitakt II splash screens
+    author: octplane
+    kind: mod
+    devices:
+    - digitakt-2
+    repo: https://github.com/octplane/digitakt-ii-splash-screens
+    status: active
+    base_os: Digitakt II
+    last_activity: '2026-09-25'
+    notes: A 16-byte patch that lets the DT2 pick among all five boot animations instead of one, plus scripts to apply
+      it. MIT. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digi-battery
+    name: Digi Battery
+    author: JGuzak
+    kind: research
+    devices:
+    - digitakt
+    - digitone
+    - digitakt-2
+    - digitone-2
+    repo: https://github.com/JGuzak/digi_battery
+    status: active
+    last_activity: '2026-08-21'
+    notes: Hardware battery mod for Digitone, Digitone II, Digitakt and Digitakt II (soldering; at your own risk).
+      CC licence. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: elektron-mods-rumorismo
+    name: Digitone MK1 Modding Project
+    author: rumorismo
+    kind: research
+    devices:
+    - digitone
+    repo: https://github.com/rumorismo/Elektron-Mods
+    status: wip
+    base_os: Digitone mk1 / Keys OS 1.44
+    last_activity: '2026-10-26'
+    notes: Local workspace with notes on architecture, emulator workflow, porting from Digitakt and voice timing;
+      README lists a modded 8-track OS file in its tree. No licence file seen. Found by GitHub search 2026-11-02;
+      README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: dtdump
+    name: dtdump
+    author: droelfdroelf
+    kind: tool
+    devices:
+    - digitakt
+    repo: https://github.com/droelfdroelf/dtdump
+    status: archived
+    last_activity: '2024-09-20'
+    notes: 2019 proof of concept of an open Overbridge protocol implementation; points to Overwitch for active work.
+      MIT. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: analoghealth
+    name: analoghealth
+    author: Iced-Cream
+    kind: mod
+    devices:
+    - analog-rytm
+    - analog-four-keys
+    repo: https://github.com/Iced-Cream/analoghealth
+    status: wip
+    base_os: Rytm MKII 1.74, A4 MKII 1.56
+    last_activity: '2026-11-01'
+    notes: digihealth's SYSTEM INFO and REMOTE KEYS ported to the analog machines. GPL. Found by GitHub search 2026-11-02;
+      README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: rytm2-mods
+    name: rytm2_mods
+    author: Iced-Cream
+    kind: mod
+    devices:
+    - analog-rytm
+    repo: https://github.com/Iced-Cream/rytm2_mods
+    status: wip
+    base_os: Rytm MKII 1.73, 1.74
+    last_activity: '2026-10-24'
+    notes: MrScruff's Rytm MKII mods (published with permission) ported to the elemod format for elekloader core-ar2.
+      GPL. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: cycles-mods-100demons
+    name: Cycles Mods
+    author: 100demons
+    kind: mod
+    devices:
+    - model-cycles
+    repo: https://github.com/100demons/cycles-mods
+    status: active
+    base_os: Model:Cycles
+    last_activity: '2026-10-22'
+    notes: Open-source Model:Cycles mods, one folder per mod with its own README and a download zip for use in any
+      flasher. MIT. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: model-machinedrum
+    name: Elektron-Model-Machinedrum
+    author: Talachan12
+    kind: mod
+    devices:
+    - model-cycles
+    repo: https://github.com/Talachan12/Elektron-Model-Machinedrum
+    status: wip
+    base_os: Model:Cycles
+    last_activity: '2026-10-12'
+    notes: Fork adding Machinedrum machines (TRX-B2, TRX-SD, TRX-CH, ported sample for sample) to the Model:Cycles,
+      patched in the browser from official files. No licence file seen. Found by GitHub search 2026-11-02; README
+      start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: mmodule
+    name: MoDule (MD Drums)
+    author: c0remusic
+    kind: emulator
+    devices:
+    - machinedrum
+    repo: https://github.com/c0remusic/MModule
+    status: active
+    last_activity: '2026-10-29'
+    notes: The Machinedrum's synthesis engines as a VST3 instrument edited like Overbridge. GPL. Found by GitHub search
+      2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: analog-rytm-agent-bridge
+    name: analog-rytm-agent-bridge
+    author: algonormative
+    kind: tool
+    devices:
+    - analog-rytm
+    repo: https://github.com/algonormative/analog-rytm-agent-bridge
+    status: active
+    base_os: Rytm MKII
+    last_activity: '2026-09-02'
+    notes: MCP control plane with 32 tools so a coding agent can operate a Rytm MKII (patterns, kits, scenes, songs)
+      with validated SysEx deltas. MIT. Found by GitHub search 2026-11-02; README start read.
+    sources:
+    - GitHub search 2026-11-02
+    - README

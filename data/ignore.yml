@@ -1,0 +1,47 @@
+# Repos that GitHub search finds for Elektron terms but that are not firmware, mods or developer tools for the
+# devices here (sample packs, controller mappings, unrelated projects that share a word). scripts/find_new.py skips them.
+# Reviewed 2026-11-02.
+ignore:
+  - itshazardd/digitone
+  - sergxxs/digitone
+  - jackherz/digitone-emu
+  - exercsie/syntaktis-hex-editor
+  - irpina/elekloader-qa
+  - lvntszcs/grain
+  - grofandriska/emark-elektronikus-osztalynaplo
+  - jarllyng/it-s-mono-yo-
+  - gbel/samplerprep
+  - asa88serwer/elektronmir-ostatki
+  - enauj/digitakt_companion
+  - zs-sz/mfb-tanzbar-sample-pack-for-elektron-digitakt
+  - devcartel/pyrfa
+  - devcartel/tclrfa
+  - wingio/syntakts
+  - agustinusridwan99-bit/konfigurasi-elektron-model-atom-bohr
+  - leftersound-droid/szoliton-elektron-modell
+  - conflictboy/invoices-app
+  - hidim/tunnelpanda
+  - muhammadainulfuady/elektronik-modern
+  - abidhanif-1294/toko-elektronik-modern
+  - ziyad765/feroke-bridge-ai-camera
+  - tektoniushalawa05-a11y/elektronik-modul
+  - jayrofadil/ppl-elektronik-modern
+  - digitonehr/digitone-events
+  - overbridge-wanyong/overbridge-wanyong.github.io
+  - fegemo/ds-overbridge
+  - ybatrakov/ybtrep
+  - alexbander/uri-dreieckplus
+  - youandhubris/syntaktis
+  - jcubes/sj_syntakticky-analyzator
+  - ritzell/overbridge
+  - vash512/overbridge
+  - carq/circle-commander
+  - idrinth-api-bench/desktop
+  - danial-par/cocovin
+  - ridwanrahman/overbridge
+  - q070809/overbridgeemr
+  - trevors/slurper
+  - shri4806/digitone
+  - thematver/digitone
+  - baptistebulabois/digitakt
+  - jordanhattingh/digitone-fsm

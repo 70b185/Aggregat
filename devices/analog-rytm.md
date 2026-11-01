@@ -8,10 +8,14 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
+| **analoghealth** (Iced-Cream) | mod | wip | Rytm MKII 1.74, A4 MKII 1.56 | - | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
+| **rytm2_mods** (Iced-Cream) | mod | wip | Rytm MKII 1.73, 1.74 | - | 2026-10-24 | [repo](https://github.com/Iced-Cream/rytm2_mods) |
 | **rytm-builder** (stampman3000-jpg) | tool | active | cursor/rytm-mac-app-0afb @ 90af848 (2026-10-14); Analog Rytm OS 1.70 object layout | - | 2026-10-14 | [repo](https://github.com/stampman3000-jpg/rytm-builder) |
 | **rytm-fw-re** (ethernet) | research | active | master @ 2f7f0c4 (2026-10-13); 1.74 | - | 2026-10-13 | [repo](https://github.com/ethernet8023/rytm-fw-re) |
 | **rytm-mods-src** (MrScruff, ConnorWay32 (repost)) | mod | active | Mods 0000-0015 (2026-10-10); 1.73 | - | 2026-10-10 | [repo](https://github.com/ConnorWay32/rytm-mods-src) |
 | **analog-rytm-mkii-research** (genosdk) | research | active | main @ 14570ea (2026-09-25); 1.72 | - | 2026-09-25 | [repo](https://github.com/genosdk/analog-rytm-mkii-research) |
+| **analog-rytm-agent-bridge** (algonormative) | tool | active | Rytm MKII | - | 2026-09-02 | [repo](https://github.com/algonormative/analog-rytm-agent-bridge) |
 | **libanalogrytm** (bsp2) | library | dormant | master @ a0a19f6 (2023-12-21) | - | 2023-12-21 | [repo](https://github.com/bsp2/libanalogrytm) |
 | **Chopshop** (Jesus Triana (bandersong)) | mod | active | 1.73 (Rytm), 1.56 (Keys); not 1.74 | - | - | [repo](https://github.com/bandersong/chopshop) · [homepage](https://chopshop-synth.pages.dev/) |
 | **rytm1_mods** (gdeo607) | mod | active | 1.73 | - | - | [repo](https://github.com/gdeo607/rytm1_mods) |
@@ -59,3 +63,27 @@ _Sources: altstrument (2026-11-01)_
 Port of the rytm-mods to Rytm MK1 OS 1.73 (per-track cuts, random LFO, euclid accents, humanise); also emits elekloader .elemod files. Licence: unspecified; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
 _Sources: altstrument (2026-11-01)_
+
+### analog-emu (rytm-emu)
+
+Emulator for Analog Rytm, Analog Four/Keys and the Syntakt that boots your own OS file (Syntakt: main screen, digital tracks and modelled analog tracks sound), for testing mods. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### analoghealth
+
+digihealth's SYSTEM INFO and REMOTE KEYS ported to the analog machines. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### rytm2_mods
+
+MrScruff's Rytm MKII mods (published with permission) ported to the elemod format for elekloader core-ar2. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### analog-rytm-agent-bridge
+
+MCP control plane with 32 tools so a coding agent can operate a Rytm MKII (patterns, kits, scenes, songs) with validated SysEx deltas. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_

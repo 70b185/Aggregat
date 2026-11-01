@@ -95,6 +95,8 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A34. On ColdFire-audio devices (Syntakt, Digitakt mk1, Digitone mk1), the audio interrupt is the budget.** The Syntakt's CPU #1 sits at ~89 % at rest, so a few thousand instructions per block make the UI lag. Measure cost per block in the emulator, keep a regression test, and make effects idle when silent. Never use RAM above the BSS for mod code on the Syntakt: sample loading overwrites it. `[hw]` {synthack-docs} {synthack-guide}
 
+**A35. Budget SHARC code with silicon costs, not instruction counts.** Measured on a DT2 and a DN2: taken branches ~7 cycles, CALL+RTS ~14, a dependent float multiply chain 1.5 per instruction, hardware-loop start-up 12, and ~58 cycles for every L2 data miss. Buffers spaced at 16 KiB multiples fight over one cache set. Emulator counts underestimate all of these. `[hw]` {digikit-f103}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.

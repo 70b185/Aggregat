@@ -54,3 +54,42 @@ with 25 models. Every model and each optimisation was flashed step by step on th
 - The calibrated estimate of clean tracks (about 87 % or less) for 8 tracks of one model: SQUARE 10; ASYM-TRI and 2FM 9; KICK, NOISE and most DX7 banks 8; RINGS, HIHAT and ADDITIVE 7; most others 6; VA 5.
 - The per-voice cost is 3.5-6.8 % of the DSP. Mixed kits add up per voice. `[emu]` calibrated
 - **After flashing a build that adds machines, create a new project before testing:** projects saved under an earlier image may not play. A project saved with PLAITS loads on stock 1.17. `[hw]`
+
+## 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) {digikit-f103}
+A probe module ran 143 items on a real Digitakt II, then the same probe on a real Digitone II. Values, flags and cycles **match between the two units**. 76 value or register items and 39 cycle items differed from the emulator before the emulator was fixed. `[hw]`
+
+**Cycles per instruction on the ADSP-21569** (the emulator counts 1 for almost everything):
+| Snippet | Device | Emulator before |
+|---|---|---|
+| independent ALU, MAC, float multiply | 1.0 | 1.0 |
+| **dependent float multiply chain** | **1.5** | 1.0 |
+| hardware loop | 1.0 per instruction + **12 cycles start-up** | start-up 1 |
+| conditional jump not taken | 1.0 | 1.0 |
+| **conditional jump taken / unconditional jump** | **6.75-6.8** | 1.0 |
+| delayed jump with two NOPs | 6.5 | 3.0 |
+| **CALL + RTS** | **13.9** | 2.0 |
+| divide (RECIPS + 2 Newton + multiply) | 15 | 8 |
+| RSQRTS + 3 Newton | 31 | 16 |
+| L2 loads/stores, sequential or warm | 1.09 | 1.0 |
+| L1 and DDR sequential loads | 1.0 | 1.0 |
+| **48 loads over 6 lines 16 KiB apart (one cache set)** | **58.4 per load** (~58 cycles per miss) | 1.02 |
+| system register read | 2-5; IMASK/IRPTL 27, TPERIOD 22 | 2 |
+- **L2 data is cached by a 16 KiB cache that maps lines 16 KiB apart to the same set.** Buffers spaced at 16 KiB multiples thrash it, so pad or interleave them. Branches and calls are expensive: unroll small loops into hardware loops, avoid calls in per-sample code, and fill delay slots.
+- One block measured 666,582 cycles median on DT2 (666,784 on DN2), jittering by ±2.7 % (sd 0.5 %); the emulator does not jitter. With `digikit/remote` and `digikit/debug` loaded, a DN2 showed DSP 57 % average (61 % peak) and ColdFire 26 %.
+- Registers read on silicon (DT2 and DN2 alike):
+  - IMASK `0x8040801b`, MODE2 `0x42000021`, SHDBG_REVID `0x20`, CMMR_SYSCTL `0x6004`, SHL1C_CFG `0x00010101`, SHL1C_CFG2 `0xf0`;
+  - **two cached ranges: `0x200fa000-0x200fe000` and `0x28240000-0x283a0000`**;
+  - the core timer period differs per device (DT2 `0x0025f280`, DN2 `0x00268538`).
+
+**Float and saturation rules the chip follows** (some contradict the PRM):
+- A float ALU operation with a NaN input returns `0xFFFFFFFF` with AI set and **AN clear**. Inf - inf also returns `0xFFFFFFFF`. The float multiplier's invalid result (NaN operand, inf x 0) is `0x7FFFFFFF` with MI set and MN clear.
+- **The sticky bits (AIS, AVS, AUS, AOS) latch on every float ALU operation**, so a NaN once produced leaves a mark you can read.
+- FIX of ±0.5 returns 0 and sets AUS.
+- **With MODE1.ALUSAT, fixed add/sub/neg/abs saturate** to `0x7FFFFFFF` / `0x80000000`. The short compute forms (Type 2c), the multifunction ALU halves and the dual add/subtract may still wrap; this is unmeasured.
+- Reading an MR word into a register **keeps** the multiplier flags (the PRM says it clears them).
+- The RECIPS/RSQRTS seeds come from two 128-entry tables, all measured; the low 15 mantissa bits are zero. Stock's divide helper uses RECIPS plus Newton steps, so the last bit of a division depends on the exact seed.
+
+**The reply record while it is sent** (findings 78 and 101): the DSP's SPI2 is a slave, and the transmit DMA walks two descriptors by itself, so a record can be on the wire while code still writes it.
+- On a real DT2, a word that the hook code wrote into one record arrived as 0 in 3,995 of 4,000 blocks, because stock code rebuilt the record before the DMA read it. The emulator delivered it every second block.
+- **Write your words into the record from the block tail, after all module calls of the block,** not from inside a hook. A value stored in the call that stops the DSP is lost either way; store a "last step" mark one block earlier. `[hw]`
+

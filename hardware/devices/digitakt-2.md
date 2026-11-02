@@ -131,6 +131,11 @@ lalzart's public research grades each claim. Everything below is **static or sim
 ## Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) {dt2-lab-flex-mem}
 These figures are from the source and emulator runs, not from a unit. `[emu]`
 - **ColdFire heap:** a 32 MiB buddy allocator at `0x44f39c40-0x46f39c40` (16-byte minimum, power-of-two blocks), parameters at `0x402b406c`.
+- **Allocating from the stock heap at startup** (digitakt-ii-research, OS 1.16, emulator, byte-verified sites) {dt2-research-heap}:
+  - `malloc` is at `0x4011e674` (size at `4(A7)`, pointer in D0, mutex at `0x44e08654`, lazy init on first call).
+  - `free` is at `0x4011e87a`. It traps with `illegal` on a pointer outside the heap or not 16-byte aligned, the same rule as the Digitakt mk1's operator delete.
+  - The OS clears `0x40312000-0x47e28470` at reset, so static data placed there does not survive boot.
+  - A startup hook at `0x40133646` (`link.w` + `movem`) made exactly one 8 KiB allocation that stayed untouched for 20 M instructions. This is the cleanest way to own memory without a cave.
 - **Sample pool:**
   - Logical range `0x400-0x19000400`, 400 MiB, allocations rounded to 8 KiB.
   - The ColdFire's allocation records decide admission; no SHARC malloc is involved.

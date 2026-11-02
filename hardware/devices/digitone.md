@@ -20,7 +20,7 @@ Coverage: **good** (almost entirely through the elekloader family). Projects: [.
   - Both main CPUs set up **128 MiB DDR at `0x40000000-0x48000000`** (cached and uncached aliases are the same RAM). `[doc]`
 - **How the main CPU drives the second ColdFire** (board interface, from taktone-extended, which ran its own engine on it):
   - **Reset:** PB6 held low. Releasing it starts a serial boot.
-  - **Upload:** the main CPU is DSPI2 **slave** (eDMA 29, vector 149) and the secondary supplies the clock. Section 6 (a 1,504-byte loader stream) loads section 7, which runs at secondary `0x40000400` from entry `0x40000B92`.
+  - **Upload:** the main CPU is DSPI2 **slave** (eDMA 29, vector 149) and the secondary supplies the clock. Section 6 (a 1,504-byte loader stream; dnfw's section table lists it as 1,492 bytes and "unidentified") loads section 7, which runs at secondary `0x40000400` from entry `0x40000B92`.
   - **Shared SRAM:** FlexBus, main at `0x10000000`, secondary at `0x00000000`. Native use is below offset `0x7a0`: a 928-byte parameter packet at `0x000-0x39f`, then eight mono voices of 32 signed 32-bit samples at `0x3a0-0x79f`.
   - **Handshake:** the secondary writes `HO`/`HA`; the main writes 1 to +2 **before** `B0` to +0. The stock secondary then writes `A5A5` at +4.
   - **Render request:** a PA4 edge triggers the secondary's DTIM0 capture (vector 96). The secondary signals back through EPORT4 (vector 68). One block of pipeline: ~0.667 ms.

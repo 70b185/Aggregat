@@ -10,7 +10,7 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [x] naturarum/dn2-cfw: `docs/parameter-table-growth.md` (-> devices/digitone-2.md); [x] T1.4/T1.5 notes (-> common/recovery.md), T1.7 brickcheck note; [ ] the brickcheck tool source
 - [x] De-Pattern/dn2mk2-firmware: `docs/SAFETY.md` (-> common/flash-procedure.md); [x] `docs/emulator.md`, `docs/user-reports.md`, `docs/dsp-time.md`, `docs/dsp-cost.md`; [ ] FIRMWARE.md v0.20 and older
 - [x] complex-ping/overtone README (the repo publishes no further docs; the ~160 checks are not public) (-> recovery, B7)
-- [ ] nzimas/digirust: `docs/FEATURES.md` (Digitone II OS 1.12)
+- [x] nzimas/digirust: `docs/FEATURES.md` and `docs/VALIDATION.md` read 2026-11-02: generators, Control All macros, drone latch; hardware evidence is a developer statement (12 Oct 2026); nothing for hardware/
 
 ## Digitakt mk1 / Digitone mk1
 - [x] elekloader `docs/DEVICES.md` (-> common/memory-maps.md, key elekloader-devices); [ ] `mods/core/mod.json` (all core-owned sites), `mods/core-dn1`
@@ -38,7 +38,7 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [x] xrcstrecords/syxgrid-digitone-ii `sysexmap/` (read via git clone; the 23 level-A mappings -> common/sysex-and-midi.md)
 - [-] zerubeus/dn-deobfuscator is unreachable (catalogue status); emnyeca/digitone-syx-toolkit scanned in the phase-1 sweep. Remaining: Elektronauts "Digitone 2 pattern manager" thread; emnyeca/digitone-syx-toolkit `docs/`
 - [x] ElekLabs/digikit `docs/TOOLS.md` (-> common/toolchain-and-emulators.md); [ ] `docs/FINDINGS.md`, `docs/findings/*`, newest `HANDOVER-*.md`; naturarum/digikit and Bezronczek/digikit for divergences
-- [ ] simonjohansson/elekloader `docs/DEVICES.md` and the Digitakt II / Digitone II core docs (control-side hook bus on DT2/DN2)
+- [x] (2026-11-02: the fork is a mirror of elekloader 0.9.0, `DEVICES.md` identical to upstream; elekloader's SHARC-BOOT, SHARC-DN2-ABI and MACHINES-DN2-VOICE/FILTER mined into firmware-container.md and digitone-2-machines-sampler-sharc.md) simonjohansson/elekloader `docs/DEVICES.md` and the Digitakt II / Digitone II core docs (control-side hook bus on DT2/DN2)
 - [!] **Needs a person with the PDF** (research map T13): Elektron manuals: MIDI implementation tables (CC/NRPN) for Digitakt II and Digitone II - official numbers instead of the MCP project's list
 - [!] **Needs a person with the PDF or a unit** (T13): Analog Heat +FX: manual (MIDI implementation, modulation matrix), Overbridge 2 USB protocol via Overwitch source; no teardown exists in what we found - ask whether anyone has opened one
 - [->] moved to RESEARCH-MAP T22: libanalogrytm `sysex.c` as the best-documented Elektron container/encoding reference (Rytm) to compare against Digitakt II dumps
@@ -58,7 +58,7 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [!] Forum reading (Elektronauts pages load only partly for our fetcher): Elektronauts "Digitone 2 pattern manager" and "Introducing Digitakt II / Analog Heat +FX" threads for hardware chatter on the Heat +FX (the +FX thread is at `elektronauts.com/t/introducing-analog-heat-fx/193814`).
 - [~] Official manuals (PDF) for Digitakt II OS 1.17 and Digitone II OS 1.12: first ~95,000 characters read; **appendix B/C (CC/NRPN tables) and the startup-menu chapter are beyond what the fetch tool extracts** - needs the PDF attached to a chat or a local text extraction.
 - [!] Analog Heat +FX manual (URL truncated in a forum post: `cdn.www.elektron.se/media/downl...230510.pdf`). Search 2026-11-02 found no reachable copy: **needs the PDF from someone** (research map T13).
-- [ ] dn2-cfw `notes/` beyond T1.7, T2.2 and the release history; dnfw `docs/` beyond flashing, ele3-format, mainos-image, bootstrap, memory-map, os-versions.
+- [~] dn2-cfw `notes/` beyond T1.7, T2.2 and the release history; dnfw `docs/` beyond flashing, ele3-format, mainos-image, bootstrap, memory-map, os-versions. 2026-11-02: dnfw dn1-dsp-comparison (superseded on DN2, CONFLICTS S16), sharc-accelerators/-plan, coldfire-tasks, old-project-load mined into digitone-2-internals.md; dn2-cfw overlap-dnfw and T2.8 (Deja Vu on DN2, already in FEATURE-OVERLAP) read. Still unread: the waverider-*/lfo4-* design series, sharc-selache, T3.1/T3.6, T5.5/T5.6, T6.4
 
 ## Next from the 2026-10-31 clones (not yet read)
 - [x] digikit `MIDI-SYSEX-RPC.md`, `ARCHITECTURE.md`, `SHARC-ADDRESS-MAP.md`, `SAMPLES.md`; findings 14, 16, 25, 45, 47, 48, 51, 53, 57, 60, 73, 76, 77, 91, 100
@@ -70,7 +70,7 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [x] Digiwerk DEVELOPERS.md, notes T1.3, T1.4, T1.5, OB01, T1.11, DT01, DC01/DC02, SC01, SP02, release 0.2.1
 - [x] Digiwerk USB01, T1.7/T1.7b, T2.1, T2.4a-c, T3.2, T3.3, prior-art-2026-10
 - [x] Digiwerk T3.8 (DSP splice: 'nothing ran on the unit', encoding audit), T5.3, T6.3 cmp2f/cmp4 (code only where it ran on the unit), T6.5, PB01 scanned/read; [ ] T2.x arp, T2.8 dejavu, T3.1/T3.4-T3.6, T5.5/T5.6 effect design
-- [~] Overtone: README read (v1.2 state); release notes need the GitHub API, which this session cannot reach
+- [x] Overtone: README and release notes v1.0-v1.2 read 2026-11-02 (v1.2 instant pattern switch, v1.1 GROOVE rework, v1.0.1 Transfer-install fix; no technical causes given)
 
 ## Phase-1 sweep of the remaining 51 projects (2026-11-02)
 All 48 reachable repos cloned; their docs scanned for unit results, measurements, crashes and recovery, then read where it paid off.

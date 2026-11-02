@@ -20,6 +20,7 @@ The core is the same (section 1), so these should hold on the other unit too. No
 - **Instruction-cache misses are the largest stall class** (33 % on the DT2 Plaits models), and L2 data lines 16 KiB apart thrash the 16 KiB cache. digikit's DN2 cycle snippets match, so plan DN2 kernels the same way. {dt2-plaits} {digikit-f103}
 - **ILOPI catches encodings the toolchain accepts** (negative shift immediates, a 48-bit form of selas): seen on DN2 units. The DT2's IMASK is the same, and 70b185's DT2 rules already forbid the same encodings. {dn2-dspstop} {own-dt2-notes}
 - **L1 block 2 holds the PM data cache, so it is not free even though the image leaves it empty** (DN2). The cache configuration register is the same on the DT2. {dn2-dspstop} {digikit-f103}
+- **The IIR0 and FIR0 accelerators compute in a different order from the hardware reference** (IIR0 output from stored word 5, FIR0 sums added in pairs, INIDX/OUTIDX written the other way round in ACM). Read on a DN2; neither stock engine uses them. {dn2-accel}
 - **DM and PM data caches are not coherent on DDR** (a DN2 finding, applied as a rule on the DT2 without a DT2 test). `[doc]` {own-dt2-notes}
 
 ## 3. Firmware-level, one device only: check before relying on it

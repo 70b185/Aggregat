@@ -87,6 +87,9 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | elekloader-devices | elekloader `docs/DEVICES.md` | https://github.com/elekloader/elekloader/blob/main/docs/DEVICES.md |
 | elekloader-machines-dn2 | elekloader `docs/MACHINES-DN2.md` | https://github.com/elekloader/elekloader/blob/main/docs/MACHINES-DN2.md |
 | elekloader-sharc-dn2 | elekloader `docs/SHARC-DN2.md` | https://github.com/elekloader/elekloader/blob/main/docs/SHARC-DN2.md |
+| elekloader-sharc-boot | elekloader `docs/SHARC-BOOT.md` (ADI boot record format as used by section 7, DN2 1.12) | https://github.com/elekloader/elekloader/blob/main/docs/SHARC-BOOT.md |
+| elekloader-sharc-abi | elekloader `docs/SHARC-DN2-ABI.md` (core-dn2 master-output callback contract, DN2 1.12) | https://github.com/elekloader/elekloader/blob/main/docs/SHARC-DN2-ABI.md |
+| elekloader-machines-dn2-voice | elekloader `docs/MACHINES-DN2-VOICE.md` and `MACHINES-DN2-FILTER.md` (machine adapters, stacks, L2 layout, DN2 1.12) | https://github.com/elekloader/elekloader/blob/main/docs/MACHINES-DN2-VOICE.md |
 | elekloader-dn2-profile | elekloader `elekloader/devices/digitone_mk2.py` (DN2 1.12 profile: clear, DMA buffers, mods' DDR area, canary run) | https://github.com/elekloader/elekloader/blob/main/elekloader/devices/digitone_mk2.py |
 | elekloader-dt2-profile | elekloader `elekloader/devices/digitakt_mk2.py` and `docs/DEVICES.md` (DT2 1.17 profile: clear, DSP buffers, mods' DDR area, write watches) | https://github.com/elekloader/elekloader/blob/main/elekloader/devices/digitakt_mk2.py |
 | elekloader-core-dt2 | elekloader `mods/core-dt2/README.md` and `mod.json` (DT2 1.17 hook sites) | https://github.com/elekloader/elekloader/tree/main/mods/core-dt2 |
@@ -176,6 +179,10 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2-stall | dnfw `docs/sharc-stall-probe.md` (stall probe, selas Type 5a bug) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/sharc-stall-probe.md |
 | dn2-ddr | dnfw `docs/sharc-ddr.md` (DSP DDR size and free range, measured) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/sharc-ddr.md |
 | dn2-sharcload | dnfw `docs/sharc-load.md` (stock cycle count, idle-task load, bursts) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/sharc-load.md |
+| dn2-accel | dnfw `docs/sharc-accelerators.md` and `sharc-accelerator-plan.md` (IIR0/FIR0 read on a DN2, 2026-10-17) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/sharc-accelerators.md |
+| dn2-cftasks | dnfw `docs/coldfire-tasks.md` (DN2 1.11 task list, stack high-water marks, ColdFire CPU, read on the unit 2026-09-30) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/coldfire-tasks.md |
+| dn2-oldproject | dnfw `docs/old-project-load.md` (a project that crashes stock 1.11: unchecked song row count) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/old-project-load.md |
+| dn2-engine-map | dnfw `docs/engine-index-map.md` section 10 and `docs/sharc-image.md` (correction: section 7 is the SHARC boot stream) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/engine-index-map.md |
 | digikit-f25 | ElekLabs/digikit finding 25, arena and card-store safety, MIDI ports, menu paths | https://github.com/ElekLabs/digikit/blob/main/docs/findings/25-digikit-safety.md |
 | dn2-service | dnfw `docs/service-commands.md`, the factory service console | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/service-commands.md |
 | dn2-mods | dnfw `docs/mods-compatibility.md`, which mods combine, platform loader and hook bus | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/mods-compatibility.md |

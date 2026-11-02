@@ -57,3 +57,26 @@ from the image) are `[doc]` here, hardware rows `[hw]`. Key {modded-cycles}. Pro
   - Fix: send at a fixed time at the start of the next interrupt, align the queue at start-up, and use a 9-slot ring instead of 8. Zero defects in the simulator afterwards.
   - **General rule for USB streaming mods:** decouple the send time from a variable render time. `[emu]` (cause read in the OS, fix simulated)
 
+## A load governor that works, and one that didn't (Supermodel notes 30 and 36, Model:Cycles OS 1.13) {supermodel-notes}
+Supermodel's Syntakt-engine bridge measures the audio function every block and fades out a voice when time runs short.
+- **Thresholds seen on units:**
+  - the sound crackles when a block nears 100 % of its time;
+  - a single block at 91 % did *not* crackle;
+  - the UI was still fluid at ~86 % sustained load and slows above that.
+
+  `[hw]`
+- **Mistake 1: reacting to one heavy block.**
+  - Peaks are isolated: a step where several tracks start (the sequencer takes up to ~7 % of a block), or caches the UI flushed between blocks (+4.6 points).
+  - By the time the governor sees such a block, it is already over; cutting a voice can't rescue it and is audible.
+  - The fix reacts only to a peak that lasts two blocks, or to sustained load. On a unit: "works well", 6 tracks with effects at 89 % peak / 78 % average, no crackle. `[hw]`
+- **Mistake 2: an integer moving average that never moves.**
+  - `slow += (load - slow) >> 8` with load and average in whole percent rounds every step to 0, or to -1 below the average. The "sustained load" rule therefore never fired on a unit.
+  - The emulator test hid it because it pre-set the average.
+  - **Keep fixed-point averages in scaled units** (e.g. load << 8), and test them from a cold start. `[emu]`
+- **Mistake 3: stealing the quietest voice before the mixer.** That ignores track volume, sends and mute, so a naturally quiet but loud-mixed track (hi-hat, a long tail) always went first, and a muted but still computed track was never preferred. Pick by audibility after the mixer, and prefer muted tracks. `[doc]`
+- **EMAC wrappers are not free:** wrapping the reverb kernels in helpers that saved ACC3 and MACSR around every product cost +20-48 % instructions. Save the EMAC state once per block. `[emu]`
+- **Finding the worst block on the unit** (note 217, results pending):
+  - Seven markers in the audio interrupt read the DMA timer (`0xFC07000C`), and the stages of the worst block are kept for display.
+  - One block is 90,112 timer ticks.
+  - The same method as digihealth (Digitakt mk1) and dnfw's loadmap (DN2): measure before optimising. `[doc]`
+

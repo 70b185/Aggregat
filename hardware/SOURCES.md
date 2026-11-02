@@ -218,7 +218,7 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | ar-mkii-research | analog-rytm-mkii-research `docs/hardware_profile.md`, `AR172_BR_HARDWARE_CHARACTERIZATION.md`, `AR172_PREHARDWARE_STATUS.md` (OS 1.72) | https://github.com/genosdk/analog-rytm-mkii-research |
 | kitbasher-safety | etcetc000/kitbasher `docs/FIRMWARE-SAFETY.md` (Machinedrum OS 1.63 / X.14, MKII +Drive UW) | https://github.com/etcetc000/kitbasher/blob/main/docs/FIRMWARE-SAFETY.md |
 | kyoti-fw | Zac-Kyoti/octatrack-kyoti-fw `reference/kb/memory-map.md`, `reference/handoffs/KYOTI_LOAD_AUDIT.md` (OS 1.40C) | https://github.com/Zac-Kyoti/octatrack-kyoti-fw/tree/main/reference |
-| supermodel-notes | AveyCole/Supermodel (Modded Cycles) `notes/23-optimisation-charge.md`, `notes/35-glitches-usb-multipiste.md` and release notes (Model:Cycles OS 1.13, French) | https://github.com/AveyCole/Supermodel/tree/main/notes |
+| supermodel-notes | AveyCole/Supermodel (Modded Cycles) `notes/` 23, 30, 35, 36, 211, 217 and release notes (Model:Cycles OS 1.13, French) | https://github.com/AveyCole/Supermodel/tree/main/notes |
 | octamax | mxldyn/octamax `HOTCHANGE_FINDINGS.md` and `NOTES.md` (MAXODBG CF logging), Octatrack MKII OS 1.40C | https://github.com/mxldyn/octamax/blob/main/HOTCHANGE_FINDINGS.md |
 | rytm1-mods | gdeo607/rytm1_mods `docs/HAZARDS.md` (Rytm MK1 port of the MKII mods, OS 1.73) | https://github.com/gdeo607/rytm1_mods/blob/main/docs/HAZARDS.md |
 | syxgrid-map | xrcstrecords/syxgrid-digitone-ii `sysexmap/SYSEXMAP.md` and `mappings.json`, map v1.13.0 (CC BY 4.0, (c) XRCST; facts restated here) | https://github.com/xrcstrecords/syxgrid-digitone-ii/tree/main/sysexmap |

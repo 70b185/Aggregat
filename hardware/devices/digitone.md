@@ -8,7 +8,20 @@ Coverage: **good** (almost entirely through the elekloader family). Projects: [.
 - Container is **unsigned** (trailer = 32 zero bytes), unlike Digitone II. `[doc]` {dn2-firmware-explore}
 - `MAIN OS` loads at `0x40000400` (shared with DN2 per dn2_firmware_explore). `[doc]` {dn2-firmware-explore}
 - Official minimum OS for Transfer-based update: 1.30. `[doc]` {elektron-support}
-- Recovery: the sources we read do not state it separately; assume the Digitakt pattern (FUNC at power-on, TRIG 4) and verify. `[?]`
+- **Recovery, used on a unit** (digitone-arp-mod, 2026-10-08, OS 1.44):
+  - A test build finished its upgrade but hung on the Elektron logo: the logo did not dissolve, with "H" at bottom left and "1.44" at bottom right.
+  - The owner held **FUNC** at power-on, chose **TRIG 4 (OS UPGRADE)**, and sent stock 1.44 via Transfer's *SYSEX TRANSFER -> OS Upgrade via device startup menu* over **DIN** (a Rubix22 interface). The unit worked again.
+  - EMPTY RESET and FACTORY RESET are not rollbacks; don't pick them.
+
+  `[hw]` {dn1-arpmod-e04}
+
+## Caches at startup (digitone-arp-mod, OS 1.44, emulator trace and the NXP manual) {dn1-arpmod-e04}
+- The loader hands over to MAIN with CACR `0x0008c000`: the instruction cache is on, the data cache and store buffer are off.
+- Stock MAIN then writes CACR `0xa50ce100` at `0x4000055a`, after its copies. That write invalidates the instruction, branch and data caches and turns caching on. The same CACR value appears on the Rytm and A4 MKII.
+- **Code your mod copies before that write is safe. Code copied later must be followed by an explicit invalidation**, because instruction-cache contents can even survive a reset. This is the ColdFire twin of rule A28.
+- Real cache behaviour and render deadlines have not been measured on a unit.
+
+`[emu]`
 
 ## Where the audio runs (Digiwerk prior-art survey, 2026-10) {dn2-cfw-prior}
 - **The Digitone mk1's "DSP" is a second ColdFire.** Section 7 is ColdFire code running only the FM voices; the main ColdFire runs the effects and the mix. Master-effect mods (RingTone, Tone+FX) are therefore ColdFire C hooked through elekloader. `[doc]`

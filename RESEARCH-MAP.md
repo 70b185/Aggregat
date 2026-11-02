@@ -45,7 +45,7 @@ When done, update the matching row here and the device file under hardware/devic
 
 | # | Goal | Where it stands | What would move it |
 |---|---|---|---|
-| G1 | **Every device has a recovery path somebody has actually used** | ✅ DN2, DT mk1, Octatrack, A4/Rytm MK1; 🟢 DT2 (one report, OS 1.16); documented for Syntakt (SyntHack) and Heat +FX (official). ❓ Digitone mk1: the buttons are not stated anywhere we read. | T1, T2 |
+| G1 | **Every device has a recovery path somebody has actually used** | ✅ DN2, DT mk1, Octatrack, A4/Rytm MK1; 🟢 DT2 (one report, OS 1.16); documented for Syntakt (SyntHack) and Heat +FX (official). 🟢 Digitone mk1 (one report, OS 1.44). Every phase-1 device now has a used or official recovery path. | T1 |
 | G2 | **An honest load/headroom measure per device** (rules A25, A34, A37) | ✅ DT2 (idle-task measure on a unit), DN2 (elekloader busy meter, with the "busy is not headroom" caveat). ❓ Syntakt (two readings conflict, O3). ⬜ Heat +FX, Digitone mk1 voice CPU. | T4, T9, T10 |
 | G3 | **Shared-silicon knowledge transfers between devices** | At least six phase-1 boxes use MCF5441x-family ColdFires (DT, DN, DT2, DN2, Syntakt, Heat +FX); DT2 and DN2 share the SHARC and 85 % of its functions. Many rules were found on one box and are only assumed for the others (e.g. A39 USB, A28 cache write-back). | T3, T12, T19 |
 | G4 | **Emulators you can trust for more than "it boots"** | ✅ known gaps: no memory stalls (device cycles ~2x emulator), no pipeline model, EMAC fractional-mode bugs in stock Unicorn. ❓ digikit: real-time DSP audio. | T14 |
@@ -73,7 +73,7 @@ When done, update the matching row here and the device file under hardware/devic
 | Area | Status | What is known | Next step / where |
 |---|---|---|---|
 | Container | ✅ | Unsigned (trailer is 32 zero bytes). | - |
-| Recovery | ❓ | Not stated by any source; assumed like the Digitakt (FUNC, TRIG 4). | **T2** (cheap, high value) |
+| Recovery | 🟢 | **Used on a unit:** FUNC at power-on, TRIG 4, stock `.syx` over DIN restored OS 1.44 after a build hung on the logo (digitone-arp-mod, 2026-10-08). | - |
 | CPU and audio | 🟡 | A **second ColdFire** (section 7) runs only the FM voices; the main ColdFire runs effects and mix. From code census and a third-party board list. | Confirm the board; measure the voice CPU's load. |
 | Mod platform | ✅ | elekloader core-dn1 with hook sites; effect and audio-input mods (DigiSwarm, DigiPrism) ran on units. | - |
 | Digitone Keys | ❓ | Same OS file, but several mods say "never run on a Keys". | Any Keys owner running a mod's test list. |
@@ -154,7 +154,7 @@ Pick one, check the status above, and go. **S** = an evening, **M** = a few sess
 | # | Task | Device | Needs | Effort | Value |
 |---|---|---|---|---|---|
 | T1 | ~~First DT2 recovery report~~ **one exists** (OS 1.16). Still useful: a second report on **1.17**, with timings and the interface used | Digitakt II | unit + DIN | S | Confirms the path on the current OS (G1). Low risk: stock file only. |
-| T2 | Confirm the startup-menu buttons and the OS-upgrade path | Digitone mk1 / Keys | unit (no flashing) or manual | S | Closes a recovery gap (G1). |
+| T2 | ~~Digitone mk1 recovery~~ **done** (one report, digitone-arp-mod). Still useful: the same on a **Digitone Keys** | Digitone Keys | unit + DIN | S | Keys share the OS file but are untested by most mods. |
 | T3 | Test rule A39 (no EP0 stage of a multiple of 64 bytes) on a small box with a vendor request. The DT2 has the same EHCI-style controller with EP0 max packet 64 and its own EP0 vendor requests (digikit 42), so it is the best candidate | DT2 (or DN2, DT/DN mk1) | unit + a USB mod | M | Confirms or limits a rule found on the Octatrack (G3). |
 | T4 | Measure CPU #1 load with the digihealth DMA-timer method over the whole interrupt, at rest and busy | Syntakt | unit + SyntHack | M | Settles O3; gives Syntakt modders a budget (G2). |
 | T5 | Check the trailer and HMAC of 1.40A/1.41/1.42 with your own files (elektron-firmware-tool, digikit) | Syntakt (also DT mk1) | files | S | Settles O1; tells modders whether 1.42 needs re-signing. |

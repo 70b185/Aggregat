@@ -112,7 +112,11 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 - selas: negative shift immediates;
 - the DSP56300 reference assembler: overlapping `ORG`s accepted silently.
 
-**A42. ColdFire is not a full 68000: check every addressing-mode combination against the ColdFire manual, not against the emulator.** `move.l #imm,d16(An)` (immediate source to a displacement destination) is excluded on ColdFire. A hand-written shim used it, ran in the emulator, and crashed a real Digitakt II at startup with exception vector 4 (illegal instruction). Assemble with the right `-mcpu` so the assembler rejects such forms, and check hand-encoded bytes the same way (rule A41). `[hw]` {dt2-lab-coldfire-fix}
+**A42. ColdFire is not a full 68000: check every addressing-mode combination against the ColdFire manual, not against the emulator.** The forms below were excluded by ColdFire, ran in the emulator, and failed on a unit:
+- `move.l #imm,d16(An)` (immediate to displacement) crashed a Digitakt II at startup with exception vector 4;
+- `move.l #imm,abs.L` (immediate to absolute) appeared five times in an early copier of a Digitone mk1 build, which then hung on the logo. It was the most likely cause, though the fault address was never captured.
+
+In the second case, a local ISA checker also accepted the form, because it decoded the instruction without checking the source/destination pair. Assemble with the right `-mcpu`, check hand-encoded bytes against the manual's mode tables (CFPRM pp. 4-47/4-48), and round-trip (A41). `[hw]` {dt2-lab-coldfire-fix} {dn1-arpmod-e04}
 
 Round-trip new code through a disassembler and compare, and make the build refuse a mismatch. `[hw]` {octabam-traps} {elekloader-adapting} {mdkit-docs}
 

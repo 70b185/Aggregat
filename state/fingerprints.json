@@ -8,7 +8,7 @@
   },
   "head": "2ea96436740f136ffea7950c810ffa85abe77e01",
   "repo": "https://github.com/durchgemacht/1-Bit-Editor",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1"
   ],
@@ -41,7 +41,7 @@
   },
   "head": "2ac0f1f09e0c126d314b87de494f8da2848cfa8b",
   "repo": "https://github.com/trigcondition/analog-emu",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -83,7 +83,7 @@
   },
   "head": "0d16b39123b93edf0577873a2855ab89a65c8344",
   "repo": "https://github.com/algonormative/analog-rytm-agent-bridge",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -122,7 +122,7 @@
   },
   "head": "14570ead9aa5d1eb450ef0ea297bf8b9401d2390",
   "repo": "https://github.com/genosdk/analog-rytm-mkii-research",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -145,7 +145,7 @@
   },
   "head": "577ae8d1cf3e47672a633bcf5d5ac97c53db9b7e",
   "repo": "https://github.com/Iced-Cream/analoghealth",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -167,7 +167,7 @@
   },
   "head": "325fd3e52dd243a83411f5b9f37296b860b0cf0a",
   "repo": "https://github.com/bandersong/chopshop",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -235,7 +235,7 @@
   },
   "head": "afed481dc35f4cfc24013508afebc300efcc15b3",
   "repo": "https://github.com/byNicoHeuser/Modded-Cycles",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -275,7 +275,7 @@
   },
   "head": "44df16cb8a96d72282b0d71cf435bd440419039b",
   "repo": "https://github.com/FirestormAudio/coldfire-rs",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "coldfire-rt-macros-v0.1.0",
    "coldfire-rt-v0.1.0",
@@ -300,7 +300,7 @@
   },
   "head": "fb3969bc98c6496a45cd9b5bd639c88b70a6dd50",
   "repo": "https://github.com/durchgemacht/cycles-control-all-config",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1",
    "v1.0"
@@ -334,7 +334,7 @@
   },
   "head": "1e9da345c394af5da62737afd41c56030aa986b9",
   "repo": "https://github.com/100demons/cycles-mods",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1.0",
    "v0.2.0",
@@ -359,7 +359,7 @@
   },
   "head": "c32c49d6e215bad00adda48b88ce71aeaeda545f",
   "repo": "https://github.com/durchgemacht/cycles-one-shot",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1",
    "v0.10",
@@ -390,7 +390,7 @@
   },
   "head": "29b20175ed8db11ff85b60e49213f25da65fb91c",
   "repo": "https://github.com/robertfrombadlistener/CyclesBridge",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -410,7 +410,7 @@
   },
   "head": "d39c597b5ed426c91c4703ed9398bdba182e2d60",
   "repo": "https://github.com/JGuzak/digi_battery",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -443,7 +443,7 @@
   },
   "head": "a770ac4f22946b9b479efb99cdb2616f83580cb4",
   "repo": "https://github.com/toonst/digi_macro",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -476,7 +476,7 @@
   },
   "head": "aa22cede04b89b01286f3118542273c34c182993",
   "repo": "https://github.com/zooloo303/digi-roll",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0.0"
   ],
@@ -518,7 +518,7 @@
   },
   "head": "a3d681c37f6676a988ddaaae1c4c18f7378e90c6",
   "repo": "https://github.com/zooloo303/digi-roll-studio",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1.0",
    "v0.1.1",
@@ -577,7 +577,7 @@
   },
   "head": "32fd22a1fd66fa5833b808b1c1c049a0deb82d88",
   "repo": "https://github.com/gdeo607/digi1_mods",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -598,7 +598,7 @@
   },
   "head": "d0b8a49f17905b53fa6d4b2fe1a61a35101a8ea5",
   "repo": "https://github.com/DigiAlchemydsp/DigiAlchemy-GamePack-1",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.21"
   ],
@@ -624,7 +624,7 @@
   },
   "head": "63420444d685f439e2cc357f24a46038a3c720df",
   "repo": "https://github.com/DigiAlchemydsp/DigiCandy",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0"
   ],
@@ -644,7 +644,7 @@
   },
   "head": "09456179af986f93b06f5885bbeb16be173bce72",
   "repo": "https://github.com/irpina/digichroma",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1",
    "v0.1.1",
@@ -666,7 +666,7 @@
   },
   "head": "a5a2f5595aa5455ecd2d59a4558747b09903adbf",
   "repo": "https://github.com/irpina/digicosm",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1",
    "v0.1.1",
@@ -753,7 +753,7 @@
   },
   "head": "f57c2f237e84b8ff91bc3adb2a2931bccf9928e9",
   "repo": "https://github.com/irpina/digiemu",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1.0",
    "v0.2.0",
@@ -789,7 +789,7 @@
   },
   "head": "3387ca52e4dbaabc6300853ad1d8e5d6bf75d4bd",
   "repo": "https://github.com/DigiAlchemydsp/DigiFilter",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0h",
    "v1.0i",
@@ -833,7 +833,7 @@
   },
   "head": "1a234a8b6adf7c41f046d0561da8b0a750a37795",
   "repo": "https://github.com/lucykowal/digigrain",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -851,7 +851,7 @@
   },
   "head": "3580f15af5d0f272313b4ea312ef6c7d972d146b",
   "repo": "https://github.com/irpina/digihalo",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1",
    "v0.1.1",
@@ -879,7 +879,7 @@
   },
   "head": "367448ae83ee20d425547958b81ca1c2c740080b",
   "repo": "https://github.com/irpina/digihealth",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0",
    "v1.1",
@@ -901,7 +901,7 @@
   },
   "head": "029a64e354caf1a0da524302b0ec108d5d28710a",
   "repo": "https://github.com/irpina/digihoard",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1",
    "v0.1.1",
@@ -916,7 +916,7 @@
   ]
  },
  "digikit": {
-  "checked": "2026-11-01 23:12 UTC",
+  "checked": "2026-11-02 13:32 UTC",
   "files": {
    ".agents/skills/digikit-module/SKILL.md": "77e688f82d73",
    ".agents/skills/digikit-module/references/devices.md": "25eba55ea11e",
@@ -925,12 +925,12 @@
    ".agents/skills/digikit-module/references/selas-pitfalls.md": "82633fe40e35",
    ".agents/skills/firmware-query/SKILL.md": "30f000465e3a",
    ".github/pull_request_template.md": "4cadb4ef15ac",
-   "AGENTS.md": "ff35ef60cc3a",
+   "AGENTS.md": "32d5c171062a",
    "CLAUDE.md": "43c994c2d361",
    "CONTRIBUTING.md": "a762e7b757e3",
    "LICENSE": "be3f7b28e564",
    "NOTICE": "b239e294097d",
-   "README.md": "64e479d7cf5e",
+   "README.md": "067bb01b9a1b",
    "SECURITY.md": "798b4fac1e3a",
    "devices/digitakt-ii-leds.toml": "a865fe196622",
    "devices/digitakt-ii.toml": "d2bfa068ea7f",
@@ -963,19 +963,19 @@
    "devices/ports/dn2-1.11.toml": "7019acea7273",
    "devices/ports/dn2-1.12.toml": "54e73301d84e",
    "devices/ports/dt2-1.17.toml": "77ecd09e0e4e",
-   "docs/ARCHITECTURE.md": "c3da056b2812",
+   "docs/ARCHITECTURE.md": "dfa778300015",
    "docs/CONTRACTS.md": "3b6ea469c75c",
    "docs/CONTROL.md": "a59adf69bb57",
-   "docs/DEVELOPMENT.md": "2139eaa74412",
-   "docs/FINDINGS.md": "7451899feade",
+   "docs/DEVELOPMENT.md": "26acec0cad8d",
+   "docs/FINDINGS.md": "0116fb0f6587",
    "docs/INSTRUMENTATION.md": "577e9d357b4f",
    "docs/LAYOUT.md": "5401def811b6",
-   "docs/MIDI-SYSEX-RPC.md": "fd9fc0738cbf",
-   "docs/MODULE-AUTHORING.md": "3ef287259c95",
-   "docs/PATCHING.md": "eabee4ae6664",
+   "docs/MIDI-SYSEX-RPC.md": "d19a67619406",
+   "docs/MODULE-AUTHORING.md": "72cc1870310f",
+   "docs/PATCHING.md": "867f071984ae",
    "docs/SAMPLES.md": "f6943de055a3",
    "docs/SHARC-ADDRESS-MAP.md": "a7fadee129a3",
-   "docs/TESTING.md": "1684b60d618a",
+   "docs/TESTING.md": "97c397fab10e",
    "docs/TOOLS.md": "d8d2742adcfe",
    "docs/archive/EMULATOR-SHARC-BOUNDARY.md": "041fbb15569c",
    "docs/archive/HANDOVER.md": "60e4bb07ff59",
@@ -991,11 +991,11 @@
    "docs/design/digikit-registry.md": "5400659340b7",
    "docs/design/digikit-runtime.md": "822bb82b7d49",
    "docs/design/digikit-store.md": "cc5f9fc5b83c",
-   "docs/design/digikit-upload.md": "a8bf112050af",
+   "docs/design/digikit-upload.md": "ca29cca9ca3b",
    "docs/design/emulator-control.md": "a0528dcebd2d",
    "docs/design/fast-compile-offload.md": "8fcc3742144f",
    "docs/design/firmware-decls.md": "6a3f0218d333",
-   "docs/design/module-sdk.md": "22b3eb991b4f",
+   "docs/design/module-sdk.md": "93ea509f15a3",
    "docs/design/p5-machine.md": "15f415d5b81d",
    "docs/findings/01-container-and-patching.md": "bb16dc925dd5",
    "docs/findings/02-machines-and-parameters.md": "575617dd5eeb",
@@ -1011,6 +1011,7 @@
    "docs/findings/101-module-step-word-on-hardware.md": "ee6bc7357718",
    "docs/findings/102-recips-rsqrts-seed-tables.md": "59916352bb33",
    "docs/findings/103-dsp-facts-on-a-digitakt-ii.md": "479ceeca2820",
+   "docs/findings/104-python-tool-import-tangle.md": "472dbbfa9602",
    "docs/findings/11-sharc-cross-image-comparison.md": "2a16472ebb9e",
    "docs/findings/12-sharc-writer-function-cache.md": "337ef973ff0c",
    "docs/findings/13-sharc-public-tooling-options.md": "1b30fe1fa1ee",
@@ -1039,7 +1040,7 @@
    "docs/findings/36-boot-load-spike.md": "199e3b98554b",
    "docs/findings/37-boot-load.md": "5a757f1c2374",
    "docs/findings/38-digikit-menu-restart.md": "d97a921f02b2",
-   "docs/findings/39-digikit-boot-tests.md": "76203f57ffee",
+   "docs/findings/39-digikit-boot-tests.md": "3ffc7312b0e4",
    "docs/findings/40-restart-working-state.md": "0e1c77f09deb",
    "docs/findings/41-digikit-health.md": "4853d4ddba5e",
    "docs/findings/42-usb-transfer-routes.md": "1f77c4f40556",
@@ -1063,7 +1064,7 @@
    "docs/findings/60-what-fits.md": "e571b506a296",
    "docs/findings/61-fx-pages.md": "a37f1aae6bf7",
    "docs/findings/62-fx-send-route.md": "5da83dedbf5c",
-   "docs/findings/63-settings-store.md": "9be249e9d88d",
+   "docs/findings/63-settings-store.md": "959e9c0ff2f7",
    "docs/findings/64-fx-send-page.md": "02d8e718f787",
    "docs/findings/65-fx-routes.md": "4089dc4a6898",
    "docs/findings/66-freqshift-send.md": "52c6027d9160",
@@ -1127,28 +1128,34 @@
    "docs/handovers/HANDOVER-2026-10-16-site-and-desktop.md": "92c3940740a1",
    "docs/handovers/HANDOVER-2026-10-19-module-sdk.md": "32c8d63ec529",
    "docs/handovers/HANDOVER-2026-10-27-firmware-decls.md": "34ab01920e57",
+   "docs/handovers/HANDOVER-2026-11-02-scenario-migration.md": "332f198e7250",
    "docs/handovers/HANDOVER-2026-11-02-test-consolidation.md": "4aef64af45f3",
    "docs/plans/audio-qa.md": "b5486bd56ba2",
    "docs/plans/capabilities.md": "633bdd3bb8ce",
    "docs/plans/capacity-isolation.md": "d23ee0e0ec4a",
-   "docs/plans/card-folder.md": "05d07c58a02d",
+   "docs/plans/card-folder.md": "0f9ef6e397e9",
    "docs/plans/debug-mode-and-probes.md": "45bca3652811",
    "docs/plans/digikit-hot-reload.md": "351481ca9c0f",
    "docs/plans/digikit-runtime.md": "f685b173a8f5",
    "docs/plans/firmware-decls-and-sdk.md": "ebcc9b6dd218",
    "docs/plans/gate-speed.md": "beecb4ae2cec",
-   "docs/plans/module-architecture.md": "affaa0332ecf",
+   "docs/plans/ledgers/debug-card-safe.md": "4851f65cc573",
+   "docs/plans/ledgers/settings-roundtrip-equiv.md": "586548360205",
+   "docs/plans/ledgers/upload.md": "c70b44c48a83",
+   "docs/plans/module-architecture.md": "3a0ec62df933",
    "docs/plans/module-limits.md": "7f4057e5f77c",
    "docs/plans/native-emulator.md": "97cc7daba384",
-   "docs/plans/nx-pilot.md": "1e5e350180b2",
+   "docs/plans/nx-pilot.md": "87b0d51e56b7",
    "docs/plans/patchkit.md": "660fe9eba7c4",
+   "docs/plans/python-test-triage.md": "e8bb529e524b",
    "docs/plans/remote-control.md": "c037a6ed7a1e",
    "docs/plans/scenario-oracles.md": "d33533871bec",
-   "docs/plans/sdk-api.md": "6bb9b1571147",
+   "docs/plans/scenario-port-map.md": "ea128a86e2a9",
+   "docs/plans/sdk-api.md": "93db5d4edc51",
    "docs/plans/sharc-jit.md": "a2e5d3aef461",
-   "docs/plans/storage.md": "ac96f106392a",
-   "docs/plans/test-architecture.md": "e33f20dcb5fc",
-   "docs/plans/transfer-tab.md": "92eb507f6d1a",
+   "docs/plans/storage.md": "95f102c9be97",
+   "docs/plans/test-architecture.md": "a7c140cdd1a3",
+   "docs/plans/transfer-tab.md": "02f087d48292",
    "docs/plans/two-core-pgo.md": "75f9fb112629",
    "docs/plans/what-fits.md": "dfd1c25f7bd1",
    "docs/plans/workbench-default-modules.md": "5c17c66a9259",
@@ -1174,7 +1181,7 @@
    "modules/core/adapters/dsp-link/README.md": "12b3f7e885df",
    "modules/core/adapters/dsp-voice/README.md": "0599c4c790dc",
    "modules/core/adapters/dyndsp/README.md": "23e225e0cb01",
-   "modules/core/adapters/dynfx/README.md": "c3a30c4defde",
+   "modules/core/adapters/dynfx/README.md": "1e68f4638c8e",
    "modules/core/adapters/dynreg/README.md": "1568d818708f",
    "modules/core/adapters/fx/README.md": "5e46aee53691",
    "modules/core/adapters/fxpages/README.md": "c3ef55f8111e",
@@ -1182,7 +1189,7 @@
    "modules/core/adapters/input/README.md": "19711581ffc1",
    "modules/core/adapters/machines/README.md": "3481268b2804",
    "modules/core/adapters/ui/README.md": "3b1af7f8f7d2",
-   "modules/core/apps/digikit-menu/README.md": "9eadedb44d08",
+   "modules/core/apps/digikit-menu/README.md": "f2e5ee728fce",
    "modules/core/runtime/README.md": "e51232a081b6",
    "modules/fx/freqshift/README.md": "16716ccabcc2",
    "modules/machines/analog/NOTES.md": "f20f1f271bae",
@@ -1193,7 +1200,7 @@
    "modules/machines/pluck/README.md": "e11c179e10bc",
    "modules/tools/debug/README.md": "384678b334b7",
    "modules/tools/probe/README.md": "85da790b30c1",
-   "modules/tools/remote/README.md": "92cd5621f1ec",
+   "modules/tools/remote/README.md": "dbd7510ee486",
    "packages/emulator/README.md": "53beb0399815",
    "packages/emulator/plusdrive/README.md": "4131f2eba4b0",
    "sdk/README.md": "cb775566781a",
@@ -1209,17 +1216,17 @@
    "tests/fixtures/modules/dyn-crash/README.md": "8105c1178622",
    "tests/fixtures/modules/dyn-demo-stray/README.md": "70797cfc5093",
    "tests/fixtures/modules/dyn-demo/README.md": "ac2ccf5e6ae7",
-   "tests/fixtures/modules/dyn-dn2/README.md": "0017b23a720d",
+   "tests/fixtures/modules/dyn-dn2/README.md": "fadec593280b",
    "tests/fixtures/modules/dyn-dsp-hang/README.md": "8443505d1c60",
    "tests/fixtures/modules/dyn-fault-late/README.md": "36cf23768a0b",
    "tests/fixtures/modules/dyn-fault/README.md": "12b0eabb9eae",
    "tests/fixtures/modules/dyn-fx-gain-b/README.md": "d0e1480d8222",
-   "tests/fixtures/modules/dyn-fx-gain-both/README.md": "4c76946f3774",
-   "tests/fixtures/modules/dyn-fx-gain-send/README.md": "c5c8a7c7b7d6",
-   "tests/fixtures/modules/dyn-fx-gain-sendonly/README.md": "34522bff36ce",
-   "tests/fixtures/modules/dyn-fx-gain/README.md": "2f047adb6baf",
-   "tests/fixtures/modules/dyn-fx-hang/README.md": "879c3e4f35b4",
-   "tests/fixtures/modules/dyn-fx-nan/README.md": "08b9af3fe64e",
+   "tests/fixtures/modules/dyn-fx-gain-both/README.md": "4c66d62856cd",
+   "tests/fixtures/modules/dyn-fx-gain-send/README.md": "8f69d530a897",
+   "tests/fixtures/modules/dyn-fx-gain-sendonly/README.md": "fa59ac990c30",
+   "tests/fixtures/modules/dyn-fx-gain/README.md": "dd2e7712bcc9",
+   "tests/fixtures/modules/dyn-fx-hang/README.md": "d37957ba2f94",
+   "tests/fixtures/modules/dyn-fx-nan/README.md": "f98782474e69",
    "tests/fixtures/modules/dyn-guard-nan/README.md": "69a077df1168",
    "tests/fixtures/modules/dyn-params/README.md": "32b6dd426991",
    "tests/fixtures/modules/fx-gain/README.md": "6b7f1a4782b4",
@@ -1228,10 +1235,10 @@
    "tests/fixtures/modules/patched-pluck/README.md": "b9fcd2df1f8e",
    "tests/fixtures/modules/rust-demo/README.md": "76c310df67b4",
    "tests/fixtures/modules/sharc-probe/README.md": "6281eaed0a6f",
-   "tests/fixtures/modules/sine/README.md": "2805e54ecdd0",
+   "tests/fixtures/modules/sine/README.md": "902f753a41a3",
    "tests/fixtures/modules/trace-demo/README.md": "8211e0176afb",
    "tests/fixtures/modules/ui-demo/README.md": "bdb94748dcab",
-   "tests/regression/README.md": "5ad754622830",
+   "tests/regression/README.md": "fa4b443ae9de",
    "tests/regression/scenarios/README.md": "f526a918de78",
    "tests/scenarios/README.md": "736ab3359c31",
    "tools/coldfire/ghidra/ColdfireEMAC/README.md": "fc9bb0fab47d",
@@ -1239,9 +1246,9 @@
    "tools/sharc_dev/sharc_core/SUBSET.md": "b0d9fb660934",
    "tools/sharc_dev/sharcspec/README.md": "b66e14e67e23"
   },
-  "head": "3077af34b2f2b6cd645ac701a7a2d6e6f5b33a3d",
+  "head": "9c256bfbd587b5f342b8d87a46298a656f027e7b",
   "repo": "https://github.com/ElekLabs/digikit",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -1258,7 +1265,7 @@
   },
   "head": "f5639220d4248882f60fd1f6d502ec25d8b6d221",
   "repo": "https://github.com/irpina/digineighbor",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.6"
   ],
@@ -1280,7 +1287,7 @@
   },
   "head": "3dc2083a6836c40c90fa88caafed7d09c9e80136",
   "repo": "https://github.com/Horhik/diginular",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.10.0"
   ],
@@ -1299,7 +1306,7 @@
   },
   "head": "7453e0e8c1ecfa86e9e8c06cf59820f9bfefab5c",
   "repo": "https://github.com/freeze157-prog/digipools",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -1317,7 +1324,7 @@
   },
   "head": "71b6aad5746fd5f6f6b56e8e7923c33975f0815f",
   "repo": "https://github.com/irpina/digireel",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1",
    "v0.1.1",
@@ -1339,7 +1346,7 @@
   },
   "head": "27432d5aa7281422e7f80467e7e848c7f5433f33",
   "repo": "https://github.com/sumedho/digirequests",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -1358,7 +1365,7 @@
   },
   "head": "5a0d59628f27ab6f732fe22e7843c297710ff112",
   "repo": "https://github.com/Alez22/digirta",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -1388,7 +1395,7 @@
   },
   "head": "e3bf52f466e09cedfb3bdc163a79fec9d3b21db2",
   "repo": "https://github.com/nzimas/digirust",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.2.0"
   ],
@@ -1409,7 +1416,7 @@
   },
   "head": "2faefb19f218eba52c99e9ad423243341bd4ad3a",
   "repo": "https://github.com/irpina/digiscreen",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -1420,14 +1427,15 @@
   ]
  },
  "digiseq-digitakt": {
-  "checked": "2026-11-01 23:12 UTC",
+  "checked": "2026-11-02 13:32 UTC",
   "files": {
+   "CHANGELOG.md": "2ce8d3f5eff0",
    "LICENSE": "9efa6fbc9628",
-   "README.md": "0787c7a86596"
+   "README.md": "676a1c5a6e9b"
   },
-  "head": "8e22cc8e248696dd0b31481362870d02ecd678a0",
+  "head": "2b195ba2929039f930f492dd535dbeae1458da46",
   "repo": "https://github.com/ClaidArremer/digitakt-digiseq",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -1445,7 +1453,7 @@
   },
   "head": "77b45b5d7fc2606b7a229704d7afc1b72521d38d",
   "repo": "https://github.com/ClaidArremer/digitone-digiseq",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -1463,7 +1471,7 @@
   },
   "head": "4d1061c194ea637dc34f67317f672b9c040f3ee2",
   "repo": "https://github.com/irpina/digislicer",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0",
    "v1.1",
@@ -1490,7 +1498,7 @@
   },
   "head": "5785a7737764d6062ec973c2ae396a91365c6a82",
   "repo": "https://github.com/ClaidArremer/digitakt-digisnake",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -1508,7 +1516,7 @@
   },
   "head": "32a86851e175538113f46282525593614d94ba7e",
   "repo": "https://github.com/ClaidArremer/digitone-digisnake",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -1534,7 +1542,7 @@
   },
   "head": "11d2364f3ea8faabd21bb9942fdc0a79606b4e1a",
   "repo": "https://github.com/soejrd/digisophie",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.1.13",
    "v1.2.0"
@@ -1665,7 +1673,7 @@
   },
   "head": "de2045007ed0c3a2a613efd1ffd76dd15a3ab9c1",
   "repo": "https://github.com/DigiAlchemydsp/DigiSplash",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0",
    "v1.1"
@@ -1686,7 +1694,7 @@
   },
   "head": "5ae9c6461cf93369de34a09d8f489dbaf245e6cf",
   "repo": "https://github.com/Fadedlimes/digisplash-ii",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -1706,7 +1714,7 @@
   },
   "head": "69ab74811956a69a1d6349f30b23f747343f8257",
   "repo": "https://github.com/Alez22/digistring",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.6.0",
    "v0.6.1",
@@ -1729,7 +1737,7 @@
   },
   "head": "686f6649a91641060833d682e954706e93ef4bbf",
   "repo": "https://github.com/irpina/digitables",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.2",
    "v1.3"
@@ -1743,20 +1751,20 @@
   ]
  },
  "digitakt-digitone-mcp": {
-  "checked": "2026-11-01 23:12 UTC",
+  "checked": "2026-11-02 13:32 UTC",
   "files": {
    ".claude/CLAUDE.md": "31bbc6c78d0d",
    ".claude/skills/elektron-bridge/SKILL.md": "9feaf43f92e7",
    "DIGITONE_RESEARCH.md": "88c2d9ada04d",
    "LICENSE": "de5c0550155e",
-   "PLAN.md": "27d4c94fc153",
-   "README.md": "ed21a4c35618",
+   "PLAN.md": "9c8b9e1c6758",
+   "README.md": "cbe79123fd92",
    "pyproject.toml": "de29db64b35f",
    "scripts/hardware/README.md": "f83bc8df1362"
   },
-  "head": "cff7c303699bcaa32885f2b74aab50e131cdbfd2",
+  "head": "f28a2485c8cd8346db8c91db59f26ebb8c6601b8",
   "repo": "https://github.com/jamiew/digitakt-digitone-mcp",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -1835,7 +1843,7 @@
   },
   "head": "67d61a30ff0b064587a27ac8f95b59626565081a",
   "repo": "https://github.com/karigardarsson/digitakt-ii-research",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1.0-beta",
    "v0.1.1-beta",
@@ -1860,7 +1868,7 @@
   },
   "head": "d5e0669947dce9ef4a1645f7680fe7086980211c",
   "repo": "https://github.com/octplane/digitakt-ii-splash-screens",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -1878,7 +1886,7 @@
   },
   "head": "09f7098ae2d4dc47dc6bb8a7da330909add41cb6",
   "repo": "https://github.com/feamster/digitakt-midi-mcp",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -1899,7 +1907,7 @@
   },
   "head": "406b2492aa47a8b299ceb1625ae5bea9c727b8b6",
   "repo": "https://github.com/hillzeealex/digitakt-mods",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0"
   ],
@@ -1952,7 +1960,7 @@
   },
   "head": "9437186d251ea3777a3924f2e7474abf9aebaf17",
   "repo": "https://github.com/soejrd/digitakt-sidecar",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -1972,7 +1980,7 @@
   },
   "head": "09688a6ca194dd8a9f07130a30545c6ec3816d11",
   "repo": "https://github.com/toonst/digitakt2-perform",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0"
   ],
@@ -1992,7 +2000,7 @@
   },
   "head": "8969fb9b7b9835101e89699ff32079e6741d753d",
   "repo": "https://github.com/irpina/digitide",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1",
    "v0.1.1",
@@ -2019,7 +2027,7 @@
   },
   "head": "a8560317eb35cdae6b27710269f3e87d0a54f216",
   "repo": "https://github.com/simonjohansson/digitone-2-mod-hack",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -2045,7 +2053,7 @@
   },
   "head": "84c8cd359470c648d55bac6075bd6778ba9e69f0",
   "repo": "https://github.com/complex-ping/digitone-2-modding-skill",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -2301,7 +2309,7 @@
   },
   "head": "150c5a6b0a10baf36314d5e3012fa083c2ce4c7d",
   "repo": "https://github.com/scotblock/digitone-arp-mod",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "patches-2026-10-17",
    "patches-2026-10-20-e11"
@@ -2342,7 +2350,7 @@
   },
   "head": "c162be40f8fd7e6938b39dd7e108a35958050a51",
   "repo": "https://github.com/emnyeca/digitone-syx-toolkit",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1.0"
   ],
@@ -2362,7 +2370,7 @@
   },
   "head": "3a75bb0b51f9ccdb29f874cf22a1060f2e82cab1",
   "repo": "https://github.com/irpina/digitriad",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1",
    "v0.1.1",
@@ -2377,7 +2385,7 @@
   ]
  },
  "dir-altstrument": {
-  "checked": "2026-11-01 17:45 UTC",
+  "checked": "2026-11-02 13:32 UTC",
   "files": {
    "src/content/devices/elektron-analog-keys.yaml": "c1e169486384",
    "src/content/devices/elektron-analog-rytm.yaml": "da2b1efb8095",
@@ -2442,10 +2450,10 @@
    "src/content/firmwares/elektron-model-cycles/cyclesbridge.yaml": "947b7807fd64",
    "src/content/firmwares/elektron-model-cycles/modded-cycles.yaml": "5967e2493723",
    "src/content/firmwares/elektron-model-cycles/model-tg.yaml": "6bdf963b2171",
-   "src/content/firmwares/elektron-model-cycles/model27.yaml": "65260acdcfb4",
+   "src/content/firmwares/elektron-model-cycles/model27.yaml": "890c9ab262e9",
    "src/content/firmwares/elektron-model-cycles/plaits-on-models.yaml": "9d42a817c994",
-   "src/content/firmwares/elektron-model-cycles/spokes.yaml": "becf6a6a603e",
-   "src/content/firmwares/elektron-model-cycles/supermodel-edition.yaml": "498925d12859",
+   "src/content/firmwares/elektron-model-cycles/spokes.yaml": "53c4c42d8c8e",
+   "src/content/firmwares/elektron-model-cycles/supermodel-edition.yaml": "84fca6dbb3fb",
    "src/content/firmwares/elektron-model-cycles/vladiktron-spoke.yaml": "88fca330e1fc",
    "src/content/firmwares/elektron-model-samples/elektron-model-tweaks.yaml": "a519a6fa2724",
    "src/content/firmwares/elektron-model-samples/ms-multi-output.yaml": "f9dd5d7ab435",
@@ -2456,7 +2464,7 @@
    "src/content/firmwares/elektron-octatrack/midisc.yaml": "ed5729466928",
    "src/content/firmwares/elektron-octatrack/modwerk.yaml": "848a51dc08cc",
    "src/content/firmwares/elektron-octatrack/octa-panel.yaml": "88b3b5b11df2",
-   "src/content/firmwares/elektron-octatrack/octabam.yaml": "06ba7b7a136d",
+   "src/content/firmwares/elektron-octatrack/octabam.yaml": "475c3caac139",
    "src/content/firmwares/elektron-octatrack/octachainer2.yaml": "c1686a90ffcb",
    "src/content/firmwares/elektron-octatrack/octamax.yaml": "288b0d099cec",
    "src/content/firmwares/elektron-octatrack/octaplay.yaml": "004e9811a25d",
@@ -2473,7 +2481,7 @@
    "src/content/firmwares/elektron-syntakt/synthack-os.yaml": "54cef7cdd2f2",
    "src/content/firmwares/elektron-tools/digi-roll.yaml": "c88722a4c6ac",
    "src/content/firmwares/elektron-tools/digiemu.yaml": "a037df7677f3",
-   "src/content/firmwares/elektron-tools/digikit.yaml": "7d82ad39928b",
+   "src/content/firmwares/elektron-tools/digikit.yaml": "411c50784a4d",
    "src/content/firmwares/elektron-tools/digiscreen.yaml": "bbaaf5bf4791",
    "src/content/firmwares/elektron-tools/elekloader.yaml": "3f0af42c137a",
    "src/content/firmwares/elektron-tools/elektroid.yaml": "f1ccd4d5d9c9",
@@ -2482,9 +2490,9 @@
    "src/content/firmwares/elektron-tools/ghidra-dsp56300.yaml": "cc65566f52a0",
    "src/content/firmwares/elektron-tools/overwitch.yaml": "bfde9dd782e8"
   },
-  "head": "6cb0b68df268949bf1c1591d60bba7bf7b765df1",
+  "head": "9754937c7115f5f863ee99e6d3cde0c9c0a0ba2a",
   "repo": "https://github.com/philmillman/altstrument",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "src/content/firmwares/elektron-*",
@@ -2498,7 +2506,7 @@
   },
   "head": "f90ec0c7f884fdca6d8ab2095ff5d46a5e6e37e5",
   "repo": "https://github.com/Lapin/awesome-music-gear-firmware",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "README.md"
@@ -2512,7 +2520,7 @@
   },
   "head": "51279be985d7c6df0c7e83cad7338f23fcd84f81",
   "repo": "https://github.com/ClaidArremer/digitakt-directjump",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -2530,7 +2538,7 @@
   },
   "head": "37774fb4046c65840a54ac62ae5854ebda809a3b",
   "repo": "https://github.com/ClaidArremer/digitone-directjump",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -2645,7 +2653,7 @@
   },
   "head": "eb1cfa7d4fc3cd0a77a430e9e9226c5d9cc10979",
   "repo": "https://github.com/naturarum/dn2-cfw",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1.0",
    "v0.2.0",
@@ -2680,7 +2688,7 @@
   },
   "head": "901f3ff976ecdf7f6f9531be3317890eada79afb",
   "repo": "https://github.com/armio/dn2-dt2-firmware-research",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -2691,7 +2699,7 @@
   ]
  },
  "dn2-firmware-explore": {
-  "checked": "2026-11-01 17:45 UTC",
+  "checked": "2026-11-02 13:32 UTC",
   "files": {
    ".github/ISSUE_TEMPLATE/bug_report.md": "ee08bf03b774",
    ".github/ISSUE_TEMPLATE/feature_proposal.md": "6c08021cf8e8",
@@ -2699,7 +2707,7 @@
    "AGENTS.md": "f4001f86f6b1",
    "CONTRIBUTING.md": "b97bbb323deb",
    "LICENSE": "be3f7b28e564",
-   "README.md": "8a148973b9c3",
+   "README.md": "5ad60d3c8c08",
    "THIRD-PARTY.md": "717e138c6560",
    "docs/BRANCHING.md": "2f0c8a3ae8e6",
    "docs/FEATURE-PLAYBOOK.md": "a92c898237f7",
@@ -2741,7 +2749,7 @@
    "docs/for-digikit-sharcdb-patched-images.md": "f71a5fa47bc9",
    "docs/for-digikit-waverider-dsp-stop.md": "38b953167601",
    "docs/for-dnx-devslots.md": "3411c6fdaeb0",
-   "docs/for-dnx-modinfo.md": "2b24e53ebb5d",
+   "docs/for-dnx-modinfo.md": "8f3971625879",
    "docs/for-dnx-waverider-erase.md": "c8a3020b3d3b",
    "docs/for-dnx-waverider-pool.md": "5cf74692a092",
    "docs/for-lalzart-hardware-capture.md": "3c3271326261",
@@ -2818,7 +2826,7 @@
    "docs/waverider-m5-dsp.md": "173136100b67",
    "docs/waverider-m7-pages.md": "e306088f2331",
    "docs/waverider-m9-oscillators.md": "dcd7ab053f29",
-   "docs/waverider-manual.md": "a26da6477610",
+   "docs/waverider-manual.md": "21acb278b2f2",
    "docs/waverider-midi.md": "03bf645402cb",
    "docs/waverider-pages34.md": "0e0a0f9ef90d",
    "docs/waverider-performance.md": "c8d8ebedb74a",
@@ -2831,9 +2839,9 @@
    "pyproject.toml": "421edf45a3f9",
    "tools/selmap/Cargo.toml": "663b42ac7a8f"
   },
-  "head": "bcb369c491c36e767d3c2ee58dff76b8ef473d04",
+  "head": "6b84f7be8966bf20d6413617e7063552473f3cbc",
   "repo": "https://github.com/angellinares/dn2_firmware_explore",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "build/accelprobe2-usbprobe",
    "build/arpscale-pr212",
@@ -2862,10 +2870,10 @@
   ]
  },
  "dn2mk2": {
-  "checked": "2026-11-01 23:07 UTC",
+  "checked": "2026-11-02 13:32 UTC",
   "files": {
-   "CLAUDE.md": "d4488f4f6323",
-   "FIRMWARE.md": "79d9c4a61fe8",
+   "CLAUDE.md": "7a80e249e040",
+   "FIRMWARE.md": "34b80e172534",
    "LICENSE": "be3f7b28e564",
    "README.md": "83d10756e54b",
    "THIRD-PARTY.md": "717e138c6560",
@@ -2874,7 +2882,7 @@
    "docs/FEATURE-PLAYBOOK.md": "a92c898237f7",
    "docs/HANDOVER.md": "a2263f20cecd",
    "docs/PRINCIPLES.md": "e4e39e3470e9",
-   "docs/ROADMAP.md": "b2cb2818e78f",
+   "docs/ROADMAP.md": "54f1316dda7a",
    "docs/SAFETY.md": "58c820a4eb98",
    "docs/STATUS.md": "c2292c277773",
    "docs/UPSTREAM-README.md": "574ea539816e",
@@ -2921,6 +2929,7 @@
    "docs/hardware.md": "f99b6ccc752b",
    "docs/ideas-backlog.md": "08df358a4b04",
    "docs/instruments.md": "fac6e45cbfaf",
+   "docs/jump.md": "2b5eb423ef27",
    "docs/lalzart-dt2-crosscheck.md": "7c2d65b60766",
    "docs/lfo-parameters.md": "fd15e9669c6a",
    "docs/lfo4-build-plan.md": "35a5034bd89d",
@@ -2932,7 +2941,7 @@
    "docs/machine-list.md": "ee7159d6e1d6",
    "docs/mainos-image.md": "922a325fe236",
    "docs/md.md": "160f94f569d1",
-   "docs/memory-map.md": "cda1511b1806",
+   "docs/memory-map.md": "e461c2d9a49f",
    "docs/midi-rpc-dispatch.md": "db82eda356a7",
    "docs/midi-rpc.md": "b8b5727b12e5",
    "docs/mnm-pages-plan.md": "15a37e608ad4",
@@ -2947,12 +2956,15 @@
    "docs/old-project-load.md": "08c4a2fdf414",
    "docs/os-versions.md": "3c0ea8ced38e",
    "docs/others-dn2-research.md": "53dbca8920e2",
+   "docs/overtone-map.md": "ad6a242b0024",
    "docs/parameter-set-tables.md": "a36b7ae6069f",
    "docs/parameter-table-consumer.md": "6401c0bee83b",
    "docs/patcher.md": "d6f6fc09159e",
    "docs/pcm-hunt.md": "396ca6917e7c",
    "docs/perc.md": "a81d859c88e0",
    "docs/ping.md": "f92658bdf785",
+   "docs/project-pools-research.md": "64444320676c",
+   "docs/project-pools.md": "413f64bb2c8e",
    "docs/references.md": "2ba9e31ebc65",
    "docs/rings.md": "872acb801d04",
    "docs/sampler.md": "d834b48f5608",
@@ -2975,7 +2987,7 @@
    "docs/ui-map.md": "3f6cde7aec0f",
    "docs/usb-upgrade-limit.md": "92412044e396",
    "docs/usbprobe.md": "fef85e525a67",
-   "docs/user-reports.md": "944c33751abe",
+   "docs/user-reports.md": "e51b2e51f461",
    "docs/version-anchors.md": "76cf99217ca0",
    "docs/version-gate.md": "fb4f727445e1",
    "docs/w2-scanner.md": "e35a6f1dff40",
@@ -2995,19 +3007,21 @@
    "releases/v0.34.md": "e290ce48a707",
    "releases/v0.35.md": "bb68378e0ad7",
    "releases/v0.36.md": "ae2704ed98ae",
+   "releases/v0.37.md": "78fdb13083fb",
    "tools/selmap/Cargo.toml": "663b42ac7a8f",
    "tools/web/README.md": "74e061c0d01b"
   },
-  "head": "5fce704ba01f9d97edbcf199b1ebf4c4ff3778db",
+  "head": "32d7c2d81d6976f793912e9198eacff503bf7740",
   "repo": "https://github.com/De-Pattern/dn2mk2-firmware",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.31",
    "v0.32",
    "v0.33",
    "v0.34",
    "v0.35",
-   "v0.36"
+   "v0.36",
+   "v0.37"
   ],
   "watch": [
    "*.md",
@@ -3018,7 +3032,7 @@
   ]
  },
  "dnx": {
-  "checked": "2026-11-01 11:52 UTC",
+  "checked": "2026-11-02 13:32 UTC",
   "files": {
    "CHANGELOG.md": "605cff7a4ea4",
    "LICENSE": "be3f7b28e564",
@@ -3057,9 +3071,9 @@
    "packages/core/README.md": "dd0aabe6b9bc",
    "packages/core/src/vendor/digikit/README.md": "1526dea977c4"
   },
-  "head": "6edca328dcbc4ac81407bad72f36aa81e697e787",
+  "head": "695e9b774fbfc7bbdbfe629e774e84afc5630dee",
   "repo": "https://github.com/NoiseAndMatter/DNX",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "stable/pre-analysis"
   ],
@@ -3085,7 +3099,7 @@
   },
   "head": "a8ea4d162946321d0ea59ed39a77f04b96512fc0",
   "repo": "https://github.com/mtalikka/DT-FM",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0.0",
    "v1.0.1",
@@ -3110,7 +3124,7 @@
   },
   "head": "acf656cbed0585578998c5883f787557afa419ee",
   "repo": "https://github.com/zhelnov/dt_song_mgmt",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -3141,7 +3155,7 @@
   },
   "head": "b2f93c11abc6f2051af3fabdf60d8370be2d5494",
   "repo": "https://github.com/lalzart/digitakt-ii-firmware-research-public",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -3434,7 +3448,7 @@
   },
   "head": "811f8fa091ffbf7b0b7f06a6bd17e060bab4f6ff",
   "repo": "https://github.com/lalzart/dt2-machine-lab",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -3452,7 +3466,7 @@
   },
   "head": "ecfecd8b4d773cb04eebd2fb6b3da8478311d16f",
   "repo": "https://github.com/droelfdroelf/dtdump",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -3463,33 +3477,33 @@
   ]
  },
  "elekloader": {
-  "checked": "2026-10-31 13:54 UTC",
+  "checked": "2026-11-02 13:32 UTC",
   "files": {
    ".claude/skills/doc-hygiene/SKILL.md": "ac70fa07f7e2",
-   "AGENTS.md": "d0477514bfab",
+   "AGENTS.md": "aff86f0bd81e",
    "CLAUDE.md": "43c994c2d361",
    "CONTRIBUTING.md": "0802d23b8382",
    "LICENSE": "9efa6fbc9628",
    "README.md": "950b6030c8b0",
-   "docs/ADAPTING.md": "7e584ea4ff4c",
+   "docs/ADAPTING.md": "5c41130f81bf",
    "docs/APPS.md": "72f7288f500e",
    "docs/BUILDING.md": "b31d8342390f",
    "docs/CONTRIBUTE.md": "5cb71b6715c9",
    "docs/CORE-CONTRIBUTING.md": "5d72c11884a9",
-   "docs/CORES.md": "eb2435b8c7d5",
+   "docs/CORES.md": "9484e162c50d",
    "docs/DEVICES.md": "a8bf02ff6c2a",
-   "docs/FORMAT.md": "559d1484b51e",
+   "docs/FORMAT.md": "1b351fd0aad3",
    "docs/INSTALL.md": "d39132642ace",
    "docs/INTEGRATING.md": "aaa96d1975ca",
-   "docs/MACHINES-DN2-FILTER.md": "de4cfeb728f9",
-   "docs/MACHINES-DN2-VOICE.md": "c8653f124496",
+   "docs/MACHINES-DN2-FILTER.md": "b0af1fa89072",
+   "docs/MACHINES-DN2-VOICE.md": "1320c003396f",
    "docs/MACHINES-DN2.md": "efcac8cb336a",
    "docs/README.md": "7398a69df44c",
    "docs/RELEASING.md": "7b86d132e42f",
    "docs/SHARC-BOOT.md": "f9280453a49f",
    "docs/SHARC-DN2-ABI.md": "ad4902af63aa",
-   "docs/SHARC-DN2.md": "90fbcabd4aca",
-   "docs/TESTS.md": "8f2c8e738290",
+   "docs/SHARC-DN2.md": "ce99f08c412b",
+   "docs/TESTS.md": "8f95d74f4cfe",
    "docs/WEB.md": "9ddb68137204",
    "examples/ddr-canary-a4/README.md": "d91efb0982d5",
    "examples/dn-fx-gain/README.md": "59781c96a9f3",
@@ -3507,7 +3521,7 @@
    "mods/core-a4/README.md": "fd972463ab3f",
    "mods/core-ar2/README.md": "7c4a41be38e3",
    "mods/core-dn1/README.md": "064ea302efb1",
-   "mods/core-dn2/README.md": "2416b8da54c9",
+   "mods/core-dn2/README.md": "e766c8e9c783",
    "mods/core-dt2/README.md": "8bc472049fad",
    "mods/core-ot/README.md": "429ecf0c76b5",
    "mods/core/README.md": "44de8ed83dbc",
@@ -3519,9 +3533,10 @@
    "mods/digitide-dn1/README.md": "0120f086e8bb",
    "mods/digitriad-dn1/README.md": "4babcb10e7e7",
    "mods/dspbus-ot/README.md": "142bdbd4cf12",
+   "mods/dspbusy-dn2/README.md": "a46c89b10ba5",
    "mods/fxkit-dn1/README.md": "a27afb5f9830",
    "mods/intercepts-ot/README.md": "85b050c74285",
-   "mods/machine-pages/README.md": "d7ffdd425b41",
+   "mods/machine-pages/README.md": "1deefd711437",
    "mods/machines-dn1/README.md": "d75010072fe0",
    "mods/machines-ot/README.md": "15795a9fc012",
    "mods/seq-events-dn1/README.md": "3ef8a88c8d34",
@@ -3535,9 +3550,9 @@
    "mods/usb-ot/README.md": "5368e837679c",
    "tests/fixtures/digitakt-src-parameters/README.md": "f07121bbbc16"
   },
-  "head": "dc6ac1fd6792eeb3ab217b6ab2d6b73aa7aa30f6",
+  "head": "6910d2aee0173b1249ce10d635c15e2f88b000c7",
   "repo": "https://github.com/elekloader/elekloader",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "core-ar2-v0.3",
    "core-ar2-v0.7",
@@ -3727,7 +3742,7 @@
   },
   "head": "dc6ac1fd6792eeb3ab217b6ab2d6b73aa7aa30f6",
   "repo": "https://github.com/simonjohansson/elekloader",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "core-dn1-v2.3",
    "core-dn1-v3.2",
@@ -3769,7 +3784,7 @@
   },
   "head": "fe68166eeffbb041900b074645e918389f099cb4",
   "repo": "https://github.com/simonjohansson/elektrob-1",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "ob1-v0.1",
    "ob1-v0.2",
@@ -3803,7 +3818,7 @@
   },
   "head": "12a90da220c3360508dd3b82b2b1d1450eb6c5c0",
   "repo": "https://github.com/dagargo/elektroid",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "0.1",
    "0.2",
@@ -3862,7 +3877,7 @@
   },
   "head": "03961c61f085200b6de8607075b214e425145040",
   "repo": "https://github.com/xerydian/elektron-emu",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -3881,7 +3896,7 @@
   },
   "head": "a5bce9a6af644386d900924082993a805e812874",
   "repo": "https://github.com/mischa85/elektron-firmware-tool",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -3914,7 +3929,7 @@
   },
   "head": "98071694268dbc64f81debe6ba53551bb729519c",
   "repo": "https://github.com/drumkilla/elektron-model-tweaks",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0.0",
    "v1.1.0",
@@ -3969,7 +3984,7 @@
   },
   "head": "fe22cb2d33380b38472c2fe17781d0200a7484be",
   "repo": "https://github.com/rumorismo/Elektron-Mods",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -3989,7 +4004,7 @@
   },
   "head": "1c2d6a356a26d61875a00e4ac4602c1630126977",
   "repo": "https://github.com/Fadedlimes/elektron-screen-tool",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -4006,7 +4021,7 @@
   },
   "head": "515eba0993239884be0bf9a8b8c10e5af19d535a",
   "repo": "https://github.com/mzero/elk-herd",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -4026,7 +4041,7 @@
   },
   "head": "29b6a869adf7b67afc67673d1ac6a99c0dbab8df",
   "repo": "https://github.com/Iced-Cream/elkflash",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -4045,7 +4060,7 @@
   },
   "head": "50d4dd218e97880f1f7f68d460a5273be4a550ec",
   "repo": "https://github.com/emuyia/ems-machinedrum-firmware",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "26A09-beta"
   ],
@@ -4066,7 +4081,7 @@
   },
   "head": "273352234137711564e894cf868a0423c536fd5a",
   "repo": "https://github.com/emuyia/ems-monomachine-firmware",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "26510-beta",
    "26512-beta",
@@ -4097,7 +4112,7 @@
   },
   "head": "7c2d4d3c7890e18e13a84846fdf025878710c481",
   "repo": "https://github.com/LyingDalai/ems-octakit",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -4124,7 +4139,7 @@
   },
   "head": "03961c61f085200b6de8607075b214e425145040",
   "repo": "https://github.com/joshklomp/emu-elektron",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -4147,7 +4162,7 @@
   },
   "head": "95f13dbf47215dfa32d038f4baca1f846174b03f",
   "repo": "https://github.com/Fadedlimes/My-personal-Digitakt-II-reverse-engeneering-knowledge-base",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -4179,7 +4194,7 @@
   },
   "head": "2ac9d9b59306b95265b3bce151b347f8e10bd188",
   "repo": "https://github.com/smoothdeveloper/fsdsp56k",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -4223,7 +4238,7 @@
   },
   "head": "4050ce447a176ab1d900b1c578a7c0d18cdaf43a",
   "repo": "https://github.com/joelanders/gearmulator-md-mm",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "0.0.2_closed_beta",
    "1.1.2_open_beta",
@@ -4316,7 +4331,7 @@
   },
   "head": "fec2cab8def2b3ec0585479b76542b835e3fbaf7",
   "repo": "https://github.com/roblg/ghidra-dsp56300",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.0.5",
    "v0.0.6",
@@ -4339,7 +4354,7 @@
   },
   "head": "aec959c681d6e8f347323f17bd303aef6ec540b3",
   "repo": "https://github.com/heavylight-industries/keyframer-lab",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -4399,7 +4414,7 @@
   },
   "head": "d965da3e2930830e9d8b9ea369ec8294d47c4bab",
   "repo": "https://github.com/etcetc000/kitbasher",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -4417,7 +4432,7 @@
   },
   "head": "fccdeb04cb320614ce87237aef82a09934f923f3",
   "repo": "https://github.com/x2k77m1/lfox",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0a"
   ],
@@ -4437,7 +4452,7 @@
   },
   "head": "a0a19f69fcfd44968f05ab7f0af8195633cb83f3",
   "repo": "https://github.com/bsp2/libanalogrytm",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -4482,7 +4497,7 @@
   },
   "head": "4ea4729f0501a0257c30d0efc47000b3140eabbf",
   "repo": "https://github.com/janne808/machinedrum-kit",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -4721,7 +4736,7 @@
   },
   "head": "1b45e93b2626b919c8b139385b1ad5e1208fa4c3",
   "repo": "https://github.com/radekdymacz/mdmm",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "0.0.2_closed_beta",
    "1.1.2_open_beta",
@@ -4827,7 +4842,7 @@
   },
   "head": "c446179d6d73a82b117ee20eb2216af78734a795",
   "repo": "https://github.com/jmamma/MDS",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -4851,7 +4866,7 @@
   },
   "head": "09f0e67ce1a757c87c2b2c49b07baa3e77c64e1a",
   "repo": "https://github.com/bkkbrls-del/midisc",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "1.40MIDISC"
   ],
@@ -4870,7 +4885,7 @@
   },
   "head": "1ce22456a01dc149d598d2b3808b8a6b36c82e41",
   "repo": "https://github.com/bkkbrls-del/midisc-patcher",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -4881,7 +4896,7 @@
   ]
  },
  "mmodule": {
-  "checked": "2026-11-01 23:12 UTC",
+  "checked": "2026-11-02 13:32 UTC",
   "files": {
    ".github/copilot-instructions.md": "b597ffa73404",
    ".scratch/md-drums-editor/issues/01-pile-tus-moteur-sans-firmware.md": "08bd169372b0",
@@ -5077,9 +5092,9 @@
    "source/elektron/md/mdEngine/README.md": "04c83cf46d6d",
    "source/libresample/README.md": "9b09bb9fa537"
   },
-  "head": "432f0713fb63cc6bd135b4e70051176631f64245",
+  "head": "8006b0985ba59aea2a0cf1fe7a6e3023b5206e64",
   "repo": "https://github.com/c0remusic/MModule",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "md-drums-v0.1.1",
    "md-drums-v0.1.2",
@@ -5207,7 +5222,7 @@
   },
   "head": "259441967e39b283e458e5027eda27c86a663562",
   "repo": "https://github.com/18nelli18/Modded-Cycles",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "etude-optimisation-os-2026-10-18"
   ],
@@ -5290,7 +5305,7 @@
   },
   "head": "70e1483535c5a6919ff170ce3b79ba4a10c066ac",
   "repo": "https://github.com/Talachan12/Elektron-Model-Machinedrum",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -5320,7 +5335,7 @@
   },
   "head": "70b39dd6787770ebefc7a2d78dea1678ec012679",
   "repo": "https://github.com/TinyGregAudio/Model-TG",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0.0",
    "v1.1.0"
@@ -5432,7 +5447,7 @@
   },
   "head": "7ff574ff2d06e5a3f68290ed2f2de1558d0c0cea",
   "repo": "https://github.com/durchgemacht/model27",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -5443,7 +5458,7 @@
   ]
  },
  "modwerk": {
-  "checked": "2026-11-01 23:07 UTC",
+  "checked": "2026-11-02 13:32 UTC",
   "files": {
    ".agents/skills/modwerk-discord/SKILL.md": "cfabd262c397",
    ".agents/skills/modwerk-fix-issue/SKILL.md": "11c2b7990dc9",
@@ -5453,7 +5468,7 @@
    ".agents/skills/modwerk-review-prs/SKILL.md": "30ffe54c7a4c",
    ".agents/skills/modwerk-start/SKILL.md": "eddf9a6ca615",
    ".agents/skills/modwerk-triage-issues/SKILL.md": "66a26310ab93",
-   ".agents/skills/modwerk-try-on-unit/SKILL.md": "f500de57c5c5",
+   ".agents/skills/modwerk-try-on-unit/SKILL.md": "c83d9f753d41",
    ".agents/skills/modwerk-update-module/SKILL.md": "9416d12d5aca",
    ".claude/skills/modwerk-discord/SKILL.md": "cfabd262c397",
    ".claude/skills/modwerk-fix-issue/SKILL.md": "11c2b7990dc9",
@@ -5463,7 +5478,7 @@
    ".claude/skills/modwerk-review-prs/SKILL.md": "30ffe54c7a4c",
    ".claude/skills/modwerk-start/SKILL.md": "eddf9a6ca615",
    ".claude/skills/modwerk-triage-issues/SKILL.md": "66a26310ab93",
-   ".claude/skills/modwerk-try-on-unit/SKILL.md": "f500de57c5c5",
+   ".claude/skills/modwerk-try-on-unit/SKILL.md": "c83d9f753d41",
    ".claude/skills/modwerk-update-module/SKILL.md": "9416d12d5aca",
    ".github/pull_request_template.md": "a7d13ce14ad3",
    "AGENTS.md": "e84500814f28",
@@ -5626,6 +5641,7 @@
    "changelog/2026-11-01-pr-triage-newest-run.md": "025f9f69c5d5",
    "changelog/2026-11-01-rytm-key-routing.md": "f01e48ec1c3d",
    "changelog/2026-11-01-rytm-sound-settings.md": "f5c4f38c2e45",
+   "changelog/2026-11-01-rytm-trig-conditions.md": "dd8f7119d346",
    "changelog/2026-11-01-usb-clock-din.md": "4237ddfd0a66",
    "changelog/2026-11-01-usb-package-lag-note.md": "ad087db807e6",
    "design-qa.md": "3dc18620231d",
@@ -5758,14 +5774,16 @@
    "sdk/analog-rytm-mkii/modules/_submissions/pipo-loop/media/LICENSE.md": "aaca18e4b31a",
    "sdk/analog-rytm-mkii/modules/_submissions/qperf/README.md": "f379d1dafbf9",
    "sdk/analog-rytm-mkii/modules/_submissions/qperf/TESTING.md": "f619f75d7199",
+   "sdk/analog-rytm-mkii/modules/_submissions/quick-fill-trig-condition/README.md": "e98bab4e223b",
+   "sdk/analog-rytm-mkii/modules/_submissions/quick-fill-trig-condition/TESTING.md": "0be54d832bc9",
    "sdk/analog-rytm-mkii/modules/_submissions/retrig-grid/README.md": "387069b9f625",
    "sdk/analog-rytm-mkii/modules/_submissions/retrig-grid/TESTING.md": "e19c99f13a49",
    "sdk/analog-rytm-mkii/modules/_submissions/retrig-grid/media/LICENSE.md": "eec225ecb572",
    "sdk/analog-rytm-mkii/modules/_submissions/sample-rate/README.md": "efa6973177c8",
    "sdk/analog-rytm-mkii/modules/_submissions/sample-rate/TESTING.md": "c3d3b7abf16b",
    "sdk/analog-rytm-mkii/modules/_submissions/sample-rate/media/LICENSE.md": "aaca18e4b31a",
-   "sdk/analog-rytm-mkii/modules/_submissions/silent-pad-trig/README.md": "93200af5e054",
-   "sdk/analog-rytm-mkii/modules/_submissions/silent-pad-trig/TESTING.md": "7e9f72f7139e",
+   "sdk/analog-rytm-mkii/modules/_submissions/silent-pad-trig/README.md": "3eb2b75eb96c",
+   "sdk/analog-rytm-mkii/modules/_submissions/silent-pad-trig/TESTING.md": "26558269bea4",
    "sdk/analog-rytm-mkii/modules/_submissions/silent-pad-trig/media/LICENSE.md": "aaca18e4b31a",
    "sdk/analog-rytm-mkii/modules/_submissions/silent-pad-trig/upstream/README.md": "cd581878e3b0",
    "sdk/analog-rytm-mkii/modules/_submissions/slice-loop/README.md": "eafe19dbb4de",
@@ -5972,7 +5990,7 @@
    "sdk/machines/CLAUDE.md": "43c994c2d361",
    "sdk/machines/README.md": "f5b50e67a5d0",
    "sdk/machines/analog-four-mkii/README.md": "b2d729b75136",
-   "sdk/machines/analog-rytm-mkii/README.md": "5c933d3469bf",
+   "sdk/machines/analog-rytm-mkii/README.md": "81e128db4913",
    "sdk/machines/analog-rytm-mkii/elekloader/README.md": "386d4c65efca",
    "sdk/machines/analog-rytm-mkii/elekloader/core-ar2/mod.json": "7492f7cb55b2",
    "sdk/machines/digitakt-ii/README.md": "9bc67565a051",
@@ -6205,9 +6223,9 @@
    "vendor/elekloader/README.md": "be3d784aa56c",
    "vendor/elekloader/kit/README.md": "7962b6e18ab9"
   },
-  "head": "f4e18fa4494ab816021c1625e433df2cd18831e6",
+  "head": "ee3921a258fdbfc1cff87eec623e85bb71c805b8",
   "repo": "https://github.com/repeat98/modwerk",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -6227,7 +6245,7 @@
   },
   "head": "23e541021b92d1a5978f36c0a552ac443376df1a",
   "repo": "https://github.com/shnolk/monomodule",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "release"
   ],
@@ -6247,7 +6265,7 @@
   },
   "head": "3edf617aebf159df28e15a174e6730edc2ad511d",
   "repo": "https://github.com/scottmetoyer/ms-multi-output",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -6268,7 +6286,7 @@
   },
   "head": "ab92ccf11f9c75135da0497eaed99e1d1ddd85d2",
   "repo": "https://github.com/murdenihcam/murdenihcam-usr-machines",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -6357,7 +6375,7 @@
   },
   "head": "6deca691f26e5de98fd45ccbe6d2ddc3dcbd72a8",
   "repo": "https://github.com/timhastie/octa-panel",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "octatrick-2.8",
    "octatrick-2.9",
@@ -6373,11 +6391,11 @@
   ]
  },
  "octabam": {
-  "checked": "2026-11-01 18:13 UTC",
+  "checked": "2026-11-02 13:32 UTC",
   "files": {
    ".github/pull_request_template.md": "ce53689fd79d",
    "AGENTS.md": "47799d96ef43",
-   "CHANGELOG.md": "43c6aba0f28d",
+   "CHANGELOG.md": "ccd789992a94",
    "CLAUDE.md": "43c994c2d361",
    "CODE_OF_CONDUCT.md": "ff3d2c629c1f",
    "CONTRIBUTING.md": "6bac4116f23c",
@@ -6387,7 +6405,7 @@
    "THIRD_PARTY.md": "5eb3e43c5045",
    "docs/README.md": "915d90d0d9c6",
    "docs/contributing/COSTS.md": "246b77e12be7",
-   "docs/contributing/FAILURE_MODES.md": "44e28242c8e8",
+   "docs/contributing/FAILURE_MODES.md": "1ac1b1e97dca",
    "docs/contributing/HARDWARE_MANUAL.md": "21035a3c2902",
    "docs/contributing/HARDWARE_MATRIX.md": "44dc2d5b1646",
    "docs/contributing/HARDWARE_SUITE.md": "6c438ca6e120",
@@ -6435,8 +6453,8 @@
    "docs/proposals/USB_HANDOFF.md": "9ebe76aed823",
    "docs/proposals/remixes/README.md": "e11136d08a31",
    "docs/proposals/remixes/radiohagen.md": "cb3937904a66",
-   "docs/site/about.md": "0d5c69f31db1",
-   "docs/site/index.md": "851d7c7fb2b1",
+   "docs/site/about.md": "fac3616e1c1d",
+   "docs/site/index.md": "f7e7be8f105d",
    "docs/site/manual/brain-about.md": "dcf0de72ce85",
    "docs/site/manual/brain-files.md": "40c325030f76",
    "docs/site/manual/brain-index.md": "553e0e3cfaeb",
@@ -6445,9 +6463,9 @@
    "docs/site/manual/brain-remixes.md": "f88603562d34",
    "docs/site/manual/brain-settings.md": "38a721f65eb8",
    "docs/site/manual/brain-templates.md": "249ced26cd49",
-   "docs/site/manual/octabam.md": "a3627c84f3ee",
-   "docs/site/own-remix.md": "cefcae92ff2b",
-   "docs/site/remix-octabam.md": "19a21dedadb7",
+   "docs/site/manual/octabam.md": "a06c1f3fe83b",
+   "docs/site/own-remix.md": "59ad2cbd243f",
+   "docs/site/remix-octabam.md": "da5ce6bc1177",
    "docs/site/safety.md": "2bab79aeda5d",
    "docs/site/usage/analog-bassdrum.md": "1aed1df23911",
    "docs/site/usage/ata-write-guard.md": "15f457d86980",
@@ -6481,7 +6499,7 @@
    "docs/site/usage/fx2-lock.md": "a35580c12e23",
    "docs/site/usage/gateverb.md": "8c22c595e5d5",
    "docs/site/usage/hooks.md": "0c2f69de9c76",
-   "docs/site/usage/kits.md": "4882267b03d6",
+   "docs/site/usage/kits.md": "83b46f0e20b4",
    "docs/site/usage/load-meter.md": "22743c36ccbd",
    "docs/site/usage/lofi-amf-fix.md": "69634306e043",
    "docs/site/usage/lofi2.md": "8381e3bae5c4",
@@ -6515,7 +6533,7 @@
    "docs/site/usage/scope.md": "8077b8506ac8",
    "docs/site/usage/send.md": "51bf9d81003e",
    "docs/site/usage/shatter.md": "f39569f317af",
-   "docs/site/usage/sidechain-compressor.md": "afdb2225fc5d",
+   "docs/site/usage/sidechain-compressor.md": "d3cadc31865d",
    "docs/site/usage/spectrum.md": "2b98faa2d7a3",
    "docs/site/usage/stems.md": "0bfd2c6fb682",
    "docs/site/usage/store.md": "4faa9a468438",
@@ -6534,7 +6552,7 @@
    "docs/site/usage/void.md": "6f7ddc4b883d",
    "docs/site/usage/wave.md": "99a0eb4bd679",
    "docs/site/usage/waveload.md": "0647cd6cb735",
-   "docs/site/web-builder.md": "69b0ea9f0b28",
+   "docs/site/web-builder.md": "25ded1a9e8b3",
    "modules/_template/README.md": "7b4145e997c7",
    "modules/analog-bassdrum/CPU.md": "676e3b8de285",
    "modules/analog-bassdrum/DSP808.md": "5cd4f812df3e",
@@ -6576,7 +6594,7 @@
    "modules/fx2-lock/README.md": "b81db1e5484e",
    "modules/gateverb/README.md": "093068e65b3a",
    "modules/hooks/README.md": "3f3963ef936c",
-   "modules/kits/README.md": "78701a06e24f",
+   "modules/kits/README.md": "c6d99102eba3",
    "modules/load-meter/README.md": "11b6d8d36329",
    "modules/lofi-amf-fix/README.md": "bbf210395fcf",
    "modules/lofi2/README.md": "c464a73895bf",
@@ -6643,7 +6661,7 @@
    "remixes/README.md": "73592b19436e",
    "remixes/cxosc-core/README.md": "fccee0fc2479",
    "remixes/octabam-bus/README.md": "35f0a077411e",
-   "remixes/octabam/README.md": "809c07ec3732",
+   "remixes/octabam/README.md": "0f0b3f01da31",
    "remixes/test/README.md": "019a8a795004",
    "remixes/test/analog-bassdrum/README.md": "02b8c5655a86",
    "remixes/test/ata-write-guard/README.md": "5ad5cb32875a",
@@ -6771,18 +6789,20 @@
    "tools/panel/README.md": "6e5bc643b683",
    "tools/panel/app/README.md": "aca0bdf56995",
    "tools/remix/README.md": "dc1807bf8aac",
-   "tools/site/README.md": "70306f6cec49"
+   "tools/site/README.md": "da39f3bd7ed4"
   },
-  "head": "620e9263f56d777903a37b5d580468b592c9d029",
+  "head": "828314dc5a3af1d5ca5d7308e22159e45e2b5ac3",
   "repo": "https://github.com/sambanks/octabam",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "OCTABAM28",
    "OCTABAM29",
    "OCTABAM38",
    "OCTABAM42",
    "OCTABAM43",
-   "v0.1"
+   "v0.1",
+   "v0.2",
+   "v0.3"
   ],
   "watch": [
    "*.md",
@@ -6801,7 +6821,7 @@
   },
   "head": "a7dddbe6f69e64d7c1d3c6d0a7c996d6d96b7655",
   "repo": "https://github.com/KaiDrange/OctaChainer2",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v2.0.0"
   ],
@@ -6833,7 +6853,7 @@
   },
   "head": "21e589b6cbed1fc6ee484b9d2d516777dc0580df",
   "repo": "https://github.com/mxldyn/octamax",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "dual256-v1"
   ],
@@ -6857,7 +6877,7 @@
   },
   "head": "df4d3ec456ccd4cbab4349a3ac0b2a24c0d70b0a",
   "repo": "https://github.com/devilfish707/Octaplay",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -6868,19 +6888,19 @@
   ]
  },
  "octatrack-kyoti-fw": {
-  "checked": "2026-11-01 18:13 UTC",
+  "checked": "2026-11-02 13:32 UTC",
   "files": {
    ".claude/skills/pull-research/SKILL.md": "f40d51f91226",
    "ARCHITECTURE.md": "59ae269559ff",
-   "BUILD_KYOTI.md": "a0e7a4828231",
+   "BUILD_KYOTI.md": "1d01dd996d4f",
    "CLAUDE.md": "d4bfe2dd906b",
    "COVERAGE.md": "b6571d567b0c",
    "CREDITS.md": "e83a80d9a92a",
-   "FLASHING.md": "d072751a2db1",
+   "FLASHING.md": "3a4c17570af2",
    "LICENSE": "8cd09176a276",
-   "NOTES.md": "82c8b056112e",
-   "README.md": "8ede93147c56",
-   "START_HERE.md": "9da7737bec38",
+   "NOTES.md": "43c99e268086",
+   "README.md": "cf1f4717d885",
+   "START_HERE.md": "26bcbef67e20",
    "modwerk-modules/README.md": "f6d49854a303",
    "modwerk-modules/mute-modes/README.md": "b5bf36195c79",
    "modwerk-modules/quantize-live-rec-toggle/README.md": "39299a022c72",
@@ -6929,7 +6949,7 @@
    "reference/handoffs/VARISPEED_SCOPE_EMUS.md": "b4d3e5f2aa98",
    "reference/handoffs/VARISPEED_SPEC.md": "884d875a12c7",
    "reference/kb/README.md": "50ec6c10337f",
-   "reference/kb/caves.md": "356afff0f39b",
+   "reference/kb/caves.md": "2f7f0ffc914a",
    "reference/kb/container-format.md": "aea216421079",
    "reference/kb/dsp56300.md": "bbaf99333d43",
    "reference/kb/file-format.md": "bde866942d95",
@@ -6945,11 +6965,12 @@
    "tools/ot303/body/README.md": "63f9c186b1c4",
    "tools/refs/local-patches/README.md": "af155a96671a"
   },
-  "head": "8868867d02b15b5368a7e54772aff0c1c0387c81",
+  "head": "4b83b4c50b8cd7b3d2c157ee0dbf8774d4532d95",
   "repo": "https://github.com/Zac-Kyoti/octatrack-kyoti-fw",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "ref/kyoti-v1.5-2026-10-22",
+   "ref/kyoti-v1.6-2026-10-29",
    "ref/sidechain-compressor-2026-10-16",
    "ref/sidechain-compressor-light-2026-10-22",
    "ref/sidechain3-cross-2026-09-25",
@@ -7008,7 +7029,7 @@
   },
   "head": "f2c0d211a5fb0af104a8ba308b857baf478e09f2",
   "repo": "https://github.com/davidferlay/octatrack-manager",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.0.0",
    "v0.0.0-rc",
@@ -7151,7 +7172,7 @@
   },
   "head": "5d97c16fa5d382c01dbfd3d52de72dee909dcf85",
   "repo": "https://github.com/timhastie/octatrick",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -7172,7 +7193,7 @@
   },
   "head": "3adc0a8e59db4342ee105f937dc620a0039d5b58",
   "repo": "https://github.com/markandrus/octemu",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -7191,7 +7212,7 @@
   },
   "head": "75220d4a5b509c1f7ef43cbd1a5cac534722a65f",
   "repo": "https://github.com/complex-ping/overtone",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0",
    "v1.0.1",
@@ -7219,7 +7240,7 @@
   },
   "head": "40018bbd71e5424f1f71a58a0a98d60d68c5ffcb",
   "repo": "https://github.com/dagargo/overwitch",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "0.1",
    "0.2",
@@ -7351,7 +7372,7 @@
   },
   "head": "7fb90d7b6b2a7e0c98387631178e70a87c812a76",
   "repo": "https://github.com/theremoteviewer/octa-passos",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0"
   ],
@@ -7371,7 +7392,7 @@
   },
   "head": "4758d4a21c1130b78f12688fefd67cbfb38e22a3",
   "repo": "https://github.com/x2k77m1/phreakoid",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0a"
   ],
@@ -7398,7 +7419,7 @@
   },
   "head": "03899cc1d02656e0048e7d07df14e4001621fc39",
   "repo": "https://github.com/DMDaudio/plaits-on-models",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -7409,14 +7430,15 @@
   ]
  },
  "pump-digitakt": {
-  "checked": "2026-11-01 23:12 UTC",
+  "checked": "2026-11-02 13:32 UTC",
   "files": {
+   "CHANGELOG.md": "4260d60bf81a",
    "LICENSE": "9efa6fbc9628",
-   "README.md": "bde2a452fccb"
+   "README.md": "4260b39dff39"
   },
-  "head": "963a5519bf97833b7d9c76c01373bbae777c1495",
+  "head": "e212b5dd5f51dc76a2a568a1f24b83fc50f7c0a2",
   "repo": "https://github.com/ClaidArremer/digitakt-pump",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -7434,7 +7456,7 @@
   },
   "head": "5a6d50e90f84989ebb9972d766c3ab94dc42227d",
   "repo": "https://github.com/ClaidArremer/digitone-pump",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -7452,7 +7474,7 @@
   },
   "head": "1caf3a939356fb6910b7cc790e15e835ef2c1bb4",
   "repo": "https://github.com/tonyrewin/reslicer-digitakt",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -7495,7 +7517,7 @@
   },
   "head": "21edb22d178e8255be42056113ba7b2dc69d5a9c",
   "repo": "https://github.com/DigiAlchemydsp/RingTone",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v2.0o"
   ],
@@ -7518,7 +7540,7 @@
   },
   "head": "90af848d80e2d412a3b5ad38ee68ee37998a9cf8",
   "repo": "https://github.com/stampman3000-jpg/rytm-builder",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -7542,7 +7564,7 @@
   },
   "head": "2f7f0c4c01da3433e6386774416ea33f6c3753af",
   "repo": "https://github.com/ethernet8023/rytm-fw-re",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -7599,7 +7621,7 @@
   },
   "head": "3a98e237172181e7703e4c4bca12f646bbaa6a24",
   "repo": "https://github.com/ConnorWay32/rytm-mods-src",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -7635,7 +7657,7 @@
   },
   "head": "2fae7ce9ff6a3b225ffbdf106a002d3ce71dfc2b",
   "repo": "https://github.com/gdeo607/rytm1_mods",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -7675,7 +7697,7 @@
   },
   "head": "01254ab5f69f7083a70746b18de715d52335e499",
   "repo": "https://github.com/Iced-Cream/rytm2_mods",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0",
    "v1.1",
@@ -7701,7 +7723,7 @@
   },
   "head": "9136f2591465e9f3ce7cbfd22d0b2b6149bccec7",
   "repo": "https://github.com/x2k77m1/sampletone",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -7722,7 +7744,7 @@
   },
   "head": "982087e17b4882e2c42381842c5c7ba9f85dbcf1",
   "repo": "https://github.com/x2k77m1/sayit",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0a",
    "v1.0b"
@@ -7744,7 +7766,7 @@
   },
   "head": "33e2888ca268b76e39ee65ad1af102be1ca3e849",
   "repo": "https://github.com/jakobbak/screendump",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -7776,7 +7798,7 @@
   },
   "head": "2b26d3b75c53063575bc5c820fa0d38879335187",
   "repo": "https://github.com/js216/selache",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -7795,7 +7817,7 @@
   },
   "head": "677826eaeb80f945428019c3e411522aca836e0c",
   "repo": "https://github.com/trigcondition/sidecar-digitakt",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -7822,7 +7844,7 @@
   },
   "head": "7a508b0fbfea52ca6b3a2570096f73f0c153b8f1",
   "repo": "https://github.com/AveyCole/SPOKES",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -7833,14 +7855,14 @@
   ]
  },
  "supermodel-edition": {
-  "checked": "2026-11-01 23:07 UTC",
+  "checked": "2026-11-02 13:32 UTC",
   "files": {
    "AGENTS.md": "778849973944",
    "BUILD.md": "e4da60e6c948",
    "CLAUDE.md": "57842502c6d0",
    "FLASH.md": "9f5620d7574a",
    "LICENSE-Punch.txt": "bd3ad0b16312",
-   "README.md": "562a443cb3b5",
+   "README.md": "2c591c8955c3",
    "THIRD-PARTY-NOTICES.md": "3dfa71b9453a",
    "docs/AGENTS.md": "e10ee5744f8c",
    "docs/assets/screens/README.md": "b327fc3d2933",
@@ -8007,10 +8029,10 @@
    "docs/flasher-no-midi-capacity-test/TEST-NOTES.md": "50ae770cf047",
    "docs/flasher-no-midi-capacity-test/quick-reference-fr.md": "bb4b8526d8be",
    "docs/flasher-no-midi-capacity-test/quick-reference.md": "407303436cbc",
-   "docs/flasher-optional/README.md": "6c6d6585b0c2",
-   "docs/flasher-optional/quick-reference-fr.md": "af7fba472e98",
-   "docs/flasher-optional/quick-reference.md": "f4fc21e9788c",
-   "docs/flasher-optional/user-manual.md": "6c9f4ba80ac4",
+   "docs/flasher-optional/README.md": "8c20498abbc0",
+   "docs/flasher-optional/quick-reference-fr.md": "e37133eebc07",
+   "docs/flasher-optional/quick-reference.md": "031a244862cd",
+   "docs/flasher-optional/user-manual.md": "3a4b85c43d20",
    "docs/flasher-own-support-test/ABOUT.md": "1f987a82b299",
    "docs/flasher-own-support-test/quick-reference-fr.md": "e64c4fe6842f",
    "docs/flasher-own-support-test/quick-reference.md": "30b268c6b77f",
@@ -8077,12 +8099,12 @@
    "docs/flasher-wizard-filter-test/source/shared-filter/README.md": "12ff54871102",
    "docs/flasher/ABOUT.md": "af3dd3f8eed2",
    "docs/flasher/TEST-NOTES.md": "10a1cec86314",
-   "docs/flasher/quick-reference-fr.md": "af7fba472e98",
-   "docs/flasher/quick-reference.md": "f4fc21e9788c",
+   "docs/flasher/quick-reference-fr.md": "e37133eebc07",
+   "docs/flasher/quick-reference.md": "031a244862cd",
    "docs/flasher/source/README.md": "9f27b15746aa",
    "docs/flasher/source/queue-choice/README.md": "f04de034af1b",
    "docs/flasher/source/shared-filter/README.md": "12ff54871102",
-   "docs/flasher/user-manual.md": "6c9f4ba80ac4",
+   "docs/flasher/user-manual.md": "3a4b85c43d20",
    "docs/notes/midi_bank_clipboard.md": "694114dc14c1",
    "docs/notes/midi_bank_track_setup.md": "20cde1946eaa",
    "docs/notes/midi_lfo_cc_scroll_keyboard.md": "d1ea7dc0af5f",
@@ -8310,9 +8332,9 @@
    "tweaks/model-cycles_OS1.13/PROVENANCE.md": "15631448d4f1",
    "tweaks/model-cycles_OS1.13/REGISTRY.md": "1dd9f0716345"
   },
-  "head": "41899eecacb8790f03304ea71256e99c018d5214",
+  "head": "985bed025f455a9e133fd2d3733ff5c18ec16586",
   "repo": "https://github.com/AveyCole/Supermodel",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "wavetable-pack"
   ],
@@ -8333,7 +8355,7 @@
   },
   "head": "a596b6393fc43582fd3ae0234ac04e198b779edb",
   "repo": "https://github.com/Rxuting/sy-fm4",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -8361,7 +8383,7 @@
   },
   "head": "08a7fc8f138cfd15b56ecd06293873f96b1bdc99",
   "repo": "https://github.com/sinedied/sympakt",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -8386,7 +8408,7 @@
   },
   "head": "5b2746637ea3759b6513f4be1d25b2c794869440",
   "repo": "https://github.com/Vuulgaris/syncrackd",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1.2"
   ],
@@ -8411,7 +8433,7 @@
   },
   "head": "142c68dfc2707a3301ad3d45071dedf2b3177598",
   "repo": "https://github.com/GSM1980/Synfact-release",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.0.2"
   ],
@@ -8433,7 +8455,7 @@
   },
   "head": "43b6cc2d83485edbdb351d709c63a4c0ee630a70",
   "repo": "https://github.com/Bezronczek/syntakt-firmware-workbench",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -8459,7 +8481,7 @@
   },
   "head": "9511030517b0b82ec5dfa8d74d75b77e58bef9c0",
   "repo": "https://github.com/Humgic/syntakt-machine45-research",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -8497,7 +8519,7 @@
   },
   "head": "b536fa598cc2587d718905144e4c597947a5770c",
   "repo": "https://github.com/karigardarsson/Synthack-OS",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "syntakt-max-modular-builder-rc1",
    "syntakt-max-modular-builder-rc2",
@@ -8541,7 +8563,7 @@
   },
   "head": "c12cf23ad88e68d3f85422a7d09c2a911659997f",
   "repo": "https://github.com/Angelo-politek/Synthack-OS",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.4.3",
    "v0.5.0",
@@ -8571,7 +8593,7 @@
   },
   "head": "52b018fdf9fbc54a457ea7017241a96af6b6ea30",
   "repo": "https://github.com/xrcstrecords/syxgrid-digitone-ii",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v1.0",
    "v1.1",
@@ -8600,7 +8622,7 @@
   },
   "head": "647af73e215c8a0be730ef911f9b9ec5e396a108",
   "repo": "https://github.com/triode-the-andrewsarchus/takt1ccname",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -8635,7 +8657,7 @@
   },
   "head": "e08445e97e12905011f2e63bde965f9dbcbce5b8",
   "repo": "https://github.com/water-feature/taktone",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -8731,7 +8753,7 @@
   },
   "head": "c65715b7c32f3424f4f01855aee3b18c25362c44",
   "repo": "https://github.com/DigiAlchemydsp/Tone-FX",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v2.1h",
    "v2.2a",
@@ -8766,7 +8788,7 @@
   },
   "head": "1ae9e1a486daa10909d2fff2fd804a4d809f76f4",
   "repo": "https://github.com/digitaktplus/trig-pages",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -8794,7 +8816,7 @@
   },
   "head": "42258f958d4374981c52bc6f794909c16c234033",
   "repo": "https://github.com/karlalex732-dotcom/VAMPIRE-MANGA-OS-for-Elektron-Digitakt-OG-and-Digitone-OG",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "B01-three-fx-macro",
    "VM09"
@@ -8818,7 +8840,7 @@
   },
   "head": "d97d971f29fdf8e6d0a8a3b9186f52f946611c14",
   "repo": "https://github.com/x2k77m1/VAWT",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1w",
    "v0.1x",
@@ -8851,7 +8873,7 @@
   },
   "head": "96c72a0832de8eef1d8d088d00c4c909cc190fd1",
   "repo": "https://github.com/imaf6971/vladiktron-spoke",
-  "seen": "2026-11-01 23:12 UTC",
+  "seen": "2026-11-02 13:32 UTC",
   "tags": [
    "v0.1.0"
   ],

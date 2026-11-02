@@ -78,6 +78,12 @@ Devices: Analog Rytm (MKI, MKII), Digitakt (MKI). [repo](https://github.com/trig
 - **Digitakt integrated sidecar** (soejrd) - builds on **Sidecar | Expander** (README: based on Sidecar by Trig Condition). [repo](https://github.com/soejrd/digitakt-sidecar)
 - **Sidecar (Digitakt mod)** (trigcondition) - variant of **Sidecar | Expander** (same author, Digitakt side of Sidecar). [repo](https://github.com/trigcondition/sidecar-digitakt)
 
+## DigiFilter (DigiAlchemydsp)
+
+Devices: Digitakt (MKI). [repo](https://github.com/DigiAlchemydsp/DigiFilter)
+
+- **Filter+ (13 filter types)** (DigiAlchemydsp) - builds on **DigiFilter** (same author; BP/BP2/COMB/TRASH are DigiFilter modes; LICENSE names the DigiFilter authors). [repo](https://github.com/DigiAlchemydsp/FILTER-PLUS)
+
 ## digikit (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo)
 
 Devices: Digitakt II, Digitone II. [repo](https://github.com/ElekLabs/digikit)

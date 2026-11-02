@@ -230,3 +230,5 @@ ignore:
   - the-xor/samplechain
   - logo-ui/samples.modelproviders
   - konradb3/elektron_firmware
+  # binary-only Octatrack OS image (.bin) built on Modwerk, no source and no account of what changed; ships Elektron firmware (2026-11-02)
+  - devaduta/mocktatrack

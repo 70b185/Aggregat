@@ -7,9 +7,12 @@ Data last verified: 2026-11-02
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0. main since: core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-11-02 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
+| **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-02 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
+| **Filter+ (13 filter types)** (DigiAlchemydsp) | mod | released | 1.0 (2026-11-02); Digitakt mk1 OS 1.54; Digitone mk1 / Keys OS 1.44 | - | 2026-11-02 | [repo](https://github.com/DigiAlchemydsp/FILTER-PLUS) |
+| **elkflash** (Iced-Cream) | tool | active | - | - | 2026-11-02 | [repo](https://github.com/Iced-Cream/elkflash) |
 | **digitakt-digitone-mcp** (jamiew) | tool | active | - | - | 2026-11-01 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
-| **Sidecar | Expander** (trigcondition) | tool | wip | Sidecar 0.3.2 with Rytm firmware 0.3.1; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | - | 2026-11-01 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
+| **Sidecar | Expander** (trigcondition) | tool | wip | Sidecar 0.3.2 with Rytm firmware 0.3.1; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | v0.2.0 | 2026-11-01 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
 | **SAY IT** (x2k77m1) | mod | wip | Digitone mk1, Digitakt mk1 | v1.0b | 2026-10-31 | [repo](https://github.com/x2k77m1/sayit) |
 | **DIGISEQ (Digitakt)** (ClaidArremer) | mod | wip | Digitakt mk1 | - | 2026-10-31 | [repo](https://github.com/ClaidArremer/digitakt-digiseq) |
 | **Sidecar (Digitakt mod)** (trigcondition) | mod | wip | Digitakt mk1 | - | 2026-10-31 | [repo](https://github.com/trigcondition/sidecar-digitakt) |
@@ -18,7 +21,6 @@ Data last verified: 2026-11-02
 | **digitakt-mods** (hillzeealex) | tool | active | Digitakt mk1 1.53/1.54, Digitakt II 1.17 | v1.0 | 2026-10-29 | [repo](https://github.com/hillzeealex/digitakt-mods) |
 | **Vampire Manga OS** (karlalex732-dotcom) | firmware | beta | Beta 0.1 (B01) | VM09 | 2026-10-28 | [repo](https://github.com/karlalex732-dotcom/VAMPIRE-MANGA-OS-for-Elektron-Digitakt-OG-and-Digitone-OG) |
 | **DIGISNAKE (Digitakt)** (ClaidArremer) | mod | wip | Digitakt mk1 | - | 2026-10-27 | [repo](https://github.com/ClaidArremer/digitakt-digisnake) |
-| **elkflash** (Iced-Cream) | tool | active | - | - | 2026-10-25 | [repo](https://github.com/Iced-Cream/elkflash) |
 | **DigiFilter** (DigiAlchemydsp) | mod | wip | v1.3 (2026-10-24); Digitakt mk1 OS 1.53 (Digitakt II explicitly out of scope) | v1.3 | 2026-10-24 | [repo](https://github.com/DigiAlchemydsp/DigiFilter) |
 | **DigiPools** (freeze157-prog) | mod | unknown | Digitakt mk1 OS 1.54 | - | 2026-10-24 | [repo](https://github.com/freeze157-prog/digipools) · [forum](https://elektronmods.com/mods.php?id=57) |
 | **PUMP (Digitakt)** (ClaidArremer) | mod | wip | Digitakt mk1 | - | 2026-10-24 | [repo](https://github.com/ClaidArremer/digitakt-pump) |
@@ -35,7 +37,6 @@ Data last verified: 2026-11-02
 | **takt1ccname (MIDI CC naming)** (vegadw) | mod | done | Digitakt mk1 | - | 2026-10-16 | [repo](https://github.com/triode-the-andrewsarchus/takt1ccname) · [forum](https://elektronmods.com/thread-66-digitakt-mk1-midi-cc-naming) |
 | **digirequests (Digitakt request mods)** (sumedho) | mod | unknown | - | - | 2026-10-16 | [repo](https://github.com/sumedho/digirequests) · [cc names module](https://github.com/sumedho/digirequests/tree/main/modules/cc-names) |
 | **digihealth** (pina (irpina)) | mod | wip | v1.1.1 (2026-10-14); Digitakt mk1 OS 1.53 (digihealth 1.0); Digitone mk1 + Keys OS 1.43 (1.1, SYSTEM INFO only) | v1.1.1 | 2026-10-14 | [repo](https://github.com/irpina/digihealth) |
-| **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-10-13 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **Digineighbor (NEIGHBOR machine)** (pina (irpina)) | mod | alpha | 0.7 (commit 2026-10-09; latest tagged release v0.6, 2026-10-02); Digitakt mk1 1.53, 1.54 | v0.6 | 2026-10-09 | [repo](https://github.com/irpina/digineighbor) · [forum](https://elektronmods.com/thread-21-digineighor-a-neighbor-machine-for-the-digitakt-mk1) |
 | **DT-FM** (mtalikka) | mod | released | v1.2.1 (2026-10-09); Digitakt mk1 OS 1.53 | v1.2.1 | 2026-10-09 | [repo](https://github.com/mtalikka/DT-FM) |
 | **Digidrum** (soejrd) | mod | unreachable | v0.4.1-alpha.1 (2026-10-06); Digitakt mk1 OS 1.53 (Digitone and Syntakt are stated goals, not current targets) | - | 2026-10-06 | [repo](https://github.com/soejrd/digidrum) |
@@ -68,7 +69,7 @@ _Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
 
 ### Modwerk (formerly Octamod)
 
-Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still early prototypes. last_activity = date of the Dubspot article, not a forum post.
+Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still early prototypes. last_activity = date of the Dubspot article, not a forum post. 2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI.
 
 _Sources: gearnews, dubspot, forum thread 36_
 
@@ -147,6 +148,14 @@ Extra per-track filter modes (BP, BP2, COMB, TRASH). README: audio path done and
 _Latest seen (2026-10-31, secondary directories): altstrument: v1.3 adds a Digitone mk1/Keys build (six filter modes) and splits Filter+FX into its own project; v1.2 caps Digitakt OB resonance at 75 %; v1.1b lowers per-voice cost. Stock OS: Digitakt 1.54, Digitone 1.44. GPL-2.0-or-later._
 
 _Sources: GitHub README, lapin-list_
+
+### Filter+ (13 filter types)
+
+elekloader format-2 mods adding 13 per-track filter types (BP, BP2, COMB, TRASH, LP1, HP1, LP4-, HP4-, LP2, HP2, NOTCH, COMB-, TRASH-) as Digitakt TYPE 8-20 and Digitone TYPE 4-16, using each voice's FREQ, RESO and filter envelope; stock TYPE values keep the stock filter. All modes cost less than the stock multimode filter in the author's emulator bench (2,603 cycles per voice and block; LP1 606, COMB 2,037). The FLTR page draws curves and icons for the new modes. Credits x2k_77-m1 for the original Digitone port. Source, host tests and digiemu tests published; GPL-2.0-or-later. Found by GitHub search 2026-11-02; README and CHANGELOG read.
+
+_Related: builds on `digifilter` (same author; BP/BP2/COMB/TRASH are DigiFilter modes; LICENSE names the DigiFilter authors) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub README, CHANGELOG.md_
 
 ### DigiSplash
 
@@ -356,7 +365,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 ### elkflash
 
-Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). MIT. Found by GitHub search 2026-11-02; README start read.
+Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). MIT. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the first Ping on a new port is retried up to 3 times (3 s each) before giving up, before anything is written.
 
 _Sources: GitHub search 2026-11-02, README_
 

@@ -8,14 +8,14 @@ Data last verified: 2026-11-02
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **model27** (durchgemacht, 18nelli18) | firmware | active | main @ da51e17 (2026-11-01); 1.13 | - | 2026-11-01 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
-| **Supermodel Edition** (A.V., 18nelli18) | firmware | active | main @ cd6ae4c (2026-11-01); 1.13 | wavetable-pack | 2026-11-01 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |
+| **Cycles One-Shot** (durchgemacht) | mod | active | machine 0.13 (2026-11-02, on main; newest tag v0.12): Start and Length act on the note that plays; tested in a model27 build, in digiemu and on a Model:Cycles; 1.13 | v0.12 | 2026-11-02 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
+| **model27** (durchgemacht, 18nelli18) | firmware | active | release 0.32 (beta, 2026-11-02): eleven cards in the web flasher; fltslot 0.10; 1.13 | - | 2026-11-02 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
+| **Supermodel Edition** (A.V., 18nelli18) | firmware | active | main @ cd6ae4c (2026-11-01); 1.13 | wavetable-pack | 2026-11-02 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |
 | **SPOKES** (A.V.) | tool | active | main @ 1604cbf (2026-10-31); 1.13 | - | 2026-10-31 | [repo](https://github.com/AveyCole/SPOKES) · [homepage](https://aveycole.github.io/SPOKES/) |
-| **Cycles One-Shot** (durchgemacht) | mod | active | v0.12 (2026-10-30); 1.13 | v0.12 | 2026-10-30 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
 | **Vladiktron Spoke** (imaf6971) | emulator | active | v0.1.0 (2026-10-30); 1.13 | v0.1.0 | 2026-10-30 | [repo](https://github.com/imaf6971/vladiktron-spoke) |
-| **Cycles Engines** (100demons) | loader | wip | Model:Cycles OS 1.13 only | - | 2026-10-30 | [repo](https://github.com/100demons/cycles-engines) |
+| **Cycles Engines** (100demons) | loader | wip | Model:Cycles OS 1.13 only | phase-5 | 2026-10-30 | [repo](https://github.com/100demons/cycles-engines) |
 | **Cycles Mod Standard** (durchgemacht) | research | wip | draft 0.7; Model:Cycles OS 1.13 | - | 2026-10-30 | [repo](https://github.com/durchgemacht/cycles-mod-standard) |
-| **model909** (DMDaudio) | mod | wip | v1.0 (909 only, stable); main branch adds 808/606 voices (experimental); Model:Cycles OS 1.13 (also Model:Samples running the Cycles OS) | - | 2026-10-28 | [repo](https://github.com/DMDaudio/model909) |
+| **model909** (DMDaudio) | mod | wip | v1.0 (909 only, stable); main branch adds 808/606 voices (experimental); Model:Cycles OS 1.13 (also Model:Samples running the Cycles OS) | v1.0 | 2026-10-28 | [repo](https://github.com/DMDaudio/model909) |
 | **Cycles Mods** (100demons) | mod | active | Model:Cycles | v0.5.0 | 2026-10-22 | [repo](https://github.com/100demons/cycles-mods) |
 | **Modded Cycles** (18nelli18, Modded-Cycles contributors) | firmware | active | Release 2.0 (2026-10-19); 1.13 | etude-optimisation-os-2026-10-18 | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
 | **1-Bit Editor** (durchgemacht) | tool | active | v0.1 (2026-10-17) | v0.1 | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |
@@ -77,7 +77,7 @@ _Sources: altstrument (2026-11-01)_
 
 ### model27
 
-Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
+Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: a web Manager keeps one Model:Cycles project per firmware: it backs up the current project, flashes the other firmware over USB and restores that firmware's project (notes/77).
 
 _Related: fork of `modded-cycles` (own README: beta fork of Modded Cycles 1.55) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
@@ -99,7 +99,7 @@ _Sources: altstrument (2026-11-01)_
 
 ### Supermodel Edition
 
-Fork of Modded Cycles with a 909-style kit flasher, ACID machine, sequence generator, second LFO. Licence: unspecified; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
+Fork of Modded Cycles with a 909-style kit flasher, ACID machine, sequence generator, second LFO. Licence: unspecified; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: more screenshots of the running firmware added to docs/assets/screens.
 
 _Related: fork of `modded-cycles` (GitHub fork flag) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 

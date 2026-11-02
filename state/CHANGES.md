@@ -1,7 +1,19 @@
-# Change report 2026-11-02 15:00 UTC
+# Change report 2026-11-02 22:12 UTC
 
-changed 2 | code-only 1 | new 0 | errors 0 | unchanged 153
+changed 11 | code-only 7 | new 37 | errors 2 | unchanged 136
 
-- **digikit** (project) https://github.com/ElekLabs/digikit: ~AGENTS.md ~docs/TESTING.md ~docs/design/module-sdk.md ~tests/regression/README.md
-- **lfox** (project) https://github.com/x2k77m1/lfox: tags +v1.0b ~README.md
-- code-only (HEAD moved, no watched file or tag changed): dir-altstrument
+- **cycles-one-shot** (project) https://github.com/durchgemacht/cycles-one-shot: ~README.md ~TECHNICAL.md
+- **digikit** (project) https://github.com/ElekLabs/digikit: ~docs/TESTING.md ~tests/regression/README.md
+- **digiseq-digitone** (project) https://github.com/ClaidArremer/digitone-digiseq: +CHANGELOG.md ~README.md
+- **dn2-dt2-firmware-research** (project) https://github.com/armio/dn2-dt2-firmware-research: +docs/research/2026-11-02.md +docs/usb-research.md +port/usb-research/README.md +research/diagnostics/README.md ~README.md ~docs/publication.md
+- **dn2mk2** (project) https://github.com/De-Pattern/dn2mk2-firmware: tags +v0.38 +releases/v0.38.md ~FIRMWARE.md ~docs/sampler.md ~docs/user-reports.md
+- **elkflash** (project) https://github.com/Iced-Cream/elkflash: ~README.md
+- **mdmm** (project) https://github.com/radekdymacz/mdmm: ~doc/guide/md/11-sample-manager-uw-only.md ~doc/modern-ux/FEATURE-MAP-MD.md ~doc/modern-ux/JOURNEYS.md ~doc/modern-ux/data-contract.md ~doc/release/0.9/md-sample-manager.md ~doc/release/BUGS.md
+- **model27** (project) https://github.com/durchgemacht/model27: +notes/77-manager.md ~AGENTS.md ~BUILD.md ~README.md ~docs/AGENTS.md ~notes/72-track-filters.md ~notes/73-track-fx-crush.md ~notes/README.md ~tweaks/model-cycles_OS1.13/REGISTRY.md
+- **modwerk** (project) https://github.com/repeat98/modwerk: +changelog/2026-11-02-agent-board-any-machine.md +changelog/2026-11-02-module-page-test-escaping.md +changelog/2026-11-02-no-new-submissions.md +changelog/2026-11-02-rytm-submission-release-docs.md +changelog/2026-11-02-usb-beta-mki.md +docs/verification/2026-11-02-rytm-npp1993-library.md +sdk/analog-rytm-mkii/modules/pipo-loop/README.md +sdk/analog-rytm-mkii/modules/pipo-loop/TESTING.md +sdk/analog-rytm-mkii/modules/pipo-loop/media/LICENSE.md +sdk/analog-rytm-mkii/modules/sample-rate/README.md +sdk/analog-rytm-mkii/modules/sample-rate/TESTING.md +sdk/analog-rytm-mkii/modules/sample-rate/media/LICENSE.md +sdk/analog-rytm-mkii/modules/silent-pad-trig/README.md +sdk/analog-rytm-mkii/modules/silent-pad-trig/TESTING.md +sdk/analog-rytm-mkii/modules/silent-pad-trig/media/LICENSE.md +sdk/analog-rytm-mkii/modules/silent-pad-trig/upstream/README.md ~docs/ADD_A_MODULE.md ~docs/DEVELOPER_WORKFLOW.md ~docs/ELEMOD_SOURCE_BUILDS.md ~sdk/analog-four-mkii/modules/README.md ~sdk/analog-rytm-mkii/modules/README.md ~sdk/machines/analog-rytm-mkii/README.md -sdk/analog-rytm-mkii/modules/_submissions/pipo-loop/README.md -sdk/analog-rytm-mkii/modules/_submissions/pipo-loop/TESTING.md -sdk/analog-rytm-mkii/modules/_submissions/pipo-loop/media/LICENSE.md -sdk/analog-rytm-mkii/modules/_submissions/sample-rate/README.md -sdk/analog-rytm-mkii/modules/_submissions/sample-rate/TESTING.md -sdk/analog-rytm-mkii/modules/_submissions/sample-rate/media/LICENSE.md -sdk/analog-rytm-mkii/modules/_submissions/silent-pad-trig/README.md -sdk/analog-rytm-mkii/modules/_submissions/silent-pad-trig/TESTING.md -sdk/analog-rytm-mkii/modules/_submissions/silent-pad-trig/media/LICENSE.md -sdk/analog-rytm-mkii/modules/_submissions/silent-pad-trig/upstream/README.md
+- **pump-digitone** (project) https://github.com/ClaidArremer/digitone-pump: +CHANGELOG.md ~README.md
+- **supermodel-edition** (project) https://github.com/AveyCole/Supermodel: ~docs/assets/screens/README.md
+- code-only (HEAD moved, no watched file or tag changed): analoghealth, dir-altstrument, dn2-firmware-explore, elektroid, ems-octakit, overwitch, spokes
+- new baseline: a4-mk1-mods, a4-sound-sysex-tables, acidtrack-modules, bsp-machinedrum, c7, cycles-engines, cycles-mod-standard, digiprism, digiswarm, kitsmith, machinedrum-rasp, machinemodule-desktop, machinemodule-mpc, maschine-md-mm, mddt, mdkit, midisc-sambanks, model-cycles-mcpst, model909, moduledrum, monomachine-lab, mpc-tributary, octa-bt-pt, octadraw, octalib, octatrack-modules-radiohagen, op-xy-mnmd, ot-tools-io, otype, rebirth2octatrack, rytm-mk1-mods-hugz202, rytm-mods-boot-report, rytm-rs, schwung-monomodule, sidecar-expander, trackpatterns, turbomidi-cpp
+- ERROR lfox https://github.com/x2k77m1/lfox: fatal: could not read Username for 'https://github.com': terminal prompts disabled
+- ERROR synfact https://github.com/GSM1980/Synfact-release: fatal: could not read Username for 'https://github.com': terminal prompts disabled

@@ -12,9 +12,9 @@ Data last verified: 2026-11-02
 | **Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)** (radiohagen) | mod | active | Octatrack OS 1.40C via octabam | - | 2026-10-31 | [repo](https://github.com/radiohagen/octatrack-modules) |
 | **OT Kyoti FW** (Zac Kyoti) | firmware | active | KYOTI V1.6 (2026-10-22); ref tag ref/kyoti-v1.6-2026-10-29 added; 1.40C | ref/sp12-midside-vem7 | 2026-10-29 | [repo](https://github.com/Zac-Kyoti/octatrack-kyoti-fw) |
 | **ReBirth to Octatrack** (alexandrubelc) | tool | wip | Octatrack with octabam GARDEN36 or later | - | 2026-10-29 | [repo](https://github.com/alexandrubelc/rebirth2octatrack) |
-| **TrackPatterns** (pgstath) | mod | wip | 0.1.0 experimental, tested on one MKII; Octatrack OS 1.40C (octabam / Modwerk module) | - | 2026-10-23 | [repo](https://github.com/pgstath/TrackPatterns) |
+| **TrackPatterns** (pgstath) | mod | wip | 0.1.0 experimental, tested on one MKII; Octatrack OS 1.40C (octabam / Modwerk module) | v0.1.0 | 2026-10-23 | [repo](https://github.com/pgstath/TrackPatterns) |
 | **OType** (nordseele) | mod | wip | Octatrack firmware (custom; see docs) | - | 2026-10-22 | [repo](https://github.com/nordseele/otype) · [docs](https://nordseele.github.io/otype-docs/) |
-| **OctaDraw** (nordseele) | tool | active | - | - | 2026-10-21 | [repo](https://github.com/nordseele/octadraw) |
+| **OctaDraw** (nordseele) | tool | active | - | v0.13 | 2026-10-21 | [repo](https://github.com/nordseele/octadraw) |
 | **aCiDtRacK modules** (braikomarko-hub) | mod | wip | Octatrack MKI OS 1.40C via octabam | - | 2026-10-21 | [repo](https://github.com/braikomarko-hub/acidtrack-modules) |
 | **Octatrack Manager** (David Ferlay) | tool | active | v0.49.0 (2026-10-18); Projects saved on OS 1.40 or later | v0.49.0 | 2026-10-18 | [repo](https://github.com/davidferlay/octatrack-manager) · [homepage](https://davidferlay.github.io/octatrack-manager/) |
 | **midisc** (bkkbrls-del) | mod | active | MIDISC2.1 (2026-10-08); 1.40C | 1.40MIDISC | 2026-10-08 | [repo](https://github.com/bkkbrls-del/midisc) |
@@ -22,12 +22,12 @@ Data last verified: 2026-11-02
 | **PassOS** (theremoteviewer) | mod | active | v1.0 (2026-09-28); 1.40C | v1.0 | 2026-09-28 | [repo](https://github.com/theremoteviewer/octa-passos) |
 | **Octatrick** (Tim Hastie) | mod | active | MKI hardware-tested builds (2026-09-26); 1.40C | - | 2026-09-26 | [repo](https://github.com/timhastie/octatrick) |
 | **midisc-patcher** (bkkbrls-del) | tool | active | main @ 1ce2245 (2026-09-18); 1.40C | - | 2026-09-18 | [repo](https://github.com/bkkbrls-del/midisc-patcher) |
-| **midisc (1.40MSC)** (sambanks) | mod | wip | Octatrack MK1/MK2 OS 1.40C | - | 2026-09-12 | [repo](https://github.com/sambanks/midisc) |
+| **midisc (1.40MSC)** (sambanks) | mod | wip | Octatrack MK1/MK2 OS 1.40C | octabam-gas-1.40MSC | 2026-09-12 | [repo](https://github.com/sambanks/midisc) |
 | **octa-bt-pt** (bryantysinger) | tool | active | Octatrack OS 1.40C only (hash-checked) | - | 2026-08-23 | [repo](https://github.com/bryantysinger/octa-bt-pt) |
 | **OctaChainer 2** (Kai Drange) | tool | active | v2.0.0 (2026-08-05) | v2.0.0 | 2026-08-05 | [repo](https://github.com/KaiDrange/OctaChainer2) · [homepage](https://ticticelectro.com/2017/08/26/octachainer-v1-3/) |
 | **ot-tools-io** (jhw) | library | active | - | - | 2026-08-03 | [repo](https://github.com/jhw/ot-tools-io) · [python lib](https://github.com/jhw/octapy) |
 | **TurboMIDI (C++)** (DatanoiseTV) | library | active | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
-| **OctaLib** (snugsound) | tool | inactive | - | - | 2025-02-28 | [repo](https://github.com/snugsound/OctaLib) |
+| **OctaLib** (snugsound) | tool | inactive | - | 0.1.1.0 | 2025-02-28 | [repo](https://github.com/snugsound/OctaLib) |
 | **ems-octakit** (June Kiff (emuyia)) | mod | active | 1.40C | - | - | [repo](https://github.com/emuyia/ems-octakit) · [earlier listed copy](https://github.com/LyingDalai/ems-octakit) |
 | **OCTAMAX** (Maxolydian (mxldyn)) | mod | active | 2.0 BETA; 1.40C | dual256-v1 | - | [repo](https://github.com/mxldyn/octamax) |
 | **Octaplay** (devilfish707) | mod | active | 1.40C | - | - | [repo](https://github.com/devilfish707/Octaplay) |

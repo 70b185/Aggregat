@@ -7,7 +7,7 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [x] angellinares/dn2_firmware_explore: `docs/flashing.md` (-> common/flash-procedure.md); [ ] `docs/mainos-image.md`, `docs/ele3-format.md`
 - [x] naturarum/dn2-cfw: `docs/parameter-table-growth.md` (-> devices/digitone-2.md); [ ] T1.4/T1.5 notes (flash-write audit, STARTUP independence), `tools/brickcheck` (the 12 checks)
 - [x] De-Pattern/dn2mk2-firmware: `docs/SAFETY.md` (-> common/flash-procedure.md); [x] `docs/emulator.md`, `docs/user-reports.md`, `docs/dsp-time.md`, `docs/dsp-cost.md`; [ ] FIRMWARE.md v0.20 and older
-- [ ] complex-ping/overtone: `docs/` and the patcher's ~160 checks
+- [x] complex-ping/overtone README (the repo publishes no further docs; the ~160 checks are not public) (-> recovery, B7)
 - [ ] nzimas/digirust: `docs/FEATURES.md` (Digitone II OS 1.12)
 
 ## Digitakt mk1 / Digitone mk1

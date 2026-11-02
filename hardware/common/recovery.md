@@ -16,6 +16,7 @@ Know this **before** flashing a test unit. Sources are second-hand; check Elektr
 | Analog Heat +FX | Hold ACTIVE while powering on -> STARTUP menu -> press **MOD** (not LFO) = OS UPGRADE -> send the SysEx file via MIDI In. Elektron recommends the C6 - SysEx Tool for sending. Own OS: the MKII file is rejected ("Incompatible OS" on Elektronauts) | `[doc]` {elektron-heat-fx-notes} {elektronauts-heatfx} |
 
 ## Rules of thumb (all from the sources above)
+- **A mod can break the normal USB update path without anyone noticing until the next update.** On Overtone 1.0 (Digitone II), an OS sent with Transfer stopped at "Receiving" or "PREPARING..." and wrote nothing. The only way off it was the STARTUP menu over DIN, about 15 minutes. Test "install the next build over USB" as part of every release (rule A36). `[hw]` {overtone}
 - **Test your DIN interface before you need it.** On a DT2, a generic "USB2.0-MIDI" cable adapter (VID 1a86, PID 752d) delivered nothing, while a controller's DIN out worked. Cheap cable adapters are known to drop or mangle long SysEx; a stock-OS dry run with your exact cable is the only proof. `[hw]` {dt2-lab-coldfire-fix}
 - The stock OS file can always recover the unit **if** the bootstrap/bootloader was never modified (rule A1).
 - Keep a physical MIDI interface for DIN-only recovery (Digitakt II / Digitone II). {digitakt-ii-research}

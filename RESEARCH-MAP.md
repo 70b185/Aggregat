@@ -64,9 +64,7 @@ When done, update the matching row here and the device file under hardware/devic
 | Mod platform | ✅ | elekloader core with a hook bus (tick, draw, key, encoder, settings, render in/out); core-owned sites listed. | - |
 | Memory budget for mods | ✅ | 128 KB `.run`+`.bss`, 2,304 B fast SRAM (core 2.x); 256 KB area on core 4.0. | - |
 | Load measurement | ✅ | DMA-timer method (digihealth); FAST AUDIO runs the render from SRAM. | - |
-| Machine-ID registry across mods | 🟡 | Eight ids collected (4, 5, 6, 7, 10, 27, 69, 77); several machine mods still unlisted. | T21 | Cross-check the three Digitakt II mod routes (digitakt-ii-research's trampoline and startup allocation, dt2-machine-lab's 1.16 profile, the elekloader fork's 1.17 core): which hook sites, memory and loaders they share or collide on | Digitakt II | files | M | Lets DT2 mods be combined instead of competing. |
-| T22 | Compare libanalogrytm's documented Rytm SysEx container/encoding with Digitakt II and Digitone II dumps (syxgrid's map is the DN2 side) | Rytm, DT2, DN2 | files | M | One shared description of Elektron's SysEx data encoding. |
-| T20 |
+| Machine-ID registry across mods | ✅ | Nine ids collected (4, 5, 6, 7, 9, 10, 27, 69, 77) in `hardware/devices/digitakt.md`; check new mods' `mod.json`. | T20 |
 | USB control-transfer rule (A39) | ⬜ | Found on the Octatrack; untested here. | T3 |
 | Board / teardown | ❓ | Only unverified forum reports. | Photos from anyone who opened one. |
 
@@ -174,7 +172,9 @@ Pick one, check the status above, and go. **S** = an evening, **M** = a few sess
 | T17 | ~~Find why Overbridge rejects modified DN2 builds~~ **done** (Digiwerk OB01: the version field). Remaining: how the plugin treats parameter ids `0x400`+ from a grown table | Digitone II | unit + Overbridge | S | Grown-table mods with Overbridge automation. |
 | T18 | Document the project file formats (`.dt2prj`, `.dn2prj`) beyond song slots | DT2, DN2 | files | M | Librarians and converters for musicians. |
 | T19 | Check which DN2 SHARC findings hold on the DT2 (and back), item by item, with the 85 % function twin list | DT2, DN2 | files (+ unit) | M | Doubles the value of every SHARC finding (G3). |
-| T20 | Finish the DT mk1 machine-id registry (started in `hardware/devices/digitakt.md`): read the `mod.json` of digisophie, DT-FM, digidrum, digistring and the rest | Digitakt mk1 | reading | S | Prevents clashes between mods. |
+| T20 | ~~DT mk1 machine-id registry~~ **done** (nine ids). Keep it current: add each new machine mod's id from its `mod.json` | Digitakt mk1 | reading | S | Prevents clashes between mods. |
+| T21 | Cross-check the three Digitakt II mod routes (digitakt-ii-research's trampoline and startup allocation, dt2-machine-lab's 1.16 profile, the elekloader fork's 1.17 core): which hook sites, memory and loaders they share or collide on | Digitakt II | files | M | Lets DT2 mods be combined instead of competing. |
+| T22 | Compare libanalogrytm's documented Rytm SysEx container/encoding with Digitakt II and Digitone II dumps (syxgrid's map is the DN2 side) | Rytm, DT2, DN2 | files | M | One shared description of Elektron's SysEx data encoding. |
 
 ### Where new findings are most likely
 

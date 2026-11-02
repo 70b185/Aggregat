@@ -87,10 +87,10 @@ When done, update the matching row here and the device file under hardware/devic
 | Silicon costs | ✅ | Taken jump ~7 cycles, CALL+RTS ~14, L2 miss ~58; device cycles ~2x emulator counts (A35). | [digitakt-2-dsp-optimizing.md](hardware/devices/digitakt-2-dsp-optimizing.md) |
 | RTOS and missed blocks | ✅ | FreeRTOS on the SHARC; a late block is a whole missed block; stock never misses on its own (A25). | [digitakt-2-sharc-measured.md](hardware/devices/digitakt-2-sharc-measured.md) |
 | ColdFire <-> SHARC reply words | ✅ | Words 670-676 arrive untouched; word 0 is a true load figure on DT2 (A26, S5, S6). | - |
-| Unsafe encodings | ✅ | Same-DAG stores, SIMD moves, negative shift immediates: run in the emulator, hang the unit (A33, A41). | - |
+| Unsafe encodings | ✅ | Same-DAG stores (two independent unit cases), SIMD moves, negative shift immediates: run in the emulator, hang the unit (A33, A41). digikit's patchkit refuses same-DAG stores at build time. | - |
 | "Bitcrush until reboot" | ❓ | Not caused by missed blocks; appears only with several custom-engine tracks at extreme settings. Cause unknown. | T7 |
 | Free L2 on 1.17 | ❓ | Static says up to `0x200fa000`, a unit clicked past `0x200f5a74` (O7). | T15 |
-| "Rung C" halt | ❓ | digikit lists no confirmed cause. | digikit findings |
+| "Rung C" halt | ✅ | Solved: 17 stores of a DAG register through its own DAG (excluded by the ISA, accepted by assembler and emulator); without them the build played on a unit. The same rule the repo owner found independently (A33). | - |
 | Bootstrap-menu recovery | 🟢 | **Used on a unit:** after a crashing build, official OS 1.16 was restored over DIN via Transfer's recovery mode (dt2-machine-lab, 2026-10-06). A cheap USB-MIDI cable adapter delivered nothing. One report; more welcome. | T1 (a second report, ideally on 1.17) |
 | OS version gate | ✅ | DT2 refuses OS below "0060" (S8). | - |
 | Sample path to a voice | 🟡 | Via link port 0 (LP0/DMA30), fed from a ColdFire Rapid-GPIO endpoint - two independent static/emulator readings agree (digikit f15, lalzart). The physical bridge is unknown. | Confirm on a unit. |

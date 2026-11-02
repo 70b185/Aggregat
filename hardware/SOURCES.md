@@ -222,3 +222,4 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | octamax | mxldyn/octamax `HOTCHANGE_FINDINGS.md` and `NOTES.md` (MAXODBG CF logging), Octatrack MKII OS 1.40C | https://github.com/mxldyn/octamax/blob/main/HOTCHANGE_FINDINGS.md |
 | rytm1-mods | gdeo607/rytm1_mods `docs/HAZARDS.md` (Rytm MK1 port of the MKII mods, OS 1.73) | https://github.com/gdeo607/rytm1_mods/blob/main/docs/HAZARDS.md |
 | syxgrid-map | xrcstrecords/syxgrid-digitone-ii `sysexmap/SYSEXMAP.md` and `mappings.json`, map v1.13.0 (CC BY 4.0, (c) XRCST; facts restated here) | https://github.com/xrcstrecords/syxgrid-digitone-ii/tree/main/sysexmap |
+| digikit-f49 | ElekLabs/digikit `docs/findings/49-dt2-type-sites-and-uninit-model.md` section 10 (same-DAG stores, the rung C halt) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/49-dt2-type-sites-and-uninit-model.md |

@@ -113,7 +113,7 @@ The older files in that project's archive came from an archive.org item and pass
 
 ## Known unknowns recorded by the authors
 - dn2-cfw: Overbridge shows "incompatible OS version" with its builds (open as of 2026-10-22); Space Echo merged with the 3-band compressor stopped the DSP on the unit (parked); whether a project saved on a grown parameter table loads on stock is untested. `[hw]` {dn2-cfw-roadmap}
-- digikit: real-time DSP audio in the emulator is **[O]**; the DT2 "Rung C" halt has no confirmed cause **[O]**. `[doc]` {digikit-findings}
+- digikit: real-time DSP audio in the emulator is **[O]**; the DT2 "Rung C" halt was later traced to same-DAG stores the ISA excludes (finding 49, a build without them played on a unit; rule A33). `[doc]` {digikit-findings}
 - DigiRust (Digitone II OS 1.12, MIT): browser patcher in a worker plus a macOS app (ad-hoc signed, needs APFS/HFS+ for hard links); generators for Patch, Kit, Pattern and Phrase with defaults Density 30 % and Brutality 35 %, "Control All" macros, a live drone latch and Perform Kit restoration; output `Digitone_II_OS1.12_DigiRust.syx`; the developer reports it runs on a real unit without issues, "not a safety guarantee". `[doc]` {digirust-readme} {digirust-features}
 
 ## Project/preset file formats seen by DNX (NoiseAndMatter; {dnx-page})

@@ -61,7 +61,7 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 ## Next from the 2026-10-31 clones (not yet read)
 - [x] digikit `MIDI-SYSEX-RPC.md`, `ARCHITECTURE.md`, `SHARC-ADDRESS-MAP.md`, `SAMPLES.md`; findings 14, 16, 25, 45, 47, 48, 51, 53, 57, 60, 73, 76, 77, 91, 100
 - [x] digikit findings 01, 03, 04, 09, 15, 19, 31, 41, 46, 52, 58, 78, 101-103
-- [ ] digikit findings still unread: 02, 05, 10-13, 17, 20-24, 26-30, 32-40, 42-44 (partly), 49, 50, 54-56, 61-69, 71, 72, 74 (mostly emulator/runtime internals)
+- [x] digikit findings 37 (exception handler), 42, 49 (rung C), 59, 72 read 2026-11-02; [ ] still unread, scanned as emulator/runtime internals: 02, 05, 10-13, 17, 20-24, 26-30, 32-36, 38-40, 43-44, 50, 54-56, 61-69, 71, 74
 - [x] dnfw docs: hardware, PRINCIPLES, mod-memory-regions, code-caves, version-gate, os-update-path, service-commands, mods-compatibility, sharc-load/-cycle-model/-stall-probe/-ddr, waverider-dsp-silence
 - [x] dnfw midi-rpc, usbprobe, audio-dma, dsp-control-block, sharc-voice-path, dt2-machine-port, lalzart-dt2-crosscheck
 - [ ] dnfw docs still unread: the waverider-* series, lfo4-*, flashing.md (43 KB), bootstrap (partly)

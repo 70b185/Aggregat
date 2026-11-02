@@ -37,6 +37,12 @@ Key {octabam}. **A different platform from the DT2/DN2:** the ColdFire is an MCF
   - Pace about 7,460 messages at DIN rate. Filter MIDI clock on that port and merge nothing else into it: a MIDI-hub preset caused a CHECKSUM ERROR.
   - If the unit loses sync, send again slower (60-300 ms between messages).
   - The unit may update its bootstrap after the flash. `[hw]`
+- **How stock writes NOR** (1.40C, Modwerk's reading, `[doc]` {modwerk-ot-traps}):
+  - OS UPGRADE reads the whole card file into RAM, then erases and programs NOR from there (sector erase `0x40020628`, 256-byte page program `0x400206f4`, the 37 sector starts listed at `0x400a95c0`).
+  - The layout is 8 KB boot sectors from `0x4000`, then 64 KB sectors up to `0x1f0000`.
+  - Both routines poll the chip themselves and mask interrupts only around the command bytes, so a mod can call them from a task without breaking the frame interrupt.
+  - The bootloader below `0x4000` is never written. It depacks NOR from `0x4012` **without checking anything**, so an image that doesn't boot is recoverable over DIN MIDI only. The startup menu's MIDI UPGRADE checks the received file, not NOR. `[hw]` (testers' units)
+- **Don't verify a running image against its own RAM:** once running, stock rewrites bytes inside its bootloader copy (`0x400e201e-0x400e2108`) and reuses the RAM after the image. Compare against digests taken before stock started. `[hw]` {modwerk-ot-traps}
 - After flashing a build that changes an effect's parameter layout, old projects need their stored values stamped. A select value outside its count stalls the sequencer on first play. `[hw]`
 
 ## Memory and code placement
@@ -59,5 +65,31 @@ Key {octabam}. **A different platform from the DT2/DN2:** the ColdFire is an MCF
 - **Stock Unicorn halves every ColdFire fractional-mode multiply and adds where `msac` subtracts** (the firmware runs EMAC with MACSR = 0x20), and its MAC-with-load decode has three defects. MACSR S/U is bit 6, and in fractional mode it selects 16-bit rounding. These are the same EMAC pitfalls as on the Syntakt and DN2 (rule G-series, `common/toolchain-and-emulators.md`). `[hw]`
 - The emulator (`ot_emu`) charges one step per instruction, with no cache or memory timing. A change can be cycle-identical in the port and several percent worse on the unit.
 
+## USB device side (both octabam and Modwerk, measured on units) {octabam-traps} {modwerk-ot-traps}
+- **No EP0 reply or OUT data stage may be a whole multiple of 64 bytes.** A reply of 64/128/192/256 bytes left a stale zero-length packet, and the next request returned 0 bytes (once, the unit froze). Stock leaves zero-length termination on in the EP0 OUT queue head, so a 128- or 192-byte OUT stage never completed. Send one byte less, or clear ZLT when priming. `[hw]` Rule A39.
+- **About one EP0 OUT stage in 50-100 goes unanswered** on a MKII: completed inside the ISR after stock's poll, or stopped part-way. Modwerk runs a 60 Hz tick that finishes a completed stage, or stalls EP0 after 0.5 s so the host resubmits. `[hw]`
+- **DMA reads RAM, not the copyback cache.** A value the CPU stores rarely stayed stale for minutes in USB replies, while values stored every frame looked live. Copy a reply through the uncached alias and send it from there. `[hw]` (Same idea as A28 on the SHARC.)
+- **A soft reset leaves the USB controller and PHY as they were:** one RAM boot in about six came back with no USB until a power cycle. Stop the controller (USBCMD.RS = 0) and wait ~50 ms before resetting; that gave 20 of 20 good boots. `[hw]` {modwerk-ot-traps}
+- **Never post key events into stock's queues directly** (two crashes minutes later). Feed the panel parser its own bytes instead. `[hw]` {modwerk-ot-traps}
+
+## ColdFire load (Modwerk's meter on a MKII, Oct 2026) {modwerk-ot-traps}
+- The Modwerk base with nothing installed shows ~42-47 % CPU. That is mostly stock's own tasks; there is no clean stock baseline yet. `[hw]`
+- An FM synth module costs ~8 points just by being installed, plus ~5 while a track plays it. Small effects cost 0.5 points or less on the ColdFire, but their DSP cost lands on their core (BBD on T6: core T5-8 went from ~44 % to 54 %). `[hw]`
+- **Uncached module code is expensive:** Analog BD on one track cost ~20 points.
+  - 93 % of each call was a write lease whose owner check read the module header through the uncached alias (~0.6 µs a read).
+  - With one lease per frame it dropped to ~10 points.
+  - Lesson: take locks only where a call writes, at most once a frame, and keep uncached reads out of hot paths. `[hw]`
+- UI-task edits can cost milliseconds: a 64-step MIDI rewrite took 3.9 ms per knob turn, mostly stock's lock-index rebuild. Updating only the own track's bits brought it to 0.5 ms. Audio frames stayed ~406-417 µs apart throughout, because it all ran on the UI task. `[hw]`
+- **The DSP peak meter shows the busiest single frame** of a 1,024-frame window. A self-test or sync leaves it at ~99.7 % while the mean is flat and the audio fine. Judge overload by the longest frame of a real load, not the peak. `[hw]`
+
+## More DSP and boot traps (measured on units) {octabam-traps} {modwerk-ot-traps}
+- **An effect's `init` must preserve r1:** the FX1 dispatcher keeps the effect id there and calls `proc` through it. An init that moved r1 jumped to the reset vector and killed the core at project load. octabam's build refuses an init that writes r1/n1/m1. `[hw]`
+- **A persistent slot that `init` does not clear holds the previous effect's leftovers.** The emulator boots with zeroed RAM and cannot show it. `[hw]`
+- **Resident window code must sit in `0x33da3..0x37eff`:** payload B's boot loop clears `Y:0x37f00..0x3ffff`, and DARK REV writes up to `0x33da2`. `[emu]` (both cores faulted at boot in the port)
+- **A DSP frame counter past `$7fffff` saturates in `move a,nN`**, which stopped a frame engine after 50.7 minutes. Mask counters to 23 bits. `[hw]`
+- **Core 1's load-meter counter** is at `X:$2840` on Modwerk USB bases; module state there gave a jittery pitch. `[hw]`
+- **Cold starts:** an early-startup change passed emulator boots and quick power cycles but stalled at the logo after several minutes powered off. Keeping the activation helper resident in the OS image fixed it; the mechanism is unknown. **Qualify startup changes after a long power-off** (rule A40). `[hw]`
+- **A write-watch on cached addresses is blind to a clear through the uncached alias.** A "free 8.8 MB" region turned out to be the stock delay rings. Before trusting a null result, ask what the instrument cannot see (rule A31). `[emu]`
+
 ## Gaps
-NOR layout beyond the OS window, the trig dispatch source, the MKI vs MKII hardware differences beyond the CPU marking.
+NOR use above the OS image, the trig dispatch source, the MKI vs MKII hardware differences beyond the CPU marking.

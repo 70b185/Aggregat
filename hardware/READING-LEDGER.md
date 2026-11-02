@@ -65,3 +65,4 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | hugz202 A4 mods (HAZARDS, FLASHING, digital-path findings, README); analog-emu A4-PORT (1-3, 11-14), MK1-PORT (summary, 5); analoghealth README | full / key sections | devices/analog-four-keys, A38 |
 | machinedrum-kit docs 01, 05, 08 (timing, slot floor), 13 (toolchain, arithmetic), 16 (emulator limits), 02 (DSP1/P:0x400); em's MD/MnM READMEs + CHANGELOG head; Monomodule README | key sections | devices/machinedrum-monomachine, A38 |
 | hugz202 Rytm MK1 mods: HAZARDS, MANUAL (0011 CPU probe), re/fx-engine, re/hidden-machines, 0010 design head | full / key sections | devices/analog-rytm (MK1), A38, O14 |
+| octabam TRAPS (assembler, rep/DMA, r7 scratch, init r1, window clear, host mask, write-watch, EP0) and FAILURE_MODES headings; Modwerk OCTATRACK_HARDWARE_TRAPS (USB and EP0, RAM boot, NOR over USB, load, cold starts) | key sections | devices/octatrack, A39-A41 |

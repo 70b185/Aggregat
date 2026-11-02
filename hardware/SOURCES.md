@@ -195,3 +195,5 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | ems-fw | emuyia/ems-machinedrum-firmware and ems-monomachine-firmware READMEs and CHANGELOG | https://github.com/emuyia/ems-machinedrum-firmware |
 | monomodule | shnolk/monomodule README (Monomachine OS 1.32B) | https://github.com/shnolk/monomodule |
 | rytm-mk1-mods | hugz202/AE-analog-rytm-mods (docs/HAZARDS.md, docs/MANUAL.md 0011 CPU probe, re/fx-engine.md, re/hidden-machines.md, mods/0010-fx-sends/design.md), Rytm MK1 OS 1.73/1.74 | https://github.com/hugz202/AE-analog-rytm-mods/blob/main/docs/HAZARDS.md |
+| octabam-traps | sambanks/octabam `docs/contributing/TRAPS.md` (trap register) and `FAILURE_MODES.md` headings | https://github.com/sambanks/octabam/blob/main/docs/contributing/TRAPS.md |
+| modwerk-ot-traps | repeat98/modwerk `docs/OCTATRACK_HARDWARE_TRAPS.md` (USB/EP0, RAM boot, NOR over USB, load, cold starts) | https://github.com/repeat98/modwerk/blob/main/docs/OCTATRACK_HARDWARE_TRAPS.md |

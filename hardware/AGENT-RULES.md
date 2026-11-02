@@ -103,6 +103,17 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A38. If the OS carries a copy of the bootstrap, no patch may touch that copy or the check that triggers it (A4 MK1, Rytm MK1, Machinedrum).** The OS re-flashes the boot code from its embedded copy when a version or magic check says so (A4 MK1: a newer embedded version; Machinedrum: magic `0x224B` missing at flash `0x3FFE`), so a stray byte there can become the recovery path. Locate the embedded image per OS version, keep every cave and pool outside it, and verify copy and check byte-identical to stock on the finished `.syx`. `[doc]` {a4mods} {rytm-mk1-mods} {mdkit-docs}
 
+**A39. Never let a USB control transfer (EP0) data stage be a whole multiple of 64 bytes on the ColdFire USB controller with stock's driver.** On the Octatrack this froze a unit (a stale zero-length packet) and stalled OUT stages (stock leaves ZLT on). Size replies a byte short, or clear ZLT when you prime the stage. Send DMA'd replies from an uncached copy. Probably the same on every ColdFire box with the stock USB stack; not yet measured elsewhere. `[hw]` {octabam-traps} {modwerk-ot-traps}
+
+**A40. Qualify any startup change after a long power-off, not only after quick restarts or in the emulator.** An Octatrack change booted in the emulator and in quick power cycles, then stalled at the logo after minutes off. Emulators model neither reset settling nor RAM retention. `[hw]` {modwerk-ot-traps}
+
+**A41. Disassemble what you assemble.** Every community assembler for these chips has silently mis-encoded something:
+- octabam's `dsp_asm`: `tfr` as `rnd`, unknown `mpy` orders as `mpysu`, `cmp` as `max`;
+- selas: negative shift immediates;
+- the DSP56300 reference assembler: overlapping `ORG`s accepted silently.
+
+Round-trip new code through a disassembler and compare, and make the build refuse a mismatch. `[hw]` {octabam-traps} {elekloader-adapting} {mdkit-docs}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.

@@ -1,5 +1,7 @@
 # hardware/ - what we know about the boxes, written as rules for AI agents
 
+> What is settled, what is open and what nobody has looked at yet, per device: [../RESEARCH-MAP.md](../RESEARCH-MAP.md).
+
 Purpose: an agent that develops mods/tools for Elektron's small boxes should read **this folder** instead of
 combing through dozens of repos. Everything here is distilled from public repos, READMEs and
 manufacturer pages. It contains **no firmware, no binaries and no dumps** - only facts, addresses as

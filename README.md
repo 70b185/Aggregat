@@ -13,6 +13,7 @@
 | **Tools for musicians**: editors, sample/project managers, Overbridge audio, screen mirrors - nothing that changes firmware | [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) |
 | Everything for one device, with full notes | [INDEX.md](INDEX.md) |
 | How the hardware works, for writing mods | [hardware/](hardware/README.md) |
+| **What is known and what is still open, per device, plus a shared to-do and a prompt to start a research session** | [RESEARCH-MAP.md](RESEARCH-MAP.md) |
 
 All three lists are generated from [`data/projects.yml`](data/projects.yml); an entry's `kind` (or an explicit `list:` field) decides where it goes.
 
@@ -35,7 +36,7 @@ Snapshot (2026-11-02): 199 project entries for 13 devices (115 mods/firmware/loa
 
 ## Using it with an AI agent
 
-Point the agent at this repo and tell it to read, in this order:
+Point the agent at this repo and tell it to read, in this order (for open-ended research, start with the ready-made prompt in [RESEARCH-MAP.md](RESEARCH-MAP.md) instead):
 
 1. [`hardware/README.md`](hardware/README.md) - the ten things to know first
 2. [`hardware/AGENT-RULES.md`](hardware/AGENT-RULES.md) - safety, legal, process and coding rules

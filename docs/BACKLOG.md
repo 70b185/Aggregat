@@ -14,6 +14,8 @@
 ## Phase 2 - other devices
 Done 2026-11-01: catalogue of 45 projects for Octatrack, Analog Rytm, Analog Four/Keys, Model:Cycles/Samples, Machinedrum and Monomachine (from altstrument; facts only, our own notes). Next: read each repo's README like phase 1, then `hardware/` notes per platform (Octatrack: octabam/Modwerk DSP56300 + ColdFire; Model: Modded-Cycles; Rytm: rytm-fw-re, rytm-mods-src; Machinedrum: MDS/MDX, machinedrum-kit).
 
+Done 2026-11-02: first `hardware/` profiles for Octatrack, Model:Cycles/Samples, Analog Rytm, Analog Four/Keys and Machinedrum (Monomachine thin); every older GitHub search hit triaged (42 added, the rest in `data/ignore.yml` with reasons). Next for phase 2: read the Rytm MK1 mods' HAZARDS (rule A38 likely applies), the Monomachine's board, and deeper octabam/Modwerk docs.
+
 Original notes:
 - Octatrack MKI/MKII: Modwerk/octabam (sambanks/octabam), "Octatrack Trifecta" (thread 6), Octamod hub (thread 36)
 - Model:Cycles / Model:Samples: Modded-Cycles (18nelli18), Model-TG (TinyGregAudio), Model-Tweaks (thread 41)

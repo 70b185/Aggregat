@@ -1570,7 +1570,8 @@ projects:
     version: v1.0 (2026-10-17)
     last_activity: '2026-10-17'
     notes: 'Choose which of the six tracks follow Control All (Model:Cycles 1.13). Licence: MIT; distribution: patch-your-own.
-      Listed by altstrument; repo not read by us yet.'
+      Old projects migrate their Parts to the first 64 kits; going back to stock may lose kit data. The kits cost
+      ~3.6 % of the flex pool. README read 2026-11-02.'
     sources:
     - altstrument (2026-11-01)
   - id: cycles-one-shot
@@ -1789,7 +1790,9 @@ projects:
     kind: mod
     devices:
     - octatrack
-    repo: https://github.com/LyingDalai/ems-octakit
+    repo: https://github.com/emuyia/ems-octakit
+    links:
+      earlier_listed_copy: https://github.com/LyingDalai/ems-octakit
     status: active
     base_os: 1.40C
     notes: 'Replaces four Parts per bank with 256 kits per project (OS 1.40C). Licence: MIT; distribution: patch-your-own.
@@ -3092,6 +3095,264 @@ projects:
     last_activity: '2026-11-01'
     notes: Uses an Arturia BeatStep Pro as a front panel for the Gearmulator Machinedrum/Monomachine plug-ins, talking to
       the plug-ins through their MCP servers. MIT.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  # ---------------------------------------------------------------- backlog triage of earlier search hits, 2026-11-02 (README start read)
+  - id: rytm-mk1-mods-hugz202
+    name: Analog Rytm MK1 OS 1.74 mods
+    author: hugz202
+    kind: mod
+    devices:
+    - analog-rytm
+    repo: https://github.com/hugz202/AE-analog-rytm-mods
+    status: wip
+    base_os: Analog Rytm MK1, OS 1.74
+    last_activity: '2026-10-28'
+    notes: Sister project of the A4 MK1 mods (same registry/verify method). Adds Machinedrum TX-8/TX-9 ports as new
+      machines, a chorus as a third send, a sidechain-style duck at the voices' analog VCAs, and a CPU-load probe
+      build. Has hazards and flashing docs. MIT.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: rytm-mods-boot-report
+    name: rytm-mods boot report
+    author: Iced-Cream
+    kind: research
+    devices:
+    - analog-rytm
+    repo: https://github.com/Iced-Cream/rytm-mods-boot-report
+    status: active
+    base_os: Analog Rytm MKII OS 1.73
+    last_activity: '2026-10-13'
+    notes: Evidence for Modwerk's add-a-machine steps on the Rytm MKII - the stock file rebuilt byte for byte, a
+      modified OS booted on a unit and recovered with stock, and elekloader's core-ar2 with every shared event
+      observed on a unit. Hashes, addresses and photos only. GPL-2.0.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: trackpatterns
+    name: TrackPatterns
+    author: pgstath
+    kind: mod
+    devices:
+    - octatrack
+    repo: https://github.com/pgstath/TrackPatterns
+    status: wip
+    base_os: Octatrack OS 1.40C (octabam / Modwerk module)
+    version: 0.1.0 experimental, tested on one MKII
+    last_activity: '2026-10-23'
+    notes: Each of the 16 tracks can play its own pattern of the playing bank and switch at its own loop end (a clip-style
+      workflow). Checked in the ColdFire emulator and on the contributor's MKII; also submitted to octabam (PR 846). MIT.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: otype
+    name: OType
+    author: nordseele
+    kind: mod
+    devices:
+    - octatrack
+    repo: https://github.com/nordseele/otype
+    links:
+      docs: https://nordseele.github.io/otype-docs/
+    status: wip
+    base_os: Octatrack firmware (custom; see docs)
+    last_activity: '2026-10-22'
+    notes: A line-oriented scripting language for the Octatrack - scripts on the card reach (almost) every editable
+      parameter and audio files and are called on the machine. Command reference in a separate docs repo. GPL-3.0.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: octadraw
+    name: OctaDraw
+    author: nordseele
+    kind: tool
+    devices:
+    - octatrack
+    repo: https://github.com/nordseele/octadraw
+    status: active
+    last_activity: '2026-10-21'
+    notes: Browser pixel editor for the Octatrack's 128x64 screen that exports ColdFire assembly drawing the same pixels,
+      plus PNG previews and a JSON description for wiring into a firmware module. A developer tool for UI mods. GPL-3.0.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: octa-bt-pt
+    name: octa-bt-pt
+    author: bryantysinger
+    kind: tool
+    devices:
+    - octatrack
+    repo: https://github.com/bryantysinger/octa-bt-pt
+    status: active
+    base_os: Octatrack OS 1.40C only (hash-checked)
+    last_activity: '2026-08-23'
+    notes: Web UI that patches parameter values (effect defaults, FX1/FX2 default assignment, an AMF multiply fix) into
+      the user's own 1.40C file - values, not code, listed in a registry. macOS build tooling. MIT.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: acidtrack-modules
+    name: aCiDtRacK modules
+    author: braikomarko-hub
+    kind: mod
+    devices:
+    - octatrack
+    repo: https://github.com/braikomarko-hub/acidtrack-modules
+    status: wip
+    base_os: Octatrack MKI OS 1.40C via octabam
+    last_activity: '2026-10-21'
+    notes: octabam modules - a circuit-modelled TB-303 voice per track on the ColdFire (calibrated against recordings),
+      Devil Fish mods, an SD-1/RAT-style distortion and a dbx-160-style compressor. The README marks what is proven. MIT.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: machinedrum-rasp
+    name: Machinedrum USR machines (RASP, KOOK, SMSH...)
+    author: SamplesAndSnacks
+    kind: mod
+    devices:
+    - machinedrum
+    repo: https://github.com/SamplesAndSnacks/machinedrum-rasp
+    status: active
+    base_os: Machinedrum with MDX X.20
+    last_activity: '2026-10-18'
+    notes: Custom USR machines, each a single SysEx file sent to MDX's machine manager. MIT.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: monomachine-lab
+    name: Monomachine Lab
+    author: Jick238
+    kind: emulator
+    devices:
+    - monomachine
+    repo: https://github.com/Jick238/monomachine-lab
+    status: wip
+    base_os: Monomachine OS 1.32B (user-supplied)
+    last_activity: '2026-10-21'
+    notes: AU/VST3 that runs one Monomachine DSP track's original DSP56300 code (15 synth and 7 FX machine dispatches,
+      the per-track chain, kit SysEx import). Independent of Monomodule, which it points to for a fuller emulation.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: maschine-md-mm
+    name: Maschine MD-MM
+    author: sid366
+    kind: emulator
+    devices:
+    - machinedrum
+    - monomachine
+    repo: https://github.com/sid366/maschine-md-mm-combined
+    status: active
+    last_activity: '2026-09-28'
+    notes: Fork of gearmulator-md-mm with Native Instruments Maschine MK3 integration. GPL-3.0.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: mddt
+    name: MDDT (Machinedrum Data Tool)
+    author: waftlord
+    kind: editor
+    devices:
+    - machinedrum
+    repo: https://github.com/waftlord/mddt
+    links:
+      web: https://wftlrd.uk/mddt/
+    status: active
+    version: V2.0
+    last_activity: '2026-01-04'
+    notes: Browser tool (WebMIDI) for Machinedrum MK1/MK2/UW data over SysEx. Apache-2.0.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: mpc-tributary
+    name: Tributary
+    author: stampman3000-jpg
+    kind: tool
+    devices:
+    - digitone-2
+    repo: https://github.com/stampman3000-jpg/mpc-tributary
+    status: wip
+    last_activity: '2026-10-14'
+    notes: An Overwitch rework that plays Overbridge USB audio on Akai MPC standalone tracks; heard on a Digitone II,
+      holding ~4 ms behind the newest USB sample. Shows Overbridge streaming works outside a desktop host. GPL-3.0.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: turbomidi-cpp
+    name: TurboMIDI (C++)
+    author: DatanoiseTV
+    kind: library
+    devices:
+    - machinedrum
+    - monomachine
+    - octatrack
+    - analog-rytm
+    - analog-four-keys
+    repo: https://github.com/DatanoiseTV/TurboMidi
+    status: active
+    last_activity: '2025-06-07'
+    notes: Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed).
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: rytm-rs
+    name: rytm-rs / rytm-sys
+    author: alisomay
+    kind: library
+    devices:
+    - analog-rytm
+    repo: https://github.com/alisomay/rytm-rs
+    links:
+      sys_crate: https://github.com/alisomay/rytm-sys
+    status: active
+    base_os: Analog Rytm firmware 1.70
+    last_activity: '2024-12-07'
+    notes: Rust abstractions over the Rytm's undocumented SysEx (bindings to a fork of bsp2's libanalogrytm). MIT.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: a4-sound-sysex-tables
+    name: Analog Four sound SysEx cheatsheet
+    author: kimasendorf
+    kind: research
+    devices:
+    - analog-four-keys
+    repo: https://github.com/kimasendorf/elektron-analog-four-sound-sysex
+    status: inactive
+    last_activity: '2020-12-01'
+    notes: Tables of the A4 sound SysEx bytes, from reverse engineering.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: ot-tools-io
+    name: ot-tools-io
+    author: jhw
+    kind: library
+    devices:
+    - octatrack
+    repo: https://github.com/jhw/ot-tools-io
+    links:
+      python_lib: https://github.com/jhw/octapy
+    status: active
+    last_activity: '2026-08-03'
+    notes: Rust crate for reading and writing the Octatrack's binary project/bank/marker files; the same author's octapy
+      does it in Python. GPL-3.0.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: model-cycles-mcpst
+    name: Model:Cycles .mcpst format notes
+    author: kg4zow
+    kind: research
+    devices:
+    - model-cycles
+    repo: https://github.com/kg4zow/model-cycles
+    status: inactive
+    last_activity: '2022-04-12'
+    notes: Reverse-engineered layout of the Model:Cycles preset files (.mcpst) with dump/compare scripts.
     sources:
     - GitHub search 2026-11-02
     - README

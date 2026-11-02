@@ -25,6 +25,7 @@ Data last verified: 2026-10-31
 | **Chord Keys** (Nico Heuser) | mod | active | Second version (harmony pads, MIDI chords) (2026-10-07); 1.13 | - | 2026-10-07 | [repo](https://github.com/byNicoHeuser/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
 | **Model-TG** (TinyGregAudio) | mod | active | v1.1.0 (2026-10-02); 1.13 | v1.1.0 | 2026-10-02 | [repo](https://github.com/TinyGregAudio/Model-TG) |
 | **CyclesBridge** (robertfrombadlistener) | tool | active | main @ 29b2017 (2026-10-01) | - | 2026-10-01 | [repo](https://github.com/robertfrombadlistener/CyclesBridge) |
+| **Model:Cycles .mcpst format notes** (kg4zow) | research | inactive | - | - | 2022-04-12 | [repo](https://github.com/kg4zow/model-cycles) |
 | **plaits-on-models** (DMDaudio) | mod | active | 1.13 | - | - | [repo](https://github.com/DMDaudio/plaits-on-models) |
 | **ms-multi-output** (Scott Metoyer) | mod | active | 1.13 | - | - | [repo](https://github.com/scottmetoyer/ms-multi-output) |
 
@@ -44,7 +45,7 @@ _Sources: altstrument (2026-11-01)_
 
 ### Control All Config
 
-Choose which of the six tracks follow Control All (Model:Cycles 1.13). Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
+Choose which of the six tracks follow Control All (Model:Cycles 1.13). Licence: MIT; distribution: patch-your-own. Old projects migrate their Parts to the first 64 kits; going back to stock may lose kit data. The kits cost ~3.6 % of the flex pool. README read 2026-11-02.
 
 _Sources: altstrument (2026-11-01)_
 
@@ -141,5 +142,11 @@ _Sources: GitHub search 2026-11-02, README_
 ### model909
 
 Replaces the six stock machines with circuit-modelled TR-909 voices (integer models fitted to recordings); the experimental branch adds 808 and 606 voices on SHAPE. Hats/cymbals need user-supplied WAVs. MIT.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Model:Cycles .mcpst format notes
+
+Reverse-engineered layout of the Model:Cycles preset files (.mcpst) with dump/compare scripts.
 
 _Sources: GitHub search 2026-11-02, README_

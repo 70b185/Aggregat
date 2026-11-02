@@ -11,11 +11,14 @@ Data last verified: 2026-10-31
 | **OP-XY MNMD** (mmockett) | emulator | active | - | - | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **BSP Machinedrum** (ABarracu87) | tool | active | - | - | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.8.1 (2026-10-29); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-10-29 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
+| **Monomachine Lab** (Jick238) | emulator | wip | Monomachine OS 1.32B (user-supplied) | - | 2026-10-21 | [repo](https://github.com/Jick238/monomachine-lab) |
 | **C7** (sata1000000) | editor | active | - | - | 2026-10-10 | [repo](https://github.com/sata1000000/C7) |
 | **ems-monomachine-firmware** (June Kiff (emuyia)) | firmware | active | 26A09-beta (2026-10-09); 1.32B | 26910-release | 2026-10-09 | [repo](https://github.com/emuyia/ems-monomachine-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
 | **Monomodule for Schwung** (legsmechanical) | emulator | active | - | - | 2026-09-28 | [repo](https://github.com/legsmechanical/schwung-monomodule) |
+| **Maschine MD-MM** (sid366) | emulator | active | - | - | 2026-09-28 | [repo](https://github.com/sid366/maschine-md-mm-combined) |
 | **Monomodule** (shnolk) | emulator | active | 1.0.0 (2026-09-24); Monomachine OS 1.32B (supplied by you) | release | 2026-09-24 | [repo](https://github.com/shnolk/monomodule) |
 | **Gearmulator MD/MM** (Joe Landers) | emulator | active | mdmm-v0.1.0-alpha.14 (2026-09-21); Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-09-21 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
+| **TurboMIDI (C++)** (DatanoiseTV) | library | active | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 
 ## Details
 
@@ -64,5 +67,23 @@ _Sources: GitHub search 2026-11-02, README_
 ### BSP Machinedrum
 
 Uses an Arturia BeatStep Pro as a front panel for the Gearmulator Machinedrum/Monomachine plug-ins, talking to the plug-ins through their MCP servers. MIT.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Monomachine Lab
+
+AU/VST3 that runs one Monomachine DSP track's original DSP56300 code (15 synth and 7 FX machine dispatches, the per-track chain, kit SysEx import). Independent of Monomodule, which it points to for a fuller emulation.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Maschine MD-MM
+
+Fork of gearmulator-md-mm with Native Instruments Maschine MK3 integration. GPL-3.0.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### TurboMIDI (C++)
+
+Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed).
 
 _Sources: GitHub search 2026-11-02, README_

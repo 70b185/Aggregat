@@ -11,6 +11,8 @@ Data last verified: 2026-10-31
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
 | **analoghealth** (Iced-Cream) | mod | wip | Rytm MKII 1.74, A4 MKII 1.56 | - | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
 | **Analog Four / Keys MK1 OS 1.56 mods** (hugz202) | mod | wip | Analog Four / Analog Keys MK1, OS 1.56 only (not MKII) | - | 2026-10-28 | [repo](https://github.com/hugz202/AE-analog-four-mods) |
+| **TurboMIDI (C++)** (DatanoiseTV) | library | active | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
+| **Analog Four sound SysEx cheatsheet** (kimasendorf) | research | inactive | - | - | 2020-12-01 | [repo](https://github.com/kimasendorf/elektron-analog-four-sound-sysex) |
 | **Chopshop** (Jesus Triana (bandersong)) | mod | active | 1.73 (Rytm), 1.56 (Keys); not 1.74 | - | - | [repo](https://github.com/bandersong/chopshop) · [homepage](https://chopshop-synth.pages.dev/) |
 
 ## Details
@@ -36,5 +38,17 @@ _Sources: GitHub search 2026-11-02, README_
 ### Analog Four / Keys MK1 OS 1.56 mods
 
 Build pipeline that patches the user's own A4/AK MK1 OS 1.56 file with small ColdFire routines. Mods include a scale lock, 303-style slides, kit persistence for the extra settings, a per-track digital path with drive, a digital wave/chord oscillator in place of noise, a random track generator and a resonance limit. Has its own flashing/recovery and hazards docs. The first public firmware mod for the Analog Four found. MIT.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### TurboMIDI (C++)
+
+Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed).
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Analog Four sound SysEx cheatsheet
+
+Tables of the A4 sound SysEx bytes, from reverse engineering.
 
 _Sources: GitHub search 2026-11-02, README_

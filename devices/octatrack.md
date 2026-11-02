@@ -12,6 +12,10 @@ Data last verified: 2026-10-31
 | **Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)** (radiohagen) | mod | active | Octatrack OS 1.40C via octabam | - | 2026-10-31 | [repo](https://github.com/radiohagen/octatrack-modules) |
 | **OT Kyoti FW** (Zac Kyoti) | firmware | active | KYOTI V1.6 (2026-10-22); ref tag ref/kyoti-v1.6-2026-10-29 added; 1.40C | ref/sp12-midside-vem7 | 2026-10-29 | [repo](https://github.com/Zac-Kyoti/octatrack-kyoti-fw) |
 | **ReBirth to Octatrack** (alexandrubelc) | tool | wip | Octatrack with octabam GARDEN36 or later | - | 2026-10-29 | [repo](https://github.com/alexandrubelc/rebirth2octatrack) |
+| **TrackPatterns** (pgstath) | mod | wip | 0.1.0 experimental, tested on one MKII; Octatrack OS 1.40C (octabam / Modwerk module) | - | 2026-10-23 | [repo](https://github.com/pgstath/TrackPatterns) |
+| **OType** (nordseele) | mod | wip | Octatrack firmware (custom; see docs) | - | 2026-10-22 | [repo](https://github.com/nordseele/otype) · [docs](https://nordseele.github.io/otype-docs/) |
+| **OctaDraw** (nordseele) | tool | active | - | - | 2026-10-21 | [repo](https://github.com/nordseele/octadraw) |
+| **aCiDtRacK modules** (braikomarko-hub) | mod | wip | Octatrack MKI OS 1.40C via octabam | - | 2026-10-21 | [repo](https://github.com/braikomarko-hub/acidtrack-modules) |
 | **Octatrack Manager** (David Ferlay) | tool | active | v0.49.0 (2026-10-18); Projects saved on OS 1.40 or later | v0.49.0 | 2026-10-18 | [repo](https://github.com/davidferlay/octatrack-manager) · [homepage](https://davidferlay.github.io/octatrack-manager/) |
 | **midisc** (bkkbrls-del) | mod | active | MIDISC2.1 (2026-10-08); 1.40C | 1.40MIDISC | 2026-10-08 | [repo](https://github.com/bkkbrls-del/midisc) |
 | **octa-panel** (Tim Hastie) | emulator | active | octatrick-2.9 (2026-09-29); 1.40C | octatrick-2.9 | 2026-09-29 | [repo](https://github.com/timhastie/octa-panel) |
@@ -19,9 +23,12 @@ Data last verified: 2026-10-31
 | **Octatrick** (Tim Hastie) | mod | active | MKI hardware-tested builds (2026-09-26); 1.40C | - | 2026-09-26 | [repo](https://github.com/timhastie/octatrick) |
 | **midisc-patcher** (bkkbrls-del) | tool | active | main @ 1ce2245 (2026-09-18); 1.40C | - | 2026-09-18 | [repo](https://github.com/bkkbrls-del/midisc-patcher) |
 | **midisc (1.40MSC)** (sambanks) | mod | wip | Octatrack MK1/MK2 OS 1.40C | - | 2026-09-12 | [repo](https://github.com/sambanks/midisc) |
+| **octa-bt-pt** (bryantysinger) | tool | active | Octatrack OS 1.40C only (hash-checked) | - | 2026-08-23 | [repo](https://github.com/bryantysinger/octa-bt-pt) |
 | **OctaChainer 2** (Kai Drange) | tool | active | v2.0.0 (2026-08-05) | v2.0.0 | 2026-08-05 | [repo](https://github.com/KaiDrange/OctaChainer2) · [homepage](https://ticticelectro.com/2017/08/26/octachainer-v1-3/) |
+| **ot-tools-io** (jhw) | library | active | - | - | 2026-08-03 | [repo](https://github.com/jhw/ot-tools-io) · [python lib](https://github.com/jhw/octapy) |
+| **TurboMIDI (C++)** (DatanoiseTV) | library | active | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 | **OctaLib** (snugsound) | tool | inactive | - | - | 2025-02-28 | [repo](https://github.com/snugsound/OctaLib) |
-| **ems-octakit** (June Kiff (emuyia)) | mod | active | 1.40C | - | - | [repo](https://github.com/LyingDalai/ems-octakit) |
+| **ems-octakit** (June Kiff (emuyia)) | mod | active | 1.40C | - | - | [repo](https://github.com/emuyia/ems-octakit) · [earlier listed copy](https://github.com/LyingDalai/ems-octakit) |
 | **OCTAMAX** (Maxolydian (mxldyn)) | mod | active | 2.0 BETA; 1.40C | dual256-v1 | - | [repo](https://github.com/mxldyn/octamax) |
 | **Octaplay** (devilfish707) | mod | active | 1.40C | - | - | [repo](https://github.com/devilfish707/Octaplay) |
 | **octemu** (Mark Roberts (markandrus)) | emulator | active | 1.40C | - | - | [repo](https://github.com/markandrus/octemu) |
@@ -127,5 +134,47 @@ _Sources: GitHub search 2026-11-02, README_
 ### OctaLib
 
 Librarian for Octatrack projects (bank swaps and more by rewriting the project files). Unlicense.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### TrackPatterns
+
+Each of the 16 tracks can play its own pattern of the playing bank and switch at its own loop end (a clip-style workflow). Checked in the ColdFire emulator and on the contributor's MKII; also submitted to octabam (PR 846). MIT.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### OType
+
+A line-oriented scripting language for the Octatrack - scripts on the card reach (almost) every editable parameter and audio files and are called on the machine. Command reference in a separate docs repo. GPL-3.0.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### OctaDraw
+
+Browser pixel editor for the Octatrack's 128x64 screen that exports ColdFire assembly drawing the same pixels, plus PNG previews and a JSON description for wiring into a firmware module. A developer tool for UI mods. GPL-3.0.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### octa-bt-pt
+
+Web UI that patches parameter values (effect defaults, FX1/FX2 default assignment, an AMF multiply fix) into the user's own 1.40C file - values, not code, listed in a registry. macOS build tooling. MIT.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### aCiDtRacK modules
+
+octabam modules - a circuit-modelled TB-303 voice per track on the ColdFire (calibrated against recordings), Devil Fish mods, an SD-1/RAT-style distortion and a dbx-160-style compressor. The README marks what is proven. MIT.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### TurboMIDI (C++)
+
+Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed).
+
+_Sources: GitHub search 2026-11-02, README_
+
+### ot-tools-io
+
+Rust crate for reading and writing the Octatrack's binary project/bank/marker files; the same author's octapy does it in Python. GPL-3.0.
 
 _Sources: GitHub search 2026-11-02, README_

@@ -21,6 +21,7 @@ Data last verified: 2026-10-31
 | **Request: D50-type PCM / sample machine** (River5tyx) | request | request | - | - | 2026-10-19 | [forum](https://elektronmods.com/thread-84-d50-type-pcm-sample-based-machine) |
 | **Elektron Emu** (xerydian) | emulator | wip | one OS version per machine (named in each plug-in's README); not read by us | - | 2026-10-17 | [repo](https://github.com/xerydian/elektron-emu) |
 | **Elektron Emu (joshklomp)** (joshklomp) | emulator | wip | user-supplied OS files | - | 2026-10-17 | [repo](https://github.com/joshklomp/emu-elektron) |
+| **Tributary** (stampman3000-jpg) | tool | wip | - | - | 2026-10-14 | [repo](https://github.com/stampman3000-jpg/mpc-tributary) |
 | **DigiRust** (nzimas) | mod | beta | v1.2.0 (2026-10-12); Digitone II OS 1.12 (internal version stays 1.12) | v1.2.0 | 2026-10-12 | [repo](https://github.com/nzimas/digirust) · [release](https://github.com/nzimas/digirust/releases/tag/v1.2.0) |
 | **SYXGRID v2** (xrcstrecords) | editor | active | v2.4 | v2.4 | 2026-10-11 | [repo](https://github.com/xrcstrecords/syxgrid-digitone-ii) · [web app](https://syxgrid.xrcst.com) · [forum](https://elektronmods.com/thread-43-syxgrid-v2-a-free-editor-for-digitone-ii-projects) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | - | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
@@ -222,6 +223,12 @@ _Sources: GitHub search 2026-11-02, README_
 ### Digi Battery
 
 Hardware battery mod for Digitone, Digitone II, Digitakt and Digitakt II (soldering; at your own risk). CC licence. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Tributary
+
+An Overwitch rework that plays Overbridge USB audio on Akai MPC standalone tracks; heard on a Digitone II, holding ~4 ms behind the newest USB sample. Shows Overbridge streaming works outside a desktop host. GPL-3.0.
 
 _Sources: GitHub search 2026-11-02, README_
 

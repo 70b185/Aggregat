@@ -116,6 +116,8 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 - `move.l #imm,d16(An)` (immediate to displacement) crashed a Digitakt II at startup with exception vector 4;
 - `move.l #imm,abs.L` (immediate to absolute) appeared five times in an early copier of a Digitone mk1 build, which then hung on the logo. It was the most likely cause, though the fault address was never captured.
 
+**A43. A cave is free only after it survived a hard run on the unit.** Zero bytes in the image can be `.bss` that the engine writes only while it plays. A mod placed in such a region worked with the sequencer stopped and failed during playback (octatrack-mods, reported by rytm-mods-src). Before shipping into a new cave: fill it with a known pattern, flash, exercise playback, sampling, Overbridge and storage, and read it back. Combine this with static proof (no references) and emulator coverage (A4 MK1 practice), not instead of it. `[hw]` {rytm-mods-src} {a4mods}
+
 In the second case, a local ISA checker also accepted the form, because it decoded the instruction without checking the source/destination pair. Assemble with the right `-mcpu`, check hand-encoded bytes against the manual's mode tables (CFPRM pp. 4-47/4-48), and round-trip (A41). `[hw]` {dt2-lab-coldfire-fix} {dn1-arpmod-e04}
 
 Round-trip new code through a disassembler and compare, and make the build refuse a mismatch. `[hw]` {octabam-traps} {elekloader-adapting} {mdkit-docs}

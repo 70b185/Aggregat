@@ -60,3 +60,16 @@ Rytm MKII (`core-ar2`).
   - hugz202 reuses their code space. Its only reference is its own table entry, which the mod repoints, and the build checks the stock bytes. A kit received over SysEx that names a hidden machine then plays the mod's machine or nothing. `[hw]` (the `full` image ran on a MK1)
 - **Recovery:** FUNC at power-on, TRIG 4 (OS UPGRADE), stock `.syx` over **DIN MIDI** (Transfer's legacy mode). `[doc]`
 
+## More from the MKII mod and research projects (rytm-mods-src OS 1.73, analog-rytm-mkii-research OS 1.72) {rytm-mods-src} {ar-mkii-research}
+- **A zero run is not a free cave until it survives a hard run on the unit.** octatrack-mods had shipped code into a region that came from someone else's survey. The mod worked with the sequencer stopped and failed during playback, because the region was really `.bss` that the audio engine wrote. rytm-mods-src's check: fill the candidate with a known pattern, flash, run playback, sampling, Overbridge and +Drive access, then read it back. See rule A43. `[hw]`
+- **Pick the narrowest assembler target that assembles.** The project went from `-mcpu=5407` (ISA_A) to `-mcpu=5475` (ISA_B + EMAC) only when a mod needed EMAC, and checked that the earlier mods rebuilt byte-identically. Too narrow a target fails at assembly time; too wide a one silently accepts instructions the chip lacks (rule A42). `[doc]`
+- **Sections 5, 2, 1 and 8 must come back byte-identical**, and the bootstrap (section 2, 42,302 B at `0x07020000`) is checked by hash. Elektron's own bootstrap upgrade, which runs on the first restart after some OS updates, is the one moment the safety net is down: don't cut power then. `[doc]`
+- **The master compressor is analog** (after the analog mix and the master distortion). The MKII firmware never reads its gain back (the MK1 did, through the on-chip ADC input AN1), so any gain-reduction display on the MKII is an estimate. A CC beyond an enumeration's last value makes the unit show ERR instead of clamping. `[doc]`
+- **Sample bit reduction is not done on the ColdFire.**
+  - The BR knob becomes a per-voice command word, `0xB31407FF + ceil(BR x 0x40000 / 127)`, sent over DSPI1/eDMA to the external audio hardware.
+  - The main OS contains no mask or shift that would apply it to PCM.
+  - So sample playback processing on the Rytm MKII likely sits in the FPGA/voice hardware: a lead for research map T12. Static and emulator work only.
+
+  `[doc]`
+- A third reading of the CPU: analog-rytm-mkii-research models the Rytm MKII as MCF5441x (conflict O14), with MAIN at `0x40000400` (2,903,032 B on 1.72) and the stack at `0x48000000`. `[doc]`
+

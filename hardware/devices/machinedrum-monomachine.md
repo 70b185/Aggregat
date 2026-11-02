@@ -43,6 +43,32 @@ Things that pass in the emulator and fail on a unit:
 
 Rule A23 ("success is no proof") applies with force here.
 
+## What crashed, froze or corrupted real Machinedrums (Kitbasher's FIRMWARE-SAFETY, mostly a MKII +Drive UW) {kitbasher-safety}
+Each item failed on a unit and passed in the emulator. `[hw]`
+- **ColdFire ISA:** `movem.l d0-d1,-(sp)` is a 68000/68020 form ColdFire lacks. Emulators run a 68020 core, and the first trigger of every new machine froze the unit. Kitbasher allows only ISA_A for the MCF5206e (no MAC in added code) and decodes the final image from every entry point (rule A42).
+- **Boot-time memory:**
+  - Ordinary stores to flash relocation sites hung the unit at the boot screen; the emulator ignored them.
+  - Boot writes from `0x2bd000` up froze a MKII +Drive UW at the logo, while the same image without them booted. Use only hardware-proven RAM ranges.
+  - Boot code must not push registers before the OS has set up a stack.
+- **The host port to the DSPs holds about two words; the emulator buffers thousands.**
+  - A sender whose poll timed out left DSP1's handler armed, so the next stock send was shifted by two words.
+  - A loader interleaving its writes with the OS's put a thousand words at a wrong address.
+  - Send exactly as stock does (interrupts masked) and own the port for the whole transfer.
+- **The per-step trigger loop is hot:** a hook doing a table lookup and register save on every call froze the audio with 12-16 tracks triggering (CPU! lit). It was found only by a hardware bisect. Cache, then exit early.
+- **Never remove stock DSP pacing.** Replacing a 480-cycle DSP1 pad contributed to that freeze. Letting DSP2 skip ahead on silent tracks starved the ColdFire's stream and lost triggers.
+- **No long `rep` on a DSP path:** `rep #$600` (clearing 1,536 words) overran the CPU on the first P-I bass-drum trigger. Changing it to `rep #1` proved the cause; two stores per `do` pass fixed it. This is the same rule as on the Octatrack.
+- **The stock DSP1 watchdog:** DSP1 counts blocks that DSP2 delivered late. **On the third in a row it stops the output DMA and spins, silent until a power cycle.** Half a percent over budget for three blocks is enough.
+- **DSP correctness traps:**
+  - Nested `do` loops sharing an end address left state on the real hardware stack, and DSP2 hung.
+  - An inherited modulo register wrapped a 384-word clear into 32 words.
+  - DSP2 external RAM holds **power-on garbage** (the emulator reads zero), so init must clear everything it reads, and every block must write all 32 samples.
+- **Machine ids 124-127** fall inside the OS's "control machine" range tests.
+- **Pin data assumptions:** after a firmware update, wavetable models went silent because older UW sample sets were shorter than the new build expected. Declare minimum lengths.
+- **What the emulator does not show, in numbers:**
+  - DSP56300 pipeline interlocks add a median ~26 % (12-47 % per model).
+  - Instruction-cache misses and wait states: 16 copies of one model fit in the emulator and stalled on the unit.
+  - The emulator's default 441-sample slicing invents host-port spins of ~13,000 cycles. Use 64- or 8-sample slices, and don't "fix" spins it invents.
+
 ## DSP56300 pitfalls (from building custom machines) {mdkit-docs}
 - `move #16,a` loads a **fraction** (`a1 = $100000`), not 16. Write integers into data-ALU registers in the long form `#>16`. Address registers and the ALU immediates (`cmp`, `add`, `sub`) take integers.
 - Moving an accumulator to memory **saturates**: `move b,a` limits, `tfr b,a` doesn't. After `and #mask,a` take `a1` explicitly.

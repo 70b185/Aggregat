@@ -216,3 +216,4 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | digigrain-skills | digigrain collection `.claude/skills/` (digitakt-firmware-map, hook-bus, dsp, recorder, audio-input, testing), `mods/digigrain/CLAUDE.md`, `CLAUDE.md` (Digitakt mk1 OS 1.53) | https://github.com/lucykowal/digigrain/tree/main/.claude/skills |
 | rytm-mods-src | ConnorWay32/rytm-mods-src (MrScruff's Rytm MKII mods) `docs/HAZARDS.md`, `re/subsystems/compressor-hardware.md` (OS 1.73) | https://github.com/ConnorWay32/rytm-mods-src/blob/main/docs/HAZARDS.md |
 | ar-mkii-research | analog-rytm-mkii-research `docs/hardware_profile.md`, `AR172_BR_HARDWARE_CHARACTERIZATION.md`, `AR172_PREHARDWARE_STATUS.md` (OS 1.72) | https://github.com/genosdk/analog-rytm-mkii-research |
+| kitbasher-safety | etcetc000/kitbasher `docs/FIRMWARE-SAFETY.md` (Machinedrum OS 1.63 / X.14, MKII +Drive UW) | https://github.com/etcetc000/kitbasher/blob/main/docs/FIRMWARE-SAFETY.md |

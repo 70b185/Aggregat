@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aggregat - Elektron mods and hardware knowledge</title>
+<style>
+  :root { --bg:#fbfaf7; --fg:#1d1c1a; --mute:#6b675f; --line:#e3dfd6; --acc:#b4451f; --chip:#efebe2; --hw:#2f7d4a; --emu:#3a62a8; --doc:#8a6d1f; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#161513; --fg:#ece8df; --mute:#9a958a; --line:#2e2c28; --acc:#e7804f; --chip:#24221f; --hw:#6cc28b; --emu:#86a8e8; --doc:#d6b65c; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  header { padding:20px 24px 8px; border-bottom:1px solid var(--line); }
+  h1 { margin:0; font-size:20px; letter-spacing:.02em; }
+  h1 span { color:var(--acc); }
+  .sub { color:var(--mute); font-size:13px; margin-top:2px; }
+  nav { display:flex; gap:4px; flex-wrap:wrap; margin-top:14px; }
+  nav button { border:1px solid var(--line); background:transparent; color:var(--fg); padding:6px 12px; border-radius:999px; cursor:pointer; font:inherit; font-size:14px; }
+  nav button.on { background:var(--fg); color:var(--bg); border-color:var(--fg); }
+  .bar { display:flex; gap:8px; flex-wrap:wrap; padding:12px 24px; position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--line); z-index:1; }
+  .bar input, .bar select { font:inherit; padding:7px 10px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--fg); }
+  .bar input { flex:1 1 280px; }
+  .count { color:var(--mute); font-size:13px; align-self:center; }
+  main { padding:8px 24px 40px; max-width:1100px; }
+  .item { padding:12px 0; border-bottom:1px solid var(--line); }
+  .head { display:flex; gap:8px; align-items:baseline; flex-wrap:wrap; }
+  .title { font-weight:600; }
+  .meta { color:var(--mute); font-size:13px; }
+  .chip { background:var(--chip); border-radius:4px; padding:1px 6px; font-size:12px; color:var(--mute); white-space:nowrap; }
+  .ev-hw { color:var(--hw); font-weight:600; } .ev-emu { color:var(--emu); font-weight:600; } .ev-doc { color:var(--doc); font-weight:600; }
+  .text { margin-top:4px; overflow-wrap:anywhere; }
+  code { font:13px ui-monospace, SFMono-Regular, Menlo, monospace; background:var(--chip); padding:0 3px; border-radius:3px; }
+  a { color:var(--acc); }
+  mark { background:#f3d27a66; color:inherit; }
+  .empty { color:var(--mute); padding:24px 0; }
+  footer { color:var(--mute); font-size:12px; padding:0 24px 24px; }
+</style>
+</head>
+<body>
+<header>
+  <h1><span>Aggregat</span> - Elektron mods and hardware knowledge</h1>
+  <div class="sub" id="sub">Loading export/aggregat.json ...</div>
+  <nav id="tabs"></nav>
+</header>
+<div class="bar">
+  <input id="q" type="search" placeholder="Search (all words must match; an address like 0x40000400 works too)" autofocus>
+  <select id="dev"><option value="">All devices</option></select>
+  <select id="ev" title="Evidence"><option value="">Any evidence</option><option value="hw">[hw] seen on a unit</option><option value="emu">[emu] emulator</option><option value="doc">[doc] documented</option><option value="?">[?] unsure</option></select>
+  <span class="count" id="count"></span>
+</div>
+<main id="out"></main>
+<footer>Generated from the repo by <code>scripts/export_db.py</code>. Data CC0. Edit the Markdown/YAML in the repo, not this page.
+  <a href="https://github.com/70b185/aggregat">github.com/70b185/aggregat</a></footer>
+<script>
+const REPO = "https://github.com/70b185/aggregat/blob/master/";
+const TABS = [["facts","Hardware facts"],["projects","Projects"],["rules","Agent rules"],["conflicts","Conflicts"],["sources","Sources"]];
+let D = null, tab = "facts", srcUrl = {}, devName = {};
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const list = s => String(s || "").split(",").filter(Boolean);
+
+function md(s, base) {
+  // Small Markdown subset: code, bold, links (relative links resolve against the source file), {source-keys}.
+  let t = esc(s);
+  t = t.replace(/`([^`]+)`/g, "<code>$1</code>");
+  t = t.replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
+  t = t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, txt, href) => {
+    let u = href;
+    if (!/^https?:/.test(href)) { try { u = new URL(href, REPO + (base || "")).href; } catch (e) {} }
+    return `<a href="${u}">${txt}</a>`;
+  });
+  t = t.replace(/\{([a-z0-9][a-z0-9-]*)\}/g, (m, k) => srcUrl[k] ? `<a class="chip" href="${esc(srcUrl[k])}">${k}</a>` : m);
+  return t;
+}
+function hl(html, words) {
+  if (!words.length) return html;
+  const re = new RegExp("(" + words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")", "gi");
+  return html.split(/(<[^>]+>)/).map(p => p.startsWith("<") ? p : p.replace(re, "<mark>$1</mark>")).join("");
+}
+function evChip(e) {
+  return list(e).map(x => `<span class="chip ev-${x === "?" ? "q" : x}">[${esc(x)}]</span>`).join(" ");
+}
+function devChips(d) { return list(d).map(x => `<span class="chip">${esc(devName[x] || x)}</span>`).join(" "); }
+
+const VIEWS = {
+  facts: {
+    rows: () => D.facts,
+    hay: f => [f.text, f.section, f.file, f.addresses, f.sources].join(" "),
+    dev: f => f.devices, ev: f => f.evidence,
+    html: (f, w) => `<div class="head"><a class="meta" href="${REPO}${esc(f.file)}#L${f.line}">${esc(f.file.replace("hardware/",""))}:${f.line}</a>
+        <span class="meta">${esc(f.section)}</span> ${evChip(f.evidence)} ${devChips(f.devices)}</div>
+        <div class="text">${hl(md(f.text, f.file), w)}</div>`
+  },
+  projects: {
+    rows: () => D.projects,
+    hay: p => [p.id, p.name, p.author, p.kind, p.list, p.notes, p.base_os, p.version, p.repo].join(" "),
+    dev: p => p.devices,
+    html: (p, w) => {
+      const rel = D.relations.filter(r => r.project === p.id || r.target === p.id)
+        .map(r => r.project === p.id ? `${r.type.replace(/_/g," ")} <b>${esc(r.target)}</b>` : `<b>${esc(r.project)}</b> ${r.type.replace(/_/g," ")} this`).join("; ");
+      return `<div class="head"><span class="title">${p.repo ? `<a href="${esc(p.repo)}">${esc(p.name)}</a>` : esc(p.name)}</span>
+        <span class="meta">${esc(p.author)}</span> <span class="chip">${esc(p.kind)}</span> <span class="chip">${esc(p.list)}</span>
+        ${p.status ? `<span class="chip">${esc(p.status)}</span>` : ""} ${devChips(p.devices)}</div>
+        <div class="meta">${[p.version && "version " + esc(p.version), p.last_activity && "last activity " + esc(p.last_activity), p.base_os && "base OS " + esc(p.base_os)].filter(Boolean).join(" · ")}</div>
+        ${p.notes ? `<div class="text">${hl(md(p.notes, "data/projects.yml"), w)}</div>` : ""}
+        ${rel ? `<div class="meta">Related: ${rel}</div>` : ""}`;
+    }
+  },
+  rules: {
+    rows: () => D.rules,
+    hay: r => [r.id, r.section, r.text, r.sources].join(" "),
+    dev: r => r.devices, ev: r => r.evidence,
+    html: (r, w) => `<div class="head"><span class="title">${esc(r.id)}</span> <span class="meta">${esc(r.section)}</span> ${evChip(r.evidence)} ${devChips(r.devices)}</div>
+        <div class="text">${hl(md(r.text, "hardware/AGENT-RULES.md"), w)}</div>`
+  },
+  conflicts: {
+    rows: () => D.conflicts,
+    hay: c => [c.id, c.status, c.topic, c.a, c.b, c.details].join(" "),
+    dev: c => c.devices,
+    html: (c, w) => `<div class="head"><span class="title">${esc(c.id)}</span> <span class="chip">${esc(c.status)}</span> <span class="title">${hl(esc(c.topic), w)}</span> ${devChips(c.devices)}</div>
+        <div class="text"><b>A:</b> ${hl(md(c.a, "hardware/CONFLICTS.md"), w)}</div>
+        <div class="text"><b>B:</b> ${hl(md(c.b, "hardware/CONFLICTS.md"), w)}</div>
+        ${c.details ? `<div class="meta">${md(c.details, "hardware/CONFLICTS.md")}</div>` : ""}`
+  },
+  sources: {
+    rows: () => D.sources,
+    hay: s => [s.key, s.what, s.url].join(" "),
+    html: (s, w) => `<div class="head"><span class="chip">${esc(s.key)}</span> ${s.url ? `<a href="${esc(s.url)}">${hl(md(s.what, "hardware/SOURCES.md"), w)}</a>` : hl(md(s.what, "hardware/SOURCES.md"), w)}</div>`
+  }
+};
+
+function render() {
+  const v = VIEWS[tab];
+  const words = $("q").value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const dev = $("dev").value, ev = $("ev").value;
+  $("dev").disabled = !v.dev; $("ev").disabled = !v.ev;
+  const rows = v.rows().filter(r => {
+    if (dev && v.dev && !list(v.dev(r)).includes(dev)) return false;
+    if (ev && v.ev && !list(v.ev(r)).includes(ev)) return false;
+    if (!words.length) return true;
+    const h = v.hay(r).toLowerCase();
+    return words.every(w => h.includes(w));
+  });
+  if (v.ev && !ev) rows.sort((a, b) => (list(v.ev(b)).includes("hw") ? 1 : 0) - (list(v.ev(a)).includes("hw") ? 1 : 0));
+  $("count").textContent = `${rows.length} of ${v.rows().length}`;
+  const shown = rows.slice(0, 300);
+  $("out").innerHTML = shown.length ? shown.map(r => `<div class="item">${v.html(r, words)}</div>`).join("")
+    + (rows.length > 300 ? `<div class="empty">Showing the first 300. Narrow the search.</div>` : "")
+    : `<div class="empty">Nothing matches.</div>`;
+  const p = new URLSearchParams(); p.set("t", tab); if ($("q").value) p.set("q", $("q").value); if (dev) p.set("d", dev); if (ev) p.set("e", ev);
+  history.replaceState(null, "", "?" + p);
+}
+
+function init() {
+  const p = new URLSearchParams(location.search);
+  if (VIEWS[p.get("t")]) tab = p.get("t");
+  $("q").value = p.get("q") || "";
+  $("tabs").innerHTML = TABS.map(([k, l]) => `<button data-t="${k}" class="${k === tab ? "on" : ""}">${l} <span class="meta">${D[k].length}</span></button>`).join("");
+  $("tabs").onclick = e => { const b = e.target.closest("button"); if (!b) return; tab = b.dataset.t;
+    [...$("tabs").children].forEach(x => x.classList.toggle("on", x === b)); render(); };
+  D.devices.forEach(d => { devName[d.slug] = d.name; $("dev").insertAdjacentHTML("beforeend", `<option value="${esc(d.slug)}">${esc(d.name)}</option>`); });
+  $("dev").value = p.get("d") || ""; $("ev").value = p.get("e") || "";
+  D.sources.forEach(s => srcUrl[s.key] = s.url);
+  $("sub").textContent = `${D.projects.length} projects, ${D.facts.length} hardware facts, ${D.rules.length} rules, ${D.conflicts.length} conflicts - data checked ${D.meta.checked}`;
+  let t; $("q").oninput = () => { clearTimeout(t); t = setTimeout(render, 120); };
+  $("dev").onchange = render; $("ev").onchange = render;
+  render();
+}
+
+fetch("export/aggregat.json").then(r => r.json()).then(d => { D = d; init(); })
+  .catch(e => { $("sub").textContent = "Could not load export/aggregat.json: " + e; });
+</script>
+</body>
+</html>

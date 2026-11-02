@@ -10,6 +10,8 @@ Know this **before** flashing a test unit. Sources are second-hand; check Elektr
 | Digitone II | Hold FUNC at power-on -> TRIG 4 (OS UPGRADE) -> send stock OS over DIN MIDI. Tested on dn2-cfw's author's unit | `[hw]` {dn2-cfw} |
 | Digitone (mk1) | Not stated by the sources we read. Assume same pattern as Digitakt mk1, **verify** | `[?]` |
 | Syntakt | Synthack-OS: flash over USB with Elektron Transfer ("Drop" page); revert by flashing the stock OS the same way. Exact startup-menu recovery not stated | `[doc]` {synthack-os} |
+| Analog Four / Analog Keys MK1 | Hold FUNC at power-on -> TRIG 4 (OS UPGRADE) -> send the stock `.syx` over **DIN MIDI** (Transfer's legacy OS upgrade mode). Served by the bootstrap in flash; but the MK1 OS carries a copy of that bootstrap and re-flashes it when newer (rule A38) | `[hw]` {a4mods} |
+| Machinedrum | Boot-ROM upgrade mode, stock `.syx` over DIN MIDI. The updater stages and checks the whole image before erasing and never writes the boot sector; but MainOS rewrites the boot sector if the magic at `0x3FFE` is not `0x224B` (rule A38) | `[doc]` {mdkit-docs} |
 | Analog Heat MKI/MKII | Hold ACTIVE (MKI) or ON (MKII) while powering on -> STARTUP menu -> press [LFO] = OS UPGRADE -> send the SysEx file via MIDI In. Official Elektron instructions | `[doc]` {elektron-heat-notes} |
 | Analog Heat +FX | Hold ACTIVE while powering on -> STARTUP menu -> press **MOD** (not LFO) = OS UPGRADE -> send the SysEx file via MIDI In. Elektron recommends the C6 - SysEx Tool for sending. Own OS: the MKII file is rejected ("Incompatible OS" on Elektronauts) | `[doc]` {elektron-heat-fx-notes} {elektronauts-heatfx} |
 

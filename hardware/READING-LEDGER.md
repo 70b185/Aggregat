@@ -61,3 +61,6 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | digikit findings 01, 03, 04, 09, 15, 19, 31, 41, 46, 52, 58 | headings + key sections | digitakt-2-sharc-measured, sysex-and-midi, memory-maps |
 | SynCrackd MEMORY_MAP + README; Synfact README + transfer readme | full / key sections | devices/syntakt (CPU #2) |
 | octabam docs (CHIP, ARCHITECTURE, PLACEMENT, TRAPS headings, guide/BUILDING); Modded-Cycles (RECOVERY, os-map, free-space, notes heads); rytm-fw-re (STATUS, flash-driver, usb-reflash) | key sections | devices/octatrack, devices/model-cycles-samples, devices/analog-rytm, A36, CONFLICTS O8 |
+| elekloader SHARC-DN2 "The DSP peek", ADAPTING (DSP peek, selache pitfalls), dspbusy-dn2 README (new 2026-11-02) | key sections | digitone-2-internals, toolchain, A37 |
+| hugz202 A4 mods (HAZARDS, FLASHING, digital-path findings, README); analog-emu A4-PORT (1-3, 11-14), MK1-PORT (summary, 5); analoghealth README | full / key sections | devices/analog-four-keys, A38 |
+| machinedrum-kit docs 01, 05, 08 (timing, slot floor), 13 (toolchain, arithmetic), 16 (emulator limits), 02 (DSP1/P:0x400); em's MD/MnM READMEs + CHANGELOG head; Monomodule README | key sections | devices/machinedrum-monomachine, A38 |

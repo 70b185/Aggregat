@@ -187,3 +187,10 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | octabam | sambanks/octabam docs (CHIP, ARCHITECTURE, DSP, PLACEMENT, TRAPS, guide/BUILDING), Octatrack OS 1.40C | https://github.com/sambanks/octabam/blob/main/docs/firmware/CHIP.md |
 | modded-cycles | 18nelli18/Modded-Cycles (RECOVERY.md, agent skill references os-map.md and free-space.md, notes/), Model:Cycles OS 1.13 | https://github.com/18nelli18/Modded-Cycles/blob/main/RECOVERY.md |
 | rytm-fw-re | ethernet8023/rytm-fw-re STATUS.md and docs (flash-driver, usb-reflash), Analog Rytm MKII OS 1.74 | https://github.com/ethernet8023/rytm-fw-re/blob/master/STATUS.md |
+| a4mods | hugz202/AE-analog-four-mods (docs/HAZARDS.md, FLASHING.md, research/digital-path-findings.md, README), A4 MK1 OS 1.55/1.56 | https://github.com/hugz202/AE-analog-four-mods/blob/main/docs/HAZARDS.md |
+| analog-emu-a4 | trigcondition/analog-emu `docs/A4-PORT.md` (A4 MKII OS 1.56) | https://github.com/trigcondition/analog-emu/blob/main/docs/A4-PORT.md |
+| analog-emu-mk1 | trigcondition/analog-emu `docs/MK1-PORT.md` (Rytm MKI 1.74, A4 MKI 1.56) | https://github.com/trigcondition/analog-emu/blob/main/docs/MK1-PORT.md |
+| analoghealth | Iced-Cream/analoghealth README (Rytm MKII 1.74, A4 MKII 1.56) | https://github.com/Iced-Cream/analoghealth |
+| mdkit-docs | janne808/machinedrum-kit `docs/` (01 overview, 02 memory maps, 05 SysEx updates, 03 firmware image, 08 DSP2 voice ABI, 13 DSP programming, 16 emulation, 17 open questions), Machinedrum UW OS 1.63 | https://github.com/janne808/machinedrum-kit/tree/main/docs |
+| ems-fw | emuyia/ems-machinedrum-firmware and ems-monomachine-firmware READMEs and CHANGELOG | https://github.com/emuyia/ems-machinedrum-firmware |
+| monomodule | shnolk/monomodule README (Monomachine OS 1.32B) | https://github.com/shnolk/monomodule |

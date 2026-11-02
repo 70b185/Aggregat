@@ -35,5 +35,6 @@ later, stronger source decided it; the losing value still circulates in older no
 | S9 | L1 block 2 is free because the image leaves it empty | **the PM data cache lives there**; code at the last written word can trap on parity | dnfw `waverider-dsp-silence.md` |
 | S10 | The PRM: reading MR keeps / clears the flags; NaN results set AN | **silicon keeps the multiplier flags on an MR read, and leaves AN clear on an invalid float result** | digikit finding 103 |
 | S11 | Encodings with a stock precedent are safe | **necessary, not sufficient:** a same-DAG store and SIMD L2 moves hung a real DT2 | digitakt-ii-research PLAITS H-opt1 |
+| S12 | Machinedrum CPU is an MCF5307 | **MCF5206E** | machinedrum-kit (board model and MAME driver agree) |
 
 When you find a new disagreement: add a row here and mark the fact `[?]` in the device file. When one is settled, move it to the second table and say what settled it.

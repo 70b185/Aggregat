@@ -22,10 +22,10 @@ Coverage: **medium**. Projects: [../../devices/digitakt-2.md](../../devices/digi
 `[doc]` {digikit-old} {digitakt-ii-research} {digitakt2-perform}
 
 ## Bootstrap/recovery facts
-- Startup menu: FUNC at power-on; **SysEx over MIDI DIN only, not USB**. `[doc]` {digikit-old}
-- Bootstrap = section 2, updater = section 4; DSP program = ADI boot stream in section 7; patchkit refuses to change sections 2, 4 and 8. Recovery via the bootstrap menu is stated as **not tested on hardware** by digikit's author. `[doc]` {digikit}
+- Startup menu: FUNC at power-on; **SysEx over MIDI DIN only, not USB**. Step by step: [`../common/recovery.md`](../common/recovery.md). `[doc]` {digikit-old}
+- Bootstrap = section 2, updater = section 4, DSP program in section 7; patchkit refuses sections 2, 4 and 8 ([`../common/firmware-container.md`](../common/firmware-container.md)). Recovery via the bootstrap menu is stated as **not tested on hardware** by digikit's author. `[doc]` {digikit}
 - BOOTSTRAP UPGRADE (irreversible) runs only for a strictly higher bootstrap version; bootstrap version 0x0200 in 1.15C. `[doc]` {digikit-old}
-- 1.15C address facts: depacker `0x80000432`, CRC-32 routine `0x80001bd0`, bootstrap upgrade gate `0x80001c72`, content checksum `0x40003ca6`, HMAC-SHA256 trailer check `0x80005e2a` (last two not emulated). `[doc]` {digikit-old}
+- 1.15C address facts: depacker `0x80000432`, CRC-32 routine `0x80001bd0`, bootstrap upgrade gate `0x80001c72`, content checksum `0x40003ca6`, HMAC-SHA256 trailer check `0x80005e2a` (last two not emulated; container checks: [`../common/firmware-container.md`](../common/firmware-container.md)). `[doc]` {digikit-old}
 - Install generated builds via Elektron Transfer; the builders never connect to or flash the instrument. `[doc]` {digitakt-ii-research}
 - **The startup-menu recovery has been used on a real DT2** (dt2-machine-lab, 2026-10-06):
   - An experimental build crashed at startup.
@@ -45,7 +45,7 @@ Coverage: **medium**. Projects: [../../devices/digitakt-2.md](../../devices/digi
   - Rung C, a machine loaded at run time (pluck, 4,484 B uploaded over SysEx), **halted the SHARC at the first trig**. Breadcrumbs narrowed it to the step after the type match.
   - The fix (C3d2) was to route 17 DAG-register stores through an R register, the same-DAG rule. With it, pluck played at ~1,500 dispatches/s with DSP load 41.5 -> 42 %.
 - **A second SHARC stop on a real DT2: `fx/freqshift` on the send route froze the unit at boot; the emulator showed nothing** (findings 77, 91). Two causes were found. `[hw]` {digikit-f91}
-  - A selas defect left the end of a nested hardware loop compressed (VISA). The last 11 instructions of every hardware loop must be 48-bit ISA, so wrap nested loops in `.NOCOMPRESS`.
+  - A selas defect left the end of a nested hardware loop compressed (VISA). The last 11 instructions of every hardware loop must be 48-bit ISA, so wrap nested loops in `.NOCOMPRESS` ([rule A45](../AGENT-RULES.md)).
   - Code copied into L2 at run time was not written back from the data cache.
   - After both fixes, freqshift ran on the send and master routes (2026-10-30).
 - An LFO at large depth on a run-time machine's TUNE drove Inf/NaN into the send FX and **silenced every track until reboot**, while the DSP kept running. The fix was a parameter clamp plus a per-voice guard in the wrapper; the guarded build ran on a unit with 0 faults. `[hw]` {digikit-f51}

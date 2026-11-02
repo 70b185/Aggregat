@@ -31,7 +31,7 @@ Mods for different OS versions cannot be combined and flashing between them can 
 ## Architecture
 - ColdFire main CPU (big-endian code, GCC-built, C++ RTTI names remain); SHARC+ audio DSP. `[doc]` {dn2-cfw} {dn2-firmware-explore}
 - `MAIN OS` section: 3,085,696 bytes, loads at `0x40000400`. `[doc]` {dn2-firmware-explore}
-- Container **signed with HMAC-SHA256**, key derived from material inside the image; a modified image can be signed correctly (the tools do it). `[doc]` {dn2-firmware-explore}
+- Container **signed with HMAC-SHA256** with a key derived from the image itself, so the tools re-sign modified images ([`../common/firmware-container.md`](../common/firmware-container.md)). `[doc]` {dn2-firmware-explore}
 - DSP works per block; the stock handler can be interpreted offline (sharcvm); new effects are portable C, compiled with selache/selcc and spliced into the DSP section. `[doc]` {dn2-cfw}
 
 - **Board PCBA0109B, read from photographs of the parts** (dnfw `docs/hardware.md`, 2026-09-12) {dn2-hw}. The same board number as the Digitakt II is reported.
@@ -87,9 +87,9 @@ Protected: sections **2, 4, 5 and 8** (bootstrap, updater and others) must stay 
 
 ## Recovery (full procedure in [`../common/flash-procedure.md`](../common/flash-procedure.md))
 - FUNC at power-on -> TRIG 4 (OS UPGRADE) -> Elektron Transfer **LEGACY OS UPGRADE** over **5-pin DIN MIDI to MIDI IN; USB does not work in this mode**; takes ~12-15 min, do not interrupt. The bootstrap that holds this menu must stay byte-identical (the brick checker refuses changes). `[hw]` {overtone} {dn2mk2} {dn2-cfw}
-- Known: Overtone 1.0 could stall on "Receiving"/"PREPARING..." when an OS was sent with Transfer; power-cycle and use the STARTUP menu, install 1.0.1. `[hw]` {overtone}
+- Overtone 1.0 broke the Transfer update path (stall at "Receiving"/"PREPARING..."); fixed in 1.0.1, way out = STARTUP menu over DIN. Details and the release test that catches it: [`../common/recovery.md`](../common/recovery.md). `[hw]` {overtone}
 - Pre-flash safety kit: back up +Drive, keep the stock OS file for the exact version, volume down, DIN cable ready, check the file's SHA-256 against the gate record (`certutil -hashfile FILE SHA256` on Windows). `[doc]` {dn2mk2-firmware-md}
-- dn2_firmware_explore: own rebuilt images stall at ~80% in the recovery path (fix built, untested). `[doc]` {dn2-firmware-explore}
+- dn2_firmware_explore's own rebuilt images stall at ~80% in the recovery path; stock files are fine. Details: [`../common/recovery.md`](../common/recovery.md). `[doc]` {dn2-firmware-explore}
 
 ## dn2-cfw working set (README "Getting started")
 Prerequisites: macOS on Apple silicon (Linux likely for most), Python 3, the user's own `Digitone_II_OS1_12.syx` in `elektron-firmware/`. Upstream tools are cloned into `vendor/` at the commits in `VENDOR.md`; digikit and elekloader come as the author's forks on branch `dn2-1.12` (digikit: 1.12 support, audio clock, DIN MIDI, LEDs, live play; elekloader: a Digitone II 1.12 profile and the `core-dn2` hook bus). Every candidate image must pass `tools/brickcheck` (12 checks) before it is flashed; compile C to SHARC code with selache/selcc and splice with `tools/dspsplice`; use elektron-firmware-tool for the `.syx` format and rebuild. The README does not give a flashing procedure (see `../common/flash-procedure.md`). `[doc]` {dn2-cfw}
@@ -100,7 +100,7 @@ Notes in the repo mark each claim `[verified]` or `[inferred]` - copy that conve
 - dn2-cfw: EF01 (renamed stock 1.12) proved rebuild/seal/flash; FLG1 (flanger), FTD1, DH01 (hook bus), FTN1, GT00, GT01 ran on the unit. `[hw]` {dn2-cfw}
 - Overtone 1.0.1: played on a Digitone II, Transfer installs tested on the unit. `[hw]` {overtone}
 - dn2mk2: v0.21-v0.33 mostly emulator-only, hardware checks outstanding; user reports of p-lock clicks and silence were the reason for the DSP guard (v0.27) and AMD fix (v0.30.1). `[emu]` {dn2mk2-firmware-md}
-- Emulators do not model the two chips' timing: overruns show only on a unit. `[doc]` {dn2mk2-firmware-md}
+- Emulators do not model the two chips' timing, so overruns show only on a unit ([`../common/toolchain-and-emulators.md`](../common/toolchain-and-emulators.md)). `[doc]` {dn2mk2-firmware-md}
 
 ## Official OS list (elektron.se release notes, page updated 2026-10-01)
 Newest **1.12** (adds routing of the Main outputs through Outbox 8 and FUNC+UP/DOWN channel navigation in the Outbox 8 configuration menus), then 1.11, 1.10E, 1.10D, 1.10C, 1.10B, 1.10A, 1.10, 1.00A. No dates per version. So Overtone (1.12) targets the **current** OS and dn2mk2 (1.11) a one-version-old OS. `[doc]` {elektron-dn2-notes}

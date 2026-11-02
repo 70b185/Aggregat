@@ -140,4 +140,4 @@ The most common pattern. The engines come from the source device's own code or f
 
 - **Portable engine cores already exist:** mdkit (Machinedrum voices, CC0), digisophie (Sophie, fixed point), plaits-on-models (Plaits, fixed point) and digigrain (bounded granular). A new port should start from one of these rather than from the original source.
 - **Two or more parallel implementations** of the same feature on the same device: direct jump on the DN2, scale handling on the Octatrack (four), load meters on the DN2 (three, which disagree). Comparing these is cheap and likely to find bugs in one of them.
-- **Measured rules travel better than code:** a ColdFire or SHARC lesson found by one project (cache, ISA, load governor, USB timing) applies to all boxes with the same chip. Those are collected as rules A1-A44 in [hardware/AGENT-RULES.md](hardware/AGENT-RULES.md).
+- **Measured rules travel better than code:** a ColdFire or SHARC lesson found by one project (cache, ISA, load governor, USB timing) applies to all boxes with the same chip. Those are collected as rules A1-A45 in [hardware/AGENT-RULES.md](hardware/AGENT-RULES.md).

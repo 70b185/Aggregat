@@ -112,9 +112,13 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 - selas: negative shift immediates;
 - the DSP56300 reference assembler: overlapping `ORG`s accepted silently.
 
+Round-trip new code through a disassembler and compare, and make the build refuse a mismatch. `[hw]` {octabam-traps} {elekloader-adapting} {mdkit-docs}
+
 **A42. ColdFire is not a full 68000: check every addressing-mode combination against the ColdFire manual, not against the emulator.** The forms below were excluded by ColdFire, ran in the emulator, and failed on a unit:
 - `move.l #imm,d16(An)` (immediate to displacement) crashed a Digitakt II at startup with exception vector 4;
 - `move.l #imm,abs.L` (immediate to absolute) appeared five times in an early copier of a Digitone mk1 build, which then hung on the logo. It was the most likely cause, though the fault address was never captured.
+
+In the second case, a local ISA checker also accepted the form, because it decoded the instruction without checking the source/destination pair. Assemble with the right `-mcpu`, check hand-encoded bytes against the manual's mode tables (CFPRM pp. 4-47/4-48), and round-trip (A41). `[hw]` {dt2-lab-coldfire-fix} {dn1-arpmod-e04}
 
 **A43. A cave is free only after it survived a hard run on the unit.** Zero bytes in the image can be `.bss` that the engine writes only while it plays. A mod placed in such a region worked with the sequencer stopped and failed during playback (octatrack-mods, reported by rytm-mods-src). Before shipping into a new cave: fill it with a known pattern, flash, exercise playback, sampling, Overbridge and storage, and read it back. Combine this with static proof (no references) and emulator coverage (A4 MK1 practice), not instead of it. The same failure was seen on the Octatrack: tables lost to a heap tail (octamax), and a scratch word at `0x80006a60` overwritten under live recording on an MKI (KYOTI). This applies to **data scratch as well as code**. `[hw]` {rytm-mods-src} {a4mods} {kyoti-caves}
 
@@ -125,9 +129,12 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 On a Model:Cycles this turned "the last track always cuts out" into clean playback at 89 % peak. `[hw]` {supermodel-notes}
 
-In the second case, a local ISA checker also accepted the form, because it decoded the instruction without checking the source/destination pair. Assemble with the right `-mcpu`, check hand-encoded bytes against the manual's mode tables (CFPRM pp. 4-47/4-48), and round-trip (A41). `[hw]` {dt2-lab-coldfire-fix} {dn1-arpmod-e04}
+**A45. Keep the end of every SHARC hardware loop in 48-bit ISA (DT2/DN2).** The last 11 instructions of a hardware loop, and all of a loop shorter than that, must be legacy 48-bit instructions; the rest of the code may be compressed. Three projects reached this independently:
+- digikit: a selas defect left the end of a nested loop compressed, and `fx/freqshift` froze a real Digitakt II at boot while the emulator ran it ([digitakt-2.md](devices/digitakt-2.md)) {digikit-f91};
+- the digitone-2-modding-skill checks it with `hwrules.py`, and stock DN2 1.11 obeys it in all 286 loops; its full list (loop end, `LCE`, CALL and branch spacing, same-DAG) is in [digitone-2-os111-firmware-map.md](devices/digitone-2-os111-firmware-map.md) {dn2-skill-scripts};
+- the DT2 Plaits port compresses everything else and keeps loop ends in ISA ([digitakt-2-dsp-optimizing.md](devices/digitakt-2-dsp-optimizing.md)).
 
-Round-trip new code through a disassembler and compare, and make the build refuse a mismatch. `[hw]` {octabam-traps} {elekloader-adapting} {mdkit-docs}
+Wrap nested loops in `.NOCOMPRESS`, and check the rule on the disassembly (A41), since the emulator does not enforce it. `[hw]`
 
 ## B. Legal / distribution
 

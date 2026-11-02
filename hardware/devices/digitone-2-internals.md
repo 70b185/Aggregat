@@ -42,7 +42,7 @@ Complements [`digitone-2.md`](digitone-2.md) (overview) and [`digitone-2-os111-r
   - 16 per-voice rows of `0x92` bytes start at `0xda`. **A row is a voice, not a track:** a track parameter goes to every row whose owner (`0xa5a + 2r`) is that track. `[emu]`
 - **Audio clock:** SSI0 with eDMA 48 (RX) / 50 (TX), 96,000 requests/s. One major loop is one 32-sample block, and vector 170 forces vector 191 (the frame handler). The emulator needs this clock for PLAY to run the sequencer. `[emu]`
 - **Panel and MIDI:**
-  - Panel MCU on UART8 at 156,250 baud, sent through eDMA 35. LED messages: `B9 i v` (LED i, palette entry v) and `B5 i r g b` (palette entry).
+  - Panel MCU on UART8 at 156,250 baud, sent through eDMA 35. LED messages: `B9 i v` (LED i, palette entry v) and `B5 i r g b` (palette entry); see also [`../common/sysex-and-midi.md`](../common/sysex-and-midi.md).
   - DIN MIDI on UART9 at 31,250 baud: out by eDMA 37 (bulk) plus direct writes for realtime bytes, in by eDMA 36. `[emu]`
 - **Notes:**
   - MIDI tracks have **no voice limit** in the output engine; the "4 notes" are only the UI's NOT2-NOT4 rows.

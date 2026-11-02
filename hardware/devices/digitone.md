@@ -5,8 +5,7 @@ Coverage: **good** (almost entirely through the elekloader family). Projects: [.
 ## Basics
 - OS targets: **1.43** and **1.44**. `[doc]` {elekloader-readme}
 - Same OS file for Digitone and Digitone Keys (`Digitone_and_Digitone_Keys_OS1.43.syx`); several mods say "nothing has run on a Keys" - treat Keys as untested. `[doc]` {tone-fx} {digicosm}
-- Container is **unsigned** (trailer = 32 zero bytes), unlike Digitone II. `[doc]` {dn2-firmware-explore}
-- `MAIN OS` loads at `0x40000400` (shared with DN2 per dn2_firmware_explore). `[doc]` {dn2-firmware-explore}
+- Container is **unsigned**, unlike Digitone II; `MAIN OS` loads at `0x40000400` as on DN2 ([`../common/firmware-container.md`](../common/firmware-container.md)). `[doc]` {dn2-firmware-explore}
 - Official minimum OS for Transfer-based update: 1.30. `[doc]` {elektron-support}
 - **Recovery, used on a unit** (digitone-arp-mod, 2026-10-08, OS 1.44):
   - A test build finished its upgrade but hung on the Elektron logo: the logo did not dissolve, with "H" at bottom left and "1.44" at bottom right.

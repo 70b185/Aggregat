@@ -25,7 +25,7 @@ with 25 models. Every model and each optimisation was flashed step by step on th
 - `Rn = Rn + Rm` and `Rn = Rn XOR Rm` compress to 16-bit forms that stock never uses, so write integer adds under `.NOCOMPRESS`. Stock contains no plain XOR at all.
 - **A label defined in two sources resolves to one of them in the merged object.** Each kernel's own test passed, but the merged image jumped into the wrong file. Use unique label prefixes per file.
 - **Delay slots:** after a delayed branch, the two slots must not hold a branch, a DO, a PC-stack operation, IDLE, or a write of the indirect branch's I/M. After a conditional branch, they should also not hold a flag writer (stock does that, but it is avoided as a precaution).
-- **The last 11 instructions of every DO loop are 48-bit, and the loop end is an instruction.** The other code can be compressed. Compression shrank the kernels by 10-30 %, which matters because the instruction cache is the bottleneck (section 3).
+- **The last 11 instructions of every DO loop are 48-bit, and the loop end is an instruction** ([rule A45](../AGENT-RULES.md)). The other code can be compressed. Compression shrank the kernels by 10-30 %, which matters because the instruction cache is the bottleneck (section 3).
 
 ## 3. Where the cycles go on the SHARC+ (calibrated cycle model)
 - **Instruction-cache misses are the largest stall class (33 %).** Every model touches 150-300 code lines (10-19 KB) of L2 code per voice block, near or above the 16 KB 2-way cache. The lever is code size (compression, kernels instead of selcc C, fewer calls), not code order.

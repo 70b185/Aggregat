@@ -7,7 +7,7 @@ Rytm MKII (`core-ar2`).
 
 ## Platform (MKII, OS 1.74)
 - CPU: **ColdFire MCF5445x** (`-mcpu=54455`, big-endian) - like the Octatrack's family, not the MCF5441x of the small boxes. DDR from `0x40000000`, the OS at `0x40000400`, stack region `0x48000000`. `[doc]`
-- Sections of 1.74: 2 bootstrap (42,302 B, loads at `0x07020000`, runs in SRAM `0x80000000`), **1 FPGA** (Xilinx bitstream, 149,516 B, sync `AA99`), 3 MAIN OS (3,005,432 B), 8 unknown (159,948 B, `0xFF`-padded, the same size as on the Syntakt and DT2/DN2), 5 meta. `[doc]`
+- Sections of 1.74: 2 bootstrap (42,302 B, loads at `0x07020000`, runs in SRAM `0x80000000`), **1 FPGA** (Xilinx bitstream, 149,516 B, sync `AA99`), 3 MAIN OS (3,005,432 B), 8 the shared ARM Cortex-M image (159,948 B, identical across several devices; see [firmware-container.md](../common/firmware-container.md)), 5 meta. `[doc]`
 - **The display is driven through the FPGA:** a byte-FIFO bridge at `0xec07xxxx` (status `0xec070004`, data `0xec07000c`). The 128x64 panel uses two static 1,024-byte planes with diff flush. `0xec074xxx` is the MIDI UART (divisor 132 MHz / (31,250 x 32)). The LED engine is fed through the same FPGA SRAM family. `[doc]`
 - Boot contract:
   - The bootstrap unpacks MAIN to `0x40000400`, sets VBR = `0x40000000` and calls the word at `0x40000400` as an **entry function pointer** with one stack argument. It is not a reset SP/PC header.

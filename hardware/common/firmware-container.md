@@ -55,6 +55,18 @@ The byte after Elektron's manufacturer ID `00 20 3C` selects the device. A file 
 
 Not yet collected: Octatrack, Analog Rytm MK1, Analog Four MK1, Syntakt, Model:Cycles, Model:Samples, Analog Heat MKI/MKII.
 
+## Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re)
+- **What is settled:**
+  - Section 8 is a complete ARM Cortex-M firmware image: a Thumb vector table, and a descriptor naming a 1 MB flash window at `0x60000000` with the image at `0x60042000`.
+  - The **same 159,948-byte image** (sha256 `6943b2f2...`) ships in Digitakt mk1 1.53, Digitone II 1.11, Analog Rytm MKII 1.73 and Analog Four 1.55D. Syntakt and Digitakt II carry a section 8 of the same size.
+  - It is not an FPGA bitstream (the FPGA is section 1, or inside section 7 on the Digitone mk1), and it is not code for the device's own CPU.
+
+  `[doc]` {dn2-ele3} {analog-emu-a4} {rytm-fw-re}
+- **What it is for is open (CONFLICTS O16).**
+  - dnfw links it to the Outbox 8 accessory, because it arrived in the DN2 release that added Outbox support.
+  - analog-emu calls it the panel MCU firmware. Against that: the DN2, Rytm and A4 operating systems carry their own panel firmware inside MAIN and re-flash the panel from there.
+- **Rule for mods:** leave section 8 byte-identical. Removing it frees update size only, not address space, and could leave an attached accessory on old firmware.
+
 ## Signing per device (summary)
 Digitakt II and Digitone II: HMAC-SHA256 trailer, key derived from a string inside the image; Digitakt II additionally enforces a build floor ("0060") in the in-OS validator. Digitone mk1: unsigned (trailer zero). **Syntakt 1.42: unsigned** (no HMAC, trailer zero; content checksum only). **Analog Heat +FX 1.02: unsigned** (ELE3, device byte 0x13, no trailer; sections 5, 2, 1 FPGA, 3 MAIN, 4 updater) {own-heatfx-notes}. Heat MKI/MKII: unknown. `[doc]` {dn2-ele3} {digikit-f75} {digikit-f70}
 

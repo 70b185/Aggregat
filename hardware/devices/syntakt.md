@@ -43,7 +43,7 @@ Normal case: Drop page in Transfer. If the OS does not boot: DIN MIDI, FUNC at p
   | 5 | meta | | |
   | 6 | ColdFire boot stub | 1,744 B | raw; never touch |
   | 7 | **voice engine for CPU #2**, at `0x40000400`, entry `0x40001070` | 383,760 B | raw; patchable |
-  | 8 | "second FPGA?" (SyntHack) | 159,948 B | digikit: identical to DT2/DN2's section 8 `[?]` |
+  | 8 | the shared ARM Cortex-M image (not a second FPGA; CONFLICTS S15) | 159,948 B | identical in size to the DT1/DN2/Rytm/A4 image whose hash is known |
 
   Stock 1.41 SHA-256: `8e2488f4...b9ed19e`.
 - **Signing conflict `[?]`:** SyntHack describes an HMAC-SHA256 over the container for 1.41, with the key derived from the image. digikit found no HMAC trailer in 1.42 (the last 32 bytes are zero). Check the trailer of your own file before you decide.
@@ -153,4 +153,4 @@ Normal case: Drop page in Transfer. If the OS does not boot: DIN MIDI, FUNC at p
 - **Signing:** the HMAC presence in 1.41 versus 1.42 is a conflict, see above.
 - **Free executable storage on CPU #2:** unresolved (machine-45 research).
 - **OS 1.42 addresses:** all mod projects target 1.41 (SY FM4 targets 1.40A). digikit's 1.42 reading shares only 27 of 172 anchors with the DT2.
-- **The FPGA's role** and section 8's meaning.
+- **The FPGA's role.** (Section 8 is now known to be the shared ARM image found on other devices, not a second FPGA: CONFLICTS S15.)

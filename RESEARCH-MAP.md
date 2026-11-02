@@ -125,7 +125,7 @@ When done, update the matching row here and the device file under hardware/devic
 | CPU #1 load | ❓ | ~89 % of the audio interrupt at rest vs. 85.8k of 166.7k cycles - probably different spans (O3). | **T4** |
 | Where mod code can live | ✅ | Not above the BSS: sample loading overwrites `0x45565490-0x48000000` (settled S13). SyntHack reserves the first 64 KB heap block at boot; kit and project files carry spare bytes that round-trip through stock code. | [syntakt.md](hardware/devices/syntakt.md) |
 | Free executable storage on CPU #2 | ❓ | Unresolved. | machine-45 research notes |
-| Section 8 | ❓ | "Second FPGA?" vs. identical to DT2/DN2 section 8 (O4). | T12 |
+| Section 8 | ✅ | A shared ARM Cortex-M firmware image, the same on several devices, not an FPGA (S15). Which accessory it serves is open (O16): Outbox 8 is the likely candidate. | - |
 | FPGA role | ⬜ | Unknown on every device that has one. | T12 |
 | OS 1.42 | ⬜ | All mods target 1.41 (SY FM4: 1.40A); only 27 of 172 anchors shared with the DT2. | **T6** |
 | Mod building method | ✅ | SyntHack's modding guide (patch.json, protected sections). | - |

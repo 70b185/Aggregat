@@ -47,6 +47,11 @@ These hold for every ColdFire V4/V4e box here. Instruction counts come from the 
 - dn2-cfw's fork (branch `dn2-1.12`): 1.12 boots to the main screen, PLAY runs the sequencer, DIN MIDI works incl. virtual ports on Mac, live play ~0.8x real time. `[doc]` {dn2-cfw}
 - A whole-DSP SHARC emulator (Overtone, the modding skill): used with digikit for ~160 checks per build. `[doc]` {overtone} {dn2-modding-skill}
 - **Emulators do not model the timing of the two chips or the link between them** (dn2mk2 FIRMWARE.md) - so DSP-time overruns are only found on a unit. `[doc]` {dn2mk2-firmware-md}
+- **dsp56kEmu quirks seen by KYOTI:**
+  - `move x:(rN+$disp),a` (two-word displacement form into accumulator a) read the wrong word in the emulator, while destination b was fine.
+  - Short immediates into data ALU registers are left-aligned, and `asr` leaves bits in acc0 that `tst`/`cmp` see; the hardware behaves the same for these two.
+
+  Route displaced loads through b. `[emu]` {kyoti-fw}
 - gearmulator (dsp56300): Machinedrum/Monomachine emulation, used by Overtone for comparisons. {overtone}
 
 ## Tools by purpose

@@ -110,5 +110,21 @@ Key {octabam}. **A different platform from the DT2/DN2:** the ColdFire is an MCF
 - **Restoring state every frame is safe only for CPU-side bookkeeping.** Overwriting data the DSP reads corrupted the audio. `[hw]`
 - An Octatrack emulator built on QEMU (ColdFire MCF54455) plus dsp56300, octemu by markandrus, targets firmware development including USB MIDI and audio; PassOS uses its 20-channel USB audio work. `[doc]`
 
+## Where code and data may go: KYOTI's cave ledger (OS 1.40C, `reference/kb/caves.md`) {kyoti-caves}
+Five projects (octabam, octalab, midisc, octemu, ems-octakit, KYOTI) cut code into the same few kilobytes of the same image. Read KYOTI's ledger before you pick an address.
+- **The parameter-page descriptor table is live data, zeros included.** It is 31 entries of `0x192` bytes at `0x400d2e52-0x400d5f00`, and a zero entry means "the default". Never place code or data there unless the entry is proven unreachable. `[hw]`
+- **The canary test** (from octalab) before anything ships in a new region:
+  1. Fill the range with a pattern, or a 32-bit counter so that partial overwrites show.
+  2. Use the unit for a full session: load, record, change patterns, save, power-cycle, load again.
+  3. Read the range back and compare.
+
+  octamax lost tables to a heap tail and probe counters to a region restored on every load. See rule A43. `[hw]`
+- **Scratch RAM `0x80006a40+` is not safe under live audio:** a magic word at `0x80006a60` was overwritten by the next key press on a real MKI while recording; the emulator, which runs no DSP/audio path, kept it forever. `[hw]`
+- **Past the image's ceiling, two routes:**
+  - append a runtime after the OS image (octabam's loader stub; proven on an MKI);
+  - put a position-independent payload with a relocation table on the **CF card** and load it at run time. octemu does this for USB audio (four UAC2 descriptors, iso servicing and a 36 KB ring against ~408 B of slack).
+
+  `[doc]`
+
 ## Gaps
 NOR use above the OS image, the trig dispatch source, the MKI vs MKII hardware differences beyond the CPU marking.

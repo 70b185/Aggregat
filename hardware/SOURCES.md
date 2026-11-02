@@ -225,3 +225,4 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | digikit-f49 | ElekLabs/digikit `docs/findings/49-dt2-type-sites-and-uninit-model.md` section 10 (same-DAG stores, the rung C halt) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/49-dt2-type-sites-and-uninit-model.md |
 | digikit-f37 | ElekLabs/digikit `docs/findings/37-boot-load.md` (boot timing, default exception handler, watchdog unused) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/37-boot-load.md |
 | dn2-waverider-perf | angellinares/dn2_firmware_explore `docs/waverider-performance.md` and `docs/waverider-loadmap.md` (DN2 1.11) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/waverider-performance.md |
+| kyoti-caves | Zac-Kyoti/octatrack-kyoti-fw `reference/kb/caves.md` (cave ledger, canary test, scratch RAM; OS 1.40C) | https://github.com/Zac-Kyoti/octatrack-kyoti-fw/blob/main/reference/kb/caves.md |

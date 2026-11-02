@@ -2,7 +2,7 @@
 """Spot-check: every hex address (5+ digits) on a line of hardware/*.md that cites a source key must appear
 verbatim in a local clone of that source. Clones are expected at the paths in M (edit to your layout); keys
 without a local clone are skipped. Reads only; prints what it could not find.
-Usage: python3 scripts/factcheck_addresses.py"""
+Usage: python3 scripts/factcheck_addresses.py   (private notes: set OWN_DT2_NOTES / OWN_HEATFX_NOTES to their clones)"""
 import re,glob,os,subprocess,collections,sys
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..'))
 M=[('digikit','/tmp/src/digikit'),('dn2-cfw','/tmp/src/dn2-cfw'),('elekloader','/tmp/src/elekloader'),('dn2-skill','/tmp/src/skill'),('octabam','/tmp/src/sambanks_octabam'),('modded-cycles','/tmp/src/18nelli18_Modded-Cycles'),('rytm-fw-re','/tmp/src/ethernet8023_rytm-fw-re'),('syncrackd','/tmp/src/Vuulgaris_syncrackd'),('dn2-ele3','/tmp/src/dn2_firmware_explore'),('dn2-memory-map','/tmp/src/dn2_firmware_explore'),('dn2-bootstrap','/tmp/src/dn2_firmware_explore'),('dn2-hw','/tmp/src/dn2_firmware_explore'),('dn2-principles','/tmp/src/dn2_firmware_explore'),
@@ -10,7 +10,7 @@ M=[('digikit','/tmp/src/digikit'),('dn2-cfw','/tmp/src/dn2-cfw'),('elekloader','
 ('dn2-ddr','/tmp/src/dn2_firmware_explore'),('dn2-sharcload','/tmp/src/dn2_firmware_explore'),('dn2-service','/tmp/src/dn2_firmware_explore'),('dn2-mods','/tmp/src/dn2_firmware_explore'),
 ('dn2-dt2port','/tmp/src/dn2_firmware_explore'),('dn2-cfdsp','/tmp/src/dn2_firmware_explore'),('dn2-midirpc','/tmp/src/dn2_firmware_explore'),
 ('synthack','/tmp/src/synthack-up'),('dt2-plaits','/tmp/src/dt2research'),('dt2-research','/tmp/src/dt2research'),
-('own-dt2-notes','/home/claude/private-dt2-notes'),('own-heatfx-notes','/home/claude/private-heatfx-notes'),('armio','/tmp/src/armio'),('syntakt-workbench','/tmp/src/workbench'),('a4mods','/tmp/src/hugz202_AE-analog-four-mods'),('analog-emu','/tmp/src/trigcondition_analog-emu'),('analoghealth','/tmp/src/Iced-Cream_analoghealth'),('mdkit-docs','/tmp/src/janne808_machinedrum-kit'),('ems-fw','/tmp/src/emuyia_ems-machinedrum-firmware'),('monomodule','/tmp/src/shnolk_monomodule'),('rytm-mk1-mods','/tmp/src/hugz202_AE-analog-rytm-mods'),('modwerk','/tmp/src/repeat98_modwerk'),('gearmulator-md-mm','/tmp/src/joelanders_gearmulator-md-mm')]
+('own-dt2-notes',os.environ.get('OWN_DT2_NOTES','')),('own-heatfx-notes',os.environ.get('OWN_HEATFX_NOTES','')),('armio','/tmp/src/armio'),('syntakt-workbench','/tmp/src/workbench'),('a4mods','/tmp/src/hugz202_AE-analog-four-mods'),('analog-emu','/tmp/src/trigcondition_analog-emu'),('analoghealth','/tmp/src/Iced-Cream_analoghealth'),('mdkit-docs','/tmp/src/janne808_machinedrum-kit'),('ems-fw','/tmp/src/emuyia_ems-machinedrum-firmware'),('monomodule','/tmp/src/shnolk_monomodule'),('rytm-mk1-mods','/tmp/src/hugz202_AE-analog-rytm-mods'),('modwerk','/tmp/src/repeat98_modwerk'),('gearmulator-md-mm','/tmp/src/joelanders_gearmulator-md-mm')]
 def clone_for(k):
     for p,d in M:
         if k.startswith(p): return d

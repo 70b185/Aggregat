@@ -16,7 +16,7 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [ ] Digitone mk1 recovery buttons (not stated in anything we read)
 
 ## Digitakt II
-- [x] lalzart/digitakt-ii-firmware-research-public (architecture notes) (-> devices/digitakt-2.md); [ ] lalzart/dt2-machine-lab
+- [x] lalzart/digitakt-ii-firmware-research-public (architecture notes) (-> devices/digitakt-2.md); [x] lalzart/dt2-machine-lab (README, COLDFIRE-FIX, UPLOAD-PREFLIGHT head, FLEX-DSP-MEMORY-INVESTIGATION 1-2 and 7; the ~160 other docs are recorder/BUF feature work)
 - [x] karigardarsson/digitakt-ii-research: RECOVERY.md, KNOWN_LIMITATIONS.md (-> RESEARCH-MAP DT2 recovery row; the route is Elektron's official one)
 
 ## Syntakt

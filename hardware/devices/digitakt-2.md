@@ -27,6 +27,12 @@ Coverage: **medium**. Projects: [../../devices/digitakt-2.md](../../devices/digi
 - BOOTSTRAP UPGRADE (irreversible) runs only for a strictly higher bootstrap version; bootstrap version 0x0200 in 1.15C. `[doc]` {digikit-old}
 - 1.15C address facts: depacker `0x80000432`, CRC-32 routine `0x80001bd0`, bootstrap upgrade gate `0x80001c72`, content checksum `0x40003ca6`, HMAC-SHA256 trailer check `0x80005e2a` (last two not emulated). `[doc]` {digikit-old}
 - Install generated builds via Elektron Transfer; the builders never connect to or flash the instrument. `[doc]` {digitakt-ii-research}
+- **The startup-menu recovery has been used on a real DT2** (dt2-machine-lab, 2026-10-06):
+  - An experimental build crashed at startup.
+  - The owner restored official OS 1.16 through Transfer's recovery mode over **DIN MIDI**, sent from a Novation Launch Control 3's DIN out. Normal boot and audio came back.
+  - **A generic "USB2.0-MIDI" cable adapter (VID 1a86, PID 752d) showed no reception at all.** Use a known-good MIDI interface and test it before you need it.
+
+  `[hw]` {dt2-lab-coldfire-fix}
 
 ## Hardware test evidence for the mods
 - Déjà Vu LFOs (digitakt-ii-research): LFO waveforms DV-F (WAVE 7, free-running random loop) and DV-T (WAVE 8, loop resets on track trigger) on all three LFOs; WAVE 0-6 stay on stock paths. Hardware testing "initial only": normal boot, DV-F/DV-T modulation, DV-T retrigger. Save/reload/power-cycle persistence unverified. `[hw]` {digitakt-ii-research}
@@ -114,6 +120,20 @@ lalzart's public research grades each claim. Everything below is **static or sim
   - MAIN validates checksum, minimum version and the cryptographic trailer before it erases and programs the staged ELE3 slot at flash `0x80000`, then requests a reset.
   - Which updater copy runs after reset, and whether recovery is independent of it, is marked opaque.
 - **Offline modifications proven in the simulator only:** a byte-exact selector reroute, and a 3-byte change that turns an output-bank negation into pass-through. Re-encoding a modified section and running it on hardware are explicitly unproven.
+
+## Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) {dt2-lab-flex-mem}
+These figures are from the source and emulator runs, not from a unit. `[emu]`
+- **ColdFire heap:** a 32 MiB buddy allocator at `0x44f39c40-0x46f39c40` (16-byte minimum, power-of-two blocks), parameters at `0x402b406c`.
+- **Sample pool:**
+  - Logical range `0x400-0x19000400`, 400 MiB, allocations rounded to 8 KiB.
+  - The ColdFire's allocation records decide admission; no SHARC malloc is involved.
+  - In the SHARC's view the pool is a window at DSP byte address `0x8422b9c8 + (offset - 0x400)`, ending at `0x9d22b9c8`. Capicola reserves the top 8 MiB.
+- **Recorder:** the main OS fetches recorder data in chunks of at most `0x800` bytes over **DSPI1** from a service whose physical owner (ColdFire, SHARC DDR or a third part) is not established. Staging buffers are at `0x4fe79340` / `0x4fe7a340`.
+- **SHARC side:**
+  - Sample-slot table at `0x257810 + slot*0x14`: 1,025 entries, slot `0x400` is the preview.
+  - Voices at `0x2412cc + lane*0x1d8`, 32 lanes: `+0` PCM pointer, `+0x188` length, `+0x1b8` active.
+  - Link-port 0 receive staging at `0x268220` (descriptor) and `0x268240` (a tag plus 4 KiB of payload).
+- Once published to the SHARC, PCM keeps playing after the ColdFire source is freed, as long as the stock allocation stays owned. Saving, however, needs the source, and no read-back path from sample memory was found.
 
 ## SHARC measured on a real unit
 Clock (1.000 GHz, 666,667 cycles/block), FreeRTOS task map, free reply words, missed-block behaviour, the STRETCH contract, memory limits and selcc traps: [`digitakt-2-sharc-measured.md`](digitakt-2-sharc-measured.md). `[hw]` {own-dt2-notes}

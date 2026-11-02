@@ -112,6 +112,8 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 - selas: negative shift immediates;
 - the DSP56300 reference assembler: overlapping `ORG`s accepted silently.
 
+**A42. ColdFire is not a full 68000: check every addressing-mode combination against the ColdFire manual, not against the emulator.** `move.l #imm,d16(An)` (immediate source to a displacement destination) is excluded on ColdFire. A hand-written shim used it, ran in the emulator, and crashed a real Digitakt II at startup with exception vector 4 (illegal instruction). Assemble with the right `-mcpu` so the assembler rejects such forms, and check hand-encoded bytes the same way (rule A41). `[hw]` {dt2-lab-coldfire-fix}
+
 Round-trip new code through a disassembler and compare, and make the build refuse a mismatch. `[hw]` {octabam-traps} {elekloader-adapting} {mdkit-docs}
 
 ## B. Legal / distribution

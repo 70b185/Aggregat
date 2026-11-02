@@ -45,7 +45,7 @@ When done, update the matching row here and the device file under hardware/devic
 
 | # | Goal | Where it stands | What would move it |
 |---|---|---|---|
-| G1 | **Every device has a recovery path somebody has actually used** | ✅ DN2, DT mk1, Octatrack, A4/Rytm MK1; documented for Syntakt (SyntHack) and Heat +FX (official). ❓ DT2: the bootstrap-menu recovery is not reported tested on hardware. ❓ Digitone mk1: the buttons are not stated anywhere we read. | T1, T2 |
+| G1 | **Every device has a recovery path somebody has actually used** | ✅ DN2, DT mk1, Octatrack, A4/Rytm MK1; 🟢 DT2 (one report, OS 1.16); documented for Syntakt (SyntHack) and Heat +FX (official). ❓ Digitone mk1: the buttons are not stated anywhere we read. | T1, T2 |
 | G2 | **An honest load/headroom measure per device** (rules A25, A34, A37) | ✅ DT2 (idle-task measure on a unit), DN2 (elekloader busy meter, with the "busy is not headroom" caveat). ❓ Syntakt (two readings conflict, O3). ⬜ Heat +FX, Digitone mk1 voice CPU. | T4, T9, T10 |
 | G3 | **Shared-silicon knowledge transfers between devices** | At least six phase-1 boxes use MCF5441x-family ColdFires (DT, DN, DT2, DN2, Syntakt, Heat +FX); DT2 and DN2 share the SHARC and 85 % of its functions. Many rules were found on one box and are only assumed for the others (e.g. A39 USB, A28 cache write-back). | T3, T12, T19 |
 | G4 | **Emulators you can trust for more than "it boots"** | ✅ known gaps: no memory stalls (device cycles ~2x emulator), no pipeline model, EMAC fractional-mode bugs in stock Unicorn. ❓ digikit: real-time DSP audio. | T14 |
@@ -91,11 +91,11 @@ When done, update the matching row here and the device file under hardware/devic
 | "Bitcrush until reboot" | ❓ | Not caused by missed blocks; appears only with several custom-engine tracks at extreme settings. Cause unknown. | T7 |
 | Free L2 on 1.17 | ❓ | Static says up to `0x200fa000`, a unit clicked past `0x200f5a74` (O7). | T15 |
 | "Rung C" halt | ❓ | digikit lists no confirmed cause. | digikit findings |
-| Bootstrap-menu recovery | ❓ | Elektron's official SysEx-transfer route (FUNC, TRIG 4, DIN only), documented step by step by digitakt-ii-research; **no public report of someone actually recovering a DT2 this way**. lalzart marks the reset-time updater selection as opaque. | **T1** |
+| Bootstrap-menu recovery | 🟢 | **Used on a unit:** after a crashing build, official OS 1.16 was restored over DIN via Transfer's recovery mode (dt2-machine-lab, 2026-10-06). A cheap USB-MIDI cable adapter delivered nothing. One report; more welcome. | T1 (a second report, ideally on 1.17) |
 | OS version gate | ✅ | DT2 refuses OS below "0060" (S8). | - |
 | Sample path to a voice | 🟡 | Via link port 0 (LP0/DMA30), fed from a ColdFire Rapid-GPIO endpoint - two independent static/emulator readings agree (digikit f15, lalzart). The physical bridge is unknown. | Confirm on a unit. |
 | ColdFire <-> SHARC frame | 🟡 | A full-duplex `0xabc`-byte DSPI2 frame, 16 records of `0x60` bytes, the **same shape as on the DN2** (lalzart, static). Return content open. | T19 |
-| Memory map, machine API, parameter table | 🟡 | Partial; many DN2 findings likely transfer (85 % shared SHARC functions). | T19 |
+| Memory map, machine API, parameter table | 🟡 | Sample pool, heap, slot table and voice records mapped for 1.16 (dt2-machine-lab, emulator); the rest partial; many DN2 findings likely transfer (85 % shared SHARC functions). | T19 |
 | Project file format (`.dt2prj`) | 🟢 | Song slots: LZ4 32 KiB blocks (dt-song-mgmt). Rest ⬜. | T18 |
 
 ## Digitone II - OS 1.10E / 1.11 / 1.12
@@ -153,7 +153,7 @@ Pick one, check the status above, and go. **S** = an evening, **M** = a few sess
 
 | # | Task | Device | Needs | Effort | Value |
 |---|---|---|---|---|---|
-| T1 | Use the bootstrap-menu recovery once with the **stock** file and write down every step and timing | Digitakt II | unit + DIN | S | Turns the most important unknown on the DT2 into a known path (G1). Low risk: stock file only. |
+| T1 | ~~First DT2 recovery report~~ **one exists** (OS 1.16). Still useful: a second report on **1.17**, with timings and the interface used | Digitakt II | unit + DIN | S | Confirms the path on the current OS (G1). Low risk: stock file only. |
 | T2 | Confirm the startup-menu buttons and the OS-upgrade path | Digitone mk1 / Keys | unit (no flashing) or manual | S | Closes a recovery gap (G1). |
 | T3 | Test rule A39 (no EP0 stage of a multiple of 64 bytes) on a small box with a vendor request | DT mk1 / DN mk1 / DT2 | unit + a USB mod | M | Confirms or limits a rule found on the Octatrack (G3). |
 | T4 | Measure CPU #1 load with the digihealth DMA-timer method over the whole interrupt, at rest and busy | Syntakt | unit + SyntHack | M | Settles O3; gives Syntakt modders a budget (G2). |

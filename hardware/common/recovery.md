@@ -6,7 +6,7 @@ Know this **before** flashing a test unit. Sources are second-hand; check Elektr
 | Device | How | Source |
 |---|---|---|
 | Digitakt mk1 | Hold FUNC while powering on -> startup menu -> TRIG 4 = OS UPGRADE -> send stock `.syx` (Transfer's legacy OS upgrade mode) | `[doc]` {elekloader-readme} |
-| Digitakt II | Hold FUNC at power-on -> startup menu. SysEx accepted **over MIDI DIN only, not USB** (earlier digikit README's reading of the bootstrap). The current digikit README says bootstrap-menu recovery is **not tested on hardware** | `[doc]` {digikit-old} {digikit} |
+| Digitakt II | Hold FUNC at power-on -> TRIG 4 (OS UPGRADE) -> Transfer, SYSEX TRANSFER, "OS upgrade via device startup menu" -> stock `.syx` over **DIN MIDI only, not USB**. **Used on a unit** (dt2-machine-lab, 2026-10-06, OS 1.16 restored after a crashing build). A cheap generic USB-MIDI cable adapter showed no reception; a known-good interface worked | `[hw]` {dt2-lab-coldfire-fix} {digitakt-ii-research} |
 | Digitone II | Hold FUNC at power-on -> TRIG 4 (OS UPGRADE) -> send stock OS over DIN MIDI. Tested on dn2-cfw's author's unit | `[hw]` {dn2-cfw} |
 | Digitone (mk1) | Not stated by the sources we read. Assume same pattern as Digitakt mk1, **verify** | `[?]` |
 | Syntakt | Synthack-OS: flash over USB with Elektron Transfer ("Drop" page); revert by flashing the stock OS the same way. Exact startup-menu recovery not stated | `[doc]` {synthack-os} |
@@ -16,6 +16,7 @@ Know this **before** flashing a test unit. Sources are second-hand; check Elektr
 | Analog Heat +FX | Hold ACTIVE while powering on -> STARTUP menu -> press **MOD** (not LFO) = OS UPGRADE -> send the SysEx file via MIDI In. Elektron recommends the C6 - SysEx Tool for sending. Own OS: the MKII file is rejected ("Incompatible OS" on Elektronauts) | `[doc]` {elektron-heat-fx-notes} {elektronauts-heatfx} |
 
 ## Rules of thumb (all from the sources above)
+- **Test your DIN interface before you need it.** On a DT2, a generic "USB2.0-MIDI" cable adapter (VID 1a86, PID 752d) delivered nothing, while a controller's DIN out worked. Cheap cable adapters are known to drop or mangle long SysEx; a stock-OS dry run with your exact cable is the only proof. `[hw]` {dt2-lab-coldfire-fix}
 - The stock OS file can always recover the unit **if** the bootstrap/bootloader was never modified (rule A1).
 - Keep a physical MIDI interface for DIN-only recovery (Digitakt II / Digitone II). {digitakt-ii-research}
 - Do not power off during an upgrade.

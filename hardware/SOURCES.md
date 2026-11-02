@@ -204,3 +204,5 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2mk2-dsptime | dn2mk2-firmware `docs/dsp-time.md` (v0.32 guard, L2 state, load meter) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/dsp-time.md |
 | dn2mk2-dspcost | dn2mk2-firmware `docs/dsp-cost.md` (per-machine cost, v0.33) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/dsp-cost.md |
 | lalzart-dt2-arch | lalzart/digitakt-ii-firmware-research-public README and `docs/architecture/` (boot-update, publication-and-transport, sample-resource-lifecycle, output-and-dma, dsp-processing, modification-gates), DT2 OS 1.15C | https://github.com/lalzart/digitakt-ii-firmware-research-public |
+| dt2-lab-coldfire-fix | lalzart/dt2-machine-lab `docs/COLDFIRE-FIX.md` and `docs/UPLOAD-PREFLIGHT.md` (the 2026-10-06 hardware failure and recovery, DT2 OS 1.16) | https://github.com/lalzart/dt2-machine-lab/blob/main/docs/COLDFIRE-FIX.md |
+| dt2-lab-flex-mem | lalzart/dt2-machine-lab `docs/FLEX-DSP-MEMORY-INVESTIGATION.md` (sample and voice memory, DT2 OS 1.16, emulator) | https://github.com/lalzart/dt2-machine-lab/blob/main/docs/FLEX-DSP-MEMORY-INVESTIGATION.md |

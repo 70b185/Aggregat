@@ -46,3 +46,14 @@ from the image) are `[doc]` here, hardware rows `[hw]`. Key {modded-cycles}. Pro
 - Settings that must survive a save go into **proven-unused** bytes of the pattern, project or sound structures (examples: pattern-track byte +512, sound slots 18/27/30/31), declared in a registry so that two mods cannot claim the same bytes. `[doc]`
 - **Syntakt engines run on a Model:Cycles:** Modded Cycles reads them from a Syntakt 1.41/1.42 file at build time and places them as a payload. The Syntakt's CPU #2 and the Cycles' CPU are the same core family. `[doc]`
 - **The same OS can be installed on a Model:Samples**; the project marks this route experimental. Returning from the Cycles OS on a Samples needs a MIDI interface. `[doc]`
+
+## Load and USB lessons from Supermodel / Modded Cycles (AveyCole, OS 1.13; notes 23 and 35, in French) {supermodel-notes}
+- **Every stock voice is rendered every block, playing or not:** about 7,600 instructions each, so six idle voices cost ~45,800 per block. Stock audio takes **~77 % of the CPU at rest**, measured on a unit with a diagnostic load counter (the same figure as in Modded-Cycles' notes). Skipping silent voices cut 77 % of the voice-loop instructions in the emulator; the unit test is still open. `[hw]` / `[emu]`
+- **Ported Syntakt engines cost about the same instructions as stock voices (-7 % to +43 %), yet three or more made the unit slow and glitchy.** The likely cause is their much larger memory footprint (cache misses), which the emulator does not time. Another case of rule A34. `[hw]` (symptoms) / `[?]` (cause)
+- Units report peaks of 101-108 % of the block budget, with clicks, while the average sits around 73-77 %. **Peaks, not averages, decide.** `[hw]`
+- **Stock voices start accumulating into ACC0 without clearing it**, so they rely on an empty accumulator at entry. Leave ACC0 at 0 (as on the Syntakt). `[emu]`
+- **USB multitrack glitches** (reported on Reddit after 15-20 minutes):
+  - Cause: the OS sends each block to USB right after rendering it, and the 6-channel mod's queue tolerated only 0.2 ms of jitter. With variable engine load (muted tracks, effects off) frames went missing.
+  - Fix: send at a fixed time at the start of the next interrupt, align the queue at start-up, and use a 9-slot ring instead of 8. Zero defects in the simulator afterwards.
+  - **General rule for USB streaming mods:** decouple the send time from a variable render time. `[emu]` (cause read in the OS, fix simulated)
+

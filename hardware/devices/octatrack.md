@@ -91,5 +91,24 @@ Key {octabam}. **A different platform from the DT2/DN2:** the ColdFire is an MCF
 - **Cold starts:** an early-startup change passed emulator boots and quick power cycles but stalled at the logo after several minutes powered off. Keeping the activation helper resident in the OS image fixed it; the mechanism is unknown. **Qualify startup changes after a long power-off** (rule A40). `[hw]`
 - **A write-watch on cached addresses is blind to a clear through the uncached alias.** A "free 8.8 MB" region turned out to be the stock delay rings. Before trusting a null result, ask what the instrument cannot see (rule A31). `[emu]`
 
+## From KYOTI (Zac-Kyoti/octatrack-kyoti-fw, OS 1.40C) {kyoti-fw}
+- **A core's crash threshold, found on hardware in KYOTI's own cost model:** stock's heaviest effects plus the sidechain compressor model at ~3,516 cycles per sample. The core crashed somewhere between ~3,760 and ~3,830.
+  - With DJ EQ in both slots on T5-T8, one extra REPITCH voice (~240) was clean; adding a second (RPS9 ~77 or RPSP ~240) crashed.
+  - KYOTI's bar: a feature must not break any configuration that is clean on stock. So **beside stock's heaviest effects a core has room for about one heavy voice**.
+  - Note that these "modelled cycles" are KYOTI's estimate, not octabam's measured 4,532 cycles per sample. Compare figures only within one model. `[hw]`
+- **The DSP shared window in work RAM is volatile:** at boot, `0x401086f4` is copied to `0x80000000` (`0x3e88` bytes) and the rest is zero-filled up to `0x80004000`. Nothing of yours survives there across a boot. `[doc]`
+- **One image for MKI and MKII:** the OS probes `0x46c8d18c` and shows 15 (MKI) or 16 (MKII) PERSONALIZE items. `[doc]`
+- KYOTI keeps a merged, confidence-tagged 1.40C address map (`reference/kb/memory-map.md`) that cross-references octabam. It is a good second reading. `[doc]`
+
+## Debugging on the unit by writing a log to the CF card (OctaMax, MKII, OS 1.40C) {octamax}
+- When the emulator cannot run the code you need to see (here, the EMAC-heavy frame builder), log from the unit itself.
+  - OctaMax added two detours that call the firmware's own file primitives (open `0x40016864`, write `0x400166b8`, close `0x4001677c`, sprintf `0x40013a08`) and write `/HOTDBG.TXT` to the CF card.
+  - Pull the card and read it.
+  - It works on hardware, and it showed that values seeded in the emulator had been guessed wrong (a voice type byte of 1, not 4). `[hw]`
+- **The DSP never plays on its own:** every frame the ColdFire builds a per-voice packet in shared RAM (double buffer at `0x80000000`, selector `0x800000e0`) and pokes the DSP. A voice that stops being fed goes silent without any "stop". `[doc]`
+- Recorder buffers live in a paged RAM pool (base `0x40a955e0`, ~89 MB) that survives a project change; the voices are torn down and rebuilt by the load. `[hw]`
+- **Restoring state every frame is safe only for CPU-side bookkeeping.** Overwriting data the DSP reads corrupted the audio. `[hw]`
+- An Octatrack emulator built on QEMU (ColdFire MCF54455) plus dsp56300, octemu by markandrus, targets firmware development including USB MIDI and audio; PassOS uses its 20-channel USB audio work. `[doc]`
+
 ## Gaps
 NOR use above the OS image, the trig dispatch source, the MKI vs MKII hardware differences beyond the CPU marking.

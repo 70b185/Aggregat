@@ -37,6 +37,24 @@ All facts are second-hand (see evidence tags). Device-specific differences are i
 - elekloader (Digitakt mk1): output must equal the stock file with only the main OS section changed; the header may
   differ only in its 4-character version field and the framing only in its message count. `[doc]` {elekloader-readme}
 
+## SysEx device byte per device (merged from the projects that decode these files)
+The byte after Elektron's manufacturer ID `00 20 3C` selects the device. A file addressed to another device is refused, and **the startup menu always expects the hardware's own byte**, even when a different application runs on it (taktone). `[doc]` unless marked.
+
+| Device | Byte | Source |
+|---|---|---|
+| Machinedrum | `0x02` | machinedrum-kit (SysEx update format), gearmulator-md-mm {mdkit-docs} {gearmulator-md-mm} |
+| Monomachine | `0x03` | gearmulator-md-mm {gearmulator-md-mm} |
+| **Digitakt mk1** | **`0x0A`** | taktone: a Digitakt application on Digitone hardware receives Digitakt-addressed SysEx (`0x0a`), confirmed by installs on units `[hw]` {taktone-docs}. elekloader's device page gave `0x14`, the Digitakt II's byte, so that value was a copy error. |
+| Analog Four MKII | `0x0B` | analog-emu {analog-emu-a4} |
+| Analog Rytm MKII | `0x0C` | analog-emu, analog-rytm-mkii-research (13,329 packets checked) {analog-emu-a4} {ar-mkii-research} |
+| Digitone mk1 / Keys | `0x0D` | syxgrid (rejects it), taktone (startup receiver) `[hw]` {syxgrid} {taktone-docs} |
+| Analog Heat +FX | `0x13` | the repo owner's +FX research {own-heatfx-notes} |
+| Digitakt II | `0x14` | elekloader, dnfw {elekloader-devices} {dn2-ele3} |
+| Digitone II | `0x15` | elekloader, dnfw, syxgrid (514 pattern messages) {elekloader-devices} {dn2-ele3} {syxgrid-map} |
+| `0x7D` | test only | the owner's synthetic, unflashable test container; the DT2 USB probe uses `7D` as its own message id {own-heatfx-notes} |
+
+Not yet collected: Octatrack, Analog Rytm MK1, Analog Four MK1, Syntakt, Model:Cycles, Model:Samples, Analog Heat MKI/MKII.
+
 ## Signing per device (summary)
 Digitakt II and Digitone II: HMAC-SHA256 trailer, key derived from a string inside the image; Digitakt II additionally enforces a build floor ("0060") in the in-OS validator. Digitone mk1: unsigned (trailer zero). **Syntakt 1.42: unsigned** (no HMAC, trailer zero; content checksum only). **Analog Heat +FX 1.02: unsigned** (ELE3, device byte 0x13, no trailer; sections 5, 2, 1 FPGA, 3 MAIN, 4 updater) {own-heatfx-notes}. Heat MKI/MKII: unknown. `[doc]` {dn2-ele3} {digikit-f75} {digikit-f70}
 

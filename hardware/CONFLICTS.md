@@ -38,5 +38,6 @@ later, stronger source decided it; the losing value still circulates in older no
 | S11 | Encodings with a stock precedent are safe | **necessary, not sufficient:** a same-DAG store and SIMD L2 moves hung a real DT2 | digitakt-ii-research PLAITS H-opt1 |
 | S12 | Machinedrum CPU is an MCF5307 | **MCF5206E** | machinedrum-kit (board model and MAME driver agree) |
 | S13 | Syntakt RAM above the BSS (`0x47000000` and nearby) is free for mod code | **sample loading overwrites `0x45565490-0x48000000`**; reserve a heap block at boot instead (SyntHack modarea) | SyntHack issue 4 and the move to modarea in v0.8.1 |
+| S14 | Digitakt mk1 SysEx device byte is `0x14` (elekloader DEVICES page) | **`0x0A`**; `0x14` is the Digitakt II | taktone (Digitakt-addressed installs on units) |
 
 When you find a new disagreement: add a row here and mark the fact `[?]` in the device file. When one is settled, move it to the second table and say what settled it.

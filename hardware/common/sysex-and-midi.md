@@ -10,7 +10,7 @@ Elektron has not published the pattern/sound SysEx formats; all of it is reverse
 ## Framing and encoding
 - SysEx frame starts `F0 00 20 3C` (Elektron manufacturer ID `00 20 3C`), then device ID and command. `[doc]` {digitakt-midi-mcp} {syxgrid}
 - Elektron uses its own **7-bit encoding** of 8-bit data, ported from elk-herd into SYXGRID and digi-roll-studio. Decode before analysing dumps, otherwise nothing makes sense. `[doc]` {syxgrid} {digi-roll-studio}
-- Digitone mk1 device ID is `0x0D`; its pattern format differs from Digitone II and SYXGRID rejects it. The DN2 device ID byte is not stated. `[doc]` {syxgrid}
+- Digitone mk1 device ID is `0x0D`; its pattern format differs from Digitone II and SYXGRID rejects it. The DN2's is `0x15`. All known device bytes: [firmware-container.md](firmware-container.md#sysex-device-byte-per-device-merged-from-the-projects-that-decode-these-files). `[doc]` {syxgrid}
 - Two protocol generations: the Digitakt II / Digitone II speak "gen-2"; Analog Four speaks "gen-1" with a different pattern format and a slower wire. `[doc]` {digi-roll-studio}
 - Digitone II library contains Digitone mk1 preset files, which use a second container format (refuse foreign formats by magic bytes). `[doc]` {digi-roll-studio}
 - Container structure and checksums for older machines are best documented in libanalogrytm (Analog Rytm only; no Analog Heat). `[doc]` {libanalogrytm}

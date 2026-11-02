@@ -29,6 +29,18 @@ Coverage: **good** (almost entirely through the elekloader family). Projects: [.
 - **The FPGA bitstream is in section 7:** decompressed from `0x400077A0` to `0x40009000`, **54,664 bytes**, sent as 16-bit words over the secondary's DSPI1. This is the same size as the Analog Heat +FX's and Analog Four MKII's FPGA sections, a strong lead for research map T12. Stock FPGA polling can stall forever, so keep a main-side timeout. `[doc]`
 - **Two SysEx addressings:** the startup menu's OS UPGRADE receiver always expects Digitone-addressed SysEx (device `0x0d`). A running Digitakt-based application expects Digitakt addressing (`0x0a`). So recovery to stock Digitone always goes through the startup menu over DIN. `[hw]` (first install confirmed over USB)
 
+### Writing your own engine for the second ColdFire (taktone-extended's contract) {taktone-docs}
+- **Split the work:** keep sequencer, locks, LFOs, menu and storage on the main CPU; render on the secondary from a complete control snapshot. Compile secondary code for `-mcpu=54418 -msoft-float`, freestanding.
+- **Shared protocol** (taktone's, versioned):
+  - a ready tag, committed/completed sequence words, eight 28-byte controls and an XOR checksum;
+  - outputs as eight 32-frame int32 mono blocks at `0x3a0`;
+  - **only aligned longword writes with readback**: no byte writes to shared RAM, and any mismatch disables submission;
+  - one packet outstanding, never block the audio callback, and shut down after 64 consecutive misses.
+- **Hook points on the main CPU** (Digitakt 1.53 application): triggers are captured at `0x40077F8E`, before stock source processing consumes them; voice PCM is substituted at `0x40077FBA`, before filter, AMP and mix. On the secondary, init is patched at `0x40000B7A` and the stock engine init at `0x40000B80` is skipped.
+- **Memory:** taktone shrinks the native buddy heap from 16 to 8 MiB to reserve `0x4319D6B0-0x4399D6B0` for its runtime, with guard words at both ends. The sample pool (`0x43BAF5F0-0x47BAF640`) and the audio-input ring (`0x47C00000-0x48000000`) stay untouched. This is the same heap-reservation idea as SyntHack's modarea on the Syntakt.
+
+`[hw]` (Sophie on the secondary ran on units) / `[doc]` (addresses)
+
 ## Caches at startup (digitone-arp-mod, OS 1.44, emulator trace and the NXP manual) {dn1-arpmod-e04}
 - The loader hands over to MAIN with CACR `0x0008c000`: the instruction cache is on, the data cache and store buffer are off.
 - Stock MAIN then writes CACR `0xa50ce100` at `0x4000055a`, after its copies. That write invalidates the instruction, branch and data caches and turns caching on. The same CACR value appears on the Rytm and A4 MKII.

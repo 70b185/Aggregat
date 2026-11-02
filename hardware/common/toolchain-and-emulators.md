@@ -29,6 +29,17 @@ Source: {coldfire-rs}. These describe the chip family that digikit names as the 
 - Boot modes: cold boot (serial/NOR/NAND, image sets up PLL and DDR) or via a bootloader.
 - Rust for this chip: rustc_codegen_gcc with libgccjit targeting `m68k-elf`; default CPU in that toolchain is the 54418. Potential route for writing ColdFire-side mod code in Rust instead of C - unproven for Elektron firmware.
 
+## Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`) {digigrain-skills}
+These hold for every ColdFire V4/V4e box here. Instruction counts come from the patched-Unicorn emulator; confirm the margins on a unit (A34). `[emu]`
+- **Shift immediates only reach 8.** A shift by 14 or 15 costs a `moveq` plus a register shift; a shift by 16 is `swap` (+ `ext.l`). Arrange fixed-point products to land on a 16-bit boundary (e.g. store tables as unsigned Q16 so that `(s*w16) >> 16` equals `(s*w15) >> 15` exactly).
+- `muls.l` and hardware divide are there; libgcc is not linked, so avoid 64-bit math (hand-write it).
+- **Prove the bounds once per block, then run a loop without checks**, with state in locals. Keep the checked loop as the fallback near buffer ends.
+- Mark hot loops `noinline`: an inlined, merged loop kept a branch inside and spilled to the stack (~45 instructions per sample). `do { } while (--n)` saves the count test.
+- Specialise on loop-invariant cases: unity-speed grains skip interpolation (13 vs ~26 instructions per sample); a cached per-voice window table replaces per-sample shape blending.
+- **EMAC in fractional mode** (MACSR `0x20`: signed fractional, truncating, no saturation): save and restore MACSR, ACC0 and ACCEXT01, and clear ACC0 first. Bit-exact Python models must truncate each product as `floor(x*y/2^23)`, keeping 8 bits below the LSB.
+- **Hooks must preserve every register the caller relies on.** Real bugs: a chord hook missed a4-a6, a callee clobbered a0, and a restoring `movem` lost a decision kept in d7. Test hooks with a stub that junks all scratch registers.
+- Write a C reference and a bit-exact Python model first, and optimise only while the model's tests stay green.
+
 ## Emulators
 - **digiemu** (irpina): Digitakt/Digitone mk1 emulator, runs the user's own OS behind a clickable panel. {digiemu}
 - **digikit** (current home ElekLabs/digikit, `[doc]` {digikit}): native Rust emulator running ColdFire and SHARC+ firmware together with front panel, display and audio; web panel (WASM) and Tauri desktop app; `patchkit` applies modules to the user's own `.syx` and refuses to change sections 2, 4 and 8; headless scenario runner with pinned PCM hashes; control socket for patch injection; ColdFire/DSP analysis databases and Ghidra tooling. Targets: Digitakt II 1.17 (also runs 1.16; 1.15C for old analysis), Digitone II 1.12 (also runs 1.11; 1.10E for old analysis). Caveats: DSP not real-time yet; browser host parked on `wip/browser-host`; no patched firmware installed on a device by the author; bootstrap-menu recovery untested on hardware. AGPL-3.0-or-later with NOTICE terms asking for the credit "digikit by Em D".

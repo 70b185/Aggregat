@@ -20,7 +20,7 @@ Goal: find out **what changed** without reading every repo again. Most runs shou
    - `code-only` entries -> usually nothing to do; look only if the project is one you depend on
    - `ERROR` -> repo deleted, renamed or private: set `status: unreachable` or fix the URL
    - directory changes (`dir-altstrument`, `dir-lapin`) -> new paths = candidate projects for `data/candidates.yml`
-4. `python3 scripts/check_updates.py --update` (stores the new baseline), `python3 scripts/build.py`, commit.
+4. `python3 scripts/check_updates.py --update` (stores the new baseline), `python3 scripts/build.py` (also rebuilds MODS.md, DEV-TOOLS.md, MUSICIAN-TOOLS.md), commit. A new entry lands in a list by its `kind`; give a `tool` entry `list: musician` (or `mods`) when it is not a developer tool.
 
 ## What it cannot see
 Forum threads, vendor pages (elektron.se release notes), PDFs and non-git sites. Those stay on the manual list in `hardware/MINING.md`; check them occasionally, e.g. when a new OS appears in a repo's diff.

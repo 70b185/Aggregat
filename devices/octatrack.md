@@ -2,7 +2,7 @@
 
 # Octatrack (MKI, MKII)
 
-Data last verified: 2026-10-31
+Data last verified: 2026-11-02
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 

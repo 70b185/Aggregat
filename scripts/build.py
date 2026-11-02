@@ -86,3 +86,95 @@ for d in devices:
 
 (ROOT / "INDEX.md").write_text("\n".join(index) + "\n", encoding="utf-8")
 print(f"{len(projects)} projects, {len(devices)} devices")
+
+
+import re
+
+# ---------------------------------------------------------------- the three topic lists
+# Which list an entry goes to: an explicit `list:` field wins, otherwise its kind decides.
+KIND_LIST = {"mod": "mods", "firmware": "mods", "loader": "mods",
+             "emulator": "dev", "research": "dev", "library": "dev", "agent-skill": "dev", "tool": "dev",
+             "editor": "musician"}
+dev_names = {d["slug"]: d["name"] for d in devices}
+dev_order = [d["slug"] for d in devices]
+
+
+def which_list(p):
+    return p.get("list") or KIND_LIST.get(p["kind"])
+
+
+def short(p, n=170):
+    t = " ".join(str(p.get("notes", "")).split())
+    m = re.search(r"(?<=[a-z0-9)\]])\. ", t)
+    t = t[: m.start() + 1] if m and m.start() < n else t
+    return (t if len(t) <= n else t[: n - 1].rsplit(" ", 1)[0] + " …").replace("|", "/")
+
+
+def devs(p):
+    return ", ".join(dev_names.get(s, s) for s in p["devices"])
+
+
+def lrow(p, show_kind=False):
+    st = "unverified entry" if p["status"] == "unverified" else p["status"]
+    ver = str(p.get("version") or p.get("base_os") or "-").replace("|", "/")
+    ver = ver if len(ver) <= 60 else ver[:59].rsplit(" ", 1)[0] + " …"
+    kind = f"{p['kind']} | " if show_kind else ""
+    return f"| **{p['name']}** ({p.get('author', '?')}) | {kind}{devs(p)} | {short(p)} | {st} | {ver} | {row(p)} |"
+
+
+HEAD = ("Data last verified: {c}. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). "
+        "Status words are the authors' own; newest activity first in each table. Device pages with full notes: "
+        "[INDEX.md](INDEX.md).\n")
+other = ("\nThe other lists: {o}. Hardware knowledge for writing mods: [hardware/](hardware/README.md).\n")
+names = {"mods": "[MODS.md](MODS.md) (mods and custom firmware)", "dev": "[DEV-TOOLS.md](DEV-TOOLS.md) (development tools)",
+         "musician": "[MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians)"}
+bylist = {k: [p for p in projects if which_list(p) == k] for k in names}
+by_act = lambda rows: sorted(rows, key=lambda x: str(x.get("last_activity") or ""), reverse=True)
+
+# MODS.md: grouped by device; patchers/loaders in their own section
+mods = [GEN, "# Mods and custom firmware\n",
+        "What you can put on a device: mods, custom OS builds and the loaders/patchers that build them from your own "
+        "stock OS file. **Read the recovery notes before flashing anything:** "
+        "[hardware/common/recovery.md](hardware/common/recovery.md).\n", HEAD.format(c=checked),
+        other.format(o=", ".join(v for k, v in names.items() if k != "mods"))]
+inst = [p for p in bylist["mods"] if p["kind"] == "loader" or p.get("list") == "mods" and p["kind"] == "tool"]
+real = [p for p in bylist["mods"] if p not in inst]
+mods.append("\n## Loaders and patchers (how mods get onto a device)\n")
+mods.append("| Project | Devices | What it is | Status | Version / OS | Links |\n|---|---|---|---|---|---|")
+mods += [lrow(p) for p in by_act(inst)]
+for s in dev_order:
+    rows = [p for p in real if s in p["devices"]]
+    if rows:
+        mods.append(f"\n## {dev_names[s]}\n")
+        mods.append("| Project | Devices | What it is | Status | Version / OS | Links |\n|---|---|---|---|---|---|")
+        mods += [lrow(p) for p in by_act(rows)]
+    elif next(d for d in devices if d["slug"] == s).get("phase") == 1:
+        mods.append(f"\n## {dev_names[s]}\n\nNo public mod found yet (last search {checked}).")
+(ROOT / "MODS.md").write_text("\n".join(mods) + "\n", encoding="utf-8")
+
+# DEV-TOOLS.md: grouped by kind
+SECT = [("Toolchains, firmware tools and other developer utilities", ("tool", "editor")), ("Emulators", ("emulator",)),
+        ("Libraries and protocol implementations", ("library",)), ("Research, reverse-engineering notes and docs", ("research",)),
+        ("Agent skills", ("agent-skill",))]
+dev = [GEN, "# Development tools\n",
+       "For people (and agents) who build mods: toolchains, emulators, firmware unpackers, protocol libraries and "
+       "research write-ups. Pair this with [hardware/](hardware/README.md), which collects the rules and device facts.\n",
+       HEAD.format(c=checked), other.format(o=", ".join(v for k, v in names.items() if k != "dev"))]
+for title, kinds in SECT:
+    rows = [p for p in bylist["dev"] if p["kind"] in kinds]
+    if rows:
+        dev.append(f"\n## {title}\n")
+        dev.append("| Project | Devices | What it is | Status | Version / OS | Links |\n|---|---|---|---|---|---|")
+        dev += [lrow(p) for p in by_act(rows)]
+(ROOT / "DEV-TOOLS.md").write_text("\n".join(dev) + "\n", encoding="utf-8")
+
+# MUSICIAN-TOOLS.md: one table, kind shown
+mus = [GEN, "# Tools for musicians\n",
+       "Software for using and managing the devices - editors, sample and project managers, Overbridge audio, screen "
+       "mirrors, control from a computer or an AI agent. **None of these change the firmware.**\n",
+       HEAD.format(c=checked), other.format(o=", ".join(v for k, v in names.items() if k != "musician")),
+       "\n| Project | Kind | Devices | What it is | Status | Version / OS | Links |\n|---|---|---|---|---|---|---|"]
+mus += [lrow(p, True) for p in by_act(bylist["musician"])]
+(ROOT / "MUSICIAN-TOOLS.md").write_text("\n".join(mus) + "\n", encoding="utf-8")
+print("lists:", {k: len(v) for k, v in bylist.items()},
+      "not listed:", sorted(p["id"] for p in projects if which_list(p) is None))

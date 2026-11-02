@@ -4,6 +4,18 @@
 
 ---
 
+## Looking for something?
+
+| You want | Read |
+|---|---|
+| **Mods and custom firmware** for your device, and the loaders that install them | [MODS.md](MODS.md) |
+| **Development tools**: toolchains, emulators, firmware unpackers, protocol libraries, research | [DEV-TOOLS.md](DEV-TOOLS.md) |
+| **Tools for musicians**: editors, sample/project managers, Overbridge audio, screen mirrors - nothing that changes firmware | [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) |
+| Everything for one device, with full notes | [INDEX.md](INDEX.md) |
+| How the hardware works, for writing mods | [hardware/](hardware/README.md) |
+
+All three lists are generated from [`data/projects.yml`](data/projects.yml); an entry's `kind` (or an explicit `list:` field) decides where it goes.
+
 ## What is in here
 
 | Path | What it is | Who it is for |
@@ -17,9 +29,9 @@
 | [`state/CHANGES.md`](state/CHANGES.md) | Latest change report from the fingerprint check - **read this first when updating** | agents, maintainers |
 | [`docs/UPDATING.md`](docs/UPDATING.md) | Token-cheap update procedure (fingerprints, diffs, daily GitHub Action) | agents, maintainers |
 | [`docs/BACKLOG.md`](docs/BACKLOG.md) | Research backlog and phase-2 devices | maintainers |
-| [`scripts/build.py`](scripts/build.py) | Regenerates `INDEX.md` and `devices/*.md` from `data/` | maintainers |
+| [`scripts/build.py`](scripts/build.py) | Regenerates `INDEX.md`, `devices/*.md` and the three lists from `data/` | maintainers |
 
-Snapshot (2026-10-31): 63 verified project entries, 2 unverified candidates, 6 devices; `hardware/` holds about 23 files with ~30,000 words drawn from more than 40 repositories, two directories, official release notes and forum threads.
+Snapshot (2026-11-02): 199 project entries for 13 devices (115 mods/firmware/loaders, 53 development tools, 27 musician tools); `hardware/` holds about 35 files with rules A1-A38, drawn from more than 70 repositories, two directories, official release notes and forum threads.
 
 ## Using it with an AI agent
 

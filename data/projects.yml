@@ -19,7 +19,7 @@
 # All entries last verified on 2026-10-31 (see `checked`). Status values are
 # taken from the authors' own wording where available.
 
-checked: 2026-10-31
+checked: 2026-11-02
 
 projects:
   # ---------------------------------------------------------------- loaders / hubs
@@ -70,6 +70,7 @@ projects:
     name: elektron-firmware-tool
     author: mischa85
     kind: tool
+    list: dev
     devices: [digitakt, digitakt-2, digitone, digitone-2, syntakt, analog-heat]
     repo: https://github.com/mischa85/elektron-firmware-tool
     links:
@@ -590,6 +591,7 @@ projects:
     name: screendump
     author: jakobbak
     kind: tool
+    list: musician
     devices: [digitakt]
     repo: https://github.com/jakobbak/screendump
     status: unlabeled
@@ -866,6 +868,7 @@ projects:
     name: sympakt
     author: sinedied
     kind: tool
+    list: musician
     devices: [syntakt]
     repo: https://github.com/sinedied/sympakt
     links:
@@ -884,6 +887,7 @@ projects:
     name: Elektroid
     author: dagargo
     kind: tool
+    list: musician
     devices: [digitakt, digitakt-2, digitone, digitone-2, syntakt, analog-heat]
     repo: https://github.com/dagargo/elektroid
     status: active
@@ -902,6 +906,7 @@ projects:
     name: Overwitch
     author: dagargo
     kind: tool
+    list: musician
     devices: [digitakt, digitakt-2, digitone, digitone-2, syntakt, analog-heat]
     repo: https://github.com/dagargo/overwitch
     status: active
@@ -1002,6 +1007,7 @@ projects:
     name: coldfire-rs
     author: FirestormAudio
     kind: tool
+    list: dev
     devices: [digitakt-2, digitone-2]
     repo: https://github.com/FirestormAudio/coldfire-rs
     status: wip
@@ -1068,6 +1074,7 @@ projects:
     name: digitone-syx-toolkit
     author: emnyeca
     kind: tool
+    list: dev
     devices: [digitone-2]
     repo: https://github.com/emnyeca/digitone-syx-toolkit
     status: wip
@@ -1086,6 +1093,7 @@ projects:
     name: digitakt-midi-mcp
     author: feamster
     kind: tool
+    list: musician
     devices: [digitakt-2]
     repo: https://github.com/feamster/digitakt-midi-mcp
     status: unlabeled
@@ -1104,6 +1112,7 @@ projects:
     name: elk-herd
     author: mzero
     kind: tool
+    list: musician
     devices: [digitakt-2]
     repo: https://github.com/mzero/elk-herd
     status: unknown
@@ -1181,6 +1190,7 @@ projects:
     name: DNX
     author: NoiseAndMatter
     kind: tool
+    list: musician
     devices: [digitone, digitone-2]
     repo: https://github.com/NoiseAndMatter/DNX
     links:
@@ -1223,6 +1233,7 @@ projects:
     name: digiscreen
     author: irpina
     kind: tool
+    list: musician
     devices: [digitakt, digitone]
     repo: https://github.com/irpina/digiscreen
     status: active
@@ -1314,6 +1325,7 @@ projects:
     name: rytm-builder
     author: stampman3000-jpg
     kind: tool
+    list: musician
     devices:
     - analog-rytm
     repo: https://github.com/stampman3000-jpg/rytm-builder
@@ -1393,6 +1405,7 @@ projects:
     name: fsdsp56k
     author: smoothdeveloper
     kind: tool
+    list: dev
     devices:
     - machinedrum
     repo: https://github.com/smoothdeveloper/fsdsp56k
@@ -1463,6 +1476,7 @@ projects:
     name: MDMM (Machinedrum and Monomachine Editors)
     author: radekdymacz
     kind: tool
+    list: musician
     devices:
     - machinedrum
     - monomachine
@@ -1527,6 +1541,7 @@ projects:
     name: 1-Bit Editor
     author: durchgemacht
     kind: tool
+    list: dev
     devices:
     - model-cycles
     - model-samples
@@ -1593,6 +1608,7 @@ projects:
     name: CyclesBridge
     author: robertfrombadlistener
     kind: tool
+    list: musician
     devices:
     - model-cycles
     repo: https://github.com/robertfrombadlistener/CyclesBridge
@@ -1673,6 +1689,7 @@ projects:
     name: SPOKES
     author: A.V.
     kind: tool
+    list: mods
     devices:
     - model-cycles
     repo: https://github.com/AveyCole/SPOKES
@@ -1803,6 +1820,7 @@ projects:
     name: midisc-patcher
     author: bkkbrls-del
     kind: tool
+    list: mods
     devices:
     - octatrack
     repo: https://github.com/bkkbrls-del/midisc-patcher
@@ -1866,6 +1884,7 @@ projects:
     name: OctaChainer 2
     author: Kai Drange
     kind: tool
+    list: musician
     devices:
     - octatrack
     repo: https://github.com/KaiDrange/OctaChainer2
@@ -1926,6 +1945,7 @@ projects:
     name: Octatrack Manager
     author: David Ferlay
     kind: tool
+    list: musician
     devices:
     - octatrack
     repo: https://github.com/davidferlay/octatrack-manager
@@ -2113,6 +2133,7 @@ projects:
     name: digitakt-digitone-mcp
     author: jamiew
     kind: tool
+    list: musician
     devices:
     - digitakt
     - digitone
@@ -2375,6 +2396,7 @@ projects:
     name: Elektron-Screen-Tool
     author: Fadedlimes
     kind: tool
+    list: musician
     devices:
     - digitakt
     - digitone
@@ -2408,6 +2430,7 @@ projects:
     name: Frame Lab (keyframer-lab)
     author: heavylight-industries
     kind: tool
+    list: dev
     devices:
     - digitakt-2
     repo: https://github.com/heavylight-industries/keyframer-lab
@@ -2439,6 +2462,7 @@ projects:
     name: digitakt-mods
     author: hillzeealex
     kind: tool
+    list: mods
     devices:
     - digitakt
     - digitakt-2
@@ -2501,6 +2525,7 @@ projects:
     name: elkflash
     author: Iced-Cream
     kind: tool
+    list: dev
     devices:
     - digitakt
     - digitone
@@ -2586,6 +2611,7 @@ projects:
     name: dt_song_mgmt
     author: zhelnov
     kind: tool
+    list: musician
     devices:
     - digitakt-2
     repo: https://github.com/zhelnov/dt_song_mgmt
@@ -2680,6 +2706,7 @@ projects:
     name: dtdump
     author: droelfdroelf
     kind: tool
+    list: dev
     devices:
     - digitakt
     repo: https://github.com/droelfdroelf/dtdump
@@ -2770,6 +2797,7 @@ projects:
     name: analog-rytm-agent-bridge
     author: algonormative
     kind: tool
+    list: musician
     devices:
     - analog-rytm
     repo: https://github.com/algonormative/analog-rytm-agent-bridge
@@ -2920,6 +2948,7 @@ projects:
     name: ReBirth to Octatrack
     author: alexandrubelc
     kind: tool
+    list: musician
     devices:
     - octatrack
     repo: https://github.com/alexandrubelc/rebirth2octatrack
@@ -2935,6 +2964,7 @@ projects:
     name: Kitsmith
     author: Alina-sul
     kind: tool
+    list: musician
     devices:
     - analog-rytm
     repo: https://github.com/Alina-sul/kitsmith
@@ -2950,6 +2980,7 @@ projects:
     name: Sidecar | Expander
     author: trigcondition
     kind: tool
+    list: mods
     devices:
     - analog-rytm
     - digitakt
@@ -2984,6 +3015,7 @@ projects:
     name: OctaLib
     author: snugsound
     kind: tool
+    list: musician
     devices:
     - octatrack
     repo: https://github.com/snugsound/OctaLib
@@ -3087,6 +3119,7 @@ projects:
     name: BSP Machinedrum
     author: ABarracu87
     kind: tool
+    list: musician
     devices:
     - machinedrum
     - monomachine
@@ -3168,6 +3201,7 @@ projects:
     name: OctaDraw
     author: nordseele
     kind: tool
+    list: dev
     devices:
     - octatrack
     repo: https://github.com/nordseele/octadraw
@@ -3182,6 +3216,7 @@ projects:
     name: octa-bt-pt
     author: bryantysinger
     kind: tool
+    list: mods
     devices:
     - octatrack
     repo: https://github.com/bryantysinger/octa-bt-pt
@@ -3271,6 +3306,7 @@ projects:
     name: Tributary
     author: stampman3000-jpg
     kind: tool
+    list: musician
     devices:
     - digitone-2
     repo: https://github.com/stampman3000-jpg/mpc-tributary

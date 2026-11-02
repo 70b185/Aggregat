@@ -2,7 +2,7 @@
 
 # Digitakt II
 
-Data last verified: 2026-10-31
+Data last verified: 2026-11-02
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|

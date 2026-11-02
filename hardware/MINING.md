@@ -5,15 +5,15 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 ## Digitone II (highest value)
 - [x] complex-ping/digitone-2-modding-skill: SKILL.md + references/{setup,firmware,coldfire,sharc,emulators,workflow}.md (-> devices/digitone-2-os111-reference.md, common/agent-workflow.md); [x] examples, hwrules.py, script docstrings (git clone works where the tree page was blocked)
 - [x] angellinares/dn2_firmware_explore: `docs/flashing.md` (-> common/flash-procedure.md); [ ] `docs/mainos-image.md`, `docs/ele3-format.md`
-- [x] naturarum/dn2-cfw: `docs/parameter-table-growth.md` (-> devices/digitone-2.md); [ ] T1.4/T1.5 notes (flash-write audit, STARTUP independence), `tools/brickcheck` (the 12 checks)
+- [x] naturarum/dn2-cfw: `docs/parameter-table-growth.md` (-> devices/digitone-2.md); [x] T1.4/T1.5 notes (-> common/recovery.md), T1.7 brickcheck note; [ ] the brickcheck tool source
 - [x] De-Pattern/dn2mk2-firmware: `docs/SAFETY.md` (-> common/flash-procedure.md); [x] `docs/emulator.md`, `docs/user-reports.md`, `docs/dsp-time.md`, `docs/dsp-cost.md`; [ ] FIRMWARE.md v0.20 and older
 - [x] complex-ping/overtone README (the repo publishes no further docs; the ~160 checks are not public) (-> recovery, B7)
 - [ ] nzimas/digirust: `docs/FEATURES.md` (Digitone II OS 1.12)
 
 ## Digitakt mk1 / Digitone mk1
-- [ ] elekloader `docs/DEVICES.md` (maturity per device), `mods/core/mod.json` (all core-owned sites), `mods/core-dn1`
-- [ ] machine-ID usage of digisophie, DT-FM, digigrain, digidrum, digistring (fill the registry in `devices/digitakt.md`)
-- [ ] Digitone mk1 recovery buttons (not stated in anything we read)
+- [x] elekloader `docs/DEVICES.md` (-> common/memory-maps.md, key elekloader-devices); [ ] `mods/core/mod.json` (all core-owned sites), `mods/core-dn1`
+- [~] machine-ID registry started in `devices/digitakt.md` (8 ids: digigrain, reslicer, vawt, sayit, OB-1, DigiMono, Sophie on taktone); [ ] digisophie, DT-FM, digidrum, digistring ids
+- [x] Digitone mk1 recovery buttons: FUNC + TRIG 4 over DIN, used on a unit (digitone-arp-mod) -> devices/digitone.md
 
 ## Digitakt II
 - [x] lalzart/digitakt-ii-firmware-research-public (architecture notes) (-> devices/digitakt-2.md); [x] lalzart/dt2-machine-lab (README, COLDFIRE-FIX, UPLOAD-PREFLIGHT head, FLEX-DSP-MEMORY-INVESTIGATION 1-2 and 7; the ~160 other docs are recorder/BUF feature work)
@@ -21,7 +21,7 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 
 ## Syntakt
 - [x] karigardarsson/Synthack-OS `RECOVERY.md` (already in devices/syntakt.md); [x] mods README, modarea, kitstore, projstore, master-comp (-> devices/syntakt.md, S13)
-- [ ] Syntakt container: signed or not? sections?
+- [~] Syntakt container: sections known (SyntHack, digikit f70); signing still conflict O1 (needs a file-level check, research map T5)
 
 ## Analog Heat
 - [ ] Anything at all. Candidate first steps: check whether the elektron-firmware-tool README/issues mention Heat results; search Elektronauts-adjacent communities and GitHub topics for "analog heat" firmware; ask the user whether they own Heat OS files to inspect.
@@ -33,7 +33,7 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 
 ## Added 2026-10-31 (knowledge-source search)
 - [ ] mzero/elk-herd: new home (README obfuscates the address) - the protocol reference several projects port from; respect its no-AI-issues rule
-- [ ] xrcstrecords/syxgrid-digitone-ii `sysexmap/` in full (45 mappings with evidence) -> fold level-A mappings into `common/sysex-and-midi.md`
+- [x] xrcstrecords/syxgrid-digitone-ii `sysexmap/` (read via git clone; the 23 level-A mappings -> common/sysex-and-midi.md)
 - [ ] zerubeus/dn-deobfuscator (`.dn2prj` project-file research); Elektronauts "Digitone 2 pattern manager" thread; emnyeca/digitone-syx-toolkit `docs/`
 - [x] ElekLabs/digikit `docs/TOOLS.md` (-> common/toolchain-and-emulators.md); [ ] `docs/FINDINGS.md`, `docs/findings/*`, newest `HANDOVER-*.md`; naturarum/digikit and Bezronczek/digikit for divergences
 - [ ] simonjohansson/elekloader `docs/DEVICES.md` and the Digitakt II / Digitone II core docs (control-side hook bus on DT2/DN2)
@@ -45,10 +45,10 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - xrcstrecords/syxgrid-digitone-ii `sysexmap/` and complex-ping/digitone-2-modding-skill `skills/.../` tree pages: our fetcher is refused by the site's robots.txt (`robots_disallowed`). Not worked around. Options: the maintainer pastes the files, or the upstream authors publish them elsewhere.
 - mzero/elk-herd new home: the README obfuscates the address on purpose and asks that AI-generated issues/PRs are not sent; not decoded, not contacted.
 - [ ] naturarum/dn2-cfw: `ROADMAP.md`, `HANDOFF.md`, `notes/` (addresses with [verified]/[inferred]), `analysis/` (RTTI class hierarchy), `tools/brickcheck` source (the 12 checks)
-- [ ] karigardarsson/digitakt-ii-research: `docs/INSTALLATION.md`, `docs/RECOVERY.md`, `research/` (byte-backed findings), `coldfire/` trampoline and startup-allocation source, `tools/midisniff.py`
+- [x] karigardarsson/digitakt-ii-research `docs/RECOVERY.md`, KNOWN_LIMITATIONS; [ ] `docs/INSTALLATION.md`, `research/` (byte-backed findings), `coldfire/` trampoline and startup-allocation source, `tools/midisniff.py`
 - [ ] Cross-check the two Digitakt II routes: digitakt-ii-research (trampoline + startup allocation, 1.16/1.17) vs. dt2-machine-lab (profile dt2-1.16) vs. elekloader fork (core, 1.17)
 - [ ] Verify the skill's OS 1.11 addresses against 1.12 (Overtone, dn2-cfw use 1.12: parameter table `0x401f83a4`, `pg_boot` call `0x40000568`) - build an address-translation note once both sets are confirmed
-- [ ] Resolve the CPU naming discrepancy: skill says MCF5445x, digikit says MCF54415 (and coldfire-rs covers MCF5441x)
+- [x] CPU naming for DN2: settled as MCF5441x (CONFLICTS S3); the Rytm MKII naming is still open (O14)
 
 ## Needs approval / not retried (2026-10-31)
 - [~] elektron.se support pages: Digitakt II and Digitone II read; Analog Heat +FX at `https://www.elektron.se/en/download-support-analog-heat-fx`, Digitakt II, Digitone II) and the +FX explorer/spec page - for current OS dates, manual links (MIDI implementation tables, OS upgrade steps), FAQ answers. The fetch was blocked on a permission prompt nobody answered; retry when the user is present.

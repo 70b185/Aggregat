@@ -25,6 +25,23 @@ Elektron has not published the pattern/sound SysEx formats; all of it is reverse
 
 Not decoded yet (per SYXGRID): parameter locks, sound parameters (filter, amp, FX, LFO), synth machine choice. `[doc]`
 
+## Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated) {syxgrid-map}
+syxgrid grades 45 mappings A (hardware-confirmed) to D (unknown). Only the 23 level-A facts are listed here; read the source for B/C/D and the evidence. `[hw]`
+- **Message:** product byte `0x15`, message type `0x50` (pattern). A pattern dump is 114,118 bytes. The body from raw byte 10 to 114113 is 7-bit packed (one control byte per 7 payload bytes); "decoded" offsets below are into the unpacked payload.
+- **Slot:** raw byte 9 is the slot the device dumped from (0 = A01 ... 127 = H16), **not a destination**. A received pattern is stored in the slot **armed on the device**, advancing by one per pattern.
+- **Step states:** at decoded `4 + 1187*(track-1) + 2*(step-1)`, two bytes per step, 16 tracks x 128 steps.
+  - Odd-step trig `03 81`, even-step trig `03 91`. `03 90` / `03 80` (bit 0 clear) is not an occupied step.
+  - First byte `0x78` = trigless trig (parameter automation, no note).
+- **Trigger records:** at decoded `18996`, 6 bytes each, up to 8,192 records.
+  - Fields: track, step, note, velocity (`0xFF` = track default), length index (`0xFF` = inherit), and a signed micro-timing byte (1/384 note, -23..+23).
+  - A record is free when its track byte is `0xFF`; nothing terminates the table, so skip and keep scanning.
+  - Chords are stored as all primary notes first, then all chord extras.
+- **Track type bitmask** at decoded `99348-99349`, big-endian, bit i = track i+1, 1 = MIDI track.
+- **Machine per track** at `89160 + 359*(track-1) + 232`: 0 FM TONE, 1 WAVETONE, 2 FM DRUM, 3 SWARMER, 4 MIDI.
+- **MIDI channel per track:** the enabled flag is at `95064 + 268*(track-1) + 245`, the channel (0-15) at `... + 82`.
+- **Pattern length:** raw payload byte 101507 (control byte 101506, mask `0x40`), 1-128 steps.
+- **Playback needs a clock:** `0xF8` at 24 ppqn, `0xFA` start, `0xFC` stop. Program Change 0-127 on the program-change-in channel selects A01-H16.
+
 ## The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) {digikit-rpc}
 This is what Elektron Transfer and Elektroid speak to a running Digitakt II or Digitone II over USB MIDI. No menu setting or handshake is needed. Close Transfer and Overbridge first if they hold the port.
 

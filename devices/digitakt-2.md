@@ -30,11 +30,11 @@ Data last verified: 2026-11-02
 | **digitakt-ii-firmware-research** (lalzart) | research | unlabeled | publication snapshot 2026-08-16; Digitakt II OS 1.15C | - | 2026-08-16 | [repo](https://github.com/lalzart/digitakt-ii-firmware-research-public) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
 | **digi-roll** (zooloo303) | editor | active | per-device OS-build allowlist (build numbers not listed on the page) | v1.0.0 | - | [repo](https://github.com/zooloo303/digi-roll) · [web app](https://zooloo303.github.io/digi-roll/) |
-| **digitakt2-perform** (toonst) | mod | wip | 1.0 (build name, no tagged release); Digitakt II OS 1.17 (1.18+ would need addresses found again) | v1.0 | - | [repo](https://github.com/toonst/digitakt2-perform) |
+| **digitakt2-perform** (toonst) | mod | wip | v1.0 (tag, 2026-10-04); Digitakt II OS 1.17 (1.18+ would need addresses found again) | v1.0 | - | [repo](https://github.com/toonst/digitakt2-perform) |
 | **dt2-machine-lab** (lalzart) | research | wip | Digitakt II OS 1.16 (profiles/dt2-1.16); validated host fixture macOS arm64 | - | - | [repo](https://github.com/lalzart/dt2-machine-lab) |
 | **DigiSplash-II** (Fadedlimes) | mod | unlabeled | Digitakt II OS 1.17; host Linux/macOS with Python 3.9+ | - | - | [repo](https://github.com/Fadedlimes/digisplash-ii) |
-| **Elektroid** (dagargo) | tool | active | - | 3.4 | - | [repo](https://github.com/dagargo/elektroid) |
-| **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | 2.2 | - | [repo](https://github.com/dagargo/overwitch) |
+| **Elektroid** (dagargo) | tool | active | 3.4 (2026-08-22) | 3.4 | - | [repo](https://github.com/dagargo/elektroid) |
+| **Overwitch** (dagargo) | tool | active | 2.2 (2025-12-21) | 2.2 | - | [repo](https://github.com/dagargo/overwitch) |
 | **elekloader (simonjohansson fork - Digitakt II / Digitone II support)** (simonjohansson) | loader | wip | Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept) | v0.4.0 | - | [repo](https://github.com/simonjohansson/elekloader) · [plan digitone ii](https://github.com/simonjohansson/elekloader/issues/13) · [devices doc](https://github.com/simonjohansson/elekloader/blob/main/docs/DEVICES.md) |
 | **digitakt-midi-mcp** (feamster) | tool | unlabeled | Digitakt II; README points to the manual (OS 1.03) Appendix B for the full CC map | - | - | [repo](https://github.com/feamster/digitakt-midi-mcp) |
 | **elk-herd** (mzero) | tool | unknown | - | - | - | [repo](https://github.com/mzero/elk-herd) |

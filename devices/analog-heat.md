@@ -10,8 +10,8 @@ Data last verified: 2026-11-02
 |---|---|---|---|---|---|---|
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | - | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
-| **Elektroid** (dagargo) | tool | active | - | 3.4 | - | [repo](https://github.com/dagargo/elektroid) |
-| **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | 2.2 | - | [repo](https://github.com/dagargo/overwitch) |
+| **Elektroid** (dagargo) | tool | active | 3.4 (2026-08-22) | 3.4 | - | [repo](https://github.com/dagargo/elektroid) |
+| **Overwitch** (dagargo) | tool | active | 2.2 (2025-12-21) | 2.2 | - | [repo](https://github.com/dagargo/overwitch) |
 
 ## Details
 

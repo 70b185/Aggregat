@@ -12,7 +12,7 @@ Data last verified: 2026-11-02
 | **Synfact** (GSM1980) | mod | unreachable | - | v0.0.2 | 2026-10-30 | [repo](https://github.com/GSM1980/Synfact-release) |
 | **Elektron-Screen-Tool** (Fadedlimes) | tool | active | - | - | 2026-10-30 | [repo](https://github.com/Fadedlimes/elektron-screen-tool) |
 | **syntakt-machine45-research** (Humgic) | research | wip | main @ 9511030 (2026-10-28), no tagged releases; Syntakt OS 1.41 | - | 2026-10-28 | [repo](https://github.com/Humgic/syntakt-machine45-research) |
-| **Synthack-OS (Syntakt MAX 1.0, SY FM4 modular builder)** (kariGardarsson) | mod | beta | modular builder RC1 (2026-10-20); Syntakt MAX 1.0 first public beta (2026-10-17); Syntakt OS 1.41 | syntakt-max-v1.0 | 2026-10-21 | [repo](https://github.com/karigardarsson/Synthack-OS) · [release max](https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-v1.0) · [release builder](https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-modular-builder-rc1) · [forum max](https://elektronmods.com/thread-81-good-news-everyone-syntakt-max-1-0-multiple-custom-firmware) · [forum fm4](https://elektronmods.com/thread-85-good-news-everyone-sy-fm4-is-here-a-fully-modular-syntakt) |
+| **Synthack-OS (Syntakt MAX 1.0, SY FM4 modular builder)** (kariGardarsson) | mod | beta | Syntakt MAX modular builder RC2 (tag, 2026-10-20); RC1 (2026-10-19); MAX 1.0 (2026-10-17); Syntakt OS 1.41 | syntakt-max-v1.0 | 2026-10-21 | [repo](https://github.com/karigardarsson/Synthack-OS) · [release max](https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-v1.0) · [release builder](https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-modular-builder-rc1) · [forum max](https://elektronmods.com/thread-81-good-news-everyone-syntakt-max-1-0-multiple-custom-firmware) · [forum fm4](https://elektronmods.com/thread-85-good-news-everyone-sy-fm4-is-here-a-fully-modular-syntakt) |
 | **SyntHack OS (upstream)** (Angelo-politek) | mod | beta | v0.9.0 (2026-10-19) per altstrument; README text said v0.8.0; Syntakt OS 1.41 | v0.9.0 | 2026-10-19 | [repo](https://github.com/Angelo-politek/Synthack-OS) |
 | **Elektron Emu** (xerydian) | emulator | wip | one OS version per machine (named in each plug-in's README); not read by us | - | 2026-10-17 | [repo](https://github.com/xerydian/elektron-emu) |
 | **Elektron Emu (joshklomp)** (joshklomp) | emulator | wip | user-supplied OS files | - | 2026-10-17 | [repo](https://github.com/joshklomp/emu-elektron) |
@@ -21,8 +21,8 @@ Data last verified: 2026-11-02
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
 | **syntakt-firmware-workbench** (Bezronczek) | mod | wip | Syntakt OS 1.41 only (other files refused, not changed) | - | - | [repo](https://github.com/Bezronczek/syntakt-firmware-workbench) |
 | **sympakt** (sinedied) | tool | active | - | - | - | [repo](https://github.com/sinedied/sympakt) · [web app](https://sinedied.github.io/sympakt/) |
-| **Elektroid** (dagargo) | tool | active | - | 3.4 | - | [repo](https://github.com/dagargo/elektroid) |
-| **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | 2.2 | - | [repo](https://github.com/dagargo/overwitch) |
+| **Elektroid** (dagargo) | tool | active | 3.4 (2026-08-22) | 3.4 | - | [repo](https://github.com/dagargo/elektroid) |
+| **Overwitch** (dagargo) | tool | active | 2.2 (2025-12-21) | 2.2 | - | [repo](https://github.com/dagargo/overwitch) |
 
 ## Details
 

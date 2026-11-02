@@ -30,8 +30,8 @@ Data last verified: 2026-11-02
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
 | **digi-roll** (zooloo303) | editor | active | per-device OS-build allowlist (build numbers not listed on the page) | v1.0.0 | - | [repo](https://github.com/zooloo303/digi-roll) · [web app](https://zooloo303.github.io/digi-roll/) |
 | **dn2_firmware_explore** (angellinares) | research | active | Digitone II (example: OS 1.10E); README also covers Digitone / Keys | pre-rebase/waverider-warp-fm | - | [repo](https://github.com/angellinares/dn2_firmware_explore) |
-| **Elektroid** (dagargo) | tool | active | - | 3.4 | - | [repo](https://github.com/dagargo/elektroid) |
-| **Overwitch** (dagargo) | tool | active | 2.1 (only seen in CLI help output) | 2.2 | - | [repo](https://github.com/dagargo/overwitch) |
+| **Elektroid** (dagargo) | tool | active | 3.4 (2026-08-22) | 3.4 | - | [repo](https://github.com/dagargo/elektroid) |
+| **Overwitch** (dagargo) | tool | active | 2.2 (2025-12-21) | 2.2 | - | [repo](https://github.com/dagargo/overwitch) |
 | **digitone-2-modding-skill** (complex-ping) | agent-skill | wip | Digitone II OS 1.11 (user supplies the .syx; repo gives a SHA-256 prefix to check it) | - | - | [repo](https://github.com/complex-ping/digitone-2-modding-skill) |
 | **elekloader (simonjohansson fork - Digitakt II / Digitone II support)** (simonjohansson) | loader | wip | Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept) | v0.4.0 | - | [repo](https://github.com/simonjohansson/elekloader) · [plan digitone ii](https://github.com/simonjohansson/elekloader/issues/13) · [devices doc](https://github.com/simonjohansson/elekloader/blob/main/docs/DEVICES.md) |
 | **digitone-syx-toolkit** (emnyeca) | tool | wip | - | v0.1.0 | - | [repo](https://github.com/emnyeca/digitone-syx-toolkit) |

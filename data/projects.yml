@@ -99,7 +99,7 @@ projects:
       forum: https://elektronmods.com/thread-20-digiemu-a-digitakt-and-digitone-emulator
     status: stable
     base_os: "firmware from the forum's firmware list; one user reports it needs 1.43"
-    version: null
+    version: "v0.4.1 (2026-10-09)"
     last_activity: 2026-10-05
     notes: >
       Emulator for testing mods without hardware. GitHub description also lists Model:Cycles and
@@ -136,8 +136,8 @@ projects:
       news: https://www.synthtopia.com/content/2026/09/30/unofficial-mods-for-elektron-digitakt-adds-metallic-percussion-synth-machine/
     status: unknown
     base_os: "Digitakt mk1 OS 1.53"
-    version: "v1.1.13 (2026-10-02)"
-    last_activity: 2026-10-02
+    version: "v1.2.0 (2026-10-26)"
+    last_activity: "2026-10-26"
     notes: >
       Metallic percussion machine (FUSE, BOOM, PIPE, SHARD), fixed-point adaptation of
       "Sophie for Schwung" by mestela. Repo distributes source only. Needs elekloader.
@@ -348,7 +348,7 @@ projects:
       forum_fm4: https://elektronmods.com/thread-85-good-news-everyone-sy-fm4-is-here-a-fully-modular-syntakt
     status: beta
     base_os: "Syntakt OS 1.41"
-    version: "modular builder RC1 (2026-10-20); Syntakt MAX 1.0 first public beta (2026-10-17)"
+    version: "Syntakt MAX modular builder RC2 (tag, 2026-10-20); RC1 (2026-10-19); MAX 1.0 (2026-10-17)"
     last_activity: 2026-10-21
     notes: >
       Several firmware mods in one build; SY FM4 included. Builder is a Windows app (a user asked
@@ -812,7 +812,7 @@ projects:
     repo: https://github.com/toonst/digitakt2-perform
     status: wip
     base_os: "Digitakt II OS 1.17 (1.18+ would need addresses found again)"
-    version: "1.0 (build name, no tagged release)"
+    version: "v1.0 (tag, 2026-10-04)"
     last_activity: null
     notes: >
       PERFORM KIT mods: [PRESET] toggles directly, track levels survive leaving the mode.
@@ -947,7 +947,7 @@ projects:
     repo: https://github.com/dagargo/elektroid
     status: active
     base_os: null
-    version: null
+    version: "3.4 (2026-08-22)"
     last_activity: null
     notes: >
       Sample and SysEx manager. README device list includes Analog Heat MKI, MKII and +FX, Digitakt I
@@ -966,7 +966,7 @@ projects:
     repo: https://github.com/dagargo/overwitch
     status: active
     base_os: null
-    version: "2.1 (only seen in CLI help output)"
+    version: "2.2 (2025-12-21)"
     last_activity: null
     notes: >
       Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII
@@ -984,7 +984,7 @@ projects:
     repo: https://github.com/roblg/ghidra-dsp56300
     status: unlabeled
     base_os: null
-    version: null
+    version: "v0.0.7 (2026-10-08)"
     last_activity: null
     notes: >
       Ghidra processor module for the DSP56300 family. The repo itself never mentions Elektron; the link

@@ -20,7 +20,7 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [x] karigardarsson/digitakt-ii-research: RECOVERY.md, KNOWN_LIMITATIONS.md (-> RESEARCH-MAP DT2 recovery row; the route is Elektron's official one)
 
 ## Syntakt
-- [x] karigardarsson/Synthack-OS `RECOVERY.md` (already in devices/syntakt.md); [ ] `patch.json` examples, protected-section list
+- [x] karigardarsson/Synthack-OS `RECOVERY.md` (already in devices/syntakt.md); [x] mods README, modarea, kitstore, projstore, master-comp (-> devices/syntakt.md, S13)
 - [ ] Syntakt container: signed or not? sections?
 
 ## Analog Heat

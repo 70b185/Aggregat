@@ -123,7 +123,7 @@ When done, update the matching row here and the device file under hardware/devic
 | Recovery | 🟢 | Documented by SyntHack: Transfer over USB normally; if it doesn't boot, FUNC + TRIG 4 over DIN (tens of minutes). Avoid TRIG 2/3. | - |
 | Signing | ❓ | 1.41 carries an HMAC (SyntHack); 1.42 has a zero trailer (digikit) (O1). | **T5** |
 | CPU #1 load | ❓ | ~89 % of the audio interrupt at rest vs. 85.8k of 166.7k cycles - probably different spans (O3). | **T4** |
-| Free RAM above the BSS | ❓ | One mod keeps code at `0x47000000`; another found sample loading overwrites that range (O2). | Write-watch with samples loading. |
+| Where mod code can live | ✅ | Not above the BSS: sample loading overwrites `0x45565490-0x48000000` (settled S13). SyntHack reserves the first 64 KB heap block at boot; kit and project files carry spare bytes that round-trip through stock code. | [syntakt.md](hardware/devices/syntakt.md) |
 | Free executable storage on CPU #2 | ❓ | Unresolved. | machine-45 research notes |
 | Section 8 | ❓ | "Second FPGA?" vs. identical to DT2/DN2 section 8 (O4). | T12 |
 | FPGA role | ⬜ | Unknown on every device that has one. | T12 |
@@ -155,7 +155,7 @@ Pick one, check the status above, and go. **S** = an evening, **M** = a few sess
 |---|---|---|---|---|---|
 | T1 | ~~First DT2 recovery report~~ **one exists** (OS 1.16). Still useful: a second report on **1.17**, with timings and the interface used | Digitakt II | unit + DIN | S | Confirms the path on the current OS (G1). Low risk: stock file only. |
 | T2 | Confirm the startup-menu buttons and the OS-upgrade path | Digitone mk1 / Keys | unit (no flashing) or manual | S | Closes a recovery gap (G1). |
-| T3 | Test rule A39 (no EP0 stage of a multiple of 64 bytes) on a small box with a vendor request | DT mk1 / DN mk1 / DT2 | unit + a USB mod | M | Confirms or limits a rule found on the Octatrack (G3). |
+| T3 | Test rule A39 (no EP0 stage of a multiple of 64 bytes) on a small box with a vendor request. The DT2 has the same EHCI-style controller with EP0 max packet 64 and its own EP0 vendor requests (digikit 42), so it is the best candidate | DT2 (or DN2, DT/DN mk1) | unit + a USB mod | M | Confirms or limits a rule found on the Octatrack (G3). |
 | T4 | Measure CPU #1 load with the digihealth DMA-timer method over the whole interrupt, at rest and busy | Syntakt | unit + SyntHack | M | Settles O3; gives Syntakt modders a budget (G2). |
 | T5 | Check the trailer and HMAC of 1.40A/1.41/1.42 with your own files (elektron-firmware-tool, digikit) | Syntakt (also DT mk1) | files | S | Settles O1; tells modders whether 1.42 needs re-signing. |
 | T6 | Translate SyntHack/machine-45 anchors from 1.41 to 1.42 (byte patterns, not addresses) | Syntakt | files | M | Opens the current OS to mods (G5). |

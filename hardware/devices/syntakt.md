@@ -126,6 +126,17 @@ Normal case: Drop page in Transfer. If the OS does not boot: DIN MIDI, FUNC at p
   - Ramps must snap to their target or the effect never goes idle.
   - Limit how far a modulated delay moves per block.
   - Keep a cost-per-block regression test (count instructions with `UC_HOOK_CODE` after `ctl_flush_tb()`).
+- **Where mod code lives at run time (SyntHack modarea, v0.8.1+):**
+  - The OS image has only ~2 KB free, and everything after it is zeroed at boot. So mod code is appended to section 3 compressed (SHLZ, at `0x40348000 + offset`).
+  - At boot it is unpacked into the **first 64 KB block of the OS heap**: buddy allocator `0x4010350C`, 16 MB pool at `0x444E38C0`.
+  - The block is reserved by a call right after heap initialization, so it always gets index 0, and the OS never hands it out again.
+  - The earlier home above the BSS (`0x46000000`) was overwritten whenever samples loaded (SyntHack issue 4), which settles conflict O2. `[hw]` {synthack-mods}
+- **Kit and project storage that round-trips through stock code** (SyntHack kitstore/projstore):
+  - Kit words 41-43 of the 12 per-track blocks go into 6 file bytes that stock's writer zeroes and its reader ignores.
+  - 256 bytes go into the project settings block (`+0x227..+0x3FF` is zeroed by the writer and ignored by the reader), behind an `SH` marker.
+  - Tests run the real writer and reader with and without the hooks.
+  - Zero must mean "default", because stock-saved files load as zero. `[emu]` {synthack-mods}
+- **Controlling the analog side digitally** (SyntHack master-comp): a feed-forward compressor detects on ADC 6/7 (the FX-track bus before its VCAs) and applies gain through those VCAs' control voltages (CV 35/36), once per block (~1.5 kHz). Its UI uses the Digitakt MIDI-track "CC Select" ids 262-268, which the Syntakt never uses. Cost: ~100 instructions per block when off, ~600 when on. Checked on the device (v0.9). `[hw]` {synthack-mods}
 - Projects: SyntHack OS (9 mods on hardware, MIT); SY FM4 (4-operator FM replacing SY TONE, which also patches CPU #2); Syntakt Firmware Workbench.
   - The Workbench replaces SY CHORD's waves: 31 slots of 257 big-endian Q31 samples, measured on a unit within 1 %. It adds a Deja Vu LFO, DV-H. It refuses any file but 1.41 and checks that only the declared regions changed. `[hw]` {syntakt-workbench}
 

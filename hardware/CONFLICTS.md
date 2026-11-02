@@ -8,7 +8,6 @@ later, stronger source decided it; the losing value still circulates in older no
 | # | Topic | Side A | Side B | Details |
 |---|---|---|---|---|
 | O1 | Syntakt OS signing | SyntHack OS: 1.41 carries an HMAC-SHA256, with the key derived from the image | digikit finding 70: 1.42 has no HMAC trailer (the last 32 bytes are zero) | [`devices/syntakt.md`](devices/syntakt.md) |
-| O2 | Syntakt RAM above the BSS | SY FM4 (1.40A) keeps code at `0x47000000`, "addressed by nothing" | SyntHack (1.41): sample loading overwrites `0x45565490-0x48000000`; mods there crashed | [`devices/syntakt.md`](devices/syntakt.md) |
 | O3 | Syntakt CPU #1 load | ~89 % of the audio interrupt at rest (SyntHack, measured with DTIM0) | the render is 85.8k of 166.7k cycles per block (SY FM4) | Different spans of the same interrupt; [`devices/syntakt.md`](devices/syntakt.md) |
 | O4 | Syntakt section 8 | "second FPGA?" (SyntHack) | identical to DT2/DN2 section 8 (digikit) | [`devices/syntakt.md`](devices/syntakt.md) |
 | O5 | SHARC L1/L2 labels | Digitone 2 modding skill: `0x28xxxxxx` = L2, `0x20000000` = L1 | digikit (with the ADI manuals): `0x28xxxxxx` = L1, `0x20000000` = L2 | The formulas agree; only the names differ. Trust the numbers. [`devices/digitone-2-os111-firmware-map.md`](devices/digitone-2-os111-firmware-map.md) |
@@ -38,5 +37,6 @@ later, stronger source decided it; the losing value still circulates in older no
 | S10 | The PRM: reading MR keeps / clears the flags; NaN results set AN | **silicon keeps the multiplier flags on an MR read, and leaves AN clear on an invalid float result** | digikit finding 103 |
 | S11 | Encodings with a stock precedent are safe | **necessary, not sufficient:** a same-DAG store and SIMD L2 moves hung a real DT2 | digitakt-ii-research PLAITS H-opt1 |
 | S12 | Machinedrum CPU is an MCF5307 | **MCF5206E** | machinedrum-kit (board model and MAME driver agree) |
+| S13 | Syntakt RAM above the BSS (`0x47000000` and nearby) is free for mod code | **sample loading overwrites `0x45565490-0x48000000`**; reserve a heap block at boot instead (SyntHack modarea) | SyntHack issue 4 and the move to modarea in v0.8.1 |
 
 When you find a new disagreement: add a row here and mark the fact `[?]` in the device file. When one is settled, move it to the second table and say what settled it.

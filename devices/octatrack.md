@@ -8,9 +8,9 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **OT Kyoti FW** (Zac Kyoti) | firmware | active | KYOTI V1.6 (2026-10-22); 1.40C | ref/sp12-midside-vem7 | 2026-10-22 | [repo](https://github.com/Zac-Kyoti/octatrack-kyoti-fw) |
+| **octabam** (Sam Banks, Contributors credited per module) | firmware | active | v0.3 (tags v0.2/v0.3, 2026-11-02): v0.2 adds VARISPEED and drops FX2 LOCK; v0.3 names the LOAD/SAVE KIT lists. Unreleased: USB IN/OUT moved to on-chip SRAM (USB share of the frame interrupt ~34 -> 24 us on an MKII); 1.40C | v0.3 | 2026-11-02 | [repo](https://github.com/sambanks/octabam) · [homepage](https://modwerk.app/) |
+| **OT Kyoti FW** (Zac Kyoti) | firmware | active | KYOTI V1.6 (2026-10-22); ref tag ref/kyoti-v1.6-2026-10-29 added; 1.40C | ref/sp12-midside-vem7 | 2026-10-29 | [repo](https://github.com/Zac-Kyoti/octatrack-kyoti-fw) |
 | **Octatrack Manager** (David Ferlay) | tool | active | v0.49.0 (2026-10-18); Projects saved on OS 1.40 or later | v0.49.0 | 2026-10-18 | [repo](https://github.com/davidferlay/octatrack-manager) · [homepage](https://davidferlay.github.io/octatrack-manager/) |
-| **octabam** (Sam Banks, Contributors credited per module) | firmware | active | MIDI SCENES engine latch (PR #754) (2026-10-15); 1.40C | v0.3 | 2026-10-15 | [repo](https://github.com/sambanks/octabam) · [homepage](https://modwerk.app/) |
 | **midisc** (bkkbrls-del) | mod | active | MIDISC2.1 (2026-10-08); 1.40C | 1.40MIDISC | 2026-10-08 | [repo](https://github.com/bkkbrls-del/midisc) |
 | **octa-panel** (Tim Hastie) | emulator | active | octatrick-2.9 (2026-09-29); 1.40C | octatrick-2.9 | 2026-09-29 | [repo](https://github.com/timhastie/octa-panel) |
 | **PassOS** (theremoteviewer) | mod | active | v1.0 (2026-09-28); 1.40C | v1.0 | 2026-09-28 | [repo](https://github.com/theremoteviewer/octa-passos) |

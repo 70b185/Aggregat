@@ -35,8 +35,8 @@ projects:
       forum: https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices
     status: active
     base_os: "Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed"
-    version: "v0.9.0 (2026-10-30), first full release since 0.4.0"
-    last_activity: 2026-10-30
+    version: "v0.9.0 (2026-10-30), first full release since 0.4.0. main since: core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs"
+    last_activity: 2026-11-02
     notes: >
       Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally.
       Also covers Octatrack and (proof of concept) Analog Four MKII, which are out of scope for now.
@@ -947,8 +947,8 @@ projects:
       safety_doc: https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/SAFETY.md
     status: wip
     base_os: "Digitone II stock OS 1.11 ONLY (1.10 must update to 1.11 first; 1.12+ must go back to 1.11). Also needs the user's own Digitakt II OS 1.17 (or 1.16), Machinedrum UW OS 1.63 and Monomachine SFX-6 OS 1.32B files"
-    version: "v0.36 (VOICES, 2026-11-01); v0.35 SWEEP and v0.34 TIMING the same day"
-    last_activity: 2026-11-01
+    version: "v0.37 (INTRO, 2026-11-02): new start-up animation, DDRW at about half the cost with 3-note chords, RECORDER SRC MAIN fixed, sample preview 6 dB quieter; polyphonic ONESHOT/WERP/SLICE confirmed. Announced next: Direct Jump, per-project sample pools, parameter slides"
+    last_activity: 2026-11-02
     notes: >
       Adds Digitakt II sample machines (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE) with sample browser and
       recorder, PERC (34 Machinedrum machines incl. TRX, EFM, GND, P-I), Monomachine voices (SID 6581, DPRO WAVE/DDRW/DENS,
@@ -1850,8 +1850,8 @@ projects:
     repo: https://github.com/sambanks/octabam
     status: active
     base_os: 1.40C
-    version: 'MIDI SCENES engine latch (PR #754) (2026-10-15)'
-    last_activity: '2026-10-15'
+    version: 'v0.3 (tags v0.2/v0.3, 2026-11-02): v0.2 adds VARISPEED and drops FX2 LOCK; v0.3 names the LOAD/SAVE KIT lists. Unreleased: USB IN/OUT moved to on-chip SRAM (USB share of the frame interrupt ~34 -> 24 us on an MKII)'
+    last_activity: '2026-11-02'
     notes: 'Modular Octatrack OS 1.40C "remixer": bus and track effects, FM synth machine, 255 kits, USB audio/MIDI,
       stock bug fixes. Base of Modwerk. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not
       read by us yet.'
@@ -1912,8 +1912,8 @@ projects:
     repo: https://github.com/Zac-Kyoti/octatrack-kyoti-fw
     status: active
     base_os: 1.40C
-    version: KYOTI V1.6 (2026-10-22)
-    last_activity: '2026-10-22'
+    version: KYOTI V1.6 (2026-10-22); ref tag ref/kyoti-v1.6-2026-10-29 added
+    last_activity: '2026-10-29'
     notes: 'Feature and fix builds keeping the stock feel: mute modes, pattern jump, sidechain compressor, varispeed,
       repitch. Tested on an MKI. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read
       by us yet.'
@@ -2132,7 +2132,8 @@ projects:
     repo: https://github.com/x2k77m1/lfox
     status: wip
     base_os: Digitone mk1
-    last_activity: '2026-11-01'
+    version: v1.0b (tag, 2026-11-02; v1.0a before)
+    last_activity: '2026-11-02'
     notes: A third LFO for the Digitone mk1 with its own page and all stock LFO controls (the LFO key cycles LFO1,
       LFO2, LFOX). GPL. Created 2026-11-01. Found by GitHub search 2026-11-02; README start read.
     sources:

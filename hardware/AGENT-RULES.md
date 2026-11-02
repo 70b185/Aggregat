@@ -99,6 +99,8 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A36. The startup-menu recovery listens to DIN MIDI only, on every Elektron box documented here.** USB updates are received by the running OS. Before flashing anything that replaces or deeply changes the OS, make sure the user has a working DIN (or 3.5 mm TRS on Model:Cycles) MIDI interface and has sent a stock file through it once. A custom OS without the in-OS USB update leaves DIN as the only way back. `[hw]` {rytm-fw-re} {modded-cycles} {octabam}
 
+**A37. A busy share is not headroom (DT2/DN2 SHARC).** Stock's audio task waits inside its block, so "time outside the idle task" and stock's block-handler span both read ~80 % on an idle DN2 and *fall* to ~65 % with 64 notes held. To know whether added code fits, measure the deadline margin of the block itself (A25) under the heaviest stock load, not the busy percentage. `[hw]` {elekloader-sharc-dn2}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.

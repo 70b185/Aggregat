@@ -15,6 +15,11 @@ Second-hand facts (tags as in `../README.md`). Names in braces are source keys.
 - m68k (Digitakt/Digitone mk1): m68k binutils and gcc; prefix override `ELEKLOADER_CROSS`. Sections `.run`, `.fast`, `.bss`. {elekloader-adapting}
 - ColdFire C for Digitone II: GCC m68k toolchain, `dnfw` loader/builder (AGPL). {dn2-firmware-explore} {dn2-modding-skill}
 - SHARC+ DSP code in portable C: **selache** (SHARC+ C compiler/assembler by js216, GPL-3.0); dn2-cfw compiles effects with `selcc` and splices them into the DSP section with `tools/dspsplice`. `[doc]` {dn2-cfw} {dn2mk2}
+- **selache pitfalls that halt a real DSP but run in the emulator** (elekloader ADAPTING.md, Nov 2026; the first matches 70b185's DT2 finding):
+  - A shift by a negative immediate (`LSHIFT R1 BY -16`) is encoded without sign extension. Put the count in a register (`R2 = -16; R1 = LSHIFT R1 BY R2;`). elekloader's lint flags candidates, but it cannot see instruction boundaries, so check each one in the listing.
+  - **A C function whose locals sit more than ~63 words from the frame pointer is compiled wrongly.** One large local array is enough. Keep large buffers static or in the voice state.
+
+  `[hw]` {elekloader-adapting} {own-dt2-notes}
 - `tools/sharcvm` (dn2-cfw) interprets the stock DSP handler to render chorus/delay/reverb/master compressor offline. `[doc]` {dn2-cfw}
 
 ## Generic ColdFire MCF5441x facts (not Elektron-specific)

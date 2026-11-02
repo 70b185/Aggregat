@@ -51,4 +51,6 @@ _Sources: altstrument (2026-11-01)_
 
 Replaces the six stock machines with circuit-modelled TR-909 voices (integer models fitted to recordings); the experimental branch adds 808 and 606 voices on SHAPE. Hats/cymbals need user-supplied WAVs. MIT.
 
+_Related: builds on `modded-cycles` (README: built on Modded-Cycles and Model-TG) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_

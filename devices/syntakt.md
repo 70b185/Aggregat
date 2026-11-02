@@ -38,6 +38,8 @@ Several firmware mods in one build; SY FM4 included. Builder is a Windows app (a
 
 _Latest seen (2026-10-31, secondary directories): Upstream is Angelo-politek/Synthack-OS ("SyntHack OS", MIT, v0.9.0 on 2026-10-19: performance FX on all tracks replace beat repeat, quantized retrig, separate IN R page; v0.8.1 fixes boot crashes with sample projects; v0.8.0 adds the third send). This entry is the fork by karigardarsson, branded "Syntakt MAX": Modular Builder RC2 (2026-10-20) restores native MIDI parameter ownership for the third send, compressor and beat repeat; RC1 (2026-10-19) adds SY FM4 and per-feature selection; MAX 1.0 (2026-10-17) was a fixed seven-feature bundle. Brick-risk flag set on altstrument._
 
+_Related: fork of `synthack-os-upstream` (GitHub fork flag) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: forum threads 81 and 85_
 
 ### Elektron Firmware Download List
@@ -121,6 +123,8 @@ _Sources: GitHub search 2026-11-02, README_
 ### Elektron-Screen-Tool
 
 The instrument's screen live in a terminal or window at 30 fps for OBS capture; fork of jakobbak/screendump. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Related: fork of `screendump` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

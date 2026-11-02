@@ -138,6 +138,8 @@ Adds Digitakt II sample machines (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE) 
 
 _Latest seen (2026-10-31, secondary directories): v0.34 TIMING: P-I voices that stayed dead after v0.33's guard muted them are now reset on the next note; a FUNC-held readout shows V1D (bad data in a voice's delay memory) or V1X (elsewhere); new USB diag tool tools/dn2diag.py reads the guard record and scans DSP memory for bad values; the ColdFire emulator now fires the audio interrupt at its real rate, and DSP tests charge memory like the chip. v0.35 SWEEP (2026-11-01): fixes only (MACHINE SEL filter list, +DRIVE preview retrigger, SYN-held values, LOAD TO PROJ, deleted folders, LFO page names). Open: why P-I / VO-6 voices go bad on the instrument. Same scope as armio's T1E2 (DT2 sample machines on DN2 1.11). v0.36 VOICES: the fixed two-voice cap on Monomachine tracks is gone (the real-time DSP guard decides): SID, VO-6, DENS and DPRO WAVE play 4-note chords, DDRW 2; when there is no room the oldest voice is dropped cleanly; DDRW/DENS tables moved to fast memory; a Diagnostics section in the import page reads the instrument after a silent voice._
 
+_Related: builds on `dn2-firmware-explore` (docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub README, FIRMWARE.md, patcher web page_
 
 ### digitone-2-modding-skill
@@ -157,6 +159,8 @@ _Sources: GitHub README, FirestormAudio profile page_
 ### elekloader (simonjohansson fork - Digitakt II / Digitone II support)
 
 GitHub says forked from elekloader/elekloader (not irpina's repo); 173 commits, GPL-2.0-or-later, NOTICE covers digikit code. Per README: Digitakt II 1.17 experimental - whole builds and linkable mods with their own core work, core checked in digikit's emulator, a key-swap mod works on a unit. Digitone II 1.12 experimental - whole builds, linkable mods, SHARC (DSP) mods and selectable synth/filter mods work; UI events and remote input checked on a unit, sine variants ran ten-minute note sweeps plus limited project/effects checks. Analog Rytm MKII 1.74 linkable mods with own core, builds with the core work on a unit; Analog Four MKII 1.56 hook bus, mod storage, unused DDR and recovery checked on a unit. Issue #13 plans Digitone II control-side support modelled on the Digitakt II implementation (hash-based stock-file recognition, devices/digitakt_mk2.py profile). 22 open issues.
+
+_Related: fork of `elekloader` (GitHub fork flag) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, GitHub issue 13, search 2026-10-31_
 
@@ -193,6 +197,8 @@ _Sources: GitHub search 2026-11-02, README_
 ### Elektron-Screen-Tool
 
 The instrument's screen live in a terminal or window at 30 fps for OBS capture; fork of jakobbak/screendump. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Related: fork of `screendump` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

@@ -90,6 +90,8 @@ _Sources: altstrument (2026-11-01)_
 
 The Machinedrum's synthesis engines as a VST3 instrument edited like Overbridge. GPL. Found by GitHub search 2026-11-02; README start read.
 
+_Related: builds on `gearmulator-md-mm` (README: MD Drums came from gearmulator-md-mm) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### C7
@@ -102,6 +104,8 @@ _Sources: GitHub search 2026-11-02, README_
 
 Chip-level Machinedrum emulation as a DAW plug-in that runs the user's own OS and DSP programs, with the sequencer and a library. Fork of Monomodule and still builds the Monomodule plug-ins. AGPL-3.0.
 
+_Related: fork of `monomodule` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### Machinemodule for MPC OS
@@ -113,6 +117,8 @@ _Sources: GitHub search 2026-11-02, README_
 ### MachineModule (desktop)
 
 Windows/macOS standalone and VST3 port of sd88me's Machinedrum engine with a JUCE interface; 0.4.6 adds a native ARM JIT for voices and master effects. AGPL-3.0.
+
+_Related: port of `machinemodule-mpc` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -143,6 +149,8 @@ _Sources: GitHub search 2026-11-02, README_
 ### Maschine MD-MM
 
 Fork of gearmulator-md-mm with Native Instruments Maschine MK3 integration. GPL-3.0.
+
+_Related: fork of `gearmulator-md-mm` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

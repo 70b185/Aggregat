@@ -16,7 +16,7 @@ Data last verified: 2026-11-02
 | **rytm-builder** (stampman3000-jpg) | tool | active | cursor/rytm-mac-app-0afb @ 90af848 (2026-10-14); Analog Rytm OS 1.70 object layout | - | 2026-10-14 | [repo](https://github.com/stampman3000-jpg/rytm-builder) |
 | **rytm-fw-re** (ethernet) | research | active | master @ 2f7f0c4 (2026-10-13); 1.74 | - | 2026-10-13 | [repo](https://github.com/ethernet8023/rytm-fw-re) |
 | **rytm-mods boot report** (Iced-Cream) | research | active | Analog Rytm MKII OS 1.73 | - | 2026-10-13 | [repo](https://github.com/Iced-Cream/rytm-mods-boot-report) |
-| **rytm-mods-src** (MrScruff, ConnorWay32 (repost)) | mod | active | Mods 0000-0015 (2026-10-10); 1.73 | - | 2026-10-10 | [repo](https://github.com/ConnorWay32/rytm-mods-src) |
+| **rytm-mods-src** (MrScruff (published with permission by Iced-Cream)) | mod | active | Mods 0000-0015 (2026-10-10); 1.73 | - | 2026-10-10 | [repo](https://github.com/Iced-Cream/rytm-mods-src) |
 | **analog-rytm-mkii-research** (genosdk) | research | active | main @ 14570ea (2026-09-25); 1.72 | - | 2026-09-25 | [repo](https://github.com/genosdk/analog-rytm-mkii-research) |
 | **Kitsmith** (Alina-sul) | tool | wip | Analog Rytm MKII | - | 2026-09-13 | [repo](https://github.com/Alina-sul/kitsmith) |
 | **analog-rytm-agent-bridge** (algonormative) | tool | active | Rytm MKII | - | 2026-09-02 | [repo](https://github.com/algonormative/analog-rytm-agent-bridge) |
@@ -68,6 +68,8 @@ _Sources: altstrument (2026-11-01)_
 
 Port of the rytm-mods to Rytm MK1 OS 1.73 (per-track cuts, random LFO, euclid accents, humanise); also emits elekloader .elemod files. Licence: unspecified; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
+_Related: port of `rytm-mods-src` (README: port of the MKII project to the MK1) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### analog-emu (rytm-emu)
@@ -85,6 +87,8 @@ _Sources: GitHub search 2026-11-02, README_
 ### rytm2_mods
 
 MrScruff's Rytm MKII mods (published with permission) ported to the elemod format for elekloader core-ar2. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Related: port of `rytm-mods-src` (README: ported to elemod) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -127,5 +131,7 @@ _Sources: GitHub search 2026-11-02, README_
 ### rytm-rs / rytm-sys
 
 Rust abstractions over the Rytm's undocumented SysEx (bindings to a fork of bsp2's libanalogrytm). MIT.
+
+_Related: builds on `libanalogrytm` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_

@@ -348,6 +348,8 @@ projects:
     latest_seen: >
       Upstream is Angelo-politek/Synthack-OS ("SyntHack OS", MIT, v0.9.0 on 2026-10-19: performance FX on all tracks replace beat repeat, quantized retrig, separate IN R page; v0.8.1 fixes boot crashes with sample projects; v0.8.0 adds the third send). This entry is the fork by karigardarsson, branded "Syntakt MAX": Modular Builder RC2 (2026-10-20) restores native MIDI parameter ownership for the third send, compressor and beat repeat; RC1 (2026-10-19) adds SY FM4 and per-feature selection; MAX 1.0 (2026-10-17) was a fixed seven-feature bundle. Brick-risk flag set on altstrument.
     sources: ["forum threads 81 and 85"]
+    relations:
+    - {type: fork_of, id: synthack-os-upstream, evidence: 'GitHub fork flag'}
 
   # ---------------------------------------------------------------- requests / resources
   - id: req-d50-pcm-machine
@@ -508,6 +510,8 @@ projects:
     latest_seen: >
       altstrument: eight algorithms, based on digisophie; v1.2.1 adds parameter locks on the SRC page; OS 1.53/1.54; MIT.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: builds_on, id: digisophie, evidence: 'notes'}
 
   - id: digidrum
     name: Digidrum
@@ -642,6 +646,8 @@ projects:
     latest_seen: >
       altstrument: v3.2b separates WAVE pitch and stereo depths and splits fold from crush; v3.2a adds the PERFORM page.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: same_project, id: ringtone, evidence: 'release repo; source lives in RingTone'}
 
   - id: digicosm
     name: DigiCosm
@@ -975,6 +981,8 @@ projects:
       DDRW 2; when there is no room the oldest voice is dropped cleanly; DDRW/DENS tables moved to fast memory; a Diagnostics
       section in the import page reads the instrument after a silent voice.
     sources: [GitHub README, FIRMWARE.md, patcher web page]
+    relations:
+    - {type: builds_on, id: dn2-firmware-explore, evidence: 'docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698'}
 
   - id: digitone-2-modding-skill
     name: digitone-2-modding-skill
@@ -1049,6 +1057,8 @@ projects:
       Issue #13 plans Digitone II control-side support modelled on the Digitakt II implementation (hash-based stock-file
       recognition, devices/digitakt_mk2.py profile). 22 open issues.
     sources: [GitHub README, GitHub issue 13, search 2026-10-31]
+    relations:
+    - {type: fork_of, id: elekloader, evidence: 'GitHub fork flag'}
 
   - id: digi-roll-studio
     name: digi-roll-studio
@@ -1356,11 +1366,11 @@ projects:
     - altstrument (2026-11-01)
   - id: rytm-mods-src
     name: rytm-mods-src
-    author: MrScruff, ConnorWay32 (repost)
+    author: MrScruff (published with permission by Iced-Cream)
     kind: mod
     devices:
     - analog-rytm
-    repo: https://github.com/ConnorWay32/rytm-mods-src
+    repo: https://github.com/Iced-Cream/rytm-mods-src
     status: active
     base_os: '1.73'
     version: Mods 0000-0015 (2026-10-10)
@@ -1384,6 +1394,8 @@ projects:
       not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: port_of, id: rytm-mods-src, evidence: 'README: port of the MKII project to the MK1'}
   - id: ems-machinedrum-firmware
     name: ems-machinedrum-firmware
     author: June Kiff (emuyia)
@@ -1573,6 +1585,8 @@ projects:
     - altstrument (2026-11-01)
     links:
       homepage: https://18nelli18.github.io/Modded-Cycles/
+    relations:
+    - {type: fork_of, id: modded-cycles, evidence: 'GitHub fork flag'}
   - id: cycles-control-all-config
     name: Control All Config
     author: durchgemacht
@@ -1671,6 +1685,8 @@ projects:
     - altstrument (2026-11-01)
     links:
       homepage: https://durchgemacht.github.io/model27/flasher/
+    relations:
+    - {type: fork_of, id: modded-cycles, evidence: 'own README: beta fork of Modded Cycles 1.55'}
   - id: plaits-on-models
     name: plaits-on-models
     author: DMDaudio
@@ -1703,6 +1719,10 @@ projects:
     - altstrument (2026-11-01)
     links:
       homepage: https://aveycole.github.io/SPOKES/
+    relations:
+    - {type: bundles, id: modded-cycles, evidence: 'README table'}
+    - {type: bundles, id: model27, evidence: 'README table'}
+    - {type: bundles, id: supermodel-edition, evidence: 'README table'}
   - id: supermodel-edition
     name: Supermodel Edition
     author: A.V., 18nelli18
@@ -1720,6 +1740,8 @@ projects:
     - altstrument (2026-11-01)
     links:
       homepage: https://aveycole.github.io/Supermodel/flasher-supermodel-909/
+    relations:
+    - {type: fork_of, id: modded-cycles, evidence: 'GitHub fork flag'}
   - id: vladiktron-spoke
     name: Vladiktron Spoke
     author: imaf6971
@@ -1832,6 +1854,8 @@ projects:
       Licence: unspecified; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: builds_on, id: midisc, evidence: 'README: patcher for the 1.40MIDISC build'}
   - id: midisc
     name: midisc
     author: bkkbrls-del
@@ -1862,6 +1886,8 @@ projects:
       on octabam. Licence: MIT; distribution: source-only. Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: copy_of, id: octabam, evidence: 'repo content is octabam (README, modules) as of 2026-10-13'}
   - id: octabam
     name: octabam
     author: Sam Banks, Contributors credited per module
@@ -2003,6 +2029,8 @@ projects:
       MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: builds_on, id: octabam, evidence: 'README'}
 
   # ---------------------------------------------------------------- found by GitHub search 2026-11-02 (README start read)
   - id: vampire-manga-os
@@ -2254,6 +2282,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: variant_of, id: digiseq-digitakt, evidence: 'same author, Digitone build'}
   - id: pump-digitakt
     name: PUMP (Digitakt)
     author: ClaidArremer
@@ -2284,6 +2314,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: variant_of, id: pump-digitakt, evidence: 'same author, Digitone build'}
   - id: directjump-digitakt
     name: DIRECT JUMP (Digitakt)
     author: ClaidArremer
@@ -2314,6 +2346,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: variant_of, id: directjump-digitakt, evidence: 'same author, Digitone build'}
   - id: digisnake-digitakt
     name: DIGISNAKE (Digitakt)
     author: ClaidArremer
@@ -2343,6 +2377,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: variant_of, id: digisnake-digitakt, evidence: 'same author, Digitone build'}
   - id: sidecar-digitakt
     name: Sidecar (Digitakt mod)
     author: trigcondition
@@ -2358,6 +2394,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: variant_of, id: sidecar-expander, evidence: 'same author, Digitakt side of Sidecar'}
   - id: digitakt-sidecar-pi
     name: Digitakt integrated sidecar
     author: soejrd
@@ -2373,6 +2411,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: builds_on, id: sidecar-expander, evidence: 'README: based on Sidecar by Trig Condition'}
   - id: analog-emu
     name: analog-emu (rytm-emu)
     author: trigcondition
@@ -2411,6 +2451,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: fork_of, id: screendump, evidence: 'README'}
   - id: reslicer-digitakt
     name: reslicer
     author: tonyrewin
@@ -2748,6 +2790,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: port_of, id: rytm-mods-src, evidence: 'README: ported to elemod'}
   - id: cycles-mods-100demons
     name: Cycles Mods
     author: 100demons
@@ -2793,6 +2837,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: builds_on, id: gearmulator-md-mm, evidence: 'README: MD Drums came from gearmulator-md-mm'}
   - id: analog-rytm-agent-bridge
     name: analog-rytm-agent-bridge
     author: algonormative
@@ -2879,6 +2925,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: builds_on, id: modded-cycles, evidence: 'README credits'}
+    - {type: builds_on, id: model27, evidence: 'README credits'}
   - id: cycles-mod-standard
     name: Cycles Mod Standard
     author: durchgemacht
@@ -2896,6 +2945,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: describes, id: model27, evidence: 'README: implemented in model27'}
   - id: model909
     name: model909
     author: DMDaudio
@@ -2913,6 +2964,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: builds_on, id: modded-cycles, evidence: 'README: built on Modded-Cycles and Model-TG'}
   - id: octatrack-modules-radiohagen
     name: Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)
     author: radiohagen
@@ -2928,6 +2981,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: builds_on, id: octabam, evidence: 'README'}
   - id: midisc-sambanks
     name: midisc (1.40MSC)
     author: sambanks
@@ -2944,6 +2999,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: unclear, id: midisc, evidence: 'same name, both created 2026-09-09, neither a GitHub fork'}
   - id: rebirth2octatrack
     name: ReBirth to Octatrack
     author: alexandrubelc
@@ -2960,6 +3017,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: builds_on, id: octabam, evidence: 'README: targets the GARDEN engines'}
   - id: kitsmith
     name: Kitsmith
     author: Alina-sul
@@ -3039,6 +3098,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: fork_of, id: monomodule, evidence: 'README'}
   - id: machinemodule-mpc
     name: Machinemodule for MPC OS
     author: sd88me
@@ -3072,6 +3133,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: port_of, id: machinemodule-mpc, evidence: 'README'}
   - id: schwung-monomodule
     name: Monomodule for Schwung
     author: legsmechanical
@@ -3086,6 +3149,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: port_of, id: monomodule, evidence: 'README'}
   - id: mdkit
     name: mdkit
     author: soejrd
@@ -3180,6 +3245,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: builds_on, id: octabam, evidence: 'README: also submitted as octabam PR 846'}
   - id: otype
     name: OType
     author: nordseele
@@ -3243,6 +3310,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: builds_on, id: octabam, evidence: 'README'}
   - id: machinedrum-rasp
     name: Machinedrum USR machines (RASP, KOOK, SMSH...)
     author: SamplesAndSnacks
@@ -3286,6 +3355,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: fork_of, id: gearmulator-md-mm, evidence: 'README'}
   - id: mddt
     name: MDDT (Machinedrum Data Tool)
     author: waftlord
@@ -3350,6 +3421,8 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: builds_on, id: libanalogrytm, evidence: 'README'}
   - id: a4-sound-sysex-tables
     name: Analog Four sound SysEx cheatsheet
     author: kimasendorf

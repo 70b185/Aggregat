@@ -28,7 +28,7 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "aggregat-bot"
             git config user.email "aggregat-bot@users.noreply.github.com"
-            git add state INDEX.md devices MODS.md DEV-TOOLS.md MUSICIAN-TOOLS.md
+            git add state INDEX.md devices MODS.md DEV-TOOLS.md MUSICIAN-TOOLS.md PROJECT-FAMILIES.md
             git commit -m "check-updates: $(head -3 state/CHANGES.md | tail -1)"
             git push
           fi

@@ -176,6 +176,8 @@ _Sources: GitHub README, lapin-list, elekloader release v0.2.0_
 
 _Latest seen (2026-10-31, secondary directories): altstrument: eight algorithms, based on digisophie; v1.2.1 adds parameter locks on the SRC page; OS 1.53/1.54; MIT._
 
+_Related: builds on `digisophie` (notes) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub README, lapin-list_
 
 ### Digidrum
@@ -240,6 +242,8 @@ _Sources: GitHub README, lapin-list_
 
 GitHub says forked from elekloader/elekloader (not irpina's repo); 173 commits, GPL-2.0-or-later, NOTICE covers digikit code. Per README: Digitakt II 1.17 experimental - whole builds and linkable mods with their own core work, core checked in digikit's emulator, a key-swap mod works on a unit. Digitone II 1.12 experimental - whole builds, linkable mods, SHARC (DSP) mods and selectable synth/filter mods work; UI events and remote input checked on a unit, sine variants ran ten-minute note sweeps plus limited project/effects checks. Analog Rytm MKII 1.74 linkable mods with own core, builds with the core work on a unit; Analog Four MKII 1.56 hook bus, mod storage, unused DDR and recovery checked on a unit. Issue #13 plans Digitone II control-side support modelled on the Digitakt II implementation (hash-based stock-file recognition, devices/digitakt_mk2.py profile). 22 open issues.
 
+_Related: fork of `elekloader` (GitHub fork flag) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub README, GitHub issue 13, search 2026-10-31_
 
 ### digiscreen
@@ -300,11 +304,15 @@ _Sources: GitHub search 2026-11-02, README_
 
 Plays a Sidecar expander from the Digitakt mk1. README: experimental, emulator only, never run on a unit. GPL. Found by GitHub search 2026-11-02; README start read.
 
+_Related: variant of `sidecar-expander` (same author, Digitakt side of Sidecar) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### Digitakt integrated sidecar
 
 Runs a TRX-B2 engine on a Raspberry Pi 4B, controlled from a Digitakt mk1 audio track with the audio returned through it. Early prototype. No licence file seen. Found by GitHub search 2026-11-02; README start read.
+
+_Related: builds on `sidecar-expander` (README: based on Sidecar by Trig Condition) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -317,6 +325,8 @@ _Sources: GitHub search 2026-11-02, README_
 ### Elektron-Screen-Tool
 
 The instrument's screen live in a terminal or window at 30 fps for OBS capture; fork of jakobbak/screendump. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Related: fork of `screendump` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

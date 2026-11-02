@@ -41,6 +41,8 @@ _Sources: altstrument (2026-11-01)_
 
 Turns the trig keys into a scale-locked chord keyboard on a CHORD track (Model:Cycles 1.13); later versions add harmony pads and MIDI chord out. Licence: unspecified; distribution: source-only. Listed by altstrument; repo not read by us yet.
 
+_Related: fork of `modded-cycles` (GitHub fork flag) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### Control All Config
@@ -77,6 +79,8 @@ _Sources: altstrument (2026-11-01)_
 
 Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
 
+_Related: fork of `modded-cycles` (own README: beta fork of Modded Cycles 1.55) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### plaits-on-models
@@ -89,11 +93,15 @@ _Sources: altstrument (2026-11-01)_
 
 Browser hub that builds a chosen Model:Cycles community firmware from your OS 1.13 file and sends it over Web MIDI. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
 
+_Related: bundles `modded-cycles` (README table); bundles `model27` (README table); bundles `supermodel-edition` (README table) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### Supermodel Edition
 
 Fork of Modded Cycles with a 909-style kit flasher, ACID machine, sequence generator, second LFO. Licence: unspecified; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
+
+_Related: fork of `modded-cycles` (GitHub fork flag) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -131,17 +139,23 @@ _Sources: GitHub search 2026-11-02, README_
 
 Web flasher that composes any set of relocatable engine packages into the user's own OS file in the browser and sends it over USB (also a python-only command line). Built on the Modded-Cycles toolchain, model27 and drumkilla's mtlib (all MIT).
 
+_Related: builds on `modded-cycles` (README credits); builds on `model27` (README credits) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### Cycles Mod Standard
 
 Draft standard for Model:Cycles mods (machine contract, extension points, per-mod manifests, clash checks over saved slots, key combos and display). Implemented in model27, tested on a unit for machines and one delay effect. Useful reading for anyone designing a mod format. MIT.
 
+_Related: describes `model27` (README: implemented in model27) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### model909
 
 Replaces the six stock machines with circuit-modelled TR-909 voices (integer models fitted to recordings); the experimental branch adds 808 and 606 voices on SHAPE. Hats/cymbals need user-supplied WAVs. MIT.
+
+_Related: builds on `modded-cycles` (README: built on Modded-Cycles and Model-TG) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

@@ -45,6 +45,8 @@ _Sources: altstrument (2026-11-01)_
 
 Browser patcher for the frozen 1.40MIDISC8.1 Octatrack OS (MIDI scene locks) from your OS 1.40C file. Licence: unspecified; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
+_Related: builds on `midisc` (README: patcher for the 1.40MIDISC build) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### midisc
@@ -56,6 +58,8 @@ _Sources: altstrument (2026-11-01)_
 ### octa-panel
 
 Real-time Octatrack emulator with sound and virtual panel in the browser, for testing OS 1.40C mods; built on octabam. Licence: MIT; distribution: source-only. Listed by altstrument; repo not read by us yet.
+
+_Related: copy of `octabam` (repo content is octabam (README, modules) as of 2026-10-13) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -111,11 +115,15 @@ _Sources: altstrument (2026-11-01)_
 
 Octatrack MK1 mod: 36 Digitone II scales on MIDI tracks and a STOP guard; nothing on the DSP. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
+_Related: builds on `octabam` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)
 
 Source of several octabam modules (MIDI scales, loopback, follow, harmony, musical units, a Euclid LFO, an experimental percussion voice and a CPU supersaw). octabam supplies the builder and platform.
+
+_Related: builds on `octabam` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -123,11 +131,15 @@ _Sources: GitHub search 2026-11-02, README_
 
 MIDI scene locks for the Octatrack (scene hold edits, crossfader morph, part save/reload, scene copy/paste). Built with Python from the user's own OS file. Same author as octabam, which later carried MIDI SCENES. Same name as bkkbrls-del/midisc in this list; how the two relate is not stated in the README start.
 
+_Related: unclear `midisc` (same name, both created 2026-09-09, neither a GitHub fork) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### ReBirth to Octatrack
 
 Browser tool (Pyodide) that converts ReBirth RB-338 songs into Octatrack projects for the octabam GARDEN engines, from a template project. README in Romanian.
+
+_Related: builds on `octabam` (README: targets the GARDEN engines) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -140,6 +152,8 @@ _Sources: GitHub search 2026-11-02, README_
 ### TrackPatterns
 
 Each of the 16 tracks can play its own pattern of the playing bank and switch at its own loop end (a clip-style workflow). Checked in the ColdFire emulator and on the contributor's MKII; also submitted to octabam (PR 846). MIT.
+
+_Related: builds on `octabam` (README: also submitted as octabam PR 846) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -164,6 +178,8 @@ _Sources: GitHub search 2026-11-02, README_
 ### aCiDtRacK modules
 
 octabam modules - a circuit-modelled TB-303 voice per track on the ColdFire (calibrated against recordings), Devil Fish mods, an SD-1/RAT-style distortion and a dbx-160-style compressor. The README marks what is proven. MIT.
+
+_Related: builds on `octabam` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

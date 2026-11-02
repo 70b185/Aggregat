@@ -56,6 +56,8 @@ _Sources: GitHub search 2026-11-02, README_
 
 Port of Monomodule (chip-level Monomachine engine) to Ableton Move via Schwung, as one synth track plus the seven FX machines. GPL-3.0 per README (repo metadata says AGPL-3.0).
 
+_Related: port of `monomodule` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### OP-XY MNMD
@@ -79,6 +81,8 @@ _Sources: GitHub search 2026-11-02, README_
 ### Maschine MD-MM
 
 Fork of gearmulator-md-mm with Native Instruments Maschine MK3 integration. GPL-3.0.
+
+_Related: fork of `gearmulator-md-mm` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

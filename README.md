@@ -11,6 +11,7 @@
 | **Mods and custom firmware** for your device, and the loaders that install them | [MODS.md](MODS.md) |
 | **Development tools**: toolchains, emulators, firmware unpackers, protocol libraries, research | [DEV-TOOLS.md](DEV-TOOLS.md) |
 | **Tools for musicians**: editors, sample/project managers, Overbridge audio, screen mirrors - nothing that changes firmware | [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) |
+| Which entries are forks, copies, ports or builds of each other (so nothing is counted twice) | [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md) |
 | Everything for one device, with full notes | [INDEX.md](INDEX.md) |
 | How the hardware works, for writing mods | [hardware/](hardware/README.md) |
 | **What is known and what is still open, per device, plus a shared to-do and a prompt to start a research session** | [RESEARCH-MAP.md](RESEARCH-MAP.md) |

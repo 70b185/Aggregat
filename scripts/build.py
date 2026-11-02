@@ -77,6 +77,8 @@ for d in devices:
             md.append(" ".join(str(p.get("notes", "")).split()) + "\n")
             if p.get("latest_seen"):
                 md.append("_Latest seen (2026-10-31, secondary directories): " + " ".join(str(p["latest_seen"]).split()) + "_\n")
+            if p.get("relations"):
+                md.append("_Related: " + "; ".join(f"{x['type'].replace('_', ' ')} `{x['id']}` ({x.get('evidence', '')})" for x in p["relations"]) + " - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_\n")
             md.append(f"_Sources: {', '.join(map(str, p.get('sources', [])))}_\n")
     else:
         md.append("No projects collected yet.\n")
@@ -114,12 +116,17 @@ def devs(p):
     return ", ".join(dev_names.get(s, s) for s in p["devices"])
 
 
+REL_SHORT = {"fork_of": "fork of", "copy_of": "copy of", "port_of": "port of", "variant_of": "variant of", "builds_on": "builds on", "same_project": "same project as", "bundles": "bundles", "describes": "describes", "unclear": "cf."}
+
+
 def lrow(p, show_kind=False):
     st = "unverified entry" if p["status"] == "unverified" else p["status"]
     ver = str(p.get("version") or p.get("base_os") or "-").replace("|", "/")
     ver = ver if len(ver) <= 60 else ver[:59].rsplit(" ", 1)[0] + " …"
     kind = f"{p['kind']} | " if show_kind else ""
-    return f"| **{p['name']}** ({p.get('author', '?')}) | {kind}{devs(p)} | {short(p)} | {st} | {ver} | {row(p)} |"
+    rel = "; ".join(f"{REL_SHORT.get(x['type'], x['type'])} {x['id']}" for x in p.get("relations") or [])
+    rel = f" <br>_{rel}_" if rel else ""
+    return f"| **{p['name']}** ({p.get('author', '?')}){rel} | {kind}{devs(p)} | {short(p)} | {st} | {ver} | {row(p)} |"
 
 
 HEAD = ("Data last verified: {c}. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). "
@@ -178,3 +185,64 @@ mus += [lrow(p, True) for p in by_act(bylist["musician"])]
 (ROOT / "MUSICIAN-TOOLS.md").write_text("\n".join(mus) + "\n", encoding="utf-8")
 print("lists:", {k: len(v) for k, v in bylist.items()},
       "not listed:", sorted(p["id"] for p in projects if which_list(p) is None))
+
+
+# ---------------------------------------------------------------- project families (relations between entries)
+REL_WORDS = {"fork_of": "fork of", "copy_of": "copy of", "port_of": "port of", "variant_of": "variant of",
+             "builds_on": "builds on", "same_project": "same project as", "bundles": "bundles", "describes": "describes",
+             "unclear": "same name as (relation unclear)"}
+byid = {p["id"]: p for p in projects}
+parent = {p["id"]: p["id"] for p in projects}
+
+
+def find(x):
+    while parent[x] != x:
+        parent[x] = parent[parent[x]]
+        x = parent[x]
+    return x
+
+
+for p in projects:
+    for r in p.get("relations") or []:
+        if r["id"] in parent:
+            parent[find(p["id"])] = find(r["id"])
+groups = {}
+for p in projects:
+    groups.setdefault(find(p["id"]), []).append(p)
+fam = [GEN, "# Project families\n",
+       "Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod "
+       "built for two devices, and projects that build on another project. Use this to avoid counting the same work "
+       "twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). "
+       f"Data last verified: {checked}. Edit the `relations:` field in `data/projects.yml`.\n",
+       "| Relation | Meaning |", "|---|---|",
+       "| fork of / copy of | the same code base, continued (fork) or snapshotted (copy) elsewhere |",
+       "| port of / variant of | the same mod moved to another device, OS or format |",
+       "| same project as | two repos of one project (e.g. source and release) |",
+       "| builds on / bundles / describes | a separate project that depends on, packages or documents the other |",
+       "| relation unclear | same name or purpose, relation not stated by either side |", ""]
+incoming = {}
+for p in projects:
+    for x in p.get("relations") or []:
+        incoming[x["id"]] = incoming.get(x["id"], 0) + 1
+
+
+def pick_root(members):
+    return max(members, key=lambda m: (incoming.get(m["id"], 0), not m.get("relations"), -len(m["name"])))["id"]
+
+
+for _, members in sorted(groups.items(), key=lambda kv: (-len(kv[1]), byid[pick_root(kv[1])]["name"].lower())):
+    if len(members) < 2:
+        continue
+    root = pick_root(members)
+    r = byid[root]
+    fam.append(f"\n## {r['name']} ({r.get('author', '?')})\n")
+    fam.append(f"Devices: {devs(r)}. {link('repo', r['repo']) if r.get('repo') else ''}\n")
+    for p in sorted(members, key=lambda x: x["name"].lower()):
+        if p["id"] == root:
+            continue
+        rels = "; ".join(f"{REL_WORDS.get(x['type'], x['type'])} **{byid[x['id']]['name']}** ({x.get('evidence', '')})"
+                         for x in p.get("relations") or [] if x["id"] in byid)
+        rels = rels or f"linked to **{r['name']}** through another member of this family"
+        fam.append(f"- **{p['name']}** ({p.get('author', '?')}) - {rels}. {link('repo', p['repo']) if p.get('repo') else ''}")
+(ROOT / "PROJECT-FAMILIES.md").write_text("\n".join(fam) + "\n", encoding="utf-8")
+print("families:", sum(1 for g in groups.values() if len(g) > 1))

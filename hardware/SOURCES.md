@@ -207,3 +207,4 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dt2-lab-coldfire-fix | lalzart/dt2-machine-lab `docs/COLDFIRE-FIX.md` and `docs/UPLOAD-PREFLIGHT.md` (the 2026-10-06 hardware failure and recovery, DT2 OS 1.16) | https://github.com/lalzart/dt2-machine-lab/blob/main/docs/COLDFIRE-FIX.md |
 | dt2-lab-flex-mem | lalzart/dt2-machine-lab `docs/FLEX-DSP-MEMORY-INVESTIGATION.md` (sample and voice memory, DT2 OS 1.16, emulator) | https://github.com/lalzart/dt2-machine-lab/blob/main/docs/FLEX-DSP-MEMORY-INVESTIGATION.md |
 | synthack-mods | Angelo-politek/Synthack-OS `mods/README.md` and the modarea, kitstore, projstore, master-comp READMEs (Syntakt OS 1.41) | https://github.com/Angelo-politek/Synthack-OS/tree/main/mods |
+| digikit-f72 | ElekLabs/digikit `docs/findings/72-sharc-kernels-1-17.md` (stock SHARC kernels, DT2 1.17 / DN2 1.12, static) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/72-sharc-kernels-1-17.md |

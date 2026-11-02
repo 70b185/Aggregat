@@ -93,3 +93,26 @@ A probe module ran 143 items on a real Digitakt II, then the same probe on a rea
 - On a real DT2, a word that the hook code wrote into one record arrived as 0 in 3,995 of 4,000 blocks, because stock code rebuilt the record before the DMA read it. The emulator delivered it every second block.
 - **Write your words into the record from the block tail, after all module calls of the block,** not from inside a hook. A value stored in the call that stops the DSP is lost either way; store a "last step" mark one block earlier. `[hw]`
 
+## What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static) {digikit-f72}
+Instruction counts come from the listings, with no stalls modelled. Use them as a style reference and a lower bound. `[doc]`
+- **Calling convention:** a delayed `CALL` with a frame; arguments in R4, R8, R12, more on the stack; result in R0.
+  - Most kernels come as a pair: `reset(record)` and `process(record, in, out, n)`, one 32-sample block per call.
+  - The prologue and epilogue cost ~20 instructions, about 0.6 per sample.
+- **Every sample loop is a hardware `DO ... UNTIL LCE`.** The loops are software-pipelined (the last stores come after the loop) and have a fast exit for n = 0 or 1.
+- **Idioms worth copying:**
+  - multiplier + ALU + data move in one instruction;
+  - post-modify DAG access with constant M6 = 1 and M5 = 0;
+  - RECIPS/RSQRTS seed plus Newton steps, using FAVG to halve;
+  - branch-free CLIP/ABS/MIN/MAX;
+  - FEXT to wrap an index;
+  - SIMD around copy loops;
+  - parameter ramps as "accumulator += step per sample";
+  - MODE1 saved and restored around RND32 or SIMD.
+- **Same code, different address:** the shared kernels are byte-identical on DT2 and DN2 but sit at different addresses (biquad DT2 `0x1ccbd8`, DN2 `0xb81368`). Only the float divide `0x1c06ba` has one address on both. Calling a stock kernel therefore needs a per-device address row.
+- **Hidden dependencies of stock kernels:**
+  - The envelope reads a rate table at a device-specific absolute address.
+  - powf reads three tables and writes error words.
+  - Divide and rsqrt flip MODE1 bit 16 and restore it, so don't call them with SIMD or a loop active.
+- The DSP sections are byte-identical between DT2 1.16 and 1.17 and between DN2 1.11 and 1.12 (digikit finding 53), so SHARC code and addresses carried over between those OS versions. `[doc]` {digikit-f53}
+- **digikit's recommendation:** write your own kernels for the hot path; they can be faster (its estimate: interpolated delay 41 -> 15 instructions per sample, half-band 25 -> 10). Call stock only for the divide.
+

@@ -70,3 +70,4 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | lalzart dt2-machine-lab: README, STATUS head, COLDFIRE-FIX, UPLOAD-PREFLIGHT head, FLEX-DSP-MEMORY-INVESTIGATION (answer, memory map, estimates) | key sections | digitakt-2 (recovery used, memory map), recovery, A42, RESEARCH-MAP |
 | SyntHack mods/README, modarea, kitstore, projstore, master-comp; digikit finding 42 (USB EP0), 59 (storage regions, already folded earlier) | key sections | devices/syntakt, S13, A39 note, RESEARCH-MAP |
 | Overtone README (DSP load, install, recovery, compatibility, limits, testing) | full | recovery, B7 |
+| digikit finding 72 (stock SHARC kernels, idioms, own vs stock), finding 53 line on unchanged DSP images | key sections | digitakt-2-dsp-optimizing, RESEARCH-MAP G5 |

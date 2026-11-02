@@ -49,7 +49,7 @@ When done, update the matching row here and the device file under hardware/devic
 | G2 | **An honest load/headroom measure per device** (rules A25, A34, A37) | ✅ DT2 (idle-task measure on a unit), DN2 (elekloader busy meter, with the "busy is not headroom" caveat). ❓ Syntakt (two readings conflict, O3). ⬜ Heat +FX, Digitone mk1 voice CPU. | T4, T9, T10 |
 | G3 | **Shared-silicon knowledge transfers between devices** | At least six phase-1 boxes use MCF5441x-family ColdFires (DT, DN, DT2, DN2, Syntakt, Heat +FX); DT2 and DN2 share the SHARC and 85 % of its functions. Many rules were found on one box and are only assumed for the others (e.g. A39 USB, A28 cache write-back). | T3, T12, T19 |
 | G4 | **Emulators you can trust for more than "it boots"** | ✅ known gaps: no memory stalls (device cycles ~2x emulator), no pipeline model, EMAC fractional-mode bugs in stock Unicorn. ❓ digikit: real-time DSP audio. | T14 |
-| G5 | **Mods that survive OS updates** | Every mod pins one OS version; address translation between versions is done ad hoc. | T6, T8 |
+| G5 | **Mods that survive OS updates** | Every mod pins one OS version; address translation between versions is done ad hoc. Good news for DSP work: the SHARC sections are **byte-identical** between DT2 1.16 and 1.17 and between DN2 1.11 and 1.12 (digikit finding 53), so only the ColdFire side moves. | T6, T8 |
 | G6 | **Official numbers instead of guesses** (MIDI CC/NRPN tables, startup menus) | The manuals' appendices were beyond what our fetcher extracts. | T13 |
 
 ---

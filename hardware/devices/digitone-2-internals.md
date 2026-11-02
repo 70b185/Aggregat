@@ -24,6 +24,15 @@ Complements [`digitone-2.md`](digitone-2.md) (overview) and [`digitone-2-os111-r
 - **Code running from L2 in dead stock FX spots stopped the DSP on a unit** (Digiwerk SC01, 2026-10-21): knob turns and random idle moments, while the UI stayed fine. 74 minutes of the same recipes in the SHARC interpreter gave 0 faults, so the cause is something the interpreter doesn't model. Stable builds keep their code in proven L1/L2 regions. `[hw]` {dn2-cfw-roadmap}
 - **selcc inlining grows the stack:** a static helper that selcc inlined pushed one effect's stack to 2,092 bytes; making it non-static brought it back. Check stack use after each build. `[emu]` {dn2-cfw-t53}
 - **Bound every feedback path's output.** A held three-head runaway of a tape echo reached 4.24 (18 dB over stock's delay), so Digiwerk added a soft ceiling (linear to 0.5, at most 0.7). Stock's own runaway peaks at 0.526. `[emu]` {dn2-cfw-t53}
+- **How far the cycle model is off on a unit** (dnfw Waverider 0.3.8, DN2 1.11, USB-probe idle measure, 2026-10-29) {dn2-waverider-perf}:
+  - A change that the cycle model put at 0.6-0.7 load points for 16 voices measured **2.0 points** on the unit, roughly 3x.
+  - The unit runs about 1.26x slower than the emulator assumes in general, which leaves ~2.4x unexplained (memory waits are suspected, not checked).
+  - With 16 voices of a custom wavetable machine plus a 16-note FM chord, the unit read 60-68 % with no missed frame (peak 71.8 %).
+  - Same lesson as rule A35: budget from unit measurements. `[hw]`
+- **Measuring per-stage cycles on the unit** (dnfw `waverider-loadmap.md`):
+  - Chosen jumps and calls go through a 12-byte stub that reads EMUCLK and adds the cycles since the previous mark to the running segment. A null segment measures the marks' own cost.
+  - Results publish through reply word 2, half a record per block.
+  - A reusable recipe for any DSP mod. `[doc]`
 - Load model used: load = (1.30 x emulated instructions + 11k) / 666,667. For one build it predicted ~74 % where the unit showed ~50-60 %, so the model overestimates. `[?]`
 
 ## The ColdFire-to-DSP frame and the panel (Digiwerk T3.2, T3.3, T2.1, T2.4b/c; DN2 1.12) {dn2-cfw-t3}

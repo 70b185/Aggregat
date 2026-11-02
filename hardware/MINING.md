@@ -27,7 +27,7 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [ ] Anything at all. Candidate first steps: check whether the elektron-firmware-tool README/issues mention Heat results; search Elektronauts-adjacent communities and GitHub topics for "analog heat" firmware; ask the user whether they own Heat OS files to inspect.
 
 ## Cross-checks
-- [ ] altstrument.org device pages (Digitakt 12, Digitakt II 3, Digitone 5, Digitone II 3, Syntakt 4 firmwares listed) against `data/projects.yml`
+- [x] altstrument.org device pages cross-checked (phase-2 import 2026-11-01 and the daily fingerprint check)
 - [ ] Lapin list: re-read weekly for new Elektron entries
 - [x] Spot-check 2026-11-02: `scripts/factcheck_addresses.py` checked 997 hex addresses against the local clones of their cited sources: all found (2 are written-out range ends that the source abbreviates). Earlier run 2026-11-01: 117 on lines citing a locally cloned source verbatim in that source; sizes checked by hand (in-place margins, 2 MiB buffer, voice records, expansion region). Lines that cite only remote sources (READMEs, web pages) are not covered.
 
@@ -55,7 +55,7 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [x] Remaining characters of elektronmods thread 27 (nothing new).
 - [ ] Elektronauts "Digitone 2 pattern manager" and "Introducing Digitakt II / Analog Heat +FX" threads for hardware chatter on the Heat +FX (the +FX thread is at `elektronauts.com/t/introducing-analog-heat-fx/193814`).
 - [~] Official manuals (PDF) for Digitakt II OS 1.17 and Digitone II OS 1.12: first ~95,000 characters read; **appendix B/C (CC/NRPN tables) and the startup-menu chapter are beyond what the fetch tool extracts** - needs the PDF attached to a chat or a local text extraction.
-- [ ] Analog Heat +FX manual (URL truncated in a forum post: `cdn.www.elektron.se/media/downl...230510.pdf`).
+- [ ] Analog Heat +FX manual (URL truncated in a forum post: `cdn.www.elektron.se/media/downl...230510.pdf`). Search 2026-11-02 found no reachable copy: **needs the PDF from someone** (research map T13).
 - [ ] dn2-cfw `notes/` beyond T1.7, T2.2 and the release history; dnfw `docs/` beyond flashing, ele3-format, mainos-image, bootstrap, memory-map, os-versions.
 
 ## Next from the 2026-10-31 clones (not yet read)
@@ -64,11 +64,11 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [x] digikit findings 37 (exception handler), 42, 49 (rung C), 59, 72 read 2026-11-02; [ ] still unread, scanned as emulator/runtime internals: 02, 05, 10-13, 17, 20-24, 26-30, 32-36, 38-40, 43-44, 50, 54-56, 61-69, 71, 74
 - [x] dnfw docs: hardware, PRINCIPLES, mod-memory-regions, code-caves, version-gate, os-update-path, service-commands, mods-compatibility, sharc-load/-cycle-model/-stall-probe/-ddr, waverider-dsp-silence
 - [x] dnfw midi-rpc, usbprobe, audio-dma, dsp-control-block, sharc-voice-path, dt2-machine-port, lalzart-dt2-crosscheck
-- [ ] dnfw docs still unread: the waverider-* series, lfo4-*, flashing.md (43 KB), bootstrap (partly)
+- [x] dnfw waverider-performance and waverider-loadmap (unit load calibration, per-stage meter); waverider-dsp-silence earlier (S9); [ ] the rest of the waverider-* and lfo4-* series (feature design), flashing.md beyond the procedure
 - [x] Digiwerk DEVELOPERS.md, notes T1.3, T1.4, T1.5, OB01, T1.11, DT01, DC01/DC02, SC01, SP02, release 0.2.1
 - [x] Digiwerk USB01, T1.7/T1.7b, T2.1, T2.4a-c, T3.2, T3.3, prior-art-2026-10
-- [ ] Digiwerk notes still unread: T2.2 arp, T2.8 dejavu, T3.1/T3.4-T3.11, T5.x/T6.x effect notes
-- [ ] Overtone v1.2 release notes
+- [x] Digiwerk T3.8 (DSP splice: 'nothing ran on the unit', encoding audit), T5.3, T6.3 cmp2f/cmp4 (code only where it ran on the unit), T6.5, PB01 scanned/read; [ ] T2.x arp, T2.8 dejavu, T3.1/T3.4-T3.6, T5.5/T5.6 effect design
+- [~] Overtone: README read (v1.2 state); release notes need the GitHub API, which this session cannot reach
 
 ## Phase-1 sweep of the remaining 51 projects (2026-11-02)
 All 48 reachable repos cloned; their docs scanned for unit results, measurements, crashes and recovery, then read where it paid off.

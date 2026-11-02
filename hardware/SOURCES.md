@@ -182,6 +182,8 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2-accel | dnfw `docs/sharc-accelerators.md` and `sharc-accelerator-plan.md` (IIR0/FIR0 read on a DN2, 2026-10-17) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/sharc-accelerators.md |
 | dn2-cftasks | dnfw `docs/coldfire-tasks.md` (DN2 1.11 task list, stack high-water marks, ColdFire CPU, read on the unit 2026-09-30) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/coldfire-tasks.md |
 | dn2-oldproject | dnfw `docs/old-project-load.md` (a project that crashes stock 1.11: unchecked song row count) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/old-project-load.md |
+| dn2-lfo4 | dnfw `docs/lfo4-build-plan.md` (LFO4 on DN2 1.11: checks that passed vacuously, unsaved-edit persistence, save stutter; unit results Sept 2026) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/lfo4-build-plan.md |
+| dn2-drive | dnfw `docs/drive-storage-research.md` (+Drive layout, eMMC part table, DT2/DN2 storage comparison) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/drive-storage-research.md |
 | dn2-engine-map | dnfw `docs/engine-index-map.md` section 10 and `docs/sharc-image.md` (correction: section 7 is the SHARC boot stream) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/engine-index-map.md |
 | digikit-f25 | ElekLabs/digikit finding 25, arena and card-store safety, MIDI ports, menu paths | https://github.com/ElekLabs/digikit/blob/main/docs/findings/25-digikit-safety.md |
 | dn2-service | dnfw `docs/service-commands.md`, the factory service console | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/service-commands.md |

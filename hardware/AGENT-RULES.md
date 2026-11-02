@@ -189,6 +189,8 @@ authors apply. `[doc]` {dn2-cfw}
 
 **C7. Porting to a new OS version = re-locating, not re-applying.** Diff decoded content, check bootstrap and updater separately, re-find every patch by masked pattern (`find`/`expect`) and pin the build by hash; inspect unfamiliar sections first. (Digitone II 1.11 vs 1.12 MAIN images share only their first 28 bytes.) `[doc]` {dn2-os-versions} {dn2-cfw-release-history}
 
+
+**C8. Give every check a control that fails when the checker is broken.** dnfw's LFO4 bridge passed every check and then faulted on a Digitone II. Three checks had reported success about work they never did: snapshot harnesses cleared code that no real boot had run; a boot gate printed "Safe to flash" after an unrelated edit had deleted its coverage section; and an emulator call returned 0 for a value that was present. Use a key nothing set that must read back absent, a routine list that must not be empty, a coverage line that must appear. A green result from an untested instrument is not evidence. `[hw]` {dn2-lfo4}
 ## D. Writing mods (format-2 / linkable, Digitakt mk1 and Digitone mk1)
 
 **D1. Prefer events over raw patch sites.** The core mod owns the shared hook sites; subscribe via its event
@@ -232,12 +234,16 @@ but readers decide on risk from it. `[doc]` {dt-fm}
 
 **D15. Disclose AI assistance** where the community expects it (several projects require it; elk-herd rejects AI-generated issues/PRs). `[doc]` {dubspot} {elk-herd}
 
+
+**D16. A hook on a hot path must cost nothing while its mod is idle: test first, then call.** dnfw's LFO4 hooked `memcpy`, `memset` and the per-frame LFO evaluators, and paid a call on every copy and frame even with no fourth LFO in use. Playing alone it was inaudible, but SAVE PROJECT while a pattern played stuttered until the save ended (whole-project serialise +6.3 %). The fix was an early exit in the stub (empty table or a block smaller than a sound: straight back) and skipping an idle LFO; stock then saved clean. `[hw]` {dn2-lfo4}
 ## E. Changing parameter tables / saved data (Digitone II)
 
 **E1. Projects store values by slot, not by table row.** Details and the P-lock trap in [`devices/digitone-2.md`](devices/digitone-2.md). Moving the OS parameter table does not by itself change
 the saved format. New rows are only safe if they follow the author's growth rules
 (`docs/parameter-table-growth.md` in dn2-cfw - not yet read by us). `[doc]` {dn2-cfw}
 
+
+**E2. Persist a mod's own sound parameters through the stock edit event, not a writer of your own.** On the Digitone II (1.11) an edit is written into the stored sound record at once, so unsaved edits survive a power cycle; the writer is `Sound::updateMirror` (`0x4004ca80`). dnfw's LFO4 values did not survive until its setter sent the stock whole-sound event (`SoundConfigChangedInfo`) through the sound's holder; `updateMirror` then re-serialised the sound with LFO4's lane. Confirmed on the unit: unsaved LFO4 edits survive a power cycle, and SAVE PROJECT stores them. `[hw]` {dn2-lfo4}
 ## F. Writing to a unit over SysEx (control-side tools)
 **F1.** Back up first, via Elektron Transfer and by re-reading the destination pattern; abort if the backup fails. `[hw]` {digi-roll-studio}
 **F2.** Allowlist the exact OS builds you have tested; refuse others. `[hw]` {digi-roll-studio}

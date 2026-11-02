@@ -72,4 +72,10 @@ Rytm MKII (`core-ar2`).
 
   `[doc]`
 - A third reading of the CPU: analog-rytm-mkii-research models the Rytm MKII as MCF5441x (conflict O14), with MAIN at `0x40000400` (2,903,032 B on 1.72) and the stack at `0x48000000`. `[doc]`
+- **Porting MKII mods to the MK1: same code base, different data** (gdeo607/rytm1_mods, OS 1.73) {rytm1-mods}:
+  - Most routines are byte-identical, but the parameter info record is 88 bytes on the MK1 and 84 on the MKII.
+  - UI glyphs and the screen differ (122 px wide on the MK1, 128x64 on the MKII), so anything that draws its own pixels needs a redesign, not new addresses.
+  - Every RAM address (`0x41xxxxxx`, `0x8000xxxx`) has to be found again.
+
+  Each of these would have been a silent bug. `[doc]`
 

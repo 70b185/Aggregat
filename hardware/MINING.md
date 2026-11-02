@@ -76,3 +76,9 @@ All 48 reachable repos cloned; their docs scanned for unit results, measurements
 - [x] Scanned, nothing new for hardware/: the elekloader DN1 effect mods (digihalo, digitriad, digitide, digihoard, digireel: "tested on a Digitone mk1 by its author"), digi-macro (emulator only), elektron-mods-rumorismo (setup), keyframer-lab (web tool), digitone-syx-toolkit, the small DT1/DN1 mods, splash screens.
 - [ ] Deeper reads that could still pay: digigrain's nine other skills (hook bus, recorder, audio input, testing), taktone-extended's DEVELOPMENT/MACHINE-DEVELOPMENT, elektrob-1 `docs/dsp.md` (headroom), digitone-arp-mod's ~100 other reviews (arp internals).
 
+## Phase-2 sweep of 57 more projects (2026-11-02)
+All cloned and scanned like the phase-1 sweep.
+- [x] Mined: kitbasher FIRMWARE-SAFETY (Machinedrum failure register), rytm-mods-src HAZARDS and compressor notes, analog-rytm-mkii-research (hardware profile, BR characterization), rytm1_mods HAZARDS (MK1 vs MKII data), octatrack-kyoti-fw (load ceiling, memory map), octamax (CF-card logging, DSP feeding), Supermodel notes 23 and 35 (Model:Cycles load and USB).
+- [x] Scanned, nothing new for hardware/: octa-panel and passos (octabam forks, same trap register), model27 and cycles-mod-standard (read earlier), model-tg, cycles-one-shot, model-machinedrum, plaits-on-models, spokes, the emulator ports (MModule, Machinemodule, Monomodule ports, OP-XY), the small Octatrack tools.
+- [ ] Could still pay: Supermodel's other ~200 French notes (many Model:Cycles internals), KYOTI's NOTES and handoffs, MModule's DSP-memory research.
+

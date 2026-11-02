@@ -220,3 +220,4 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | kyoti-fw | Zac-Kyoti/octatrack-kyoti-fw `reference/kb/memory-map.md`, `reference/handoffs/KYOTI_LOAD_AUDIT.md` (OS 1.40C) | https://github.com/Zac-Kyoti/octatrack-kyoti-fw/tree/main/reference |
 | supermodel-notes | AveyCole/Supermodel (Modded Cycles) `notes/23-optimisation-charge.md`, `notes/35-glitches-usb-multipiste.md` and release notes (Model:Cycles OS 1.13, French) | https://github.com/AveyCole/Supermodel/tree/main/notes |
 | octamax | mxldyn/octamax `HOTCHANGE_FINDINGS.md` and `NOTES.md` (MAXODBG CF logging), Octatrack MKII OS 1.40C | https://github.com/mxldyn/octamax/blob/main/HOTCHANGE_FINDINGS.md |
+| rytm1-mods | gdeo607/rytm1_mods `docs/HAZARDS.md` (Rytm MK1 port of the MKII mods, OS 1.73) | https://github.com/gdeo607/rytm1_mods/blob/main/docs/HAZARDS.md |

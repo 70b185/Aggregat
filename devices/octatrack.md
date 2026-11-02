@@ -9,14 +9,18 @@ Data last verified: 2026-10-31
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **octabam** (Sam Banks, Contributors credited per module) | firmware | active | v0.3 (tags v0.2/v0.3, 2026-11-02): v0.2 adds VARISPEED and drops FX2 LOCK; v0.3 names the LOAD/SAVE KIT lists. Unreleased: USB IN/OUT moved to on-chip SRAM (USB share of the frame interrupt ~34 -> 24 us on an MKII); 1.40C | v0.3 | 2026-11-02 | [repo](https://github.com/sambanks/octabam) · [homepage](https://modwerk.app/) |
+| **Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)** (radiohagen) | mod | active | Octatrack OS 1.40C via octabam | - | 2026-10-31 | [repo](https://github.com/radiohagen/octatrack-modules) |
 | **OT Kyoti FW** (Zac Kyoti) | firmware | active | KYOTI V1.6 (2026-10-22); ref tag ref/kyoti-v1.6-2026-10-29 added; 1.40C | ref/sp12-midside-vem7 | 2026-10-29 | [repo](https://github.com/Zac-Kyoti/octatrack-kyoti-fw) |
+| **ReBirth to Octatrack** (alexandrubelc) | tool | wip | Octatrack with octabam GARDEN36 or later | - | 2026-10-29 | [repo](https://github.com/alexandrubelc/rebirth2octatrack) |
 | **Octatrack Manager** (David Ferlay) | tool | active | v0.49.0 (2026-10-18); Projects saved on OS 1.40 or later | v0.49.0 | 2026-10-18 | [repo](https://github.com/davidferlay/octatrack-manager) · [homepage](https://davidferlay.github.io/octatrack-manager/) |
 | **midisc** (bkkbrls-del) | mod | active | MIDISC2.1 (2026-10-08); 1.40C | 1.40MIDISC | 2026-10-08 | [repo](https://github.com/bkkbrls-del/midisc) |
 | **octa-panel** (Tim Hastie) | emulator | active | octatrick-2.9 (2026-09-29); 1.40C | octatrick-2.9 | 2026-09-29 | [repo](https://github.com/timhastie/octa-panel) |
 | **PassOS** (theremoteviewer) | mod | active | v1.0 (2026-09-28); 1.40C | v1.0 | 2026-09-28 | [repo](https://github.com/theremoteviewer/octa-passos) |
 | **Octatrick** (Tim Hastie) | mod | active | MKI hardware-tested builds (2026-09-26); 1.40C | - | 2026-09-26 | [repo](https://github.com/timhastie/octatrick) |
 | **midisc-patcher** (bkkbrls-del) | tool | active | main @ 1ce2245 (2026-09-18); 1.40C | - | 2026-09-18 | [repo](https://github.com/bkkbrls-del/midisc-patcher) |
+| **midisc (1.40MSC)** (sambanks) | mod | wip | Octatrack MK1/MK2 OS 1.40C | - | 2026-09-12 | [repo](https://github.com/sambanks/midisc) |
 | **OctaChainer 2** (Kai Drange) | tool | active | v2.0.0 (2026-08-05) | v2.0.0 | 2026-08-05 | [repo](https://github.com/KaiDrange/OctaChainer2) · [homepage](https://ticticelectro.com/2017/08/26/octachainer-v1-3/) |
+| **OctaLib** (snugsound) | tool | inactive | - | - | 2025-02-28 | [repo](https://github.com/snugsound/OctaLib) |
 | **ems-octakit** (June Kiff (emuyia)) | mod | active | 1.40C | - | - | [repo](https://github.com/LyingDalai/ems-octakit) |
 | **OCTAMAX** (Maxolydian (mxldyn)) | mod | active | 2.0 BETA; 1.40C | dual256-v1 | - | [repo](https://github.com/mxldyn/octamax) |
 | **Octaplay** (devilfish707) | mod | active | 1.40C | - | - | [repo](https://github.com/devilfish707/Octaplay) |
@@ -101,3 +105,27 @@ _Sources: altstrument (2026-11-01)_
 Octatrack MK1 mod: 36 Digitone II scales on MIDI tracks and a STOP guard; nothing on the DSP. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
 _Sources: altstrument (2026-11-01)_
+
+### Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)
+
+Source of several octabam modules (MIDI scales, loopback, follow, harmony, musical units, a Euclid LFO, an experimental percussion voice and a CPU supersaw). octabam supplies the builder and platform.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### midisc (1.40MSC)
+
+MIDI scene locks for the Octatrack (scene hold edits, crossfader morph, part save/reload, scene copy/paste). Built with Python from the user's own OS file. Same author as octabam, which later carried MIDI SCENES. Same name as bkkbrls-del/midisc in this list; how the two relate is not stated in the README start.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### ReBirth to Octatrack
+
+Browser tool (Pyodide) that converts ReBirth RB-338 songs into Octatrack projects for the octabam GARDEN engines, from a template project. README in Romanian.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### OctaLib
+
+Librarian for Octatrack projects (bank swaps and more by rewriting the project files). Unlicense.
+
+_Sources: GitHub search 2026-11-02, README_

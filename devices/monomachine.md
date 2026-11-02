@@ -8,8 +8,12 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **OP-XY MNMD** (mmockett) | emulator | active | - | - | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
+| **BSP Machinedrum** (ABarracu87) | tool | active | - | - | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.8.1 (2026-10-29); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-10-29 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
+| **C7** (sata1000000) | editor | active | - | - | 2026-10-10 | [repo](https://github.com/sata1000000/C7) |
 | **ems-monomachine-firmware** (June Kiff (emuyia)) | firmware | active | 26A09-beta (2026-10-09); 1.32B | 26910-release | 2026-10-09 | [repo](https://github.com/emuyia/ems-monomachine-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
+| **Monomodule for Schwung** (legsmechanical) | emulator | active | - | - | 2026-09-28 | [repo](https://github.com/legsmechanical/schwung-monomodule) |
 | **Monomodule** (shnolk) | emulator | active | 1.0.0 (2026-09-24); Monomachine OS 1.32B (supplied by you) | release | 2026-09-24 | [repo](https://github.com/shnolk/monomodule) |
 | **Gearmulator MD/MM** (Joe Landers) | emulator | active | mdmm-v0.1.0-alpha.14 (2026-09-21); Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-09-21 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
 
@@ -38,3 +42,27 @@ _Sources: altstrument (2026-11-01)_
 DAW plug-ins and a SysEx library app running the Monomachine engine in a DSP56300 emulator from your OS file. Licence: AGPL-3.0-only; distribution: download. Listed by altstrument; repo not read by us yet.
 
 _Sources: altstrument (2026-11-01)_
+
+### C7
+
+Desktop app controlling the Machinedrum and Monomachine over SysEx/MIDI (kits, sounds, patterns, songs, samples) with a DAW bridge plug-in for automation. GPL-3.0.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Monomodule for Schwung
+
+Port of Monomodule (chip-level Monomachine engine) to Ableton Move via Schwung, as one synth track plus the seven FX machines. GPL-3.0 per README (repo metadata says AGPL-3.0).
+
+_Sources: GitHub search 2026-11-02, README_
+
+### OP-XY MNMD
+
+Machinedrum and Monomachine engines written from scratch (not an emulation of the chips) for the Teenage Engineering OP-XY on the Open-XY SDK. MIT.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### BSP Machinedrum
+
+Uses an Arturia BeatStep Pro as a front panel for the Gearmulator Machinedrum/Monomachine plug-ins, talking to the plug-ins through their MCP servers. MIT.
+
+_Sources: GitHub search 2026-11-02, README_

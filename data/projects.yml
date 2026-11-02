@@ -2778,3 +2778,320 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+  # ---------------------------------------------------------------- found by GitHub search 2026-11-02, second pass (README start read)
+  - id: digiprism
+    name: DigiPrism
+    author: irpina
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/irpina/digiprism
+    status: wip
+    base_os: Digitone mk1 (elekloader, fxkit on core-dn1 4.1)
+    version: 0.2 beta
+    last_activity: '2026-10-18'
+    notes: Turns the Digitone mk1 into a pedal for its audio inputs. Four reorderable modules (colour, motion, ambience,
+      grit) with five effects each, knob-gesture recording, a 30 s looper and MIDI CCs laid out like a commercial
+      multi-effect pedal's chart. While active it owns the audio engine (synths silent); with core-dn1 3.4 it can
+      instead sit after the master stage and stay on. GPL-2.0. Same author and platform as DigiSwarm.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: digiswarm
+    name: DigiSwarm
+    author: irpina
+    kind: mod
+    devices:
+    - digitone
+    repo: https://github.com/irpina/digiswarm
+    status: wip
+    base_os: Digitone mk1 OS 1.43/1.44 (elekloader, fxkit on core-dn1 4.1)
+    version: 0.2 beta
+    last_activity: '2026-10-18'
+    notes: Granular/loop effects engine for the Digitone mk1's two audio inputs (eleven engines with four variations,
+      60 s looper, hold, reverse, filter, reverb), tempo-synced, with p-locks and the stock LFO page. Owns the audio
+      engine while active. 0.2 tested by the author on a unit and in digiemu; not yet on a Digitone Keys. Source also
+      in elekloader as mods/digiswarm-dn1. GPL-2.0.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: a4-mk1-mods
+    name: Analog Four / Keys MK1 OS 1.56 mods
+    author: hugz202
+    kind: mod
+    devices:
+    - analog-four-keys
+    repo: https://github.com/hugz202/AE-analog-four-mods
+    status: wip
+    base_os: Analog Four / Analog Keys MK1, OS 1.56 only (not MKII)
+    last_activity: '2026-10-28'
+    notes: Build pipeline that patches the user's own A4/AK MK1 OS 1.56 file with small ColdFire routines. Mods include
+      a scale lock, 303-style slides, kit persistence for the extra settings, a per-track digital path with drive,
+      a digital wave/chord oscillator in place of noise, a random track generator and a resonance limit. Has its own
+      flashing/recovery and hazards docs. The first public firmware mod for the Analog Four found. MIT.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: cycles-engines
+    name: Cycles Engines
+    author: 100demons
+    kind: loader
+    devices:
+    - model-cycles
+    repo: https://github.com/100demons/cycles-engines
+    status: wip
+    base_os: Model:Cycles OS 1.13 only
+    last_activity: '2026-10-30'
+    notes: Web flasher that composes any set of relocatable engine packages into the user's own OS file in the browser
+      and sends it over USB (also a python-only command line). Built on the Modded-Cycles toolchain, model27 and
+      drumkilla's mtlib (all MIT).
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: cycles-mod-standard
+    name: Cycles Mod Standard
+    author: durchgemacht
+    kind: research
+    devices:
+    - model-cycles
+    repo: https://github.com/durchgemacht/cycles-mod-standard
+    status: wip
+    base_os: Model:Cycles OS 1.13
+    version: draft 0.7
+    last_activity: '2026-10-30'
+    notes: Draft standard for Model:Cycles mods (machine contract, extension points, per-mod manifests, clash checks
+      over saved slots, key combos and display). Implemented in model27, tested on a unit for machines and one delay
+      effect. Useful reading for anyone designing a mod format. MIT.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: model909
+    name: model909
+    author: DMDaudio
+    kind: mod
+    devices:
+    - model-cycles
+    - model-samples
+    repo: https://github.com/DMDaudio/model909
+    status: wip
+    base_os: Model:Cycles OS 1.13 (also Model:Samples running the Cycles OS)
+    version: v1.0 (909 only, stable); main branch adds 808/606 voices (experimental)
+    last_activity: '2026-10-28'
+    notes: Replaces the six stock machines with circuit-modelled TR-909 voices (integer models fitted to recordings);
+      the experimental branch adds 808 and 606 voices on SHAPE. Hats/cymbals need user-supplied WAVs. MIT.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: octatrack-modules-radiohagen
+    name: Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)
+    author: radiohagen
+    kind: mod
+    devices:
+    - octatrack
+    repo: https://github.com/radiohagen/octatrack-modules
+    status: active
+    base_os: Octatrack OS 1.40C via octabam
+    last_activity: '2026-10-31'
+    notes: Source of several octabam modules (MIDI scales, loopback, follow, harmony, musical units, a Euclid LFO, an
+      experimental percussion voice and a CPU supersaw). octabam supplies the builder and platform.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: midisc-sambanks
+    name: midisc (1.40MSC)
+    author: sambanks
+    kind: mod
+    devices:
+    - octatrack
+    repo: https://github.com/sambanks/midisc
+    status: wip
+    base_os: Octatrack MK1/MK2 OS 1.40C
+    last_activity: '2026-09-12'
+    notes: MIDI scene locks for the Octatrack (scene hold edits, crossfader morph, part save/reload, scene copy/paste).
+      Built with Python from the user's own OS file. Same author as octabam, which later carried MIDI SCENES.
+      Same name as bkkbrls-del/midisc in this list; how the two relate is not stated in the README start.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: rebirth2octatrack
+    name: ReBirth to Octatrack
+    author: alexandrubelc
+    kind: tool
+    devices:
+    - octatrack
+    repo: https://github.com/alexandrubelc/rebirth2octatrack
+    status: wip
+    base_os: Octatrack with octabam GARDEN36 or later
+    last_activity: '2026-10-29'
+    notes: Browser tool (Pyodide) that converts ReBirth RB-338 songs into Octatrack projects for the octabam GARDEN
+      engines, from a template project. README in Romanian.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: kitsmith
+    name: Kitsmith
+    author: Alina-sul
+    kind: tool
+    devices:
+    - analog-rytm
+    repo: https://github.com/Alina-sul/kitsmith
+    status: wip
+    base_os: Analog Rytm MKII
+    last_activity: '2026-09-13'
+    notes: Desktop manager for the Rytm MKII that reads +Drive and projects and moves samples, kits and patterns between
+      projects with the reference bookkeeping done for you. MIT.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: sidecar-expander
+    name: Sidecar | Expander
+    author: trigcondition
+    kind: tool
+    devices:
+    - analog-rytm
+    - digitakt
+    repo: https://github.com/trigcondition/sidecar-expander
+    links:
+      firmware_repo: https://github.com/trigcondition/sidecar-firmware
+    status: wip
+    base_os: Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module)
+    version: Sidecar 0.3.2 with Rytm firmware 0.3.1
+    last_activity: '2026-11-01'
+    notes: A Raspberry Pi 4B/5 on the Rytm's USB port adds digital voices, effects and a sequencer; the Rytm runs a
+      patched OS. 0.3.2 adds experimental, emulator-only Digitakt support. The Teensy variant is frozen. GPL-2.0.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: c7
+    name: C7
+    author: sata1000000
+    kind: editor
+    devices:
+    - machinedrum
+    - monomachine
+    repo: https://github.com/sata1000000/C7
+    status: active
+    last_activity: '2026-10-10'
+    notes: Desktop app controlling the Machinedrum and Monomachine over SysEx/MIDI (kits, sounds, patterns, songs,
+      samples) with a DAW bridge plug-in for automation. GPL-3.0.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: octalib
+    name: OctaLib
+    author: snugsound
+    kind: tool
+    devices:
+    - octatrack
+    repo: https://github.com/snugsound/OctaLib
+    status: inactive
+    last_activity: '2025-02-28'
+    notes: Librarian for Octatrack projects (bank swaps and more by rewriting the project files). Unlicense.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: moduledrum
+    name: ModuleDrum
+    author: K-X420
+    kind: emulator
+    devices:
+    - machinedrum
+    repo: https://github.com/K-X420/ModuleDrum
+    status: active
+    last_activity: '2026-11-01'
+    notes: Chip-level Machinedrum emulation as a DAW plug-in that runs the user's own OS and DSP programs, with the
+      sequencer and a library. Fork of Monomodule and still builds the Monomodule plug-ins. AGPL-3.0.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: machinemodule-mpc
+    name: Machinemodule for MPC OS
+    author: sd88me
+    kind: emulator
+    devices:
+    - machinedrum
+    repo: https://github.com/sd88me/mpc-vst-machinedrum
+    links:
+      move_port: https://github.com/sd88me/schwung-machinemodule
+      monomodule_mpc: https://github.com/sd88me/mpc-vst-monomodule
+    status: active
+    last_activity: '2026-11-01'
+    notes: The Machinedrum's own DSP code and machine/LFO/mixer maths as a VST2 for Akai MPC/Force standalone devices
+      (all 16 tracks in one instance). The same author ports it to Ableton Move (Schwung) and ships Monomodule for
+      MPC OS. User supplies the OS file. AGPL-3.0.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: machinemodule-desktop
+    name: MachineModule (desktop)
+    author: AcidReff
+    kind: emulator
+    devices:
+    - machinedrum
+    repo: https://github.com/AcidReff/MachineModule
+    status: active
+    version: 0.4.6 (native Apple Silicon JIT)
+    last_activity: '2026-10-16'
+    notes: Windows/macOS standalone and VST3 port of sd88me's Machinedrum engine with a JUCE interface; 0.4.6 adds a
+      native ARM JIT for voices and master effects. AGPL-3.0.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: schwung-monomodule
+    name: Monomodule for Schwung
+    author: legsmechanical
+    kind: emulator
+    devices:
+    - monomachine
+    repo: https://github.com/legsmechanical/schwung-monomodule
+    status: active
+    last_activity: '2026-09-28'
+    notes: Port of Monomodule (chip-level Monomachine engine) to Ableton Move via Schwung, as one synth track plus the
+      seven FX machines. GPL-3.0 per README (repo metadata says AGPL-3.0).
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: mdkit
+    name: mdkit
+    author: soejrd
+    kind: library
+    devices:
+    - machinedrum
+    repo: https://github.com/soejrd/mdkit
+    status: active
+    last_activity: '2026-10-22'
+    notes: The Machinedrum's EFM, TRX and P-I voice families as standalone C99 for porting, with a web demo. Whether it
+      was derived from the OS or modelled from recordings is not said in the README start. CC0.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: op-xy-mnmd
+    name: OP-XY MNMD
+    author: mmockett
+    kind: emulator
+    devices:
+    - machinedrum
+    - monomachine
+    repo: https://github.com/mmockett/OP-XY-MNMD
+    status: active
+    last_activity: '2026-11-01'
+    notes: Machinedrum and Monomachine engines written from scratch (not an emulation of the chips) for the Teenage
+      Engineering OP-XY on the Open-XY SDK. MIT.
+    sources:
+    - GitHub search 2026-11-02
+    - README
+  - id: bsp-machinedrum
+    name: BSP Machinedrum
+    author: ABarracu87
+    kind: tool
+    devices:
+    - machinedrum
+    - monomachine
+    repo: https://github.com/ABarracu87/bsp-machinedrum
+    status: active
+    last_activity: '2026-11-01'
+    notes: Uses an Arturia BeatStep Pro as a front panel for the Gearmulator Machinedrum/Monomachine plug-ins, talking to
+      the plug-ins through their MCP servers. MIT.
+    sources:
+    - GitHub search 2026-11-02
+    - README

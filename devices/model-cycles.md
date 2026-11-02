@@ -13,6 +13,9 @@ Data last verified: 2026-10-31
 | **SPOKES** (A.V.) | tool | active | main @ 1604cbf (2026-10-31); 1.13 | - | 2026-10-31 | [repo](https://github.com/AveyCole/SPOKES) · [homepage](https://aveycole.github.io/SPOKES/) |
 | **Cycles One-Shot** (durchgemacht) | mod | active | v0.12 (2026-10-30); 1.13 | v0.12 | 2026-10-30 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
 | **Vladiktron Spoke** (imaf6971) | emulator | active | v0.1.0 (2026-10-30); 1.13 | v0.1.0 | 2026-10-30 | [repo](https://github.com/imaf6971/vladiktron-spoke) |
+| **Cycles Engines** (100demons) | loader | wip | Model:Cycles OS 1.13 only | - | 2026-10-30 | [repo](https://github.com/100demons/cycles-engines) |
+| **Cycles Mod Standard** (durchgemacht) | research | wip | draft 0.7; Model:Cycles OS 1.13 | - | 2026-10-30 | [repo](https://github.com/durchgemacht/cycles-mod-standard) |
+| **model909** (DMDaudio) | mod | wip | v1.0 (909 only, stable); main branch adds 808/606 voices (experimental); Model:Cycles OS 1.13 (also Model:Samples running the Cycles OS) | - | 2026-10-28 | [repo](https://github.com/DMDaudio/model909) |
 | **Cycles Mods** (100demons) | mod | active | Model:Cycles | v0.5.0 | 2026-10-22 | [repo](https://github.com/100demons/cycles-mods) |
 | **Modded Cycles** (18nelli18, Modded-Cycles contributors) | firmware | active | Release 2.0 (2026-10-19); 1.13 | etude-optimisation-os-2026-10-18 | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
 | **1-Bit Editor** (durchgemacht) | tool | active | v0.1 (2026-10-17) | v0.1 | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |
@@ -120,5 +123,23 @@ _Sources: GitHub search 2026-11-02, README_
 ### Elektron-Model-Machinedrum
 
 Fork adding Machinedrum machines (TRX-B2, TRX-SD, TRX-CH, ported sample for sample) to the Model:Cycles, patched in the browser from official files. No licence file seen. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Cycles Engines
+
+Web flasher that composes any set of relocatable engine packages into the user's own OS file in the browser and sends it over USB (also a python-only command line). Built on the Modded-Cycles toolchain, model27 and drumkilla's mtlib (all MIT).
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Cycles Mod Standard
+
+Draft standard for Model:Cycles mods (machine contract, extension points, per-mod manifests, clash checks over saved slots, key combos and display). Implemented in model27, tested on a unit for machines and one delay effect. Useful reading for anyone designing a mod format. MIT.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### model909
+
+Replaces the six stock machines with circuit-modelled TR-909 voices (integer models fitted to recordings); the experimental branch adds 808 and 606 voices on SHAPE. Hats/cymbals need user-supplied WAVs. MIT.
 
 _Sources: GitHub search 2026-11-02, README_

@@ -17,8 +17,8 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 QUERIES = ["digitakt", "digitone", "syntakt", "analog heat elektron", "elektron firmware", "elektron mod",
            "elektron sysex", "digitakt ii", "digitone ii", "elekloader", "elektron os", "overbridge",
-           "elektron transfer", "octatrack", "analog rytm", "analog four", "model:cycles", "model cycles",
-           "model:samples", "machinedrum", "monomachine", "topic:digitakt", "topic:digitone", "topic:elektron"]
+           "elektron transfer", "octatrack", "analog rytm", "analog four", "elektron model", "modded-cycles",
+           "model:cycles mod", "model:samples mod", "machinedrum", "monomachine", "topic:digitakt", "topic:digitone", "topic:elektron"]
 
 
 def known_repos():
@@ -55,7 +55,11 @@ def main():
         for x in json.loads(r.stdout):
             seen[x["fullName"].lower()] = x
     known = known_repos()
-    new = [x for k, x in seen.items() if k not in known and not x["isFork"] and x["updatedAt"][:10] >= a.since]
+    # The catalogue owner's own repos are never listed (some are private work notes); skip them by owner.
+    url = subprocess.run(["git", "-C", str(ROOT), "remote", "get-url", "origin"], capture_output=True, text=True).stdout
+    owner = url.split("github.com")[-1].lstrip(":/").split("/")[0].lower() if "github.com" in url else ""
+    new = [x for k, x in seen.items() if k not in known and not x["isFork"] and x["updatedAt"][:10] >= a.since
+           and not (owner and k.startswith(owner + "/"))]
     for x in sorted(new, key=lambda x: x["updatedAt"], reverse=True):
         print(f"{x['updatedAt'][:10]}  created {x['createdAt'][:10]}  *{x['stargazersCount']:<3} "
               f"{x['fullName']}  | {(x['description'] or '')[:100]}")

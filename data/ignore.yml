@@ -45,3 +45,11 @@ ignore:
   - thematver/digitone
   - baptistebulabois/digitakt
   - jordanhattingh/digitone-fsm
+  - sirpearson/fm-1-monomachine   # firmware for a non-Elektron device
+  - joman66/machinemodule         # "in the spirit of", not derived from the device
+  - blen2r/opxy-morpher           # OP-XY tool
+  - spbphx/ytdigger               # sample digger
+  - inigohernandez/mono2k         # M-VAVE FM-1 firmware
+  - nzimas/bigorna                # M-VAVE FM-1 firmware
+  - guildfordia/zen-delay-mod     # Erica Synths device
+  - irpina/irpina.github.io       # redirect page

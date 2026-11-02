@@ -9,6 +9,7 @@ Data last verified: 2026-10-31
 | **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0. main since: core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-11-02 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **digitakt-digitone-mcp** (jamiew) | tool | active | - | - | 2026-11-01 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
+| **Sidecar | Expander** (trigcondition) | tool | wip | Sidecar 0.3.2 with Rytm firmware 0.3.1; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | - | 2026-11-01 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
 | **SAY IT** (x2k77m1) | mod | wip | Digitone mk1, Digitakt mk1 | v1.0b | 2026-10-31 | [repo](https://github.com/x2k77m1/sayit) |
 | **DIGISEQ (Digitakt)** (ClaidArremer) | mod | wip | Digitakt mk1 | - | 2026-10-31 | [repo](https://github.com/ClaidArremer/digitakt-digiseq) |
 | **Sidecar (Digitakt mod)** (trigcondition) | mod | wip | Digitakt mk1 | - | 2026-10-31 | [repo](https://github.com/trigcondition/sidecar-digitakt) |
@@ -370,5 +371,11 @@ _Sources: GitHub search 2026-11-02, README_
 ### dtdump
 
 2019 proof of concept of an open Overbridge protocol implementation; points to Overwitch for active work. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Sidecar | Expander
+
+A Raspberry Pi 4B/5 on the Rytm's USB port adds digital voices, effects and a sequencer; the Rytm runs a patched OS. 0.3.2 adds experimental, emulator-only Digitakt support. The Teensy variant is frozen. GPL-2.0.
 
 _Sources: GitHub search 2026-11-02, README_

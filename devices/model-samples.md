@@ -8,6 +8,7 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **model909** (DMDaudio) | mod | wip | v1.0 (909 only, stable); main branch adds 808/606 voices (experimental); Model:Cycles OS 1.13 (also Model:Samples running the Cycles OS) | - | 2026-10-28 | [repo](https://github.com/DMDaudio/model909) |
 | **Modded Cycles** (18nelli18, Modded-Cycles contributors) | firmware | active | Release 2.0 (2026-10-19); 1.13 | etude-optimisation-os-2026-10-18 | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
 | **1-Bit Editor** (durchgemacht) | tool | active | v0.1 (2026-10-17) | v0.1 | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |
 | **elektron-model-tweaks** (drumkilla) | mod | active | v2.1.0 (2026-10-11); 1.13 | v2.1.0 | 2026-10-11 | [repo](https://github.com/drumkilla/elektron-model-tweaks) · [homepage](https://drumkilla.github.io/elektron-model-tweaks/flasher/) |
@@ -45,3 +46,9 @@ _Sources: altstrument (2026-11-01)_
 Six channels of per-track USB audio for Model:Samples and Model:Cycles; patch sources and build script only. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
 _Sources: altstrument (2026-11-01)_
+
+### model909
+
+Replaces the six stock machines with circuit-modelled TR-909 voices (integer models fitted to recordings); the experimental branch adds 808 and 606 voices on SHAPE. Hats/cymbals need user-supplied WAVs. MIT.
+
+_Sources: GitHub search 2026-11-02, README_

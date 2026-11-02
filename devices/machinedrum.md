@@ -8,12 +8,19 @@ Data last verified: 2026-10-31
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **ModuleDrum** (K-X420) | emulator | active | - | - | 2026-11-01 | [repo](https://github.com/K-X420/ModuleDrum) |
+| **Machinemodule for MPC OS** (sd88me) | emulator | active | - | - | 2026-11-01 | [repo](https://github.com/sd88me/mpc-vst-machinedrum) · [move port](https://github.com/sd88me/schwung-machinemodule) · [monomodule mpc](https://github.com/sd88me/mpc-vst-monomodule) |
+| **OP-XY MNMD** (mmockett) | emulator | active | - | - | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
+| **BSP Machinedrum** (ABarracu87) | tool | active | - | - | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.8.1 (2026-10-29); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-10-29 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
 | **MoDule (MD Drums)** (c0remusic) | emulator | active | - | module-v0.1.2 | 2026-10-29 | [repo](https://github.com/c0remusic/MModule) |
 | **fsdsp56k** (smoothdeveloper) | tool | active | main @ 2ac9d9b (2026-10-26); MDX X.20 for running packed machines on hardware | - | 2026-10-26 | [repo](https://github.com/smoothdeveloper/fsdsp56k) · [homepage](https://smoothdeveloper.github.io/fsdsp56k/) |
+| **mdkit** (soejrd) | library | active | - | - | 2026-10-22 | [repo](https://github.com/soejrd/mdkit) |
 | **Kitbasher** (etcetc000) | mod | active | main @ d965da3 (2026-10-19); 1.63 / X.14 / 26A09 beta / MDX X.20 B | - | 2026-10-19 | [repo](https://github.com/etcetc000/kitbasher) · [homepage](https://kitbasher.xyz) |
 | **machinedrum-kit** (Janne Heikkarainen) | research | active | main @ 4ea4729 (2026-10-19); Machinedrum SPS-1UW OS 1.63 (supplied by you) | - | 2026-10-19 | [repo](https://github.com/janne808/machinedrum-kit) |
+| **MachineModule (desktop)** (AcidReff) | emulator | active | 0.4.6 (native Apple Silicon JIT) | - | 2026-10-16 | [repo](https://github.com/AcidReff/MachineModule) |
 | **murdenihcam USR machines** (murdenihcam) | mod | active | main @ ab92ccf (2026-10-15); MDX X.20 B | - | 2026-10-15 | [repo](https://github.com/murdenihcam/murdenihcam-usr-machines) |
+| **C7** (sata1000000) | editor | active | - | - | 2026-10-10 | [repo](https://github.com/sata1000000/C7) |
 | **ems-machinedrum-firmware** (June Kiff (emuyia)) | firmware | active | 26A09-beta (2026-10-09) | 26A09-beta | 2026-10-09 | [repo](https://github.com/emuyia/ems-machinedrum-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
 | **MDS (Machine Dump Standard)** (Justin Mammarella) | library | active | main @ c446179 (2026-10-09); MDX 2.0 (X.20 or later) | - | 2026-10-09 | [repo](https://github.com/jmamma/MDS) |
 | **MDX** (Justin Mammarella, Yatao Li) | firmware | active | X.20 B (2026-10-09) | - | 2026-10-09 | [homepage](https://github.com/jmamma/MDX) |
@@ -78,5 +85,47 @@ _Sources: altstrument (2026-11-01)_
 ### MoDule (MD Drums)
 
 The Machinedrum's synthesis engines as a VST3 instrument edited like Overbridge. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### C7
+
+Desktop app controlling the Machinedrum and Monomachine over SysEx/MIDI (kits, sounds, patterns, songs, samples) with a DAW bridge plug-in for automation. GPL-3.0.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### ModuleDrum
+
+Chip-level Machinedrum emulation as a DAW plug-in that runs the user's own OS and DSP programs, with the sequencer and a library. Fork of Monomodule and still builds the Monomodule plug-ins. AGPL-3.0.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Machinemodule for MPC OS
+
+The Machinedrum's own DSP code and machine/LFO/mixer maths as a VST2 for Akai MPC/Force standalone devices (all 16 tracks in one instance). The same author ports it to Ableton Move (Schwung) and ships Monomodule for MPC OS. User supplies the OS file. AGPL-3.0.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### MachineModule (desktop)
+
+Windows/macOS standalone and VST3 port of sd88me's Machinedrum engine with a JUCE interface; 0.4.6 adds a native ARM JIT for voices and master effects. AGPL-3.0.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### mdkit
+
+The Machinedrum's EFM, TRX and P-I voice families as standalone C99 for porting, with a web demo. Whether it was derived from the OS or modelled from recordings is not said in the README start. CC0.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### OP-XY MNMD
+
+Machinedrum and Monomachine engines written from scratch (not an emulation of the chips) for the Teenage Engineering OP-XY on the Open-XY SDK. MIT.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### BSP Machinedrum
+
+Uses an Arturia BeatStep Pro as a front panel for the Gearmulator Machinedrum/Monomachine plug-ins, talking to the plug-ins through their MCP servers. MIT.
 
 _Sources: GitHub search 2026-11-02, README_

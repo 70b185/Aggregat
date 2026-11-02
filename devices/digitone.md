@@ -32,6 +32,8 @@ Data last verified: 2026-10-31
 | **DigiHoard** (irpina) | mod | beta | Digitone mk1 (elekloader core-dn1 3.2) | v0.2 | 2026-10-18 | [repo](https://github.com/irpina/digihoard) |
 | **DigiHalo** (irpina) | mod | beta | Digitone mk1 (elekloader core-dn1 3.2) | v0.2 | 2026-10-18 | [repo](https://github.com/irpina/digihalo) |
 | **taktone** (water-feature) | firmware | wip | Digitakt 1.53/1.54 on Digitone mk1 hardware | - | 2026-10-18 | [repo](https://github.com/water-feature/taktone) |
+| **DigiPrism** (irpina) | mod | wip | 0.2 beta; Digitone mk1 (elekloader, fxkit on core-dn1 4.1) | - | 2026-10-18 | [repo](https://github.com/irpina/digiprism) |
+| **DigiSwarm** (irpina) | mod | wip | 0.2 beta; Digitone mk1 OS 1.43/1.44 (elekloader, fxkit on core-dn1 4.1) | - | 2026-10-18 | [repo](https://github.com/irpina/digiswarm) |
 | **digihealth** (pina (irpina)) | mod | wip | v1.1.1 (2026-10-14); Digitakt mk1 OS 1.53 (digihealth 1.0); Digitone mk1 + Keys OS 1.43 (1.1, SYSTEM INFO only) | v1.1.1 | 2026-10-14 | [repo](https://github.com/irpina/digihealth) |
 | **DigiAlchemy GamePack Vol.1** (DigiAlchemydsp) | mod | wip | Digitone mk1 / Keys OS 1.43 | v0.21 | 2026-10-14 | [repo](https://github.com/DigiAlchemydsp/DigiAlchemy-GamePack-1) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-10-13 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
@@ -343,5 +345,17 @@ _Sources: GitHub search 2026-11-02, README_
 ### Digitone MK1 Modding Project
 
 Local workspace with notes on architecture, emulator workflow, porting from Digitakt and voice timing; README lists a modded 8-track OS file in its tree. No licence file seen. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### DigiPrism
+
+Turns the Digitone mk1 into a pedal for its audio inputs. Four reorderable modules (colour, motion, ambience, grit) with five effects each, knob-gesture recording, a 30 s looper and MIDI CCs laid out like a commercial multi-effect pedal's chart. While active it owns the audio engine (synths silent); with core-dn1 3.4 it can instead sit after the master stage and stay on. GPL-2.0. Same author and platform as DigiSwarm.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### DigiSwarm
+
+Granular/loop effects engine for the Digitone mk1's two audio inputs (eleven engines with four variations, 60 s looper, hold, reverse, filter, reverb), tempo-synced, with p-locks and the stock LFO page. Owns the audio engine while active. 0.2 tested by the author on a unit and in digiemu; not yet on a Digitone Keys. Source also in elekloader as mods/digiswarm-dn1. GPL-2.0.
 
 _Sources: GitHub search 2026-11-02, README_

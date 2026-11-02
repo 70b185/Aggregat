@@ -10,11 +10,13 @@ Data last verified: 2026-10-31
 |---|---|---|---|---|---|---|
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
 | **analoghealth** (Iced-Cream) | mod | wip | Rytm MKII 1.74, A4 MKII 1.56 | - | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
+| **Sidecar | Expander** (trigcondition) | tool | wip | Sidecar 0.3.2 with Rytm firmware 0.3.1; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | - | 2026-11-01 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
 | **rytm2_mods** (Iced-Cream) | mod | wip | Rytm MKII 1.73, 1.74 | v1.4 | 2026-10-24 | [repo](https://github.com/Iced-Cream/rytm2_mods) |
 | **rytm-builder** (stampman3000-jpg) | tool | active | cursor/rytm-mac-app-0afb @ 90af848 (2026-10-14); Analog Rytm OS 1.70 object layout | - | 2026-10-14 | [repo](https://github.com/stampman3000-jpg/rytm-builder) |
 | **rytm-fw-re** (ethernet) | research | active | master @ 2f7f0c4 (2026-10-13); 1.74 | - | 2026-10-13 | [repo](https://github.com/ethernet8023/rytm-fw-re) |
 | **rytm-mods-src** (MrScruff, ConnorWay32 (repost)) | mod | active | Mods 0000-0015 (2026-10-10); 1.73 | - | 2026-10-10 | [repo](https://github.com/ConnorWay32/rytm-mods-src) |
 | **analog-rytm-mkii-research** (genosdk) | research | active | main @ 14570ea (2026-09-25); 1.72 | - | 2026-09-25 | [repo](https://github.com/genosdk/analog-rytm-mkii-research) |
+| **Kitsmith** (Alina-sul) | tool | wip | Analog Rytm MKII | - | 2026-09-13 | [repo](https://github.com/Alina-sul/kitsmith) |
 | **analog-rytm-agent-bridge** (algonormative) | tool | active | Rytm MKII | - | 2026-09-02 | [repo](https://github.com/algonormative/analog-rytm-agent-bridge) |
 | **libanalogrytm** (bsp2) | library | dormant | master @ a0a19f6 (2023-12-21) | - | 2023-12-21 | [repo](https://github.com/bsp2/libanalogrytm) |
 | **Chopshop** (Jesus Triana (bandersong)) | mod | active | 1.73 (Rytm), 1.56 (Keys); not 1.74 | - | - | [repo](https://github.com/bandersong/chopshop) · [homepage](https://chopshop-synth.pages.dev/) |
@@ -85,5 +87,17 @@ _Sources: GitHub search 2026-11-02, README_
 ### analog-rytm-agent-bridge
 
 MCP control plane with 32 tools so a coding agent can operate a Rytm MKII (patterns, kits, scenes, songs) with validated SysEx deltas. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Kitsmith
+
+Desktop manager for the Rytm MKII that reads +Drive and projects and moves samples, kits and patterns between projects with the reference bookkeeping done for you. MIT.
+
+_Sources: GitHub search 2026-11-02, README_
+
+### Sidecar | Expander
+
+A Raspberry Pi 4B/5 on the Rytm's USB port adds digital voices, effects and a sequencer; the Rytm runs a patched OS. 0.3.2 adds experimental, emulator-only Digitakt support. The Teensy variant is frozen. GPL-2.0.
 
 _Sources: GitHub search 2026-11-02, README_

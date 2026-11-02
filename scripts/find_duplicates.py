@@ -38,6 +38,9 @@ for f in facts:
     f["a"] = set(x.lower() for x in (f["addresses"] or "").split(",") if x)
     f["d"] = set((f["devices"] or "").split(",")) - {""}
 
+COMPARISON_PAGES = ("dt2-dn2-sharc-crosscheck.md",)
+
+
 def links_to(x, y):
     # x carries a Markdown link to y's file, e.g. ](../common/recovery.md)
     return re.search(r"\]\([^)]*" + re.escape(y["file"].split("/")[-1]) + r"[)#]", x["text"]) is not None
@@ -52,6 +55,8 @@ for i, x in enumerate(facts):
             continue
         if x["d"] and y["d"] and not (x["d"] & y["d"]):
             continue
+        if x["file"].endswith(COMPARISON_PAGES) or y["file"].endswith(COMPARISON_PAGES):
+            continue  # pages that restate findings on purpose, to compare them
         if links_to(x, y) or links_to(y, x):
             continue  # already consolidated: one fact points at the other's file
         inter = len(x["w"] & y["w"])

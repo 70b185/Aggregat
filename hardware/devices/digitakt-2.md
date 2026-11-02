@@ -152,6 +152,7 @@ These figures are from the source and emulator runs, not from a unit. `[emu]`
 - A decoded section 7 over 1 MiB crashed a unit (dt2-machine-lab, OS 1.16): [firmware-container.md](../common/firmware-container.md), rule A46. `[hw]` {dt2-lab-capicola}
 
 ## SHARC measured on a real unit
+Which of these hold on the Digitone II, and which DN2 findings hold here: [`../common/dt2-dn2-sharc-crosscheck.md`](../common/dt2-dn2-sharc-crosscheck.md).
 Clock (1.000 GHz, 666,667 cycles/block), FreeRTOS task map, free reply words, missed-block behaviour, the STRETCH contract, memory limits and selcc traps: [`digitakt-2-sharc-measured.md`](digitakt-2-sharc-measured.md). `[hw]` {own-dt2-notes}
 
 ## Gaps

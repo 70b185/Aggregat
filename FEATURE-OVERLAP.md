@@ -127,6 +127,15 @@ The most common pattern. The engines come from the source device's own code or f
 
 ---
 
+## Shared hardware designs (so research on one box applies to another)
+
+- **Syntakt analog tracks = Analog Rytm MKII voice design** (same voice record format and cymbal banks; analog-emu).
+- **Digitone mk1 = Digitakt mk1 + six keys + a second ColdFire + an FPGA** (taktone runs the Digitakt application on it).
+- **Analog Four MKII = Analog Rytm MKII platform** (same CPU, memory map, RTOS, container and panel interface; analog-emu).
+- **Digitakt II and Digitone II share 85 % of their SHARC functions** and the same `0xabc`-byte ColdFire-to-SHARC frame (dnfw, lalzart).
+- **Section 8 is one ARM firmware image** shipped by many devices (see [firmware-container.md](hardware/common/firmware-container.md)).
+- **Three FPGA bitstreams are exactly 54,664 bytes** (Heat +FX, A4 MKII, Digitone mk1) - same size, not yet compared by hash.
+
 ## What this suggests
 
 - **Portable engine cores already exist:** mdkit (Machinedrum voices, CC0), digisophie (Sophie, fixed point), plaits-on-models (Plaits, fixed point) and digigrain (bounded granular). A new port should start from one of these rather than from the original source.

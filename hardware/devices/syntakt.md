@@ -149,6 +149,14 @@ Normal case: Drop page in Transfer. If the OS does not boot: DIN MIDI, FUNC at p
 - **digikit's scope rule, adopt it: never modify section 1 or the bootstrap, never reconfigure or emulate the FPGA (risk to the analog circuitry).** `[doc]` {digikit-f70}
 - Correction to earlier forum talk ("two ColdFires and an FPGA"): digikit's reading supports an FPGA and a second ColdFire program; SY FM4's "CPU #2" fits that.
 
+## What the Syntakt shares with other boxes (merged from analog-emu's Syntakt port, OS 1.42, static plus emulator) {analog-emu-syntakt}
+- **The analog tracks reuse the Analog Rytm MKII's voice design.**
+  - The voice control records have the Rytm MKII's format (command/depth word, start and target bytes, mode nibble, rate exponent and mantissa).
+  - The cymbal oscillator banks use the Rytm's scale (43.62 units per Hz) and load the Rytm's CH/CB CLASSIC values.
+  - So Rytm voice research applies here and back. `[doc]` (inferred from the shared formats)
+- **Digital tracks:** rendered on CPU #2, then handed over by mailbox and eDMA channel 47 to CPU #1, which mixes them and sends them to the SSI1 codec. This agrees with SyntHack's audio path above. `[emu]`
+- **An emulator now boots 1.42 with both CPUs** (analog-emu: stage 1 the main screen with a stand-in for CPU #2, stage 2 CPU #2 running for real). It is the only Syntakt 1.42 emulator in the catalogue; SyntHack's Unicorn harness targets 1.41. `[emu]`
+
 ## Gaps
 - **Signing:** the HMAC presence in 1.41 versus 1.42 is a conflict, see above.
 - **Free executable storage on CPU #2:** unresolved (machine-45 research).

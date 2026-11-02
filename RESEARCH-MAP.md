@@ -175,6 +175,7 @@ Pick one, check the status above, and go. **S** = an evening, **M** = a few sess
 | T20 | ~~DT mk1 machine-id registry~~ **done** (nine ids). Keep it current: add each new machine mod's id from its `mod.json` | Digitakt mk1 | reading | S | Prevents clashes between mods. |
 | T21 | Cross-check the three Digitakt II mod routes (digitakt-ii-research's trampoline and startup allocation, dt2-machine-lab's 1.16 profile, the elekloader fork's 1.17 core): which hook sites, memory and loaders they share or collide on | Digitakt II | files | M | Lets DT2 mods be combined instead of competing. |
 | T22 | Compare libanalogrytm's documented Rytm SysEx container/encoding with Digitakt II and Digitone II dumps (syxgrid's map is the DN2 side) | Rytm, DT2, DN2 | files | M | One shared description of Elektron's SysEx data encoding. |
+| T23 | Keep a DN2 RAM tenancy table: every mod platform's and mod's ranges above the reset clear, per OS version (start: [memory-maps.md](hardware/common/memory-maps.md), five projects compared 2026-11-02); then a unit canary at `0x46700000` after a large +Drive sample load (settles O17) | Digitone II | reading, then unit | S | dnfw, cfmod and dn2-cfw all start at `0x46800000`; without a table, mods from different platforms cannot be combined. |
 
 ### Where new findings are most likely
 

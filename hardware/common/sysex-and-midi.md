@@ -42,7 +42,7 @@ syxgrid grades 45 mappings A (hardware-confirmed) to D (unknown). Only the 23 le
 - **Pattern length:** raw payload byte 101507 (control byte 101506, mask `0x40`), 1-128 steps.
 - **Playback needs a clock:** `0xF8` at 24 ppqn, `0xFA` start, `0xFC` stop. Program Change 0-127 on the program-change-in channel selects A01-H16.
 
-## The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) {digikit-rpc}
+## The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) {digikit-rpc} `[doc]`
 This is what Elektron Transfer and Elektroid speak to a running Digitakt II or Digitone II over USB MIDI. No menu setting or handshake is needed. Close Transfer and Overbridge first if they hold the port.
 
 **Frame.** `F0 00 20 3C 10 00 <8-in-7 packed body> F7`.
@@ -84,7 +84,7 @@ Not advertised and dead: all `FsRaw*` (unsandboxed paths) and DataSetTags `5f`. 
 - Windows client bug, silent: using `MIM_ERROR` (0x3C5) instead of `MIM_LONGDATA` (0x3C4) drops every SysEx reply while short messages still arrive. Validate a client against a known reply first (rule A31). `[hw]`
 - Screenshot `0x04` returns the 128x64 frame; polling it gives a live mirror of the screen. `[hw]`
 
-## The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) {digikit-f58}
+## The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) {digikit-f58} `[doc]`
 - The panel MCU sends **2-byte packets on UART8**:
   - key packet: `0x20 | channel`, then the channel's 8-bit button mask;
   - encoder packet: `0x30 | (encoder-1)`, then a signed 8-bit delta;
@@ -126,7 +126,7 @@ Commands `0x57/0x58/0x59` (file write) verified on hardware for a single chunk a
 - Treat every "best-guess" request format as unsafe until you have captured the real traffic with a MIDI monitor.
 - Do not use libraries that parse a different device generation (Digitone mk1 vs II, Analog Four gen-1 vs gen-2) - the formats differ.
 
-## Elektroid (dagargo) - a general sample/SysEx client
+## Elektroid (dagargo) - a general sample/SysEx client {elektroid-readme}
 - Supported (README list): Analog Four MKI/MKII/Keys, **Analog Heat MKI/MKII/+FX**, Analog Rytm MKI/MKII, Digitakt I/II, Digitone I/II/Keys, Model:Cycles/Samples, Monomachine MKII, Syntakt, plus non-Elektron gear (Arturia, Casio CZ-101, Eventide, KORG, MFB, Moog, Novation, MIDI SDS samplers). No per-device capability table; `elektroid-cli info <device>` shows the compatible filesystems. `[doc]` {elektroid-readme}
 - Connectors: `system` (local computer, for format conversion), `elektron`, `cz`, `sds`, `efactor_preset`. Elektron filesystem families: raw/sample (`raw`, `preset-raw`, `sample`), data (`data`, `project`, `preset`, `preset-takt-ii`, `sound`), memory (`ram`, `track`). The Digitakt II "Preset" filesystem is implemented as `preset-takt-ii`. `raw` and `data` are for testing only and not compatible with Transfer formats. A firmware `upgrade` command exists in the CLI (which devices is not stated). Device definitions come from `~/.config/elektroid/elektron/devices.json` if present. Elektron samples cannot be swapped. `[doc]` {elektroid-readme}
 - Backends: ALSA MIDI and PulseAudio by default on Linux, RtMidi/RtAudio elsewhere. 2,506 commits, 19 open issues; no version shown on the page (altstrument lists v3.4, 2026-08-22).

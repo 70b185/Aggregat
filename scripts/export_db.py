@@ -80,7 +80,9 @@ def extract_facts(path):
             break
         intro.append(l)
     file_keys = set(KEYS.findall("\n".join(intro)))
+    file_evid = set(EVID.findall("\n".join(intro)))
     heads = []          # (level, text)
+    sec = {"keys": set(), "evid": set()}   # keys/tags in prose lines right under the current heading
     facts = []
     block = None
 
@@ -91,9 +93,10 @@ def extract_facts(path):
             text = clean(re.sub(r"^\s*-\s+", "", body, flags=re.M).replace("**", ""))
             head_text = " / ".join(h for _, h in heads)
             head_keys = KEYS.findall(head_text)
-            keys = set(KEYS.findall(body)) | set(head_keys)
+            keys = set(KEYS.findall(body)) | set(head_keys) | sec["keys"]
             keys = sorted(keys or file_keys)
-            evid = sorted(set(EVID.findall(body)))
+            # evidence: the bullet's own tag, else a tag in the section's prose, its headings, or the file intro
+            evid = sorted(set(EVID.findall(body)) or sec["evid"] or set(EVID.findall(head_text)) or file_evid)
             devs = FILE_DEVICE.get(path.name) or devices_in(text + " " + head_text)
             if len(text) > 25:
                 facts.append({
@@ -115,6 +118,7 @@ def extract_facts(path):
             flush()
             lvl = len(m.group(1))
             heads = [h for h in heads if h[0] < lvl] + [(lvl, m.group(2).strip())]
+            sec = {"keys": set(), "evid": set()}
             continue
         if line.startswith("- ") or line.startswith("* "):
             flush()
@@ -128,6 +132,9 @@ def extract_facts(path):
                 block["lines"].append("")
         else:
             flush()
+            if line.strip() and not line.startswith("|") and n > len(intro) + 1:
+                sec["keys"] |= set(KEYS.findall(line))
+                sec["evid"] |= set(EVID.findall(line))
     flush()
     return facts
 

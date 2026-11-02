@@ -1,6 +1,6 @@
 # Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw)
 
-Synthesised from the dn2mk2 `docs/SAFETY.md` and dnfw `docs/flashing.md` (second-hand, see SOURCES). The device buttons are the same
+Synthesised from the dn2mk2 `docs/SAFETY.md` {dn2mk2-safety} and dnfw `docs/flashing.md` {dn2-flashing} (second-hand). The device buttons are the same
 family-wide (FUNC at power-on, TRIG 4), but the numbers (timings, sections) are Digitone II facts. Re-check before applying to another device.
 
 ## Two routes onto the unit
@@ -34,7 +34,7 @@ family-wide (FUNC at power-on, TRIG 4), but the numbers (timings, sections) are 
 6. If anything is wrong, recover to stock and report what you saw.
 `[doc]` {dn2mk2-safety}
 
-## Practices from dnfw
+## Practices from dnfw {dn2-flashing} `[doc]`
 - Back up with the `.dnx` backup before flashing; run `dnfw inspect` on the exact file you will send (build and patch only refuse output that does not verify).
 - Keep the unmodified `.syx` in a firmware folder and never overwrite it with build output.
 - **Change one thing per flash.**

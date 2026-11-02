@@ -7,9 +7,9 @@
    "devices": 13,
    "relations": 38,
    "rules": 87,
-   "sources": 222,
-   "conflicts": 29,
-   "facts": 915
+   "sources": 224,
+   "conflicts": 30,
+   "facts": 918
   }
  },
  "devices": [
@@ -4698,6 +4698,11 @@
    "url": "https://github.com/elekloader/elekloader/blob/main/docs/SHARC-DN2.md"
   },
   {
+   "key": "elekloader-dn2-profile",
+   "what": "elekloader `elekloader/devices/digitone_mk2.py` (DN2 1.12 profile: clear, DMA buffers, mods' DDR area, canary run)",
+   "url": "https://github.com/elekloader/elekloader/blob/main/elekloader/devices/digitone_mk2.py"
+  },
+  {
    "key": "dn2mk2-emulator",
    "what": "dn2mk2-firmware `docs/emulator.md`",
    "url": "https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/emulator.md"
@@ -5041,6 +5046,11 @@
    "key": "dn2-cfw-t13",
    "what": "Digiwerk note T1.3, DN2 1.12 reset ranges, stack, free memory",
    "url": "https://github.com/naturarum/dn2-cfw/blob/main/notes/T1.3-dn2-memory.md"
+  },
+  {
+   "key": "dn2-cfw-t19",
+   "what": "Digiwerk note T1.9, DN2 1.12 core (run image at `0x47E00000`, mods below it)",
+   "url": "https://github.com/naturarum/dn2-cfw/blob/main/notes/T1.9-dn2-core.md"
   },
   {
    "key": "dn2-cfw-dc01",
@@ -5431,6 +5441,15 @@
    "b": "the render is 85.8k of 166.7k cycles per block (SY FM4)",
    "details": "Different spans of the same interrupt; [`devices/syntakt.md`](devices/syntakt.md)",
    "devices": "syntakt"
+  },
+  {
+   "id": "O17",
+   "status": "open",
+   "topic": "DN2 RAM at `0x46700000-0x46701300`",
+   "a": "free: \"`0x46700000..0x46900000` unused by stock, hardware-confirmed\" on 1.11 (digitone-2-modding-skill; dnfw places lfo4 state at `0x46700000`)",
+   "b": "in use: the 1.11 MMC bounce buffer runs `0x466f1300-0x46701300`; on 1.12 the DMA buffers end at `0x46709340` (Digiwerk T1.3 and prior-art note, static; elekloader's profile agrees for 1.12)",
+   "details": "Probably both true: a fill-reboot-read test does not run an MMC transfer over 60,672 bytes, the only case that reaches the range. Settle with a canary at `0x46700000` read back after loading a large sample from +Drive. Until then start mods at `0x46710000` or higher. [`common/memory-maps.md`](common/memory-maps.md)",
+   "devices": "digitone-2"
   },
   {
    "id": "O16",
@@ -6276,8 +6295,8 @@
    "line": 41,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "SysEx device byte 0x13. Container ELE3, build \"S0063\", version \"1.02\", 969,776 B. No trailer and no HMAC seal. The byte-exact round trip works, and a second, independent unpacker (digikit elz) agrees.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "",
    "id": 55
@@ -6287,8 +6306,8 @@
    "line": 42,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "Sections: 5 meta: 15 B, timestamp \"241008 20:29:59\", not packed. 2 bootstrap: 26,638 B, runs from SRAM `0x80000400`, stack `0x80010000`, entry `0x80000ddc`. It holds the STARTUP MENU (TEST MODE, EMPTY RESET, FACTORY RESET, OS UPGRADE) and the bootstrap upgrade. 1 FPGA: Xilinx bitstream, 54,664 B, sync `aa 99`. It is loaded by the OS (\"INITB WENT LOW...\"); its role is unknown. 3 MAIN OS: 2,174,964 B, destination `0x40000400`, entry `0x40001384`. 4 updater: 29,384 B, not packed, destination `0x80000400`.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "0x40000400,0x40001384,0x80000400,0x80000ddc,0x80010000",
    "id": 56
@@ -6299,7 +6318,7 @@
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "There is no DSP section. Section hashes are in the owner's notes. CPU, memory and audio path `[doc]`",
    "evidence": "doc",
-   "sources": "",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "",
    "id": 57
@@ -6309,8 +6328,8 @@
    "line": 51,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "CPU: ColdFire MCF5441x. 1,036 of 1,037 peripheral accesses hit MCF5441x modules.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "",
    "id": 58
@@ -6320,8 +6339,8 @@
    "line": 52,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "64 MB DDR: the updater tests `0x40000000-0x44000000`, and the stack starts at `0x44000000`.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "0x40000000,0x44000000",
    "id": 59
@@ -6331,8 +6350,8 @@
    "line": 53,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "The updater copies section 3 with its 8-byte header to `0x40200000` and unpacks it in place to `0x40000400` (aPLib). The image ends at `0x402133F4`. The smallest write/read pointer gap is 825,529 B for stock and 774,349 B for a repack.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "0x40000400,0x40200000,0x402133F4",
    "id": 60
@@ -6342,8 +6361,8 @@
    "line": 54,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "After boot: `0x40000400-0x40206000` stays in DDR. `0x40206000-0x4020b4fc` is copied to SRAM `0x80000000`, and `0x4020b4fc-0x402133f4` to SRAM `0x80008000`. DDR from `0x40206000` up to `0x426383d0` is then cleared. Custom code therefore only lives below `0x40206000`. Unreferenced zero runs of 2 KB or more: `0x402057c4-0x40206000` (2,108 B) and `0x4019efbc-0x4019f7cf`.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "0x40000400,0x4019efbc,0x4019f7cf,0x402057c4,0x40206000,0x4020b4fc,0x402133f4,0x426383d0,0x80000000,0x80008000",
    "id": 61
@@ -6353,8 +6372,8 @@
    "line": 59,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "VBR is in RAM at `0x40000000`. Device handlers are installed at run time.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "0x40000000",
    "id": 62
@@ -6364,8 +6383,8 @@
    "line": 60,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "Audio runs on the ColdFire itself: SSI1 with eDMA channels 52 and 54. Channel 54 raises the interrupt (vector 174, priority 6). Its handler (`0x400a3e84`) timestamps the block, counts it and raises a software interrupt (vector 191, priority 5, handler `0x400a3ee6`). The software interrupt processes a 4 x 512-byte ring in SRAM. Hypothesis, not verified: 32 frames x 4 channels x 4 bytes = 1,500 blocks/s.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "0x400a3e84,0x400a3ee6",
    "id": 63
@@ -6375,8 +6394,8 @@
    "line": 65,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "The MAIN OS contains a factory console (`#UPGRADE`, \"READY FOR BOOTSTRAP\", `#FULL_UPGRADE`, `#FACTORY_DUMP`, `#DUMP_CALIBRATION_BLOB`, `#ERASE_CALI...`). Never touch it. There is no copy of the bootstrap in the MAIN OS.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "",
    "id": 64
@@ -6387,7 +6406,7 @@
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "UI pages are built on first open and then reused. Title strings are copied at that point, so a live display needs a different path. On the unit `[hw]`",
    "evidence": "hw",
-   "sources": "",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "",
    "id": 65
@@ -6397,8 +6416,8 @@
    "line": 69,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "test01: a 12-byte text change in the MAIN OS only, everything else stock, repacked by the owner's own packer and installed through OS UPGRADE over DIN. It boots, shows the change, and sound and presets are normal (2026-10-26).",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "",
    "id": 66
@@ -6408,8 +6427,8 @@
    "line": 70,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "test02: a 42-byte hook in the audio software interrupt, placed in the `0x402057c4` cave, wrote a digit into a page title. Own code ran on the unit. Whether it runs persistently is still open. Process the owner adopted (worth copying for any new device)",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "0x402057c4",
    "id": 67
@@ -6419,8 +6438,8 @@
    "line": 73,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "Only the MAIN OS may differ from stock. A build gate refuses anything else: bootstrap, updater, FPGA and meta stay byte-identical, and the version string and checksums stay as stock.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "",
    "id": 68
@@ -6430,8 +6449,8 @@
    "line": 74,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "Two independent unpackers are used as a cross-check.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "",
    "id": 69
@@ -6441,8 +6460,8 @@
    "line": 75,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "Patch scripts check the stock hash and the expected bytes before each write.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "",
    "id": 70
@@ -6452,8 +6471,8 @@
    "line": 76,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "A pre-commit hook and CI keep firmware out of git. A synthetic, unflashable test container (device id 0x7D) is used for tests.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "",
    "id": 71
@@ -6463,8 +6482,8 @@
    "line": 77,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "Toolchain: binutils 2.43.1 and gcc 14.2.0 built for `--with-cpu=54418`. A disassembler wraps QEMU's m68k tables, which cover ISA_A/A+/B and EMAC but are incomplete for ISA_C, so elekloader's decoder serves as a cross-check. Open",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "",
    "id": 72
@@ -6474,8 +6493,8 @@
    "line": 80,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "The flash budget for a larger MAIN OS, the real CPU reserve with all FX (a forum post claims 79 %), latency, the preset format, and the role of the FPGA.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "",
    "id": 73
@@ -6485,8 +6504,8 @@
    "line": 81,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
    "text": "Context: there is still no public Heat +FX firmware research, and Elektron ended firmware-mod discussion on Elektronauts on 2026-09-23. The owner has paused further firmware-internals work.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc,hw",
+   "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "",
    "id": 74
@@ -6782,7 +6801,7 @@
    "line": 9,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 1. Two hangs on silicon that the emulator ran bit-exactly `[hw]`",
    "text": "H-opt1, RINGS as a hand-written SIMD kernel: the DSP hung on the first block, and all audio died. Cause, confirmed with a one-variable probe image: DAG registers stored through their own DAG (`DM(I7, M7) = M4` and similar, used to save I0/I1/M4/M6/L0/L1/L4). The PRM forbids it for Types 3 and 15. Stock loads such registers through their own DAG thousands of times but never stores one. The probe was `probe-samedag-store`, a single `DM(I4, M6) = M4` and no SIMD. Fix: push DAG registers through R0.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6793,7 +6812,7 @@
    "line": 13,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 1. Two hangs on silicon that the emulator ran bit-exactly `[hw]`",
    "text": "SIMD-mode loads and stores (the implicit PEy access at +4 bytes) into L2 byte space have no stock precedent: stock does SIMD data accesses only in L1 normal-word space, and SIMD stores to DDR at most. The manual allows them, but they are unproven on silicon. The shipping kernel does SIMD compute only and moves every load and store in SISD, toggling PEYEN per sample as stock does. Cost: 125,766 -> 31,472 instructions per block versus the C version. The full-SIMD version would have been 27,404.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6804,7 +6823,7 @@
    "line": 17,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 1. Two hangs on silicon that the emulator ran bit-exactly `[hw]`",
    "text": "Lesson: an instruction word with a stock precedent is necessary but not sufficient. How stock combines operands also matters: which registers go through which DAG, and which access mode in which memory region. The encoding gate now refuses same-DAG stores and any data transfer while PEYEN is set.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6815,7 +6834,7 @@
    "line": 18,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 1. Two hangs on silicon that the emulator ran bit-exactly `[hw]`",
    "text": "Emulator gaps seen here: It wraps immediate-offset accesses circularly when L != 0, so own the L register of every I you use that way. It treats never-written L2 as unknown per 32-bit word, which halts code that legitimately reads half of such a word.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6826,7 +6845,7 @@
    "line": 23,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 2. Encoding traps (selas), each caught by a gate before it reached a unit",
    "text": "`JUMP (PC, label)` assembled to a jump to itself; the kernel spun forever. Write `JUMP label` as selcc does.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6837,7 +6856,7 @@
    "line": 24,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 2. Encoding traps (selas), each caught by a gate before it reached a unit",
    "text": "selas does not compress inside a DO loop. Under `.COMPRESS` it can merge or drop a statement after a loop end or a `(DB)` branch. Write delayed-branch code under `.NOCOMPRESS` and cross-check statements against instructions.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6848,7 +6867,7 @@
    "line": 25,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 2. Encoding traps (selas), each caught by a gate before it reached a unit",
    "text": "`Rn = Rn + Rm` and `Rn = Rn XOR Rm` compress to 16-bit forms that stock never uses, so write integer adds under `.NOCOMPRESS`. Stock contains no plain XOR at all.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6859,7 +6878,7 @@
    "line": 26,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 2. Encoding traps (selas), each caught by a gate before it reached a unit",
    "text": "A label defined in two sources resolves to one of them in the merged object. Each kernel's own test passed, but the merged image jumped into the wrong file. Use unique label prefixes per file.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6870,7 +6889,7 @@
    "line": 27,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 2. Encoding traps (selas), each caught by a gate before it reached a unit",
    "text": "Delay slots: after a delayed branch, the two slots must not hold a branch, a DO, a PC-stack operation, IDLE, or a write of the indirect branch's I/M. After a conditional branch, they should also not hold a flag writer (stock does that, but it is avoided as a precaution).",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6881,7 +6900,7 @@
    "line": 28,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 2. Encoding traps (selas), each caught by a gate before it reached a unit",
    "text": "The last 11 instructions of every DO loop are 48-bit, and the loop end is an instruction ([rule A45](../AGENT-RULES.md)). The other code can be compressed. Compression shrank the kernels by 10-30 %, which matters because the instruction cache is the bottleneck (section 3).",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6892,7 +6911,7 @@
    "line": 31,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 3. Where the cycles go on the SHARC+ (calibrated cycle model)",
    "text": "Instruction-cache misses are the largest stall class (33 %). Every model touches 150-300 code lines (10-19 KB) of L2 code per voice block, near or above the 16 KB 2-way cache. The lever is code size (compression, kernels instead of selcc C, fewer calls), not code order.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6903,7 +6922,7 @@
    "line": 32,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 3. Where the cycles go on the SHARC+ (calibrated cycle model)",
    "text": "DAG write-to-use stalls are 32 %, almost all in selcc C (`In = Rm` or `In = DM(..)` followed directly by a use). selcc has no optimiser, so only hand kernels remove them.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6914,7 +6933,7 @@
    "line": 33,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 3. Where the cycles go on the SHARC+ (calibrated cycle model)",
    "text": "Data-cache misses are 18 % (cold) and only a few % warm: the tables mostly hit. Float forwarding is 14 %, taken branches 4 %.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6925,7 +6944,7 @@
    "line": 34,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 3. Where the cycles go on the SHARC+ (calibrated cycle model)",
    "text": "This core has no load-to-use stall, and a cache miss stalls whatever the distance. Scheduling loads earlier only helps to free registers.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6936,7 +6955,7 @@
    "line": 35,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 3. Where the cycles go on the SHARC+ (calibrated cycle model)",
    "text": "Fewer instructions are not fewer cycles. One kernel cut instructions by 46 %, but the calibrated load fell by only 1.2 points. Code-size changes alone move a measurement by about 1 point (layout noise).",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6947,7 +6966,7 @@
    "line": 36,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 3. Where the cycles go on the SHARC+ (calibrated cycle model)",
    "text": "Stock 1.17 with one trigged track sits at ~48.6 % on the high bound. The calibration on the unit: 8 KICK tracks measured 91.7 %, and the sound turned choppy above ~87 %.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6958,7 +6977,7 @@
    "line": 51,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 4. Optimisation rules the project enforces (worth copying)",
    "text": "Lazy clear: skipping a large memory clear at init is exact only if the write-before-read structure is proven per delay line. It removed one model's 70k-cycle spike on the model-change block.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -6969,7 +6988,7 @@
    "line": 54,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 5. Practical numbers",
    "text": "The calibrated estimate of clean tracks (about 87 % or less) for 8 tracks of one model: SQUARE 10; ASYM-TRI and 2FM 9; KICK, NOISE and most DX7 banks 8; RINGS, HIHAT and ADDITIVE 7; most others 6; VA 5.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7002,7 +7021,7 @@
    "line": 77,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)",
    "text": "L2 data is cached by a 16 KiB cache that maps lines 16 KiB apart to the same set. Buffers spaced at 16 KiB multiples thrash it, so pad or interleave them. Branches and calls are expensive: unroll small loops into hardware loops, avoid calls in per-sample code, and fill delay slots.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "digikit-f103",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7013,7 +7032,7 @@
    "line": 78,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)",
    "text": "One block measured 666,582 cycles median on DT2 (666,784 on DN2), jittering by ±2.7 % (sd 0.5 %); the emulator does not jitter. With `digikit/remote` and `digikit/debug` loaded, a DN2 showed DSP 57 % average (61 % peak) and ColdFire 26 %.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "digikit-f103",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7024,7 +7043,7 @@
    "line": 79,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)",
    "text": "Registers read on silicon (DT2 and DN2 alike): IMASK `0x8040801b`, MODE2 `0x42000021`, SHDBG_REVID `0x20`, CMMR_SYSCTL `0x6004`, SHL1C_CFG `0x00010101`, SHL1C_CFG2 `0xf0`; two cached ranges: `0x200fa000-0x200fe000` and `0x28240000-0x283a0000`; the core timer period differs per device (DT2 `0x0025f280`, DN2 `0x00268538`). Float and saturation rules the chip follows (some contradict the PRM):",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "digikit-f103",
    "devices": "digitakt-2",
    "addresses": "0x00010101,0x0025f280,0x00268538,0x200fa000,0x200fe000,0x28240000,0x283a0000,0x42000021,0x8040801b",
@@ -7035,7 +7054,7 @@
    "line": 85,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)",
    "text": "A float ALU operation with a NaN input returns `0xFFFFFFFF` with AI set and AN clear. Inf - inf also returns `0xFFFFFFFF`. The float multiplier's invalid result (NaN operand, inf x 0) is `0x7FFFFFFF` with MI set and MN clear.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "digikit-f103",
    "devices": "digitakt-2",
    "addresses": "0x7FFFFFFF,0xFFFFFFFF",
@@ -7046,7 +7065,7 @@
    "line": 86,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)",
    "text": "The sticky bits (AIS, AVS, AUS, AOS) latch on every float ALU operation, so a NaN once produced leaves a mark you can read.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "digikit-f103",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7057,7 +7076,7 @@
    "line": 87,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)",
    "text": "FIX of ±0.5 returns 0 and sets AUS.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "digikit-f103",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7068,7 +7087,7 @@
    "line": 88,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)",
    "text": "With MODE1.ALUSAT, fixed add/sub/neg/abs saturate to `0x7FFFFFFF` / `0x80000000`. The short compute forms (Type 2c), the multifunction ALU halves and the dual add/subtract may still wrap; this is unmeasured.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "digikit-f103",
    "devices": "digitakt-2",
    "addresses": "0x7FFFFFFF,0x80000000",
@@ -7079,7 +7098,7 @@
    "line": 89,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)",
    "text": "Reading an MR word into a register keeps the multiplier flags (the PRM says it clears them).",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "digikit-f103",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7090,7 +7109,7 @@
    "line": 90,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)",
    "text": "The RECIPS/RSQRTS seeds come from two 128-entry tables, all measured; the low 15 mantissa bits are zero. Stock's divide helper uses RECIPS plus Newton steps, so the last bit of a division depends on the exact seed. The reply record while it is sent (findings 78 and 101): the DSP's SPI2 is a slave, and the transmit DMA walks two descriptors by itself, so a record can be on the wire while code still writes it.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "digikit-f103",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7101,7 +7120,7 @@
    "line": 93,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)",
    "text": "On a real DT2, a word that the hook code wrote into one record arrived as 0 in 3,995 of 4,000 blocks, because stock code rebuilt the record before the DMA read it. The emulator delivered it every second block.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "digikit-f103",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7123,7 +7142,7 @@
    "line": 98,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static)",
    "text": "Calling convention: a delayed `CALL` with a frame; arguments in R4, R8, R12, more on the stack; result in R0. Most kernels come as a pair: `reset(record)` and `process(record, in, out, n)`, one 32-sample block per call. The prologue and epilogue cost ~20 instructions, about 0.6 per sample.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-f72",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7134,7 +7153,7 @@
    "line": 101,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static)",
    "text": "Every sample loop is a hardware `DO ... UNTIL LCE`. The loops are software-pipelined (the last stores come after the loop) and have a fast exit for n = 0 or 1.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-f72",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7145,7 +7164,7 @@
    "line": 102,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static)",
    "text": "Idioms worth copying: multiplier + ALU + data move in one instruction; post-modify DAG access with constant M6 = 1 and M5 = 0; RECIPS/RSQRTS seed plus Newton steps, using FAVG to halve; branch-free CLIP/ABS/MIN/MAX; FEXT to wrap an index; SIMD around copy loops; parameter ramps as \"accumulator += step per sample\"; MODE1 saved and restored around RND32 or SIMD.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-f72",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7156,7 +7175,7 @@
    "line": 111,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static)",
    "text": "Same code, different address: the shared kernels are byte-identical on DT2 and DN2 but sit at different addresses (biquad DT2 `0x1ccbd8`, DN2 `0xb81368`). Only the float divide `0x1c06ba` has one address on both. Calling a stock kernel therefore needs a per-device address row.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-f72",
    "devices": "digitakt-2",
    "addresses": "0x1c06ba,0x1ccbd8,0xb81368",
@@ -7167,7 +7186,7 @@
    "line": 112,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static)",
    "text": "Hidden dependencies of stock kernels: The envelope reads a rate table at a device-specific absolute address. powf reads three tables and writes error words. Divide and rsqrt flip MODE1 bit 16 and restore it, so don't call them with SIMD or a loop active.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-f72",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7189,7 +7208,7 @@
    "line": 117,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static)",
    "text": "digikit's recommendation: write your own kernels for the hot path; they can be faster (its estimate: interpolated delay 41 -> 15 instructions per sample, half-band 25 -> 10). Call stock only for the divide.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-f72",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7420,7 +7439,7 @@
    "line": 46,
    "section": "Digitakt II (OS 1.17) - SHARC facts measured on a real unit / 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator)",
    "text": "Samples go to the DSP over link port 0 (LP0_CTL `0x30FFE000`; SEC sources 81/82/168), not over the frame link. LP1 is unused. One transfer is 0x401 words: a tag and 1,024 payload words. Tag `0xFFFFFFFF` means a slot header: slot, startL, startR, rate, len. Stereo means startL != startR. A tag below `0x19200` is a page number into the 400 MiB DDR sample pool at `0x8422B9C8`. This is the RPC-task work the owner saw while samples load.",
-   "evidence": "",
+   "evidence": "emu,hw",
    "sources": "digikit-f15",
    "devices": "digitakt-2",
    "addresses": "0x19200,0x30FFE000,0x8422B9C8,0xFFFFFFFF",
@@ -7431,7 +7450,7 @@
    "line": 51,
    "section": "Digitakt II (OS 1.17) - SHARC facts measured on a real unit / 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator)",
    "text": "Slot table: 0x14-byte records at DM `0x257810 + slot*0x14` (start L/R relative to the pool, length, ...), at most 0x401 slots.",
-   "evidence": "",
+   "evidence": "emu,hw",
    "sources": "digikit-f15",
    "devices": "digitakt-2",
    "addresses": "0x257810",
@@ -7530,7 +7549,7 @@
    "line": 64,
    "section": "Digitakt II (OS 1.17) - SHARC facts measured on a real unit / 7. selcc/selas (selache) traps, each seen on the unit or in the emulator",
    "text": "No integer `/` or `%` where the operand can be 0 (`___umod32` runs LCNTR = 32 - leftz(x); 0 means a hang).",
-   "evidence": "",
+   "evidence": "emu,hw",
    "sources": "own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7541,7 +7560,7 @@
    "line": 65,
    "section": "Digitakt II (OS 1.17) - SHARC facts measured on a real unit / 7. selcc/selas (selache) traps, each seen on the unit or in the emulator",
    "text": "No loops with early exit (`break`/`return`): they become DO loops left by a jump.",
-   "evidence": "",
+   "evidence": "emu,hw",
    "sources": "own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7552,7 +7571,7 @@
    "line": 66,
    "section": "Digitakt II (OS 1.17) - SHARC facts measured on a real unit / 7. selcc/selas (selache) traps, each seen on the unit or in the emulator",
    "text": "`int more = a < b; while (more)` compiled into an endless loop. Write a counted `for` with an `if` body.",
-   "evidence": "",
+   "evidence": "emu,hw",
    "sources": "own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7563,7 +7582,7 @@
    "line": 67,
    "section": "Digitakt II (OS 1.17) - SHARC facts measured on a real unit / 7. selcc/selas (selache) traps, each seen on the unit or in the emulator",
    "text": "Large initialised `static const float` tables arrive as garbage, so compute them at run time. Complex float expressions passed as arguments lost terms. `static int a = 1, b;` lost `b`. Keep compound conditions simple. Pass at most 3 arguments (stack arguments are passed wrongly) or a struct pointer.",
-   "evidence": "",
+   "evidence": "emu,hw",
    "sources": "own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7574,7 +7593,7 @@
    "line": 68,
    "section": "Digitakt II (OS 1.17) - SHARC facts measured on a real unit / 7. selcc/selas (selache) traps, each seen on the unit or in the emulator",
    "text": "selas: multifunction (MUL+ALU) and dual-load forms are encoded wrongly; `Ia = MODIFY(Ib, ..)` becomes `Ib = ..`; system registers (MODE1, LCNTR, EMUCLK) moved in 48-bit form are wrong, so use compressed code. Negative shift immediates are wrong (`023e 0000` vs stock `023e 7800`: ILOPI on the unit). Shift by a register.",
-   "evidence": "",
+   "evidence": "emu,hw",
    "sources": "own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7585,7 +7604,7 @@
    "line": 69,
    "section": "Digitakt II (OS 1.17) - SHARC facts measured on a real unit / 7. selcc/selas (selache) traps, each seen on the unit or in the emulator",
    "text": "selcc treats R3, R5-R7 as scratch where the ADI ABI preserves them: save them at the bridge.",
-   "evidence": "",
+   "evidence": "emu,hw",
    "sources": "own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7596,7 +7615,7 @@
    "line": 70,
    "section": "Digitakt II (OS 1.17) - SHARC facts measured on a real unit / 7. selcc/selas (selache) traps, each seen on the unit or in the emulator",
    "text": "A selcc peephole bug (frame-reload forwarding clobbering the reload register) was patched locally. The patch also added a `SELCC_SAFE=1` switch that skips the post-allocation peepholes. If code misbehaves only when optimised, try that.",
-   "evidence": "",
+   "evidence": "emu,hw",
    "sources": "own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7607,7 +7626,7 @@
    "line": 71,
    "section": "Digitakt II (OS 1.17) - SHARC facts measured on a real unit / 7. selcc/selas (selache) traps, each seen on the unit or in the emulator",
    "text": "DAG registers moved via the same DAG's addressing hang the unit; move them through R registers. Same rule as the DN2 skill.",
-   "evidence": "",
+   "evidence": "emu,hw",
    "sources": "own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7640,7 +7659,7 @@
    "line": 76,
    "section": "Digitakt II (OS 1.17) - SHARC facts measured on a real unit / 8. Measuring on the unit without a debugger",
    "text": "Load display build: show peak cycles per call on the playhead. This is the only figure that includes real DDR stalls without a probe.",
-   "evidence": "",
+   "evidence": "emu,hw",
    "sources": "own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7981,7 +8000,7 @@
    "line": 110,
    "section": "Digitakt II / Architecture map from static analysis and simulation (lalzart, OS 1.15C)",
    "text": "SHARC part: ADSP-21569. Section 7 holds ADSP-2156x loader/application records (104 records mapped). FreeRTOS, an Audio task and a recurring block loop are traced. The hand-off from the boot kernel to that startup is not.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "lalzart-dt2-arch",
    "devices": "digitakt-2",
    "addresses": "",
@@ -7992,7 +8011,7 @@
    "line": 111,
    "section": "Digitakt II / Architecture map from static analysis and simulation (lalzart, OS 1.15C)",
    "text": "The ColdFire <-> SHARC frame is the same shape as on the Digitone II: A full-duplex `0xabc`-byte DSPI2 frame carries a `0x802`-byte state payload: 16 records of `0x60` bytes, track n to SHARC unit n. ColdFire eDMA29 sends and eDMA28 receives; the SHARC uses SPI2 with completed-image double buffering. The send is driven from a level-5 interrupt that a level-6 eDMA-completion path forces in software. Link settings: SPI mode 1, 16-bit MSB-first, one `0x55e`-word window. The meaning of the SHARC-to-ColdFire return content is open. Compare the DN2's frame and reply words in [digitone-2-internals.md](digitone-2-internals.md). This is a second, independent reading of the shared design (research map T19).",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "lalzart-dt2-arch",
    "devices": "digitakt-2",
    "addresses": "",
@@ -8003,7 +8022,7 @@
    "line": 117,
    "section": "Digitakt II / Architecture map from static analysis and simulation (lalzart, OS 1.15C)",
    "text": "Project samples reach the SHARC over a different path: ColdFire Rapid-GPIO byte/strobe/ready endpoint -> SHARC link port 0 (LP0_RX, DMA30). Samples are described by five-word resource descriptors with 4 KiB pages. This agrees with digikit finding 15 ([digitakt-2-sharc-measured.md](digitakt-2-sharc-measured.md)). The physical bridge between the two endpoints is not identified.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "lalzart-dt2-arch",
    "devices": "digitakt-2",
    "addresses": "",
@@ -8014,7 +8033,7 @@
    "line": 118,
    "section": "Digitakt II / Architecture map from static analysis and simulation (lalzart, OS 1.15C)",
    "text": "Audio output: two 64-word banks are selected, then sent by a two-bank circular DMA descriptor (DMA10) to SPORT4 half A. Codec and pin are not identified.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "lalzart-dt2-arch",
    "devices": "digitakt-2",
    "addresses": "",
@@ -8025,7 +8044,7 @@
    "line": 119,
    "section": "Digitakt II / Architecture map from static analysis and simulation (lalzart, OS 1.15C)",
    "text": "Update path: MAIN validates checksum, minimum version and the cryptographic trailer before it erases and programs the staged ELE3 slot at flash `0x80000`, then requests a reset. Which updater copy runs after reset, and whether recovery is independent of it, is marked opaque.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "lalzart-dt2-arch",
    "devices": "digitakt-2",
    "addresses": "0x80000",
@@ -8036,7 +8055,7 @@
    "line": 122,
    "section": "Digitakt II / Architecture map from static analysis and simulation (lalzart, OS 1.15C)",
    "text": "Offline modifications proven in the simulator only: a byte-exact selector reroute, and a 3-byte change that turns an output-bank negation into pass-through. Re-encoding a modified section and running it on hardware are explicitly unproven.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "lalzart-dt2-arch",
    "devices": "digitakt-2",
    "addresses": "",
@@ -8045,9 +8064,9 @@
   {
    "file": "hardware/devices/digitakt-2.md",
    "line": 125,
-   "section": "Digitakt II / What happens on a ColdFire fault (digikit finding 37, DT2 1.16/1.17 and DN2 1.11/1.12, static, checked by a second agent)",
+   "section": "Digitakt II / What happens on a ColdFire fault (digikit finding 37, DT2 1.16/1.17 and DN2 1.11/1.12, static, checked by a second agent) `[doc]`",
    "text": "The main OS's default exception handler prints `EXCEPTION ...` with the vector, format, PC and twelve stack words, then executes `halt` with interrupts masked. It never returns.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-f37",
    "devices": "digitakt-2",
    "addresses": "",
@@ -8056,9 +8075,9 @@
   {
    "file": "hardware/devices/digitakt-2.md",
    "line": 126,
-   "section": "Digitakt II / What happens on a ColdFire fault (digikit finding 37, DT2 1.16/1.17 and DN2 1.11/1.12, static, checked by a second agent)",
+   "section": "Digitakt II / What happens on a ColdFire fault (digikit finding 37, DT2 1.16/1.17 and DN2 1.11/1.12, static, checked by a second agent) `[doc]`",
    "text": "The core watchdog is not used anywhere in the main OS, so a fault hangs the whole device until the power is cycled. Messages like the DT2's `V04 M0 P40311A64` (dt2-machine-lab) are this handler's output.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-f37",
    "devices": "digitakt-2",
    "addresses": "",
@@ -8067,7 +8086,7 @@
   {
    "file": "hardware/devices/digitakt-2.md",
    "line": 127,
-   "section": "Digitakt II / What happens on a ColdFire fault (digikit finding 37, DT2 1.16/1.17 and DN2 1.11/1.12, static, checked by a second agent)",
+   "section": "Digitakt II / What happens on a ColdFire fault (digikit finding 37, DT2 1.16/1.17 and DN2 1.11/1.12, static, checked by a second agent) `[doc]`",
    "text": "digikit's runtime counts bad boots: the counter is raised at boot start and cleared only after 30 s of stable running. `[doc]`",
    "evidence": "doc",
    "sources": "digikit-f37",
@@ -8080,7 +8099,7 @@
    "line": 133,
    "section": "Digitakt II / Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)",
    "text": "ColdFire heap: a 32 MiB buddy allocator at `0x44f39c40-0x46f39c40` (16-byte minimum, power-of-two blocks), parameters at `0x402b406c`.",
-   "evidence": "",
+   "evidence": "emu",
    "sources": "dt2-lab-flex-mem",
    "devices": "digitakt-2",
    "addresses": "0x402b406c,0x44f39c40,0x46f39c40",
@@ -8091,7 +8110,7 @@
    "line": 134,
    "section": "Digitakt II / Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)",
    "text": "Allocating from the stock heap at startup (digitakt-ii-research, OS 1.16, emulator, byte-verified sites) {dt2-research-heap}: `malloc` is at `0x4011e674` (size at `4(A7)`, pointer in D0, mutex at `0x44e08654`, lazy init on first call). `free` is at `0x4011e87a`. It traps with `illegal` on a pointer outside the heap or not 16-byte aligned, the same rule as the Digitakt mk1's operator delete. The OS clears `0x40312000-0x47e28470` at reset, so static data placed there does not survive boot. A startup hook at `0x40133646` (`link.w` + `movem`) made exactly one 8 KiB allocation that stayed untouched for 20 M instructions. This is the cleanest way to own memory without a cave.",
-   "evidence": "",
+   "evidence": "emu",
    "sources": "dt2-lab-flex-mem,dt2-research-heap",
    "devices": "digitakt-2",
    "addresses": "0x4011e674,0x4011e87a,0x40133646,0x40312000,0x44e08654,0x47e28470",
@@ -8102,7 +8121,7 @@
    "line": 139,
    "section": "Digitakt II / Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)",
    "text": "Sample pool: Logical range `0x400-0x19000400`, 400 MiB, allocations rounded to 8 KiB. The ColdFire's allocation records decide admission; no SHARC malloc is involved. In the SHARC's view the pool is a window at DSP byte address `0x8422b9c8 + (offset - 0x400)`, ending at `0x9d22b9c8`. Capicola reserves the top 8 MiB.",
-   "evidence": "",
+   "evidence": "emu",
    "sources": "dt2-lab-flex-mem",
    "devices": "digitakt-2",
    "addresses": "0x19000400,0x8422b9c8,0x9d22b9c8",
@@ -8113,7 +8132,7 @@
    "line": 143,
    "section": "Digitakt II / Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)",
    "text": "Recorder: the main OS fetches recorder data in chunks of at most `0x800` bytes over DSPI1 from a service whose physical owner (ColdFire, SHARC DDR or a third part) is not established. Staging buffers are at `0x4fe79340` / `0x4fe7a340`.",
-   "evidence": "",
+   "evidence": "emu",
    "sources": "dt2-lab-flex-mem",
    "devices": "digitakt-2",
    "addresses": "0x4fe79340,0x4fe7a340",
@@ -8124,7 +8143,7 @@
    "line": 144,
    "section": "Digitakt II / Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)",
    "text": "SHARC side: Sample-slot table at `0x257810 + slot*0x14`: 1,025 entries, slot `0x400` is the preview. Voices at `0x2412cc + lane*0x1d8`, 32 lanes: `+0` PCM pointer, `+0x188` length, `+0x1b8` active. Link-port 0 receive staging at `0x268220` (descriptor) and `0x268240` (a tag plus 4 KiB of payload).",
-   "evidence": "",
+   "evidence": "emu",
    "sources": "dt2-lab-flex-mem",
    "devices": "digitakt-2",
    "addresses": "0x2412cc,0x257810,0x268220,0x268240",
@@ -8135,7 +8154,7 @@
    "line": 148,
    "section": "Digitakt II / Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)",
    "text": "Once published to the SHARC, PCM keeps playing after the ColdFire source is freed, as long as the stock allocation stays owned. Saving, however, needs the source, and no read-back path from sample memory was found.",
-   "evidence": "",
+   "evidence": "emu",
    "sources": "dt2-lab-flex-mem",
    "devices": "digitakt-2",
    "addresses": "",
@@ -8400,7 +8419,7 @@
    "section": "Digitakt (mk1) / Ecosystem snapshot, Digitakt mk1 (altstrument 2026-10-31: 13 firmware entries + screendump; elektronmods lists 20 Digitakt entries)",
    "text": "digiemu - emulates the Digitakt mk1 firmware on a ColdFire CPU with a patched Unicorn (six patches: three fix ColdFire flags and the multiply-accumulate unit, three make it fast enough for live audio); clickable panel, screen, keys, LEDs, sequencer, +Drive, live 48 kHz audio; tested on OS 1.53 (SHA-256 `9bdd44bb...29bcc92`), other mk1 releases offered as untested; runs about 2.5x faster than the hardware needs; first boot installs the factory project (~25 s, once per firmware); limits: factory sample library absent, 44.1 kHz pitch unverified, interrupt controller approximated, loading samples restarts the firmware (~15 s); its README still says Digitone mk1 is not supported although the directories list it. A content guard in CI rejects firmware, snapshots, card images and files over 1 MB. GPL-2.0-or-later. `[doc]` {digiemu-readme}",
    "evidence": "doc",
-   "sources": "digiemu-readme",
+   "sources": "alt-digitakt,digiemu-readme,em-list",
    "devices": "digitakt",
    "addresses": "",
    "id": 248
@@ -8411,7 +8430,7 @@
    "section": "Digitakt (mk1) / Ecosystem snapshot, Digitakt mk1 (altstrument 2026-10-31: 13 firmware entries + screendump; elektronmods lists 20 Digitakt entries)",
    "text": "digislicer (1.2 README; 2.5 per altstrument) - hold YES ~1 s on a SLICE track's SRC page to open the editor; slices keyed to the sample content and saved to the +Drive about one second after the editor closes (`/cfw/slices.a`, `/cfw/slices.b`; a `/cfw` folder appears in the sample browser); max 64 slices per sample; GRID gets a step past 64 = AUTO (transient slicing); a kit saved with AUTO plays the 64-slice grid on stock firmware; 1.1 and 1.2 \"not yet tried on a unit\" (an earlier combined build 1.8J ran on one); cold-boot comparison vs stock showed one 1 ms silent block from hook-bus timing. `[hw]/[emu]` {digislicer-readme}",
    "evidence": "",
-   "sources": "digislicer-readme",
+   "sources": "alt-digitakt,digislicer-readme,em-list",
    "devices": "digitakt",
    "addresses": "",
    "id": 249
@@ -8422,7 +8441,7 @@
    "section": "Digitakt (mk1) / Ecosystem snapshot, Digitakt mk1 (altstrument 2026-10-31: 13 firmware entries + screendump; elektronmods lists 20 Digitakt entries)",
    "text": "DigiFilter - patches three sites (widen Filter Type range 7->11, re-point the TYPE label formatter, hook the per-voice filter call; stock types tail-call the stock filter); DSP is integer-only, no FPU, no libgcc; BP/BP2 = trapezoidal state-variable filter, COMB/TRASH = two feedback combs; coefficients smoothed per block; per voice per block (digiemu): stock TYPE 1 ~2,400 instructions, BP/BP2 ~2,800, COMB/TRASH ~1,750 (the README claims \"at or below stock\" - contradicted by its own BP figure); BP can clip at high RESO (no output saturation); response curve cosmetic; needs core 2.1; emulator-tested only in the README (later versions: v1.1b lowers per-voice cost, v1.2 caps Digitakt OB resonance at 75 %). `[emu]` {digifilter-readme}",
    "evidence": "emu",
-   "sources": "digifilter-readme",
+   "sources": "alt-digitakt,digifilter-readme,em-list",
    "devices": "digitakt",
    "addresses": "",
    "id": 250
@@ -8433,7 +8452,7 @@
    "section": "Digitakt (mk1) / Ecosystem snapshot, Digitakt mk1 (altstrument 2026-10-31: 13 firmware entries + screendump; elektronmods lists 20 Digitakt entries)",
    "text": "digi1_mods - POLY: extra notes borrow voices from the track idle longest (excluding muted tracks, same-moment triggers and removed tracks); SETTINGS > POLY pool is per pattern and saved with the project (power-cycle persistence since 2.0d); Digi Matrix 8 routing slots (any track's LFO1/LFO2 to any parameter, depth -64..+64); Digi EQ 4-band master EQ after the compressor, on the master mix so all outputs carry it; utility page scope/spectrum (30 Hz-20 kHz, 128 log columns, 60 dB range)/X-Y/tuner (~12 Hz-3 kHz); builds v3p (unit shows 1.5b), v3q-spectrum (1.5c) not yet tested, v3r-all (1.5d) confirmed on hardware; the elekloader build 2.0d is emulation-only; Song mode disabled in stand-alone builds. Uses the unit's version string as a build label. `[hw]/[emu]` {digi1-readme}",
    "evidence": "",
-   "sources": "digi1-readme",
+   "sources": "alt-digitakt,digi1-readme,em-list",
    "devices": "digitakt",
    "addresses": "",
    "id": 251
@@ -8444,7 +8463,7 @@
    "section": "Digitakt (mk1) / Ecosystem snapshot, Digitakt mk1 (altstrument 2026-10-31: 13 firmware entries + screendump; elektronmods lists 20 Digitakt entries)",
    "text": "digisophie - fixed-point adaptation of Sophie for Schwung; uses the stock AMP, filter, mixer and effects path; SRC knobs A TUNE, B MODEL (FUSE/BOOM/PIPE/SHARD), C BR, D SAMP (unused), E SWEEP, F METAL, G FBK, H COLOR, parameter-lockable; HOLD set to NOTE so TRIG LEN sets release; retrigger chokes the previous voice; one instance runs without FAST AUDIO, two practical on hardware with FAST AUDIO, eight-track operation not claimed; build S027 hardware-tested with the digihealth configuration. `[hw]` {digisophie-readme}",
    "evidence": "hw",
-   "sources": "digisophie-readme",
+   "sources": "alt-digitakt,digisophie-readme,em-list",
    "devices": "digitakt",
    "addresses": "",
    "id": 252
@@ -8455,7 +8474,7 @@
    "section": "Digitakt (mk1) / Ecosystem snapshot, Digitakt mk1 (altstrument 2026-10-31: 13 firmware entries + screendump; elektronmods lists 20 Digitakt entries)",
    "text": "DigiPools - adds a POOL machine (DIGIPOOLS, version string `DPLS`) that turns the Chromatic keyboard into a pool player over the project's RAM sample slots 1..127; recorded trigs get a SAMP lock; OS 1.54; repo `freeze157-prog/digipools`, created 2026-10-24. `[doc]` {digipools-page}",
    "evidence": "doc",
-   "sources": "digipools-page",
+   "sources": "alt-digitakt,digipools-page,em-list",
    "devices": "digitakt",
    "addresses": "",
    "id": 253
@@ -8466,7 +8485,7 @@
    "section": "Digitakt (mk1) / Ecosystem snapshot, Digitakt mk1 (altstrument 2026-10-31: 13 firmware entries + screendump; elektronmods lists 20 Digitakt entries)",
    "text": "Tone+FX, DigiSplash, DigiCandy, digihealth also run on the Digitone mk1 - see [`digitone.md`](digitone.md).",
    "evidence": "",
-   "sources": "",
+   "sources": "alt-digitakt,em-list",
    "devices": "digitakt",
    "addresses": "",
    "id": 254
@@ -8541,7 +8560,7 @@
    "file": "hardware/devices/digitone-2-internals.md",
    "line": 9,
    "section": "Digitone II - internals collected from the research repos (OS 1.10E / 1.11 / 1.12) / Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch)",
-   "text": "Free DDR `0x46800000-0x47f00000` (23 MB). It was never mapped or written in the emulated runs. `[emu]`",
+   "text": "Free DDR `0x46800000-0x47f00000` (23 MB). It was never mapped or written in the emulated runs. Other platforms also place code here: [who uses this RAM](../common/memory-maps.md). `[emu]`",
    "evidence": "emu",
    "sources": "dn2-cfw-t13",
    "devices": "digitone-2",
@@ -8937,7 +8956,7 @@
    "file": "hardware/devices/digitone-2-internals.md",
    "line": 96,
    "section": "Digitone II - internals collected from the research repos (OS 1.10E / 1.11 / 1.12) / Hardware map and budgets (OS 1.12 unless noted)",
-   "text": "digikit: Section 7 may be stored at most `0x100000` and depacked at most `0xfffff`; the boot ROM workspace is 8 KB and a block may not target it; the DSP run-time code area is 512 KiB allocated first-fit; the UI task stack is 160 KiB (3.3 KiB used inside a load). `[doc]` {digikit-findings}",
+   "text": "digikit: Section 7 may be stored at most `0x100000` and depacked at most `0xfffff`; the boot ROM workspace is 8 KB and a block may not target it; the DSP run-time code area is 512 KiB allocated first-fit; the UI task stack is 160 KiB (3.3 KiB used inside a load). elekloader states the same section 7 limits independently ([`digitone-2-machines-sampler-sharc.md`](digitone-2-machines-sampler-sharc.md)). `[doc]` {digikit-findings}",
    "evidence": "doc",
    "sources": "digikit-findings",
    "devices": "digitone-2",
@@ -9181,7 +9200,7 @@
    "section": "Digitone II - internals collected from the research repos (OS 1.10E / 1.11 / 1.12) / OS release history (dn2-cfw `notes/dn2-release-history.md`, dnfw `docs/os-versions.md`)",
    "text": "Rules for a new OS version (dnfw): compare decoded content (`dnfw diff`), never compressed bytes; use `--strings` as a filter only; read the densest change blocks first (a relink gives many small blocks, a rewrite one large one); check bootstrap and updater separately (the updater matters for recovery); re-locate every patch via `find`/`expect` and name the target build; examine unfamiliar sections (id 8) before relying on the image; mangled storage-struct names show which persisted state changed. The compression and signing scheme was unchanged in 1.11 and the codec limits were measured on 1.11. `[doc]` {dn2-os-versions}",
    "evidence": "doc",
-   "sources": "dn2-os-versions",
+   "sources": "dn2-cfw-release-history,dn2-os-versions",
    "devices": "digitone-2",
    "addresses": "",
    "id": 319
@@ -9269,7 +9288,7 @@
    "section": "Digitone II - machine registration, SHARC mod link, sampler/+Drive layout and field incidents / SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11)",
    "text": "Regions (DN2 1.11, section 7 836,956 B): L2 `0x20000000-0x2001e880` code (125 KB), `0x2001e888-0x2008823c` data; L1 `0x282403f0-0x2826f000` and `0x282c0000-0x282dd52c` rodata, `0x283825c4-0x2839bffc` code (105 KB); DDR `0x80000018-0x8052fbe0` 5.4 MB, almost all fill. About 240 KB of the 837 KB section is code. `[doc]`",
    "evidence": "doc",
-   "sources": "",
+   "sources": "digikit-sharcmap",
    "devices": "digitone-2",
    "addresses": "0x20000000,0x2001e880,0x2001e888,0x2008823c,0x282403f0,0x2826f000,0x282c0000,0x282dd52c,0x283825c4,0x2839bffc,0x80000018,0x8052fbe0",
    "id": 327
@@ -9280,7 +9299,7 @@
    "section": "Digitone II - machine registration, SHARC mod link, sampler/+Drive layout and field incidents / SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11)",
    "text": "The blob keeps FreeRTOS `__FILE__` strings (`lib\\freertos-sharc\\tasks.c`, `queue.c`, `port.c` for SHARC_215xx, `heap_4.c`, ...) and the task name \"Audio Task\", so code can be named from upstream FreeRTOS sources. These addresses never appear as plain 32-bit words; a word scan finds nothing. You need a SHARC disassembler. `[doc]`",
    "evidence": "doc",
-   "sources": "",
+   "sources": "digikit-sharcmap",
    "devices": "digitone-2",
    "addresses": "",
    "id": 328
@@ -9291,7 +9310,7 @@
    "section": "Digitone II - machine registration, SHARC mod link, sampler/+Drive layout and field incidents / SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11)",
    "text": "An earlier loader parser stopped after 11 KB because of a wrong FILL bit (12 instead of 8). If your parser does not consume the section exactly, check this first. `[doc]`",
    "evidence": "doc",
-   "sources": "",
+   "sources": "digikit-sharcmap",
    "devices": "digitone-2",
    "addresses": "",
    "id": 329
@@ -9785,7 +9804,7 @@
    "line": 63,
    "section": "Digitone II OS 1.11 - function and data map (from the digitone-2-modding-skill sources) / Talking to the running unit over USB (MIDI RPC, as used by Transfer/Elektroid and the skill)",
    "text": "This explains the \"stall on Receiving/PREPARING\" reports in Overtone 1.0 and elsewhere ([`../common/recovery.md`](../common/recovery.md)).",
-   "evidence": "",
+   "evidence": "doc,hw",
    "sources": "dn2-skill-coldfire,dn2-skill-scripts,dn2-skill-sharc",
    "devices": "digitone-2",
    "addresses": "",
@@ -9795,7 +9814,7 @@
    "file": "hardware/devices/digitone-2-os111-firmware-map.md",
    "line": 66,
    "section": "Digitone II OS 1.11 - function and data map (from the digitone-2-modding-skill sources) / Build pipeline (`cfmod.py`, `dspblocks.py`, `zcache.py`)",
-   "text": "C/asm is compiled with m68k GCC `-mcpu=5475 -Os` (no libc) and linked at `0x46800000` (free on 1.11) by `dnfw.patch.cbuild`; dnfw's 138-byte startup loader copies the appended `DNFW` area there at boot and calls your init; every hook site is checked against the stock bytes before it is overwritten - a wrong address fails the build; `context()` asserts bytes a hook relies on without writing them; section 3 is recompressed and the container re-signed. API shape: `jsr(addr, stub, stock=...)` (6 bytes), `jmp(addr, stub, displaced=N)` (the stub replays the displaced bytes), `patch(addr, old, new, why)`. `[hw]`",
+   "text": "C/asm is compiled with m68k GCC `-mcpu=5475 -Os` (no libc) and linked at `0x46800000` (free on 1.11) by `dnfw.patch.cbuild`; dnfw's 138-byte startup loader copies the appended `DNFW` area there at boot and calls your init; every hook site is checked against the stock bytes before it is overwritten - a wrong address fails the build; `context()` asserts bytes a hook relies on without writing them; section 3 is recompressed and the container re-signed. API shape: `jsr(addr, stub, stock=...)` (6 bytes), `jmp(addr, stub, displaced=N)` (the stub replays the displaced bytes), `patch(addr, old, new, why)`. `[hw]` Same toolchain as summarised in [`digitone-2-os111-reference.md`](digitone-2-os111-reference.md).",
    "evidence": "hw",
    "sources": "dn2-skill-coldfire,dn2-skill-scripts,dn2-skill-sharc",
    "devices": "digitone-2",
@@ -9818,7 +9837,7 @@
    "line": 68,
    "section": "Digitone II OS 1.11 - function and data map (from the digitone-2-modding-skill sources) / Build pipeline (`cfmod.py`, `dspblocks.py`, `zcache.py`)",
    "text": "Examples: `double_time` hooks `move.l 0x402a0dec,%d0` (6 bytes) at `0x40027ac0` with `jsr dt_stub`, keeps the live d1/a0/a1 via `lea -12(%sp),%sp; movem.l ...,(%sp)`, and caps the doubled step under one 96 ppqn subtick per block (112,000 units); `track_trim` adds an L2 code block, a CALL hook and an fxdsl kernel (-6 dB on track 1, A/B ratio 0.5000).",
-   "evidence": "",
+   "evidence": "doc,hw",
    "sources": "dn2-skill-coldfire,dn2-skill-scripts,dn2-skill-sharc",
    "devices": "digitone-2",
    "addresses": "0x40027ac0,0x402a0dec",
@@ -9872,11 +9891,11 @@
    "file": "hardware/devices/digitone-2-os111-reference.md",
    "line": 30,
    "section": "Digitone II (OS 1.11) - engineering reference from the digitone-2-modding-skill / Free memory",
-   "text": "ColdFire: `0x46700000..0x46900000` unused by stock; cfmod links at `0x46800000`, dnfw uses `0x467c8000..0x467fffff`. More RAM above is plausible but must be verified (fill, reboot, read). `[doc]`",
+   "text": "ColdFire: `0x46700000..0x46900000` unused by stock (as the skill states; contested at its bottom end, [CONFLICTS O17](../CONFLICTS.md)); cfmod links at `0x46800000`, dnfw uses `0x467c8000..0x467fffff` (the skill's figure; dnfw's chunks actually span `0x46700000-0x46f00000`, see [who uses this RAM](../common/memory-maps.md)). More RAM above is plausible but must be verified (fill, reboot, read). `[doc]` {dn2-skill-firmware}",
    "evidence": "doc",
-   "sources": "",
+   "sources": "dn2-skill-firmware",
    "devices": "digitone-2",
-   "addresses": "0x46700000,0x467c8000,0x467fffff,0x46800000,0x46900000",
+   "addresses": "0x46700000,0x467c8000,0x467fffff,0x46800000,0x46900000,0x46f00000",
    "id": 382
   },
   {
@@ -10017,7 +10036,7 @@
    "section": "Digitone II (OS 1.11) - engineering reference from the digitone-2-modding-skill / Emulator coverage (skill's view)",
    "text": "SHARC (`sim.py`/`simc.py`, ~200 blocks/s with the C core, ~7 on PyPy, ~1 on CPython): logic and arithmetic in the real frame, stock-vs-mod A/B, memory footprint, the PRM rules it encodes. Cannot cover timing, caches, stalls, interrupts, DMA, branch predictor, ECC, boot-ROM loading, power-on memory contents; \"instruction counts under-predict the unit's load\". One-time boot ~4 min (`dn2setup.py --boot`). `[doc]`",
    "evidence": "doc",
-   "sources": "",
+   "sources": "dn2-skill-emulators",
    "devices": "digitone-2",
    "addresses": "",
    "id": 395
@@ -10753,8 +10772,8 @@
    "line": 84,
    "section": "Digitone (mk1) / Digitone Keys / Effect mods and the `bulk` area (altstrument 2026-10-31 lists five Digitone mk1 mods; elektronmods 19 Digitone entries)",
    "text": "DigiPrism (formerly DigiChroma; stock OS 1.43/1.44; fxkit + core-dn1 4.1; README title says 3.2, body says 4.1): input effects pedal with four reorderable modules (Color, Motion, Ambience, Grit) x five effects, gesture recorder, 30-second CAPTURE looper, MIDI CC control; 59 KB of code/state in the 128 KB share plus ~7 MB audio; project data tag `DCHR` (56 bytes); p-locks live in one synth track's lock table (LOCK TRACK, default T4 - that track should play no notes or arp in a pattern that uses DigiPrism locks); CPU guard: DMA timer 0 timing every block, bypass when usage stays above 93 % for 0.2 s; the `DIGITONE` source option needs core-dn1 3.4 insert audio (not released); presets removed in 0.2; emulator has no DMA timer 0 so its CPU meter is unreliable; 0.2 tested on a Digitone mk1 by its author, never on a Keys. `[hw]/[emu]` {digiprism-readme}",
-   "evidence": "",
-   "sources": "digiprism-readme",
+   "evidence": "doc",
+   "sources": "alt-digitone,digiprism-readme,digiswarm-readme,elekloader-devices",
    "devices": "digitone",
    "addresses": "",
    "id": 462
@@ -10764,8 +10783,8 @@
    "line": 85,
    "section": "Digitone (mk1) / Digitone Keys / Effect mods and the `bulk` area (altstrument 2026-10-31 lists five Digitone mk1 mods; elektronmods 19 Digitone entries)",
    "text": "DigiSwarm (formerly DigiCosm; core-dn1 3.2+, several effect mods together need 4.0): 11 engines x 4 variations (MIST, SHARDS, GLIDE, CHOPS, STUTTER ...), 60-second stereo looper with one overdub layer, Hold/Reverse/Bypass, resonant filter, pitch modulation, four-room reverb; buffers 26 MB in `bulk` (input history 10.9 s); 30 KB of the 128 KB share; project data 132 bytes (mods share 480 bytes there, digitables uses 328); loops are lost at power-off (\"no file storage location known to be free\"); CPU guard thresholds 45 % (fewer new grains) / 30 % (more again, up to 16 heads); CCs 22, 45, 46, 93 accepted but inert; no program changes, no expression pedal; 0.1 runs on the author's Digitone mk1, 0.1.2 emulator-only. `[hw]/[emu]` {digiswarm-readme}",
-   "evidence": "",
-   "sources": "digiswarm-readme",
+   "evidence": "doc",
+   "sources": "alt-digitone,digiprism-readme,digiswarm-readme,elekloader-devices",
    "devices": "digitone",
    "addresses": "",
    "id": 463
@@ -10776,7 +10795,7 @@
    "section": "Digitone (mk1) / Digitone Keys / Effect mods and the `bulk` area (altstrument 2026-10-31 lists five Digitone mk1 mods; elektronmods 19 Digitone entries)",
    "text": "Tone+FX packages: core-dn1-2.0a, digimeter-1.1, digieq-1.0, digiring-1.0, digifold-1.0, digifilter-1.0 (per-voice BP/BP2/COMB/TRASH on up to 4 voices), digictl-1.3; master order ring -> EQ -> fold; DSP shared with the FM voices, \"dropouts\" possible with several COMB/TRASH voices; verify downloads with `SHA256SUMS`; emulator-tested only. `[emu]` {tonefx-readme}",
    "evidence": "emu",
-   "sources": "tonefx-readme",
+   "sources": "alt-digitone,digiprism-readme,digiswarm-readme,elekloader-devices,tonefx-readme",
    "devices": "digitone",
    "addresses": "",
    "id": 464
@@ -10786,8 +10805,8 @@
    "line": 87,
    "section": "Digitone (mk1) / Digitone Keys / Effect mods and the `bulk` area (altstrument 2026-10-31 lists five Digitone mk1 mods; elektronmods 19 Digitone entries)",
    "text": "Memory facts for planning: the Digitone mk1 OS clears `0x4028E000-0x43229E60`; mod RAM area `0x43EC0000-0x44000000` (1.25 MB, core 4.0); see [`../common/memory-maps.md`](../common/memory-maps.md).",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc",
+   "sources": "alt-digitone,digiprism-readme,digiswarm-readme,elekloader-devices",
    "devices": "digitone",
    "addresses": "0x4028E000,0x43229E60,0x43EC0000,0x44000000",
    "id": 465
@@ -11039,7 +11058,7 @@
    "line": 53,
    "section": "Machinedrum (SPS-1 UW) and Monomachine (SFX-6/60) / What crashed, froze or corrupted real Machinedrums (Kitbasher's FIRMWARE-SAFETY, mostly a MKII +Drive UW)",
    "text": "ColdFire ISA: `movem.l d0-d1,-(sp)` is a 68000/68020 form ColdFire lacks. Emulators run a 68020 core, and the first trigger of every new machine froze the unit. Kitbasher allows only ISA_A for the MCF5206e (no MAC in added code) and decodes the final image from every entry point (rule A42).",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
@@ -11050,7 +11069,7 @@
    "line": 54,
    "section": "Machinedrum (SPS-1 UW) and Monomachine (SFX-6/60) / What crashed, froze or corrupted real Machinedrums (Kitbasher's FIRMWARE-SAFETY, mostly a MKII +Drive UW)",
    "text": "Boot-time memory: Ordinary stores to flash relocation sites hung the unit at the boot screen; the emulator ignored them. Boot writes from `0x2bd000` up froze a MKII +Drive UW at the logo, while the same image without them booted. Use only hardware-proven RAM ranges. Boot code must not push registers before the OS has set up a stack.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "0x2bd000",
@@ -11061,7 +11080,7 @@
    "line": 58,
    "section": "Machinedrum (SPS-1 UW) and Monomachine (SFX-6/60) / What crashed, froze or corrupted real Machinedrums (Kitbasher's FIRMWARE-SAFETY, mostly a MKII +Drive UW)",
    "text": "The host port to the DSPs holds about two words; the emulator buffers thousands. A sender whose poll timed out left DSP1's handler armed, so the next stock send was shifted by two words. A loader interleaving its writes with the OS's put a thousand words at a wrong address. Send exactly as stock does (interrupts masked) and own the port for the whole transfer.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
@@ -11072,7 +11091,7 @@
    "line": 62,
    "section": "Machinedrum (SPS-1 UW) and Monomachine (SFX-6/60) / What crashed, froze or corrupted real Machinedrums (Kitbasher's FIRMWARE-SAFETY, mostly a MKII +Drive UW)",
    "text": "The per-step trigger loop is hot: a hook doing a table lookup and register save on every call froze the audio with 12-16 tracks triggering (CPU! lit). It was found only by a hardware bisect. Cache, then exit early.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
@@ -11083,7 +11102,7 @@
    "line": 63,
    "section": "Machinedrum (SPS-1 UW) and Monomachine (SFX-6/60) / What crashed, froze or corrupted real Machinedrums (Kitbasher's FIRMWARE-SAFETY, mostly a MKII +Drive UW)",
    "text": "Never remove stock DSP pacing. Replacing a 480-cycle DSP1 pad contributed to that freeze. Letting DSP2 skip ahead on silent tracks starved the ColdFire's stream and lost triggers.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
@@ -11094,7 +11113,7 @@
    "line": 64,
    "section": "Machinedrum (SPS-1 UW) and Monomachine (SFX-6/60) / What crashed, froze or corrupted real Machinedrums (Kitbasher's FIRMWARE-SAFETY, mostly a MKII +Drive UW)",
    "text": "No long `rep` on a DSP path: `rep #$600` (clearing 1,536 words) overran the CPU on the first P-I bass-drum trigger. Changing it to `rep #1` proved the cause; two stores per `do` pass fixed it. This is the same rule as on the Octatrack.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
@@ -11105,7 +11124,7 @@
    "line": 65,
    "section": "Machinedrum (SPS-1 UW) and Monomachine (SFX-6/60) / What crashed, froze or corrupted real Machinedrums (Kitbasher's FIRMWARE-SAFETY, mostly a MKII +Drive UW)",
    "text": "The stock DSP1 watchdog: DSP1 counts blocks that DSP2 delivered late. On the third in a row it stops the output DMA and spins, silent until a power cycle. Half a percent over budget for three blocks is enough.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
@@ -11116,7 +11135,7 @@
    "line": 66,
    "section": "Machinedrum (SPS-1 UW) and Monomachine (SFX-6/60) / What crashed, froze or corrupted real Machinedrums (Kitbasher's FIRMWARE-SAFETY, mostly a MKII +Drive UW)",
    "text": "DSP correctness traps: Nested `do` loops sharing an end address left state on the real hardware stack, and DSP2 hung. An inherited modulo register wrapped a 384-word clear into 32 words. DSP2 external RAM holds power-on garbage (the emulator reads zero), so init must clear everything it reads, and every block must write all 32 samples.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
@@ -11127,7 +11146,7 @@
    "line": 70,
    "section": "Machinedrum (SPS-1 UW) and Monomachine (SFX-6/60) / What crashed, froze or corrupted real Machinedrums (Kitbasher's FIRMWARE-SAFETY, mostly a MKII +Drive UW)",
    "text": "Machine ids 124-127 fall inside the OS's \"control machine\" range tests.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
@@ -11138,7 +11157,7 @@
    "line": 71,
    "section": "Machinedrum (SPS-1 UW) and Monomachine (SFX-6/60) / What crashed, froze or corrupted real Machinedrums (Kitbasher's FIRMWARE-SAFETY, mostly a MKII +Drive UW)",
    "text": "Pin data assumptions: after a firmware update, wavetable models went silent because older UW sample sets were shorter than the new build expected. Declare minimum lengths.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
@@ -11149,7 +11168,7 @@
    "line": 72,
    "section": "Machinedrum (SPS-1 UW) and Monomachine (SFX-6/60) / What crashed, froze or corrupted real Machinedrums (Kitbasher's FIRMWARE-SAFETY, mostly a MKII +Drive UW)",
    "text": "What the emulator does not show, in numbers: DSP56300 pipeline interlocks add a median ~26 % (12-47 % per model). Instruction-cache misses and wait states: 16 copies of one model fit in the emulator and stalled on the unit. The emulator's default 441-sample slicing invents host-port spins of ~13,000 cycles. Use 64- or 8-sample slices, and don't \"fix\" spins it invents.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
@@ -11391,7 +11410,7 @@
    "line": 15,
    "section": "Model:Cycles and Model:Samples - OS 1.13 / Recovery",
    "text": "The startup menu lives in flash that OS updates never write. Hold FUNC at power-on, TRIG 4 = OS UPGRADE, \"READY TO RECEIVE\". It listens to MIDI IN only, never USB.",
-   "evidence": "",
+   "evidence": "doc,hw",
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
@@ -11402,7 +11421,7 @@
    "line": 16,
    "section": "Model:Cycles and Model:Samples - OS 1.13 / Recovery",
    "text": "Model:Cycles' MIDI IN is a 3.5 mm TRS jack (type A and B both work). A mono TS cable does not work. Use the supplied DIN adapter if your interface has DIN.",
-   "evidence": "",
+   "evidence": "doc,hw",
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
@@ -11413,7 +11432,7 @@
    "line": 17,
    "section": "Model:Cycles and Model:Samples - OS 1.13 / Recovery",
    "text": "Takes 5-10 minutes; the unit restarts by itself.",
-   "evidence": "",
+   "evidence": "doc,hw",
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
@@ -11435,7 +11454,7 @@
    "line": 40,
    "section": "Model:Cycles and Model:Samples - OS 1.13 / Free space and payloads",
    "text": "Free space is scarce. The project's main source of code room is freed sprite masks: Groups of byte-identical `0xFF` bitmap masks are each referenced by one 32-bit constant. Redirecting that constant to a kept copy renders identically and frees the others. 10 groups, 164 freeable masks, 104-1,024 bytes each. Never write into a kept copy. A registry tool tracks which mod owns which mask.",
-   "evidence": "",
+   "evidence": "doc,hw",
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
@@ -11446,7 +11465,7 @@
    "line": 44,
    "section": "Model:Cycles and Model:Samples - OS 1.13 / Free space and payloads",
    "text": "Other `0xFF` caves are refused when stock code points into them.",
-   "evidence": "",
+   "evidence": "doc,hw",
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
@@ -11644,7 +11663,7 @@
    "line": 13,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / Silicon",
    "text": "Storage: CompactFlash (FAT16/32) through an ATA stack (PIO task-file registers at `0x90000000`).",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "0x90000000",
@@ -11655,7 +11674,7 @@
    "line": 14,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / Silicon",
    "text": "The kernel is a proprietary preemptive microkernel (banner \"ElektronOctatrack DPS-1\"), not FreeRTOS.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
@@ -11666,7 +11685,7 @@
    "line": 17,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / Cycle budget (measured with a burn probe on units)",
    "text": "4,532 cycles per sample per core at 44.1 kHz (199.9 MHz measured). The older 4,160 / 183 MHz is retracted.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
@@ -11677,7 +11696,7 @@
    "line": 18,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / Cycle budget (measured with a burn probe on units)",
    "text": "About 3,120 cycles/sample are usable for DSP work; stock takes ~1,410.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
@@ -11743,7 +11762,7 @@
    "line": 26,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / FX slots",
    "text": "Every track runs `FX1 -> FX2 -> gain`. FX1 has 3,072 words of Y, FX2 16,384, which is why reverbs and delay are FX2-only.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
@@ -11787,7 +11806,7 @@
    "line": 35,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / OS format, update and recovery",
    "text": "The card path: OS UPGRADE lists `/*.BIN` on the CF, validates, programs NOR from `0x4000` and verifies it word by word. Stock then shows \"PLEASE REBOOT!\" and never resets the unit itself.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
@@ -11875,7 +11894,7 @@
    "line": 56,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / DSP56300 assembler and emulator traps (from octabam's trap register; each cost real work)",
    "text": "`dsp_asm` silently mis-encodes: `tfr a,b` as `rnd b`, and any `mpy` operand order it does not know as `mpysu`. `lua (rN+d),rM` takes d in -64..63 and silently wraps larger values. Labels resolve by prefix, so a new label may not have an existing label as its prefix.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
@@ -11886,7 +11905,7 @@
    "line": 57,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / DSP56300 assembler and emulator traps (from octabam's trap register; each cost real work)",
    "text": "DSP56300 semantics: A logical op on an accumulator leaves the extension byte stale, so the next store saturates to full scale. `move a,b` limits; `tfr a,b` moves all 56 bits. A Tcc pair sharing one compare breaks with any arithmetic in between. `asr #n,a,a` shifts into a0, and Z is set only when all 56 bits are zero. Reading a0 exposes the fractional left shift that a1 hides.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
@@ -11897,7 +11916,7 @@
    "line": 63,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / DSP56300 assembler and emulator traps (from octabam's trap register; each cost real work)",
    "text": "No `rep` in an effect's init or proc (it cannot be interrupted, and the host-command handlers need to run). No dense X work in a DMA's 8K block.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
@@ -11908,7 +11927,7 @@
    "line": 64,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / DSP56300 assembler and emulator traps (from octabam's trap register; each cost real work)",
    "text": "Instruction-form rule, as on the SHARC: a DSP form ships only if a stock payload runs it or a hardware probe approved it.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
@@ -11930,7 +11949,7 @@
    "line": 66,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / DSP56300 assembler and emulator traps (from octabam's trap register; each cost real work)",
    "text": "The emulator (`ot_emu`) charges one step per instruction, with no cache or memory timing. A change can be cycle-identical in the port and several percent worse on the unit.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
@@ -12544,7 +12563,7 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 86,
-   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42)",
+   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
    "text": "Section 7 is byte-identical in 1.41 and 1.42 (SHA-256 `daf6451c...783bc2`). It is ColdFire ISA-C with EMAC, MCF5441x-class: compile with `-mcpu=54418`, disassemble with `-m m68k:isa-c:emac`. CPU #2 has its own 128 MB SDRAM at `0x40000000` (SP `0x48000000`, entry `0x40001070`). `[doc]`",
    "evidence": "doc",
    "sources": "syncrackd-mm",
@@ -12555,9 +12574,9 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 87,
-   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42)",
+   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
    "text": "Only 39.8 KB is code (`0x40000404-0x40009f88`: boot, audio interrupt, voice loop, 12 engines, sample loader), followed by 284 KB of tables and data. Code room for mods is almost nil: ~318 bytes in small pieces remained after SynCrackd's images.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "0x40000404,0x40009f88",
@@ -12566,7 +12585,7 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 88,
-   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42)",
+   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
    "text": "CPU #2 configures its own FPGA: a packed bitstream at `0x40041060` is unpacked to `0x40042000` (54,664 bytes) at init. That is the same size as the Analog Heat +FX FPGA section, so it may be the same part `[?]`. Keep away from it (rule A22).",
    "evidence": "?",
    "sources": "syncrackd-mm",
@@ -12577,9 +12596,9 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 89,
-   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42)",
+   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
    "text": "The sample pool is in CPU #2's RAM: 64 MB from `0x4004f750`, in BSS zeroed at boot. A 64-entry slot table `{u32 frames, u32 pointer}` is at `0x4404f754`. Format: 64 times `u32 frames` + big-endian int16 mono. The main CPU fills it at boot in 2 KB chunks through the shared window `0x800`, with an unchecked 16-bit index. This is the slow boot the manual mentions. Per slot at most 524,287 frames (10.9 s; positions are 20.12 fixed point). The stock UI limits slots to 5 s and \"32 MB\".",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "0x4004f750,0x4404f754",
@@ -12588,7 +12607,7 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 93,
-   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42)",
+   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
    "text": "Above the BSS, `0x4404f980-0x48000000` (63.7 MB) is not referenced by any section-7 instruction and is used for SynCrackd's state. Leave the top megabyte for the stack (its depth is not measured). This is CPU #2's RAM, not the main CPU's region that sample loading overwrites (CONFLICTS O2). `[hw]` (alpha, one unit)",
    "evidence": "hw",
    "sources": "syncrackd-mm",
@@ -12599,9 +12618,9 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 94,
-   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42)",
+   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
    "text": "Shared window (CPU #2 `0x0-0x1000` = main CPU `0x10000000`, chip select 0, 16-bit, one wait state): `0x000-0x1b0`: the parameter block, copied to `0x80008000` every block; `0x1b0-0x5b0`: 8 mono track buffers, sent by eDMA 47; `0x5b0-0x800`: unused by stock; `0x800-0x1000`: the sample chunk at boot.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "0x10000000,0x80008000",
@@ -12610,9 +12629,9 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 99,
-   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42)",
+   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
    "text": "SRAM `0x80000000`: 8 voices of 1,800 B, 8 mono int32 output buffers, 8 parameter blocks of 142 B. The highest static reference is `0x8000f670`, so treat SRAM as full.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "0x80000000,0x8000f670",
@@ -12621,7 +12640,7 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 100,
-   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42)",
+   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
    "text": "Twinshot (engine 11, machine type 44) reads the parameter slots 18-25: TUN1, SMP1, FLT1, MIX, TUN2, SMP2, loop flag, DEC1. A sample select below the centre plays the slot in reverse. `[emu]`",
    "evidence": "emu",
    "sources": "syncrackd-mm",
@@ -12632,9 +12651,9 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 101,
-   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42)",
+   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
    "text": "SynCrackd replaces Twinshot (and CY ALLOY) with a 64-slot stereo sampler, loops, slices, time stretch and transient triggers. It is OS 1.42 only, alpha, tested in emulation and on one unit, MIT.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "",
@@ -12643,7 +12662,7 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 102,
-   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42)",
+   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
    "text": "Synfact (OS 1.41) adds DT mk1 sample machines, a per-project pool, polyphony across tracks and a third LFO. It ships its firmware change as a zlib-compressed XOR mask against the official file, pinned by hash. It needs a second mods file (515,808 B) sent with its own transfer tool after the flash. Boot and hardware validation are still pending. `[doc]` {synfact}",
    "evidence": "doc",
    "sources": "syncrackd-mm,synfact",
@@ -12654,9 +12673,9 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 107,
-   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying)",
+   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
    "text": "Each change is stored with the SHA-256 of the original bytes, so a different OS version fails the build instead of crashing. Every mod runs in a Unicorn emulator next to the original code before flashing. Stock Unicorn gets signed fractional EMAC wrong (the audio comes out silent), so EMAC instructions are trapped and executed in Python from the NXP manual. Use CPU model \"ANY\" (the code needs FF1, MVS/MVZ, SATS).",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "",
@@ -12665,9 +12684,9 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 110,
-   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying)",
+   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
    "text": "Hooks: replace at least 6 bytes with `jsr` plus `nop` padding, and the trampoline replays the replaced instructions. Save every register; replay replaced EMAC instructions first. If your code uses EMAC, set MACSR yourself and leave ACC0 at 0, because the OS sum routines start from it. One-time setup goes in a hook in the page initializer (`0x401885D2...`), never in boot time.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "0x401885D2",
@@ -12676,9 +12695,9 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 114,
-   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying)",
+   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
    "text": "Mod code: gcc/as with `-mcpu=54418`, no `.bss` (put variables in `.data`), no libgcc (`nm -u` empty). ColdFire limits: `muls.l` takes no absolute address, there is no `exg`, `movem` takes only `(An)`/`d16(An)`, short branches reach ±127 B.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "",
@@ -12687,9 +12706,9 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 116,
-   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying)",
+   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
    "text": "Spare storage the OS saves without knowing: per track: engine word +106 (hidden id 72); per kit: unused words of the pattern kit at `*0x800030BC` (ids 0, 0x1A, 0x24, 0x27, 0x29, 0x2A, 0x37, 0x46, 0x38). Store values XOR their default, so old projects load with defaults; kit words 41-43 of the 12 per-track kit blocks (Digitakt MIDI-track data, unused here); 256 bytes in the project settings file. A \"free\" parameter id can be an alias the OS shows in some modes, so audit it.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "0x800030BC",
@@ -12698,9 +12717,9 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 122,
-   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying)",
+   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
    "text": "UI internals: parameter descriptors at `0x4022D59C + 52*id`; page objects at `0x41B9F3C8` (44 B, 8 slots); per-parameter `std::function` objects at `0x41B9FA24 + 84*id` (+20 text, +36 icon, +68 style). Page 25 (\"OB8\") is a free Digitakt leftover. Rewrite a `std::function` only from UI code, never from the audio interrupt.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "0x4022D59C,0x41B9F3C8,0x41B9FA24",
@@ -12709,9 +12728,9 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 123,
-   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying)",
+   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
    "text": "Audio mods: Hook the mix function; keep the OS's EMAC `msac` sign convention (the result is -Σ g·x). Do nothing when there is nothing to do. Compute at 24 kHz where the sound allows it. Ramps must snap to their target or the effect never goes idle. Limit how far a modulated delay moves per block. Keep a cost-per-block regression test (count instructions with `UC_HOOK_CODE` after `ctl_flush_tb()`).",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "",
@@ -12720,7 +12739,7 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 129,
-   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying)",
+   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
    "text": "Where mod code lives at run time (SyntHack modarea, v0.8.1+): The OS image has only ~2 KB free, and everything after it is zeroed at boot. So mod code is appended to section 3 compressed (SHLZ, at `0x40348000 + offset`). At boot it is unpacked into the first 64 KB block of the OS heap: buddy allocator `0x4010350C`, 16 MB pool at `0x444E38C0`. The block is reserved by a call right after heap initialization, so it always gets index 0, and the OS never hands it out again. The earlier home above the BSS (`0x46000000`) was overwritten whenever samples loaded (SyntHack issue 4), which settles conflict O2. `[hw]` {synthack-mods}",
    "evidence": "hw",
    "sources": "synthack-guide,synthack-mods",
@@ -12731,7 +12750,7 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 134,
-   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying)",
+   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
    "text": "Kit and project storage that round-trips through stock code (SyntHack kitstore/projstore): Kit words 41-43 of the 12 per-track blocks go into 6 file bytes that stock's writer zeroes and its reader ignores. 256 bytes go into the project settings block (`+0x227..+0x3FF` is zeroed by the writer and ignored by the reader), behind an `SH` marker. Tests run the real writer and reader with and without the hooks. Zero must mean \"default\", because stock-saved files load as zero. `[emu]` {synthack-mods}",
    "evidence": "emu",
    "sources": "synthack-guide,synthack-mods",
@@ -12742,7 +12761,7 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 139,
-   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying)",
+   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
    "text": "Controlling the analog side digitally (SyntHack master-comp): a feed-forward compressor detects on ADC 6/7 (the FX-track bus before its VCAs) and applies gain through those VCAs' control voltages (CV 35/36), once per block (~1.5 kHz). Its UI uses the Digitakt MIDI-track \"CC Select\" ids 262-268, which the Syntakt never uses. Cost: ~100 instructions per block when off, ~600 when on. Checked on the device (v0.9). `[hw]` {synthack-mods}",
    "evidence": "hw",
    "sources": "synthack-guide,synthack-mods",
@@ -12753,7 +12772,7 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 140,
-   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying)",
+   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
    "text": "Projects: SyntHack OS (9 mods on hardware, MIT); SY FM4 (4-operator FM replacing SY TONE, which also patches CPU #2); Syntakt Firmware Workbench. The Workbench replaces SY CHORD's waves: 31 slots of 257 big-endian Q31 samples, measured on a unit within 1 %. It adds a Deja Vu LFO, DV-H. It refuses any file but 1.41 and checks that only the declared regions changed. `[hw]` {syntakt-workbench}",
    "evidence": "hw",
    "sources": "syntakt-workbench,synthack-guide",
@@ -12764,7 +12783,7 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 144,
-   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10)",
+   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`",
    "text": "`Syntakt_OS1.42.syx`: ELE3, 2,029,486 bytes, META stamp 2026-09-30 (same day as DT2 1.17 and DN2 1.12), SHA-256 `ded3c59f...7f37c1`; SysEx transport id `0x16`, OS-stream byte `0x11`; same packing codec as DT2/DN2; per-packet checksum constant K = 0x11. `[doc]` {digikit-f70}",
    "evidence": "doc",
    "sources": "digikit-f70",
@@ -12775,7 +12794,7 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 145,
-   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10)",
+   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`",
    "text": "No HMAC trailer - the Syntakt OS file is not signed (last 32 bytes zero, no SHA-256 constants in sections 2-4); only the content checksum applies. `[doc]` {digikit-f70}",
    "evidence": "doc",
    "sources": "digikit-f70",
@@ -12786,7 +12805,7 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 146,
-   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10)",
+   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`",
    "text": "Sections: 5 META; 2 bootstrap (dest word `0x04000000`, ColdFire code at `0x8000xxxx`, 30,782 B); 1 present only on Syntakt: `0xFF` padding then a bitstream-like blob (149,516 B) - the FPGA configuration (the bootstrap configures a Xilinx-style FPGA via INIT_B/DONE; MAIN only reads a status word); 3 MAIN at `0x40000400` (3,442,576 B, same reset path as DT2: entry `0x400004e8`, SP `0x48000000`); 4 UPDATER at `0x80000400` (32,768 raw); 6 present only on Syntakt (a 5-entry trap/jump table plus SPI helper code, 1,744 B); 7 is not a SHARC stream here but a standalone ColdFire program linked at `0x40000400` (entry `0x40001070`, 383,760 B) driving a DSPI-like block at `0xFC05C000` - consistent with a second ColdFire that runs the digital machines `[?]`; 8 byte-identical to DT2/DN2's section 8. `[doc]` {digikit-f70}",
    "evidence": "?,doc",
    "sources": "digikit-f70",
@@ -12797,7 +12816,7 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 147,
-   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10)",
+   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`",
    "text": "Peer link (\"DSP boot\"): a mailbox in the FlexBus window at `0x10000000` (\"HO\" hello / \"NO\" -> DSP_MEM error; `0xA5A5` at +4 for OK), a doorbell on GPIO PA bit 4, EPORT IRQ4 handshake, 2 KB chunks to `0x10000800`, DSPI2 with eDMA channel 29; status values WAIT, init fail, TIMEOUT, BUFSIZE, DSP_MEM, CF_MEM, OK; the OS shows \"DSP BOOT FAILURE (TIMEOUT/CF/DSP/BUF)\". Peer states include LOAD_OS, BOOT, RUNNING, UPLOAD_SAMPLES. `[doc]` {digikit-f70}",
    "evidence": "doc",
    "sources": "digikit-f70",
@@ -12808,10 +12827,10 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 148,
-   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10)",
+   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`",
    "text": "Only 27 of 172 digikit anchor rules hit on Syntakt 1.42 (vs 111/111 on DT2 1.17) - the Syntakt is a different platform, DT2 tooling does not carry over.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc",
+   "sources": "digikit-f70",
    "devices": "syntakt",
    "addresses": "",
    "id": 649
@@ -12819,7 +12838,7 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 149,
-   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10)",
+   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`",
    "text": "digikit's scope rule, adopt it: never modify section 1 or the bootstrap, never reconfigure or emulate the FPGA (risk to the analog circuitry). `[doc]` {digikit-f70}",
    "evidence": "doc",
    "sources": "digikit-f70",
@@ -12830,10 +12849,10 @@
   {
    "file": "hardware/devices/syntakt.md",
    "line": 150,
-   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10)",
+   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`",
    "text": "Correction to earlier forum talk (\"two ColdFires and an FPGA\"): digikit's reading supports an FPGA and a second ColdFire program; SY FM4's \"CPU #2\" fits that.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc",
+   "sources": "digikit-f70",
    "devices": "syntakt",
    "addresses": "",
    "id": 651
@@ -12920,7 +12939,7 @@
    "line": 15,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules (each from a hardware round trip)",
    "text": "Run the emulator before every flash; the unit should only judge sound and feel.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
@@ -12931,7 +12950,7 @@
    "line": 16,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules (each from a hardware round trip)",
    "text": "Test what the hardware actually consumes (the frames the CPU sends and the DSP's output). Never test by reading back what your patch wrote.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
@@ -12942,7 +12961,7 @@
    "line": 17,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules (each from a hardware round trip)",
    "text": "Exercise the real path (sequencer, several tracks, a track other than 1) and the extremes: hard pan, 0 and 127, maximum feedback, every machine, unison.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
@@ -12953,7 +12972,7 @@
    "line": 18,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules (each from a hardware round trip)",
    "text": "Check any stock state you read on every variant (every machine and filter type).",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
@@ -12964,7 +12983,7 @@
    "line": 19,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules (each from a hardware round trip)",
    "text": "If a gesture works on stock pages but not on yours, find the stock routine and its bound (Digitone II: `slot <= 100`).",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "dn2-skill-workflow",
    "devices": "digitone-2",
    "addresses": "",
@@ -12975,7 +12994,7 @@
    "line": 20,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules (each from a hardware round trip)",
    "text": "Keep levels honest: measure worst cases, report them, avoid unrequested gain compensation; send-FX returns are wet only; clamp every audio-writing build; never read memory you did not write.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
@@ -12986,7 +13005,7 @@
    "line": 21,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules (each from a hardware round trip)",
    "text": "Profile L2/DDR accesses; if the unit's load disagrees with the emulator, measure on the unit before optimising. Keep per-block CPU work small, defer per-note work.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
@@ -12997,7 +13016,7 @@
    "line": 22,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules (each from a hardware round trip)",
    "text": "Do not call a root cause certain until the hardware agrees.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
@@ -13008,7 +13027,7 @@
    "line": 23,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules (each from a hardware round trip)",
    "text": "Never overwrite the stock image. Know the source of any third-party download.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
@@ -13019,7 +13038,7 @@
    "line": 24,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules (each from a hardware round trip)",
    "text": "Ask the user before cloning or installing anything. Work only on the user's own copy of the stock file; never commit or share extracted sections, snapshots or built images; make every mod reversible by reflashing stock.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
@@ -13096,7 +13115,7 @@
    "line": 61,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules digikit gives its own agents (AGENTS.md, read 2026-10-31)",
    "text": "Pin the analysis target: digikit works on DT2 OS 1.17 and DN2 OS 1.12; older images are references only - resolve every address on the current image first.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-agents",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
@@ -13107,7 +13126,7 @@
    "line": 62,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules digikit gives its own agents (AGENTS.md, read 2026-10-31)",
    "text": "Never commit firmware or anything derived from it (sections, card images, users' samples). Never name, copy or quote the vendor DSP toolchain; cite only the public manuals.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
@@ -13129,7 +13148,7 @@
    "line": 64,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules digikit gives its own agents (AGENTS.md, read 2026-10-31)",
    "text": "An empty caller list is not proof of dead code (Ghidra misses functions reached only through pointers; check raw references).",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
@@ -13140,7 +13159,7 @@
    "line": 65,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules digikit gives its own agents (AGENTS.md, read 2026-10-31)",
    "text": "Static evidence first; bound every emulator run (`--limit`/`--seconds`); stop only your own processes.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
@@ -13151,7 +13170,7 @@
    "line": 66,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules digikit gives its own agents (AGENTS.md, read 2026-10-31)",
    "text": "For performance claims: give the theoretical ceiling first, then one paired A/B measurement.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
@@ -13162,7 +13181,7 @@
    "line": 67,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Rules digikit gives its own agents (AGENTS.md, read 2026-10-31)",
    "text": "Before work likely to take more than a day: state payoff and confidence, recommend stopping when weak.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
@@ -13173,7 +13192,7 @@
    "line": 70,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / How digikit separates firmware from mods (ARCHITECTURE.md, worth copying)",
    "text": "Layers, each depending only on the one below: content modules (`.dkm` machines/FX/tools, loaded from the card at run time); apps (menus); SDK contract; runtime (loads `.dkm`, links imports); adapters (one per firmware plug-in point: the only code that hooks the firmware); firmware, found by hash-pinned anchors.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-arch",
    "devices": "",
    "addresses": "",
@@ -13184,7 +13203,7 @@
    "line": 77,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / How digikit separates firmware from mods (ARCHITECTURE.md, worth copying)",
    "text": "Everything version- or device-specific lives in anchors, device profiles and adapters. A new OS version means new anchors plus adapter fixes; modules and SDK stay unchanged. A checker (`layercheck`) enforces it.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-arch",
    "devices": "",
    "addresses": "",
@@ -13195,7 +13214,7 @@
    "line": 78,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / How digikit separates firmware from mods (ARCHITECTURE.md, worth copying)",
    "text": "Apps never patch. A hook costs at most one flag check on a hot path when no module uses it. Modules are never unloaded, so every pointer handed to the UI must be static.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-arch",
    "devices": "",
    "addresses": "",
@@ -13206,7 +13225,7 @@
    "line": 81,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Making several ColdFire mods combine (dnfw `mods-compatibility.md`)",
    "text": "Every mod checks the stock bytes it replaces. Applying in the wrong order then fails with an error instead of producing a broken image.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "dn2-mods",
    "devices": "",
    "addresses": "",
@@ -13217,7 +13236,7 @@
    "line": 82,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Making several ColdFire mods combine (dnfw `mods-compatibility.md`)",
    "text": "dnfw generates a pairwise matrix: \"yes\" means disjoint bytes in both orders, \"order\" means one order only. Only one triple ran on hardware. Disjoint bytes do not mean no functional clash.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "dn2-mods",
    "devices": "",
    "addresses": "",
@@ -13228,7 +13247,7 @@
    "line": 83,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Making several ColdFire mods combine (dnfw `mods-compatibility.md`)",
    "text": "One shared loader and one appended area for all mods; separate loaders at the same start-up site never combine.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "dn2-mods",
    "devices": "",
    "addresses": "",
@@ -13239,7 +13258,7 @@
    "line": 84,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Making several ColdFire mods combine (dnfw `mods-compatibility.md`)",
    "text": "A hook bus owns the contested instructions and dispatches to each mod, so two mods can hook the same place. Without it, two mods hooking `0x400dc02a` could not coexist.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "dn2-mods",
    "devices": "",
    "addresses": "0x400dc02a",
@@ -13250,7 +13269,7 @@
    "line": 85,
    "section": "Agent workflow for firmware mods (distilled from the digitone-2-modding-skill) / Making several ColdFire mods combine (dnfw `mods-compatibility.md`)",
    "text": "The same idea at a larger scale is digikit's adapter layer. Mixing two platforms in one image collides (see `dt2-dn2-limits-and-audio-chain.md` section 6).",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "dn2-mods",
    "devices": "",
    "addresses": "",
@@ -13338,7 +13357,7 @@
    "line": 44,
    "section": "Digitakt II / Digitone II - firmware limits, DSP calling convention and the audio chain (DT2 1.17, DN2 1.12) / 4. SHARC calling convention of the stock code (selcc emits the same)",
    "text": "Call: `CALL (linked, delayed)` (Type 25a). Prologue `I7 = MODIFY(I7, -N)`, saves to `DM(I6 - n)`. Return `I12 = DM(I6, M7); JUMP (M14, I12) (DB)` with `RFRAME` in the delay slot.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
@@ -13349,7 +13368,7 @@
    "line": 45,
    "section": "Digitakt II / Digitone II - firmware limits, DSP calling convention and the audio chain (DT2 1.17, DN2 1.12) / 4. SHARC calling convention of the stock code (selcc emits the same)",
    "text": "Arguments R4, R8, R12, then the stack (`DM(I6, M6)`). Result in R0 (F0; R0:R1 for 64-bit). Render kernels return nothing and write through pointers.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
@@ -13360,7 +13379,7 @@
    "line": 46,
    "section": "Digitakt II / Digitone II - firmware limits, DSP calling convention and the audio chain (DT2 1.17, DN2 1.12) / 4. SHARC calling convention of the stock code (selcc emits the same)",
    "text": "Callee-saved: R3, R5-R7, R9-R11, R13-R15, I0-I3, I5, M1-M3, B3.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
@@ -13371,7 +13390,7 @@
    "line": 47,
    "section": "Digitakt II / Digitone II - firmware limits, DSP calling convention and the audio chain (DT2 1.17, DN2 1.12) / 4. SHARC calling convention of the stock code (selcc emits the same)",
    "text": "Constant registers that voice code never writes: M5 = 0, M6 = 1, M7 = -1, M13 = 0, M14 = 1, M15 = -1. Indirect jumps use DAG2 (`JUMP (M13, I12)` relies on M13 = 0).",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
@@ -13393,7 +13412,7 @@
    "line": 49,
    "section": "Digitakt II / Digitone II - firmware limits, DSP calling convention and the audio chain (DT2 1.17, DN2 1.12) / 4. SHARC calling convention of the stock code (selcc emits the same)",
    "text": "Parameters: the ColdFire smooths them (one-pole) before the frame. The DSP converts s16 to float once per block (scale 1/32512) and ramps per sample by (new - old)/32 inside a block (/64 in DN2 FM operators).",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
@@ -13404,7 +13423,7 @@
    "line": 50,
    "section": "Digitakt II / Digitone II - firmware limits, DSP calling convention and the audio chain (DT2 1.17, DN2 1.12) / 4. SHARC calling convention of the stock code (selcc emits the same)",
    "text": "DT2 sample machines and DN2 FM TONE render 64 samples at 96 kHz and decimate to 32 with a half-band filter.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
@@ -13569,7 +13588,7 @@
    "line": 34,
    "section": "Ecosystem lessons - how the 2026 custom-firmware wave is built, verified and what goes wrong / Stock-firmware availability (elektronmods thread 27, first post 2026-10-02, latest 2026-10-08)",
    "text": "Official notes also say \"Downgrading the device OS is not supported\" ({elektron-dt2-notes}).",
-   "evidence": "",
+   "evidence": "?",
    "sources": "elektron-dt2-notes",
    "devices": "",
    "addresses": "",
@@ -13613,7 +13632,7 @@
    "line": 40,
    "section": "Ecosystem lessons - how the 2026 custom-firmware wave is built, verified and what goes wrong / Safe byte-level editing rules (elektronmods tutorial by the forum admin, using elektron-firmware-tool)",
    "text": "Note the interaction with Digitone II's in-place loader margin ([`../devices/digitone-2-internals.md`](../devices/digitone-2-internals.md)): the tool's default level can make a build too large to unpack in place.",
-   "evidence": "",
+   "evidence": "?",
    "sources": "dubspot",
    "devices": "digitone-2",
    "addresses": "",
@@ -13943,8 +13962,8 @@
    "line": 93,
    "section": "Firmware container (.syx) - facts shared by the devices / ELE3 container in detail (dnfw `docs/ele3-format.md`, read 2026-10-31)",
    "text": "Update/version gates: flash addresses and loader margins for Digitone II are in [`../devices/digitone-2-internals.md`](../devices/digitone-2-internals.md).",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc",
+   "sources": "dn2-ele3",
    "devices": "digitone-2",
    "addresses": "",
    "id": 752
@@ -14007,10 +14026,10 @@
   {
    "file": "hardware/common/flash-procedure.md",
    "line": 38,
-   "section": "Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw) / Practices from dnfw",
+   "section": "Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw) / Practices from dnfw `[doc]`",
    "text": "Back up with the `.dnx` backup before flashing; run `dnfw inspect` on the exact file you will send (build and patch only refuse output that does not verify).",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc",
+   "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
    "id": 758
@@ -14018,10 +14037,10 @@
   {
    "file": "hardware/common/flash-procedure.md",
    "line": 39,
-   "section": "Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw) / Practices from dnfw",
+   "section": "Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw) / Practices from dnfw `[doc]`",
    "text": "Keep the unmodified `.syx` in a firmware folder and never overwrite it with build output.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc",
+   "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
    "id": 759
@@ -14029,10 +14048,10 @@
   {
    "file": "hardware/common/flash-procedure.md",
    "line": 40,
-   "section": "Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw) / Practices from dnfw",
+   "section": "Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw) / Practices from dnfw `[doc]`",
    "text": "Change one thing per flash.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc",
+   "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
    "id": 760
@@ -14040,10 +14059,10 @@
   {
    "file": "hardware/common/flash-procedure.md",
    "line": 41,
-   "section": "Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw) / Practices from dnfw",
+   "section": "Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw) / Practices from dnfw `[doc]`",
    "text": "Do not patch the key material.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc",
+   "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
    "id": 761
@@ -14051,10 +14070,10 @@
   {
    "file": "hardware/common/flash-procedure.md",
    "line": 42,
-   "section": "Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw) / Practices from dnfw",
+   "section": "Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw) / Practices from dnfw `[doc]`",
    "text": "Do not start a flash on a crashing host (a previous workstation's `0x9F` crashes were tied to an NVIDIA driver).",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc",
+   "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
    "id": 762
@@ -14062,7 +14081,7 @@
   {
    "file": "hardware/common/flash-procedure.md",
    "line": 43,
-   "section": "Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw) / Practices from dnfw",
+   "section": "Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw) / Practices from dnfw `[doc]`",
    "text": "The log records what was sent, not what is resident: write a row when stock goes back on. `[doc]` {dn2-flashing}",
    "evidence": "doc",
    "sources": "dn2-flashing",
@@ -14193,91 +14212,124 @@
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 40,
-   "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
-   "text": "Digitakt mk1: ELE3, device byte `0x0A` (elekloader's page says `0x14`, which is the Digitakt II's byte; settled by taktone, see the table in [firmware-container.md](firmware-container.md)), six-plus sections, main OS staged at `0x40200000`. DDR is free RAM. Hook sites: no numeric list on the page; the first eight sites of the Digitone mk1 are described as the Digitakt mk1's.",
-   "evidence": "",
+   "line": 54,
+   "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)",
+   "text": "Stock does not touch `0x46710000-0x47ffffcc` in emulation. Three independent checks agree: dn2-cfw's write watches over `0x46800000-0x47f00000`, elekloader's canary over `0x46710000-0x48000000` (cold boot, two panel sessions), and digikit's reference scan (`0x4671a000-0x47fe0000` unreferenced, [`dt2-dn2-limits-and-audio-chain.md`](dt2-dn2-limits-and-audio-chain.md)). All three ran in an emulator, so rule A43 (canary on a unit) still applies. `[emu]`",
+   "evidence": "emu",
    "sources": "elekloader-devices,elekloader-main",
-   "devices": "digitakt,digitakt-2,digitone",
-   "addresses": "0x40200000",
+   "devices": "digitone-2",
+   "addresses": "0x46710000,0x4671a000,0x46800000,0x47f00000,0x47fe0000,0x47ffffcc,0x48000000",
    "id": 775
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 41,
-   "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
-   "text": "Digitone mk1: ELE3, seven sections, stock gap 403,540 bytes. The OS clears `0x4028E000-0x43229E60`; operands end before `0x43EB0000`; stack from `0x48000000`. First eight hook sites match the Digitakt mk1; the ninth is `ev_voice_on` at `0x4009e928`; render frame `0xB8`. Core `mods/core-dn1`, up to 4.0 (1.44 ported at its own addresses).",
-   "evidence": "",
+   "line": 55,
+   "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)",
+   "text": "`0x46700000-0x4670ffff` is not free. On 1.12 it holds the end of the DMA buffers; on 1.11 the MMC bounce buffer reaches `0x46701300`. dnfw's lfo4 state at `0x46700000` sits there on 1.11, and every `0x4670xxxx` placement must move for a 1.12 port. The \"25.3 MB unclaimed above BSS\" figure in dnfw's memory map missed these alias references. The skill's \"`0x46700000..0x46900000` unused, hardware-confirmed\" disagrees: see [CONFLICTS O17](../CONFLICTS.md). `[doc]`",
+   "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
-   "devices": "digitakt,digitone",
-   "addresses": "0x4009e928,0x4028E000,0x43229E60,0x43EB0000,0x48000000",
+   "devices": "digitone-2",
+   "addresses": "0x46700000,0x46701300,0x4670ffff,0x46900000",
    "id": 776
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 42,
-   "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
-   "text": "Digitakt II: device byte `0x14`, six sections, sealed (HMAC-SHA256). Clear `0x40312000-0x47E28470`; the core takes `0x47F00000-0x47F40000`; SRAM free at `0x80006E80-0x80008000` and `0x8000F100-0x80010000`. Hook events `ev_tick`, `ev_draw`, `ev_key`, `ev_enc`, `ev_settings`, `ev_personalize` (no numeric addresses). Core `mods/core-dt2`; DTIM0 not started.",
-   "evidence": "",
+   "line": 56,
+   "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)",
+   "text": "The platforms collide. dnfw's lfo4 code, cfmod's default link address and the start of dn2-cfw's mod area are all `0x46800000`; cfkit's scratch at `0x46a00000` is Waverider's chunk. Only elekloader's `0x47f00000` and dn2-cfw's core `0x47e00000` are disjoint from the rest. A mod built for one platform cannot be dropped into another's image without moving its RAM (and its hooks: [`dt2-dn2-limits-and-audio-chain.md`](dt2-dn2-limits-and-audio-chain.md) section 6, [`agent-workflow.md`](agent-workflow.md)). Before picking an address, check this table and declare every range you use (task T23 in [RESEARCH-MAP](../../RESEARCH-MAP.md)).",
+   "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
-   "devices": "digitakt-2",
-   "addresses": "0x40312000,0x47E28470,0x47F00000,0x47F40000,0x80006E80,0x80008000,0x8000F100,0x80010000",
+   "devices": "digitone-2",
+   "addresses": "0x46800000,0x46a00000,0x47e00000,0x47f00000",
    "id": 777
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 43,
+   "line": 59,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
-   "text": "Digitone II (OS 1.12): device byte `0x15`, six sections, sealed. Hook sites: boot `0x40000538`, `ev_tick` `0x4002e464`, `ev_draw` `0x4002e4ca`, `ev_key` `0x4002f20c`, `ev_enc` `0x4002f256`, `ev_settings` `0x4009ff88`, `ev_personalize` `0x400987a2`. Clear `0x402fd000-0x466b84d0` with a 32 MB heap inside it; SHARC mod area 32 KiB at `[0x20090000,0x20098000)`. USB cap `update_max = 0x200000` (2 MiB, preamble plus container, conservative): CO02 (1,915,960 bytes) was accepted, a 2,147,448-byte build stalled. The page is inconsistent on the core version (0.2 in the file list, 0.1 in the core section).",
-   "evidence": "",
+   "text": "Digitakt mk1: ELE3, device byte `0x0A` (elekloader's page says `0x14`, which is the Digitakt II's byte; settled by taktone, see the table in [firmware-container.md](firmware-container.md)), six-plus sections, main OS staged at `0x40200000`. DDR is free RAM. Hook sites: no numeric list on the page; the first eight sites of the Digitone mk1 are described as the Digitakt mk1's.",
+   "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
-   "devices": "digitone-2",
-   "addresses": "0x200000,0x20090000,0x20098000,0x40000538,0x4002e464,0x4002e4ca,0x4002f20c,0x4002f256,0x400987a2,0x4009ff88,0x402fd000,0x466b84d0",
+   "devices": "digitakt,digitakt-2,digitone",
+   "addresses": "0x40200000",
    "id": 778
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 44,
+   "line": 60,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
-   "text": "Octatrack: one image for MKI and MKII (`.syx` and `.bin`); `stage` is `None`, so the in-place unpack is unsimulated. Protected `0x400de1e0-0x400e21e0`. Six hook events (sys tick, composed frame, keys, encoders, MIDI in, frame interrupt); boot site `0x4000050c`; draw gate `0x400c45b0`; image free runs `0x400c45b0-0x400c4702`, `0x400d24e0-0x400d2ce0`, `0x400d64e0-0x400d7c3c`. DSP payload A `0x136cb` bytes, payload B `0x12d05` bytes; the SPATIALIZER range P:0xaa8-0xbac (261 words) is used for mods. Arena 14,602 pages of 6,144 B.",
-   "evidence": "",
+   "text": "Digitone mk1: ELE3, seven sections, stock gap 403,540 bytes. The OS clears `0x4028E000-0x43229E60`; operands end before `0x43EB0000`; stack from `0x48000000`. First eight hook sites match the Digitakt mk1; the ninth is `ev_voice_on` at `0x4009e928`; render frame `0xB8`. Core `mods/core-dn1`, up to 4.0 (1.44 ported at its own addresses).",
+   "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
-   "devices": "octatrack",
-   "addresses": "0x12d05,0x136cb,0x4000050c,0x400c45b0,0x400c4702,0x400d24e0,0x400d2ce0,0x400d64e0,0x400d7c3c,0x400de1e0,0x400e21e0",
+   "devices": "digitakt,digitone",
+   "addresses": "0x4009e928,0x4028E000,0x43229E60,0x43EB0000,0x48000000",
    "id": 779
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 45,
+   "line": 61,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
-   "text": "Model:Cycles / Samples: ELE3 sealed, version field at `0x0C`; DDR `0x47E00000-0x47E40000`; SRAM tail `0x8000F700-0x80010000` (2,304 bytes); section 3 is read to `0x40200000` and unpacked to `0x40000400`; core-mc / core-ms.",
-   "evidence": "",
+   "text": "Digitakt II: device byte `0x14`, six sections, sealed (HMAC-SHA256). Clear `0x40312000-0x47E28470`; the core takes `0x47F00000-0x47F40000`; SRAM free at `0x80006E80-0x80008000` and `0x8000F100-0x80010000`. Hook events `ev_tick`, `ev_draw`, `ev_key`, `ev_enc`, `ev_settings`, `ev_personalize` (no numeric addresses). Core `mods/core-dt2`; DTIM0 not started.",
+   "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
-   "devices": "model-cycles",
-   "addresses": "0x40000400,0x40200000,0x47E00000,0x47E40000,0x8000F700,0x80010000",
+   "devices": "digitakt-2",
+   "addresses": "0x40312000,0x47E28470,0x47F00000,0x47F40000,0x80006E80,0x80008000,0x8000F100,0x80010000",
    "id": 780
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 46,
+   "line": 62,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
-   "text": "Analog Rytm MKII: device byte `0x0C`, no trailer, five sections; loader `0x80000590`, stock gap 401,995 bytes (1.74 repack 436,273); stores at `0x300000-0x380000` and `0x380000-0x400000`; 1.74 repack ends at `0x1F2BB0`; core-ar2 (1.73 up to 0.2, 1.74 from 0.3).",
-   "evidence": "",
+   "text": "Digitone II (OS 1.12): device byte `0x15`, six sections, sealed. Hook sites: boot `0x40000538`, `ev_tick` `0x4002e464`, `ev_draw` `0x4002e4ca`, `ev_key` `0x4002f20c`, `ev_enc` `0x4002f256`, `ev_settings` `0x4009ff88`, `ev_personalize` `0x400987a2`. Clear `0x402fd000-0x466b84d0` with a 32 MB heap inside it; SHARC mod area 32 KiB at `[0x20090000,0x20098000)`. USB cap `update_max = 0x200000` (2 MiB, preamble plus container, conservative): CO02 (1,915,960 bytes) was accepted, a 2,147,448-byte build stalled. The page is inconsistent on the core version (0.2 in the file list, 0.1 in the core section).",
+   "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
-   "devices": "analog-rytm",
-   "addresses": "0x1F2BB0,0x300000,0x380000,0x400000,0x80000590",
+   "devices": "digitone-2",
+   "addresses": "0x200000,0x20090000,0x20098000,0x40000538,0x4002e464,0x4002e4ca,0x4002f20c,0x4002f256,0x400987a2,0x4009ff88,0x402fd000,0x466b84d0",
    "id": 781
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 47,
+   "line": 63,
+   "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
+   "text": "Octatrack: one image for MKI and MKII (`.syx` and `.bin`); `stage` is `None`, so the in-place unpack is unsimulated. Protected `0x400de1e0-0x400e21e0`. Six hook events (sys tick, composed frame, keys, encoders, MIDI in, frame interrupt); boot site `0x4000050c`; draw gate `0x400c45b0`; image free runs `0x400c45b0-0x400c4702`, `0x400d24e0-0x400d2ce0`, `0x400d64e0-0x400d7c3c`. DSP payload A `0x136cb` bytes, payload B `0x12d05` bytes; the SPATIALIZER range P:0xaa8-0xbac (261 words) is used for mods. Arena 14,602 pages of 6,144 B.",
+   "evidence": "doc",
+   "sources": "elekloader-devices,elekloader-main",
+   "devices": "octatrack",
+   "addresses": "0x12d05,0x136cb,0x4000050c,0x400c45b0,0x400c4702,0x400d24e0,0x400d2ce0,0x400d64e0,0x400d7c3c,0x400de1e0,0x400e21e0",
+   "id": 782
+  },
+  {
+   "file": "hardware/common/memory-maps.md",
+   "line": 64,
+   "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
+   "text": "Model:Cycles / Samples: ELE3 sealed, version field at `0x0C`; DDR `0x47E00000-0x47E40000`; SRAM tail `0x8000F700-0x80010000` (2,304 bytes); section 3 is read to `0x40200000` and unpacked to `0x40000400`; core-mc / core-ms.",
+   "evidence": "doc",
+   "sources": "elekloader-devices,elekloader-main",
+   "devices": "model-cycles",
+   "addresses": "0x40000400,0x40200000,0x47E00000,0x47E40000,0x8000F700,0x80010000",
+   "id": 783
+  },
+  {
+   "file": "hardware/common/memory-maps.md",
+   "line": 65,
+   "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
+   "text": "Analog Rytm MKII: device byte `0x0C`, no trailer, five sections; loader `0x80000590`, stock gap 401,995 bytes (1.74 repack 436,273); stores at `0x300000-0x380000` and `0x380000-0x400000`; 1.74 repack ends at `0x1F2BB0`; core-ar2 (1.73 up to 0.2, 1.74 from 0.3).",
+   "evidence": "doc",
+   "sources": "elekloader-devices,elekloader-main",
+   "devices": "analog-rytm",
+   "addresses": "0x1F2BB0,0x300000,0x380000,0x400000,0x80000590",
+   "id": 784
+  },
+  {
+   "file": "hardware/common/memory-maps.md",
+   "line": 66,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
    "text": "Analog Four MKII: device byte `0x0B`, version at `0x14`, no trailer; stock gap 540,192 bytes (repack 563,703); calibration record `RBOW` (0xE56 bytes) in the `0x300000` area; settings store `0x380000-0x400000`; repack ends at `0x18DF70`; OS clears `0x40253000-0x448B6D50`; 16 MB allocator arena `0x41872230-0x42872230`; core-a4 up to 0.4.",
-   "evidence": "",
+   "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
    "devices": "analog-four-keys",
    "addresses": "0x18DF70,0x300000,0x380000,0x400000,0x40253000,0x41872230,0x42872230,0x448B6D50",
-   "id": 782
+   "id": 785
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14288,7 +14340,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 783
+   "id": 786
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14299,7 +14351,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x40000",
-   "id": 784
+   "id": 787
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14310,7 +14362,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 785
+   "id": 788
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14321,7 +14373,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x10000,0x80000,0xec090000",
-   "id": 786
+   "id": 789
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14332,7 +14384,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 787
+   "id": 790
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14343,7 +14395,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 788
+   "id": 791
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14354,7 +14406,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 789
+   "id": 792
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14365,7 +14417,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 790
+   "id": 793
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14376,7 +14428,7 @@
    "sources": "digikit-f42",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "0xFC0B0000",
-   "id": 791
+   "id": 794
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14387,7 +14439,7 @@
    "sources": "digikit-f42",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 792
+   "id": 795
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14398,7 +14450,7 @@
    "sources": "digikit-f42",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 793
+   "id": 796
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14409,7 +14461,7 @@
    "sources": "digikit-f42",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 794
+   "id": 797
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14420,7 +14472,7 @@
    "sources": "dn2-cfw-ob01",
    "devices": "analog-heat,digitone-2",
    "addresses": "",
-   "id": 795
+   "id": 798
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14431,7 +14483,7 @@
    "sources": "dn2-cfw-ob01",
    "devices": "analog-heat,digitone-2",
    "addresses": "",
-   "id": 796
+   "id": 799
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14442,7 +14494,7 @@
    "sources": "dn2-cfw-ob01",
    "devices": "analog-heat,digitone-2",
    "addresses": "",
-   "id": 797
+   "id": 800
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14453,7 +14505,7 @@
    "sources": "overwitch-readme",
    "devices": "analog-four-keys,analog-heat,analog-rytm,digitakt-2,digitone,digitone-2,syntakt",
    "addresses": "",
-   "id": 798
+   "id": 801
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14464,7 +14516,7 @@
    "sources": "overwitch-readme",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 799
+   "id": 802
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14475,7 +14527,7 @@
    "sources": "overwitch-readme",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 800
+   "id": 803
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14486,7 +14538,7 @@
    "sources": "overwitch-readme",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 801
+   "id": 804
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14497,7 +14549,7 @@
    "sources": "dn2-cfw-roadmap",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 802
+   "id": 805
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14508,7 +14560,7 @@
    "sources": "elektron-dt2-notes,elektron-heat-fx-notes,gearnews-dn2-overbridge",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 803
+   "id": 806
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14519,7 +14571,7 @@
    "sources": "overwitch-readme",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 804
+   "id": 807
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14530,7 +14582,7 @@
    "sources": "dt1-sidecar-h01",
    "devices": "analog-heat,digitakt",
    "addresses": "",
-   "id": 805
+   "id": 808
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14541,7 +14593,7 @@
    "sources": "dt1-sidecar-h01",
    "devices": "analog-heat,digitakt",
    "addresses": "",
-   "id": 806
+   "id": 809
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14552,7 +14604,7 @@
    "sources": "dt1-sidecar-h01",
    "devices": "analog-heat,digitakt",
    "addresses": "",
-   "id": 807
+   "id": 810
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14563,7 +14615,7 @@
    "sources": "overtone",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 808
+   "id": 811
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14574,7 +14626,7 @@
    "sources": "dt2-lab-coldfire-fix",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 809
+   "id": 812
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14585,7 +14637,7 @@
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 810
+   "id": 813
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14596,7 +14648,7 @@
    "sources": "digitakt-ii-research",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 811
+   "id": 814
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14607,7 +14659,7 @@
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 812
+   "id": 815
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14618,7 +14670,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "",
    "addresses": "",
-   "id": 813
+   "id": 816
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14629,7 +14681,7 @@
    "sources": "digitakt-ii-research",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 814
+   "id": 817
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14640,7 +14692,7 @@
    "sources": "elektron-dn2-notes,elektron-dt2-notes",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 815
+   "id": 818
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14651,7 +14703,7 @@
    "sources": "elektron-dn2-notes,elektron-dt2-notes,elektron-heat-fx-notes",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 816
+   "id": 819
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14662,7 +14714,7 @@
    "sources": "elektron-dn2-notes,elektron-dt2-notes",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 817
+   "id": 820
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14673,7 +14725,7 @@
    "sources": "elektron-dt2-notes",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 818
+   "id": 821
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14684,7 +14736,7 @@
    "sources": "elektron-heat-fx-notes",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 819
+   "id": 822
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14695,7 +14747,7 @@
    "sources": "dt2-recovery",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 820
+   "id": 823
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14706,7 +14758,7 @@
    "sources": "synthack-recovery",
    "devices": "syntakt",
    "addresses": "",
-   "id": 821
+   "id": 824
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14717,7 +14769,7 @@
    "sources": "elekloader-building",
    "devices": "analog-four-keys,analog-rytm,digitakt,digitone,octatrack",
    "addresses": "",
-   "id": 822
+   "id": 825
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14728,7 +14780,7 @@
    "sources": "dt2-install,overtone",
    "devices": "",
    "addresses": "",
-   "id": 823
+   "id": 826
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14739,7 +14791,7 @@
    "sources": "elektron-dt2-support",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 824
+   "id": 827
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14750,7 +14802,7 @@
    "sources": "elektron-dn2-support",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 825
+   "id": 828
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14761,7 +14813,7 @@
    "sources": "digitakt-midi-mcp",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 826
+   "id": 829
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14772,7 +14824,7 @@
    "sources": "elektron-dt2-notes",
    "devices": "",
    "addresses": "",
-   "id": 827
+   "id": 830
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14783,7 +14835,7 @@
    "sources": "digitakt-midi-mcp,syxgrid",
    "devices": "",
    "addresses": "",
-   "id": 828
+   "id": 831
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14794,7 +14846,7 @@
    "sources": "digi-roll-studio,syxgrid",
    "devices": "",
    "addresses": "",
-   "id": 829
+   "id": 832
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14805,7 +14857,7 @@
    "sources": "syxgrid",
    "devices": "digitone,digitone-2",
    "addresses": "",
-   "id": 830
+   "id": 833
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14816,7 +14868,7 @@
    "sources": "digi-roll-studio",
    "devices": "analog-four-keys,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 831
+   "id": 834
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14827,7 +14879,7 @@
    "sources": "digi-roll-studio",
    "devices": "digitone,digitone-2",
    "addresses": "",
-   "id": 832
+   "id": 835
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14838,47 +14890,14 @@
    "sources": "libanalogrytm",
    "devices": "analog-heat,analog-rytm",
    "addresses": "",
-   "id": 833
+   "id": 836
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
    "line": 30,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
    "text": "Message: product byte `0x15`, message type `0x50` (pattern). A pattern dump is 114,118 bytes. The body from raw byte 10 to 114113 is 7-bit packed (one control byte per 7 payload bytes); \"decoded\" offsets below are into the unpacked payload.",
-   "evidence": "",
-   "sources": "syxgrid-map",
-   "devices": "digitone-2",
-   "addresses": "",
-   "id": 834
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 31,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
-   "text": "Slot: raw byte 9 is the slot the device dumped from (0 = A01 ... 127 = H16), not a destination. A received pattern is stored in the slot armed on the device, advancing by one per pattern.",
-   "evidence": "",
-   "sources": "syxgrid-map",
-   "devices": "digitone-2",
-   "addresses": "",
-   "id": 835
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 32,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
-   "text": "Step states: at decoded `4 + 1187*(track-1) + 2*(step-1)`, two bytes per step, 16 tracks x 128 steps. Odd-step trig `03 81`, even-step trig `03 91`. `03 90` / `03 80` (bit 0 clear) is not an occupied step. First byte `0x78` = trigless trig (parameter automation, no note).",
-   "evidence": "",
-   "sources": "syxgrid-map",
-   "devices": "digitone-2",
-   "addresses": "",
-   "id": 836
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 35,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
-   "text": "Trigger records: at decoded `18996`, 6 bytes each, up to 8,192 records. Fields: track, step, note, velocity (`0xFF` = track default), length index (`0xFF` = inherit), and a signed micro-timing byte (1/384 note, -23..+23). A record is free when its track byte is `0xFF`; nothing terminates the table, so skip and keep scanning. Chords are stored as all primary notes first, then all chord extras.",
-   "evidence": "",
+   "evidence": "hw",
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
@@ -14886,10 +14905,10 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 39,
+   "line": 31,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
-   "text": "Track type bitmask at decoded `99348-99349`, big-endian, bit i = track i+1, 1 = MIDI track.",
-   "evidence": "",
+   "text": "Slot: raw byte 9 is the slot the device dumped from (0 = A01 ... 127 = H16), not a destination. A received pattern is stored in the slot armed on the device, advancing by one per pattern.",
+   "evidence": "hw",
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
@@ -14897,10 +14916,10 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 40,
+   "line": 32,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
-   "text": "Machine per track at `89160 + 359*(track-1) + 232`: 0 FM TONE, 1 WAVETONE, 2 FM DRUM, 3 SWARMER, 4 MIDI.",
-   "evidence": "",
+   "text": "Step states: at decoded `4 + 1187*(track-1) + 2*(step-1)`, two bytes per step, 16 tracks x 128 steps. Odd-step trig `03 81`, even-step trig `03 91`. `03 90` / `03 80` (bit 0 clear) is not an occupied step. First byte `0x78` = trigless trig (parameter automation, no note).",
+   "evidence": "hw",
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
@@ -14908,10 +14927,10 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 41,
+   "line": 35,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
-   "text": "MIDI channel per track: the enabled flag is at `95064 + 268*(track-1) + 245`, the channel (0-15) at `... + 82`.",
-   "evidence": "",
+   "text": "Trigger records: at decoded `18996`, 6 bytes each, up to 8,192 records. Fields: track, step, note, velocity (`0xFF` = track default), length index (`0xFF` = inherit), and a signed micro-timing byte (1/384 note, -23..+23). A record is free when its track byte is `0xFF`; nothing terminates the table, so skip and keep scanning. Chords are stored as all primary notes first, then all chord extras.",
+   "evidence": "hw",
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
@@ -14919,10 +14938,10 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 42,
+   "line": 39,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
-   "text": "Pattern length: raw payload byte 101507 (control byte 101506, mask `0x40`), 1-128 steps.",
-   "evidence": "",
+   "text": "Track type bitmask at decoded `99348-99349`, big-endian, bit i = track i+1, 1 = MIDI track.",
+   "evidence": "hw",
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
@@ -14930,10 +14949,10 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 43,
+   "line": 40,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
-   "text": "Playback needs a clock: `0xF8` at 24 ppqn, `0xFA` start, `0xFC` stop. Program Change 0-127 on the program-change-in channel selects A01-H16.",
-   "evidence": "",
+   "text": "Machine per track at `89160 + 359*(track-1) + 232`: 0 FM TONE, 1 WAVETONE, 2 FM DRUM, 3 SWARMER, 4 MIDI.",
+   "evidence": "hw",
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
@@ -14941,43 +14960,43 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 49,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`)",
-   "text": "Unpacked request body: `seq_hi seq_lo 00 00 type payload...`. The two bytes after seq must be `00 00`. A non-zero byte there and the unit never replies.",
-   "evidence": "",
-   "sources": "digikit-rpc",
-   "devices": "digitakt-2",
+   "line": 41,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
+   "text": "MIDI channel per track: the enabled flag is at `95064 + 268*(track-1) + 245`, the channel (0-15) at `... + 82`.",
+   "evidence": "hw",
+   "sources": "syxgrid-map",
+   "devices": "digitone-2",
    "addresses": "",
    "id": 843
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 50,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`)",
-   "text": "Unpacked reply: `counter16 seq16 (type|0x80) payload...`. The first pair is a device-side counter, not the seq; the echoed seq is the second pair.",
-   "evidence": "",
-   "sources": "digikit-rpc",
-   "devices": "digitakt-2",
+   "line": 42,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
+   "text": "Pattern length: raw payload byte 101507 (control byte 101506, mask `0x40`), 1-128 steps.",
+   "evidence": "hw",
+   "sources": "syxgrid-map",
+   "devices": "digitone-2",
    "addresses": "",
    "id": 844
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 51,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`)",
-   "text": "The whole body is 8-in-7 packed, one collector per 7 bytes. Short bodies (Ping, `ReadDir /`) look unpacked, which misled early tools. Longer payloads must be packed or the unit answers \"Invalid path\".",
-   "evidence": "",
-   "sources": "digikit-rpc",
-   "devices": "digitakt-2",
+   "line": 43,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
+   "text": "Playback needs a clock: `0xF8` at 24 ppqn, `0xFA` start, `0xFC` stop. Program Change 0-127 on the program-change-in channel selects A01-H16.",
+   "evidence": "hw",
+   "sources": "syxgrid-map",
+   "devices": "digitone-2",
    "addresses": "",
    "id": 845
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 52,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`)",
-   "text": "All integers are big-endian, strings are NUL-terminated (< 256 bytes), and no checksum is used.",
-   "evidence": "",
+   "line": 49,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "Unpacked request body: `seq_hi seq_lo 00 00 type payload...`. The two bytes after seq must be `00 00`. A non-zero byte there and the unit never replies.",
+   "evidence": "doc",
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
@@ -14985,10 +15004,10 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 53,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`)",
-   "text": "Status: hardware round-trip `[hw]` for Ping, SoftwareVersion (\"1.16\"), DeviceUID, StorageSpace and ReadDir; the rest `[emu]`. The 44 commands the unit advertises (the Ping reply lists them, then the name \"Digitakt II\"):",
-   "evidence": "emu,hw",
+   "line": 50,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "Unpacked reply: `counter16 seq16 (type|0x80) payload...`. The first pair is a device-side counter, not the seq; the echoed seq is the second pair.",
+   "evidence": "doc",
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
@@ -14996,21 +15015,21 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 65,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`)",
-   "text": "Screenshot `0x04` returns a 9-byte header (`01`, width 128, height 64, length 1024) plus the 1,024-byte OLED buffer (byte `(7 - y/8) + 8x`, bit `y mod 8`). It works the same on DN2 1.12. This is a no-mod way to see the screen remotely.",
-   "evidence": "",
+   "line": 51,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "The whole body is 8-in-7 packed, one collector per 7 bytes. Short bodies (Ping, `ReadDir /`) look unpacked, which misled early tools. Longer payloads must be packed or the unit answers \"Invalid path\".",
+   "evidence": "doc",
    "sources": "digikit-rpc",
-   "devices": "digitakt-2,digitone-2",
+   "devices": "digitakt-2",
    "addresses": "",
    "id": 848
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 66,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`)",
-   "text": "Writing a sample: 1. `CreateDir` the folder. 2. `OpenFileForWrite 0x40`: `u32` (any value), then the path with a leading slash. A bare name creates a *folder*. 3. `WriteFileV1 0x42`: handle, length, sequential offset, data. 4. `CloseFileWriter 0x41` takes the handle AND the byte count. With the handle alone it fails.",
-   "evidence": "",
+   "line": 52,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "All integers are big-endian, strings are NUL-terminated (< 256 bytes), and no checksum is used.",
+   "evidence": "doc",
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
@@ -15018,10 +15037,10 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 71,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`)",
-   "text": "The firmware appends a 16-byte trailer and stores `content_hash(data ++ 16 zero bytes) | 1`, so a host can verify the upload. An idle writer is closed after 20 s, leaving a half file.",
-   "evidence": "",
+   "line": 53,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "Status: hardware round-trip `[hw]` for Ping, SoftwareVersion (\"1.16\"), DeviceUID, StorageSpace and ReadDir; the rest `[emu]`. The 44 commands the unit advertises (the Ping reply lists them, then the name \"Digitakt II\"):",
+   "evidence": "emu,hw",
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
@@ -15029,21 +15048,21 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 72,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`)",
-   "text": "Chunks of 2-16 KiB work in the emulator (limit ~100 KiB). Device tools keep 2,048 bytes until real USB timing is known.",
-   "evidence": "",
+   "line": 65,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "Screenshot `0x04` returns a 9-byte header (`01`, width 128, height 64, length 1024) plus the 1,024-byte OLED buffer (byte `(7 - y/8) + 8x`, bit `y mod 8`). It works the same on DN2 1.12. This is a no-mod way to see the screen remotely.",
+   "evidence": "doc,emu",
    "sources": "digikit-rpc",
-   "devices": "digitakt-2",
+   "devices": "digitakt-2,digitone-2",
    "addresses": "",
    "id": 851
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 73,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`)",
-   "text": "The device does no WAV conversion: send the native file (0x40-byte header, 48 kHz big-endian int16, see [`overbridge-usb.md`](overbridge-usb.md)).",
-   "evidence": "",
+   "line": 66,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "Writing a sample: 1. `CreateDir` the folder. 2. `OpenFileForWrite 0x40`: `u32` (any value), then the path with a leading slash. A bare name creates a *folder*. 3. `WriteFileV1 0x42`: handle, length, sequential offset, data. 4. `CloseFileWriter 0x41` takes the handle AND the byte count. With the handle alone it fails.",
+   "evidence": "doc,emu",
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
@@ -15051,10 +15070,10 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 74,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`)",
-   "text": "StorageSpace (drive 1 = +Drive) returns status, `u64` free and `u64` total.",
-   "evidence": "",
+   "line": 71,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "The firmware appends a 16-byte trailer and stores `content_hash(data ++ 16 zero bytes) | 1`, so a host can verify the upload. An idle writer is closed after 20 s, leaving a half file.",
+   "evidence": "doc,emu",
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
@@ -15062,10 +15081,10 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 75,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`)",
-   "text": "ReadFileV1 layout is still unsettled (it returned no data in the emulator).",
-   "evidence": "",
+   "line": 72,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "Chunks of 2-16 KiB work in the emulator (limit ~100 KiB). Device tools keep 2,048 bytes until real USB timing is known.",
+   "evidence": "doc,emu",
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
@@ -15073,10 +15092,10 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 76,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`)",
-   "text": "No wire-controlled memory read or write exists over MidiRpc. Eight surfaces were audited (Data partial R/W, path resolvers, FsRaw, the backup streams, the route table, the full type factory). Live RAM is not reachable this way; the OS-upgrade path writes flash only. `[doc]`",
-   "evidence": "doc",
+   "line": 73,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "The device does no WAV conversion: send the native file (0x40-byte header, 48 kHz big-endian int16, see [`overbridge-usb.md`](overbridge-usb.md)).",
+   "evidence": "doc,emu",
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
@@ -15084,10 +15103,10 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 77,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`)",
-   "text": "`F0 7E ...` always goes to the Sample Dump Standard handler. A Universal Device Inquiry gets `F0 7E 00 7C 00 F7` (WAIT), not an identity. `[hw]`",
-   "evidence": "hw",
+   "line": 74,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "StorageSpace (drive 1 = +Drive) returns status, `u64` free and `u64` total.",
+   "evidence": "doc,emu",
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
@@ -15095,14 +15114,47 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
+   "line": 75,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "ReadFileV1 layout is still unsettled (it returned no data in the emulator).",
+   "evidence": "doc,emu",
+   "sources": "digikit-rpc",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 857
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 76,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "No wire-controlled memory read or write exists over MidiRpc. Eight surfaces were audited (Data partial R/W, path resolvers, FsRaw, the backup streams, the route table, the full type factory). Live RAM is not reachable this way; the OS-upgrade path writes flash only. `[doc]`",
+   "evidence": "doc",
+   "sources": "digikit-rpc",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 858
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 77,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "`F0 7E ...` always goes to the Sample Dump Standard handler. A Universal Device Inquiry gets `F0 7E 00 7C 00 F7` (WAIT), not an identity. `[hw]`",
+   "evidence": "hw",
+   "sources": "digikit-rpc",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 859
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
    "line": 78,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`)",
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
    "text": "The factory debug console is on UART8, not MIDI: `#HELLO`, `#READ`/`#WRITE` (an 11-name parameter table, not memory), `#DUMP_AUDIO`, `#ENTER_TEST_MODE`, `#MRAM_DUMP` (a fixed 13.8 MiB factory/calibration blob, magic \"COKi\"), `#MMCDUMP` (raw eMMC sectors). It is not known to be reachable from outside. Agents: leave it alone. `[doc]`",
    "evidence": "doc",
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 857
+   "id": 860
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15113,7 +15165,7 @@
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 858
+   "id": 861
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15124,7 +15176,7 @@
    "sources": "dn2-midirpc",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 859
+   "id": 862
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15135,7 +15187,7 @@
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 860
+   "id": 863
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15146,7 +15198,7 @@
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 861
+   "id": 864
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15157,51 +15209,51 @@
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 862
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 88,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12)",
-   "text": "The panel MCU sends 2-byte packets on UART8: key packet: `0x20 | channel`, then the channel's 8-bit button mask; encoder packet: `0x30 | (encoder-1)`, then a signed 8-bit delta; high nibble 7: the factory console.",
-   "evidence": "",
-   "sources": "digikit-f58",
-   "devices": "digitakt-2,digitone-2",
-   "addresses": "",
-   "id": 863
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 92,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12)",
-   "text": "Key code = `channel*8 + bit + 1` (codes 1-48, plus a few exceptions per device). There are nine encoders.",
-   "evidence": "",
-   "sources": "digikit-f58",
-   "devices": "digitakt-2,digitone-2",
-   "addresses": "",
-   "id": 864
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 93,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12)",
-   "text": "Toward the panel: `B9 idx val` sets an LED to a palette entry, `B5 i r g b` sets a palette entry.",
-   "evidence": "",
-   "sources": "digikit-f58",
-   "devices": "digitakt-2,digitone-2",
-   "addresses": "",
    "id": 865
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
+   "line": 88,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) `[doc]`",
+   "text": "The panel MCU sends 2-byte packets on UART8: key packet: `0x20 | channel`, then the channel's 8-bit button mask; encoder packet: `0x30 | (encoder-1)`, then a signed 8-bit delta; high nibble 7: the factory console.",
+   "evidence": "doc",
+   "sources": "digikit-f58",
+   "devices": "digitakt-2,digitone-2",
+   "addresses": "",
+   "id": 866
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 92,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) `[doc]`",
+   "text": "Key code = `channel*8 + bit + 1` (codes 1-48, plus a few exceptions per device). There are nine encoders.",
+   "evidence": "doc",
+   "sources": "digikit-f58",
+   "devices": "digitakt-2,digitone-2",
+   "addresses": "",
+   "id": 867
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 93,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) `[doc]`",
+   "text": "Toward the panel: `B9 idx val` sets an LED to a palette entry, `B5 i r g b` sets a palette entry.",
+   "evidence": "doc",
+   "sources": "digikit-f58",
+   "devices": "digitakt-2,digitone-2",
+   "addresses": "",
+   "id": 868
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
    "line": 94,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12)",
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) `[doc]`",
    "text": "Remote control without touching the UART: the firmware's button decoder `f(channel, new_mask)` (DT2 1.17 `0x4011e318`, DN2 1.12 `0x4011fc8c`) and encoder decoder `f(encoder0, delta)` (`0x4011e598` / `0x4011ff0c`) can be called from a mod. Mask SR to `0x2700` around the call; the decoders do unprotected read-modify-write. Neither checks the channel (safe: buttons 0-6, encoders 0-8). An encoder turn is ignored for 40 ticks after its click key is released. `[emu]`",
    "evidence": "emu",
    "sources": "digikit-f58",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x4011e318,0x4011e598,0x4011fc8c,0x4011ff0c",
-   "id": 866
+   "id": 869
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15212,7 +15264,7 @@
    "sources": "digikit-f25,dn2-service",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0xec070000,0xec074000",
-   "id": 867
+   "id": 870
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15223,7 +15275,7 @@
    "sources": "digi-roll-studio,digikit-f25,dn2-service",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x3C0000",
-   "id": 868
+   "id": 871
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15234,7 +15286,7 @@
    "sources": "syxgrid",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 869
+   "id": 872
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15245,7 +15297,7 @@
    "sources": "syxgrid",
    "devices": "",
    "addresses": "",
-   "id": 870
+   "id": 873
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15256,7 +15308,7 @@
    "sources": "digitakt-midi-mcp,elektronauts-dt2-sample-slot",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 871
+   "id": 874
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15267,7 +15319,7 @@
    "sources": "digitakt-midi-mcp",
    "devices": "",
    "addresses": "",
-   "id": 872
+   "id": 875
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15278,7 +15330,7 @@
    "sources": "elektronauts-dt2-sample-slot",
    "devices": "",
    "addresses": "",
-   "id": 873
+   "id": 876
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15289,7 +15341,7 @@
    "sources": "overwitch",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 874
+   "id": 877
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15300,7 +15352,7 @@
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 875
+   "id": 878
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15311,7 +15363,7 @@
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 876
+   "id": 879
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15322,7 +15374,7 @@
    "sources": "",
    "devices": "analog-four-keys,digitone",
    "addresses": "",
-   "id": 877
+   "id": 880
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15333,7 +15385,7 @@
    "sources": "elektroid-readme",
    "devices": "analog-four-keys,analog-heat,analog-rytm,model-cycles,monomachine,syntakt",
    "addresses": "",
-   "id": 878
+   "id": 881
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15344,7 +15396,7 @@
    "sources": "elektroid-readme",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 879
+   "id": 882
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15352,10 +15404,10 @@
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Elektroid (dagargo) - a general sample/SysEx client",
    "text": "Backends: ALSA MIDI and PulseAudio by default on Linux, RtMidi/RtAudio elsewhere. 2,506 commits, 19 open issues; no version shown on the page (altstrument lists v3.4, 2026-08-22).",
    "evidence": "",
-   "sources": "",
+   "sources": "elektroid-readme",
    "devices": "",
    "addresses": "",
-   "id": 880
+   "id": 883
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15366,7 +15418,7 @@
    "sources": "elektron-dt2-notes,elektronauts-dt2-sample-slot,elektronauts-heat-midi",
    "devices": "digitakt-2,octatrack",
    "addresses": "",
-   "id": 881
+   "id": 884
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15377,7 +15429,7 @@
    "sources": "elekloader-adapting",
    "devices": "digitone",
    "addresses": "",
-   "id": 882
+   "id": 885
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15388,7 +15440,7 @@
    "sources": "dn2-firmware-explore,dn2-modding-skill",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 883
+   "id": 886
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15399,7 +15451,7 @@
    "sources": "dn2-cfw,dn2mk2",
    "devices": "",
    "addresses": "",
-   "id": 884
+   "id": 887
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15410,7 +15462,7 @@
    "sources": "elekloader-adapting,own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 885
+   "id": 888
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15421,91 +15473,58 @@
    "sources": "dn2-cfw",
    "devices": "",
    "addresses": "",
-   "id": 886
+   "id": 889
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
    "line": 27,
    "section": "Toolchains and emulators / Generic ColdFire MCF5441x facts (not Elektron-specific)",
    "text": "Family covered: MCF54410 and MCF54415-MCF54418. Peripherals with drivers: GPIO, PIT, INTC, eDMA, UART, DSPI, eSDHC (eMMC block reads via eDMA), SSI (I2S/network audio, full-duplex eDMA rings), USB OTG device mode (high speed via ULPI PHY; 54415-54418 only). Not implemented there: eSDHC writes, EPORT, DMA timers, I2C, RTC, PWM, ADC/DAC, FlexCAN, Ethernet, NAND, USB host.",
-   "evidence": "",
-   "sources": "",
-   "devices": "",
-   "addresses": "",
-   "id": 887
-  },
-  {
-   "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 28,
-   "section": "Toolchains and emulators / Generic ColdFire MCF5441x facts (not Elektron-specific)",
-   "text": "Vector table goes at the region origin, which must be 1 MB aligned (VBR keeps bits 31..20 only); code starts at origin + 0x400.",
-   "evidence": "",
-   "sources": "",
-   "devices": "",
-   "addresses": "",
-   "id": 888
-  },
-  {
-   "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 29,
-   "section": "Toolchains and emulators / Generic ColdFire MCF5441x facts (not Elektron-specific)",
-   "text": "Boot modes: cold boot (serial/NOR/NAND, image sets up PLL and DDR) or via a bootloader.",
-   "evidence": "",
-   "sources": "",
-   "devices": "",
-   "addresses": "",
-   "id": 889
-  },
-  {
-   "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 30,
-   "section": "Toolchains and emulators / Generic ColdFire MCF5441x facts (not Elektron-specific)",
-   "text": "Rust for this chip: rustc_codegen_gcc with libgccjit targeting `m68k-elf`; default CPU in that toolchain is the 54418. Potential route for writing ColdFire-side mod code in Rust instead of C - unproven for Elektron firmware.",
-   "evidence": "",
-   "sources": "",
+   "evidence": "doc",
+   "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
    "id": 890
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 34,
-   "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "Shift immediates only reach 8. A shift by 14 or 15 costs a `moveq` plus a register shift; a shift by 16 is `swap` (+ `ext.l`). Arrange fixed-point products to land on a 16-bit boundary (e.g. store tables as unsigned Q16 so that `(s*w16) >> 16` equals `(s*w15) >> 15` exactly).",
-   "evidence": "",
-   "sources": "digigrain-skills",
-   "devices": "digitakt",
+   "line": 28,
+   "section": "Toolchains and emulators / Generic ColdFire MCF5441x facts (not Elektron-specific)",
+   "text": "Vector table goes at the region origin, which must be 1 MB aligned (VBR keeps bits 31..20 only); code starts at origin + 0x400.",
+   "evidence": "doc",
+   "sources": "coldfire-rs",
+   "devices": "",
    "addresses": "",
    "id": 891
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 35,
-   "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "`muls.l` and hardware divide are there; libgcc is not linked, so avoid 64-bit math (hand-write it).",
-   "evidence": "",
-   "sources": "digigrain-skills",
-   "devices": "digitakt",
+   "line": 29,
+   "section": "Toolchains and emulators / Generic ColdFire MCF5441x facts (not Elektron-specific)",
+   "text": "Boot modes: cold boot (serial/NOR/NAND, image sets up PLL and DDR) or via a bootloader.",
+   "evidence": "doc",
+   "sources": "coldfire-rs",
+   "devices": "",
    "addresses": "",
    "id": 892
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 36,
-   "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "Prove the bounds once per block, then run a loop without checks, with state in locals. Keep the checked loop as the fallback near buffer ends.",
-   "evidence": "",
-   "sources": "digigrain-skills",
-   "devices": "digitakt",
+   "line": 30,
+   "section": "Toolchains and emulators / Generic ColdFire MCF5441x facts (not Elektron-specific)",
+   "text": "Rust for this chip: rustc_codegen_gcc with libgccjit targeting `m68k-elf`; default CPU in that toolchain is the 54418. Potential route for writing ColdFire-side mod code in Rust instead of C - unproven for Elektron firmware.",
+   "evidence": "doc",
+   "sources": "coldfire-rs",
+   "devices": "",
    "addresses": "",
    "id": 893
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 37,
+   "line": 34,
    "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "Mark hot loops `noinline`: an inlined, merged loop kept a branch inside and spilled to the stack (~45 instructions per sample). `do { } while (--n)` saves the count test.",
-   "evidence": "",
+   "text": "Shift immediates only reach 8. A shift by 14 or 15 costs a `moveq` plus a register shift; a shift by 16 is `swap` (+ `ext.l`). Arrange fixed-point products to land on a 16-bit boundary (e.g. store tables as unsigned Q16 so that `(s*w16) >> 16` equals `(s*w15) >> 15` exactly).",
+   "evidence": "emu",
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
@@ -15513,10 +15532,10 @@
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 38,
+   "line": 35,
    "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "Specialise on loop-invariant cases: unity-speed grains skip interpolation (13 vs ~26 instructions per sample); a cached per-voice window table replaces per-sample shape blending.",
-   "evidence": "",
+   "text": "`muls.l` and hardware divide are there; libgcc is not linked, so avoid 64-bit math (hand-write it).",
+   "evidence": "emu",
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
@@ -15524,10 +15543,10 @@
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 39,
+   "line": 36,
    "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "EMAC in fractional mode (MACSR `0x20`: signed fractional, truncating, no saturation): save and restore MACSR, ACC0 and ACCEXT01, and clear ACC0 first. Bit-exact Python models must truncate each product as `floor(x*y/2^23)`, keeping 8 bits below the LSB.",
-   "evidence": "",
+   "text": "Prove the bounds once per block, then run a loop without checks, with state in locals. Keep the checked loop as the fallback near buffer ends.",
+   "evidence": "emu",
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
@@ -15535,10 +15554,10 @@
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 40,
+   "line": 37,
    "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "Hooks must preserve every register the caller relies on. Real bugs: a chord hook missed a4-a6, a callee clobbered a0, and a restoring `movem` lost a decision kept in d7. Test hooks with a stub that junks all scratch registers.",
-   "evidence": "",
+   "text": "Mark hot loops `noinline`: an inlined, merged loop kept a branch inside and spilled to the stack (~45 instructions per sample). `do { } while (--n)` saves the count test.",
+   "evidence": "emu",
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
@@ -15546,14 +15565,47 @@
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 41,
+   "line": 38,
    "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "Write a C reference and a bit-exact Python model first, and optimise only while the model's tests stay green.",
-   "evidence": "",
+   "text": "Specialise on loop-invariant cases: unity-speed grains skip interpolation (13 vs ~26 instructions per sample); a cached per-voice window table replaces per-sample shape blending.",
+   "evidence": "emu",
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
    "id": 898
+  },
+  {
+   "file": "hardware/common/toolchain-and-emulators.md",
+   "line": 39,
+   "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
+   "text": "EMAC in fractional mode (MACSR `0x20`: signed fractional, truncating, no saturation): save and restore MACSR, ACC0 and ACCEXT01, and clear ACC0 first. Bit-exact Python models must truncate each product as `floor(x*y/2^23)`, keeping 8 bits below the LSB.",
+   "evidence": "emu",
+   "sources": "digigrain-skills",
+   "devices": "digitakt",
+   "addresses": "",
+   "id": 899
+  },
+  {
+   "file": "hardware/common/toolchain-and-emulators.md",
+   "line": 40,
+   "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
+   "text": "Hooks must preserve every register the caller relies on. Real bugs: a chord hook missed a4-a6, a callee clobbered a0, and a restoring `movem` lost a decision kept in d7. Test hooks with a stub that junks all scratch registers.",
+   "evidence": "emu",
+   "sources": "digigrain-skills",
+   "devices": "digitakt",
+   "addresses": "",
+   "id": 900
+  },
+  {
+   "file": "hardware/common/toolchain-and-emulators.md",
+   "line": 41,
+   "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
+   "text": "Write a C reference and a bit-exact Python model first, and optimise only while the model's tests stay green.",
+   "evidence": "emu",
+   "sources": "digigrain-skills",
+   "devices": "digitakt",
+   "addresses": "",
+   "id": 901
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15564,7 +15616,7 @@
    "sources": "digiemu",
    "devices": "digitone",
    "addresses": "",
-   "id": 899
+   "id": 902
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15575,7 +15627,7 @@
    "sources": "digikit",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 900
+   "id": 903
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15586,7 +15638,7 @@
    "sources": "digikit-old",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 901
+   "id": 904
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15597,7 +15649,7 @@
    "sources": "dn2-cfw",
    "devices": "",
    "addresses": "",
-   "id": 902
+   "id": 905
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15608,7 +15660,7 @@
    "sources": "dn2-modding-skill,overtone",
    "devices": "",
    "addresses": "",
-   "id": 903
+   "id": 906
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15619,7 +15671,7 @@
    "sources": "dn2mk2-firmware-md",
    "devices": "",
    "addresses": "",
-   "id": 904
+   "id": 907
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15630,7 +15682,7 @@
    "sources": "kyoti-fw",
    "devices": "",
    "addresses": "",
-   "id": 905
+   "id": 908
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15641,7 +15693,7 @@
    "sources": "overtone",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 906
+   "id": 909
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15652,7 +15704,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 907
+   "id": 910
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15663,7 +15715,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 908
+   "id": 911
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15674,7 +15726,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "0x26f000,0x2c0000,0xfc045654",
-   "id": 909
+   "id": 912
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15685,7 +15737,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 910
+   "id": 913
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15696,7 +15748,7 @@
    "sources": "elektron-emu",
    "devices": "analog-rytm,digitakt-2,digitone-2,model-cycles,syntakt",
    "addresses": "",
-   "id": 911
+   "id": 914
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15707,7 +15759,7 @@
    "sources": "digiemu-readme,dn2mk2-emulator",
    "devices": "",
    "addresses": "",
-   "id": 912
+   "id": 915
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15718,7 +15770,7 @@
    "sources": "emu-elektron-patches",
    "devices": "digitakt-2",
    "addresses": "0x400db9e0",
-   "id": 913
+   "id": 916
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15729,7 +15781,7 @@
    "sources": "alt-tools,em-list",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 914
+   "id": 917
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15740,7 +15792,7 @@
    "sources": "digikit-f08,own-heatfx-notes",
    "devices": "",
    "addresses": "",
-   "id": 915
+   "id": 918
   }
  ]
 }

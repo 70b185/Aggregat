@@ -121,7 +121,7 @@ lalzart's public research grades each claim. Everything below is **static or sim
   - Which updater copy runs after reset, and whether recovery is independent of it, is marked opaque.
 - **Offline modifications proven in the simulator only:** a byte-exact selector reroute, and a 3-byte change that turns an output-bank negation into pass-through. Re-encoding a modified section and running it on hardware are explicitly unproven.
 
-## What happens on a ColdFire fault (digikit finding 37, DT2 1.16/1.17 and DN2 1.11/1.12, static, checked by a second agent) {digikit-f37}
+## What happens on a ColdFire fault (digikit finding 37, DT2 1.16/1.17 and DN2 1.11/1.12, static, checked by a second agent) {digikit-f37} `[doc]`
 - The main OS's default exception handler prints `EXCEPTION ...` with the vector, format, PC and twelve stack words, then executes **`halt` with interrupts masked**. It never returns.
 - The core watchdog is not used anywhere in the main OS, so **a fault hangs the whole device until the power is cycled**. Messages like the DT2's `V04 M0 P40311A64` (dt2-machine-lab) are this handler's output.
 - digikit's runtime counts bad boots: the counter is raised at boot start and cleared only after 30 s of stable running.

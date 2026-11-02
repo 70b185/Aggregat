@@ -2,7 +2,7 @@
 
 Sources: elekloader `docs/MACHINES-DN2.md` and `docs/SHARC-DN2.md` (core-dn2 0.2, OS 1.12, "experimental"), dn2mk2's `docs/sampler.md`, `docs/emulator.md`, `docs/user-reports.md`, `docs/CHANGES-FROM-UPSTREAM.md`, `FIRMWARE.md` (OS 1.11). All second-hand, read 2026-10-31. Overview: [`digitone-2.md`](digitone-2.md); internals: [`digitone-2-internals.md`](digitone-2-internals.md).
 
-## SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11)
+## SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) {digikit-sharcmap}
 - **`load = exec * 2 + 0x28000000`.** Code addresses count 16-bit parcels (VISA), and the entry `0x001c12e2` lands exactly on a loaded region; all 591 of 591 `0x1c`-space jump targets fit. The `0xb8` space (1,025 targets) needs the other mapping (L2 code at `0x20000000`, see the firmware map). `[doc]` {digikit-sharcmap}
 - Regions (DN2 1.11, section 7 836,956 B): L2 `0x20000000-0x2001e880` code (125 KB), `0x2001e888-0x2008823c` data; L1 `0x282403f0-0x2826f000` and `0x282c0000-0x282dd52c` rodata, `0x283825c4-0x2839bffc` code (105 KB); DDR `0x80000018-0x8052fbe0` 5.4 MB, almost all fill. About 240 KB of the 837 KB section is code. `[doc]`
 - The blob keeps FreeRTOS `__FILE__` strings (`lib\freertos-sharc\tasks.c`, `queue.c`, `port.c` for SHARC_215xx, `heap_4.c`, ...) and the task name "Audio Task", so code can be named from upstream FreeRTOS sources. **These addresses never appear as plain 32-bit words; a word scan finds nothing. You need a SHARC disassembler.** `[doc]`

@@ -6,7 +6,7 @@ Complements [`digitone-2.md`](digitone-2.md) (overview) and [`digitone-2-os111-r
 - Reset entry `0x400004e8`, stack top `0x48000000`.
 - SRAM copies: `0x402fd000-0x40305000` -> `0x80000000-0x80008000` and `0x40305000-0x4030c980` -> `0x80008000-0x8000f980`. The rest of SRAM is zeroed. **The free SRAM tail is only `0x8000f980-0x80010000` (1,664 B).** The DT2 has 3,840 B and a free block in the first half; the DN2 has none.
 - The DDR clear runs `0x402fd000-0x466b84d0`. DMA buffers are reached only through the uncached alias (`0x4e6c0000-0x4e709340`).
-- **Free DDR `0x46800000-0x47f00000` (23 MB).** It was never mapped or written in the emulated runs. `[emu]`
+- **Free DDR `0x46800000-0x47f00000` (23 MB).** It was never mapped or written in the emulated runs. Other platforms also place code here: [who uses this RAM](../common/memory-maps.md). `[emu]`
 
 ## DSP code room and load on the DN2 (Digiwerk DT01, DC01/DC02, SC01) {dn2-cfw-dc01}
 - Proven room for added DSP code: **83,838 B over four regions** (L1 block 1 17,974 B, three code regions 9,798 / 31,606 / 24,460 B). Each function is placed first-fit.
@@ -93,7 +93,7 @@ The older files in that project's archive came from an archive.org item and pass
 - Elektron's own streams keep the furthest match within a 1 MiB window and the longest match at 2,048 bytes; a packer that exceeds them is refused by the build tool. Compressed streams are padded to a multiple of 4 B. `[doc]` {dn2-ele3}
 - Panel MCU blob at `0x402F7D40` (version word `0x402f7d44`) and its updater must stay stock. **Section 8 (a shared ARM Cortex-M image, probably for the Outbox 8; see [firmware-container.md](../common/firmware-container.md)) must also stay stock.** The bootstrap holds the recovery menu and signing-key material. `[doc]` {dn2-cfw-handoff} {dn2-ele3}
 - Free ColdFire/DDR memory measured by dn2-cfw: DDR `0x46800000-0x47F00000`, SRAM `0x8000F980-0x80010000`. DSP: **no code in `0x315f8c-0x318000`** (a build's DSP stop was traced there); free DSP memory candidates (not confirmed at run time): L1 block 2, the L2 tail `0x2008823c-0x200f9fff`, DDR above the image at `0x8052fbe0`. `[hw]` {dn2-cfw-roadmap} {dn2-cfw-handoff}
-- digikit: Section 7 may be stored at most `0x100000` and depacked at most `0xfffff`; the boot ROM workspace is 8 KB and a block may not target it; the DSP run-time code area is 512 KiB allocated first-fit; the UI task stack is 160 KiB (3.3 KiB used inside a load). `[doc]` {digikit-findings}
+- digikit: Section 7 may be stored at most `0x100000` and depacked at most `0xfffff`; the boot ROM workspace is 8 KB and a block may not target it; the DSP run-time code area is 512 KiB allocated first-fit; the UI task stack is 160 KiB (3.3 KiB used inside a load). elekloader states the same section 7 limits independently ([`digitone-2-machines-sampler-sharc.md`](digitone-2-machines-sampler-sharc.md)). `[doc]` {digikit-findings}
 - Interrupt/peripheral facts: DIN MIDI is UART9 (31,250 baud), panel LEDs are UART8; the audio SSI0 request rate is 96 kHz; forced INTC sources 44 and 57 (vectors 108 and 121) drive the sequencer; vector 191 needs forcing even once the RTOS runs. `[doc]` {dn2-cfw-handoff} {digikit-findings}
 - Boot sequence: DSP boot -> eMMC -> boot record -> project decode -> mount -> frame interrupt -> main-OS task. A boot-time hook can sit at the main-OS task entry. Safe mode is triggered by a boot counter plus a flag; the counter clears after 30 s of the firmware's block counter; a CPU exception halts the device. `[doc]` {digikit-findings}
 
@@ -155,7 +155,7 @@ Digitone mk1 projects are `.dnprj`, Digitone II projects `.dn2prj`, sound banks 
 | Padding / code caves | within ~`0x40287000`-`0x402fc000` | ~29 KB free in 41 runs >= 256 B, largest ~1 KB |
 | .data initialisers | `0x402fc000`-`0x40304000` -> copied to `0x80000000`; `0x40304000`-`0x4030b980` -> `0x80008000` | not free |
 | Main BSS (SDRAM) | `0x402fc000`-`0x466b74d0` | 104,576,208 B incl. a static heap arena; ParameterSet slot tables at `0x42c6xxxx` |
-| **Unclaimed RAM above BSS** | `0x466b74d0`-`0x48000000` | 25.3 MB; only the stack may grow into it (mods there used ~49 KB) |
+| **Unclaimed RAM above BSS** | `0x466b74d0`-`0x48000000` | 25.3 MB as dnfw counts it; only the stack may grow into it (mods there used ~49 KB). **Not all free:** the MMC bounce buffer reaches `0x46701300` on 1.11, and other platforms use parts of the rest - see [who uses this RAM](../common/memory-maps.md) |
 | Stack | top `0x48000000`, grows down (`moveal #0x48000000,%sp` at `0x400004f2`) | depth unmeasured |
 | Fast SRAM | `0x80000000`-`0x80010000` | 64 KB: copied .data and small BSS; the section 4 updater loads at `0x80000400` |
 | Peripherals (MBAR) | `0xfc000000`-`0xfc0fffff` | startup writes `0xfc080000` (memory controller) |

@@ -32,7 +32,7 @@ Projects/tools: [../../devices/analog-heat.md](../../devices/analog-heat.md)
 - screendump lists Analog Heat as known but **not implemented**. {screendump}
 - Neither the Lapin list nor altstrument.org carries a firmware entry for any Analog Heat.
 
-## Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)
+## Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo) {own-heatfx-notes}
 Source: the owner's own private Heat +FX research, notes as of 2026-10-28. {own-heatfx-notes} Static facts were read from the stock file
 `Analog-HeatFX_OS1.02.syx` (1,229,088 B, SHA-256 `85abe773c9e2284cd1b2aaaf1f599ec0f800f56f4b34127214fe998f1a2cfe63`, build 2024-10-08) with
 elektron-firmware-tool, elekloader's codec and a ColdFire disassembler. Facts marked `[hw]` were seen on the owner's unit. Nothing here is copied from other devices.

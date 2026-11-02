@@ -24,8 +24,10 @@ The output is deterministic: an unchanged repo gives byte-identical files.
 | `facts_fts` | FTS5 index over `facts` | text, section, devices |
 
 A fact is one top-level bullet (with its continuation lines). `evidence` is the tag in the
-bullet (`hw`, `emu`, `doc`, `?`, or empty). `sources` are the `{keys}` in the bullet, else
-the keys named in the file's intro. List columns (devices, sources, addresses) are
+bullet (`hw`, `emu`, `doc`, `?`); without one, the tag in the section's lead paragraph, its
+heading or the file's intro; empty if none of these has one (mostly rules, open questions and
+pointers). `sources` are the `{keys}` in the bullet, its headings and the section's lead
+paragraph, else the keys named in the file's intro. List columns (devices, sources, addresses) are
 JSON arrays in text form. `file:line` points back to the Markdown, which stays the place to edit.
 
 ## Example queries

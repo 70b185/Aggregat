@@ -36,6 +36,25 @@ The boot thread ends in an empty loop at the lowest priority. Replace its last c
 - Displaced stock instructions are replayed at another address, so **no PC-relative instructions in the displaced bytes**. Pick hook sites whose first instructions are absolute. `[doc]`
 - dnfw's mods take fixed RAM chunks in `0x46700000-0x47fe0000` (waverider 436 KB at `0x4670c000`/`0x467f0000`/`0x46a00000`, lfo4 `0x46800000`/`0x46900000`, ...). The alternative is the stock 32 MiB buddy heap (`0x4464abf0`), where the allocator records the use but a 12.9 MB project load takes half. Mods that store settings in unused pattern bits must not claim the same bits. `[doc]`
 
+## Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)
+
+The DN2 clears `0x402fd000-0x466b84d0` at reset (1.12); everything above is outside stock's static map, and every mod platform puts its code and data there. The projects agree on what stock leaves alone, but each picked its own addresses, and several picked the same ones.
+
+| Range | User | OS | Evidence |
+|---|---|---|---|
+| `0x466c0000-0x46709340` (cached view of the uncached `0x4e6c0000-0x4e709340`) | **stock DMA buffers**, including a 64 KB MMC bounce buffer | 1.12 | static, two projects agree {dn2-cfw-t13} {elekloader-dn2-profile} |
+| `0x466f1300-0x46701300` | stock MMC bounce buffer (only transfers over 60,672 bytes reach the top 4,864 bytes) | 1.11 | static {dn2-cfw-prior} |
+| `0x46700000-0x46f00000` (fixed chunks: lfo4 state `0x46700000`, data window `0x46710000-0x46740000`, midiarp `0x467d0000`, lfo4 code `0x46800000`, parameter table `0x46900000`, Waverider `0x46a00000`, usbprobe `0x46f00000`) | **dnfw** mods | 1.11 only (no 1.12 port) | {dn2-caves} {dn2-cfw-prior} |
+| code at `0x46800000`; stacks, rings and scratch from `0x46a00000` | **cfmod / cfkit** (digitone-2-modding-skill) | written for 1.11 | {dn2-skill-scripts} |
+| mods `0x46800000-0x47e00000`; core run image `0x47e00000-0x47f00000` | **dn2-cfw** (Digiwerk) | 1.12 | {dn2-cfw-t13} {dn2-cfw-t19} |
+| `0x47f00000-0x47f40000` (256 KB), the same area as on the DT2 | **elekloader** core-dn2 and its mods | 1.12 | {elekloader-dn2-profile} |
+| down from `0x48000000` | stock stack (boot stack never below `0x47ffffcc` in emulation; run-time depth unmeasured) | both | {dn2-cfw-t19} |
+
+What the comparison settles and what it does not:
+- **Stock does not touch `0x46710000-0x47ffffcc` in emulation.** Three independent checks agree: dn2-cfw's write watches over `0x46800000-0x47f00000`, elekloader's canary over `0x46710000-0x48000000` (cold boot, two panel sessions), and digikit's reference scan (`0x4671a000-0x47fe0000` unreferenced, [`dt2-dn2-limits-and-audio-chain.md`](dt2-dn2-limits-and-audio-chain.md)). All three ran in an emulator, so rule A43 (canary on a unit) still applies. `[emu]`
+- **`0x46700000-0x4670ffff` is not free.** On 1.12 it holds the end of the DMA buffers; on 1.11 the MMC bounce buffer reaches `0x46701300`. dnfw's lfo4 state at `0x46700000` sits there on 1.11, and every `0x4670xxxx` placement must move for a 1.12 port. The "25.3 MB unclaimed above BSS" figure in dnfw's memory map missed these alias references. The skill's "`0x46700000..0x46900000` unused, hardware-confirmed" disagrees: see [CONFLICTS O17](../CONFLICTS.md). `[doc]`
+- **The platforms collide.** dnfw's lfo4 code, cfmod's default link address and the start of dn2-cfw's mod area are all `0x46800000`; cfkit's scratch at `0x46a00000` is Waverider's chunk. Only elekloader's `0x47f00000` and dn2-cfw's core `0x47e00000` are disjoint from the rest. A mod built for one platform cannot be dropped into another's image without moving its RAM (and its hooks: [`dt2-dn2-limits-and-audio-chain.md`](dt2-dn2-limits-and-audio-chain.md) section 6, [`agent-workflow.md`](agent-workflow.md)). Before picking an address, check this table and declare every range you use (task T23 in [RESEARCH-MAP](../../RESEARCH-MAP.md)).
+
 ## Details per device
 - **Digitakt mk1:** ELE3, device byte `0x0A` (elekloader's page says `0x14`, which is the Digitakt II's byte; settled by taktone, see the table in [firmware-container.md](firmware-container.md)), six-plus sections, main OS staged at `0x40200000`. DDR is free RAM. Hook sites: no numeric list on the page; the first eight sites of the Digitone mk1 are described as the Digitakt mk1's.
 - **Digitone mk1:** ELE3, seven sections, stock gap 403,540 bytes. The OS clears `0x4028E000-0x43229E60`; operands end before `0x43EB0000`; stack from `0x48000000`. First eight hook sites match the Digitakt mk1; the ninth is `ev_voice_on` at `0x4009e928`; render frame `0xB8`. Core `mods/core-dn1`, up to 4.0 (1.44 ported at its own addresses).

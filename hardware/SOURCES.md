@@ -85,6 +85,7 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | elekloader-devices | elekloader `docs/DEVICES.md` | https://github.com/elekloader/elekloader/blob/main/docs/DEVICES.md |
 | elekloader-machines-dn2 | elekloader `docs/MACHINES-DN2.md` | https://github.com/elekloader/elekloader/blob/main/docs/MACHINES-DN2.md |
 | elekloader-sharc-dn2 | elekloader `docs/SHARC-DN2.md` | https://github.com/elekloader/elekloader/blob/main/docs/SHARC-DN2.md |
+| elekloader-dn2-profile | elekloader `elekloader/devices/digitone_mk2.py` (DN2 1.12 profile: clear, DMA buffers, mods' DDR area, canary run) | https://github.com/elekloader/elekloader/blob/main/elekloader/devices/digitone_mk2.py |
 | dn2mk2-emulator | dn2mk2-firmware `docs/emulator.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/emulator.md |
 | dn2mk2-sampler | dn2mk2-firmware `docs/sampler.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/sampler.md |
 | dn2mk2-reports | dn2mk2-firmware `docs/user-reports.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/user-reports.md |
@@ -154,6 +155,7 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2-cfw-t15 | Digiwerk note T1.5, is the STARTUP menu always reachable | https://github.com/naturarum/dn2-cfw/blob/main/notes/T1.5-recovery-path.md |
 | dn2-cfw-ob01 | Digiwerk note OB01, why Overbridge refused the builds | https://github.com/naturarum/dn2-cfw/blob/main/notes/OB01-overbridge.md |
 | dn2-cfw-t13 | Digiwerk note T1.3, DN2 1.12 reset ranges, stack, free memory | https://github.com/naturarum/dn2-cfw/blob/main/notes/T1.3-dn2-memory.md |
+| dn2-cfw-t19 | Digiwerk note T1.9, DN2 1.12 core (run image at `0x47E00000`, mods below it) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T1.9-dn2-core.md |
 | dn2-cfw-dc01 | Digiwerk notes DT01 (code diet), DC01/DC02 (compiler peephole), SC01 (layout and load) | https://github.com/naturarum/dn2-cfw/blob/main/notes/DC01-compiler-fix.md |
 | dn2-hw | dnfw `docs/hardware.md`, Digitone II mainboard parts and a third-party family list | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/hardware.md |
 | dn2-principles | dnfw `docs/PRINCIPLES.md`, architecture principles 12-19 | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/PRINCIPLES.md |

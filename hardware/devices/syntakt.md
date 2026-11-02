@@ -82,7 +82,7 @@ Normal case: Drop page in Transfer. If the OS does not boot: DIN MIDI, FUNC at p
   - SY FM4 reports its main-CPU render at 85.8k of 166.7k cycles per block (stock 85.0k). That is a different span of the same interrupt. `[?]`
 - Digital filter and amp run on CPU #2; the cutoff is computed on CPU #1. Analog voices and the FX track drive a **hardware envelope generator** with 20-bit rate codes. Measured curves: the digital biquad f0 = 4.918 Hz x e^(0.0655 x FREQ); the analog filter f = 14.645 Hz x e^(0.0574 x FREQ). Tempo is at `0x402D7010` (BPM x 120). `[hw]` (analog curves measured)
 
-## CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) {syncrackd-mm}
+## CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) {syncrackd-mm} `[doc]`
 - **Section 7 is byte-identical in 1.41 and 1.42** (SHA-256 `daf6451c...783bc2`). It is ColdFire ISA-C with EMAC, MCF5441x-class: compile with `-mcpu=54418`, disassemble with `-m m68k:isa-c:emac`. CPU #2 has **its own 128 MB SDRAM** at `0x40000000` (SP `0x48000000`, entry `0x40001070`). `[doc]`
 - **Only 39.8 KB is code** (`0x40000404-0x40009f88`: boot, audio interrupt, voice loop, 12 engines, sample loader), followed by 284 KB of tables and data. Code room for mods is almost nil: ~318 bytes in small pieces remained after SynCrackd's images.
 - **CPU #2 configures its own FPGA:** a packed bitstream at `0x40041060` is unpacked to `0x40042000` (54,664 bytes) at init. That is the same size as the Analog Heat +FX FPGA section, so it may be the same part `[?]`. Keep away from it (rule A22).
@@ -103,7 +103,7 @@ Normal case: Drop page in Transfer. If the OS does not boot: DIN MIDI, FUNC at p
   - It ships its firmware change as a **zlib-compressed XOR mask** against the official file, pinned by hash.
   - It needs a second mods file (515,808 B) sent with its own transfer tool after the flash. Boot and hardware validation are still pending. `[doc]` {synfact}
 
-## How mods are built on the Syntakt (SyntHack modding guide, worth copying) {synthack-guide}
+## How mods are built on the Syntakt (SyntHack modding guide, worth copying) {synthack-guide} `[doc]`
 - **Each change is stored with the SHA-256 of the original bytes**, so a different OS version fails the build instead of crashing. Every mod runs in a Unicorn emulator next to the original code before flashing.
   - **Stock Unicorn gets signed fractional EMAC wrong** (the audio comes out silent), so EMAC instructions are trapped and executed in Python from the NXP manual.
   - Use CPU model "ANY" (the code needs FF1, MVS/MVZ, SATS).
@@ -140,7 +140,7 @@ Normal case: Drop page in Transfer. If the OS does not boot: DIN MIDI, FUNC at p
 - Projects: SyntHack OS (9 mods on hardware, MIT); SY FM4 (4-operator FM replacing SY TONE, which also patches CPU #2); Syntakt Firmware Workbench.
   - The Workbench replaces SY CHORD's waves: 31 slots of 257 big-endian Q31 samples, measured on a unit within 1 %. It adds a Deja Vu LFO, DV-H. It refuses any file but 1.41 and checks that only the declared regions changed. `[hw]` {syntakt-workbench}
 
-## Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10)
+## Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) {digikit-f70} `[doc]`
 - `Syntakt_OS1.42.syx`: ELE3, 2,029,486 bytes, META stamp 2026-09-30 (same day as DT2 1.17 and DN2 1.12), SHA-256 `ded3c59f...7f37c1`; SysEx transport id `0x16`, OS-stream byte `0x11`; same packing codec as DT2/DN2; per-packet checksum constant K = 0x11. `[doc]` {digikit-f70}
 - **No HMAC trailer - the Syntakt OS file is not signed** (last 32 bytes zero, no SHA-256 constants in sections 2-4); only the content checksum applies. `[doc]` {digikit-f70}
 - Sections: 5 META; 2 bootstrap (dest word `0x04000000`, ColdFire code at `0x8000xxxx`, 30,782 B); **1 present only on Syntakt: `0xFF` padding then a bitstream-like blob (149,516 B) - the FPGA configuration** (the bootstrap configures a Xilinx-style FPGA via INIT_B/DONE; MAIN only reads a status word); 3 MAIN at `0x40000400` (3,442,576 B, same reset path as DT2: entry `0x400004e8`, SP `0x48000000`); 4 UPDATER at `0x80000400` (32,768 raw); 6 present only on Syntakt (a 5-entry trap/jump table plus SPI helper code, 1,744 B); **7 is not a SHARC stream here but a standalone ColdFire program** linked at `0x40000400` (entry `0x40001070`, 383,760 B) driving a DSPI-like block at `0xFC05C000` - consistent with a second ColdFire that runs the digital machines `[?]`; 8 byte-identical to DT2/DN2's section 8. `[doc]` {digikit-f70}

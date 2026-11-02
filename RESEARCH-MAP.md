@@ -4,7 +4,7 @@
 
 The aim: whoever starts a research session (alone or with an AI agent) starts where the community's knowledge ends, instead of re-deriving what is already settled. Every line points to where the details and sources are. Phase 1 devices first (Digitakt MKI/II, Digitone MKI/II, Syntakt, Analog Heat); phase 2 follows.
 
-Last reviewed: 2026-11-02. Details and sources: [hardware/](hardware/README.md) (rules A1-A41, device files, [CONFLICTS.md](hardware/CONFLICTS.md)). Projects: [MODS.md](MODS.md), [DEV-TOOLS.md](DEV-TOOLS.md).
+Last reviewed: 2026-11-02 (second pass the same day: Digiwerk T5.3/T6.5/PB01, dn2mk2 dsp-time/dsp-cost, lalzart's DT2 architecture). Details and sources: [hardware/](hardware/README.md) (rules A1-A41, device files, [CONFLICTS.md](hardware/CONFLICTS.md)). Projects: [MODS.md](MODS.md), [DEV-TOOLS.md](DEV-TOOLS.md).
 
 ## How to read the status column
 
@@ -91,9 +91,10 @@ When done, update the matching row here and the device file under hardware/devic
 | "Bitcrush until reboot" | ❓ | Not caused by missed blocks; appears only with several custom-engine tracks at extreme settings. Cause unknown. | T7 |
 | Free L2 on 1.17 | ❓ | Static says up to `0x200fa000`, a unit clicked past `0x200f5a74` (O7). | T15 |
 | "Rung C" halt | ❓ | digikit lists no confirmed cause. | digikit findings |
-| Bootstrap-menu recovery | ❓ | Accepts SysEx over DIN only (static reading); **not reported tested on hardware**. | **T1** |
+| Bootstrap-menu recovery | ❓ | Elektron's official SysEx-transfer route (FUNC, TRIG 4, DIN only), documented step by step by digitakt-ii-research; **no public report of someone actually recovering a DT2 this way**. lalzart marks the reset-time updater selection as opaque. | **T1** |
 | OS version gate | ✅ | DT2 refuses OS below "0060" (S8). | - |
-| Sample path to a voice | 🟡 | Via link port 0 (digikit finding 15, emulator). | Confirm on a unit. |
+| Sample path to a voice | 🟡 | Via link port 0 (LP0/DMA30), fed from a ColdFire Rapid-GPIO endpoint - two independent static/emulator readings agree (digikit f15, lalzart). The physical bridge is unknown. | Confirm on a unit. |
+| ColdFire <-> SHARC frame | 🟡 | A full-duplex `0xabc`-byte DSPI2 frame, 16 records of `0x60` bytes, the **same shape as on the DN2** (lalzart, static). Return content open. | T19 |
 | Memory map, machine API, parameter table | 🟡 | Partial; many DN2 findings likely transfer (85 % shared SHARC functions). | T19 |
 | Project file format (`.dt2prj`) | 🟢 | Song slots: LZ4 32 KiB blocks (dt-song-mgmt). Rest ⬜. | T18 |
 
@@ -103,14 +104,14 @@ When done, update the matching row here and the device file under hardware/devic
 |---|---|---|---|
 | Container and signing | ✅ | ELE3, HMAC-SHA256 with the key derived from the image, so tools can re-sign; section 7 is the SHARC's ADI boot stream (S4). | [digitone-2.md](hardware/devices/digitone-2.md) |
 | Recovery | ✅ | FUNC at power-on, TRIG 4, DIN; tested on units. OS writer has no length clamp (A30). | [flash-procedure.md](hardware/common/flash-procedure.md) |
-| SHARC load | ✅ | Measured on a unit: ~80 % "busy" idle, 65 % with 64 notes; **not headroom** (A37). | - |
+| SHARC load | ❓ | Two unit measurements disagree at idle: ~63-65 % (idle-task, dnfw/Digiwerk) vs ~80 % falling to 65 % with 64 notes (elekloader) - O15. Both agree it is **not headroom** (A37). | T9 |
 | Load prediction model | ❓ | Instruction-count model overestimates (O12). | T9 |
-| Free SHARC memory | ❓ | The L1 tails are cache, not free (O13); proven code room 83,838 B over four regions. | Silicon check of O13. |
+| Free SHARC memory | ❓ | Proven code room 83,838 B over four regions. L1 block 1 adds ~12 KB, not 45; block 3's tail is I-cache; `0x315f8c-0x318000` stopped the DSP (PM cache size open); two L2 candidates (38.5 KB, 229 KB); code in dead stock-FX spots in L2 stopped the DSP (O13). | A probe build (Digiwerk's planned PB01). |
 | ColdFire -> DSP frame | ✅ | 0xabc-byte frame, data in the first 0xa80; the tail and reply word 2 are free (one owner per build). | [digitone-2-internals.md](hardware/devices/digitone-2-internals.md) |
 | Adding machines, linking DSP code | 🟢 | elekloader (1.12) and dn2mk2 (1.11) ship machines; DT2 sample machines run on DN2. | [digitone-2-machines-sampler-sharc.md](hardware/devices/digitone-2-machines-sampler-sharc.md) |
 | OS 1.11 <-> 1.12 addresses | ❓ | Projects split between versions; the parameter table base differs by 4 bytes between two maps (O6). | **T8** |
-| Grown parameter table vs stock | ❓ | Whether a project saved with extra parameters loads on stock is untested. | T16 |
-| Overbridge with modified OS | ❓ | dn2-cfw builds show "incompatible OS version". | T17 |
+| Grown parameter table | 🟢 | Grown to 0x180 rows and running on a unit, +Drive save/load fine (Digiwerk GT00/GT01); a 3-band compressor ships on it. Open: does such a project open cleanly on a **stock** OS? | T16 |
+| Overbridge with modified OS | ✅ | Cause found and fixed: the container's version field is sent to the computer; keep `1.12` in what is sent (Digiwerk OB01, on the unit). Open: what the plugin does with parameter ids of `0x400`+ from grown tables. | [overbridge-usb.md](hardware/common/overbridge-usb.md); T17 |
 | Real-time DSP audio in an emulator | ❓ | Open in digikit. | T14 |
 | Project file format (`.dn2prj`) | 🟡 | DNX reads parts of it; the deobfuscator repo is unreachable. | T18 |
 
@@ -160,7 +161,7 @@ Pick one, check the status above, and go. **S** = an evening, **M** = a few sess
 | T6 | Translate SyntHack/machine-45 anchors from 1.41 to 1.42 (byte patterns, not addresses) | Syntakt | files | M | Opens the current OS to mods (G5). |
 | T7 | Find the cause of the sticky "bitcrush until reboot" | Digitakt II | unit + custom engine | L | A hidden state bug that any DT2 engine can trigger. |
 | T8 | Build an address-translation table DN2 1.11 <-> 1.12 from shared anchors | Digitone II | files | M | Lets dn2mk2 (1.11) and elekloader/dn2-cfw (1.12) share work (G5); settles O6. |
-| T9 | Calibrate a DN2 load model against elekloader's busy meter and the deadline margin | Digitone II | unit | M | Predict cost before flashing (G2); settles O12. |
+| T9 | Measure DN2 load with both meters (dnfw idle-task and elekloader dspbusy) in the same states, then calibrate a cost model (dn2mk2's instructions + 4 x L2 + 10 x DDR is a start) | Digitone II | unit | M | Settles O15 and O12; predict cost before flashing (G2). |
 | T10 | Port a DMA-timer load probe (digihealth / A4 0011-style) to the Heat +FX and measure all FX on | Analog Heat +FX | unit | M | First budget for the only fresh platform in phase 1 (G2). |
 | T11 | Unpack the MKI and MKII OS files: sections, container, CPU (peripheral census), any DSP section | Analog Heat MKI/MKII | files | S | Turns two ⬜ devices into mapped ones. Good first task. |
 | T12 | Compare FPGA sections across devices (sizes, SHA-256, header) and look for the OS code that talks to the FPGA | Heat +FX, A4 MKII, Syntakt, DT2/DN2, Rytm | files | M | First step on "what does the FPGA do" everywhere (G3). |
@@ -168,7 +169,7 @@ Pick one, check the status above, and go. **S** = an evening, **M** = a few sess
 | T14 | Fix or document digikit's EMAC fractional-mode emulation against a unit measurement | DT2/DN2 (all ColdFire boxes) | unit + emulator | M | Fewer "works in the emulator" surprises (G4). |
 | T15 | Probe free SHARC L2 on DT2 1.17 between `0x200f5a74` and `0x200fa000` on a unit | Digitakt II | unit | M | Settles O7; more room for engines. |
 | T16 | Save a project on a grown parameter table, load it on stock, record what happens | Digitone II | unit | S | Tells users whether modded projects stay safe. |
-| T17 | Find why Overbridge rejects modified DN2 builds ("incompatible OS version") | Digitone II | unit + Overbridge | M | Mods without losing Overbridge. |
+| T17 | ~~Find why Overbridge rejects modified DN2 builds~~ **done** (Digiwerk OB01: the version field). Remaining: how the plugin treats parameter ids `0x400`+ from a grown table | Digitone II | unit + Overbridge | S | Grown-table mods with Overbridge automation. |
 | T18 | Document the project file formats (`.dt2prj`, `.dn2prj`) beyond song slots | DT2, DN2 | files | M | Librarians and converters for musicians. |
 | T19 | Check which DN2 SHARC findings hold on the DT2 (and back), item by item, with the 85 % function twin list | DT2, DN2 | files (+ unit) | M | Doubles the value of every SHARC finding (G3). |
 | T20 | Collect the machine ids used by DT mk1 mods into one registry | Digitakt mk1 | reading | S | Prevents clashes between mods. |

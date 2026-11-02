@@ -198,3 +198,9 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | octabam-traps | sambanks/octabam `docs/contributing/TRAPS.md` (trap register) and `FAILURE_MODES.md` headings | https://github.com/sambanks/octabam/blob/main/docs/contributing/TRAPS.md |
 | modwerk-ot-traps | repeat98/modwerk `docs/OCTATRACK_HARDWARE_TRAPS.md` (USB/EP0, RAM boot, NOR over USB, load, cold starts) | https://github.com/repeat98/modwerk/blob/main/docs/OCTATRACK_HARDWARE_TRAPS.md |
 | gearmulator-md-mm | joelanders/gearmulator-md-mm `source/elektron/md/mdLib` (mdmemorymap.h, mdtypes.h, mdhardware.cpp comments) | https://github.com/joelanders/gearmulator-md-mm |
+| dn2-cfw-t65 | Digiwerk note T6.5, the parameter table grown to 0x180 rows (GT00/GT01, emulator and unit) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T6.5-table-growth.md |
+| dn2-cfw-pb01 | Digiwerk note PB01, DSP memory candidates before the probe build | https://github.com/naturarum/dn2-cfw/blob/main/notes/PB01-findings.md |
+| dn2-cfw-t53 | Digiwerk note T5.3, the tape echo on the unit (SE01) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T5.3-tape-echo-on-the-unit.md |
+| dn2mk2-dsptime | dn2mk2-firmware `docs/dsp-time.md` (v0.32 guard, L2 state, load meter) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/dsp-time.md |
+| dn2mk2-dspcost | dn2mk2-firmware `docs/dsp-cost.md` (per-machine cost, v0.33) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/dsp-cost.md |
+| lalzart-dt2-arch | lalzart/digitakt-ii-firmware-research-public README and `docs/architecture/` (boot-update, publication-and-transport, sample-resource-lifecycle, output-and-dma, dsp-processing, modification-gates), DT2 OS 1.15C | https://github.com/lalzart/digitakt-ii-firmware-research-public |

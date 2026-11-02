@@ -99,6 +99,22 @@ Core support: elekloader lists core-dt2-1.0 as unreleased (build from source) wi
 ## Control from outside
 SysEx/MIDI facts, NRPN groups and the safe-write ceremony are in [`../common/sysex-and-midi.md`](../common/sysex-and-midi.md). elekloader's simonjohansson fork supports Digitakt II 1.17 as experimental (core checked in digikit; a key-swap mod works on a unit). {elekloader-simonjohansson}
 
+## Architecture map from static analysis and simulation (lalzart, OS 1.15C) {lalzart-dt2-arch}
+lalzart's public research grades each claim. Everything below is **static or simulator** work; the author explicitly claims nothing about hardware behaviour, safety or recovery. `[doc]`
+- **SHARC part:** ADSP-21569. Section 7 holds ADSP-2156x loader/application records (104 records mapped). FreeRTOS, an Audio task and a recurring block loop are traced. The hand-off from the boot kernel to that startup is not.
+- **The ColdFire <-> SHARC frame is the same shape as on the Digitone II:**
+  - A full-duplex `0xabc`-byte DSPI2 frame carries a `0x802`-byte state payload: 16 records of `0x60` bytes, track n to SHARC unit n.
+  - ColdFire eDMA29 sends and eDMA28 receives; the SHARC uses SPI2 with completed-image double buffering.
+  - The send is driven from a level-5 interrupt that a level-6 eDMA-completion path forces in software.
+  - Link settings: SPI mode 1, 16-bit MSB-first, one `0x55e`-word window.
+  - The meaning of the SHARC-to-ColdFire return content is open. Compare the DN2's frame and reply words in [digitone-2-internals.md](digitone-2-internals.md). This is a second, independent reading of the shared design (research map T19).
+- **Project samples reach the SHARC over a different path:** ColdFire Rapid-GPIO byte/strobe/ready endpoint -> SHARC link port 0 (LP0_RX, DMA30). Samples are described by five-word resource descriptors with 4 KiB pages. This agrees with digikit finding 15 ([digitakt-2-sharc-measured.md](digitakt-2-sharc-measured.md)). The physical bridge between the two endpoints is not identified.
+- **Audio output:** two 64-word banks are selected, then sent by a two-bank circular DMA descriptor (DMA10) to SPORT4 half A. Codec and pin are not identified.
+- **Update path:**
+  - MAIN validates checksum, minimum version and the cryptographic trailer before it erases and programs the staged ELE3 slot at flash `0x80000`, then requests a reset.
+  - Which updater copy runs after reset, and whether recovery is independent of it, is marked opaque.
+- **Offline modifications proven in the simulator only:** a byte-exact selector reroute, and a 3-byte change that turns an output-bank negation into pass-through. Re-encoding a modified section and running it on hardware are explicitly unproven.
+
 ## SHARC measured on a real unit
 Clock (1.000 GHz, 666,667 cycles/block), FreeRTOS task map, free reply words, missed-block behaviour, the STRETCH contract, memory limits and selcc traps: [`digitakt-2-sharc-measured.md`](digitakt-2-sharc-measured.md). `[hw]` {own-dt2-notes}
 

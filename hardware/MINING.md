@@ -6,7 +6,7 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [x] complex-ping/digitone-2-modding-skill: SKILL.md + references/{setup,firmware,coldfire,sharc,emulators,workflow}.md (-> devices/digitone-2-os111-reference.md, common/agent-workflow.md); [x] examples, hwrules.py, script docstrings (git clone works where the tree page was blocked)
 - [x] angellinares/dn2_firmware_explore: `docs/flashing.md` (-> common/flash-procedure.md); [ ] `docs/mainos-image.md`, `docs/ele3-format.md`
 - [x] naturarum/dn2-cfw: `docs/parameter-table-growth.md` (-> devices/digitone-2.md); [ ] T1.4/T1.5 notes (flash-write audit, STARTUP independence), `tools/brickcheck` (the 12 checks)
-- [x] De-Pattern/dn2mk2-firmware: `docs/SAFETY.md` (-> common/flash-procedure.md); [ ] `docs/emulator.md`, `docs/user-reports.md`, FIRMWARE.md v0.20 and older
+- [x] De-Pattern/dn2mk2-firmware: `docs/SAFETY.md` (-> common/flash-procedure.md); [x] `docs/emulator.md`, `docs/user-reports.md`, `docs/dsp-time.md`, `docs/dsp-cost.md`; [ ] FIRMWARE.md v0.20 and older
 - [ ] complex-ping/overtone: `docs/` and the patcher's ~160 checks
 - [ ] nzimas/digirust: `docs/FEATURES.md` (Digitone II OS 1.12)
 
@@ -16,11 +16,11 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [ ] Digitone mk1 recovery buttons (not stated in anything we read)
 
 ## Digitakt II
-- [ ] lalzart/digitakt-ii-firmware-research-public (architecture notes), lalzart/dt2-machine-lab
-- [ ] karigardarsson/digitakt-ii-research: install and recovery docs
+- [x] lalzart/digitakt-ii-firmware-research-public (architecture notes) (-> devices/digitakt-2.md); [ ] lalzart/dt2-machine-lab
+- [x] karigardarsson/digitakt-ii-research: RECOVERY.md, KNOWN_LIMITATIONS.md (-> RESEARCH-MAP DT2 recovery row; the route is Elektron's official one)
 
 ## Syntakt
-- [ ] karigardarsson/Synthack-OS: `RECOVERY.md`, `patch.json` examples, protected-section list
+- [x] karigardarsson/Synthack-OS `RECOVERY.md` (already in devices/syntakt.md); [ ] `patch.json` examples, protected-section list
 - [ ] Syntakt container: signed or not? sections?
 
 ## Analog Heat

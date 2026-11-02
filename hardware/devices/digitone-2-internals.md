@@ -15,6 +15,15 @@ Complements [`digitone-2.md`](digitone-2.md) (overview) and [`digitone-2-os111-r
   - L2 code runs through the I-cache like stock L2 code. `[hw]` (builds ran on the unit)
 - **selcc output is about 10 % larger than needed** (field accesses cost 5 instructions). Digiwerk's peephole pass saves ~5-6 KB.
 - **Their safety lesson:** stock code never puts a load into an I register directly before a 48-bit instruction that uses it (0 of ~14 cases; there is always work in between). The SHARC emulator does not model the pipeline, so the cautious pass refuses that pairing. Copy the rule: **do not create instruction pairings the stock code never has.** `[doc]`
+- **Where DSP code may live, after the probe study** (Digiwerk PB01 findings, static, 2026-10-23) {dn2-cfw-pb01}:
+  - L1 block 1 above `0x2e4f46` gives about **12 KB, not the 45 KB** of the static map, because the build keeps the edge for a 32 KB DM cache.
+  - Block 3's tail is the 16 KB I-cache.
+  - `0x315f8c-0x318000` in block 2 depends on whether the PM cache there is 16 or 32 KB. Code placed there stopped the DSP on a unit (CMP2's LOW MUP stop), so builds refuse it.
+  - L2 candidates: `0x2008823c-0x200918c0` (38,532 B) and `0x200c2000-0x200fa000` (229,376 B). `0x200918c0-0x200c2000` is kept free of data by the build.
+  - Section 7 can grow ~150 KB before its 1 MiB limit. `[doc]`
+- **Code running from L2 in dead stock FX spots stopped the DSP on a unit** (Digiwerk SC01, 2026-10-21): knob turns and random idle moments, while the UI stayed fine. 74 minutes of the same recipes in the SHARC interpreter gave 0 faults, so the cause is something the interpreter doesn't model. Stable builds keep their code in proven L1/L2 regions. `[hw]` {dn2-cfw-roadmap}
+- **selcc inlining grows the stack:** a static helper that selcc inlined pushed one effect's stack to 2,092 bytes; making it non-static brought it back. Check stack use after each build. `[emu]` {dn2-cfw-t53}
+- **Bound every feedback path's output.** A held three-head runaway of a tape echo reached 4.24 (18 dB over stock's delay), so Digiwerk added a soft ceiling (linear to 0.5, at most 0.7). Stock's own runaway peaks at 0.526. `[emu]` {dn2-cfw-t53}
 - Load model used: load = (1.30 x emulated instructions + 11k) / 666,667. For one build it predicted ~74 % where the unit showed ~50-60 %, so the model overestimates. `[?]`
 
 ## The ColdFire-to-DSP frame and the panel (Digiwerk T3.2, T3.3, T2.1, T2.4b/c; DN2 1.12) {dn2-cfw-t3}

@@ -6,10 +6,11 @@ Sources read 2026-11-02:
 - janne808/machinedrum-kit `docs/` (system overview, SysEx updates, firmware image, DSP2 voice ABI, DSP programming, emulation and verification, open questions). Key {mdkit-docs}. The kit's custom machines ran on units, and it says where emulator and hardware differ.
 - emuyia's em's Machinedrum and Monomachine firmware READMEs and CHANGELOG. Key {ems-fw}.
 - shnolk/monomodule README. Key {monomodule}.
+- joelanders/gearmulator-md-mm source (`source/elektron/md/mdLib`: memory map, types, board scheduler comments). Key {gearmulator-md-mm}.
 
 Projects: [../../devices/machinedrum.md](../../devices/machinedrum.md), [../../devices/monomachine.md](../../devices/monomachine.md).
 
-**The short version:** a 1990s-style three-chip design (an old ColdFire plus two Motorola DSP56303s). It is nothing like the DT2/DN2: no SHARC, no FreeRTOS budget model, and no USB. Its flash updater lives in a boot sector that the OS itself can rewrite.
+**The short version:** an early-2000s three-chip design (an old ColdFire plus two Motorola DSP56303s). It is nothing like the DT2/DN2: no SHARC, no FreeRTOS budget model, and no USB. Its flash updater lives in a boot sector that the OS itself can rewrite.
 
 ## Machinedrum silicon {mdkit-docs}
 - **CPU: ColdFire MCF5206E.** It runs the OS (UI, sequencer, MIDI, kits, parameter conversion, flash, DSP control). Older notes say MCF5307; the board model and the MAME driver both identify an MCF5206E. `[doc]`
@@ -57,11 +58,19 @@ Rule A23 ("success is no proof") applies with force here.
 
 ## Monomachine (thin)
 - Monomodule runs the Monomachine's own sound engine in an emulated DSP56300 and matches the hardware sample for sample. So the sound engine is DSP56300 code taken from the OS file (OS 1.32B, `Elektron_SFX6-60_OS1.32B.syx`). `[doc]` {monomodule}
-- Whether its board matches the Machinedrum's (ColdFire plus two DSP56303s) is **not documented** in the sources read. `[?]`
+- **Board, as Gearmulator models it** (joelanders' gearmulator-md-mm, which boots the unmodified MnM OS 1.32B on the same board model as the Machinedrum, `[emu]` {gearmulator-md-mm}):
+  - the same ColdFire MCF5206E (modelled at 40 MHz) and two DSP56300-family DSPs;
+  - the same address map: flash at `0x10000000` (8 MiB OS images for both machines), main RAM `0x200000-0x2fffff`, each DSP's HI08 host port at `0x500000` / `0x600000`, internal SRAM at `0x1000000`;
+  - the SFX-60 MKII keeps user DigiPRO waveforms in a 2 MiB flash window at `0x10200000`.
+- **What differs from the MD** in that model:
+  - the ColdFire services the DSP host port through the hardware receive latch rather than the MD's HREQ-to-IRQ4 wire;
+  - the two DSPs are coupled by their own link handshake.
+
+  These are emulator-level facts. Nothing in our sources has measured a unit's clocks. `[emu]`
 - **Custom OS saved-data hazard:** em's firmware reclaims song slots for extended data (MnM: slots 13-24; MD: 13-32). Songs left in those slots are **corrupted on boot**, so back them up first. The same can happen with any mod that changes saved-data layouts (compare section E of AGENT-RULES). `[doc]` {ems-fw}
 - em's firmware carries features from jmamma's MDX (new machines, tunings, LFO shapes, MIDI fixes) with credit. `[doc]` {ems-fw}
 
 ## Open
-- The Monomachine's board, clocks and memory map.
+- The Monomachine's clocks and DSP budgets on a unit (only the emulator's board model exists).
 - The Machinedrum's hardware wait states per area (only two areas measured).
 - Why arithmetic stalls cost so little on hardware while AGU interlocks cost about their estimate (the kit lists this as open).

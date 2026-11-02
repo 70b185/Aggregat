@@ -34,6 +34,11 @@ Projects: [../../devices/machinedrum.md](../../devices/machinedrum.md), [../../d
 - Planning numbers (emulator): an idle track 3,438 cycles; stock TRX/EFM/E12/P-I voices ~2,000-3,200. `[emu]`
 - External-memory wait states (the emulator ignores them; measured on hardware): ~1 wait state in areas 0-2, ~5 in area 3 (`0x1C0000+`). A machine with many external accesses costs several thousand cycles more on hardware than in the emulator. `[hw]`
 
+## How full DSP2 is with stock kits (MModule research 04, OS 1.63, emulator) {mmodule-research}
+- In emulated cycles, a busy kit costs 38,789 per block (54 % of 71,680), and the most expensive stock kit, 16 ROM machines, up to 67,309 (94 %). `[emu]`
+- Kitbasher measured that pipeline interlocks alone add a median 26 % on hardware, so the dearest stock kits sit close to the limit. **Treat these numbers as a floor.**
+- MModule found `$020000-$0FFFFF` of the emulated DSP's shared P/X/Y never written by the 1.63 program (found by poisoning memory and playing all 104 machines). That is emulator memory: check what a real unit decodes there before relying on it (compare the `P:0x400` lesson below). `[emu]`
+
 ## Emulator vs unit (Gearmulator's Machinedrum board model) {mdkit-docs}
 Things that pass in the emulator and fail on a unit:
 - **Flash appears at both `0x0` and `0x10000000` in the emulator.** On hardware, after the OS remaps CS0 nothing decodes the low window: images with low-window flash pointers **boot in the emulator and hang on the unit.** Link and point through `0x10000000`, and scan images for low pointers. `[hw]`

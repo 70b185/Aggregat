@@ -227,3 +227,4 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2-waverider-perf | angellinares/dn2_firmware_explore `docs/waverider-performance.md` and `docs/waverider-loadmap.md` (DN2 1.11) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/waverider-performance.md |
 | kyoti-caves | Zac-Kyoti/octatrack-kyoti-fw `reference/kb/caves.md` (cave ledger, canary test, scratch RAM; OS 1.40C) | https://github.com/Zac-Kyoti/octatrack-kyoti-fw/blob/main/reference/kb/caves.md |
 | dt2-research-heap | karigardarsson/digitakt-ii-research `research/memory-ownership-placement-delta.md`, `startup-integration-delta.md`, `hook-abi-audit.md` (OS 1.16, emulator) | https://github.com/karigardarsson/digitakt-ii-research/tree/main/research |
+| mmodule-research | c0remusic/MModule `.scratch/user-machines/research/04-voice-dsp-memory.md` (Machinedrum OS 1.63 voice DSP room and time, emulator) | https://github.com/c0remusic/MModule |

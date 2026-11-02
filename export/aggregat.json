@@ -7,9 +7,9 @@
    "devices": 13,
    "relations": 41,
    "rules": 88,
-   "sources": 235,
+   "sources": 239,
    "conflicts": 31,
-   "facts": 951
+   "facts": 961
   }
  },
  "devices": [
@@ -4431,6 +4431,11 @@
    "url": "https://github.com/zooloo303/digi-roll"
   },
   {
+   "key": "digi-roll-protocol",
+   "what": "zooloo303/digi-roll `docs/elektron-sysex-protocol.md` (RPC and dump framing for DT1/DT2/DN2, product ids, captured on units)",
+   "url": "https://github.com/zooloo303/digi-roll/blob/main/docs/elektron-sysex-protocol.md"
+  },
+  {
    "key": "modded-cycles-thread",
    "what": "elektronmods thread 7 (Modded-Cycles)",
    "url": "https://elektronmods.com/thread-7-modded-cycles-6-track-usb-multi-out-syntakt-engine-port-web"
@@ -4529,6 +4534,11 @@
    "key": "libanalogrytm",
    "what": "bsp2/libanalogrytm README (Analog Rytm only)",
    "url": "https://github.com/bsp2/libanalogrytm"
+  },
+  {
+   "key": "libanalogrytm-sysex",
+   "what": "bsp2/libanalogrytm `sysex.h` and `sysex.c` (Analog Rytm dump framing, 7-bit packing, checksum; MIT, 2014)",
+   "url": "https://github.com/bsp2/libanalogrytm/blob/master/sysex.c"
   },
   {
    "key": "elk-herd",
@@ -4781,9 +4791,19 @@
    "url": "https://github.com/dagargo/overwitch"
   },
   {
+   "key": "overwitch-devices",
+   "what": "dagargo/overwitch `res/devices.json` (Overbridge USB product id per device)",
+   "url": "https://github.com/dagargo/overwitch/blob/master/res/devices.json"
+  },
+  {
    "key": "elektroid-readme",
    "what": "dagargo/elektroid README (device list, connectors, filesystems)",
    "url": "https://github.com/dagargo/elektroid"
+  },
+  {
+   "key": "elektroid-devices",
+   "what": "dagargo/elektroid `res/elektron/devices.json` and `src/connectors/elektron.c` (product id per device, read from the Ping reply)",
+   "url": "https://github.com/dagargo/elektroid/blob/master/res/elektron/devices.json"
   },
   {
    "key": "elekloader-agents",
@@ -6192,7 +6212,7 @@
    "file": "hardware/devices/analog-heat.md",
    "line": 9,
    "section": "Analog Heat (MKI, MKII, +FX) / Official facts (elektron.se, read 2026-10-31)",
-   "text": "Minimum OS for updating via Transfer: 1.20. Product IDs from Elektron's FAQ: Analog Heat 000A, Analog Heat MKII 0016 (meaning of the field not shown; full table in [`../common/firmware-container.md`](../common/firmware-container.md)). `[doc]`/`[?]` {elektron-support} {elektron-faq}",
+   "text": "Minimum OS for updating via Transfer: 1.20. Product IDs from Elektron's FAQ: Analog Heat 000A, Analog Heat MKII 0016 (the product id a unit reports over its RPC, not the SysEx device byte; +FX `0x20`, Overbridge USB `0x0B53`: [`../common/sysex-and-midi.md`](../common/sysex-and-midi.md); full table in [`../common/firmware-container.md`](../common/firmware-container.md)). `[doc]`/`[?]` {elektron-support} {elektron-faq}",
    "evidence": "?,doc",
    "sources": "elektron-faq,elektron-support",
    "devices": "analog-heat",
@@ -14090,7 +14110,7 @@
    "file": "hardware/common/firmware-container.md",
    "line": 11,
    "section": "Firmware container (.syx) - facts shared by the devices / Transport and container",
-   "text": "Elektron identifies devices in the update path by a product ID. Table published on elektron.se (meaning of the field not shown on the page we read): Analog Heat 000A, Digitakt 000C, Digitone 0014, Analog Heat MKII 0016, Model:Samples 0019, Model:Cycles 001B, Digitone Keys 001C. `[?]` {elektron-faq}",
+   "text": "Elektron identifies devices in the update path by a product ID. Table published on elektron.se (the page does not say what the field is; it is the product id a unit reports in its RPC `Device` reply, a different namespace from the SysEx device byte below: [`sysex-and-midi.md`](sysex-and-midi.md)): Analog Heat 000A, Digitakt 000C, Digitone 0014, Analog Heat MKII 0016, Model:Samples 0019, Model:Cycles 001B, Digitone Keys 001C. `[?]` {elektron-faq}",
    "evidence": "?",
    "sources": "elektron-faq",
    "devices": "analog-heat,digitone,model-cycles,model-samples",
@@ -14099,7 +14119,7 @@
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 16,
+   "line": 15,
    "section": "Firmware container (.syx) - facts shared by the devices / Compression",
    "text": "Sections use an aPLib-style codec (LZ77 + Elias-gamma). `[doc]` {elektron-firmware-tool} {dn2-firmware-explore}",
    "evidence": "doc",
@@ -14110,7 +14130,7 @@
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 17,
+   "line": 16,
    "section": "Firmware container (.syx) - facts shared by the devices / Compression",
    "text": "Section 4 (updater) is stored raw and carries its own depacker copy (Digitakt II). `[doc]` {digikit-old}",
    "evidence": "doc",
@@ -14121,7 +14141,7 @@
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 18,
+   "line": 17,
    "section": "Firmware container (.syx) - facts shared by the devices / Compression",
    "text": "Re-compressing with `-c` is not byte-identical to stock even when content is unchanged, but preserves the decompressed content. Verbatim repack (`-r`) matched on 22 of 23 test images (one stray byte after the final SysEx terminator). `[doc]` {elektron-firmware-tool}",
    "evidence": "doc",
@@ -14132,7 +14152,7 @@
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 21,
+   "line": 20,
    "section": "Firmware container (.syx) - facts shared by the devices / Compression",
    "text": "dn2_firmware_explore: decode + re-encode byte-identical on both images; repacked sections smaller than stock on every section. `[doc]` {dn2-firmware-explore}",
    "evidence": "doc",
@@ -14143,7 +14163,7 @@
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 24,
+   "line": 23,
    "section": "Firmware container (.syx) - facts shared by the devices / Checksums and signing",
    "text": "CRC-32 (poly 0xEDB88320, residue 0xDEBB20E3) verified on Digitakt II. `[doc]` {digikit-old}",
    "evidence": "doc",
@@ -14154,7 +14174,7 @@
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 25,
+   "line": 24,
    "section": "Firmware container (.syx) - facts shared by the devices / Checksums and signing",
    "text": "Algorithms in the containers: SHA-256, HMAC-SHA256, CRC-32, key derivation. Modifying a section means recomputing every checksum; the tools do it and re-verify. `[doc]` {elektron-firmware-tool}",
    "evidence": "doc",
@@ -14165,7 +14185,7 @@
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 27,
+   "line": 26,
    "section": "Firmware container (.syx) - facts shared by the devices / Checksums and signing",
    "text": "Digitone II (DN2) containers are signed with HMAC-SHA256; the key is derived from material inside the image, so a modified image can be signed correctly. `[doc]` {dn2-firmware-explore}",
    "evidence": "doc",
@@ -14176,7 +14196,7 @@
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 29,
+   "line": 28,
    "section": "Firmware container (.syx) - facts shared by the devices / Checksums and signing",
    "text": "Digitone mk1 (DN1) containers are unsigned (trailer = 32 zero bytes). `[doc]` {dn2-firmware-explore}",
    "evidence": "doc",
@@ -14187,7 +14207,7 @@
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 30,
+   "line": 29,
    "section": "Firmware container (.syx) - facts shared by the devices / Checksums and signing",
    "text": "Digitakt II also checks a content checksum and an HMAC-SHA256 trailer in the bootstrap; digikit has not emulated them yet. `[doc]` {digikit-old}",
    "evidence": "doc",
@@ -14198,7 +14218,7 @@
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 33,
+   "line": 32,
    "section": "Firmware container (.syx) - facts shared by the devices / Sections",
    "text": "Digitakt II: section 2 = bootstrap, section 4 = updater (never modify); the DSP program is an ADI boot stream in section 7; ElekLabs digikit's patchkit refuses to change sections 2, 4 and 8.",
    "evidence": "",
@@ -14209,7 +14229,7 @@
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 34,
+   "line": 33,
    "section": "Firmware container (.syx) - facts shared by the devices / Sections",
    "text": "Section 7 must stay under 1 MiB, stored and decoded (DT2 and DN2). At boot the ColdFire allocates two `0x100000`-byte buffers, copies the stored section into the first, writes a `0x03` byte at the start of the second and depacks the section after it. The decoded-size check (`len + 1 > 0x100000`, status 3) runs after depacking (DT2 1.16 `0x400cd20c`; the same 828-byte routine on DT2 1.17, DN2 1.11 and 1.12) {digikit-f06} {digikit-f01}. So an oversized stream is not refused cleanly: it overruns the buffer first. A dt2-machine-lab build with a 1,314,460-byte decoded stream hit a ColdFire exception on a unit and was withdrawn; the lab's repair encodes zero regions as fill blocks so the decoded stream fits {dt2-lab-capicola}. elekloader states the same limits for the DN2 ([`../devices/digitone-2-machines-sampler-sharc.md`](../devices/digitone-2-machines-sampler-sharc.md)). Count decoded bytes with a depacker, not the stored size (rule A46). `[hw]` The earlier README named sections 3 and 7 as patch targets. `[doc]` {digikit} {digikit-old}",
    "evidence": "doc,hw",
@@ -14220,7 +14240,7 @@
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 35,
+   "line": 34,
    "section": "Firmware container (.syx) - facts shared by the devices / Sections",
    "text": "Digitone II: the `MAIN OS` section is 3,085,696 bytes of big-endian ColdFire code, built with GCC, still containing C++ RTTI names. `[doc]` {dn2-firmware-explore}",
    "evidence": "doc",
@@ -14231,7 +14251,7 @@
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 37,
+   "line": 36,
    "section": "Firmware container (.syx) - facts shared by the devices / Sections",
    "text": "`MAIN OS` loads at `0x40000400` on both DN1 and DN2 (as stated by dn2_firmware_explore). `[doc]` {dn2-firmware-explore}",
    "evidence": "doc",
@@ -14242,7 +14262,7 @@
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 38,
+   "line": 37,
    "section": "Firmware container (.syx) - facts shared by the devices / Sections",
    "text": "elekloader (Digitakt mk1): output must equal the stock file with only the main OS section changed; the header may differ only in its 4-character version field and the framing only in its message count. `[doc]` {elekloader-readme}",
    "evidence": "doc",
@@ -14640,11 +14660,11 @@
    "file": "hardware/common/memory-maps.md",
    "line": 55,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)",
-   "text": "`0x46700000-0x4670ffff` is not free. On 1.12 it holds the end of the DMA buffers; on 1.11 the MMC bounce buffer reaches `0x46701300`. dnfw's lfo4 state at `0x46700000` sits there on 1.11, and every `0x4670xxxx` placement must move for a 1.12 port. The \"25.3 MB unclaimed above BSS\" figure in dnfw's memory map missed these alias references. The skill's \"`0x46700000..0x46900000` unused, hardware-confirmed\" disagrees: see [CONFLICTS O17](../CONFLICTS.md). `[doc]`",
+   "text": "The range from `0x46700000` up to `0x46710000` is not free. On 1.12 it holds the end of the DMA buffers; on 1.11 the MMC bounce buffer reaches `0x46701300`. dnfw's lfo4 state at `0x46700000` sits there on 1.11, and every `0x4670xxxx` placement must move for a 1.12 port. The \"25.3 MB unclaimed above BSS\" figure in dnfw's memory map missed these alias references. The skill's \"`0x46700000..0x46900000` unused, hardware-confirmed\" disagrees: see [CONFLICTS O17](../CONFLICTS.md). `[doc]`",
    "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitone-2",
-   "addresses": "0x46700000,0x46701300,0x4670ffff,0x46900000",
+   "addresses": "0x46700000,0x46701300,0x46710000,0x46900000",
    "id": 804
   },
   {
@@ -15355,7 +15375,7 @@
    "file": "hardware/common/sysex-and-midi.md",
    "line": 16,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Framing and encoding",
-   "text": "Container structure and checksums for older machines are best documented in libanalogrytm (Analog Rytm only; no Analog Heat). `[doc]` {libanalogrytm}",
+   "text": "Container structure and checksums for older machines are best documented in libanalogrytm (Analog Rytm only; no Analog Heat); the frame, packing and checksum match the newer devices, the type bytes do not (section \"Dump messages and device ids across generations\" below). `[doc]` {libanalogrytm}",
    "evidence": "doc",
    "sources": "libanalogrytm",
    "devices": "analog-heat,analog-rytm",
@@ -15364,219 +15384,219 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 30,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
-   "text": "Message: product byte `0x15`, message type `0x50` (pattern). A pattern dump is 114,118 bytes. The body from raw byte 10 to 114113 is 7-bit packed (one control byte per 7 payload bytes); \"decoded\" offsets below are into the unpacked payload.",
-   "evidence": "hw",
-   "sources": "syxgrid-map",
-   "devices": "digitone-2",
+   "line": 31,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Dump messages and device ids across generations (task T22, 2026-11-02)",
+   "text": "One dump frame for every generation compared: `F0 00 20 3C <device> <dev id> <type> 01 01 <index> <packed payload> <checksum hi lo> <count hi lo> F7`. The Rytm writes the same `01 01` version field (\"OS 1.02c\" in libanalogrytm), the same index byte and the same trailer. `[doc]` {libanalogrytm-sysex} {digi-roll-protocol}",
+   "evidence": "doc",
+   "sources": "digi-roll-protocol,libanalogrytm-sysex",
+   "devices": "analog-rytm",
    "addresses": "",
    "id": 870
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 31,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
-   "text": "Slot: raw byte 9 is the slot the device dumped from (0 = A01 ... 127 = H16), not a destination. A received pattern is stored in the slot armed on the device, advancing by one per pattern.",
-   "evidence": "hw",
-   "sources": "syxgrid-map",
+   "line": 32,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Dump messages and device ids across generations (task T22, 2026-11-02)",
+   "text": "The same 7-bit packing: groups of one header byte plus up to 7 data bytes; header bit 6 holds the MSB of the first data byte, bit 0 that of the seventh; a short last group keeps its header. syxgrid's DN2 field \"control byte 101506, mask `0x40`, payload 101507\" is exactly this rule (first byte of a group). `[doc]` {libanalogrytm-sysex} {digi-roll-protocol} {syxgrid-map}",
+   "evidence": "doc",
+   "sources": "digi-roll-protocol,libanalogrytm-sysex,syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
    "id": 871
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 32,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
-   "text": "Step states: at decoded `4 + 1187*(track-1) + 2*(step-1)`, two bytes per step, 16 tracks x 128 steps. Odd-step trig `03 81`, even-step trig `03 91`. `03 90` / `03 80` (bit 0 clear) is not an occupied step. First byte `0x78` = trigless trig (parameter automation, no note).",
-   "evidence": "hw",
-   "sources": "syxgrid-map",
+   "line": 33,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Dump messages and device ids across generations (task T22, 2026-11-02)",
+   "text": "The same checksum and count: checksum = sum of the packed payload bytes (header bytes included) mod 2^14, sent as two 7-bit bytes, high first; count = packed length + 5 (checksum, count and `F7`), also mod 2^14. syxgrid recomputed the checksum over raw bytes `[10, 114113)` and matched the DN2's own on every fixture. A DN2 pattern message is 114,118 bytes, so its count field wraps; tools must not use it as a length. `[doc]` {libanalogrytm-sysex} {digi-roll-protocol} {syxgrid-map}",
+   "evidence": "doc",
+   "sources": "digi-roll-protocol,libanalogrytm-sysex,syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
    "id": 872
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
+   "line": 34,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Dump messages and device ids across generations (task T22, 2026-11-02)",
+   "text": "Requests: an empty payload, trailer `00 00 00 05` (checksum 0, count 5) on both generations; the Rytm's request is 15 bytes, `F0 00 20 3C 07 00 <id> 01 01 <nr> 00 00 00 05 F7`. `[doc]` {libanalogrytm-sysex} {digi-roll-protocol}",
+   "evidence": "doc",
+   "sources": "digi-roll-protocol,libanalogrytm-sysex",
+   "devices": "analog-rytm",
+   "addresses": "",
+   "id": 873
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
    "line": 35,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Dump messages and device ids across generations (task T22, 2026-11-02)",
+   "text": "The type bytes differ, so never reuse a type table across devices: Rytm: dumps `0x52` kit, `0x53` sound, `0x54` pattern, `0x55` song, `0x56` settings, `0x57` global; `0x58-0x5D` the same objects from the unsaved work buffer; requests `0x62-0x6D` the same way. Digitakt / Digitakt II / Digitone II: `0x50` pattern plus kit in one message, `0x51` pattern, `0x52` kit, `0x53` sound, `0x54` project settings; requests `0x60-0x64`, and `0x6F` asks for the whole project. So `0x54` is a Rytm pattern but a DT2/DN2 project-settings message. syxgrid's guess \"`0x53` = kit\" for the DN2 (graded D, unknown) is a sound dump by digi-roll's table. `[doc]` {libanalogrytm-sysex} {digi-roll-protocol} {syxgrid-map}",
+   "evidence": "doc",
+   "sources": "digi-roll-protocol,libanalogrytm-sysex,syxgrid-map",
+   "devices": "analog-rytm,digitakt-2,digitone-2",
+   "addresses": "",
+   "id": 874
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 39,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Dump messages and device ids across generations (task T22, 2026-11-02)",
+   "text": "The index byte on receive: a DN2 stores a received pattern in the slot armed on the device, not in the index the message carries (syxgrid, on a unit). libanalogrytm does not say what a Rytm does with it. `[hw]` {syxgrid-map}",
+   "evidence": "hw",
+   "sources": "syxgrid-map",
+   "devices": "analog-rytm,digitone-2",
+   "addresses": "",
+   "id": 875
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 40,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Dump messages and device ids across generations (task T22, 2026-11-02)",
+   "text": "Device byte in dumps: Rytm (libanalogrytm's era, MKI) `0x07`; Digitakt `0x0A`; Digitakt II `0x14`; Digitone II `0x15`. A DN2 answered only `0x15` in a sweep and ignored `0x0B-0x0E`, `0x14` and `0x16`. The same bytes appear in the OS files ([`firmware-container.md`](firmware-container.md)). `[doc]` {libanalogrytm-sysex} {digi-roll-protocol} Three different device ids. They are easy to mix up, and the same number means different devices in different namespaces:",
+   "evidence": "doc",
+   "sources": "digi-roll-protocol,libanalogrytm-sysex",
+   "devices": "analog-rytm,digitakt-2,digitone-2",
+   "addresses": "",
+   "id": 876
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 54,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Dump messages and device ids across generations (task T22, 2026-11-02)",
+   "text": "`0x14` is the Digitakt II's SysEx byte but the Digitone mk1's product id; `0x0A` is the Digitakt's SysEx byte but the Analog Heat's product id. Name the namespace whenever you write an id down.",
+   "evidence": "",
+   "sources": "",
+   "devices": "analog-heat,digitakt-2,digitone",
+   "addresses": "",
+   "id": 877
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 55,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Dump messages and device ids across generations (task T22, 2026-11-02)",
+   "text": "Elektroid reads the product id from byte 5 of the decoded `Device` (Ping) reply and looks it up in its device table; digi-roll captured 42 and 43 from a DT2 and a DN2 the same way. The FAQ table on elektron.se (Heat `000A`, Digitakt `000C`, Digitone `0014`, Heat MKII `0016`, Model:Samples `0019`, Model:Cycles `001B`, Digitone Keys `001C`) matches Elektroid's table entry for entry, so that table lists product ids. `[doc]` {elektroid-devices} {digi-roll-protocol} {elektron-faq}",
+   "evidence": "doc",
+   "sources": "digi-roll-protocol,elektroid-devices,elektron-faq",
+   "devices": "digitakt-2,digitone,digitone-2,model-cycles,model-samples",
+   "addresses": "",
+   "id": 878
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 56,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Dump messages and device ids across generations (task T22, 2026-11-02)",
+   "text": "Elektroid's further product ids: Analog Four `0x04`, Analog Keys `0x06`, Analog Rytm `0x08`, Analog Four MKII `0x0E`, Analog Rytm MKII `0x10`, Syntakt `0x1E`. Overwitch's Overbridge ids: Analog Four MKII `0x0B47`, Analog Rytm MKII `0x0B48`, Digitone Keys `0x0B35`, Syntakt `0x0B4A`. digikit read the DT2's USB ids from the image: `0x012B` (USB MIDI), `0x102B` (audio/MIDI), `0x0B2B` (Overbridge), so the low byte is shared across modes. `[doc]` {elektroid-devices} {overwitch-devices} {digikit-f42}",
+   "evidence": "doc",
+   "sources": "digikit-f42,elektroid-devices,overwitch-devices",
+   "devices": "analog-four-keys,analog-rytm,digitakt-2,digitone,syntakt",
+   "addresses": "",
+   "id": 879
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 60,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
+   "text": "Message: product byte `0x15`, message type `0x50` (pattern). A pattern dump is 114,118 bytes. The body from raw byte 10 to 114113 is 7-bit packed (one control byte per 7 payload bytes); \"decoded\" offsets below are into the unpacked payload.",
+   "evidence": "hw",
+   "sources": "syxgrid-map",
+   "devices": "digitone-2",
+   "addresses": "",
+   "id": 880
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 61,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
+   "text": "Slot: raw byte 9 is the slot the device dumped from (0 = A01 ... 127 = H16), not a destination. A received pattern is stored in the slot armed on the device, advancing by one per pattern.",
+   "evidence": "hw",
+   "sources": "syxgrid-map",
+   "devices": "digitone-2",
+   "addresses": "",
+   "id": 881
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 62,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
+   "text": "Step states: at decoded `4 + 1187*(track-1) + 2*(step-1)`, two bytes per step, 16 tracks x 128 steps. Odd-step trig `03 81`, even-step trig `03 91`. `03 90` / `03 80` (bit 0 clear) is not an occupied step. First byte `0x78` = trigless trig (parameter automation, no note).",
+   "evidence": "hw",
+   "sources": "syxgrid-map",
+   "devices": "digitone-2",
+   "addresses": "",
+   "id": 882
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 65,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
    "text": "Trigger records: at decoded `18996`, 6 bytes each, up to 8,192 records. Fields: track, step, note, velocity (`0xFF` = track default), length index (`0xFF` = inherit), and a signed micro-timing byte (1/384 note, -23..+23). A record is free when its track byte is `0xFF`; nothing terminates the table, so skip and keep scanning. Chords are stored as all primary notes first, then all chord extras.",
    "evidence": "hw",
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 873
+   "id": 883
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 39,
+   "line": 69,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
    "text": "Track type bitmask at decoded `99348-99349`, big-endian, bit i = track i+1, 1 = MIDI track.",
    "evidence": "hw",
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 874
+   "id": 884
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 40,
+   "line": 70,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
    "text": "Machine per track at `89160 + 359*(track-1) + 232`: 0 FM TONE, 1 WAVETONE, 2 FM DRUM, 3 SWARMER, 4 MIDI.",
    "evidence": "hw",
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 875
+   "id": 885
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 41,
+   "line": 71,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
    "text": "MIDI channel per track: the enabled flag is at `95064 + 268*(track-1) + 245`, the channel (0-15) at `... + 82`.",
    "evidence": "hw",
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 876
+   "id": 886
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 42,
+   "line": 72,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
    "text": "Pattern length: raw payload byte 101507 (control byte 101506, mask `0x40`), 1-128 steps.",
    "evidence": "hw",
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 877
+   "id": 887
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 43,
+   "line": 73,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated)",
    "text": "Playback needs a clock: `0xF8` at 24 ppqn, `0xFA` start, `0xFC` stop. Program Change 0-127 on the program-change-in channel selects A01-H16.",
    "evidence": "hw",
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 878
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 49,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
-   "text": "Unpacked request body: `seq_hi seq_lo 00 00 type payload...`. The two bytes after seq must be `00 00`. A non-zero byte there and the unit never replies.",
-   "evidence": "doc",
-   "sources": "digikit-rpc",
-   "devices": "digitakt-2",
-   "addresses": "",
-   "id": 879
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 50,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
-   "text": "Unpacked reply: `counter16 seq16 (type|0x80) payload...`. The first pair is a device-side counter, not the seq; the echoed seq is the second pair.",
-   "evidence": "doc",
-   "sources": "digikit-rpc",
-   "devices": "digitakt-2",
-   "addresses": "",
-   "id": 880
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 51,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
-   "text": "The whole body is 8-in-7 packed, one collector per 7 bytes. Short bodies (Ping, `ReadDir /`) look unpacked, which misled early tools. Longer payloads must be packed or the unit answers \"Invalid path\".",
-   "evidence": "doc",
-   "sources": "digikit-rpc",
-   "devices": "digitakt-2",
-   "addresses": "",
-   "id": 881
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 52,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
-   "text": "All integers are big-endian, strings are NUL-terminated (< 256 bytes), and no checksum is used.",
-   "evidence": "doc",
-   "sources": "digikit-rpc",
-   "devices": "digitakt-2",
-   "addresses": "",
-   "id": 882
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 53,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
-   "text": "Status: hardware round-trip `[hw]` for Ping, SoftwareVersion (\"1.16\"), DeviceUID, StorageSpace and ReadDir; the rest `[emu]`. The 44 commands the unit advertises (the Ping reply lists them, then the name \"Digitakt II\"):",
-   "evidence": "emu,hw",
-   "sources": "digikit-rpc",
-   "devices": "digitakt-2",
-   "addresses": "",
-   "id": 883
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 65,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
-   "text": "Screenshot `0x04` returns a 9-byte header (`01`, width 128, height 64, length 1024) plus the 1,024-byte OLED buffer (byte `(7 - y/8) + 8x`, bit `y mod 8`). It works the same on DN2 1.12. This is a no-mod way to see the screen remotely.",
-   "evidence": "doc,emu",
-   "sources": "digikit-rpc",
-   "devices": "digitakt-2,digitone-2",
-   "addresses": "",
-   "id": 884
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 66,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
-   "text": "Writing a sample: 1. `CreateDir` the folder. 2. `OpenFileForWrite 0x40`: `u32` (any value), then the path with a leading slash. A bare name creates a *folder*. 3. `WriteFileV1 0x42`: handle, length, sequential offset, data. 4. `CloseFileWriter 0x41` takes the handle AND the byte count. With the handle alone it fails.",
-   "evidence": "doc,emu",
-   "sources": "digikit-rpc",
-   "devices": "digitakt-2",
-   "addresses": "",
-   "id": 885
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 71,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
-   "text": "The firmware appends a 16-byte trailer and stores `content_hash(data ++ 16 zero bytes) | 1`, so a host can verify the upload. An idle writer is closed after 20 s, leaving a half file.",
-   "evidence": "doc,emu",
-   "sources": "digikit-rpc",
-   "devices": "digitakt-2",
-   "addresses": "",
-   "id": 886
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 72,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
-   "text": "Chunks of 2-16 KiB work in the emulator (limit ~100 KiB). Device tools keep 2,048 bytes until real USB timing is known.",
-   "evidence": "doc,emu",
-   "sources": "digikit-rpc",
-   "devices": "digitakt-2",
-   "addresses": "",
-   "id": 887
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 73,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
-   "text": "The device does no WAV conversion: send the native file (0x40-byte header, 48 kHz big-endian int16, see [`overbridge-usb.md`](overbridge-usb.md)).",
-   "evidence": "doc,emu",
-   "sources": "digikit-rpc",
-   "devices": "digitakt-2",
-   "addresses": "",
    "id": 888
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 74,
+   "line": 79,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
-   "text": "StorageSpace (drive 1 = +Drive) returns status, `u64` free and `u64` total.",
-   "evidence": "doc,emu",
+   "text": "Unpacked request body: `seq_hi seq_lo 00 00 type payload...`. The two bytes after seq must be `00 00`. A non-zero byte there and the unit never replies.",
+   "evidence": "doc",
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
@@ -15584,10 +15604,10 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 75,
+   "line": 80,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
-   "text": "ReadFileV1 layout is still unsettled (it returned no data in the emulator).",
-   "evidence": "doc,emu",
+   "text": "Unpacked reply: `counter16 seq16 (type|0x80) payload...`. The first pair is a device-side counter, not the seq; the echoed seq is the second pair.",
+   "evidence": "doc",
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
@@ -15595,9 +15615,9 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 76,
+   "line": 81,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
-   "text": "No wire-controlled memory read or write exists over MidiRpc. Eight surfaces were audited (Data partial R/W, path resolvers, FsRaw, the backup streams, the route table, the full type factory). Live RAM is not reachable this way; the OS-upgrade path writes flash only. `[doc]`",
+   "text": "The whole body is 8-in-7 packed, one collector per 7 bytes. Short bodies (Ping, `ReadDir /`) look unpacked, which misled early tools. Longer payloads must be packed or the unit answers \"Invalid path\".",
    "evidence": "doc",
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
@@ -15606,10 +15626,10 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 77,
+   "line": 82,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
-   "text": "`F0 7E ...` always goes to the Sample Dump Standard handler. A Universal Device Inquiry gets `F0 7E 00 7C 00 F7` (WAIT), not an identity. `[hw]`",
-   "evidence": "hw",
+   "text": "All integers are big-endian, strings are NUL-terminated (< 256 bytes), and no checksum is used.",
+   "evidence": "doc",
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
@@ -15617,10 +15637,10 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 78,
+   "line": 83,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
-   "text": "The factory debug console is on UART8, not MIDI: `#HELLO`, `#READ`/`#WRITE` (an 11-name parameter table, not memory), `#DUMP_AUDIO`, `#ENTER_TEST_MODE`, `#MRAM_DUMP` (a fixed 13.8 MiB factory/calibration blob, magic \"COKi\"), `#MMCDUMP` (raw eMMC sectors). It is not known to be reachable from outside. Agents: leave it alone. `[doc]`",
-   "evidence": "doc",
+   "text": "Status: hardware round-trip `[hw]` for Ping, SoftwareVersion (\"1.16\"), DeviceUID, StorageSpace and ReadDir; the rest `[emu]`. The 44 commands the unit advertises (the Ping reply lists them, then the name \"Digitakt II\"):",
+   "evidence": "emu,hw",
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
@@ -15628,267 +15648,377 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 81,
+   "line": 95,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "Screenshot `0x04` returns a 9-byte header (`01`, width 128, height 64, length 1024) plus the 1,024-byte OLED buffer (byte `(7 - y/8) + 8x`, bit `y mod 8`). It works the same on DN2 1.12. This is a no-mod way to see the screen remotely.",
+   "evidence": "doc,emu",
+   "sources": "digikit-rpc",
+   "devices": "digitakt-2,digitone-2",
+   "addresses": "",
+   "id": 894
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 96,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "Writing a sample: 1. `CreateDir` the folder. 2. `OpenFileForWrite 0x40`: `u32` (any value), then the path with a leading slash. A bare name creates a *folder*. 3. `WriteFileV1 0x42`: handle, length, sequential offset, data. 4. `CloseFileWriter 0x41` takes the handle AND the byte count. With the handle alone it fails.",
+   "evidence": "doc,emu",
+   "sources": "digikit-rpc",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 895
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 101,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "The firmware appends a 16-byte trailer and stores `content_hash(data ++ 16 zero bytes) | 1`, so a host can verify the upload. An idle writer is closed after 20 s, leaving a half file.",
+   "evidence": "doc,emu",
+   "sources": "digikit-rpc",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 896
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 102,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "Chunks of 2-16 KiB work in the emulator (limit ~100 KiB). Device tools keep 2,048 bytes until real USB timing is known.",
+   "evidence": "doc,emu",
+   "sources": "digikit-rpc",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 897
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 103,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "The device does no WAV conversion: send the native file (0x40-byte header, 48 kHz big-endian int16, see [`overbridge-usb.md`](overbridge-usb.md)).",
+   "evidence": "doc,emu",
+   "sources": "digikit-rpc",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 898
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 104,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "StorageSpace (drive 1 = +Drive) returns status, `u64` free and `u64` total.",
+   "evidence": "doc,emu",
+   "sources": "digikit-rpc",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 899
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 105,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "ReadFileV1 layout is still unsettled (it returned no data in the emulator).",
+   "evidence": "doc,emu",
+   "sources": "digikit-rpc",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 900
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 106,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "No wire-controlled memory read or write exists over MidiRpc. Eight surfaces were audited (Data partial R/W, path resolvers, FsRaw, the backup streams, the route table, the full type factory). Live RAM is not reachable this way; the OS-upgrade path writes flash only. `[doc]`",
+   "evidence": "doc",
+   "sources": "digikit-rpc",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 901
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 107,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "`F0 7E ...` always goes to the Sample Dump Standard handler. A Universal Device Inquiry gets `F0 7E 00 7C 00 F7` (WAIT), not an identity. `[hw]`",
+   "evidence": "hw",
+   "sources": "digikit-rpc",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 902
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 108,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The live Transfer protocol, MidiRpc (Digitakt II 1.16/1.17; digikit `docs/MIDI-SYSEX-RPC.md`) `[doc]`",
+   "text": "The factory debug console is on UART8, not MIDI: `#HELLO`, `#READ`/`#WRITE` (an 11-name parameter table, not memory), `#DUMP_AUDIO`, `#ENTER_TEST_MODE`, `#MRAM_DUMP` (a fixed 13.8 MiB factory/calibration blob, magic \"COKi\"), `#MMCDUMP` (raw eMMC sectors). It is not known to be reachable from outside. Agents: leave it alone. `[doc]`",
+   "evidence": "doc",
+   "sources": "digikit-rpc",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 903
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 111,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II specifics and client pitfalls (dnfw `midi-rpc.md`, live on a DN2 1.11)",
    "text": "The DN2 answers the same MidiRpc framing: Ping replies with 22 command codes and the name \"Digitone II\". DNX reports the same set on 1.10E. The file-API product id is `0x2b`; the dump protocol calls the same unit `0x15`. `[hw]`",
    "evidence": "hw",
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 894
+   "id": 904
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 82,
+   "line": 112,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II specifics and client pitfalls (dnfw `midi-rpc.md`, live on a DN2 1.11)",
    "text": "The DN2 does not answer the MIDI Universal Device Inquiry at all. The DT2 answers it with an SDS WAIT. `[hw]`",
    "evidence": "hw",
    "sources": "dn2-midirpc",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 895
+   "id": 905
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 83,
+   "line": 113,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II specifics and client pitfalls (dnfw `midi-rpc.md`, live on a DN2 1.11)",
    "text": "A second application on the port corrupts replies: with Overbridge holding the port, replies were cut at exactly 885 bytes, and with Transfer open a preset list showed 35 of 256. Close Transfer, Overbridge and DNX before a client run. `[hw]`",
    "evidence": "hw",
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 896
+   "id": 906
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 84,
+   "line": 114,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II specifics and client pitfalls (dnfw `midi-rpc.md`, live on a DN2 1.11)",
    "text": "Windows client bug, silent: using `MIM_ERROR` (0x3C5) instead of `MIM_LONGDATA` (0x3C4) drops every SysEx reply while short messages still arrive. Validate a client against a known reply first (rule A31). `[hw]`",
    "evidence": "hw",
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 897
+   "id": 907
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 85,
+   "line": 115,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II specifics and client pitfalls (dnfw `midi-rpc.md`, live on a DN2 1.11)",
    "text": "Screenshot `0x04` returns the 128x64 frame; polling it gives a live mirror of the screen. `[hw]`",
    "evidence": "hw",
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 898
+   "id": 908
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 88,
+   "line": 118,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) `[doc]`",
    "text": "The panel MCU sends 2-byte packets on UART8: key packet: `0x20 | channel`, then the channel's 8-bit button mask; encoder packet: `0x30 | (encoder-1)`, then a signed 8-bit delta; high nibble 7: the factory console.",
    "evidence": "doc",
    "sources": "digikit-f58",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 899
+   "id": 909
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 92,
+   "line": 122,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) `[doc]`",
    "text": "Key code = `channel*8 + bit + 1` (codes 1-48, plus a few exceptions per device). There are nine encoders.",
    "evidence": "doc",
    "sources": "digikit-f58",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 900
+   "id": 910
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 93,
+   "line": 123,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) `[doc]`",
    "text": "Toward the panel: `B9 idx val` sets an LED to a palette entry, `B5 i r g b` sets a palette entry.",
    "evidence": "doc",
    "sources": "digikit-f58",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 901
+   "id": 911
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 94,
+   "line": 124,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) `[doc]`",
    "text": "Remote control without touching the UART: the firmware's button decoder `f(channel, new_mask)` (DT2 1.17 `0x4011e318`, DN2 1.12 `0x4011fc8c`) and encoder decoder `f(encoder0, delta)` (`0x4011e598` / `0x4011ff0c`) can be called from a mod. Mask SR to `0x2700` around the call; the decoders do unprotected read-modify-write. Neither checks the channel (safe: buttons 0-6, encoders 0-8). An encoder turn is ignored for 40 ticks after its click key is released. `[emu]`",
    "evidence": "emu",
    "sources": "digikit-f58",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x4011e318,0x4011e598,0x4011fc8c,0x4011ff0c",
-   "id": 902
+   "id": 912
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 99,
+   "line": 129,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Hardware ports and the hidden service console (DT2 1.16 / DN2 1.11)",
    "text": "DIN MIDI runs on UART9 (`0xec074000`, 31,250 baud, receive by eDMA channel 36). The front panel talks over UART8 (`0xec070000`). Panel key codes used by emulators: SETTINGS 8, FUNC 17, YES 10, NO 12, UP 11, DOWN 14, LEFT 13, RIGHT 15. `[emu]`",
    "evidence": "emu",
    "sources": "digikit-f25,dn2-service",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0xec070000,0xec074000",
-   "id": 903
+   "id": 913
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 100,
+   "line": 130,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Hardware ports and the hidden service console (DT2 1.16 / DN2 1.11)",
    "text": "Maintenance mode (a power-on key combination, or a reboot marker) presents a USB CDC-ACM serial port, VID `0x1935` PID `0xFFFF`. It speaks a line protocol: `#COMMAND\\n` text lines, `!` + 4-byte big-endian length for binary frames. About 60 factory commands. Read-only examples: `#HELLO` (answers \"HOW DO YOU DO?\"), `#STATUS` (reports `PLATFORM PCBA0109..`, `PRODUCT 52;5;15;Digitone II`), `#READ_SERIAL` (the \"SERI\" record at flash `0x3C0000`). Writing commands change persistent state: `#WRITE_SERIAL`, `#WRITE_TESTED`, `#WRITE_UI_TESTED`, `#WRITE_AUDIO_TESTED`, `#MMC_RECONFIGURE`, `#WRITE`, `#UPGRADE`, `#FULL_UPGRADE` (unchecked flash path, see `os-update-protocol.md`). Agents never send these. `[doc]` (digi-roll-studio's ceremony - copy it) 1. Re-read and back up the whole destination pattern first; abort if the backup fails. 2. The target's OS build must be on an allowlist. 3. The user confirms a dialog listing the changes. 4. Change only the bytes that must change. 5. Read the result back and byte-compare. Also: keep a local stash of overwritten patterns (50) plus pre-restore snapshots (10). `[hw]` {digi-roll-studio}",
    "evidence": "doc,hw",
    "sources": "digi-roll-studio,digikit-f25,dn2-service",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x3C0000",
-   "id": 904
+   "id": 914
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 117,
+   "line": 147,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Operating notes",
    "text": "Digitone II must be in SYSEX RECEIVE mode to accept a pattern; it lands in the slot selected on the device; queued patterns land consecutively; raise the gap (ms) if large dumps lose trigs. `[doc]` {syxgrid}",
    "evidence": "doc",
    "sources": "syxgrid",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 905
+   "id": 915
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 118,
+   "line": 148,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Operating notes",
    "text": "Web MIDI needs Chromium over HTTPS/localhost; Chrome/Edge 152 break SysEx receive on macOS (sending works). `[doc]` {syxgrid}",
    "evidence": "doc",
    "sources": "syxgrid",
    "devices": "",
    "addresses": "",
-   "id": 906
+   "id": 916
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 119,
+   "line": 149,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Operating notes",
    "text": "NRPN groups (Digitakt II, MCP project): MSB 1 = track/trig/source/filter/amp, MSB 2 = FX, MSB 3 = trig note/velocity/length. Sample select is NRPN MSB 1 / LSB 3 per one forum user, who found that sample-slot control by NRPN looked broken and that a separate \"sample slot\" + \"bank\" CC pair may be the real route. `[?]` {digitakt-midi-mcp} {elektronauts-dt2-sample-slot}",
    "evidence": "?",
    "sources": "digitakt-midi-mcp,elektronauts-dt2-sample-slot",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 907
+   "id": 917
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 120,
+   "line": 150,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Operating notes",
    "text": "External sequencing: the Digitakt needed MIDI Start + clock pulses + Stop to play when externally controlled (MCP project note). `[doc]` {digitakt-midi-mcp}",
    "evidence": "doc",
    "sources": "digitakt-midi-mcp",
    "devices": "",
    "addresses": "",
-   "id": 908
+   "id": 918
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 121,
+   "line": 151,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Operating notes",
    "text": "Sample swapping via CC happens on the next trigger, not on a trigger that sends the CC (forum report). `[?]` {elektronauts-dt2-sample-slot}",
    "evidence": "?",
    "sources": "elektronauts-dt2-sample-slot",
    "devices": "",
    "addresses": "",
-   "id": 909
+   "id": 919
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 122,
+   "line": 152,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Operating notes",
    "text": "Overbridge (USB multitrack audio + parameter control) is proprietary; Overwitch reimplements the audio side on Linux for Overbridge-2 devices incl. Analog Heat. {overwitch}",
    "evidence": "",
    "sources": "overwitch",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 910
+   "id": 920
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 125,
+   "line": 155,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Rules for agents",
    "text": "Never write to a unit's storage with an unverified format: back up via Transfer first, work on throwaway projects, read back and compare.",
    "evidence": "",
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 911
+   "id": 921
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 126,
+   "line": 156,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Rules for agents",
    "text": "Treat every \"best-guess\" request format as unsafe until you have captured the real traffic with a MIDI monitor.",
    "evidence": "",
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 912
+   "id": 922
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 127,
+   "line": 157,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Rules for agents",
    "text": "Do not use libraries that parse a different device generation (Digitone mk1 vs II, Analog Four gen-1 vs gen-2) - the formats differ.",
    "evidence": "",
    "sources": "",
    "devices": "analog-four-keys,digitone",
    "addresses": "",
-   "id": 913
+   "id": 923
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 130,
+   "line": 160,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Elektroid (dagargo) - a general sample/SysEx client",
    "text": "Supported (README list): Analog Four MKI/MKII/Keys, Analog Heat MKI/MKII/+FX, Analog Rytm MKI/MKII, Digitakt I/II, Digitone I/II/Keys, Model:Cycles/Samples, Monomachine MKII, Syntakt, plus non-Elektron gear (Arturia, Casio CZ-101, Eventide, KORG, MFB, Moog, Novation, MIDI SDS samplers). No per-device capability table; `elektroid-cli info <device>` shows the compatible filesystems. `[doc]` {elektroid-readme}",
    "evidence": "doc",
    "sources": "elektroid-readme",
    "devices": "analog-four-keys,analog-heat,analog-rytm,model-cycles,monomachine,syntakt",
    "addresses": "",
-   "id": 914
+   "id": 924
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 131,
+   "line": 161,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Elektroid (dagargo) - a general sample/SysEx client",
    "text": "Connectors: `system` (local computer, for format conversion), `elektron`, `cz`, `sds`, `efactor_preset`. Elektron filesystem families: raw/sample (`raw`, `preset-raw`, `sample`), data (`data`, `project`, `preset`, `preset-takt-ii`, `sound`), memory (`ram`, `track`). The Digitakt II \"Preset\" filesystem is implemented as `preset-takt-ii`. `raw` and `data` are for testing only and not compatible with Transfer formats. A firmware `upgrade` command exists in the CLI (which devices is not stated). Device definitions come from `~/.config/elektroid/elektron/devices.json` if present. Elektron samples cannot be swapped. `[doc]` {elektroid-readme}",
    "evidence": "doc",
    "sources": "elektroid-readme",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 915
+   "id": 925
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 132,
+   "line": 162,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Elektroid (dagargo) - a general sample/SysEx client",
    "text": "Backends: ALSA MIDI and PulseAudio by default on Linux, RtMidi/RtAudio elsewhere. 2,506 commits, 19 open issues; no version shown on the page (altstrument lists v3.4, 2026-08-22).",
    "evidence": "",
    "sources": "elektroid-readme",
    "devices": "",
    "addresses": "",
-   "id": 916
+   "id": 926
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 135,
+   "line": 165,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Where the official MIDI tables live (forum reports, not read from the manuals)",
    "text": "Digitakt (mk1) manual: Appendix A lists sound parameters with CC numbers; high-resolution control needs NRPN, which is four CC messages (CC 99 = NRPN MSB, CC 98 = NRPN LSB, CC 6 = data MSB, CC 38 = data LSB), the MSB/LSB per parameter come from the manual; \"Receive CC/NRPN\" must be enabled under SETTINGS > MIDI CONFIG > PORT CONFIG. Digitone (mk1): Appendix B (MIDI implementation), ratio offsets are in a table B.3, CC 70-77 drive the MIDI track's CC value parameters. A forum user reports that the Digitakt II manual lists no CC values for the Euclidean sequencer parameters and that some Euclidean NRPNs misbehaved before OS 1.10 (\"Some NRPN parameters regarding the Euclidean sequencer didn't work as intended\" is in the 1.10 notes). The Octatrack is said to be the only Elektron device that answers a CC request. Manuals are updated with every OS - always use the one for the OS in hand. `[?]` {elektronauts-dt2-sample-slot} {elektronauts-heat-midi} {elektron-dt2-notes}",
    "evidence": "?",
    "sources": "elektron-dt2-notes,elektronauts-dt2-sample-slot,elektronauts-heat-midi",
    "devices": "digitakt-2,octatrack",
    "addresses": "",
-   "id": 917
+   "id": 927
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15899,7 +16029,7 @@
    "sources": "elekloader-adapting",
    "devices": "digitone",
    "addresses": "",
-   "id": 918
+   "id": 928
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15910,7 +16040,7 @@
    "sources": "dn2-firmware-explore,dn2-modding-skill",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 919
+   "id": 929
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15921,7 +16051,7 @@
    "sources": "dn2-cfw,dn2mk2",
    "devices": "",
    "addresses": "",
-   "id": 920
+   "id": 930
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15932,7 +16062,7 @@
    "sources": "elekloader-adapting,own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 921
+   "id": 931
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15943,7 +16073,7 @@
    "sources": "dn2-cfw",
    "devices": "",
    "addresses": "",
-   "id": 922
+   "id": 932
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15954,7 +16084,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 923
+   "id": 933
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15965,7 +16095,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 924
+   "id": 934
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15976,7 +16106,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 925
+   "id": 935
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15987,7 +16117,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 926
+   "id": 936
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15998,7 +16128,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 927
+   "id": 937
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16009,7 +16139,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 928
+   "id": 938
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16020,7 +16150,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 929
+   "id": 939
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16031,7 +16161,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 930
+   "id": 940
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16042,7 +16172,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 931
+   "id": 941
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16053,7 +16183,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 932
+   "id": 942
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16064,7 +16194,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 933
+   "id": 943
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16075,7 +16205,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 934
+   "id": 944
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16086,7 +16216,7 @@
    "sources": "digiemu",
    "devices": "digitone",
    "addresses": "",
-   "id": 935
+   "id": 945
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16097,7 +16227,7 @@
    "sources": "digikit",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 936
+   "id": 946
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16108,7 +16238,7 @@
    "sources": "digikit-old",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 937
+   "id": 947
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16119,7 +16249,7 @@
    "sources": "dn2-cfw",
    "devices": "",
    "addresses": "",
-   "id": 938
+   "id": 948
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16130,7 +16260,7 @@
    "sources": "dn2-modding-skill,overtone",
    "devices": "",
    "addresses": "",
-   "id": 939
+   "id": 949
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16141,7 +16271,7 @@
    "sources": "dn2mk2-firmware-md",
    "devices": "",
    "addresses": "",
-   "id": 940
+   "id": 950
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16152,7 +16282,7 @@
    "sources": "kyoti-fw",
    "devices": "",
    "addresses": "",
-   "id": 941
+   "id": 951
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16163,7 +16293,7 @@
    "sources": "overtone",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 942
+   "id": 952
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16174,7 +16304,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 943
+   "id": 953
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16185,7 +16315,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 944
+   "id": 954
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16196,7 +16326,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "0x26f000,0x2c0000,0xfc045654",
-   "id": 945
+   "id": 955
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16207,7 +16337,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 946
+   "id": 956
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16218,7 +16348,7 @@
    "sources": "elektron-emu",
    "devices": "analog-rytm,digitakt-2,digitone-2,model-cycles,syntakt",
    "addresses": "",
-   "id": 947
+   "id": 957
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16229,7 +16359,7 @@
    "sources": "digiemu-readme,dn2mk2-emulator",
    "devices": "",
    "addresses": "",
-   "id": 948
+   "id": 958
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16240,7 +16370,7 @@
    "sources": "emu-elektron-patches",
    "devices": "digitakt-2",
    "addresses": "0x400db9e0",
-   "id": 949
+   "id": 959
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16251,7 +16381,7 @@
    "sources": "alt-tools,em-list",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 950
+   "id": 960
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16262,7 +16392,7 @@
    "sources": "digikit-f08,own-heatfx-notes",
    "devices": "",
    "addresses": "",
-   "id": 951
+   "id": 961
   }
  ]
 }

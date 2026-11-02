@@ -21,6 +21,7 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | coldfire-rs | FirestormAudio/coldfire-rs README (generic MCF5441x Rust stack; no Elektron mention) | https://github.com/FirestormAudio/coldfire-rs |
 | digiemu | irpina/digiemu | https://github.com/irpina/digiemu |
 | digi-roll | zooloo303/digi-roll README | https://github.com/zooloo303/digi-roll |
+| digi-roll-protocol | zooloo303/digi-roll `docs/elektron-sysex-protocol.md` (RPC and dump framing for DT1/DT2/DN2, product ids, captured on units) | https://github.com/zooloo303/digi-roll/blob/main/docs/elektron-sysex-protocol.md |
 | digislicer, digifilter, digihealth, digisplash, digicandy, digitables, digicosm, digichroma, tone-fx, dt-fm, digitakt2-perform | READMEs of the like-named repos | see `../data/projects.yml` for each repo URL |
 | modded-cycles-thread | elektronmods thread 7 (Modded-Cycles) | https://elektronmods.com/thread-7-modded-cycles-6-track-usb-multi-out-syntakt-engine-port-web |
 | elektroid, overwitch, screendump | READMEs of dagargo/elektroid, dagargo/overwitch, jakobbak/screendump | see `../data/projects.yml` |
@@ -43,6 +44,7 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | digi-roll-studio | zooloo303/digi-roll-studio README | https://github.com/zooloo303/digi-roll-studio |
 | digitakt-midi-mcp | feamster/digitakt-midi-mcp README | https://github.com/feamster/digitakt-midi-mcp |
 | libanalogrytm | bsp2/libanalogrytm README (Analog Rytm only) | https://github.com/bsp2/libanalogrytm |
+| libanalogrytm-sysex | bsp2/libanalogrytm `sysex.h` and `sysex.c` (Analog Rytm dump framing, 7-bit packing, checksum; MIT, 2014) | https://github.com/bsp2/libanalogrytm/blob/master/sysex.c |
 | elk-herd | mzero/elk-herd stub README (moved off GitHub) | https://github.com/mzero/elk-herd |
 | elekloader-simonjohansson | simonjohansson/elekloader README (fork with Digitakt II / Digitone II support) | https://github.com/simonjohansson/elekloader |
 | gearnews-heatfx | Gearnews: Analog Heat +FX OS 1.01 upgrade (exclusive to +FX) | https://www.gearnews.com/elektron-turns-up-with-the-analog-heat-fx/ |
@@ -93,7 +95,9 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2mk2-reports | dn2mk2-firmware `docs/user-reports.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/user-reports.md |
 | dn2mk2-changes | dn2mk2-firmware `docs/CHANGES-FROM-UPSTREAM.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/CHANGES-FROM-UPSTREAM.md |
 | overwitch-readme | dagargo/overwitch README (device list, protocol versions, Heat +FX layout) | https://github.com/dagargo/overwitch |
+| overwitch-devices | dagargo/overwitch `res/devices.json` (Overbridge USB product id per device) | https://github.com/dagargo/overwitch/blob/master/res/devices.json |
 | elektroid-readme | dagargo/elektroid README (device list, connectors, filesystems) | https://github.com/dagargo/elektroid |
+| elektroid-devices | dagargo/elektroid `res/elektron/devices.json` and `src/connectors/elektron.c` (product id per device, read from the Ping reply) | https://github.com/dagargo/elektroid/blob/master/res/elektron/devices.json |
 | elekloader-agents | elekloader `AGENTS.md` (repo root) | https://github.com/elekloader/elekloader/blob/main/AGENTS.md |
 | elekloader-cores | elekloader `docs/CORES.md` | https://github.com/elekloader/elekloader/blob/main/docs/CORES.md |
 | elekloader-format | elekloader `docs/FORMAT.md` | https://github.com/elekloader/elekloader/blob/main/docs/FORMAT.md |

@@ -6,7 +6,7 @@ Projects/tools: [../../devices/analog-heat.md](../../devices/analog-heat.md)
 ## Official facts (elektron.se, read 2026-10-31)
 - Analog Heat MKI and MKII: latest OS **1.22** (2024-10-16, "added support for Overbridge 2.13"). `[doc]` {elektron-heat-mkii-page}
 - The **+FX** has its own OS and release notes (last updated 2024-10-16). **The MKII file is rejected on +FX** ("Incompatible OS" in Transfer). `[doc]` {elektron-heat-fx-notes} {elektronauts-heatfx}
-- Minimum OS for updating via Transfer: 1.20. Product IDs from Elektron's FAQ: Analog Heat 000A, Analog Heat MKII 0016 (meaning of the field not shown; full table in [`../common/firmware-container.md`](../common/firmware-container.md)). `[doc]`/`[?]` {elektron-support} {elektron-faq}
+- Minimum OS for updating via Transfer: 1.20. Product IDs from Elektron's FAQ: Analog Heat 000A, Analog Heat MKII 0016 (the product id a unit reports over its RPC, not the SysEx device byte; +FX `0x20`, Overbridge USB `0x0B53`: [`../common/sysex-and-midi.md`](../common/sysex-and-midi.md); full table in [`../common/firmware-container.md`](../common/firmware-container.md)). `[doc]`/`[?]` {elektron-support} {elektron-faq}
 - Update/recovery MKI/MKII: hold ACTIVE (MKI) or ON (MKII) while powering on -> STARTUP menu -> [LFO] = OS UPGRADE -> send the SysEx file via MIDI In (or USB MIDI In from within the OS). `[doc]` {elektron-heat-notes}
 - Update/recovery +FX differs: hold ACTIVE, then **MOD** = OS UPGRADE (see below). `[doc]` {elektron-heat-fx-notes}
 - Elektron Transfer 1.10.4 (2026-06-23) covers Heat +FX; Overbridge integration since OS 1.2 (USB audio streaming, MKII Overbridge). `[doc]` {elektron-heat-mkii-page} {synthanatomy-heat}

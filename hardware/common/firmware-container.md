@@ -8,8 +8,7 @@ All facts are second-hand (see evidence tags). Device-specific differences are i
   (Machinedrum / Monomachine). `[doc]` {elektron-firmware-tool}
 - Digitakt II / Digitone II use ELE3 with a section table; the decoder reverses 8-in-7 first. `[doc]` {digikit-old}
 - ELE3 containers get a version string and an HMAC trailer applied at transport encode. `[doc]` {elektron-firmware-tool}
-- Elektron identifies devices in the update path by a product ID. Table published on elektron.se (meaning of the
-  field not shown on the page we read): Analog Heat 000A, Digitakt 000C, Digitone 0014, Analog Heat MKII 0016,
+- Elektron identifies devices in the update path by a product ID. Table published on elektron.se (the page does not say what the field is; it is the product id a unit reports in its RPC `Device` reply, a different namespace from the SysEx device byte below: [`sysex-and-midi.md`](sysex-and-midi.md)): Analog Heat 000A, Digitakt 000C, Digitone 0014, Analog Heat MKII 0016,
   Model:Samples 0019, Model:Cycles 001B, Digitone Keys 001C. `[?]` {elektron-faq}
 
 ## Compression
@@ -47,6 +46,7 @@ The byte after Elektron's manufacturer ID `00 20 3C` selects the device. A file 
 | Monomachine | `0x03` | gearmulator-md-mm {gearmulator-md-mm} |
 | **Digitakt mk1** | **`0x0A`** | taktone: a Digitakt application on Digitone hardware receives Digitakt-addressed SysEx (`0x0a`), confirmed by installs on units `[hw]` {taktone-docs}. elekloader's device page gave `0x14`, the Digitakt II's byte, so that value was a copy error. |
 | Analog Four MKII | `0x0B` | analog-emu {analog-emu-a4} |
+| Analog Rytm (MKI, dumps) | `0x07` | libanalogrytm's dump and request messages {libanalogrytm-sysex}; the MKI OS file not checked |
 | Analog Rytm MKII | `0x0C` | analog-emu, analog-rytm-mkii-research (13,329 packets checked) {analog-emu-a4} {ar-mkii-research} |
 | Digitone mk1 / Keys | `0x0D` | syxgrid (rejects it), taktone (startup receiver) `[hw]` {syxgrid} {taktone-docs} |
 | Analog Heat +FX | `0x13` | the repo owner's +FX research {own-heatfx-notes} |
@@ -54,7 +54,7 @@ The byte after Elektron's manufacturer ID `00 20 3C` selects the device. A file 
 | Digitone II | `0x15` | elekloader, dnfw, syxgrid (514 pattern messages) {elekloader-devices} {dn2-ele3} {syxgrid-map} |
 | `0x7D` | test only | the owner's synthetic, unflashable test container; the DT2 USB probe uses `7D` as its own message id {own-heatfx-notes} |
 
-Not yet collected: Octatrack, Analog Rytm MK1, Analog Four MK1, Syntakt, Model:Cycles, Model:Samples, Analog Heat MKI/MKII.
+Not yet collected: Octatrack, Analog Rytm MK1 OS file, Analog Four MK1, Syntakt, Model:Cycles, Model:Samples, Analog Heat MKI/MKII.
 
 ## Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re)
 - **What is settled:**

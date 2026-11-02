@@ -13,7 +13,7 @@ Elektron has not published the pattern/sound SysEx formats; all of it is reverse
 - Digitone mk1 device ID is `0x0D`; its pattern format differs from Digitone II and SYXGRID rejects it. The DN2's is `0x15`. All known device bytes: [firmware-container.md](firmware-container.md#sysex-device-byte-per-device-merged-from-the-projects-that-decode-these-files). `[doc]` {syxgrid}
 - Two protocol generations: the Digitakt II / Digitone II speak "gen-2"; Analog Four speaks "gen-1" with a different pattern format and a slower wire. `[doc]` {digi-roll-studio}
 - Digitone II library contains Digitone mk1 preset files, which use a second container format (refuse foreign formats by magic bytes). `[doc]` {digi-roll-studio}
-- Container structure and checksums for older machines are best documented in libanalogrytm (Analog Rytm only; no Analog Heat). `[doc]` {libanalogrytm}
+- Container structure and checksums for older machines are best documented in libanalogrytm (Analog Rytm only; no Analog Heat); the frame, packing and checksum match the newer devices, the type bytes do not (section "Dump messages and device ids across generations" below). `[doc]` {libanalogrytm}
 
 ## Reverse-engineered format maps
 | Source | Covers | Quality marker |
@@ -24,6 +24,36 @@ Elektron has not published the pattern/sound SysEx formats; all of it is reverse
 | elk-herd (mzero) | codec and framing, "de-facto public documentation" | moved off GitHub, README rejects AI-generated issues/PRs |
 
 Not decoded yet (per SYXGRID): parameter locks, sound parameters (filter, amp, FX, LFO), synth machine choice. `[doc]`
+
+## Dump messages and device ids across generations (task T22, 2026-11-02)
+Compared: libanalogrytm (Analog Rytm, 2014) against digi-roll's protocol notes (Digitakt, Digitakt II, Digitone II, from elk-herd and captures on units) and syxgrid's Digitone II map. Restated facts, no code copied.
+
+- **One dump frame for every generation compared:** `F0 00 20 3C <device> <dev id> <type> 01 01 <index> <packed payload> <checksum hi lo> <count hi lo> F7`. The Rytm writes the same `01 01` version field ("OS 1.02c" in libanalogrytm), the same index byte and the same trailer. `[doc]` {libanalogrytm-sysex} {digi-roll-protocol}
+- **The same 7-bit packing:** groups of one header byte plus up to 7 data bytes; header bit 6 holds the MSB of the first data byte, bit 0 that of the seventh; a short last group keeps its header. syxgrid's DN2 field "control byte 101506, mask `0x40`, payload 101507" is exactly this rule (first byte of a group). `[doc]` {libanalogrytm-sysex} {digi-roll-protocol} {syxgrid-map}
+- **The same checksum and count:** checksum = sum of the **packed** payload bytes (header bytes included) mod 2^14, sent as two 7-bit bytes, high first; count = packed length + 5 (checksum, count and `F7`), also mod 2^14. syxgrid recomputed the checksum over raw bytes `[10, 114113)` and matched the DN2's own on every fixture. A DN2 pattern message is 114,118 bytes, so its count field wraps; tools must not use it as a length. `[doc]` {libanalogrytm-sysex} {digi-roll-protocol} {syxgrid-map}
+- **Requests:** an empty payload, trailer `00 00 00 05` (checksum 0, count 5) on both generations; the Rytm's request is 15 bytes, `F0 00 20 3C 07 00 <id> 01 01 <nr> 00 00 00 05 F7`. `[doc]` {libanalogrytm-sysex} {digi-roll-protocol}
+- **The type bytes differ, so never reuse a type table across devices:**
+  - Rytm: dumps `0x52` kit, `0x53` sound, `0x54` pattern, `0x55` song, `0x56` settings, `0x57` global; `0x58-0x5D` the same objects from the unsaved work buffer; requests `0x62-0x6D` the same way.
+  - Digitakt / Digitakt II / Digitone II: `0x50` pattern plus kit in one message, `0x51` pattern, `0x52` kit, `0x53` sound, `0x54` project settings; requests `0x60-0x64`, and `0x6F` asks for the whole project.
+  - So `0x54` is a Rytm pattern but a DT2/DN2 project-settings message. syxgrid's guess "`0x53` = kit" for the DN2 (graded D, unknown) is a sound dump by digi-roll's table. `[doc]` {libanalogrytm-sysex} {digi-roll-protocol} {syxgrid-map}
+- **The index byte on receive:** a DN2 stores a received pattern in the slot armed on the device, not in the index the message carries (syxgrid, on a unit). libanalogrytm does not say what a Rytm does with it. `[hw]` {syxgrid-map}
+- **Device byte in dumps:** Rytm (libanalogrytm's era, MKI) `0x07`; Digitakt `0x0A`; Digitakt II `0x14`; Digitone II `0x15`. A DN2 answered only `0x15` in a sweep and ignored `0x0B-0x0E`, `0x14` and `0x16`. The same bytes appear in the OS files ([`firmware-container.md`](firmware-container.md)). `[doc]` {libanalogrytm-sysex} {digi-roll-protocol}
+
+**Three different device ids.** They are easy to mix up, and the same number means different devices in different namespaces:
+
+| Device | SysEx device byte (dumps, OS files) | Product id (RPC `Device` reply; Elektron's FAQ table) | Overbridge USB product id |
+|---|---|---|---|
+| Analog Heat | - | `0x0A` | `0x0B50` |
+| Digitakt | `0x0A` | `0x0C` | `0x0B2C` |
+| Digitone | `0x0D` | `0x14` | `0x0B36` |
+| Analog Heat MKII | - | `0x16` | `0x0B52` |
+| Analog Heat +FX | `0x13` | `0x20` | `0x0B53` |
+| Digitakt II | `0x14` | `0x2A` | `0x0B2B` |
+| Digitone II | `0x15` | `0x2B` | `0x0B34` |
+
+- `0x14` is the Digitakt II's SysEx byte but the Digitone mk1's product id; `0x0A` is the Digitakt's SysEx byte but the Analog Heat's product id. Name the namespace whenever you write an id down.
+- Elektroid reads the product id from byte 5 of the decoded `Device` (Ping) reply and looks it up in its device table; digi-roll captured 42 and 43 from a DT2 and a DN2 the same way. The FAQ table on elektron.se (Heat `000A`, Digitakt `000C`, Digitone `0014`, Heat MKII `0016`, Model:Samples `0019`, Model:Cycles `001B`, Digitone Keys `001C`) matches Elektroid's table entry for entry, so that table lists product ids. `[doc]` {elektroid-devices} {digi-roll-protocol} {elektron-faq}
+- Elektroid's further product ids: Analog Four `0x04`, Analog Keys `0x06`, Analog Rytm `0x08`, Analog Four MKII `0x0E`, Analog Rytm MKII `0x10`, Syntakt `0x1E`. Overwitch's Overbridge ids: Analog Four MKII `0x0B47`, Analog Rytm MKII `0x0B48`, Digitone Keys `0x0B35`, Syntakt `0x0B4A`. digikit read the DT2's USB ids from the image: `0x012B` (USB MIDI), `0x102B` (audio/MIDI), `0x0B2B` (Overbridge), so the low byte is shared across modes. `[doc]` {elektroid-devices} {overwitch-devices} {digikit-f42}
 
 ## Digitone II pattern dump: hardware-confirmed offsets (syxgrid's map v1.13.0, CC BY 4.0, facts restated) {syxgrid-map}
 syxgrid grades 45 mappings A (hardware-confirmed) to D (unknown). Only the 23 level-A facts are listed here; read the source for B/C/D and the evidence. `[hw]`

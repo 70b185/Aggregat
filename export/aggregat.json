@@ -7,9 +7,9 @@
    "devices": 13,
    "relations": 42,
    "rules": 88,
-   "sources": 248,
+   "sources": 250,
    "conflicts": 32,
-   "facts": 972
+   "facts": 974
   }
  },
  "devices": [
@@ -5297,6 +5297,16 @@
    "key": "dn2-cfw-t3",
    "what": "Digiwerk notes T3.2 (DSP memory map), T3.3 (FX frame), T2.1 (MIDI voices), T2.4b/c (audio clock, MIDI, LEDs)",
    "url": "https://github.com/naturarum/dn2-cfw/blob/main/notes/T3.3-fx-frame.md"
+  },
+  {
+   "key": "dn2-cfw-t31",
+   "what": "Digiwerk note T3.1-selache (selache's VISA decoder against a table decoder on DN2 1.12; boot stream rebuild)",
+   "url": "https://github.com/naturarum/dn2-cfw/blob/main/notes/T3.1-selache.md"
+  },
+  {
+   "key": "dn2-selache",
+   "what": "dnfw `docs/sharc-selache.md` (selache as decoder oracle; disassemble-reassemble round trip; producer-side boot stream)",
+   "url": "https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/sharc-selache.md"
   },
   {
    "key": "dt2-plaits",
@@ -16281,40 +16291,40 @@
    "file": "hardware/common/toolchain-and-emulators.md",
    "line": 23,
    "section": "Toolchains and emulators / Compilers and builders",
-   "text": "`tools/sharcvm` (dn2-cfw) interprets the stock DSP handler to render chorus/delay/reverb/master compressor offline. `[doc]` {dn2-cfw}",
+   "text": "Two projects compared selache's VISA decoder with digikit's table decoder on the DN2 stock program, and agree on where each is wrong. The test: walk instruction by instruction between known starts (branch targets, `cjump` sites, DO-loop ends) and see who lands exactly. `[doc]` {dn2-selache} {dn2-cfw-t31} selache's disassembler gives some 48-bit forms as 32-bit (Type 3a `59be`, Type 4a `6a3e`, Type 7a `043e`, Type 16a `9980`) and one 32-bit form as 48-bit (Type 3b `593e`); DO-loop ends land on the table decoder's starts 85 of 85 times, on selache's 64 of 85, and selache prints most DO offsets with bit 23 set. digikit's table had Type 2b wrong (the programming guide's `000000011`, not the reference's `110000000`; selache won 119 to 0) and wrongly ruled out `Type10a_rel` in VISA; both fixed in digikit#31. Its `undoc16/48` forms are still provisional. A two-byte-late start still lands 94.9 % of spans, because VISA resynchronises within a few instructions. A decoder's score means something only against that control.",
    "evidence": "doc",
-   "sources": "dn2-cfw",
-   "devices": "",
+   "sources": "dn2-cfw-t31,dn2-selache",
+   "devices": "digitone-2",
    "addresses": "",
    "id": 943
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
    "line": 27,
-   "section": "Toolchains and emulators / Generic ColdFire MCF5441x facts (not Elektron-specific)",
-   "text": "Family covered: MCF54410 and MCF54415-MCF54418. Peripherals with drivers: GPIO, PIT, INTC, eDMA, UART, DSPI, eSDHC (eMMC block reads via eDMA), SSI (I2S/network audio, full-duplex eDMA rings), USB OTG device mode (high speed via ULPI PHY; 54415-54418 only). Not implemented there: eSDHC writes, EPORT, DMA timers, I2C, RTC, PWM, ADC/DAC, FlexCAN, Ethernet, NAND, USB host.",
+   "section": "Toolchains and emulators / Compilers and builders",
+   "text": "Disassembled text is not a patch format. 11,440 distinct encodings from the DN2's L2 program, each disassembled with selmap and reassembled alone with selas: 83.9 % came back identical; 1,265 kept their width but lost register fields the text does not show (`bitrev`, `modify`, `dm` moves); 216 changed width; 320 printed forms could not be parsed; 40 crashed the assembler. A 48-bit `nop` reassembles as the 16-bit one. Patch from source, and compare bytes (rule A41). `[doc]` {dn2-selache}",
    "evidence": "doc",
-   "sources": "coldfire-rs",
-   "devices": "",
+   "sources": "dn2-selache",
+   "devices": "digitone-2",
    "addresses": "",
    "id": 944
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
    "line": 28,
-   "section": "Toolchains and emulators / Generic ColdFire MCF5441x facts (not Elektron-specific)",
-   "text": "Vector table goes at the region origin, which must be 1 MB aligned (VBR keeps bits 31..20 only); code starts at origin + 0x400.",
+   "section": "Toolchains and emulators / Compilers and builders",
+   "text": "`tools/sharcvm` (dn2-cfw) interprets the stock DSP handler to render chorus/delay/reverb/master compressor offline. `[doc]` {dn2-cfw}",
    "evidence": "doc",
-   "sources": "coldfire-rs",
+   "sources": "dn2-cfw",
    "devices": "",
    "addresses": "",
    "id": 945
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 29,
+   "line": 32,
    "section": "Toolchains and emulators / Generic ColdFire MCF5441x facts (not Elektron-specific)",
-   "text": "Boot modes: cold boot (serial/NOR/NAND, image sets up PLL and DDR) or via a bootloader.",
+   "text": "Family covered: MCF54410 and MCF54415-MCF54418. Peripherals with drivers: GPIO, PIT, INTC, eDMA, UART, DSPI, eSDHC (eMMC block reads via eDMA), SSI (I2S/network audio, full-duplex eDMA rings), USB OTG device mode (high speed via ULPI PHY; 54415-54418 only). Not implemented there: eSDHC writes, EPORT, DMA timers, I2C, RTC, PWM, ADC/DAC, FlexCAN, Ethernet, NAND, USB host.",
    "evidence": "doc",
    "sources": "coldfire-rs",
    "devices": "",
@@ -16323,9 +16333,9 @@
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 30,
+   "line": 33,
    "section": "Toolchains and emulators / Generic ColdFire MCF5441x facts (not Elektron-specific)",
-   "text": "Rust for this chip: rustc_codegen_gcc with libgccjit targeting `m68k-elf`; default CPU in that toolchain is the 54418. Potential route for writing ColdFire-side mod code in Rust instead of C - unproven for Elektron firmware.",
+   "text": "Vector table goes at the region origin, which must be 1 MB aligned (VBR keeps bits 31..20 only); code starts at origin + 0x400.",
    "evidence": "doc",
    "sources": "coldfire-rs",
    "devices": "",
@@ -16335,30 +16345,30 @@
   {
    "file": "hardware/common/toolchain-and-emulators.md",
    "line": 34,
-   "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "Shift immediates only reach 8. A shift by 14 or 15 costs a `moveq` plus a register shift; a shift by 16 is `swap` (+ `ext.l`). Arrange fixed-point products to land on a 16-bit boundary (e.g. store tables as unsigned Q16 so that `(s*w16) >> 16` equals `(s*w15) >> 15` exactly).",
-   "evidence": "emu",
-   "sources": "digigrain-skills",
-   "devices": "digitakt",
+   "section": "Toolchains and emulators / Generic ColdFire MCF5441x facts (not Elektron-specific)",
+   "text": "Boot modes: cold boot (serial/NOR/NAND, image sets up PLL and DDR) or via a bootloader.",
+   "evidence": "doc",
+   "sources": "coldfire-rs",
+   "devices": "",
    "addresses": "",
    "id": 948
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
    "line": 35,
-   "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "`muls.l` and hardware divide are there; libgcc is not linked, so avoid 64-bit math (hand-write it).",
-   "evidence": "emu",
-   "sources": "digigrain-skills",
-   "devices": "digitakt",
+   "section": "Toolchains and emulators / Generic ColdFire MCF5441x facts (not Elektron-specific)",
+   "text": "Rust for this chip: rustc_codegen_gcc with libgccjit targeting `m68k-elf`; default CPU in that toolchain is the 54418. Potential route for writing ColdFire-side mod code in Rust instead of C - unproven for Elektron firmware.",
+   "evidence": "doc",
+   "sources": "coldfire-rs",
+   "devices": "",
    "addresses": "",
    "id": 949
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 36,
+   "line": 39,
    "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "Prove the bounds once per block, then run a loop without checks, with state in locals. Keep the checked loop as the fallback near buffer ends.",
+   "text": "Shift immediates only reach 8. A shift by 14 or 15 costs a `moveq` plus a register shift; a shift by 16 is `swap` (+ `ext.l`). Arrange fixed-point products to land on a 16-bit boundary (e.g. store tables as unsigned Q16 so that `(s*w16) >> 16` equals `(s*w15) >> 15` exactly).",
    "evidence": "emu",
    "sources": "digigrain-skills",
    "devices": "digitakt",
@@ -16367,9 +16377,9 @@
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 37,
+   "line": 40,
    "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "Mark hot loops `noinline`: an inlined, merged loop kept a branch inside and spilled to the stack (~45 instructions per sample). `do { } while (--n)` saves the count test.",
+   "text": "`muls.l` and hardware divide are there; libgcc is not linked, so avoid 64-bit math (hand-write it).",
    "evidence": "emu",
    "sources": "digigrain-skills",
    "devices": "digitakt",
@@ -16378,9 +16388,9 @@
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 38,
+   "line": 41,
    "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "Specialise on loop-invariant cases: unity-speed grains skip interpolation (13 vs ~26 instructions per sample); a cached per-voice window table replaces per-sample shape blending.",
+   "text": "Prove the bounds once per block, then run a loop without checks, with state in locals. Keep the checked loop as the fallback near buffer ends.",
    "evidence": "emu",
    "sources": "digigrain-skills",
    "devices": "digitakt",
@@ -16389,9 +16399,9 @@
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 39,
+   "line": 42,
    "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "EMAC in fractional mode (MACSR `0x20`: signed fractional, truncating, no saturation): save and restore MACSR, ACC0 and ACCEXT01, and clear ACC0 first. Bit-exact Python models must truncate each product as `floor(x*y/2^23)`, keeping 8 bits below the LSB.",
+   "text": "Mark hot loops `noinline`: an inlined, merged loop kept a branch inside and spilled to the stack (~45 instructions per sample). `do { } while (--n)` saves the count test.",
    "evidence": "emu",
    "sources": "digigrain-skills",
    "devices": "digitakt",
@@ -16400,9 +16410,9 @@
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 40,
+   "line": 43,
    "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "Hooks must preserve every register the caller relies on. Real bugs: a chord hook missed a4-a6, a callee clobbered a0, and a restoring `movem` lost a decision kept in d7. Test hooks with a stub that junks all scratch registers.",
+   "text": "Specialise on loop-invariant cases: unity-speed grains skip interpolation (13 vs ~26 instructions per sample); a cached per-voice window table replaces per-sample shape blending.",
    "evidence": "emu",
    "sources": "digigrain-skills",
    "devices": "digitakt",
@@ -16411,9 +16421,9 @@
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 41,
+   "line": 44,
    "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
-   "text": "Write a C reference and a bit-exact Python model first, and optimise only while the model's tests stay green.",
+   "text": "EMAC in fractional mode (MACSR `0x20`: signed fractional, truncating, no saturation): save and restore MACSR, ACC0 and ACCEXT01, and clear ACC0 first. Bit-exact Python models must truncate each product as `floor(x*y/2^23)`, keeping 8 bits below the LSB.",
    "evidence": "emu",
    "sources": "digigrain-skills",
    "devices": "digitakt",
@@ -16422,130 +16432,130 @@
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 44,
+   "line": 45,
+   "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
+   "text": "Hooks must preserve every register the caller relies on. Real bugs: a chord hook missed a4-a6, a callee clobbered a0, and a restoring `movem` lost a decision kept in d7. Test hooks with a stub that junks all scratch registers.",
+   "evidence": "emu",
+   "sources": "digigrain-skills",
+   "devices": "digitakt",
+   "addresses": "",
+   "id": 956
+  },
+  {
+   "file": "hardware/common/toolchain-and-emulators.md",
+   "line": 46,
+   "section": "Toolchains and emulators / Writing fast ColdFire C (digigrain's measured notes, Digitakt mk1, gcc `-mcpu=54455 -O2`)",
+   "text": "Write a C reference and a bit-exact Python model first, and optimise only while the model's tests stay green.",
+   "evidence": "emu",
+   "sources": "digigrain-skills",
+   "devices": "digitakt",
+   "addresses": "",
+   "id": 957
+  },
+  {
+   "file": "hardware/common/toolchain-and-emulators.md",
+   "line": 49,
    "section": "Toolchains and emulators / Emulators",
    "text": "digiemu (irpina): Digitakt/Digitone mk1 emulator, runs the user's own OS behind a clickable panel. {digiemu}",
    "evidence": "",
    "sources": "digiemu",
    "devices": "digitone",
    "addresses": "",
-   "id": 956
+   "id": 958
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 45,
+   "line": 50,
    "section": "Toolchains and emulators / Emulators",
    "text": "digikit (current home ElekLabs/digikit, `[doc]` {digikit}): native Rust emulator running ColdFire and SHARC+ firmware together with front panel, display and audio; web panel (WASM) and Tauri desktop app; `patchkit` applies modules to the user's own `.syx` and refuses to change sections 2, 4 and 8; headless scenario runner with pinned PCM hashes; control socket for patch injection; ColdFire/DSP analysis databases and Ghidra tooling. Targets: Digitakt II 1.17 (also runs 1.16; 1.15C for old analysis), Digitone II 1.12 (also runs 1.11; 1.10E for old analysis). Caveats: DSP not real-time yet; browser host parked on `wip/browser-host`; no patched firmware installed on a device by the author; bootstrap-menu recovery untested on hardware. AGPL-3.0-or-later with NOTICE terms asking for the credit \"digikit by Em D\".",
    "evidence": "doc",
    "sources": "digikit",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 957
+   "id": 959
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 46,
+   "line": 51,
    "section": "Toolchains and emulators / Emulators",
    "text": "Earlier digikit README (m-dwyer/digikit, {digikit-old}) described a Python/Unicorn design: ColdFire emulator for Digitakt II / Digitone II; patched Unicorn m68k (SR read, CCR sync, EMAC MAC with load; stock Unicorn refused); ColdFire-aware disassembler because Capstone misses MVS/MVZ and FF1; first run needs a cold boot of a few minutes to build snapshots; about 10M instructions/s. Works: core, interrupt controllers, PIT, DMA timers, eDMA, front-panel TX, display, SD/MMC up to identification. Missing then: DSP (no audio), input path, block storage - partly superseded by the Rust version above. `[doc]` {digikit-old}",
    "evidence": "doc",
    "sources": "digikit-old",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 958
+   "id": 960
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 47,
+   "line": 52,
    "section": "Toolchains and emulators / Emulators",
    "text": "dn2-cfw's fork (branch `dn2-1.12`): 1.12 boots to the main screen, PLAY runs the sequencer, DIN MIDI works incl. virtual ports on Mac, live play ~0.8x real time. `[doc]` {dn2-cfw}",
    "evidence": "doc",
    "sources": "dn2-cfw",
    "devices": "",
    "addresses": "",
-   "id": 959
+   "id": 961
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 48,
+   "line": 53,
    "section": "Toolchains and emulators / Emulators",
    "text": "A whole-DSP SHARC emulator (Overtone, the modding skill): used with digikit for ~160 checks per build. `[doc]` {overtone} {dn2-modding-skill}",
    "evidence": "doc",
    "sources": "dn2-modding-skill,overtone",
    "devices": "",
    "addresses": "",
-   "id": 960
+   "id": 962
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 49,
+   "line": 54,
    "section": "Toolchains and emulators / Emulators",
    "text": "Emulators do not model the timing of the two chips or the link between them (dn2mk2 FIRMWARE.md) - so DSP-time overruns are only found on a unit. `[doc]` {dn2mk2-firmware-md}",
    "evidence": "doc",
    "sources": "dn2mk2-firmware-md",
    "devices": "",
    "addresses": "",
-   "id": 961
+   "id": 963
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 50,
+   "line": 55,
    "section": "Toolchains and emulators / Emulators",
    "text": "dsp56kEmu quirks seen by KYOTI: `move x:(rN+$disp),a` (two-word displacement form into accumulator a) read the wrong word in the emulator, while destination b was fine. Short immediates into data ALU registers are left-aligned, and `asr` leaves bits in acc0 that `tst`/`cmp` see; the hardware behaves the same for these two. Route displaced loads through b. `[emu]` {kyoti-fw}",
    "evidence": "emu",
    "sources": "kyoti-fw",
    "devices": "",
    "addresses": "",
-   "id": 962
+   "id": 964
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 55,
+   "line": 60,
    "section": "Toolchains and emulators / Emulators",
    "text": "gearmulator (dsp56300): Machinedrum/Monomachine emulation, used by Overtone for comparisons. {overtone}",
    "evidence": "",
    "sources": "overtone",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 963
+   "id": 965
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 70,
+   "line": 75,
    "section": "Toolchains and emulators / digikit tool index in short (docs/TOOLS.md) - what an agent can reuse",
    "text": "Entry point for firmware questions: `coldfire/fw.py` (commands `fn`, `decomp`, `disasm`, `callers`, `callees`, `xref`, `path`, `str`, `class`, `port`, `search`, `atlas`, `sql`, `batch`) on top of `coldfire/atlas.py build IMAGE...`, which builds a SQLite atlas (machines, parameters, classes, UI strings, structs, manual terms; every row with provenance and confidence). Ghidra helpers: `ghidradump.py`, `ghidraq.py` (read-only queries, `pcode`, `slice`, `stores`, `loads`), `refscan.py`, `rttiscan.py`, `hwlookup.py` (resolves MCF5441x addresses, vectors, eDMA channels against a cited hardware contract). Patching: `patchkit/patchimg.py` (byte-exact, preconditioned patches), `machineprofile.py` (identify a known MAIN OS by hash and report anchors), `isacheck.py` (rejects instructions outside ColdFire V4e ISA_A/B/C + EMAC). Device side: `device/dkupload.py` (module upload over USB SysEx), `dklog.py` (runtime debug log over USB SysEx), `dksettings.py`. `[doc]` {digikit-tools}",
    "evidence": "doc",
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 964
-  },
-  {
-   "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 71,
-   "section": "Toolchains and emulators / digikit tool index in short (docs/TOOLS.md) - what an agent can reuse",
-   "text": "Workflow rules from that file: confirm raw references with `refscan.py` because an empty Ghidra caller list does not prove absence; check port candidates with `machineprofile.py` before carrying an address between images; for SHARC+ treat `sharc_candidates.py` and `sharcstrings.py` results as hypotheses until a real data reference confirms them; verify that `out/sections/<image>/.source-sha256` matches your `.syx` before trusting emulator runs and bound runs with an instruction limit. `[doc]` {digikit-tools}",
-   "evidence": "doc",
-   "sources": "digikit-tools",
-   "devices": "",
-   "addresses": "",
-   "id": 965
-  },
-  {
-   "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 72,
-   "section": "Toolchains and emulators / digikit tool index in short (docs/TOOLS.md) - what an agent can reuse",
-   "text": "Facts: sections `section_3_MAIN_OS.bin` (ColdFire) and `section_7_BLOB.bin` (SHARC+ loader stream); the DSP firmware is a stream of writes to mapped memory, not one flat executable - address mapping and last-write order matter; SHARC import uses `SHARC_VISA:LE:32:default`, DM data addresses are byte addresses; default DSP stack range DM `[0x26f000, 0x2c0000)` (derived from an untouched gap, an assumption); example eDMA facts: `TCD50.CITER` at `0xfc045654`, DMA channel 50 connects SSI0 TFE0 to vector 170, vector 191 is an unassigned source with an `INTFRCH1` software-force bit; images named `dt2-1.16`, `dt2-1.17`, `dn2`. `[doc]` {digikit-tools}",
-   "evidence": "doc",
-   "sources": "digikit-tools",
-   "devices": "",
-   "addresses": "0x26f000,0x2c0000,0xfc045654",
    "id": 966
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 73,
+   "line": 76,
    "section": "Toolchains and emulators / digikit tool index in short (docs/TOOLS.md) - what an agent can reuse",
-   "text": "Repository rule worth copying: firmware and everything derived from it (`.syx`, extracted sections, dumps, databases, disassembly, mapped strings) stays out of git under `out/`; verified results go in `docs/FINDINGS.md`, current state in the newest handover; only public SHARC+ references in documentation. `[doc]` {digikit-tools}",
+   "text": "Workflow rules from that file: confirm raw references with `refscan.py` because an empty Ghidra caller list does not prove absence; check port candidates with `machineprofile.py` before carrying an address between images; for SHARC+ treat `sharc_candidates.py` and `sharcstrings.py` results as hypotheses until a real data reference confirms them; verify that `out/sections/<image>/.source-sha256` matches your `.syx` before trusting emulator runs and bound runs with an instruction limit. `[doc]` {digikit-tools}",
    "evidence": "doc",
    "sources": "digikit-tools",
    "devices": "",
@@ -16554,58 +16564,80 @@
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 76,
-   "section": "Toolchains and emulators / More emulators and directory snapshots (2026-10-31)",
-   "text": "Elektron Emu (xerydian): five VST3 plug-ins (Mac, Windows) running each machine's real OS in an emulated CPU - Digitakt II, Syntakt, Analog Rytm MKII, Digitone II, Model:Cycles; the user supplies the `.syx` in a per-machine folder; +Drive emulated and persisted, WAV loading on DT2/Rytm/DN2; Digitone II's DSP is compiled locally on first open (needs a C compiler; otherwise a slow interpreter that renders offline only); limits: Rytm analog voices are a custom model that does not sound like the machine, Syntakt analog tracks 9-12 missing; 2 commits, no licence stated. `[doc]` {elektron-emu}",
+   "line": 77,
+   "section": "Toolchains and emulators / digikit tool index in short (docs/TOOLS.md) - what an agent can reuse",
+   "text": "Facts: sections `section_3_MAIN_OS.bin` (ColdFire) and `section_7_BLOB.bin` (SHARC+ loader stream); the DSP firmware is a stream of writes to mapped memory, not one flat executable - address mapping and last-write order matter; SHARC import uses `SHARC_VISA:LE:32:default`, DM data addresses are byte addresses; default DSP stack range DM `[0x26f000, 0x2c0000)` (derived from an untouched gap, an assumption); example eDMA facts: `TCD50.CITER` at `0xfc045654`, DMA channel 50 connects SSI0 TFE0 to vector 170, vector 191 is an unassigned source with an `INTFRCH1` software-force bit; images named `dt2-1.16`, `dt2-1.17`, `dn2`. `[doc]` {digikit-tools}",
    "evidence": "doc",
-   "sources": "elektron-emu",
-   "devices": "analog-rytm,digitakt-2,digitone-2,model-cycles,syntakt",
-   "addresses": "",
+   "sources": "digikit-tools",
+   "devices": "",
+   "addresses": "0x26f000,0x2c0000,0xfc045654",
    "id": 968
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 77,
-   "section": "Toolchains and emulators / More emulators and directory snapshots (2026-10-31)",
-   "text": "digiemu patches Unicorn (six patches) - details in [`../devices/digitakt.md`](../devices/digitakt.md); dn2mk2 reports that stock Unicorn's destructive SR read corrupts condition flags, so a patched Unicorn is mandatory for any ColdFire work. `[doc]` {digiemu-readme} {dn2mk2-emulator}",
+   "line": 78,
+   "section": "Toolchains and emulators / digikit tool index in short (docs/TOOLS.md) - what an agent can reuse",
+   "text": "Repository rule worth copying: firmware and everything derived from it (`.syx`, extracted sections, dumps, databases, disassembly, mapped strings) stays out of git under `out/`; verified results go in `docs/FINDINGS.md`, current state in the newest handover; only public SHARC+ references in documentation. `[doc]` {digikit-tools}",
    "evidence": "doc",
-   "sources": "digiemu-readme,dn2mk2-emulator",
+   "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
    "id": 969
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 78,
+   "line": 81,
+   "section": "Toolchains and emulators / More emulators and directory snapshots (2026-10-31)",
+   "text": "Elektron Emu (xerydian): five VST3 plug-ins (Mac, Windows) running each machine's real OS in an emulated CPU - Digitakt II, Syntakt, Analog Rytm MKII, Digitone II, Model:Cycles; the user supplies the `.syx` in a per-machine folder; +Drive emulated and persisted, WAV loading on DT2/Rytm/DN2; Digitone II's DSP is compiled locally on first open (needs a C compiler; otherwise a slow interpreter that renders offline only); limits: Rytm analog voices are a custom model that does not sound like the machine, Syntakt analog tracks 9-12 missing; 2 commits, no licence stated. `[doc]` {elektron-emu}",
+   "evidence": "doc",
+   "sources": "elektron-emu",
+   "devices": "analog-rytm,digitakt-2,digitone-2,model-cycles,syntakt",
+   "addresses": "",
+   "id": 970
+  },
+  {
+   "file": "hardware/common/toolchain-and-emulators.md",
+   "line": 82,
+   "section": "Toolchains and emulators / More emulators and directory snapshots (2026-10-31)",
+   "text": "digiemu patches Unicorn (six patches) - details in [`../devices/digitakt.md`](../devices/digitakt.md); dn2mk2 reports that stock Unicorn's destructive SR read corrupts condition flags, so a patched Unicorn is mandatory for any ColdFire work. `[doc]` {digiemu-readme} {dn2mk2-emulator}",
+   "evidence": "doc",
+   "sources": "digiemu-readme,dn2mk2-emulator",
+   "devices": "",
+   "addresses": "",
+   "id": 971
+  },
+  {
+   "file": "hardware/common/toolchain-and-emulators.md",
+   "line": 83,
    "section": "Toolchains and emulators / More emulators and directory snapshots (2026-10-31)",
    "text": "Stock Unicorn 2.1.4 (and QEMU master as of 2026-09-15) gets ColdFire wrong in ways that change results (emu-elektron's patch notes) `[doc]` {emu-elektron-patches}: Condition codes: they are committed lazily, so a hook or a counted stop in mid-block sees stale flags, and the next branch goes the wrong way. MAC/MSAC with load is decoded wrongly in four ways: Ry with bit 0 or 1 set faults as \"dual accumulate\" on a CFV4E; Rx is always D2; MSAC adds instead of subtracting (this also hits MSAC without load); MASK is applied to every load address. The DT2 main OS reaches one of these at `0x400db9e0`. EMAC fractional and signed arithmetic is wrong (as found by SyntHack and octabam). EMAC saturation with MACSR.OMC gets its sign and constants wrong. Any ColdFire emulator built on Unicorn needs these fixes before its audio or branch results mean anything. emu-elektron carries all of them as patches for five devices.",
    "evidence": "doc",
    "sources": "emu-elektron-patches",
    "devices": "digitakt-2",
    "addresses": "0x400db9e0",
-   "id": 970
+   "id": 972
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 91,
+   "line": 96,
    "section": "Toolchains and emulators / More emulators and directory snapshots (2026-10-31)",
    "text": "Directory views of the tools: {alt-tools} lists digikit, elekloader, digiscreen (Android page mirroring the 128x64 screen over USB MIDI), Elektron Emu, digiemu, ghidra-dsp56300, digi-roll, Elektroid, Overwitch and elektron-firmware-tool (the page names no source for the last one). elektronmods' Mod List ({em-list}) has 59 entries; its Analog Heat filter shows only Overwitch and elektron-firmware-tool.",
    "evidence": "",
    "sources": "alt-tools,em-list",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 971
+   "id": 973
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
-   "line": 92,
+   "line": 97,
    "section": "Toolchains and emulators / More emulators and directory snapshots (2026-10-31)",
    "text": "Ghidra and EMAC `[?]`: digikit found that stock Ghidra misdecodes the EMAC line-A words of the MCF5441x and uses a separate language (`68000:BE:32:ColdfireEMAC`). The owner's Heat research notes that Ghidra has known EMAC variants since GP-2197. Check the EMAC decode of your Ghidra version on a known MAC instruction before you trust it. {digikit-f08} {own-heatfx-notes}",
    "evidence": "?",
    "sources": "digikit-f08,own-heatfx-notes",
    "devices": "",
    "addresses": "",
-   "id": 972
+   "id": 974
   }
  ]
 }

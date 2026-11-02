@@ -20,6 +20,11 @@ Second-hand facts (tags as in `../README.md`). Names in braces are source keys.
   - **A C function whose locals sit more than ~63 words from the frame pointer is compiled wrongly.** One large local array is enough. Keep large buffers static or in the voice state.
 
   `[hw]` {elekloader-adapting} {own-dt2-notes}
+- **Two projects compared selache's VISA decoder with digikit's table decoder on the DN2 stock program, and agree on where each is wrong.** The test: walk instruction by instruction between known starts (branch targets, `cjump` sites, DO-loop ends) and see who lands exactly. `[doc]` {dn2-selache} {dn2-cfw-t31}
+  - selache's disassembler gives some 48-bit forms as 32-bit (Type 3a `59be`, Type 4a `6a3e`, Type 7a `043e`, Type 16a `9980`) and one 32-bit form as 48-bit (Type 3b `593e`); DO-loop ends land on the table decoder's starts 85 of 85 times, on selache's 64 of 85, and selache prints most DO offsets with bit 23 set.
+  - digikit's table had Type 2b wrong (the programming guide's `000000011`, not the reference's `110000000`; selache won 119 to 0) and wrongly ruled out `Type10a_rel` in VISA; both fixed in digikit#31. Its `undoc16/48` forms are still provisional.
+  - A two-byte-late start still lands 94.9 % of spans, because VISA resynchronises within a few instructions. A decoder's score means something only against that control.
+- **Disassembled text is not a patch format.** 11,440 distinct encodings from the DN2's L2 program, each disassembled with selmap and reassembled alone with selas: 83.9 % came back identical; 1,265 kept their width but lost register fields the text does not show (`bitrev`, `modify`, `dm` moves); 216 changed width; 320 printed forms could not be parsed; 40 crashed the assembler. A 48-bit `nop` reassembles as the 16-bit one. Patch from source, and compare bytes (rule A41). `[doc]` {dn2-selache}
 - `tools/sharcvm` (dn2-cfw) interprets the stock DSP handler to render chorus/delay/reverb/master compressor offline. `[doc]` {dn2-cfw}
 
 ## Generic ColdFire MCF5441x facts (not Elektron-specific)

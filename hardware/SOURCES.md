@@ -189,6 +189,8 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2-cfw-t17 | Digiwerk notes T1.7 (the brick checker) and T1.7b (hardening) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T1.7-brickcheck.md |
 | dn2-cfw-prior | Digiwerk note `prior-art-2026-10.md` (survey of community work, late Sept to 6 Oct 2026) | https://github.com/naturarum/dn2-cfw/blob/main/notes/prior-art-2026-10.md |
 | dn2-cfw-t3 | Digiwerk notes T3.2 (DSP memory map), T3.3 (FX frame), T2.1 (MIDI voices), T2.4b/c (audio clock, MIDI, LEDs) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T3.3-fx-frame.md |
+| dn2-cfw-t31 | Digiwerk note T3.1-selache (selache's VISA decoder against a table decoder on DN2 1.12; boot stream rebuild) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T3.1-selache.md |
+| dn2-selache | dnfw `docs/sharc-selache.md` (selache as decoder oracle; disassemble-reassemble round trip; producer-side boot stream) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/sharc-selache.md |
 | dt2-plaits | digitakt-ii-research All-in-One: PLAITS `OPTIMIZING.md` and `HARDWARE-TEST.md` | https://github.com/karigardarsson/digitakt-ii-research/blob/main/all-in-one/source/digikit/modules/machines/plaits/OPTIMIZING.md |
 | dt2-research | digitakt-ii-research `research/` notes (hook ABI, memory ownership, startup integration; OS 1.16) | https://github.com/karigardarsson/digitakt-ii-research/blob/main/research/hook-abi-audit.md |
 | synthack-docs | Angelo-politek/Synthack-OS `docs/` (memory-map, firmware-format, audio-path, emulation), OS 1.41, v0.9.0 | https://github.com/Angelo-politek/Synthack-OS/blob/main/docs/audio-path.md |

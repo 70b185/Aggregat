@@ -19,6 +19,16 @@ Coverage: **good**. Everything below targets OS 1.53 unless stated. Projects: [.
 - Relocations supported: 32-bit absolute, 32/16-bit PC-relative; 16-bit absolute is refused. `[doc]` {elekloader-adapting}
 - Core-owned hook sites (1.53): `0x40000538, 0x4000a770, 0x4000a7d6, 0x4000b770, 0x4000b7ba, 0x40058800, 0x40077428, 0x400784c8`; core 2.1 owns about 30 more (listed in `mods/core/mod.json` of elekloader). Never patch them, subscribe to events. `[doc]` {elekloader-adapting}
 
+## Render path, injection point and key tables (digigrain's platform skills, OS 1.53, Ghidra plus digiemu) {digigrain-skills}
+A compact, agent-oriented map of OS 1.53 exists in digigrain's `.claude/skills/digitakt-firmware-map` (and nine sibling skills: hook bus, DSP, recorder, audio input, testing). **Read it before tracing the engine yourself.** The essentials:
+- **Free areas for mods:** DDR `0x47BE0000-0x47C00000`; SRAM `0x8000F700-0x80010000` and `0x80003360-0x80008000`. `[doc]`
+- **The cleanest place to add a machine:** each voice's mono block at **`0x80001a18 + 128*v`** (32 x int32, Q31). Anything written there before the per-voice processing step gets the stock filter, amp, pan, level, mute and effects for free, and resampling records it too. Bit reduction acts *inside* the stock voice synth, before that point. `[emu]`
+- **Samples:** table at `0x403193a0`, 16 bytes per slot `{PCM ptr, ?, length, ratio Q30}`, valid slots 0..130 (`0x82` is the audition slot); PCM is **s16 mono**. A voice advances its position by 32 x the pitch ratio per block. `[emu]`
+- **Parameter descriptors:** `0x401a9d9c + 52*id`. 44 code sites clamp ids >= 164 to 0, so new parameters must fit below 164 or every one of those sites needs a patch. `[doc]`
+- **Heap:** `operator new` is `0x400d4180`. **Never free a firmware-owned buffer:** operator delete halts on a non-heap pointer. Never write message `+0x48` (the next link). `[doc]`
+- **Bound the worst case, not the average:** an early granular engine froze the UI at low pitch, because fixed-length source grains became long, the pool filled up and every voice ran its worst case. The fix made grain length independent of pitch and capped overlap. `[hw]`
+- CPU naming: this map says MCF54418; a teardown reads MCF54415. Both are MCF5441x and run the same code. `[?]`
+
 ## Events offered by the core hook bus
 `ev_tick(ctrl)` 30 Hz UI task; `ev_draw(bmp, ctrl)` after each frame (y=0 = bottom row); `ev_key`, `ev_enc` (return non-zero to consume); `ev_settings(menu)` adds rows via `core_additem`; `ev_render_in/out` at audio-interrupt level, keep short. Handlers are C functions, arguments on the stack, d0-d1/a0-a1 free, result in d0. `[doc]` {elekloader-adapting}
 

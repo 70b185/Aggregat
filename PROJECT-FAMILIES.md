@@ -36,6 +36,13 @@ Devices: Octatrack (MKI, MKII). [repo](https://github.com/sambanks/octabam)
 - **ReBirth to Octatrack** (alexandrubelc) - builds on **octabam** (README: targets the GARDEN engines). [repo](https://github.com/alexandrubelc/rebirth2octatrack)
 - **TrackPatterns** (pgstath) - builds on **octabam** (README: also submitted as octabam PR 846). [repo](https://github.com/pgstath/TrackPatterns)
 
+## Frame Lab (keyframer-lab) (heavylight-industries)
+
+Devices: Digitakt II. [repo](https://github.com/heavylight-industries/keyframer-lab)
+
+- **dt2-capicola (Capicola time stretch for STRETCH/REPITCH/SLICE/GRID)** (hy3na-k1ng) - builds on **Frame Lab (keyframer-lab)** (same Capicola keyframe engine by Heavylight Industries). [repo](https://github.com/hy3na-k1ng/dt2-capicola)
+- **dt2-machine-lab** (lalzart) - bundles **dt2-capicola (Capicola time stretch for STRETCH/REPITCH/SLICE/GRID)** (machines/capicola-reddit/upstream keeps its 66 files byte-exact). [repo](https://github.com/lalzart/dt2-machine-lab)
+
 ## Gearmulator MD/MM (Joe Landers)
 
 Devices: Machinedrum (incl. UW), Monomachine. [repo](https://github.com/joelanders/gearmulator-md-mm)
@@ -70,6 +77,12 @@ Devices: Analog Rytm (MKI, MKII), Digitakt (MKI). [repo](https://github.com/trig
 
 - **Digitakt integrated sidecar** (soejrd) - builds on **Sidecar | Expander** (README: based on Sidecar by Trig Condition). [repo](https://github.com/soejrd/digitakt-sidecar)
 - **Sidecar (Digitakt mod)** (trigcondition) - variant of **Sidecar | Expander** (same author, Digitakt side of Sidecar). [repo](https://github.com/trigcondition/sidecar-digitakt)
+
+## digikit (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo)
+
+Devices: Digitakt II, Digitone II. [repo](https://github.com/ElekLabs/digikit)
+
+- **digitakt-ii-research (Deja Vu LFOs, ONESHOT zoom)** (kariGardarsson) - builds on **digikit** (all-in-one/README.md: modified firmware derived from digikit; uses its patchkit). [repo](https://github.com/karigardarsson/digitakt-ii-research)
 
 ## DIGISEQ (Digitakt) (ClaidArremer)
 

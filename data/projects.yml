@@ -212,7 +212,13 @@ projects:
       not bundled), elektron-firmware-tool (vendored).
     latest_seen: >
       altstrument lists it as "Digitakt II All-in-One" v0.3.0-beta (2026-10-23) for OS 1.17: patches in Plaits models, DX7 banks, the Deja Vu random-loop LFO, WAVE tables and the one-shot zoom; brick-risk flag set. LICENSE CONFLICT: the repo README/LICENSE we read says MIT, altstrument says AGPL-3.0-or-later - check the repo before reuse. Earlier releases 0.2.0-beta (2026-10-18), 0.1.1-beta (2026-10-17).
-    sources: [forum threads 80 and 83, GitHub README, GitHub releases]
+      LICENCE SETTLED (2026-11-02, repo read): both are right for their part. The repo root is MIT; the `all-in-one/` subtree
+      is AGPL-3.0-or-later because it is modified firmware derived from digikit (its README and NOTICE say so). The All-in-One
+      is built with digikit's patchkit: loader in the flash cave at `0x403117c4`, code in digikit's `cf.expansion` region
+      `0x47e8b000-0x47fe0000` (see hardware/devices/digitakt-2.md, "Three Digitakt II mod routes").
+    sources: [forum threads 80 and 83, GitHub README, GitHub releases, all-in-one/README.md and NOTICE read 2026-11-02]
+    relations:
+    - {type: builds_on, id: digikit, evidence: 'all-in-one/README.md: modified firmware derived from digikit; uses its patchkit'}
 
   # ---------------------------------------------------------------- Digitone (mk1 / Keys)
   - id: ringtone
@@ -793,6 +799,8 @@ projects:
     latest_seen: >
       altstrument: emulator-only lab for custom machines on OS 1.16 with a SINE test machine and SHARC-code ports of several Plaits engines (VA, 2-op FM, bass drum, waveshaping, additive, granular formant); not confirmed on hardware.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: bundles, id: dt2-capicola, evidence: 'machines/capicola-reddit/upstream keeps its 66 files byte-exact'}
 
   - id: digisplash-ii
     name: DigiSplash-II
@@ -2483,6 +2491,27 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+  - id: dt2-capicola
+    name: dt2-capicola (Capicola time stretch for STRETCH/REPITCH/SLICE/GRID)
+    author: hy3na-k1ng
+    kind: mod
+    devices: [digitakt-2]
+    repo: https://github.com/hy3na-k1ng/dt2-capicola
+    status: unreachable
+    base_os: Digitakt II (version in the vendored README)
+    last_activity: unknown
+    notes: >
+      Custom OS that replaces the Digitakt II's native time-stretch and repitch DSP with an engine built on Heavylight Industries'
+      Capicola (AGPL-3.0-or-later): covers STRETCH, REPITCH, SLICE and GRID; a CAPI parameter switches each track between the new
+      engine and Elektron's; SLICE/GRID sync to tempo and BARS goes to 32. The GitHub repo did not answer on 2026-11-02 (deleted,
+      renamed or private). Its 66 files are kept byte-exact in dt2-machine-lab under machines/capicola-reddit/upstream (pinned
+      from a user-supplied zip, SHA-256 87bb2b07...), which builds its own overlay from it. A comment in its build script says
+      digikit's flash cave 0x403117c4 froze the unit at the logo for that build; other projects use the cave on units
+      (CONFLICTS O18).
+    sources: [dt2-machine-lab machines/capicola-reddit (README and upstream/README.md), read 2026-11-02]
+    relations:
+    - {type: builds_on, id: keyframer-lab, evidence: 'same Capicola keyframe engine by Heavylight Industries'}
+
   - id: digi-macro
     name: macro-mode (digi_macro)
     author: toonst

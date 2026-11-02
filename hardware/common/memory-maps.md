@@ -55,6 +55,39 @@ What the comparison settles and what it does not:
 - **`0x46700000-0x4670ffff` is not free.** On 1.12 it holds the end of the DMA buffers; on 1.11 the MMC bounce buffer reaches `0x46701300`. dnfw's lfo4 state at `0x46700000` sits there on 1.11, and every `0x4670xxxx` placement must move for a 1.12 port. The "25.3 MB unclaimed above BSS" figure in dnfw's memory map missed these alias references. The skill's "`0x46700000..0x46900000` unused, hardware-confirmed" disagrees: see [CONFLICTS O17](../CONFLICTS.md). `[doc]`
 - **The platforms collide.** dnfw's lfo4 code, cfmod's default link address and the start of dn2-cfw's mod area are all `0x46800000`; cfkit's scratch at `0x46a00000` is Waverider's chunk. Only elekloader's `0x47f00000` and dn2-cfw's core `0x47e00000` are disjoint from the rest. A mod built for one platform cannot be dropped into another's image without moving its RAM (and its hooks: [`dt2-dn2-limits-and-audio-chain.md`](dt2-dn2-limits-and-audio-chain.md) section 6, [`agent-workflow.md`](agent-workflow.md)). Before picking an address, check this table and declare every range you use (task T23 in [RESEARCH-MAP](../../RESEARCH-MAP.md)).
 
+## Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02)
+
+Task T21. Read from each project's own docs and code; addresses are DT2 1.17 unless a row says 1.16. The reset copies `0x40312000-0x4031ff60` to SRAM and clears `0x40312000-0x47e28470`; stock reaches its DSP buffers only through the uncached alias, so `0x47e30000-0x47e7ae80` in the cached view; the stack runs down from `0x48000000` {elekloader-dt2-profile}.
+
+**ColdFire RAM and flash space**
+
+| Range | User | Evidence |
+|---|---|---|
+| `0x403117c4-0x40312000` (2,108 B, the last flashed bytes below the clear: digikit's `flash_cave`) | digikit patchkit's reset loader; Deja Vu's payload (`0x403117c4-0x40311fb2`) and its run-time latches (`0x40311fe4-0x40311ff3`); the All-in-One's loader (copied within the cave to `0x40311c92`); dt2-machine-lab's Plaits rows and code (`0x40311b80-0x40312000`, 1.16) and its control tables (`0x40311944-0x40311ac4`, 1.16); 70b185's private DT2 project: 28 bytes at `0x40311fb4` between Deja Vu's payload and latches | {digikit-f01} {dt2-aio-src} {dt2-lab-cpu} {own-dt2-notes} |
+| `0x47e8b000-0x47fe0000` (1.33 MiB, digikit's `cf.expansion`, unreferenced RAM above the DSP buffers) | digikit modules; the All-in-One's code (zoom and Musical WAVE from `0x47e8b000`, One-Shot Zoom V11 from `0x47e91000`); dt2-machine-lab's opt-in 64 KiB `0x47e8b000-0x47e9b000` (1.16) | {digikit-patching} {dt2-aio-src} {dt2-lab-cpu} |
+| `0x47f00000-0x47f40000` (256 KB) | **elekloader** core-dt2 and every elekloader mod (digitakt2-perform's two mods among them) | {elekloader-dt2-profile} {dt2-perform} |
+| `0x47fe0000-0x47fe1000` | digikit's keep area (crash and hang records that survive a soft reset) | {digikit-f46} |
+| from the stock 32 MiB heap at start-up (no fixed address) | digitakt-ii-research's start-up allocation (one 8 KiB block, 1.16) | {dt2-research-heap} |
+
+**Boot and UI hook sites**
+
+| Site | User |
+|---|---|
+| `0x40000538` (`jsr 0x400019b0`) | elekloader core-dt2 `boot` |
+| `0x4000053e` (`jsr copy; jsr clear`, replaced by `jsr loader; nop`) | digikit patchkit's loader, used by the All-in-One and dt2-machine-lab |
+| `0x40032ad4`, `0x40032b3a`, `0x40033d94`, `0x40033dde`, `0x400a5eac`, `0x4009e2a2` | elekloader's events `ev_tick`, `ev_draw`, `ev_key`, `ev_enc`, `ev_settings`, `ev_personalize` |
+| `0x40064ba6` | digitakt2-perform's perform-levels (on top of elekloader) |
+| `0x400181fe`, `0x400184ea`, `0x4001706a`, `0x4010ee84`, `0x4010ecd0`, `0x401398f8` | the All-in-One's One-Shot Zoom and Musical WAVE |
+
+**SHARC L2** (stock loads up to `0x2001ab7c`; `0x200fa000-0x200fdfff` is referenced): digikit offers `0x2001ab7c-0x200fa000` to modules {digikit-f100}; dt2-machine-lab places Plaits code at `0x20080000`, Capicola cold code at `0x200a0000` and voice state at `0x200e0000-0x200e8000` (1.16) {dt2-lab-capicola}; 70b185's private project links `0x20020000-0x200f9fff` and keeps its data at or below `0x200f5a74`, because going past it gave clicks and leaks into the delay on a unit {own-dt2-notes}.
+
+What the comparison shows:
+- **The flash cave is the most contested 2 KB on the DT2.** Five users share it, and they fit only because each checked the bytes the others left: Deja Vu leaves 50 bytes between its payload and its latches, and 70b185's project uses 28 of them. One report says the cave froze a unit at the logo ([CONFLICTS O18](../CONFLICTS.md)); Deja Vu's releases and 70b185's builds boot from it on units. `[hw]`
+- **elekloader's area lies inside digikit's `cf.expansion`.** An image built with both loaders would place two code blocks in the same RAM unless one moves. The two boot hooks are adjacent and disjoint (`0x40000538` returns to `0x4000053e`), so they could chain, as on the DN2. `[doc]`
+- **The listed UI sites do not overlap.** elekloader's six event sites, perform-levels' site and the All-in-One's zoom and WAVE sites are disjoint bytes; the All-in-One has more sites (Plaits, DX7, panels) that this table does not compare. Disjoint bytes do not prove that two mods work together ([`agent-workflow.md`](agent-workflow.md)). `[doc]`
+- **Three projects replace the STRETCH machine's DSP:** dt2-capicola, dt2-machine-lab's port of it, and 70b185's private project. They are alternatives, not combinable. `[doc]`
+- **digikit's module L2 reaches above `0x200f5a74`,** where one project measured clicks on a unit. Treat `0x200f5a74-0x200fa000` as unproven until task T15 settles it. `[hw]`
+
 ## Details per device
 - **Digitakt mk1:** ELE3, device byte `0x0A` (elekloader's page says `0x14`, which is the Digitakt II's byte; settled by taktone, see the table in [firmware-container.md](firmware-container.md)), six-plus sections, main OS staged at `0x40200000`. DDR is free RAM. Hook sites: no numeric list on the page; the first eight sites of the Digitone mk1 are described as the Digitakt mk1's.
 - **Digitone mk1:** ELE3, seven sections, stock gap 403,540 bytes. The OS clears `0x4028E000-0x43229E60`; operands end before `0x43EB0000`; stack from `0x48000000`. First eight hook sites match the Digitakt mk1; the ninth is `ev_voice_on` at `0x4009e928`; render frame `0xB8`. Core `mods/core-dn1`, up to 4.0 (1.44 ported at its own addresses).

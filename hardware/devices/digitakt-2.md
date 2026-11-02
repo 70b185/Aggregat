@@ -61,7 +61,7 @@ Coverage: **medium**. Projects: [../../devices/digitakt-2.md](../../devices/digi
   - The phase increment is in D5 (signed); the stored phase is in D2.
   - Raw WAVE 7/8 clamp to 6 and play RAND on stock. This is why Deja Vu needs two paired hooks, not one dispatch hook. `[emu]`
 - **Firmware heap:** `malloc` at `0x4011e674` (size at `4(A7)`, pointer in D0, mutex `0x44e08654`), `free` at `0x4011e87a` (it checks bounds and 16-byte alignment with `illegal`). The heap is a 32 MiB buddy heap `0x44f39c40-0x46f39c40` with metadata at `0x402b406c`. It sits inside the reset clear and initialises on first call. An 8 KiB block allocated once stayed untouched for 10 M emulated instructions. `[emu]`
-- **A persistent flashed cave** `0x403117c4-0x40312000` (2,108 B) ends exactly at the reset clear and survives boot. `0x4031be59-0x4031ff60` is inside the clear and **cannot hold flashed code**. The priority-6 task entry `0x40133646` is a candidate one-shot startup hook, after the heap is initialised. `[emu]`
+- **A persistent flashed cave** `0x403117c4-0x40312000` (2,108 B) ends exactly at the reset clear and survives boot. `0x4031be59-0x4031ff60` is inside the clear and **cannot hold flashed code**. The priority-6 task entry `0x40133646` is a candidate one-shot startup hook, after the heap is initialised. `[emu]` Deja Vu, the All-in-One, dt2-machine-lab and 70b185's private project all use it; who holds which bytes: [memory-maps.md](../common/memory-maps.md); one freeze report: [CONFLICTS O18](../CONFLICTS.md).
 - These are 1.16 addresses; resolve them on 1.17 before use (rule C1).
 
 ## Ecosystem snapshot, Digitakt II (altstrument 2026-10-31: 3 firmware + 2 tools; elektronmods: SYXGRID, digi-roll-studio, digitakt2-perform, digikit, lalzart's research, Overwitch, firmware-tool)
@@ -146,6 +146,10 @@ These figures are from the source and emulator runs, not from a unit. `[emu]`
   - Voices at `0x2412cc + lane*0x1d8`, 32 lanes: `+0` PCM pointer, `+0x188` length, `+0x1b8` active.
   - Link-port 0 receive staging at `0x268220` (descriptor) and `0x268240` (a tag plus 4 KiB of payload).
 - Once published to the SHARC, PCM keeps playing after the ColdFire source is freed, as long as the stock allocation stays owned. Saving, however, needs the source, and no read-back path from sample memory was found.
+
+## Three Digitakt II mod routes side by side (T21, 2026-11-02)
+- digikit's patchkit (used by digitakt-ii-research's All-in-One and dt2-machine-lab), elekloader's core-dt2 (used by digitakt2-perform) and the hand-placed builds share the flash cave `0x403117c4-0x40312000`. elekloader's RAM `0x47f00000-0x47f40000` lies inside digikit's `cf.expansion` `0x47e8b000-0x47fe0000`. Full table of ranges and hook sites: [memory-maps.md](../common/memory-maps.md). `[doc]`
+- A decoded section 7 over 1 MiB crashed a unit (dt2-machine-lab, OS 1.16): [firmware-container.md](../common/firmware-container.md), rule A46. `[hw]` {dt2-lab-capicola}
 
 ## SHARC measured on a real unit
 Clock (1.000 GHz, 666,667 cycles/block), FreeRTOS task map, free reply words, missed-block behaviour, the STRETCH contract, memory limits and selcc traps: [`digitakt-2-sharc-measured.md`](digitakt-2-sharc-measured.md). `[hw]` {own-dt2-notes}

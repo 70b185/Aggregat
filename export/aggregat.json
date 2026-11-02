@@ -3,13 +3,13 @@
   "checked": "2026-11-02",
   "generator": "scripts/export_db.py",
   "counts": {
-   "projects": 199,
+   "projects": 200,
    "devices": 13,
-   "relations": 38,
-   "rules": 87,
-   "sources": 224,
-   "conflicts": 30,
-   "facts": 918
+   "relations": 41,
+   "rules": 88,
+   "sources": 234,
+   "conflicts": 31,
+   "facts": 926
   }
  },
  "devices": [
@@ -243,7 +243,7 @@
    "last_activity": "2026-10-21",
    "notes": "Windows standalone builder (portable, no Python/Git/WSL needed) that takes the user's own official OS file, identifies it by SHA-256, writes the patched .syx; the user installs it with Elektron Transfer. The builder never connects to the instrument and never flashes. Adds two random-loop LFO waveforms on all three LFOs: DV-F (WAVE 7, free-running) and DV-T (WAVE 8, read position resets on track trigger); MODE = 2/4/8/16/32 steps; SPH = randomness (0 new values each step, 64 locks values and order, 127 keeps values but reorders, in between blends); stock WAVE 0-6 stay on stock paths. v0.2.0-beta adds a ONESHOT waveform zoom (encoder C cycles 1x, 2x, 3.75x, turning C pans; only in the combined 1.17 edition). Hardware: all three outputs validated on a physical unit for normal boot and operation, described by the author as beta evidence, not exhaustive. Open: broad MIDI / sequencer / transport / sync regression, save-reload-power-cycle persistence, long-duration stability. Unsigned .exe (SmartScreen warns). Repo: docs/INSTALLATION.md and docs/RECOVERY.md, windows-builder/, src/dv/ (host model), coldfire/ (DV, routing, trampoline, startup-allocation source), research/ (byte-backed findings), tools/midisniff.py (passive SysEx capture, does not transmit). Evidence ladder used by the author: SOURCE/STATIC, HOST, SYNTHETIC UNICORN, NATURAL EMULATED, HARDWARE. MIT, 7 commits, 4 stars. Credits: Marbles (concept only), Bezronczek's Syntakt Firmware Workbench (behavioural reference), ElekLabs digikit (research tooling, not bundled), elektron-firmware-tool (vendored).",
    "links": "{\"releases\": \"https://github.com/karigardarsson/digitakt-ii-research/releases\", \"release_latest\": \"https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.2.0-beta\", \"forum_deja_vu\": \"https://elektronmods.com/thread-80-good-news-everyone-i-got-deja-vu-lfos-running-on-the\", \"forum_waveform_zoom\": \"https://elektronmods.com/thread-83-good-news-everyone-i-added-waveform-zoom-to-the-digitakt-ii\"}",
-   "sources": "[\"forum threads 80 and 83\", \"GitHub README\", \"GitHub releases\"]"
+   "sources": "[\"forum threads 80 and 83\", \"GitHub README\", \"GitHub releases\", \"all-in-one/README.md and NOTICE read 2026-11-02\"]"
   },
   {
    "id": "ringtone",
@@ -2294,6 +2294,22 @@
    "sources": "[\"GitHub search 2026-11-02\", \"README\"]"
   },
   {
+   "id": "dt2-capicola",
+   "name": "dt2-capicola (Capicola time stretch for STRETCH/REPITCH/SLICE/GRID)",
+   "author": "hy3na-k1ng",
+   "kind": "mod",
+   "list": "mods",
+   "devices": "digitakt-2",
+   "repo": "https://github.com/hy3na-k1ng/dt2-capicola",
+   "status": "unreachable",
+   "base_os": "Digitakt II (version in the vendored README)",
+   "version": null,
+   "last_activity": "unknown",
+   "notes": "Custom OS that replaces the Digitakt II's native time-stretch and repitch DSP with an engine built on Heavylight Industries' Capicola (AGPL-3.0-or-later): covers STRETCH, REPITCH, SLICE and GRID; a CAPI parameter switches each track between the new engine and Elektron's; SLICE/GRID sync to tempo and BARS goes to 32. The GitHub repo did not answer on 2026-11-02 (deleted, renamed or private). Its 66 files are kept byte-exact in dt2-machine-lab under machines/capicola-reddit/upstream (pinned from a user-supplied zip, SHA-256 87bb2b07...), which builds its own overlay from it. A comment in its build script says digikit's flash cave 0x403117c4 froze the unit at the logo for that build; other projects use the cave on units (CONFLICTS O18).",
+   "links": "{}",
+   "sources": "[\"dt2-machine-lab machines/capicola-reddit (README and upstream/README.md)\", \"read 2026-11-02\"]"
+  },
+  {
    "id": "digi-macro",
    "name": "macro-mode (digi_macro)",
    "author": "toonst",
@@ -3288,6 +3304,12 @@
  ],
  "relations": [
   {
+   "project": "digitakt-ii-research",
+   "type": "builds_on",
+   "target": "digikit",
+   "evidence": "all-in-one/README.md: modified firmware derived from digikit; uses its patchkit"
+  },
+  {
    "project": "synthack-os",
    "type": "fork_of",
    "target": "synthack-os-upstream",
@@ -3304,6 +3326,12 @@
    "type": "same_project",
    "target": "ringtone",
    "evidence": "release repo; source lives in RingTone"
+  },
+  {
+   "project": "dt2-machine-lab",
+   "type": "bundles",
+   "target": "dt2-capicola",
+   "evidence": "machines/capicola-reddit/upstream keeps its 66 files byte-exact"
   },
   {
    "project": "dn2mk2",
@@ -3418,6 +3446,12 @@
    "type": "fork_of",
    "target": "screendump",
    "evidence": "README"
+  },
+  {
+   "project": "dt2-capicola",
+   "type": "builds_on",
+   "target": "keyframer-lab",
+   "evidence": "same Capicola keyframe engine by Heavylight Industries"
   },
   {
    "project": "rytm2-mods",
@@ -3920,6 +3954,15 @@
    "text": "A45. Keep the end of every SHARC hardware loop in 48-bit ISA (DT2/DN2). The last 11 instructions of a hardware loop, and all of a loop shorter than that, must be legacy 48-bit instructions; the rest of the code may be compressed. Three projects reached this independently: - digikit: a selas defect left the end of a nested loop compressed, and `fx/freqshift` froze a real Digitakt II at boot while the emulator ran it ([digitakt-2.md](devices/digitakt-2.md)) {digikit-f91}; - the digitone-2-modding-skill checks it with `hwrules.py`, and stock DN2 1.11 obeys it in all 286 loops; its full list (loop end, `LCE`, CALL and branch spacing, same-DAG) is in [digitone-2-os111-firmware-map.md](devices/digitone-2-os111-firmware-map.md) {dn2-skill-scripts}; - the DT2 Plaits port compresses everything else and keeps loop ends in ISA ([digitakt-2-dsp-optimizing.md](devices/digitakt-2-dsp-optimizing.md)). Wrap nested loops in `.NOCOMPRESS`, and check the rule on the disassembly (A41), since the emulator does not enforce it. `[hw]`",
    "evidence": "hw",
    "sources": "digikit-f91,dn2-skill-scripts",
+   "devices": "digitakt-2,digitone-2"
+  },
+  {
+   "id": "A46",
+   "section": "A. Safety - never skip",
+   "title": "Keep a decoded section 7 under `0xfffff` bytes, and count the decoded size, not the stored one (DT2/DN2).",
+   "text": "A46. Keep a decoded section 7 under `0xfffff` bytes, and count the decoded size, not the stored one (DT2/DN2). The ColdFire depacks section 7 into a 1 MiB buffer and checks the size only afterwards, so a larger stream overruns the buffer before it is refused. One build with a 1,314,460-byte stream raised an exception on a unit. Run the stock depacker (or an exact copy) in the build and fail above the limit; zero regions can be fill blocks instead of stored bytes. Details: [firmware-container.md](common/firmware-container.md). `[hw]` {dt2-lab-capicola} {digikit-f06}",
+   "evidence": "hw",
+   "sources": "digikit-f06,dt2-lab-capicola",
    "devices": "digitakt-2,digitone-2"
   },
   {
@@ -4703,6 +4746,16 @@
    "url": "https://github.com/elekloader/elekloader/blob/main/elekloader/devices/digitone_mk2.py"
   },
   {
+   "key": "elekloader-dt2-profile",
+   "what": "elekloader `elekloader/devices/digitakt_mk2.py` and `docs/DEVICES.md` (DT2 1.17 profile: clear, DSP buffers, mods' DDR area, write watches)",
+   "url": "https://github.com/elekloader/elekloader/blob/main/elekloader/devices/digitakt_mk2.py"
+  },
+  {
+   "key": "elekloader-core-dt2",
+   "what": "elekloader `mods/core-dt2/README.md` and `mod.json` (DT2 1.17 hook sites)",
+   "url": "https://github.com/elekloader/elekloader/tree/main/mods/core-dt2"
+  },
+  {
    "key": "dn2mk2-emulator",
    "what": "dn2mk2-firmware `docs/emulator.md`",
    "url": "https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/emulator.md"
@@ -5026,6 +5079,26 @@
    "key": "digikit-f73",
    "what": "ElekLabs/digikit finding 73, dnfw and digikit in one image",
    "url": "https://github.com/ElekLabs/digikit/blob/main/docs/findings/73-dnfw-coexistence.md"
+  },
+  {
+   "key": "digikit-f01",
+   "what": "ElekLabs/digikit finding 01, container and patching (reset copy/clear, flash cave, `cf.expansion`, size caps)",
+   "url": "https://github.com/ElekLabs/digikit/blob/main/docs/findings/01-container-and-patching.md"
+  },
+  {
+   "key": "digikit-f06",
+   "what": "ElekLabs/digikit finding 06, SHARC engine and start-up (how the ColdFire stages and sends section 7)",
+   "url": "https://github.com/ElekLabs/digikit/blob/main/docs/findings/06-sharc-engine-and-startup.md"
+  },
+  {
+   "key": "digikit-f46",
+   "what": "ElekLabs/digikit finding 46, digikit debug (keep area for crash records at `0x47fe0000`)",
+   "url": "https://github.com/ElekLabs/digikit/blob/main/docs/findings/46-digikit-debug.md"
+  },
+  {
+   "key": "digikit-patching",
+   "what": "ElekLabs/digikit `docs/PATCHING.md` (patchkit regions: `cf.expansion`, `dsp.l2`)",
+   "url": "https://github.com/ElekLabs/digikit/blob/main/docs/PATCHING.md"
   },
   {
    "key": "dn2-cfw-t14",
@@ -5413,6 +5486,26 @@
    "url": "https://github.com/karigardarsson/digitakt-ii-research/tree/main/research"
   },
   {
+   "key": "dt2-aio-src",
+   "what": "karigardarsson/digitakt-ii-research `all-in-one/` (README, NOTICE, `source/host-tools/tools/patchkit/pk_integrate_dv_zoom.py`; OS 1.17)",
+   "url": "https://github.com/karigardarsson/digitakt-ii-research/tree/main/all-in-one"
+  },
+  {
+   "key": "dt2-lab-capicola",
+   "what": "lalzart/dt2-machine-lab `machines/capicola-reddit/`, `docs/CAPICOLA-REDDIT-RESULTS.md` and `docs/CAPICOLA-REDDIT-BOOT-FIX.md` (OS 1.16)",
+   "url": "https://github.com/lalzart/dt2-machine-lab/blob/main/docs/CAPICOLA-REDDIT-BOOT-FIX.md"
+  },
+  {
+   "key": "dt2-lab-cpu",
+   "what": "lalzart/dt2-machine-lab `lab/cpu_extension.py`, `lab/plaits_controls.py`, `lab/capicola_controls.py` (OS 1.16 placements)",
+   "url": "https://github.com/lalzart/dt2-machine-lab/tree/main/lab"
+  },
+  {
+   "key": "dt2-perform",
+   "what": "toonst/digitakt2-perform README (two elekloader mods, OS 1.17)",
+   "url": "https://github.com/toonst/digitakt2-perform"
+  },
+  {
    "key": "mmodule-research",
    "what": "c0remusic/MModule `.scratch/user-machines/research/04-voice-dsp-memory.md` (Machinedrum OS 1.63 voice DSP room and time, emulator)",
    "url": "https://github.com/c0remusic/MModule"
@@ -5441,6 +5534,15 @@
    "b": "the render is 85.8k of 166.7k cycles per block (SY FM4)",
    "details": "Different spans of the same interrupt; [`devices/syntakt.md`](devices/syntakt.md)",
    "devices": "syntakt"
+  },
+  {
+   "id": "O18",
+   "status": "open",
+   "topic": "DT2 flash cave `0x403117c4-0x40312000` at boot",
+   "a": "unusable: \"digikit's flash_cave (0x403117c4) froze the device at the logo: that trailing region is not loaded or is cleared on the hardware, whatever the emulator does\" (a comment in dt2-capicola's build script, vendored in dt2-machine-lab)",
+   "b": "usable: Deja Vu's releases put their payload there and were validated on a unit for boot and operation; 70b185's builds put a stub there and run on a unit; digikit's canary survived boot in its emulator",
+   "details": "The report gives no build or OS version, and other bytes changed in that build too. Most likely something else in that build caused the freeze, but nobody has shown it. Settle with a stock image plus a canary in the cave, read back on a unit. [`common/memory-maps.md`](common/memory-maps.md)",
+   "devices": "digitakt-2"
   },
   {
    "id": "O17",
@@ -7889,7 +7991,7 @@
    "file": "hardware/devices/digitakt-2.md",
    "line": 64,
    "section": "Digitakt II / ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)",
-   "text": "A persistent flashed cave `0x403117c4-0x40312000` (2,108 B) ends exactly at the reset clear and survives boot. `0x4031be59-0x4031ff60` is inside the clear and cannot hold flashed code. The priority-6 task entry `0x40133646` is a candidate one-shot startup hook, after the heap is initialised. `[emu]`",
+   "text": "A persistent flashed cave `0x403117c4-0x40312000` (2,108 B) ends exactly at the reset clear and survives boot. `0x4031be59-0x4031ff60` is inside the clear and cannot hold flashed code. The priority-6 task entry `0x40133646` is a candidate one-shot startup hook, after the heap is initialised. `[emu]` Deja Vu, the All-in-One, dt2-machine-lab and 70b185's private project all use it; who holds which bytes: [memory-maps.md](../common/memory-maps.md); one freeze report: [CONFLICTS O18](../CONFLICTS.md).",
    "evidence": "emu",
    "sources": "dt2-research",
    "devices": "digitakt-2",
@@ -8161,6 +8263,28 @@
    "id": 224
   },
   {
+   "file": "hardware/devices/digitakt-2.md",
+   "line": 151,
+   "section": "Digitakt II / Three Digitakt II mod routes side by side (T21, 2026-11-02)",
+   "text": "digikit's patchkit (used by digitakt-ii-research's All-in-One and dt2-machine-lab), elekloader's core-dt2 (used by digitakt2-perform) and the hand-placed builds share the flash cave `0x403117c4-0x40312000`. elekloader's RAM `0x47f00000-0x47f40000` lies inside digikit's `cf.expansion` `0x47e8b000-0x47fe0000`. Full table of ranges and hook sites: [memory-maps.md](../common/memory-maps.md). `[doc]`",
+   "evidence": "doc",
+   "sources": "",
+   "devices": "digitakt-2",
+   "addresses": "0x403117c4,0x40312000,0x47e8b000,0x47f00000,0x47f40000,0x47fe0000",
+   "id": 225
+  },
+  {
+   "file": "hardware/devices/digitakt-2.md",
+   "line": 152,
+   "section": "Digitakt II / Three Digitakt II mod routes side by side (T21, 2026-11-02)",
+   "text": "A decoded section 7 over 1 MiB crashed a unit (dt2-machine-lab, OS 1.16): [firmware-container.md](../common/firmware-container.md), rule A46. `[hw]` {dt2-lab-capicola}",
+   "evidence": "hw",
+   "sources": "dt2-lab-capicola",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 226
+  },
+  {
    "file": "hardware/devices/digitakt.md",
    "line": 6,
    "section": "Digitakt (mk1) / Basics",
@@ -8169,7 +8293,7 @@
    "sources": "elekloader-adapting,elekloader-readme",
    "devices": "digitakt",
    "addresses": "",
-   "id": 225
+   "id": 227
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8180,7 +8304,7 @@
    "sources": "elektron-support",
    "devices": "digitakt",
    "addresses": "",
-   "id": 226
+   "id": 228
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8191,7 +8315,7 @@
    "sources": "",
    "devices": "digitakt",
    "addresses": "",
-   "id": 227
+   "id": 229
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8202,7 +8326,7 @@
    "sources": "elekloader-readme",
    "devices": "digitakt",
    "addresses": "",
-   "id": 228
+   "id": 230
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8213,7 +8337,7 @@
    "sources": "dn2-cfw-prior",
    "devices": "digitakt",
    "addresses": "",
-   "id": 229
+   "id": 231
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8224,7 +8348,7 @@
    "sources": "dn2-cfw-prior",
    "devices": "digitakt",
    "addresses": "0x40000438,0xFC07000C",
-   "id": 230
+   "id": 232
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8235,7 +8359,7 @@
    "sources": "elekloader-adapting,elekloader-devices",
    "devices": "digitakt",
    "addresses": "0x47BC0000,0x47C00000",
-   "id": 231
+   "id": 233
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8246,7 +8370,7 @@
    "sources": "elekloader-adapting",
    "devices": "digitakt",
    "addresses": "0x4025CA40",
-   "id": 232
+   "id": 234
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8257,7 +8381,7 @@
    "sources": "elekloader-adapting",
    "devices": "digitakt",
    "addresses": "0x400716c0,0x4007629a",
-   "id": 233
+   "id": 235
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8268,7 +8392,7 @@
    "sources": "elekloader-adapting",
    "devices": "digitakt",
    "addresses": "",
-   "id": 234
+   "id": 236
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8279,7 +8403,7 @@
    "sources": "elekloader-adapting",
    "devices": "digitakt",
    "addresses": "0x40000538,0x4000a770,0x4000a7d6,0x4000b770,0x4000b7ba,0x40058800,0x40077428,0x400784c8",
-   "id": 235
+   "id": 237
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8290,7 +8414,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "0x47BE0000,0x47C00000,0x80003360,0x80008000,0x8000F700,0x80010000",
-   "id": 236
+   "id": 238
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8301,7 +8425,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "0x80001a18",
-   "id": 237
+   "id": 239
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8312,7 +8436,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "0x403193a0",
-   "id": 238
+   "id": 240
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8323,7 +8447,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "0x401a9d9c",
-   "id": 239
+   "id": 241
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8334,7 +8458,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "0x400d4180",
-   "id": 240
+   "id": 242
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8345,7 +8469,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 241
+   "id": 243
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8356,7 +8480,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 242
+   "id": 244
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8367,7 +8491,7 @@
    "sources": "elekloader-adapting",
    "devices": "digitakt",
    "addresses": "",
-   "id": 243
+   "id": 245
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8378,7 +8502,7 @@
    "sources": "elekloader-adapting",
    "devices": "digitakt",
    "addresses": "",
-   "id": 244
+   "id": 246
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8389,7 +8513,7 @@
    "sources": "",
    "devices": "digitakt",
    "addresses": "",
-   "id": 245
+   "id": 247
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8400,7 +8524,7 @@
    "sources": "dt1-teardown",
    "devices": "digitakt",
    "addresses": "",
-   "id": 246
+   "id": 248
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8411,7 +8535,7 @@
    "sources": "elektronauts-dt2-intro",
    "devices": "digitakt",
    "addresses": "",
-   "id": 247
+   "id": 249
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8422,7 +8546,7 @@
    "sources": "alt-digitakt,digiemu-readme,em-list",
    "devices": "digitakt",
    "addresses": "",
-   "id": 248
+   "id": 250
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8433,7 +8557,7 @@
    "sources": "alt-digitakt,digislicer-readme,em-list",
    "devices": "digitakt",
    "addresses": "",
-   "id": 249
+   "id": 251
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8444,7 +8568,7 @@
    "sources": "alt-digitakt,digifilter-readme,em-list",
    "devices": "digitakt",
    "addresses": "",
-   "id": 250
+   "id": 252
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8455,7 +8579,7 @@
    "sources": "alt-digitakt,digi1-readme,em-list",
    "devices": "digitakt",
    "addresses": "",
-   "id": 251
+   "id": 253
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8466,7 +8590,7 @@
    "sources": "alt-digitakt,digisophie-readme,em-list",
    "devices": "digitakt",
    "addresses": "",
-   "id": 252
+   "id": 254
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8477,7 +8601,7 @@
    "sources": "alt-digitakt,digipools-page,em-list",
    "devices": "digitakt",
    "addresses": "",
-   "id": 253
+   "id": 255
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8488,7 +8612,7 @@
    "sources": "alt-digitakt,em-list",
    "devices": "digitakt",
    "addresses": "",
-   "id": 254
+   "id": 256
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8499,7 +8623,7 @@
    "sources": "digifilter",
    "devices": "digitakt",
    "addresses": "",
-   "id": 255
+   "id": 257
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8510,7 +8634,7 @@
    "sources": "elekloader-readme",
    "devices": "digitakt",
    "addresses": "",
-   "id": 256
+   "id": 258
   },
   {
    "file": "hardware/devices/digitakt.md",
@@ -8521,7 +8645,7 @@
    "sources": "",
    "devices": "digitakt",
    "addresses": "",
-   "id": 257
+   "id": 259
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8532,7 +8656,7 @@
    "sources": "dn2-cfw-t13",
    "devices": "digitone-2",
    "addresses": "0x400004e8,0x48000000",
-   "id": 258
+   "id": 260
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8543,7 +8667,7 @@
    "sources": "dn2-cfw-t13",
    "devices": "digitone-2",
    "addresses": "0x402fd000,0x40305000,0x4030c980,0x80000000,0x80008000,0x8000f980,0x80010000",
-   "id": 259
+   "id": 261
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8554,7 +8678,7 @@
    "sources": "dn2-cfw-t13",
    "devices": "digitone-2",
    "addresses": "0x402fd000,0x466b84d0,0x4e6c0000,0x4e709340",
-   "id": 260
+   "id": 262
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8565,7 +8689,7 @@
    "sources": "dn2-cfw-t13",
    "devices": "digitone-2",
    "addresses": "0x46800000,0x47f00000",
-   "id": 261
+   "id": 263
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8576,7 +8700,7 @@
    "sources": "dn2-cfw-dc01",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 262
+   "id": 264
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8587,7 +8711,7 @@
    "sources": "dn2-cfw-dc01",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 263
+   "id": 265
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8598,7 +8722,7 @@
    "sources": "dn2-cfw-dc01",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 264
+   "id": 266
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8609,7 +8733,7 @@
    "sources": "dn2-cfw-dc01,dn2-cfw-pb01",
    "devices": "digitone-2",
    "addresses": "0x2008823c,0x200918c0,0x200c2000,0x200fa000,0x2e4f46,0x315f8c,0x318000",
-   "id": 265
+   "id": 267
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8620,7 +8744,7 @@
    "sources": "dn2-cfw-dc01,dn2-cfw-roadmap",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 266
+   "id": 268
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8631,7 +8755,7 @@
    "sources": "dn2-cfw-dc01,dn2-cfw-t53",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 267
+   "id": 269
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8642,7 +8766,7 @@
    "sources": "dn2-cfw-dc01,dn2-cfw-t53",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 268
+   "id": 270
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8653,7 +8777,7 @@
    "sources": "dn2-cfw-dc01,dn2-waverider-perf",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 269
+   "id": 271
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8664,7 +8788,7 @@
    "sources": "dn2-cfw-dc01",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 270
+   "id": 272
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8675,7 +8799,7 @@
    "sources": "dn2-cfw-dc01",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 271
+   "id": 273
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8686,7 +8810,7 @@
    "sources": "dn2-cfw-t3",
    "devices": "digitone-2",
    "addresses": "0x800053a4,0x80005e60",
-   "id": 272
+   "id": 274
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8697,7 +8821,7 @@
    "sources": "dn2-cfw-t3",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 273
+   "id": 275
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8708,7 +8832,7 @@
    "sources": "dn2-cfw-t3",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 274
+   "id": 276
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8719,7 +8843,7 @@
    "sources": "dn2-cfw-t3",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 275
+   "id": 277
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8730,7 +8854,7 @@
    "sources": "dn2-cfw-t3",
    "devices": "digitone-2",
    "addresses": "0x2008823c,0x2dd52c,0x2dd600,0x2e7000,0x2ec000,0x2effff,0x31c000,0x31ffff,0x39c000,0x39ffff",
-   "id": 276
+   "id": 278
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8741,7 +8865,7 @@
    "sources": "dn2-cfw-t3,elekloader-sharc-dn2",
    "devices": "digitone-2",
    "addresses": "0x40025e9e,0x80002510",
-   "id": 277
+   "id": 279
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8752,7 +8876,7 @@
    "sources": "dn2-cfw-t3,elekloader-sharc-dn2",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 278
+   "id": 280
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8763,7 +8887,7 @@
    "sources": "dn2-cfw-t3,elekloader-sharc-dn2",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 279
+   "id": 281
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8774,7 +8898,7 @@
    "sources": "dn2-cfw-t3,elekloader-adapting,elekloader-sharc-dn2",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 280
+   "id": 282
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8785,7 +8909,7 @@
    "sources": "dn2-cfw-t3",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 281
+   "id": 283
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8796,7 +8920,7 @@
    "sources": "dn2-dt2port",
    "devices": "digitone-2",
    "addresses": "0x1c642a",
-   "id": 282
+   "id": 284
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8807,7 +8931,7 @@
    "sources": "dn2-dt2port",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 283
+   "id": 285
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8818,7 +8942,7 @@
    "sources": "dn2-dt2port",
    "devices": "digitone-2",
    "addresses": "0x1c4ecf,0x1c4f81",
-   "id": 284
+   "id": 286
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8829,7 +8953,7 @@
    "sources": "dn2-dt2port",
    "devices": "digitone-2",
    "addresses": "0x1c91ad,0x8052db90",
-   "id": 285
+   "id": 287
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8840,7 +8964,7 @@
    "sources": "dn2-cfdsp",
    "devices": "digitone-2",
    "addresses": "0x40025982,0x80005366,0x80005368",
-   "id": 286
+   "id": 288
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8851,7 +8975,7 @@
    "sources": "dn2-cfdsp",
    "devices": "digitone-2",
    "addresses": "0x007FFFFF",
-   "id": 287
+   "id": 289
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8862,7 +8986,7 @@
    "sources": "dn2-mainos-image,dn2-skill-firmware",
    "devices": "digitone-2",
    "addresses": "0x40000400,0x40000410,0x80000000,0x800003fc",
-   "id": 288
+   "id": 290
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8873,7 +8997,7 @@
    "sources": "dn2-mainos-image",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 289
+   "id": 291
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8884,7 +9008,7 @@
    "sources": "dn2-mainos-image",
    "devices": "digitone-2",
    "addresses": "0x1F7000,0x202000,0x40025e0a,0x400daed2,0x400db1dc,0x400db1f6,0x400db22c,0x400db32e,0x401F7400,0x40200b09,0x40200b2e,0x40201cb0",
-   "id": 290
+   "id": 292
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8895,7 +9019,7 @@
    "sources": "dn2-ele3",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 291
+   "id": 293
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8906,7 +9030,7 @@
    "sources": "dn2-cfw-handoff",
    "devices": "digitone-2",
    "addresses": "0x1CC740,0x380000,0x3c0000,0x40000,0x400000,0x80000",
-   "id": 292
+   "id": 294
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8917,7 +9041,7 @@
    "sources": "dn2-cfw-handoff",
    "devices": "digitone-2",
    "addresses": "0x40200000,0x8000357c",
-   "id": 293
+   "id": 295
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8928,7 +9052,7 @@
    "sources": "dn2-ele3",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 294
+   "id": 296
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8939,7 +9063,7 @@
    "sources": "dn2-cfw-handoff,dn2-ele3",
    "devices": "digitone-2",
    "addresses": "0x402F7D40,0x402f7d44",
-   "id": 295
+   "id": 297
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8950,7 +9074,7 @@
    "sources": "dn2-cfw-handoff,dn2-cfw-roadmap",
    "devices": "digitone-2",
    "addresses": "0x2008823c,0x200f9fff,0x315f8c,0x318000,0x46800000,0x47F00000,0x8000F980,0x80010000,0x8052fbe0",
-   "id": 296
+   "id": 298
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8961,7 +9085,7 @@
    "sources": "digikit-findings",
    "devices": "digitone-2",
    "addresses": "0x100000,0xfffff",
-   "id": 297
+   "id": 299
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8972,7 +9096,7 @@
    "sources": "digikit-findings,dn2-cfw-handoff",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 298
+   "id": 300
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8983,7 +9107,7 @@
    "sources": "digikit-findings",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 299
+   "id": 301
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -8994,7 +9118,7 @@
    "sources": "dn2-cfw-handoff",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 300
+   "id": 302
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9005,7 +9129,7 @@
    "sources": "dn2-cfw-handoff,dn2-cfw-roadmap",
    "devices": "digitone-2",
    "addresses": "0x1c1738,0x1c2712,0xb836bc,0xb8482c,0xb84d5c,0xb8541d",
-   "id": 301
+   "id": 303
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9016,7 +9140,7 @@
    "sources": "dn2-cfw-roadmap",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 302
+   "id": 304
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9027,7 +9151,7 @@
    "sources": "digikit-findings",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 303
+   "id": 305
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9038,7 +9162,7 @@
    "sources": "digikit-findings",
    "devices": "digitone-2",
    "addresses": "0x2567c0,0x261a10",
-   "id": 304
+   "id": 306
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9049,7 +9173,7 @@
    "sources": "dn2-cfw-handoff",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 305
+   "id": 307
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9060,7 +9184,7 @@
    "sources": "digikit-findings",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 306
+   "id": 308
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9071,7 +9195,7 @@
    "sources": "dn2-cfw-handoff",
    "devices": "digitone-2",
    "addresses": "0x44600ca0",
-   "id": 307
+   "id": 309
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9082,7 +9206,7 @@
    "sources": "dn2-cfw-handoff",
    "devices": "digitone-2",
    "addresses": "0x4002e464,0x4002f20c",
-   "id": 308
+   "id": 310
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9093,7 +9217,7 @@
    "sources": "digikit-findings",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 309
+   "id": 311
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9104,7 +9228,7 @@
    "sources": "digikit-findings",
    "devices": "digitone-2",
    "addresses": "0x38000,0x3E000",
-   "id": 310
+   "id": 312
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9115,7 +9239,7 @@
    "sources": "",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 311
+   "id": 313
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9126,7 +9250,7 @@
    "sources": "dn2-cfw-handoff,dn2-mainos-image",
    "devices": "digitone-2",
    "addresses": "0x800003fc",
-   "id": 312
+   "id": 314
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9137,7 +9261,7 @@
    "sources": "dn2-mainos-image",
    "devices": "digitone-2",
    "addresses": "0x40001000",
-   "id": 313
+   "id": 315
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9148,7 +9272,7 @@
    "sources": "dn2-cfw-handoff",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 314
+   "id": 316
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9159,7 +9283,7 @@
    "sources": "dn2-cfw-roadmap",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 315
+   "id": 317
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9170,7 +9294,7 @@
    "sources": "digikit-findings",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 316
+   "id": 318
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9181,7 +9305,7 @@
    "sources": "digirust-features,digirust-readme",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 317
+   "id": 319
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9192,7 +9316,7 @@
    "sources": "dn2-cfw-release-history,dn2-os-versions",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 318
+   "id": 320
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9203,7 +9327,7 @@
    "sources": "dn2-cfw-release-history,dn2-os-versions",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 319
+   "id": 321
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9214,7 +9338,7 @@
    "sources": "dn2-bootstrap",
    "devices": "digitone-2",
    "addresses": "0x800003fc,0x80000404,0x800065e6,0x80006603,0x80006614,0x80010000",
-   "id": 320
+   "id": 322
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9225,7 +9349,7 @@
    "sources": "dn2-bootstrap",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 321
+   "id": 323
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9236,7 +9360,7 @@
    "sources": "dn2-bootstrap",
    "devices": "digitone-2",
    "addresses": "0x40000000,0x40000008,0x80000,0xDEBB20E3",
-   "id": 322
+   "id": 324
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9247,7 +9371,7 @@
    "sources": "dn2-cfw-arp",
    "devices": "digitone-2",
    "addresses": "0x400187ea,0x4005f9b6,0x40060dde",
-   "id": 323
+   "id": 325
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9258,7 +9382,7 @@
    "sources": "dn2-cfw-arp",
    "devices": "digitone-2",
    "addresses": "0x445ff870,0x44600ca0,0x4460f4b8",
-   "id": 324
+   "id": 326
   },
   {
    "file": "hardware/devices/digitone-2-internals.md",
@@ -9269,7 +9393,7 @@
    "sources": "dn2-cfw-arp",
    "devices": "digitone-2",
    "addresses": "0x4460f4b8",
-   "id": 325
+   "id": 327
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9280,7 +9404,7 @@
    "sources": "digikit-sharcmap",
    "devices": "digitone-2",
    "addresses": "0x001c12e2,0x20000000,0x28000000",
-   "id": 326
+   "id": 328
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9291,7 +9415,7 @@
    "sources": "digikit-sharcmap",
    "devices": "digitone-2",
    "addresses": "0x20000000,0x2001e880,0x2001e888,0x2008823c,0x282403f0,0x2826f000,0x282c0000,0x282dd52c,0x283825c4,0x2839bffc,0x80000018,0x8052fbe0",
-   "id": 327
+   "id": 329
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9302,7 +9426,7 @@
    "sources": "digikit-sharcmap",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 328
+   "id": 330
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9313,7 +9437,7 @@
    "sources": "digikit-sharcmap",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 329
+   "id": 331
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9324,7 +9448,7 @@
    "sources": "elekloader-machines-dn2",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 330
+   "id": 332
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9335,7 +9459,7 @@
    "sources": "elekloader-machines-dn2",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 331
+   "id": 333
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9346,7 +9470,7 @@
    "sources": "elekloader-machines-dn2",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 332
+   "id": 334
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9357,7 +9481,7 @@
    "sources": "elekloader-machines-dn2",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 333
+   "id": 335
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9368,7 +9492,7 @@
    "sources": "elekloader-machines-dn2",
    "devices": "digitone-2",
    "addresses": "0x4006efcc,0x4006f004,0x400c257c,0x400dc978,0x400dca5a,0x401f83a4,0x40288306",
-   "id": 334
+   "id": 336
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9379,7 +9503,7 @@
    "sources": "elekloader-machines-dn2",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 335
+   "id": 337
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9390,7 +9514,7 @@
    "sources": "",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 336
+   "id": 338
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9401,7 +9525,7 @@
    "sources": "elekloader-sharc-dn2",
    "devices": "digitone-2",
    "addresses": "0xbc8000",
-   "id": 337
+   "id": 339
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9412,7 +9536,7 @@
    "sources": "elekloader-sharc-dn2",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 338
+   "id": 340
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9423,7 +9547,7 @@
    "sources": "elekloader-sharc-dn2",
    "devices": "digitone-2",
    "addresses": "0x20090000,0x20098000,0x200fa000,0x20100000,0x282dd600,0x282dda00,0x282dde00,0x2838489a,0x283848a0",
-   "id": 339
+   "id": 341
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9434,7 +9558,7 @@
    "sources": "elekloader-sharc-dn2",
    "devices": "digitone-2",
    "addresses": "0x1c244d,0x2008823c,0x268438,0x28000000,0x28268438,0x2838489a",
-   "id": 340
+   "id": 342
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9445,7 +9569,7 @@
    "sources": "elekloader-sharc-dn2",
    "devices": "digitone-2",
    "addresses": "0x100000,0x200000,0x380000,0x80000,0xfffff",
-   "id": 341
+   "id": 343
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9456,7 +9580,7 @@
    "sources": "elekloader-sharc-dn2",
    "devices": "digitone-2",
    "addresses": "0x400cf4b0",
-   "id": 342
+   "id": 344
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9467,7 +9591,7 @@
    "sources": "elekloader-sharc-dn2",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 343
+   "id": 345
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9478,7 +9602,7 @@
    "sources": "dn2mk2-sampler",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 344
+   "id": 346
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9489,7 +9613,7 @@
    "sources": "dn2mk2-sampler",
    "devices": "digitone-2",
    "addresses": "0x600000,0x700000",
-   "id": 345
+   "id": 347
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9500,7 +9624,7 @@
    "sources": "dn2mk2-sampler",
    "devices": "digitone-2",
    "addresses": "0x84000000",
-   "id": 346
+   "id": 348
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9511,7 +9635,7 @@
    "sources": "dn2mk2-sampler",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 347
+   "id": 349
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9522,7 +9646,7 @@
    "sources": "dn2mk2-sampler",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 348
+   "id": 350
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9533,7 +9657,7 @@
    "sources": "dn2mk2-emulator",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 349
+   "id": 351
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9544,7 +9668,7 @@
    "sources": "dn2mk2-emulator",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 350
+   "id": 352
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9555,7 +9679,7 @@
    "sources": "dn2mk2-emulator",
    "devices": "digitone-2",
    "addresses": "0x02010000,0x4002e688",
-   "id": 351
+   "id": 353
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9566,7 +9690,7 @@
    "sources": "dn2mk2-reports",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 352
+   "id": 354
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9577,7 +9701,7 @@
    "sources": "dn2mk2-reports",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 353
+   "id": 355
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9588,7 +9712,7 @@
    "sources": "dn2mk2-reports",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 354
+   "id": 356
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9599,7 +9723,7 @@
    "sources": "dn2mk2-reports",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 355
+   "id": 357
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9610,7 +9734,7 @@
    "sources": "dn2mk2-reports",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 356
+   "id": 358
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9621,7 +9745,7 @@
    "sources": "dn2mk2-reports",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 357
+   "id": 359
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9632,7 +9756,7 @@
    "sources": "dn2mk2-reports",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 358
+   "id": 360
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9643,7 +9767,7 @@
    "sources": "dn2mk2-dsptime",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 359
+   "id": 361
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9654,7 +9778,7 @@
    "sources": "dn2mk2-dsptime",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 360
+   "id": 362
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9665,7 +9789,7 @@
    "sources": "dn2mk2-dspcost",
    "devices": "digitone-2",
    "addresses": "0x200A0000,0x200A8000",
-   "id": 361
+   "id": 363
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9676,7 +9800,7 @@
    "sources": "dn2mk2-changes,dn2mk2-firmware-md",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 362
+   "id": 364
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9687,7 +9811,7 @@
    "sources": "dn2-dspstop",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 363
+   "id": 365
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9698,7 +9822,7 @@
    "sources": "dn2-dspstop",
    "devices": "digitone-2",
    "addresses": "0x26ef88,0x26ef94",
-   "id": 364
+   "id": 366
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9709,7 +9833,7 @@
    "sources": "dn2-dspstop",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 365
+   "id": 367
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9720,7 +9844,7 @@
    "sources": "dn2-dspstop,dn2-stall",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 366
+   "id": 368
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9731,7 +9855,7 @@
    "sources": "dn2-dspstop",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 367
+   "id": 369
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9742,7 +9866,7 @@
    "sources": "dn2-ddr,dn2-dspstop",
    "devices": "digitone-2",
    "addresses": "0x80531000,0xa0000000",
-   "id": 368
+   "id": 370
   },
   {
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
@@ -9753,7 +9877,7 @@
    "sources": "dn2-dspstop,dn2-sharcload",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 369
+   "id": 371
   },
   {
    "file": "hardware/devices/digitone-2-os111-firmware-map.md",
@@ -9764,7 +9888,7 @@
    "sources": "dn2-skill-coldfire,dn2-skill-scripts,dn2-skill-sharc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 370
+   "id": 372
   },
   {
    "file": "hardware/devices/digitone-2-os111-firmware-map.md",
@@ -9775,7 +9899,7 @@
    "sources": "dn2-skill-scripts",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 371
+   "id": 373
   },
   {
    "file": "hardware/devices/digitone-2-os111-firmware-map.md",
@@ -9786,7 +9910,7 @@
    "sources": "dn2-skill-scripts",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 372
+   "id": 374
   },
   {
    "file": "hardware/devices/digitone-2-os111-firmware-map.md",
@@ -9797,7 +9921,7 @@
    "sources": "dn2-skill-scripts,dn2-skill-setup",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 373
+   "id": 375
   },
   {
    "file": "hardware/devices/digitone-2-os111-firmware-map.md",
@@ -9808,7 +9932,7 @@
    "sources": "dn2-skill-coldfire,dn2-skill-scripts,dn2-skill-sharc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 374
+   "id": 376
   },
   {
    "file": "hardware/devices/digitone-2-os111-firmware-map.md",
@@ -9819,7 +9943,7 @@
    "sources": "dn2-skill-coldfire,dn2-skill-scripts,dn2-skill-sharc",
    "devices": "digitone-2",
    "addresses": "0x46800000",
-   "id": 375
+   "id": 377
   },
   {
    "file": "hardware/devices/digitone-2-os111-firmware-map.md",
@@ -9830,7 +9954,7 @@
    "sources": "dn2-skill-scripts",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 376
+   "id": 378
   },
   {
    "file": "hardware/devices/digitone-2-os111-firmware-map.md",
@@ -9841,7 +9965,7 @@
    "sources": "dn2-skill-coldfire,dn2-skill-scripts,dn2-skill-sharc",
    "devices": "digitone-2",
    "addresses": "0x40027ac0,0x402a0dec",
-   "id": 377
+   "id": 379
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -9852,7 +9976,7 @@
    "sources": "dn2-skill-firmware",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 378
+   "id": 380
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -9863,7 +9987,7 @@
    "sources": "dn2-skill-firmware",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 379
+   "id": 381
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -9874,7 +9998,7 @@
    "sources": "dn2-skill-firmware",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 380
+   "id": 382
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -9885,7 +10009,7 @@
    "sources": "dn2-skill-firmware,dn2-skill-sharc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 381
+   "id": 383
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -9896,7 +10020,7 @@
    "sources": "dn2-skill-firmware",
    "devices": "digitone-2",
    "addresses": "0x46700000,0x467c8000,0x467fffff,0x46800000,0x46900000,0x46f00000",
-   "id": 382
+   "id": 384
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -9907,7 +10031,7 @@
    "sources": "dn2-skill-firmware,dn2-skill-sharc",
    "devices": "digitone-2",
    "addresses": "0x2008823c,0x20088400,0x20090000,0x20098000,0x200B0000,0x200C0008,0x200C1F84,0x200FA000,0x200FDFFF,0xBC8000",
-   "id": 383
+   "id": 385
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -9918,7 +10042,7 @@
    "sources": "dn2-skill-firmware,dn2-skill-sharc",
    "devices": "digitone-2",
    "addresses": "0x800000,0x8052FBE0,0x80800000,0x80A00000",
-   "id": 384
+   "id": 386
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -9929,7 +10053,7 @@
    "sources": "dn2-skill-firmware",
    "devices": "digitone-2",
    "addresses": "0xFFFFFFFF",
-   "id": 385
+   "id": 387
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -9940,7 +10064,7 @@
    "sources": "dn2-skill-firmware",
    "devices": "digitone-2",
    "addresses": "0x80005e40",
-   "id": 386
+   "id": 388
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -9951,7 +10075,7 @@
    "sources": "dn2-skill-coldfire,dn2-skill-firmware",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 387
+   "id": 389
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -9962,7 +10086,7 @@
    "sources": "dn2-skill-coldfire,dn2-skill-firmware",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 388
+   "id": 390
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -9973,7 +10097,7 @@
    "sources": "dn2-skill-coldfire",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 389
+   "id": 391
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -9984,7 +10108,7 @@
    "sources": "dn2-skill-coldfire",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 390
+   "id": 392
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -9995,7 +10119,7 @@
    "sources": "dn2-skill-coldfire",
    "devices": "digitone-2",
    "addresses": "0x4028da6e,0x4028ea02,0x402e2000",
-   "id": 391
+   "id": 393
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -10006,7 +10130,7 @@
    "sources": "dn2-skill-coldfire",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 392
+   "id": 394
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -10017,7 +10141,7 @@
    "sources": "dn2-skill-coldfire",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 393
+   "id": 395
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -10028,7 +10152,7 @@
    "sources": "dn2-skill-coldfire",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 394
+   "id": 396
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -10039,7 +10163,7 @@
    "sources": "dn2-skill-emulators",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 395
+   "id": 397
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -10050,7 +10174,7 @@
    "sources": "dn2-skill-emulators",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 396
+   "id": 398
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -10061,7 +10185,7 @@
    "sources": "dn2-skill-emulators",
    "devices": "digitone-2",
    "addresses": "0x40027bbe",
-   "id": 397
+   "id": 399
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -10072,7 +10196,7 @@
    "sources": "dn2-skill-setup",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 398
+   "id": 400
   },
   {
    "file": "hardware/devices/digitone-2-os111-reference.md",
@@ -10083,7 +10207,7 @@
    "sources": "dn2-skill-setup",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 399
+   "id": 401
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10094,7 +10218,7 @@
    "sources": "dn2-manual",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 400
+   "id": 402
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10105,7 +10229,7 @@
    "sources": "dn2-manual",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 401
+   "id": 403
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10116,7 +10240,7 @@
    "sources": "dn2-manual",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 402
+   "id": 404
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10127,7 +10251,7 @@
    "sources": "dn2-manual",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 403
+   "id": 405
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10138,7 +10262,7 @@
    "sources": "dn2-cfw,dn2-firmware-explore",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 404
+   "id": 406
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10149,7 +10273,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "digitone-2",
    "addresses": "0x40000400",
-   "id": 405
+   "id": 407
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10160,7 +10284,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 406
+   "id": 408
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10171,7 +10295,7 @@
    "sources": "dn2-cfw",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 407
+   "id": 409
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10182,7 +10306,7 @@
    "sources": "dn2-hw",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 408
+   "id": 410
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10193,7 +10317,7 @@
    "sources": "dn2-cfw-t15,dn2-hw",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 409
+   "id": 411
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10204,7 +10328,7 @@
    "sources": "dn2-hw",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 410
+   "id": 412
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10215,7 +10339,7 @@
    "sources": "armio-t1e2",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 411
+   "id": 413
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10226,7 +10350,7 @@
    "sources": "dn2-cfw",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 412
+   "id": 414
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10237,7 +10361,7 @@
    "sources": "dn2-cfw",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 413
+   "id": 415
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10248,7 +10372,7 @@
    "sources": "overtone",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 414
+   "id": 416
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10259,7 +10383,7 @@
    "sources": "dn2-cfw-param-table",
    "devices": "digitone-2",
    "addresses": "0x401f83a4",
-   "id": 415
+   "id": 417
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10270,7 +10394,7 @@
    "sources": "dn2-cfw-param-table",
    "devices": "digitone-2",
    "addresses": "0x400c2c4e,0x400dc634",
-   "id": 416
+   "id": 418
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10281,7 +10405,7 @@
    "sources": "dn2-cfw-param-table",
    "devices": "digitone-2",
    "addresses": "0x40000568,0x400c257c,0x47D00000",
-   "id": 417
+   "id": 419
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10292,7 +10416,7 @@
    "sources": "dn2-cfw-t65",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 418
+   "id": 420
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10303,7 +10427,7 @@
    "sources": "dn2-cfw-t65",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 419
+   "id": 421
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10314,7 +10438,7 @@
    "sources": "dn2-cfw-param-table",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 420
+   "id": 422
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10325,7 +10449,7 @@
    "sources": "dn2-cfw-param-table",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 421
+   "id": 423
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10336,7 +10460,7 @@
    "sources": "dn2-cfw-param-table",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 422
+   "id": 424
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10347,7 +10471,7 @@
    "sources": "dn2-cfw-param-table",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 423
+   "id": 425
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10358,7 +10482,7 @@
    "sources": "dn2mk2-firmware-md",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 424
+   "id": 426
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10369,7 +10493,7 @@
    "sources": "dn2mk2-firmware-md",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 425
+   "id": 427
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10380,7 +10504,7 @@
    "sources": "overtone",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 426
+   "id": 428
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10391,7 +10515,7 @@
    "sources": "dn2mk2-firmware-md",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 427
+   "id": 429
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10402,7 +10526,7 @@
    "sources": "dn2mk2-firmware-md",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 428
+   "id": 430
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10413,7 +10537,7 @@
    "sources": "overtone",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 429
+   "id": 431
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10424,7 +10548,7 @@
    "sources": "dn2mk2-firmware-md",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 430
+   "id": 432
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10435,7 +10559,7 @@
    "sources": "dn2-cfw,dn2mk2,overtone",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 431
+   "id": 433
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10446,7 +10570,7 @@
    "sources": "overtone",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 432
+   "id": 434
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10457,7 +10581,7 @@
    "sources": "dn2mk2-firmware-md",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 433
+   "id": 435
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10468,7 +10592,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 434
+   "id": 436
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10479,7 +10603,7 @@
    "sources": "dn2-cfw",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 435
+   "id": 437
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10490,7 +10614,7 @@
    "sources": "overtone",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 436
+   "id": 438
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10501,7 +10625,7 @@
    "sources": "dn2mk2-firmware-md",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 437
+   "id": 439
   },
   {
    "file": "hardware/devices/digitone-2.md",
@@ -10512,7 +10636,7 @@
    "sources": "dn2mk2-firmware-md",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 438
+   "id": 440
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10523,7 +10647,7 @@
    "sources": "elekloader-readme",
    "devices": "digitone",
    "addresses": "",
-   "id": 439
+   "id": 441
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10534,7 +10658,7 @@
    "sources": "digicosm,tone-fx",
    "devices": "digitone",
    "addresses": "",
-   "id": 440
+   "id": 442
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10545,7 +10669,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "digitone",
    "addresses": "0x40000400",
-   "id": 441
+   "id": 443
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10556,7 +10680,7 @@
    "sources": "elektron-support",
    "devices": "digitone",
    "addresses": "",
-   "id": 442
+   "id": 444
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10567,7 +10691,7 @@
    "sources": "dn1-arpmod-e04",
    "devices": "digitone",
    "addresses": "",
-   "id": 443
+   "id": 445
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10578,7 +10702,7 @@
    "sources": "taktone-docs",
    "devices": "digitone",
    "addresses": "0x40000000,0x48000000",
-   "id": 444
+   "id": 446
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10589,7 +10713,7 @@
    "sources": "taktone-docs",
    "devices": "digitone",
    "addresses": "0x00000000,0x10000000,0x40000400,0x40000B92",
-   "id": 445
+   "id": 447
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10600,7 +10724,7 @@
    "sources": "taktone-docs",
    "devices": "digitone",
    "addresses": "0x400077A0,0x40009000",
-   "id": 446
+   "id": 448
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10611,7 +10735,7 @@
    "sources": "taktone-docs",
    "devices": "digitone",
    "addresses": "",
-   "id": 447
+   "id": 449
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10622,7 +10746,7 @@
    "sources": "taktone-docs",
    "devices": "digitone",
    "addresses": "",
-   "id": 448
+   "id": 450
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10633,7 +10757,7 @@
    "sources": "taktone-docs",
    "devices": "digitone",
    "addresses": "",
-   "id": 449
+   "id": 451
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10644,7 +10768,7 @@
    "sources": "taktone-docs",
    "devices": "digitone",
    "addresses": "0x40000B7A,0x40000B80,0x40077F8E,0x40077FBA",
-   "id": 450
+   "id": 452
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10655,7 +10779,7 @@
    "sources": "taktone-docs",
    "devices": "digitone",
    "addresses": "0x4319D6B0,0x4399D6B0,0x43BAF5F0,0x47BAF640,0x47C00000,0x48000000",
-   "id": 451
+   "id": 453
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10666,7 +10790,7 @@
    "sources": "dn1-arpmod-e04",
    "devices": "digitone",
    "addresses": "0x0008c000",
-   "id": 452
+   "id": 454
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10677,7 +10801,7 @@
    "sources": "dn1-arpmod-e04",
    "devices": "digitone",
    "addresses": "0x4000055a,0xa50ce100",
-   "id": 453
+   "id": 455
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10688,7 +10812,7 @@
    "sources": "dn1-arpmod-e04",
    "devices": "digitone",
    "addresses": "",
-   "id": 454
+   "id": 456
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10699,7 +10823,7 @@
    "sources": "dn1-arpmod-e04",
    "devices": "digitone",
    "addresses": "",
-   "id": 455
+   "id": 457
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10710,7 +10834,7 @@
    "sources": "dn2-cfw-prior",
    "devices": "digitone",
    "addresses": "",
-   "id": 456
+   "id": 458
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10721,7 +10845,7 @@
    "sources": "dn2-cfw-prior,dn2-hw",
    "devices": "digitone",
    "addresses": "",
-   "id": 457
+   "id": 459
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10732,7 +10856,7 @@
    "sources": "tonefx-dev",
    "devices": "digitone",
    "addresses": "",
-   "id": 458
+   "id": 460
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10743,7 +10867,7 @@
    "sources": "tonefx-dev",
    "devices": "digitone",
    "addresses": "",
-   "id": 459
+   "id": 461
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10754,7 +10878,7 @@
    "sources": "tonefx-dev",
    "devices": "digitone",
    "addresses": "",
-   "id": 460
+   "id": 462
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10765,7 +10889,7 @@
    "sources": "tonefx-dev",
    "devices": "digitone",
    "addresses": "",
-   "id": 461
+   "id": 463
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10776,7 +10900,7 @@
    "sources": "alt-digitone,digiprism-readme,digiswarm-readme,elekloader-devices",
    "devices": "digitone",
    "addresses": "",
-   "id": 462
+   "id": 464
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10787,7 +10911,7 @@
    "sources": "alt-digitone,digiprism-readme,digiswarm-readme,elekloader-devices",
    "devices": "digitone",
    "addresses": "",
-   "id": 463
+   "id": 465
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10798,7 +10922,7 @@
    "sources": "alt-digitone,digiprism-readme,digiswarm-readme,elekloader-devices,tonefx-readme",
    "devices": "digitone",
    "addresses": "",
-   "id": 464
+   "id": 466
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10809,7 +10933,7 @@
    "sources": "alt-digitone,digiprism-readme,digiswarm-readme,elekloader-devices",
    "devices": "digitone",
    "addresses": "0x4028E000,0x43229E60,0x43EC0000,0x44000000",
-   "id": 465
+   "id": 467
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10820,7 +10944,7 @@
    "sources": "digihealth",
    "devices": "digitone",
    "addresses": "",
-   "id": 466
+   "id": 468
   },
   {
    "file": "hardware/devices/digitone.md",
@@ -10831,7 +10955,7 @@
    "sources": "digicandy,digisplash",
    "devices": "digitone",
    "addresses": "",
-   "id": 467
+   "id": 469
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -10842,7 +10966,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 468
+   "id": 470
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -10853,7 +10977,7 @@
    "sources": "ems-fw",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 469
+   "id": 471
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -10864,7 +10988,7 @@
    "sources": "monomodule",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 470
+   "id": 472
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -10875,7 +10999,7 @@
    "sources": "gearmulator-md-mm",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 471
+   "id": 473
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -10886,7 +11010,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 472
+   "id": 474
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -10897,7 +11021,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 473
+   "id": 475
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -10908,7 +11032,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 474
+   "id": 476
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -10919,7 +11043,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 475
+   "id": 477
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -10930,7 +11054,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 476
+   "id": 478
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -10941,7 +11065,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 477
+   "id": 479
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -10952,7 +11076,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 478
+   "id": 480
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -10963,7 +11087,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 479
+   "id": 481
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -10974,7 +11098,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "0x1C0000",
-   "id": 480
+   "id": 482
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -10985,7 +11109,7 @@
    "sources": "mmodule-research",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 481
+   "id": 483
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -10996,7 +11120,7 @@
    "sources": "mmodule-research",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 482
+   "id": 484
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11007,7 +11131,7 @@
    "sources": "mmodule-research",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 483
+   "id": 485
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11018,7 +11142,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "0x10000000",
-   "id": 484
+   "id": 486
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11029,7 +11153,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 485
+   "id": 487
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11040,7 +11164,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 486
+   "id": 488
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11051,7 +11175,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 487
+   "id": 489
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11062,7 +11186,7 @@
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 488
+   "id": 490
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11073,7 +11197,7 @@
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "0x2bd000",
-   "id": 489
+   "id": 491
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11084,7 +11208,7 @@
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 490
+   "id": 492
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11095,7 +11219,7 @@
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 491
+   "id": 493
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11106,7 +11230,7 @@
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 492
+   "id": 494
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11117,7 +11241,7 @@
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 493
+   "id": 495
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11128,7 +11252,7 @@
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 494
+   "id": 496
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11139,7 +11263,7 @@
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 495
+   "id": 497
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11150,7 +11274,7 @@
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 496
+   "id": 498
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11161,7 +11285,7 @@
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 497
+   "id": 499
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11172,7 +11296,7 @@
    "sources": "kitbasher-safety",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 498
+   "id": 500
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11183,7 +11307,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 499
+   "id": 501
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11194,7 +11318,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 500
+   "id": 502
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11205,7 +11329,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 501
+   "id": 503
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11216,7 +11340,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 502
+   "id": 504
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11227,7 +11351,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 503
+   "id": 505
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11238,7 +11362,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 504
+   "id": 506
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11249,7 +11373,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "0x100000,0xFE000,0xFFFFF",
-   "id": 505
+   "id": 507
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11260,7 +11384,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 506
+   "id": 508
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11271,7 +11395,7 @@
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 507
+   "id": 509
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11282,7 +11406,7 @@
    "sources": "monomodule",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 508
+   "id": 510
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11293,7 +11417,7 @@
    "sources": "gearmulator-md-mm",
    "devices": "machinedrum,monomachine",
    "addresses": "0x1000000,0x10000000,0x10200000,0x200000,0x2fffff,0x500000,0x600000",
-   "id": 509
+   "id": 511
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11304,7 +11428,7 @@
    "sources": "ems-fw,gearmulator-md-mm,mdkit-docs,monomodule",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 510
+   "id": 512
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11315,7 +11439,7 @@
    "sources": "ems-fw",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 511
+   "id": 513
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11326,7 +11450,7 @@
    "sources": "ems-fw",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 512
+   "id": 514
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11337,7 +11461,7 @@
    "sources": "ems-fw,gearmulator-md-mm,mdkit-docs,monomodule",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 513
+   "id": 515
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11348,7 +11472,7 @@
    "sources": "ems-fw,gearmulator-md-mm,mdkit-docs,monomodule",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 514
+   "id": 516
   },
   {
    "file": "hardware/devices/machinedrum-monomachine.md",
@@ -11359,7 +11483,7 @@
    "sources": "ems-fw,gearmulator-md-mm,mdkit-docs,monomodule",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 515
+   "id": 517
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11370,7 +11494,7 @@
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 516
+   "id": 518
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11381,7 +11505,7 @@
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 517
+   "id": 519
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11392,7 +11516,7 @@
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 518
+   "id": 520
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11403,7 +11527,7 @@
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 519
+   "id": 521
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11414,7 +11538,7 @@
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 520
+   "id": 522
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11425,7 +11549,7 @@
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 521
+   "id": 523
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11436,7 +11560,7 @@
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 522
+   "id": 524
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11447,7 +11571,7 @@
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 523
+   "id": 525
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11458,7 +11582,7 @@
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 524
+   "id": 526
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11469,7 +11593,7 @@
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 525
+   "id": 527
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11480,7 +11604,7 @@
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "0x43000000,0x46700000",
-   "id": 526
+   "id": 528
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11491,7 +11615,7 @@
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 527
+   "id": 529
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11502,7 +11626,7 @@
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 528
+   "id": 530
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11513,7 +11637,7 @@
    "sources": "modded-cycles",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 529
+   "id": 531
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11524,7 +11648,7 @@
    "sources": "supermodel-notes",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 530
+   "id": 532
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11535,7 +11659,7 @@
    "sources": "supermodel-notes",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 531
+   "id": 533
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11546,7 +11670,7 @@
    "sources": "supermodel-notes",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 532
+   "id": 534
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11557,7 +11681,7 @@
    "sources": "supermodel-notes",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 533
+   "id": 535
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11568,7 +11692,7 @@
    "sources": "supermodel-notes",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 534
+   "id": 536
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11579,7 +11703,7 @@
    "sources": "supermodel-notes",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 535
+   "id": 537
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11590,7 +11714,7 @@
    "sources": "supermodel-notes",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 536
+   "id": 538
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11601,7 +11725,7 @@
    "sources": "supermodel-notes",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 537
+   "id": 539
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11612,7 +11736,7 @@
    "sources": "supermodel-notes",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 538
+   "id": 540
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11623,7 +11747,7 @@
    "sources": "supermodel-notes",
    "devices": "model-cycles,model-samples",
    "addresses": "",
-   "id": 539
+   "id": 541
   },
   {
    "file": "hardware/devices/model-cycles-samples.md",
@@ -11634,7 +11758,7 @@
    "sources": "supermodel-notes",
    "devices": "model-cycles,model-samples",
    "addresses": "0xFC07000C",
-   "id": 540
+   "id": 542
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11645,7 +11769,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "0x40000000",
-   "id": 541
+   "id": 543
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11656,7 +11780,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 542
+   "id": 544
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11667,7 +11791,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "0x90000000",
-   "id": 543
+   "id": 545
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11678,7 +11802,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 544
+   "id": 546
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11689,7 +11813,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 545
+   "id": 547
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11700,7 +11824,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 546
+   "id": 548
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11711,7 +11835,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 547
+   "id": 549
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11722,7 +11846,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 548
+   "id": 550
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11733,7 +11857,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 549
+   "id": 551
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11744,7 +11868,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 550
+   "id": 552
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11755,7 +11879,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 551
+   "id": 553
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11766,7 +11890,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 552
+   "id": 554
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11777,7 +11901,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 553
+   "id": 555
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11788,7 +11912,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 554
+   "id": 556
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11799,7 +11923,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 555
+   "id": 557
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11810,7 +11934,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 556
+   "id": 558
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11821,7 +11945,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 557
+   "id": 559
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11832,7 +11956,7 @@
    "sources": "modwerk-ot-traps",
    "devices": "octatrack",
    "addresses": "0x1f0000,0x40020628,0x400206f4,0x400a95c0",
-   "id": 558
+   "id": 560
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11843,7 +11967,7 @@
    "sources": "modwerk-ot-traps",
    "devices": "octatrack",
    "addresses": "0x400e201e,0x400e2108",
-   "id": 559
+   "id": 561
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11854,7 +11978,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 560
+   "id": 562
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11865,7 +11989,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "0x400c0000,0x400d8000,0x401087e4,0x4010fdf0",
-   "id": 561
+   "id": 563
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11876,7 +12000,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "0x30000,0x3ffff",
-   "id": 562
+   "id": 564
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11887,7 +12011,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 563
+   "id": 565
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11898,7 +12022,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 564
+   "id": 566
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11909,7 +12033,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 565
+   "id": 567
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11920,7 +12044,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 566
+   "id": 568
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11931,7 +12055,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 567
+   "id": 569
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11942,7 +12066,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 568
+   "id": 570
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11953,7 +12077,7 @@
    "sources": "octabam",
    "devices": "octatrack",
    "addresses": "",
-   "id": 569
+   "id": 571
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11964,7 +12088,7 @@
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 570
+   "id": 572
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11975,7 +12099,7 @@
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 571
+   "id": 573
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11986,7 +12110,7 @@
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 572
+   "id": 574
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -11997,7 +12121,7 @@
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 573
+   "id": 575
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12008,7 +12132,7 @@
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 574
+   "id": 576
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12019,7 +12143,7 @@
    "sources": "modwerk-ot-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 575
+   "id": 577
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12030,7 +12154,7 @@
    "sources": "modwerk-ot-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 576
+   "id": 578
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12041,7 +12165,7 @@
    "sources": "modwerk-ot-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 577
+   "id": 579
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12052,7 +12176,7 @@
    "sources": "modwerk-ot-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 578
+   "id": 580
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12063,7 +12187,7 @@
    "sources": "modwerk-ot-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 579
+   "id": 581
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12074,7 +12198,7 @@
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 580
+   "id": 582
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12085,7 +12209,7 @@
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 581
+   "id": 583
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12096,7 +12220,7 @@
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
    "addresses": "0x33da2,0x33da3,0x37eff,0x37f00,0x3ffff",
-   "id": 582
+   "id": 584
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12107,7 +12231,7 @@
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 583
+   "id": 585
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12118,7 +12242,7 @@
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 584
+   "id": 586
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12129,7 +12253,7 @@
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 585
+   "id": 587
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12140,7 +12264,7 @@
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
    "addresses": "",
-   "id": 586
+   "id": 588
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12151,7 +12275,7 @@
    "sources": "kyoti-fw",
    "devices": "octatrack",
    "addresses": "",
-   "id": 587
+   "id": 589
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12162,7 +12286,7 @@
    "sources": "kyoti-fw",
    "devices": "octatrack",
    "addresses": "0x401086f4,0x80000000,0x80004000",
-   "id": 588
+   "id": 590
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12173,7 +12297,7 @@
    "sources": "kyoti-fw",
    "devices": "octatrack",
    "addresses": "0x46c8d18c",
-   "id": 589
+   "id": 591
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12184,7 +12308,7 @@
    "sources": "kyoti-fw",
    "devices": "octatrack",
    "addresses": "",
-   "id": 590
+   "id": 592
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12195,7 +12319,7 @@
    "sources": "octamax",
    "devices": "octatrack",
    "addresses": "0x40013a08,0x400166b8,0x4001677c,0x40016864",
-   "id": 591
+   "id": 593
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12206,7 +12330,7 @@
    "sources": "octamax",
    "devices": "octatrack",
    "addresses": "0x80000000,0x800000e0",
-   "id": 592
+   "id": 594
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12217,7 +12341,7 @@
    "sources": "octamax",
    "devices": "octatrack",
    "addresses": "0x40a955e0",
-   "id": 593
+   "id": 595
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12228,7 +12352,7 @@
    "sources": "octamax",
    "devices": "octatrack",
    "addresses": "",
-   "id": 594
+   "id": 596
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12239,7 +12363,7 @@
    "sources": "octamax",
    "devices": "octatrack",
    "addresses": "",
-   "id": 595
+   "id": 597
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12250,7 +12374,7 @@
    "sources": "kyoti-caves",
    "devices": "octatrack",
    "addresses": "0x400d2e52,0x400d5f00",
-   "id": 596
+   "id": 598
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12261,7 +12385,7 @@
    "sources": "kyoti-caves",
    "devices": "octatrack",
    "addresses": "",
-   "id": 597
+   "id": 599
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12272,7 +12396,7 @@
    "sources": "kyoti-caves",
    "devices": "octatrack",
    "addresses": "0x80006a40,0x80006a60",
-   "id": 598
+   "id": 600
   },
   {
    "file": "hardware/devices/octatrack.md",
@@ -12283,7 +12407,7 @@
    "sources": "kyoti-caves",
    "devices": "octatrack",
    "addresses": "",
-   "id": 599
+   "id": 601
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12294,7 +12418,7 @@
    "sources": "modded-cycles-thread,syntakt-workbench,synthack-os",
    "devices": "syntakt",
    "addresses": "",
-   "id": 600
+   "id": 602
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12305,7 +12429,7 @@
    "sources": "synthack-os",
    "devices": "syntakt",
    "addresses": "",
-   "id": 601
+   "id": 603
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12316,7 +12440,7 @@
    "sources": "synthack-os",
    "devices": "syntakt",
    "addresses": "",
-   "id": 602
+   "id": 604
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12327,7 +12451,7 @@
    "sources": "synthack-os",
    "devices": "syntakt",
    "addresses": "",
-   "id": 603
+   "id": 605
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12338,7 +12462,7 @@
    "sources": "synthack-os",
    "devices": "syntakt",
    "addresses": "",
-   "id": 604
+   "id": 606
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12349,7 +12473,7 @@
    "sources": "modded-cycles-thread",
    "devices": "syntakt",
    "addresses": "",
-   "id": 605
+   "id": 607
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12360,7 +12484,7 @@
    "sources": "elektronauts-dn2-pcb",
    "devices": "syntakt",
    "addresses": "",
-   "id": 606
+   "id": 608
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12371,7 +12495,7 @@
    "sources": "synthack-os",
    "devices": "syntakt",
    "addresses": "",
-   "id": 607
+   "id": 609
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12382,7 +12506,7 @@
    "sources": "machine45,machine45-handoff",
    "devices": "syntakt",
    "addresses": "0x40000400",
-   "id": 608
+   "id": 610
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12393,7 +12517,7 @@
    "sources": "machine45,machine45-handoff",
    "devices": "syntakt",
    "addresses": "0x40025594,0x40025620",
-   "id": 609
+   "id": 611
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12404,7 +12528,7 @@
    "sources": "machine45,machine45-handoff",
    "devices": "syntakt",
    "addresses": "0x400148F0,0x40014920,0x40014950,0x80002000,0x800021B0,0x80003C40",
-   "id": 610
+   "id": 612
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12415,7 +12539,7 @@
    "sources": "machine45,machine45-handoff",
    "devices": "syntakt",
    "addresses": "",
-   "id": 611
+   "id": 613
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12426,7 +12550,7 @@
    "sources": "machine45,machine45-handoff",
    "devices": "syntakt",
    "addresses": "",
-   "id": 612
+   "id": 614
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12437,7 +12561,7 @@
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0x10000000,0x80000000",
-   "id": 613
+   "id": 615
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12448,7 +12572,7 @@
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0x40000400,0x40001070",
-   "id": 614
+   "id": 616
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12459,7 +12583,7 @@
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "",
-   "id": 615
+   "id": 617
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12470,7 +12594,7 @@
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0x1FFC00,0x40000400,0x40200000,0x40350000",
-   "id": 616
+   "id": 618
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12481,7 +12605,7 @@
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "",
-   "id": 617
+   "id": 619
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12492,7 +12616,7 @@
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0x4010358E,0x40348000,0x46000000",
-   "id": 618
+   "id": 620
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12503,7 +12627,7 @@
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0x47000000",
-   "id": 619
+   "id": 621
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12514,7 +12638,7 @@
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0x400004E8,0x4000A0E6,0x40082500,0x40087E6A,0x402D6DC0,0x402D6DC4,0x444E1334",
-   "id": 620
+   "id": 622
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12525,7 +12649,7 @@
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0x40000934,0x40004324,0x400148F0,0x40014920,0x40014950,0x4001A300",
-   "id": 621
+   "id": 623
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12536,7 +12660,7 @@
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0x4008F1CA,0x40096890,0x40096E3C,0x400A3856,0x80003950,0x80003D50,0x80004760",
-   "id": 622
+   "id": 624
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12547,7 +12671,7 @@
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0xFC07000C",
-   "id": 623
+   "id": 625
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12558,7 +12682,7 @@
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0x402D7010",
-   "id": 624
+   "id": 626
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12569,7 +12693,7 @@
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "0x40000000,0x40001070,0x48000000",
-   "id": 625
+   "id": 627
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12580,7 +12704,7 @@
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "0x40000404,0x40009f88",
-   "id": 626
+   "id": 628
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12591,7 +12715,7 @@
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "0x40041060,0x40042000",
-   "id": 627
+   "id": 629
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12602,7 +12726,7 @@
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "0x4004f750,0x4404f754",
-   "id": 628
+   "id": 630
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12613,7 +12737,7 @@
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "0x4404f980,0x48000000",
-   "id": 629
+   "id": 631
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12624,7 +12748,7 @@
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "0x10000000,0x80008000",
-   "id": 630
+   "id": 632
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12635,7 +12759,7 @@
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "0x80000000,0x8000f670",
-   "id": 631
+   "id": 633
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12646,7 +12770,7 @@
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "",
-   "id": 632
+   "id": 634
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12657,7 +12781,7 @@
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "",
-   "id": 633
+   "id": 635
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12668,7 +12792,7 @@
    "sources": "syncrackd-mm,synfact",
    "devices": "syntakt",
    "addresses": "",
-   "id": 634
+   "id": 636
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12679,7 +12803,7 @@
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "",
-   "id": 635
+   "id": 637
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12690,7 +12814,7 @@
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "0x401885D2",
-   "id": 636
+   "id": 638
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12701,7 +12825,7 @@
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "",
-   "id": 637
+   "id": 639
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12712,7 +12836,7 @@
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "0x800030BC",
-   "id": 638
+   "id": 640
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12723,7 +12847,7 @@
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "0x4022D59C,0x41B9F3C8,0x41B9FA24",
-   "id": 639
+   "id": 641
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12734,7 +12858,7 @@
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "",
-   "id": 640
+   "id": 642
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12745,7 +12869,7 @@
    "sources": "synthack-guide,synthack-mods",
    "devices": "syntakt",
    "addresses": "0x4010350C,0x40348000,0x444E38C0,0x46000000",
-   "id": 641
+   "id": 643
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12756,7 +12880,7 @@
    "sources": "synthack-guide,synthack-mods",
    "devices": "syntakt",
    "addresses": "",
-   "id": 642
+   "id": 644
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12767,7 +12891,7 @@
    "sources": "synthack-guide,synthack-mods",
    "devices": "syntakt",
    "addresses": "",
-   "id": 643
+   "id": 645
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12778,7 +12902,7 @@
    "sources": "syntakt-workbench,synthack-guide",
    "devices": "syntakt",
    "addresses": "",
-   "id": 644
+   "id": 646
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12789,7 +12913,7 @@
    "sources": "digikit-f70",
    "devices": "syntakt",
    "addresses": "",
-   "id": 645
+   "id": 647
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12800,7 +12924,7 @@
    "sources": "digikit-f70",
    "devices": "syntakt",
    "addresses": "",
-   "id": 646
+   "id": 648
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12811,7 +12935,7 @@
    "sources": "digikit-f70",
    "devices": "syntakt",
    "addresses": "0x04000000,0x40000400,0x400004e8,0x40001070,0x48000000,0x80000400,0xFC05C000",
-   "id": 647
+   "id": 649
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12822,7 +12946,7 @@
    "sources": "digikit-f70",
    "devices": "syntakt",
    "addresses": "0x10000000,0x10000800",
-   "id": 648
+   "id": 650
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12833,7 +12957,7 @@
    "sources": "digikit-f70",
    "devices": "syntakt",
    "addresses": "",
-   "id": 649
+   "id": 651
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12844,7 +12968,7 @@
    "sources": "digikit-f70",
    "devices": "syntakt",
    "addresses": "",
-   "id": 650
+   "id": 652
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12855,7 +12979,7 @@
    "sources": "digikit-f70",
    "devices": "syntakt",
    "addresses": "",
-   "id": 651
+   "id": 653
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12866,7 +12990,7 @@
    "sources": "analog-emu-syntakt",
    "devices": "syntakt",
    "addresses": "",
-   "id": 652
+   "id": 654
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12877,7 +13001,7 @@
    "sources": "analog-emu-syntakt",
    "devices": "syntakt",
    "addresses": "",
-   "id": 653
+   "id": 655
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12888,7 +13012,7 @@
    "sources": "analog-emu-syntakt",
    "devices": "syntakt",
    "addresses": "",
-   "id": 654
+   "id": 656
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12899,7 +13023,7 @@
    "sources": "",
    "devices": "syntakt",
    "addresses": "",
-   "id": 655
+   "id": 657
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12910,7 +13034,7 @@
    "sources": "",
    "devices": "syntakt",
    "addresses": "",
-   "id": 656
+   "id": 658
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12921,7 +13045,7 @@
    "sources": "",
    "devices": "syntakt",
    "addresses": "",
-   "id": 657
+   "id": 659
   },
   {
    "file": "hardware/devices/syntakt.md",
@@ -12932,7 +13056,7 @@
    "sources": "",
    "devices": "syntakt",
    "addresses": "",
-   "id": 658
+   "id": 660
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -12943,7 +13067,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 659
+   "id": 661
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -12954,7 +13078,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 660
+   "id": 662
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -12965,7 +13089,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 661
+   "id": 663
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -12976,7 +13100,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 662
+   "id": 664
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -12987,7 +13111,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 663
+   "id": 665
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -12998,7 +13122,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 664
+   "id": 666
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13009,7 +13133,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 665
+   "id": 667
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13020,7 +13144,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 666
+   "id": 668
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13031,7 +13155,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 667
+   "id": 669
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13042,7 +13166,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 668
+   "id": 670
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13053,7 +13177,7 @@
    "sources": "elekloader-agents",
    "devices": "",
    "addresses": "",
-   "id": 669
+   "id": 671
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13064,7 +13188,7 @@
    "sources": "elekloader-agents",
    "devices": "",
    "addresses": "",
-   "id": 670
+   "id": 672
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13075,7 +13199,7 @@
    "sources": "elekloader-agents",
    "devices": "",
    "addresses": "",
-   "id": 671
+   "id": 673
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13086,7 +13210,7 @@
    "sources": "elekloader-agents",
    "devices": "",
    "addresses": "",
-   "id": 672
+   "id": 674
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13097,7 +13221,7 @@
    "sources": "elekloader-agents",
    "devices": "",
    "addresses": "",
-   "id": 673
+   "id": 675
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13108,7 +13232,7 @@
    "sources": "elekloader-format",
    "devices": "",
    "addresses": "",
-   "id": 674
+   "id": 676
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13119,7 +13243,7 @@
    "sources": "digikit-agents",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 675
+   "id": 677
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13130,7 +13254,7 @@
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
-   "id": 676
+   "id": 678
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13141,7 +13265,7 @@
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
-   "id": 677
+   "id": 679
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13152,7 +13276,7 @@
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
-   "id": 678
+   "id": 680
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13163,7 +13287,7 @@
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
-   "id": 679
+   "id": 681
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13174,7 +13298,7 @@
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
-   "id": 680
+   "id": 682
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13185,7 +13309,7 @@
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
-   "id": 681
+   "id": 683
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13196,7 +13320,7 @@
    "sources": "digikit-arch",
    "devices": "",
    "addresses": "",
-   "id": 682
+   "id": 684
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13207,7 +13331,7 @@
    "sources": "digikit-arch",
    "devices": "",
    "addresses": "",
-   "id": 683
+   "id": 685
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13218,7 +13342,7 @@
    "sources": "digikit-arch",
    "devices": "",
    "addresses": "",
-   "id": 684
+   "id": 686
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13229,7 +13353,7 @@
    "sources": "dn2-mods",
    "devices": "",
    "addresses": "",
-   "id": 685
+   "id": 687
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13240,7 +13364,7 @@
    "sources": "dn2-mods",
    "devices": "",
    "addresses": "",
-   "id": 686
+   "id": 688
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13251,7 +13375,7 @@
    "sources": "dn2-mods",
    "devices": "",
    "addresses": "",
-   "id": 687
+   "id": 689
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13262,7 +13386,7 @@
    "sources": "dn2-mods",
    "devices": "",
    "addresses": "0x400dc02a",
-   "id": 688
+   "id": 690
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -13273,7 +13397,7 @@
    "sources": "dn2-mods",
    "devices": "",
    "addresses": "",
-   "id": 689
+   "id": 691
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13284,7 +13408,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 690
+   "id": 692
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13295,7 +13419,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x4316e854",
-   "id": 691
+   "id": 693
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13306,7 +13430,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x200f5a74",
-   "id": 692
+   "id": 694
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13317,7 +13441,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x414141",
-   "id": 693
+   "id": 695
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13328,7 +13452,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 694
+   "id": 696
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13339,7 +13463,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 695
+   "id": 697
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13350,7 +13474,7 @@
    "sources": "digikit-f57",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 696
+   "id": 698
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13361,7 +13485,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 697
+   "id": 699
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13372,7 +13496,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 698
+   "id": 700
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13383,7 +13507,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 699
+   "id": 701
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13394,7 +13518,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 700
+   "id": 702
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13405,7 +13529,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x1c06ba",
-   "id": 701
+   "id": 703
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13416,7 +13540,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 702
+   "id": 704
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13427,7 +13551,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 703
+   "id": 705
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13438,7 +13562,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x80000018,0x8005912c,0x80459388",
-   "id": 704
+   "id": 706
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -13449,7 +13573,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 705
+   "id": 707
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13460,7 +13584,7 @@
    "sources": "dubspot",
    "devices": "",
    "addresses": "",
-   "id": 706
+   "id": 708
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13471,7 +13595,7 @@
    "sources": "dubspot",
    "devices": "",
    "addresses": "",
-   "id": 707
+   "id": 709
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13482,7 +13606,7 @@
    "sources": "dubspot",
    "devices": "",
    "addresses": "",
-   "id": 708
+   "id": 710
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13493,7 +13617,7 @@
    "sources": "dnx-page,dt-fm,dubspot,elk-herd",
    "devices": "",
    "addresses": "",
-   "id": 709
+   "id": 711
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13504,7 +13628,7 @@
    "sources": "dubspot,elekloader-adapting",
    "devices": "",
    "addresses": "",
-   "id": 710
+   "id": 712
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13515,7 +13639,7 @@
    "sources": "dubspot",
    "devices": "",
    "addresses": "",
-   "id": 711
+   "id": 713
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13526,7 +13650,7 @@
    "sources": "dubspot",
    "devices": "",
    "addresses": "",
-   "id": 712
+   "id": 714
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13537,7 +13661,7 @@
    "sources": "elektronauts-policy",
    "devices": "",
    "addresses": "",
-   "id": 713
+   "id": 715
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13548,7 +13672,7 @@
    "sources": "dubspot",
    "devices": "",
    "addresses": "",
-   "id": 714
+   "id": 716
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13559,7 +13683,7 @@
    "sources": "dubspot",
    "devices": "",
    "addresses": "",
-   "id": 715
+   "id": 717
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13570,7 +13694,7 @@
    "sources": "em-firmware-list",
    "devices": "analog-four-keys,analog-heat,analog-rytm,digitakt-2,digitone-2,machinedrum,model-cycles,monomachine,octatrack,syntakt",
    "addresses": "",
-   "id": 716
+   "id": 718
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13581,7 +13705,7 @@
    "sources": "em-firmware-list",
    "devices": "",
    "addresses": "",
-   "id": 717
+   "id": 719
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13592,7 +13716,7 @@
    "sources": "elektron-dt2-notes",
    "devices": "",
    "addresses": "",
-   "id": 718
+   "id": 720
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13603,7 +13727,7 @@
    "sources": "em-tutorial",
    "devices": "",
    "addresses": "",
-   "id": 719
+   "id": 721
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13614,7 +13738,7 @@
    "sources": "em-tutorial",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 720
+   "id": 722
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13625,7 +13749,7 @@
    "sources": "em-tutorial",
    "devices": "",
    "addresses": "",
-   "id": 721
+   "id": 723
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -13636,7 +13760,7 @@
    "sources": "dubspot",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 722
+   "id": 724
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -13647,7 +13771,7 @@
    "sources": "elektron-firmware-tool",
    "devices": "",
    "addresses": "",
-   "id": 723
+   "id": 725
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -13658,7 +13782,7 @@
    "sources": "elektron-firmware-tool",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 724
+   "id": 726
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -13669,7 +13793,7 @@
    "sources": "digikit-old",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 725
+   "id": 727
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -13680,7 +13804,7 @@
    "sources": "elektron-firmware-tool",
    "devices": "",
    "addresses": "",
-   "id": 726
+   "id": 728
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -13691,7 +13815,7 @@
    "sources": "elektron-faq",
    "devices": "analog-heat,digitone,model-cycles,model-samples",
    "addresses": "",
-   "id": 727
+   "id": 729
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -13702,7 +13826,7 @@
    "sources": "dn2-firmware-explore,elektron-firmware-tool",
    "devices": "",
    "addresses": "",
-   "id": 728
+   "id": 730
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -13713,7 +13837,7 @@
    "sources": "digikit-old",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 729
+   "id": 731
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -13724,7 +13848,7 @@
    "sources": "elektron-firmware-tool",
    "devices": "",
    "addresses": "",
-   "id": 730
+   "id": 732
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -13735,7 +13859,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "",
    "addresses": "",
-   "id": 731
+   "id": 733
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -13746,7 +13870,7 @@
    "sources": "digikit-old",
    "devices": "digitakt-2",
    "addresses": "0xDEBB20E3,0xEDB88320",
-   "id": 732
+   "id": 734
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -13757,7 +13881,7 @@
    "sources": "elektron-firmware-tool",
    "devices": "",
    "addresses": "",
-   "id": 733
+   "id": 735
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -13768,7 +13892,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 734
+   "id": 736
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -13779,7 +13903,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "digitone",
    "addresses": "",
-   "id": 735
+   "id": 737
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -13790,183 +13914,194 @@
    "sources": "digikit-old",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 736
+   "id": 738
   },
   {
    "file": "hardware/common/firmware-container.md",
    "line": 33,
    "section": "Firmware container (.syx) - facts shared by the devices / Sections",
-   "text": "Digitakt II: section 2 = bootstrap, section 4 = updater (never modify); the DSP program is an ADI boot stream in section 7; ElekLabs digikit's patchkit refuses to change sections 2, 4 and 8. The earlier README named sections 3 and 7 as patch targets. `[doc]` {digikit} {digikit-old}",
-   "evidence": "doc",
-   "sources": "digikit,digikit-old",
+   "text": "Digitakt II: section 2 = bootstrap, section 4 = updater (never modify); the DSP program is an ADI boot stream in section 7; ElekLabs digikit's patchkit refuses to change sections 2, 4 and 8.",
+   "evidence": "",
+   "sources": "",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 737
+   "id": 739
   },
   {
    "file": "hardware/common/firmware-container.md",
    "line": 34,
+   "section": "Firmware container (.syx) - facts shared by the devices / Sections",
+   "text": "Section 7 must stay under 1 MiB, stored and decoded (DT2 and DN2). At boot the ColdFire allocates two `0x100000`-byte buffers, copies the stored section into the first, writes a `0x03` byte at the start of the second and depacks the section after it. The decoded-size check (`len + 1 > 0x100000`, status 3) runs after depacking (DT2 1.16 `0x400cd20c`; the same 828-byte routine on DT2 1.17, DN2 1.11 and 1.12) {digikit-f06} {digikit-f01}. So an oversized stream is not refused cleanly: it overruns the buffer first. A dt2-machine-lab build with a 1,314,460-byte decoded stream hit a ColdFire exception on a unit and was withdrawn; the lab's repair encodes zero regions as fill blocks so the decoded stream fits {dt2-lab-capicola}. elekloader states the same limits for the DN2 ([`../devices/digitone-2-machines-sampler-sharc.md`](../devices/digitone-2-machines-sampler-sharc.md)). Count decoded bytes with a depacker, not the stored size (rule A46). `[hw]` The earlier README named sections 3 and 7 as patch targets. `[doc]` {digikit} {digikit-old}",
+   "evidence": "doc,hw",
+   "sources": "digikit,digikit-f01,digikit-f06,digikit-old,dt2-lab-capicola",
+   "devices": "digitakt-2,digitone-2",
+   "addresses": "0x100000,0x400cd20c",
+   "id": 740
+  },
+  {
+   "file": "hardware/common/firmware-container.md",
+   "line": 35,
    "section": "Firmware container (.syx) - facts shared by the devices / Sections",
    "text": "Digitone II: the `MAIN OS` section is 3,085,696 bytes of big-endian ColdFire code, built with GCC, still containing C++ RTTI names. `[doc]` {dn2-firmware-explore}",
    "evidence": "doc",
    "sources": "dn2-firmware-explore",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 738
+   "id": 741
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 36,
+   "line": 37,
    "section": "Firmware container (.syx) - facts shared by the devices / Sections",
    "text": "`MAIN OS` loads at `0x40000400` on both DN1 and DN2 (as stated by dn2_firmware_explore). `[doc]` {dn2-firmware-explore}",
    "evidence": "doc",
    "sources": "dn2-firmware-explore",
    "devices": "digitone,digitone-2",
    "addresses": "0x40000400",
-   "id": 739
+   "id": 742
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 37,
+   "line": 38,
    "section": "Firmware container (.syx) - facts shared by the devices / Sections",
    "text": "elekloader (Digitakt mk1): output must equal the stock file with only the main OS section changed; the header may differ only in its 4-character version field and the framing only in its message count. `[doc]` {elekloader-readme}",
    "evidence": "doc",
    "sources": "elekloader-readme",
    "devices": "digitakt",
    "addresses": "",
-   "id": 740
+   "id": 743
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 59,
+   "line": 60,
    "section": "Firmware container (.syx) - facts shared by the devices / Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re)",
    "text": "What is settled: Section 8 is a complete ARM Cortex-M firmware image: a Thumb vector table, and a descriptor naming a 1 MB flash window at `0x60000000` with the image at `0x60042000`. The same 159,948-byte image (sha256 `6943b2f2...`) ships in Digitakt mk1 1.53, Digitone II 1.11, Analog Rytm MKII 1.73 and Analog Four 1.55D. Syntakt and Digitakt II carry a section 8 of the same size. It is not an FPGA bitstream (the FPGA is section 1, or inside section 7 on the Digitone mk1), and it is not code for the device's own CPU. `[doc]` {dn2-ele3} {analog-emu-a4} {rytm-fw-re}",
    "evidence": "doc",
    "sources": "analog-emu-a4,dn2-ele3,rytm-fw-re",
    "devices": "analog-four-keys,analog-rytm,digitakt,digitakt-2,digitone,digitone-2,syntakt",
    "addresses": "0x60000000,0x60042000",
-   "id": 741
+   "id": 744
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 65,
+   "line": 66,
    "section": "Firmware container (.syx) - facts shared by the devices / Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re)",
    "text": "What it is for is open (CONFLICTS O16). dnfw links it to the Outbox 8 accessory, because it arrived in the DN2 release that added Outbox support. analog-emu calls it the panel MCU firmware. Against that: the DN2, Rytm and A4 operating systems carry their own panel firmware inside MAIN and re-flash the panel from there.",
    "evidence": "",
    "sources": "",
    "devices": "analog-four-keys,analog-rytm,digitone-2",
    "addresses": "",
-   "id": 742
+   "id": 745
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 68,
+   "line": 69,
    "section": "Firmware container (.syx) - facts shared by the devices / Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re)",
    "text": "Rule for mods: leave section 8 byte-identical. Removing it frees update size only, not address space, and could leave an attached accessory on old firmware.",
    "evidence": "",
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 743
+   "id": 746
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 74,
+   "line": 75,
    "section": "Firmware container (.syx) - facts shared by the devices / Tools",
    "text": "`elektron-firmware-tool` (mischa85, C, MIT): inspect, extract (`-d`), compress (`-c`), repack verbatim (`-r`). No firmware in the repo. {elektron-firmware-tool}",
    "evidence": "",
    "sources": "elektron-firmware-tool",
    "devices": "",
    "addresses": "",
-   "id": 744
+   "id": 747
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 75,
+   "line": 76,
    "section": "Firmware container (.syx) - facts shared by the devices / Tools",
    "text": "`dnfw` (dn2_firmware_explore): build/patch with verify-after-write; Gates A-E proven (codec, rebuild, re-sign, recovery, normal update path), Gate F (disassembler check) passes with Ghidra, fails with Capstone. {dn2-firmware-explore}",
    "evidence": "",
    "sources": "dn2-firmware-explore",
    "devices": "",
    "addresses": "",
-   "id": 745
+   "id": 748
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 87,
+   "line": 88,
    "section": "Firmware container (.syx) - facts shared by the devices / ELE3 container in detail (dnfw `docs/ele3-format.md`, read 2026-10-31)",
    "text": "Preamble of the decoded byte stream: u32 container size + u32 content checksum, then the container (magic at offset 8). Container size: DN2 1,743,120, DN1 1,102,352 (the sizes of the file pair dnfw analysed). The content checksum is not a standard algorithm: a running 32-bit sum over big-endian words, each word XORed with its one-based index; trailing bytes that do not fill a word are excluded. Compressed sections carry a header with the stream length and a u32 sum of the stream bytes (padding excluded). `[doc]` {dn2-ele3}",
    "evidence": "doc",
    "sources": "dn2-ele3",
    "devices": "digitone,digitone-2",
    "addresses": "",
-   "id": 746
+   "id": 749
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 88,
+   "line": 89,
    "section": "Firmware container (.syx) - facts shared by the devices / ELE3 container in detail (dnfw `docs/ele3-format.md`, read 2026-10-31)",
    "text": "SysEx transport: each message is `F0 ... F7`; the body is either a 126-byte data packet or a 14-byte marker; it starts with the manufacturer ID and a device ID: DN2 `0x15`, DT2 `0x14`, DN1 `0x0D`. Payloads use 8-in-7 encoding (116 encoded bytes carry 101 decoded bytes, last packet zero-padded); packet count = stream length / 101 + 1 (an exact division still adds a packet); a block and sequence counter starts from values in the start marker and wraps at 7 bits; the 7-bit packet checksum sits in the last body byte and uses a base value taken from the start marker, not a constant. `[doc]` {dn2-ele3}",
    "evidence": "doc",
    "sources": "dn2-ele3",
    "devices": "digitakt-2,digitone,digitone-2",
    "addresses": "",
-   "id": 747
+   "id": 750
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 89,
+   "line": 90,
    "section": "Firmware container (.syx) - facts shared by the devices / ELE3 container in detail (dnfw `docs/ele3-format.md`, read 2026-10-31)",
    "text": "Trailer: the last 32 bytes of the declared container are an HMAC-SHA256 on the first 16-byte boundary at least 4 bytes past the last section (gap zeroed); it covers everything before it, padding included; the key is derived from material inside the image (a printable string in a decompressed section, found in the bootstrap, plus a fixed constant) - never edit that key material, the device likely verifies with its installed copy. DN1 1.42A is unsigned (trailer all zeros). `[doc]` {dn2-ele3}",
    "evidence": "doc",
    "sources": "dn2-ele3",
    "devices": "digitone",
    "addresses": "",
-   "id": 748
+   "id": 751
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 90,
+   "line": 91,
    "section": "Firmware container (.syx) - facts shared by the devices / ELE3 container in detail (dnfw `docs/ele3-format.md`, read 2026-10-31)",
    "text": "Compression: each section is raw or aPLib-variant compressed (not flagged - inferred by whether the bytes depack): LZ77 with interlaced Elias-gamma codes, a biased offset, a last-offset reuse code and a length bonus for far matches, minimum match 2; Elektron's streams keep the furthest match within 1 MiB and the longest at 2,048 bytes. `[doc]` {dn2-ele3}",
    "evidence": "doc",
    "sources": "dn2-ele3",
    "devices": "",
    "addresses": "",
-   "id": 749
+   "id": 752
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 91,
+   "line": 92,
    "section": "Firmware container (.syx) - facts shared by the devices / ELE3 container in detail (dnfw `docs/ele3-format.md`, read 2026-10-31)",
    "text": "DN1 vs DN2: bootstrap load address DN2 `0x02000000` / DN1 `0x02000800`; blob (id 7) compressed on DN2, raw on DN1; boot (id 6) absent on DN2, present (raw) on DN1; section 5 (meta) is 15 bytes, stored raw, no destination address, identical size on both; section 8 appears in OS 1.11 compressed (it is the Outbox 8 accessory firmware). `[doc]` {dn2-ele3} {dn2-cfw-handoff}",
    "evidence": "doc",
    "sources": "dn2-cfw-handoff,dn2-ele3",
    "devices": "digitone,digitone-2",
    "addresses": "0x02000000,0x02000800",
-   "id": 750
+   "id": 753
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 92,
+   "line": 93,
    "section": "Firmware container (.syx) - facts shared by the devices / ELE3 container in detail (dnfw `docs/ele3-format.md`, read 2026-10-31)",
    "text": "After patching, recompute: re-encoded section data and its stream length/sum (+ padding to 4 bytes, table length includes the padding), section table offsets/lengths and 16-byte placement (and the count if sections change), the preamble (container size, content checksum), SysEx packet checksums/counters/packet count, and on DN2 the HMAC over everything before the trailer. The page does not say whether the product code, build string or version string must change, nor whether ids must be renumbered. `[doc]` {dn2-ele3}",
    "evidence": "doc",
    "sources": "dn2-ele3",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 751
+   "id": 754
   },
   {
    "file": "hardware/common/firmware-container.md",
-   "line": 93,
+   "line": 94,
    "section": "Firmware container (.syx) - facts shared by the devices / ELE3 container in detail (dnfw `docs/ele3-format.md`, read 2026-10-31)",
    "text": "Update/version gates: flash addresses and loader margins for Digitone II are in [`../devices/digitone-2-internals.md`](../devices/digitone-2-internals.md).",
    "evidence": "doc",
    "sources": "dn2-ele3",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 752
+   "id": 755
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -13977,7 +14112,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 753
+   "id": 756
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -13988,7 +14123,7 @@
    "sources": "dn2-flashing,dn2mk2-safety",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 754
+   "id": 757
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -13999,7 +14134,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 755
+   "id": 758
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -14010,7 +14145,7 @@
    "sources": "dn2-flashing,dn2mk2-safety",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 756
+   "id": 759
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -14021,7 +14156,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 757
+   "id": 760
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -14032,7 +14167,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 758
+   "id": 761
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -14043,7 +14178,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 759
+   "id": 762
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -14054,7 +14189,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 760
+   "id": 763
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -14065,7 +14200,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 761
+   "id": 764
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -14076,7 +14211,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 762
+   "id": 765
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -14087,7 +14222,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 763
+   "id": 766
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -14098,7 +14233,7 @@
    "sources": "digikit-f08",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0xEC070000,0xEC094000,0xFC044000,0xFC048000,0xFC04C000,0xFC050000,0xFC05C000,0xFC080000,0xFC08C000,0xFC090000",
-   "id": 764
+   "id": 767
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -14109,7 +14244,7 @@
    "sources": "digikit-f08",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x40000000,0x44000000,0x47FFFFFF,0x48000000,0x4FFFFFFF",
-   "id": 765
+   "id": 768
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -14120,7 +14255,7 @@
    "sources": "digikit-f08,digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x10000,0x80000",
-   "id": 766
+   "id": 769
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -14131,7 +14266,7 @@
    "sources": "digikit-f08",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 767
+   "id": 770
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -14142,7 +14277,7 @@
    "sources": "digikit-f59",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x2DF017F,0x2DF0180,0x2DF1000,0x2E1A000,0x457FFF,0x458000,0x5D7FFF,0x5D8000,0x800000",
-   "id": 768
+   "id": 771
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -14153,7 +14288,7 @@
    "sources": "digikit-samples",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x40000,0x48000,0x50000",
-   "id": 769
+   "id": 772
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -14164,7 +14299,7 @@
    "sources": "dn2-caves",
    "devices": "digitone-2",
    "addresses": "0x08000000,0x8c000000",
-   "id": 770
+   "id": 773
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -14175,7 +14310,7 @@
    "sources": "dn2-caves",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x40312000",
-   "id": 771
+   "id": 774
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -14186,7 +14321,7 @@
    "sources": "dn2-caves",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 772
+   "id": 775
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -14197,7 +14332,7 @@
    "sources": "dn2-caves",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 773
+   "id": 776
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -14208,7 +14343,7 @@
    "sources": "dn2-caves",
    "devices": "digitone-2",
    "addresses": "0x4464abf0,0x46700000,0x4670c000,0x467f0000,0x46800000,0x46900000,0x46a00000,0x47fe0000",
-   "id": 774
+   "id": 777
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -14219,7 +14354,7 @@
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitone-2",
    "addresses": "0x46710000,0x4671a000,0x46800000,0x47f00000,0x47fe0000,0x47ffffcc,0x48000000",
-   "id": 775
+   "id": 778
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -14230,7 +14365,7 @@
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitone-2",
    "addresses": "0x46700000,0x46701300,0x4670ffff,0x46900000",
-   "id": 776
+   "id": 779
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -14241,95 +14376,150 @@
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitone-2",
    "addresses": "0x46800000,0x46a00000,0x47e00000,0x47f00000",
-   "id": 777
+   "id": 780
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 59,
+   "line": 85,
+   "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02)",
+   "text": "The flash cave is the most contested 2 KB on the DT2. Five users share it, and they fit only because each checked the bytes the others left: Deja Vu leaves 50 bytes between its payload and its latches, and 70b185's project uses 28 of them. One report says the cave froze a unit at the logo ([CONFLICTS O18](../CONFLICTS.md)); Deja Vu's releases and 70b185's builds boot from it on units. `[hw]`",
+   "evidence": "hw",
+   "sources": "digikit-f100,dt2-lab-capicola,elekloader-dt2-profile,own-dt2-notes",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 781
+  },
+  {
+   "file": "hardware/common/memory-maps.md",
+   "line": 86,
+   "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02)",
+   "text": "elekloader's area lies inside digikit's `cf.expansion`. An image built with both loaders would place two code blocks in the same RAM unless one moves. The two boot hooks are adjacent and disjoint (`0x40000538` returns to `0x4000053e`), so they could chain, as on the DN2. `[doc]`",
+   "evidence": "doc",
+   "sources": "digikit-f100,dt2-lab-capicola,elekloader-dt2-profile,own-dt2-notes",
+   "devices": "digitakt-2,digitone-2",
+   "addresses": "0x40000538,0x4000053e",
+   "id": 782
+  },
+  {
+   "file": "hardware/common/memory-maps.md",
+   "line": 87,
+   "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02)",
+   "text": "The listed UI sites do not overlap. elekloader's six event sites, perform-levels' site and the All-in-One's zoom and WAVE sites are disjoint bytes; the All-in-One has more sites (Plaits, DX7, panels) that this table does not compare. Disjoint bytes do not prove that two mods work together ([`agent-workflow.md`](agent-workflow.md)). `[doc]`",
+   "evidence": "doc",
+   "sources": "digikit-f100,dt2-lab-capicola,elekloader-dt2-profile,own-dt2-notes",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 783
+  },
+  {
+   "file": "hardware/common/memory-maps.md",
+   "line": 88,
+   "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02)",
+   "text": "Three projects replace the STRETCH machine's DSP: dt2-capicola, dt2-machine-lab's port of it, and 70b185's private project. They are alternatives, not combinable. `[doc]`",
+   "evidence": "doc",
+   "sources": "digikit-f100,dt2-lab-capicola,elekloader-dt2-profile,own-dt2-notes",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 784
+  },
+  {
+   "file": "hardware/common/memory-maps.md",
+   "line": 89,
+   "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02)",
+   "text": "digikit's module L2 reaches above `0x200f5a74`, where one project measured clicks on a unit. Treat `0x200f5a74-0x200fa000` as unproven until task T15 settles it. `[hw]`",
+   "evidence": "hw",
+   "sources": "digikit-f100,dt2-lab-capicola,elekloader-dt2-profile,own-dt2-notes",
+   "devices": "digitakt-2",
+   "addresses": "0x200f5a74,0x200fa000",
+   "id": 785
+  },
+  {
+   "file": "hardware/common/memory-maps.md",
+   "line": 92,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
    "text": "Digitakt mk1: ELE3, device byte `0x0A` (elekloader's page says `0x14`, which is the Digitakt II's byte; settled by taktone, see the table in [firmware-container.md](firmware-container.md)), six-plus sections, main OS staged at `0x40200000`. DDR is free RAM. Hook sites: no numeric list on the page; the first eight sites of the Digitone mk1 are described as the Digitakt mk1's.",
    "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitakt,digitakt-2,digitone",
    "addresses": "0x40200000",
-   "id": 778
+   "id": 786
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 60,
+   "line": 93,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
    "text": "Digitone mk1: ELE3, seven sections, stock gap 403,540 bytes. The OS clears `0x4028E000-0x43229E60`; operands end before `0x43EB0000`; stack from `0x48000000`. First eight hook sites match the Digitakt mk1; the ninth is `ev_voice_on` at `0x4009e928`; render frame `0xB8`. Core `mods/core-dn1`, up to 4.0 (1.44 ported at its own addresses).",
    "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitakt,digitone",
    "addresses": "0x4009e928,0x4028E000,0x43229E60,0x43EB0000,0x48000000",
-   "id": 779
+   "id": 787
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 61,
+   "line": 94,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
    "text": "Digitakt II: device byte `0x14`, six sections, sealed (HMAC-SHA256). Clear `0x40312000-0x47E28470`; the core takes `0x47F00000-0x47F40000`; SRAM free at `0x80006E80-0x80008000` and `0x8000F100-0x80010000`. Hook events `ev_tick`, `ev_draw`, `ev_key`, `ev_enc`, `ev_settings`, `ev_personalize` (no numeric addresses). Core `mods/core-dt2`; DTIM0 not started.",
    "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitakt-2",
    "addresses": "0x40312000,0x47E28470,0x47F00000,0x47F40000,0x80006E80,0x80008000,0x8000F100,0x80010000",
-   "id": 780
+   "id": 788
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 62,
+   "line": 95,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
    "text": "Digitone II (OS 1.12): device byte `0x15`, six sections, sealed. Hook sites: boot `0x40000538`, `ev_tick` `0x4002e464`, `ev_draw` `0x4002e4ca`, `ev_key` `0x4002f20c`, `ev_enc` `0x4002f256`, `ev_settings` `0x4009ff88`, `ev_personalize` `0x400987a2`. Clear `0x402fd000-0x466b84d0` with a 32 MB heap inside it; SHARC mod area 32 KiB at `[0x20090000,0x20098000)`. USB cap `update_max = 0x200000` (2 MiB, preamble plus container, conservative): CO02 (1,915,960 bytes) was accepted, a 2,147,448-byte build stalled. The page is inconsistent on the core version (0.2 in the file list, 0.1 in the core section).",
    "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitone-2",
    "addresses": "0x200000,0x20090000,0x20098000,0x40000538,0x4002e464,0x4002e4ca,0x4002f20c,0x4002f256,0x400987a2,0x4009ff88,0x402fd000,0x466b84d0",
-   "id": 781
+   "id": 789
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 63,
+   "line": 96,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
    "text": "Octatrack: one image for MKI and MKII (`.syx` and `.bin`); `stage` is `None`, so the in-place unpack is unsimulated. Protected `0x400de1e0-0x400e21e0`. Six hook events (sys tick, composed frame, keys, encoders, MIDI in, frame interrupt); boot site `0x4000050c`; draw gate `0x400c45b0`; image free runs `0x400c45b0-0x400c4702`, `0x400d24e0-0x400d2ce0`, `0x400d64e0-0x400d7c3c`. DSP payload A `0x136cb` bytes, payload B `0x12d05` bytes; the SPATIALIZER range P:0xaa8-0xbac (261 words) is used for mods. Arena 14,602 pages of 6,144 B.",
    "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
    "devices": "octatrack",
    "addresses": "0x12d05,0x136cb,0x4000050c,0x400c45b0,0x400c4702,0x400d24e0,0x400d2ce0,0x400d64e0,0x400d7c3c,0x400de1e0,0x400e21e0",
-   "id": 782
+   "id": 790
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 64,
+   "line": 97,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
    "text": "Model:Cycles / Samples: ELE3 sealed, version field at `0x0C`; DDR `0x47E00000-0x47E40000`; SRAM tail `0x8000F700-0x80010000` (2,304 bytes); section 3 is read to `0x40200000` and unpacked to `0x40000400`; core-mc / core-ms.",
    "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
    "devices": "model-cycles",
    "addresses": "0x40000400,0x40200000,0x47E00000,0x47E40000,0x8000F700,0x80010000",
-   "id": 783
+   "id": 791
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 65,
+   "line": 98,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
    "text": "Analog Rytm MKII: device byte `0x0C`, no trailer, five sections; loader `0x80000590`, stock gap 401,995 bytes (1.74 repack 436,273); stores at `0x300000-0x380000` and `0x380000-0x400000`; 1.74 repack ends at `0x1F2BB0`; core-ar2 (1.73 up to 0.2, 1.74 from 0.3).",
    "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
    "devices": "analog-rytm",
    "addresses": "0x1F2BB0,0x300000,0x380000,0x400000,0x80000590",
-   "id": 784
+   "id": 792
   },
   {
    "file": "hardware/common/memory-maps.md",
-   "line": 66,
+   "line": 99,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Details per device",
    "text": "Analog Four MKII: device byte `0x0B`, version at `0x14`, no trailer; stock gap 540,192 bytes (repack 563,703); calibration record `RBOW` (0xE56 bytes) in the `0x300000` area; settings store `0x380000-0x400000`; repack ends at `0x18DF70`; OS clears `0x40253000-0x448B6D50`; 16 MB allocator arena `0x41872230-0x42872230`; core-a4 up to 0.4.",
    "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
    "devices": "analog-four-keys",
    "addresses": "0x18DF70,0x300000,0x380000,0x400000,0x40253000,0x41872230,0x42872230,0x448B6D50",
-   "id": 785
+   "id": 793
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14340,7 +14530,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 786
+   "id": 794
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14351,7 +14541,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x40000",
-   "id": 787
+   "id": 795
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14362,7 +14552,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 788
+   "id": 796
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14373,7 +14563,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x10000,0x80000,0xec090000",
-   "id": 789
+   "id": 797
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14384,7 +14574,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 790
+   "id": 798
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14395,7 +14585,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 791
+   "id": 799
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14406,7 +14596,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 792
+   "id": 800
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -14417,7 +14607,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 793
+   "id": 801
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14428,7 +14618,7 @@
    "sources": "digikit-f42",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "0xFC0B0000",
-   "id": 794
+   "id": 802
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14439,7 +14629,7 @@
    "sources": "digikit-f42",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 795
+   "id": 803
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14450,7 +14640,7 @@
    "sources": "digikit-f42",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 796
+   "id": 804
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14461,7 +14651,7 @@
    "sources": "digikit-f42",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 797
+   "id": 805
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14472,7 +14662,7 @@
    "sources": "dn2-cfw-ob01",
    "devices": "analog-heat,digitone-2",
    "addresses": "",
-   "id": 798
+   "id": 806
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14483,7 +14673,7 @@
    "sources": "dn2-cfw-ob01",
    "devices": "analog-heat,digitone-2",
    "addresses": "",
-   "id": 799
+   "id": 807
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14494,7 +14684,7 @@
    "sources": "dn2-cfw-ob01",
    "devices": "analog-heat,digitone-2",
    "addresses": "",
-   "id": 800
+   "id": 808
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14505,7 +14695,7 @@
    "sources": "overwitch-readme",
    "devices": "analog-four-keys,analog-heat,analog-rytm,digitakt-2,digitone,digitone-2,syntakt",
    "addresses": "",
-   "id": 801
+   "id": 809
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14516,7 +14706,7 @@
    "sources": "overwitch-readme",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 802
+   "id": 810
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14527,7 +14717,7 @@
    "sources": "overwitch-readme",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 803
+   "id": 811
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14538,7 +14728,7 @@
    "sources": "overwitch-readme",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 804
+   "id": 812
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14549,7 +14739,7 @@
    "sources": "dn2-cfw-roadmap",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 805
+   "id": 813
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14560,7 +14750,7 @@
    "sources": "elektron-dt2-notes,elektron-heat-fx-notes,gearnews-dn2-overbridge",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 806
+   "id": 814
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14571,7 +14761,7 @@
    "sources": "overwitch-readme",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 807
+   "id": 815
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14582,7 +14772,7 @@
    "sources": "dt1-sidecar-h01",
    "devices": "analog-heat,digitakt",
    "addresses": "",
-   "id": 808
+   "id": 816
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14593,7 +14783,7 @@
    "sources": "dt1-sidecar-h01",
    "devices": "analog-heat,digitakt",
    "addresses": "",
-   "id": 809
+   "id": 817
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -14604,7 +14794,7 @@
    "sources": "dt1-sidecar-h01",
    "devices": "analog-heat,digitakt",
    "addresses": "",
-   "id": 810
+   "id": 818
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14615,7 +14805,7 @@
    "sources": "overtone",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 811
+   "id": 819
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14626,7 +14816,7 @@
    "sources": "dt2-lab-coldfire-fix",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 812
+   "id": 820
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14637,7 +14827,7 @@
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 813
+   "id": 821
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14648,7 +14838,7 @@
    "sources": "digitakt-ii-research",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 814
+   "id": 822
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14659,7 +14849,7 @@
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 815
+   "id": 823
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14670,7 +14860,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "",
    "addresses": "",
-   "id": 816
+   "id": 824
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14681,7 +14871,7 @@
    "sources": "digitakt-ii-research",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 817
+   "id": 825
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14692,7 +14882,7 @@
    "sources": "elektron-dn2-notes,elektron-dt2-notes",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 818
+   "id": 826
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14703,7 +14893,7 @@
    "sources": "elektron-dn2-notes,elektron-dt2-notes,elektron-heat-fx-notes",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 819
+   "id": 827
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14714,7 +14904,7 @@
    "sources": "elektron-dn2-notes,elektron-dt2-notes",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 820
+   "id": 828
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14725,7 +14915,7 @@
    "sources": "elektron-dt2-notes",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 821
+   "id": 829
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14736,7 +14926,7 @@
    "sources": "elektron-heat-fx-notes",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 822
+   "id": 830
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14747,7 +14937,7 @@
    "sources": "dt2-recovery",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 823
+   "id": 831
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14758,7 +14948,7 @@
    "sources": "synthack-recovery",
    "devices": "syntakt",
    "addresses": "",
-   "id": 824
+   "id": 832
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14769,7 +14959,7 @@
    "sources": "elekloader-building",
    "devices": "analog-four-keys,analog-rytm,digitakt,digitone,octatrack",
    "addresses": "",
-   "id": 825
+   "id": 833
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14780,7 +14970,7 @@
    "sources": "dt2-install,overtone",
    "devices": "",
    "addresses": "",
-   "id": 826
+   "id": 834
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14791,7 +14981,7 @@
    "sources": "elektron-dt2-support",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 827
+   "id": 835
   },
   {
    "file": "hardware/common/recovery.md",
@@ -14802,7 +14992,7 @@
    "sources": "elektron-dn2-support",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 828
+   "id": 836
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14813,7 +15003,7 @@
    "sources": "digitakt-midi-mcp",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 829
+   "id": 837
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14824,7 +15014,7 @@
    "sources": "elektron-dt2-notes",
    "devices": "",
    "addresses": "",
-   "id": 830
+   "id": 838
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14835,7 +15025,7 @@
    "sources": "digitakt-midi-mcp,syxgrid",
    "devices": "",
    "addresses": "",
-   "id": 831
+   "id": 839
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14846,7 +15036,7 @@
    "sources": "digi-roll-studio,syxgrid",
    "devices": "",
    "addresses": "",
-   "id": 832
+   "id": 840
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14857,7 +15047,7 @@
    "sources": "syxgrid",
    "devices": "digitone,digitone-2",
    "addresses": "",
-   "id": 833
+   "id": 841
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14868,7 +15058,7 @@
    "sources": "digi-roll-studio",
    "devices": "analog-four-keys,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 834
+   "id": 842
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14879,7 +15069,7 @@
    "sources": "digi-roll-studio",
    "devices": "digitone,digitone-2",
    "addresses": "",
-   "id": 835
+   "id": 843
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14890,7 +15080,7 @@
    "sources": "libanalogrytm",
    "devices": "analog-heat,analog-rytm",
    "addresses": "",
-   "id": 836
+   "id": 844
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14901,7 +15091,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 837
+   "id": 845
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14912,7 +15102,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 838
+   "id": 846
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14923,7 +15113,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 839
+   "id": 847
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14934,7 +15124,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 840
+   "id": 848
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14945,7 +15135,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 841
+   "id": 849
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14956,7 +15146,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 842
+   "id": 850
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14967,7 +15157,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 843
+   "id": 851
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14978,7 +15168,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 844
+   "id": 852
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -14989,7 +15179,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 845
+   "id": 853
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15000,7 +15190,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 846
+   "id": 854
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15011,7 +15201,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 847
+   "id": 855
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15022,7 +15212,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 848
+   "id": 856
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15033,7 +15223,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 849
+   "id": 857
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15044,7 +15234,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 850
+   "id": 858
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15055,7 +15245,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 851
+   "id": 859
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15066,7 +15256,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 852
+   "id": 860
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15077,7 +15267,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 853
+   "id": 861
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15088,7 +15278,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 854
+   "id": 862
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15099,7 +15289,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 855
+   "id": 863
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15110,7 +15300,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 856
+   "id": 864
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15121,7 +15311,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 857
+   "id": 865
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15132,7 +15322,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 858
+   "id": 866
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15143,7 +15333,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 859
+   "id": 867
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15154,7 +15344,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 860
+   "id": 868
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15165,7 +15355,7 @@
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 861
+   "id": 869
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15176,7 +15366,7 @@
    "sources": "dn2-midirpc",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 862
+   "id": 870
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15187,7 +15377,7 @@
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 863
+   "id": 871
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15198,7 +15388,7 @@
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 864
+   "id": 872
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15209,7 +15399,7 @@
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 865
+   "id": 873
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15220,7 +15410,7 @@
    "sources": "digikit-f58",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 866
+   "id": 874
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15231,7 +15421,7 @@
    "sources": "digikit-f58",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 867
+   "id": 875
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15242,7 +15432,7 @@
    "sources": "digikit-f58",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 868
+   "id": 876
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15253,7 +15443,7 @@
    "sources": "digikit-f58",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x4011e318,0x4011e598,0x4011fc8c,0x4011ff0c",
-   "id": 869
+   "id": 877
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15264,7 +15454,7 @@
    "sources": "digikit-f25,dn2-service",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0xec070000,0xec074000",
-   "id": 870
+   "id": 878
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15275,7 +15465,7 @@
    "sources": "digi-roll-studio,digikit-f25,dn2-service",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x3C0000",
-   "id": 871
+   "id": 879
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15286,7 +15476,7 @@
    "sources": "syxgrid",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 872
+   "id": 880
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15297,7 +15487,7 @@
    "sources": "syxgrid",
    "devices": "",
    "addresses": "",
-   "id": 873
+   "id": 881
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15308,7 +15498,7 @@
    "sources": "digitakt-midi-mcp,elektronauts-dt2-sample-slot",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 874
+   "id": 882
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15319,7 +15509,7 @@
    "sources": "digitakt-midi-mcp",
    "devices": "",
    "addresses": "",
-   "id": 875
+   "id": 883
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15330,7 +15520,7 @@
    "sources": "elektronauts-dt2-sample-slot",
    "devices": "",
    "addresses": "",
-   "id": 876
+   "id": 884
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15341,7 +15531,7 @@
    "sources": "overwitch",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 877
+   "id": 885
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15352,7 +15542,7 @@
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 878
+   "id": 886
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15363,7 +15553,7 @@
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 879
+   "id": 887
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15374,7 +15564,7 @@
    "sources": "",
    "devices": "analog-four-keys,digitone",
    "addresses": "",
-   "id": 880
+   "id": 888
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15385,7 +15575,7 @@
    "sources": "elektroid-readme",
    "devices": "analog-four-keys,analog-heat,analog-rytm,model-cycles,monomachine,syntakt",
    "addresses": "",
-   "id": 881
+   "id": 889
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15396,7 +15586,7 @@
    "sources": "elektroid-readme",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 882
+   "id": 890
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15407,7 +15597,7 @@
    "sources": "elektroid-readme",
    "devices": "",
    "addresses": "",
-   "id": 883
+   "id": 891
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -15418,7 +15608,7 @@
    "sources": "elektron-dt2-notes,elektronauts-dt2-sample-slot,elektronauts-heat-midi",
    "devices": "digitakt-2,octatrack",
    "addresses": "",
-   "id": 884
+   "id": 892
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15429,7 +15619,7 @@
    "sources": "elekloader-adapting",
    "devices": "digitone",
    "addresses": "",
-   "id": 885
+   "id": 893
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15440,7 +15630,7 @@
    "sources": "dn2-firmware-explore,dn2-modding-skill",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 886
+   "id": 894
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15451,7 +15641,7 @@
    "sources": "dn2-cfw,dn2mk2",
    "devices": "",
    "addresses": "",
-   "id": 887
+   "id": 895
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15462,7 +15652,7 @@
    "sources": "elekloader-adapting,own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 888
+   "id": 896
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15473,7 +15663,7 @@
    "sources": "dn2-cfw",
    "devices": "",
    "addresses": "",
-   "id": 889
+   "id": 897
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15484,7 +15674,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 890
+   "id": 898
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15495,7 +15685,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 891
+   "id": 899
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15506,7 +15696,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 892
+   "id": 900
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15517,7 +15707,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 893
+   "id": 901
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15528,7 +15718,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 894
+   "id": 902
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15539,7 +15729,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 895
+   "id": 903
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15550,7 +15740,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 896
+   "id": 904
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15561,7 +15751,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 897
+   "id": 905
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15572,7 +15762,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 898
+   "id": 906
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15583,7 +15773,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 899
+   "id": 907
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15594,7 +15784,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 900
+   "id": 908
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15605,7 +15795,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 901
+   "id": 909
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15616,7 +15806,7 @@
    "sources": "digiemu",
    "devices": "digitone",
    "addresses": "",
-   "id": 902
+   "id": 910
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15627,7 +15817,7 @@
    "sources": "digikit",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 903
+   "id": 911
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15638,7 +15828,7 @@
    "sources": "digikit-old",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 904
+   "id": 912
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15649,7 +15839,7 @@
    "sources": "dn2-cfw",
    "devices": "",
    "addresses": "",
-   "id": 905
+   "id": 913
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15660,7 +15850,7 @@
    "sources": "dn2-modding-skill,overtone",
    "devices": "",
    "addresses": "",
-   "id": 906
+   "id": 914
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15671,7 +15861,7 @@
    "sources": "dn2mk2-firmware-md",
    "devices": "",
    "addresses": "",
-   "id": 907
+   "id": 915
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15682,7 +15872,7 @@
    "sources": "kyoti-fw",
    "devices": "",
    "addresses": "",
-   "id": 908
+   "id": 916
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15693,7 +15883,7 @@
    "sources": "overtone",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 909
+   "id": 917
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15704,7 +15894,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 910
+   "id": 918
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15715,7 +15905,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 911
+   "id": 919
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15726,7 +15916,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "0x26f000,0x2c0000,0xfc045654",
-   "id": 912
+   "id": 920
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15737,7 +15927,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 913
+   "id": 921
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15748,7 +15938,7 @@
    "sources": "elektron-emu",
    "devices": "analog-rytm,digitakt-2,digitone-2,model-cycles,syntakt",
    "addresses": "",
-   "id": 914
+   "id": 922
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15759,7 +15949,7 @@
    "sources": "digiemu-readme,dn2mk2-emulator",
    "devices": "",
    "addresses": "",
-   "id": 915
+   "id": 923
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15770,7 +15960,7 @@
    "sources": "emu-elektron-patches",
    "devices": "digitakt-2",
    "addresses": "0x400db9e0",
-   "id": 916
+   "id": 924
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15781,7 +15971,7 @@
    "sources": "alt-tools,em-list",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 917
+   "id": 925
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -15792,7 +15982,7 @@
    "sources": "digikit-f08,own-heatfx-notes",
    "devices": "",
    "addresses": "",
-   "id": 918
+   "id": 926
   }
  ]
 }

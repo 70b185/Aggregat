@@ -86,6 +86,8 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | elekloader-machines-dn2 | elekloader `docs/MACHINES-DN2.md` | https://github.com/elekloader/elekloader/blob/main/docs/MACHINES-DN2.md |
 | elekloader-sharc-dn2 | elekloader `docs/SHARC-DN2.md` | https://github.com/elekloader/elekloader/blob/main/docs/SHARC-DN2.md |
 | elekloader-dn2-profile | elekloader `elekloader/devices/digitone_mk2.py` (DN2 1.12 profile: clear, DMA buffers, mods' DDR area, canary run) | https://github.com/elekloader/elekloader/blob/main/elekloader/devices/digitone_mk2.py |
+| elekloader-dt2-profile | elekloader `elekloader/devices/digitakt_mk2.py` and `docs/DEVICES.md` (DT2 1.17 profile: clear, DSP buffers, mods' DDR area, write watches) | https://github.com/elekloader/elekloader/blob/main/elekloader/devices/digitakt_mk2.py |
+| elekloader-core-dt2 | elekloader `mods/core-dt2/README.md` and `mod.json` (DT2 1.17 hook sites) | https://github.com/elekloader/elekloader/tree/main/mods/core-dt2 |
 | dn2mk2-emulator | dn2mk2-firmware `docs/emulator.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/emulator.md |
 | dn2mk2-sampler | dn2mk2-firmware `docs/sampler.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/sampler.md |
 | dn2mk2-reports | dn2mk2-firmware `docs/user-reports.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/user-reports.md |
@@ -151,6 +153,10 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | digikit-f53 | ElekLabs/digikit finding 53, shape of stock machines, effects, parameters | https://github.com/ElekLabs/digikit/blob/main/docs/findings/53-stock-dsp-shape.md |
 | digikit-f57 | ElekLabs/digikit finding 57, capacity and isolation of run-time modules | https://github.com/ElekLabs/digikit/blob/main/docs/findings/57-capacity-isolation.md |
 | digikit-f73 | ElekLabs/digikit finding 73, dnfw and digikit in one image | https://github.com/ElekLabs/digikit/blob/main/docs/findings/73-dnfw-coexistence.md |
+| digikit-f01 | ElekLabs/digikit finding 01, container and patching (reset copy/clear, flash cave, `cf.expansion`, size caps) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/01-container-and-patching.md |
+| digikit-f06 | ElekLabs/digikit finding 06, SHARC engine and start-up (how the ColdFire stages and sends section 7) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/06-sharc-engine-and-startup.md |
+| digikit-f46 | ElekLabs/digikit finding 46, digikit debug (keep area for crash records at `0x47fe0000`) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/46-digikit-debug.md |
+| digikit-patching | ElekLabs/digikit `docs/PATCHING.md` (patchkit regions: `cf.expansion`, `dsp.l2`) | https://github.com/ElekLabs/digikit/blob/main/docs/PATCHING.md |
 | dn2-cfw-t14 | naturarum/dn2-cfw (Digiwerk) note T1.4, flash-writer audit (DN2 1.12) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T1.4-flash-writers.md |
 | dn2-cfw-t15 | Digiwerk note T1.5, is the STARTUP menu always reachable | https://github.com/naturarum/dn2-cfw/blob/main/notes/T1.5-recovery-path.md |
 | dn2-cfw-ob01 | Digiwerk note OB01, why Overbridge refused the builds | https://github.com/naturarum/dn2-cfw/blob/main/notes/OB01-overbridge.md |
@@ -228,5 +234,9 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2-waverider-perf | angellinares/dn2_firmware_explore `docs/waverider-performance.md` and `docs/waverider-loadmap.md` (DN2 1.11) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/waverider-performance.md |
 | kyoti-caves | Zac-Kyoti/octatrack-kyoti-fw `reference/kb/caves.md` (cave ledger, canary test, scratch RAM; OS 1.40C) | https://github.com/Zac-Kyoti/octatrack-kyoti-fw/blob/main/reference/kb/caves.md |
 | dt2-research-heap | karigardarsson/digitakt-ii-research `research/memory-ownership-placement-delta.md`, `startup-integration-delta.md`, `hook-abi-audit.md` (OS 1.16, emulator) | https://github.com/karigardarsson/digitakt-ii-research/tree/main/research |
+| dt2-aio-src | karigardarsson/digitakt-ii-research `all-in-one/` (README, NOTICE, `source/host-tools/tools/patchkit/pk_integrate_dv_zoom.py`; OS 1.17) | https://github.com/karigardarsson/digitakt-ii-research/tree/main/all-in-one |
+| dt2-lab-capicola | lalzart/dt2-machine-lab `machines/capicola-reddit/`, `docs/CAPICOLA-REDDIT-RESULTS.md` and `docs/CAPICOLA-REDDIT-BOOT-FIX.md` (OS 1.16) | https://github.com/lalzart/dt2-machine-lab/blob/main/docs/CAPICOLA-REDDIT-BOOT-FIX.md |
+| dt2-lab-cpu | lalzart/dt2-machine-lab `lab/cpu_extension.py`, `lab/plaits_controls.py`, `lab/capicola_controls.py` (OS 1.16 placements) | https://github.com/lalzart/dt2-machine-lab/tree/main/lab |
+| dt2-perform | toonst/digitakt2-perform README (two elekloader mods, OS 1.17) | https://github.com/toonst/digitakt2-perform |
 | mmodule-research | c0remusic/MModule `.scratch/user-machines/research/04-voice-dsp-memory.md` (Machinedrum OS 1.63 voice DSP room and time, emulator) | https://github.com/c0remusic/MModule |
 | analog-emu-syntakt | trigcondition/analog-emu `docs/SYNTAKT-PORT.md` (Syntakt OS 1.42, static and emulator) | https://github.com/trigcondition/analog-emu/blob/main/docs/SYNTAKT-PORT.md |

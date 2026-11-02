@@ -7,7 +7,7 @@ Data last verified: 2026-11-02. Repo fingerprints: see state/CHANGES.md
 | Device | Verified | Unverified candidates | Requests / resources |
 |---|---|---|---|
 | [Digitakt (MKI)](devices/digitakt.md) | 46 | 0 | 3 |
-| [Digitakt II](devices/digitakt-2.md) | 30 | 1 | 1 |
+| [Digitakt II](devices/digitakt-2.md) | 31 | 1 | 1 |
 | [Digitone (MKI) / Digitone Keys](devices/digitone.md) | 45 | 0 | 2 |
 | [Digitone II](devices/digitone-2.md) | 28 | 1 | 2 |
 | [Syntakt](devices/syntakt.md) | 16 | 0 | 1 |

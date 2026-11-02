@@ -136,6 +136,8 @@ On a Model:Cycles this turned "the last track always cuts out" into clean playba
 
 Wrap nested loops in `.NOCOMPRESS`, and check the rule on the disassembly (A41), since the emulator does not enforce it. `[hw]`
 
+**A46. Keep a decoded section 7 under `0xfffff` bytes, and count the decoded size, not the stored one (DT2/DN2).** The ColdFire depacks section 7 into a 1 MiB buffer and checks the size only afterwards, so a larger stream overruns the buffer before it is refused. One build with a 1,314,460-byte stream raised an exception on a unit. Run the stock depacker (or an exact copy) in the build and fail above the limit; zero regions can be fill blocks instead of stored bytes. Details: [firmware-container.md](common/firmware-container.md). `[hw]` {dt2-lab-capicola} {digikit-f06}
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.

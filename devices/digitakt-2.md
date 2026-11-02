@@ -6,6 +6,7 @@ Data last verified: 2026-11-02
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **dt2-capicola (Capicola time stretch for STRETCH/REPITCH/SLICE/GRID)** (hy3na-k1ng) | mod | unreachable | Digitakt II (version in the vendored README) | - | unknown | [repo](https://github.com/hy3na-k1ng/dt2-capicola) |
 | **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0. main since: core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-11-02 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **digitakt-digitone-mcp** (jamiew) | tool | active | - | - | 2026-11-01 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **DN2 DT2 firmware research (T1E2)** (armio) | firmware | released | T1E2 (stable designation 2026-10-15; source published 2026-10-31); Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally | - | 2026-10-31 | [repo](https://github.com/armio/dn2-dt2-firmware-research) |
@@ -65,9 +66,11 @@ _Sources: forum mod list (mods.php?id=7), forum thread 8_
 
 Windows standalone builder (portable, no Python/Git/WSL needed) that takes the user's own official OS file, identifies it by SHA-256, writes the patched .syx; the user installs it with Elektron Transfer. The builder never connects to the instrument and never flashes. Adds two random-loop LFO waveforms on all three LFOs: DV-F (WAVE 7, free-running) and DV-T (WAVE 8, read position resets on track trigger); MODE = 2/4/8/16/32 steps; SPH = randomness (0 new values each step, 64 locks values and order, 127 keeps values but reorders, in between blends); stock WAVE 0-6 stay on stock paths. v0.2.0-beta adds a ONESHOT waveform zoom (encoder C cycles 1x, 2x, 3.75x, turning C pans; only in the combined 1.17 edition). Hardware: all three outputs validated on a physical unit for normal boot and operation, described by the author as beta evidence, not exhaustive. Open: broad MIDI / sequencer / transport / sync regression, save-reload-power-cycle persistence, long-duration stability. Unsigned .exe (SmartScreen warns). Repo: docs/INSTALLATION.md and docs/RECOVERY.md, windows-builder/, src/dv/ (host model), coldfire/ (DV, routing, trampoline, startup-allocation source), research/ (byte-backed findings), tools/midisniff.py (passive SysEx capture, does not transmit). Evidence ladder used by the author: SOURCE/STATIC, HOST, SYNTHETIC UNICORN, NATURAL EMULATED, HARDWARE. MIT, 7 commits, 4 stars. Credits: Marbles (concept only), Bezronczek's Syntakt Firmware Workbench (behavioural reference), ElekLabs digikit (research tooling, not bundled), elektron-firmware-tool (vendored).
 
-_Latest seen (2026-10-31, secondary directories): altstrument lists it as "Digitakt II All-in-One" v0.3.0-beta (2026-10-23) for OS 1.17: patches in Plaits models, DX7 banks, the Deja Vu random-loop LFO, WAVE tables and the one-shot zoom; brick-risk flag set. LICENSE CONFLICT: the repo README/LICENSE we read says MIT, altstrument says AGPL-3.0-or-later - check the repo before reuse. Earlier releases 0.2.0-beta (2026-10-18), 0.1.1-beta (2026-10-17)._
+_Latest seen (2026-10-31, secondary directories): altstrument lists it as "Digitakt II All-in-One" v0.3.0-beta (2026-10-23) for OS 1.17: patches in Plaits models, DX7 banks, the Deja Vu random-loop LFO, WAVE tables and the one-shot zoom; brick-risk flag set. LICENSE CONFLICT: the repo README/LICENSE we read says MIT, altstrument says AGPL-3.0-or-later - check the repo before reuse. Earlier releases 0.2.0-beta (2026-10-18), 0.1.1-beta (2026-10-17). LICENCE SETTLED (2026-11-02, repo read): both are right for their part. The repo root is MIT; the `all-in-one/` subtree is AGPL-3.0-or-later because it is modified firmware derived from digikit (its README and NOTICE say so). The All-in-One is built with digikit's patchkit: loader in the flash cave at `0x403117c4`, code in digikit's `cf.expansion` region `0x47e8b000-0x47fe0000` (see hardware/devices/digitakt-2.md, "Three Digitakt II mod routes")._
 
-_Sources: forum threads 80 and 83, GitHub README, GitHub releases_
+_Related: builds on `digikit` (all-in-one/README.md: modified firmware derived from digikit; uses its patchkit) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: forum threads 80 and 83, GitHub README, GitHub releases, all-in-one/README.md and NOTICE read 2026-11-02_
 
 ### DN2 DT2 firmware research (T1E2)
 
@@ -118,6 +121,8 @@ _Sources: GitHub README, lapin-list_
 Local source, builds and offline tests for custom Digitakt II machines. README: experimental, does not establish final mixer/DAC behaviour, timing or hardware operation; "prepared-fixture replay, not yet a rebuild from only the original .syx". Default branch name initial-machine-lab, 7 commits, licence not stated.
 
 _Latest seen (2026-10-31, secondary directories): altstrument: emulator-only lab for custom machines on OS 1.16 with a SINE test machine and SHARC-code ports of several Plaits engines (VA, 2-op FM, bass drum, waveshaping, additive, granular formant); not confirmed on hardware._
+
+_Related: bundles `dt2-capicola` (machines/capicola-reddit/upstream keeps its 66 files byte-exact) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list_
 
@@ -202,6 +207,14 @@ _Sources: GitHub search 2026-11-02, README_
 The Digitakt II keyframer time stretcher and its TKEO transient detector compiled from the unit's C to WebAssembly, runnable in the browser. AGPL. Found by GitHub search 2026-11-02; README start read.
 
 _Sources: GitHub search 2026-11-02, README_
+
+### dt2-capicola (Capicola time stretch for STRETCH/REPITCH/SLICE/GRID)
+
+Custom OS that replaces the Digitakt II's native time-stretch and repitch DSP with an engine built on Heavylight Industries' Capicola (AGPL-3.0-or-later): covers STRETCH, REPITCH, SLICE and GRID; a CAPI parameter switches each track between the new engine and Elektron's; SLICE/GRID sync to tempo and BARS goes to 32. The GitHub repo did not answer on 2026-11-02 (deleted, renamed or private). Its 66 files are kept byte-exact in dt2-machine-lab under machines/capicola-reddit/upstream (pinned from a user-supplied zip, SHA-256 87bb2b07...), which builds its own overlay from it. A comment in its build script says digikit's flash cave 0x403117c4 froze the unit at the logo for that build; other projects use the cave on units (CONFLICTS O18).
+
+_Related: builds on `keyframer-lab` (same Capicola keyframe engine by Heavylight Industries) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: dt2-machine-lab machines/capicola-reddit (README and upstream/README.md), read 2026-11-02_
 
 ### macro-mode (digi_macro)
 

@@ -15,6 +15,20 @@ Coverage: **good** (almost entirely through the elekloader family). Projects: [.
 
   `[hw]` {dn1-arpmod-e04}
 
+## The board and the second ColdFire (taktone, DN1 1.43 with DT1 1.53/1.54 applications) {taktone-docs}
+- **The Digitone mk1 is a Digitakt mk1 plus six keys, a second ColdFire and an FPGA.**
+  - taktone runs Digitakt 1.53/1.54 main OS builds on Digitone hardware by replacing only section 3 and adapting the panel, LEDs, codec start-up, autosave GPIO and shutdown copy. Four 1.53-based builds were reported working on hardware. `[hw]`
+  - Both main CPUs set up **128 MiB DDR at `0x40000000-0x48000000`** (cached and uncached aliases are the same RAM). `[doc]`
+- **How the main CPU drives the second ColdFire** (board interface, from taktone-extended, which ran its own engine on it):
+  - **Reset:** PB6 held low. Releasing it starts a serial boot.
+  - **Upload:** the main CPU is DSPI2 **slave** (eDMA 29, vector 149) and the secondary supplies the clock. Section 6 (a 1,504-byte loader stream) loads section 7, which runs at secondary `0x40000400` from entry `0x40000B92`.
+  - **Shared SRAM:** FlexBus, main at `0x10000000`, secondary at `0x00000000`. Native use is below offset `0x7a0`: a 928-byte parameter packet at `0x000-0x39f`, then eight mono voices of 32 signed 32-bit samples at `0x3a0-0x79f`.
+  - **Handshake:** the secondary writes `HO`/`HA`; the main writes 1 to +2 **before** `B0` to +0. The stock secondary then writes `A5A5` at +4.
+  - **Render request:** a PA4 edge triggers the secondary's DTIM0 capture (vector 96). The secondary signals back through EPORT4 (vector 68). One block of pipeline: ~0.667 ms.
+  - Clear stale shared words at start, because they can survive a main reset. Never wait in the audio IRQ for late output, and bound the start-up polling. `[hw]`
+- **The FPGA bitstream is in section 7:** decompressed from `0x400077A0` to `0x40009000`, **54,664 bytes**, sent as 16-bit words over the secondary's DSPI1. This is the same size as the Analog Heat +FX's and Analog Four MKII's FPGA sections, a strong lead for research map T12. Stock FPGA polling can stall forever, so keep a main-side timeout. `[doc]`
+- **Two SysEx addressings:** the startup menu's OS UPGRADE receiver always expects Digitone-addressed SysEx (device `0x0d`). A running Digitakt-based application expects Digitakt addressing (`0x0a`). So recovery to stock Digitone always goes through the startup menu over DIN. `[hw]` (first install confirmed over USB)
+
 ## Caches at startup (digitone-arp-mod, OS 1.44, emulator trace and the NXP manual) {dn1-arpmod-e04}
 - The loader hands over to MAIN with CACR `0x0008c000`: the instruction cache is on, the data cache and store buffer are off.
 - Stock MAIN then writes CACR `0xa50ce100` at `0x4000055a`, after its copies. That write invalidates the instruction, branch and data caches and turns caching on. The same CACR value appears on the Rytm and A4 MKII.

@@ -212,3 +212,4 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | tonefx-dev | DigiAlchemydsp/RingTone (Tone+FX development source): DSP.md, AGENTS.md, CHANGELOG.md, docs/CPU-OPT-PLAN.md, docs/OPTIMIZATION-ROUND.md (Digitone mk1 OS 1.43/1.44) | https://github.com/DigiAlchemydsp/RingTone |
 | emu-elektron-patches | joshklomp/emu-elektron `*/source/patches/README.md` (Unicorn 2.1.4 m68k patches: CCR sync, EMAC MAC-with-load, fractional, saturation) | https://github.com/joshklomp/emu-elektron |
 | dt1-sidecar-h01 | soejrd/digitakt-sidecar `docs/H01-stock-usb-stream.md` (Digitakt mk1 OS 1.54 USB stream on a Pi 4B) | https://github.com/soejrd/digitakt-sidecar/blob/main/docs/H01-stock-usb-stream.md |
+| taktone-docs | water-feature/taktone README, recovery.md, changelog.md, taktone-core/docs/ARCHITECTURE.md, taktone-extended/docs/SECONDARY-CPU.md (Digitone mk1 hardware, DT1 1.53/1.54 crossport) | https://github.com/water-feature/taktone |

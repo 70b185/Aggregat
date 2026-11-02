@@ -64,7 +64,7 @@ When done, update the matching row here and the device file under hardware/devic
 | Mod platform | ✅ | elekloader core with a hook bus (tick, draw, key, encoder, settings, render in/out); core-owned sites listed. | - |
 | Memory budget for mods | ✅ | 128 KB `.run`+`.bss`, 2,304 B fast SRAM (core 2.x); 256 KB area on core 4.0. | - |
 | Load measurement | ✅ | DMA-timer method (digihealth); FAST AUDIO runs the render from SRAM. | - |
-| Machine-ID registry across mods | 🟡 | Ids used by several mods not collected, so clashes are possible. | T20 |
+| Machine-ID registry across mods | 🟡 | Eight ids collected (4, 5, 6, 7, 10, 27, 69, 77); several machine mods still unlisted. | T20 |
 | USB control-transfer rule (A39) | ⬜ | Found on the Octatrack; untested here. | T3 |
 | Board / teardown | ❓ | Only unverified forum reports. | Photos from anyone who opened one. |
 
@@ -73,8 +73,8 @@ When done, update the matching row here and the device file under hardware/devic
 | Area | Status | What is known | Next step / where |
 |---|---|---|---|
 | Container | ✅ | Unsigned (trailer is 32 zero bytes). | - |
-| Recovery | 🟢 | **Used on a unit:** FUNC at power-on, TRIG 4, stock `.syx` over DIN restored OS 1.44 after a build hung on the logo (digitone-arp-mod, 2026-10-08). | - |
-| CPU and audio | 🟡 | A **second ColdFire** (section 7) runs only the FM voices; the main ColdFire runs effects and mix. From code census and a third-party board list. | Confirm the board; measure the voice CPU's load. |
+| Recovery | 🟢 | **Used on a unit:** FUNC at power-on, TRIG 4, stock `.syx` over DIN restored OS 1.44 after a build hung on the logo (digitone-arp-mod, 2026-10-08). The startup receiver always expects Digitone-addressed SysEx, even under a Digitakt-based OS (taktone). | - |
+| CPU and audio | 🟢 | A **second ColdFire** (section 7) renders the FM voices into shared FlexBus SRAM; the main ColdFire (250 MHz) runs effects and mix. taktone booted that CPU with its own engine and documents the whole board interface; the board is a Digitakt mk1 plus six keys, the second CPU and an FPGA. | Measure the voice CPU's load. |
 | Mod platform | ✅ | elekloader core-dn1 with hook sites; effect and audio-input mods (DigiSwarm, DigiPrism) ran on units. | - |
 | Digitone Keys | ❓ | Same OS file, but several mods say "never run on a Keys". | Any Keys owner running a mod's test list. |
 | Voice-CPU load | ⬜ | Nobody has measured it. | T10-style probe on CPU #2. |
@@ -141,7 +141,7 @@ When done, update the matching row here and the device file under hardware/devic
 | +FX own code on a unit | 🟢 | A text change and a 42-byte hook in the audio software interrupt ran (70b185, test01/test02). Code must stay below `0x40206000` (A27). | - |
 | +FX persistence of hooks | ❓ | Whether the hook keeps running is open. | - |
 | +FX CPU reserve with all FX | ❓ | A forum post claims 79 %; not measured. | **T10** |
-| +FX FPGA role | ⬜ | Loaded by the OS; role unknown. Section size is 54,664 B, **the same size as the A4 MKII's FPGA section** - a lead, not a finding. | T12 |
+| +FX FPGA role | ⬜ | Loaded by the OS; role unknown. Section size is 54,664 B, **the same size as the A4 MKII's FPGA section and the Digitone mk1's bitstream** - a lead, not a finding. | T12 |
 | +FX preset format, latency, flash budget | ⬜ | Not looked at. | - |
 | Community | - | No public Heat firmware project; the repo owner's research is paused. | - |
 
@@ -164,7 +164,7 @@ Pick one, check the status above, and go. **S** = an evening, **M** = a few sess
 | T9 | Measure DN2 load with both meters (dnfw idle-task and elekloader dspbusy) in the same states, then calibrate a cost model (dn2mk2's instructions + 4 x L2 + 10 x DDR is a start) | Digitone II | unit | M | Settles O15 and O12; predict cost before flashing (G2). |
 | T10 | Port a DMA-timer load probe (digihealth / A4 0011-style) to the Heat +FX and measure all FX on | Analog Heat +FX | unit | M | First budget for the only fresh platform in phase 1 (G2). |
 | T11 | Unpack the MKI and MKII OS files: sections, container, CPU (peripheral census), any DSP section | Analog Heat MKI/MKII | files | S | Turns two ⬜ devices into mapped ones. Good first task. |
-| T12 | Compare FPGA sections across devices (sizes, SHA-256, header) and look for the OS code that talks to the FPGA | Heat +FX, A4 MKII, Syntakt, DT2/DN2, Rytm | files | M | First step on "what does the FPGA do" everywhere (G3). |
+| T12 | Compare FPGA bitstreams across devices (sizes, SHA-256, header) and the OS code that talks to them. **Lead:** three are exactly 54,664 bytes - Heat +FX section 1, A4 MKII section 1, and the Digitone mk1's (inside section 7, loaded by the second CPU) | Heat +FX, A4 MKII, DN mk1, Syntakt, DT2/DN2, Rytm | files | M | First step on "what does the FPGA do" everywhere (G3). |
 | T13 | Transcribe the official MIDI CC/NRPN tables from the manuals' appendices into `hardware/common/sysex-and-midi.md` | DT2, DN2, Heat +FX | PDF | S | Official numbers for every control tool (G6). |
 | T14 | Fix or document digikit's EMAC fractional-mode emulation against a unit measurement | DT2/DN2 (all ColdFire boxes) | unit + emulator | M | Fewer "works in the emulator" surprises (G4). |
 | T15 | Probe free SHARC L2 on DT2 1.17 between `0x200f5a74` and `0x200fa000` on a unit | Digitakt II | unit | M | Settles O7; more room for engines. |
@@ -172,7 +172,7 @@ Pick one, check the status above, and go. **S** = an evening, **M** = a few sess
 | T17 | ~~Find why Overbridge rejects modified DN2 builds~~ **done** (Digiwerk OB01: the version field). Remaining: how the plugin treats parameter ids `0x400`+ from a grown table | Digitone II | unit + Overbridge | S | Grown-table mods with Overbridge automation. |
 | T18 | Document the project file formats (`.dt2prj`, `.dn2prj`) beyond song slots | DT2, DN2 | files | M | Librarians and converters for musicians. |
 | T19 | Check which DN2 SHARC findings hold on the DT2 (and back), item by item, with the 85 % function twin list | DT2, DN2 | files (+ unit) | M | Doubles the value of every SHARC finding (G3). |
-| T20 | Collect the machine ids used by DT mk1 mods into one registry | Digitakt mk1 | reading | S | Prevents clashes between mods. |
+| T20 | Finish the DT mk1 machine-id registry (started in `hardware/devices/digitakt.md`): read the `mod.json` of digisophie, DT-FM, digidrum, digistring and the rest | Digitakt mk1 | reading | S | Prevents clashes between mods. |
 
 ### Where new findings are most likely
 

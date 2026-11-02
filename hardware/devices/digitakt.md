@@ -30,8 +30,16 @@ Coverage: **good**. Everything below targets OS 1.53 unless stated. Projects: [.
 | ID | Machine | Source |
 |---|---|---|
 | 4 | NEIGHBOR (digineighbor) | {elekloader-adapting} |
-| 5 | DIGISLICER | {elekloader-adapting} |
-| others | other machine mods (digisophie, DT-FM, digigrain, digidrum, digistring ...) use IDs we have not read | to mine |
+| 5 | DIGISLICER, and **reslicer on purpose** (kits saved with digislicer's machine load and play on reslicer) | {elekloader-adapting}, reslicer README |
+| 6 | GRANULAR (digigrain) | digigrain `mods/digigrain/CLAUDE.md` |
+| 7 | SOPHIE in taktone-extended (Digitakt application on Digitone hardware) | taktone `SECONDARY-CPU.md` |
+| 10 | vawt | vawt README |
+| 27 | DigiMono (as carried by Vampire Manga OS) | Vampire Manga OS `THREE_FX_AND_MACRO.md` |
+| 69 | OB-1 (elektrob-1), the same id on Digitone mk1 | elektrob-1 README, `docs/architecture.md` |
+| 77 | SAY IT (sayit) | sayit `machines/digitakt/mod.json` |
+| others | digisophie, DT-FM, digidrum, digistring and further machine mods: ids not found in their READMEs | to mine from their `mod.json` |
+
+**Clash watch:** two mods with the same id cannot be in one build, and a kit saved with one plays the other. Before you pick an id, check this table and the `mod.json` files of the mods your users combine. (Collected 2026-11-02; ids are claims from each project, not checked against builds.) `[doc]`
 
 ## Hardware (teardown reports, not verified)
 - One teardown (revision not named by the author) reads: CPU NXP MCF54415 (ColdFire), eMMC KLM461FETE (4 GB per one line, "4Gb" in another), Spansion 128 Mb flash ("FL128", partial name), Nanya NT5U128M8HE RAM (author says 1 GB, but that part number suggests 1 Gbit = 128 MB - likely a unit error), audio codec AK4621EF, a MIDI transceiver and 6N137 opto-isolator; analog and digital sides separated by optocouplers; a debug header (JTAG/UART guessed, not verified). Author speculates the 128 Mb flash holds boot code or all code, with the rest loaded from eMMC - unknown. `[?]` {dt1-teardown}

@@ -70,3 +70,9 @@ Ordered by expected value for an agent that builds mods. Tick off and fold the r
 - [ ] Digiwerk notes still unread: T2.2 arp, T2.8 dejavu, T3.1/T3.4-T3.11, T5.x/T6.x effect notes
 - [ ] Overtone v1.2 release notes
 
+## Phase-1 sweep of the remaining 51 projects (2026-11-02)
+All 48 reachable repos cloned; their docs scanned for unit results, measurements, crashes and recovery, then read where it paid off.
+- [x] Mined: digitone-arp-mod (DN1 recovery used on a unit, A42 second case, startup caches), taktone (DN1 board, second ColdFire, FPGA, SysEx addressing), RingTone/Tone+FX (DN1 load lessons), emu-elektron (Unicorn bugs), digitakt-sidecar (DT1 Overbridge stream), digigrain (DT1 render path and tables), machine ids for the DT1 registry (digigrain, reslicer, vawt, sayit, elektrob-1, Vampire Manga OS).
+- [x] Scanned, nothing new for hardware/: the elekloader DN1 effect mods (digihalo, digitriad, digitide, digihoard, digireel: "tested on a Digitone mk1 by its author"), digi-macro (emulator only), elektron-mods-rumorismo (setup), keyframer-lab (web tool), digitone-syx-toolkit, the small DT1/DN1 mods, splash screens.
+- [ ] Deeper reads that could still pay: digigrain's nine other skills (hook bus, recorder, audio input, testing), taktone-extended's DEVELOPMENT/MACHINE-DEVELOPMENT, elektrob-1 `docs/dsp.md` (headroom), digitone-arp-mod's ~100 other reviews (arp internals).
+

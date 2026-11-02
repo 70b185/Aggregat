@@ -101,7 +101,7 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A37. A busy share is not headroom (DT2/DN2 SHARC).** Stock's audio task waits inside its block, so "time outside the idle task" and stock's block-handler span both read ~80 % on an idle DN2 and *fall* to ~65 % with 64 notes held. To know whether added code fits, measure the deadline margin of the block itself (A25) under the heaviest stock load, not the busy percentage. `[hw]` {elekloader-sharc-dn2}
 
-**A38. If the OS carries a copy of the bootstrap, no patch may touch that copy or the check that triggers it (A4 MK1, Machinedrum, likely Rytm MK1).** The OS re-flashes the boot code from its embedded copy when a version or magic check says so (A4 MK1: a newer embedded version; Machinedrum: magic `0x224B` missing at flash `0x3FFE`), so a stray byte there can become the recovery path. Locate the embedded image per OS version, keep every cave and pool outside it, and verify copy and check byte-identical to stock on the finished `.syx`. `[doc]` {a4mods} {mdkit-docs}
+**A38. If the OS carries a copy of the bootstrap, no patch may touch that copy or the check that triggers it (A4 MK1, Rytm MK1, Machinedrum).** The OS re-flashes the boot code from its embedded copy when a version or magic check says so (A4 MK1: a newer embedded version; Machinedrum: magic `0x224B` missing at flash `0x3FFE`), so a stray byte there can become the recovery path. Locate the embedded image per OS version, keep every cave and pool outside it, and verify copy and check byte-identical to stock on the finished `.syx`. `[doc]` {a4mods} {rytm-mk1-mods} {mdkit-docs}
 
 ## B. Legal / distribution
 

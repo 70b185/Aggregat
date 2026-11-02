@@ -20,6 +20,7 @@ later, stronger source decided it; the losing value still circulates in older no
 | O11 | digitakt-ii-research licence | MIT (README) | AGPL (altstrument listing) | Check the repo's LICENSE file before you reuse code. `data/projects.yml` |
 | O12 | DN2 load model | Digiwerk: load = (1.30 x instructions + 11k) / 666,667, predicted ~74 % | the unit showed ~50-60 % | The model overestimates. [`devices/digitone-2-internals.md`](devices/digitone-2-internals.md) |
 | O13 | Free top of the SHARC L1 blocks (DN2) | static: L1 block 3 tail and block 1/2 tails are free (Digiwerk T3.2) | the startup enables the caches there, so `0x39c000-0x39ffff`, `0x2ec000-0x2effff` and `0x31c000-0x31ffff` are cache | The later reading wins; still unverified on silicon. [`devices/digitone-2-internals.md`](devices/digitone-2-internals.md) |
+| O14 | Analog Rytm MKII CPU | rytm-fw-re: MCF5445x (`-mcpu=54455`) | analog-emu: MCF5441x (same entry code, CACR/ACR and peripheral blocks as the A4 MKII) | Both V4 + EMAC, no FPU; a board photo or the chip's ID register would settle it |
 
 ## Settled (the old value is wrong; you may still meet it)
 | # | Old claim | Correct | Settled by |

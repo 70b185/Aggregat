@@ -194,3 +194,4 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | mdkit-docs | janne808/machinedrum-kit `docs/` (01 overview, 02 memory maps, 05 SysEx updates, 03 firmware image, 08 DSP2 voice ABI, 13 DSP programming, 16 emulation, 17 open questions), Machinedrum UW OS 1.63 | https://github.com/janne808/machinedrum-kit/tree/main/docs |
 | ems-fw | emuyia/ems-machinedrum-firmware and ems-monomachine-firmware READMEs and CHANGELOG | https://github.com/emuyia/ems-machinedrum-firmware |
 | monomodule | shnolk/monomodule README (Monomachine OS 1.32B) | https://github.com/shnolk/monomodule |
+| rytm-mk1-mods | hugz202/AE-analog-rytm-mods (docs/HAZARDS.md, docs/MANUAL.md 0011 CPU probe, re/fx-engine.md, re/hidden-machines.md, mods/0010-fx-sends/design.md), Rytm MK1 OS 1.73/1.74 | https://github.com/hugz202/AE-analog-rytm-mods/blob/main/docs/HAZARDS.md |

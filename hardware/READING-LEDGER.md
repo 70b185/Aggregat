@@ -64,3 +64,4 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | elekloader SHARC-DN2 "The DSP peek", ADAPTING (DSP peek, selache pitfalls), dspbusy-dn2 README (new 2026-11-02) | key sections | digitone-2-internals, toolchain, A37 |
 | hugz202 A4 mods (HAZARDS, FLASHING, digital-path findings, README); analog-emu A4-PORT (1-3, 11-14), MK1-PORT (summary, 5); analoghealth README | full / key sections | devices/analog-four-keys, A38 |
 | machinedrum-kit docs 01, 05, 08 (timing, slot floor), 13 (toolchain, arithmetic), 16 (emulator limits), 02 (DSP1/P:0x400); em's MD/MnM READMEs + CHANGELOG head; Monomodule README | key sections | devices/machinedrum-monomachine, A38 |
+| hugz202 Rytm MK1 mods: HAZARDS, MANUAL (0011 CPU probe), re/fx-engine, re/hidden-machines, 0010 design head | full / key sections | devices/analog-rytm (MK1), A38, O14 |

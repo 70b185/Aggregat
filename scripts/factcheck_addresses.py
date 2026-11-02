@@ -10,7 +10,7 @@ M=[('digikit','/tmp/src/digikit'),('dn2-cfw','/tmp/src/dn2-cfw'),('elekloader','
 ('dn2-ddr','/tmp/src/dn2_firmware_explore'),('dn2-sharcload','/tmp/src/dn2_firmware_explore'),('dn2-service','/tmp/src/dn2_firmware_explore'),('dn2-mods','/tmp/src/dn2_firmware_explore'),
 ('dn2-dt2port','/tmp/src/dn2_firmware_explore'),('dn2-cfdsp','/tmp/src/dn2_firmware_explore'),('dn2-midirpc','/tmp/src/dn2_firmware_explore'),
 ('synthack','/tmp/src/synthack-up'),('dt2-plaits','/tmp/src/dt2research'),('dt2-research','/tmp/src/dt2research'),
-('own-dt2-notes','/home/claude/private-dt2-notes'),('own-heatfx-notes','/home/claude/private-heatfx-notes'),('armio','/tmp/src/armio'),('syntakt-workbench','/tmp/src/workbench'),('a4mods','/tmp/src/hugz202_AE-analog-four-mods'),('analog-emu','/tmp/src/trigcondition_analog-emu'),('analoghealth','/tmp/src/Iced-Cream_analoghealth'),('mdkit-docs','/tmp/src/janne808_machinedrum-kit'),('ems-fw','/tmp/src/emuyia_ems-machinedrum-firmware'),('monomodule','/tmp/src/shnolk_monomodule')]
+('own-dt2-notes','/home/claude/private-dt2-notes'),('own-heatfx-notes','/home/claude/private-heatfx-notes'),('armio','/tmp/src/armio'),('syntakt-workbench','/tmp/src/workbench'),('a4mods','/tmp/src/hugz202_AE-analog-four-mods'),('analog-emu','/tmp/src/trigcondition_analog-emu'),('analoghealth','/tmp/src/Iced-Cream_analoghealth'),('mdkit-docs','/tmp/src/janne808_machinedrum-kit'),('ems-fw','/tmp/src/emuyia_ems-machinedrum-firmware'),('monomodule','/tmp/src/shnolk_monomodule'),('rytm-mk1-mods','/tmp/src/hugz202_AE-analog-rytm-mods')]
 def clone_for(k):
     for p,d in M:
         if k.startswith(p): return d

@@ -42,12 +42,13 @@ A compact, agent-oriented map of OS 1.53 exists in digigrain's `.claude/skills/d
 | 4 | NEIGHBOR (digineighbor) | {elekloader-adapting} |
 | 5 | DIGISLICER, and **reslicer on purpose** (kits saved with digislicer's machine load and play on reslicer) | {elekloader-adapting}, reslicer README |
 | 6 | GRANULAR (digigrain) | digigrain `mods/digigrain/CLAUDE.md` |
-| 7 | SOPHIE in taktone-extended (Digitakt application on Digitone hardware) | taktone `SECONDARY-CPU.md` |
+| 7 | SOPHIE (digisophie; taktone-extended reuses the same id) | digisophie `DSP.md`, taktone `SECONDARY-CPU.md` |
+| 9 | DT-FM | DT-FM `src/mod.json`, `DSP.md` |
 | 10 | vawt | vawt README |
 | 27 | DigiMono (as carried by Vampire Manga OS) | Vampire Manga OS `THREE_FX_AND_MACRO.md` |
 | 69 | OB-1 (elektrob-1), the same id on Digitone mk1 | elektrob-1 README, `docs/architecture.md` |
 | 77 | SAY IT (sayit) | sayit `machines/digitakt/mod.json` |
-| others | digisophie, DT-FM, digidrum, digistring and further machine mods: ids not found in their READMEs | to mine from their `mod.json` |
+| others | digidrum (repo unreachable) and machine mods published after 2026-11-02 | check their `mod.json` |
 
 **Clash watch:** two mods with the same id cannot be in one build, and a kit saved with one plays the other. Before you pick an id, check this table and the `mod.json` files of the mods your users combine. (Collected 2026-11-02; ids are claims from each project, not checked against builds.) `[doc]`
 

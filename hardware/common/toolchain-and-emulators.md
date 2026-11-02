@@ -59,5 +59,18 @@ Several repos carry the digikit tooling: Bezronczek/digikit (README title "Digit
 ## More emulators and directory snapshots (2026-10-31)
 - **Elektron Emu** (xerydian): five VST3 plug-ins (Mac, Windows) running each machine's real OS in an emulated CPU - Digitakt II, Syntakt, Analog Rytm MKII, Digitone II, Model:Cycles; the user supplies the `.syx` in a per-machine folder; +Drive emulated and persisted, WAV loading on DT2/Rytm/DN2; **Digitone II's DSP is compiled locally on first open (needs a C compiler; otherwise a slow interpreter that renders offline only)**; limits: Rytm analog voices are a custom model that does not sound like the machine, Syntakt analog tracks 9-12 missing; 2 commits, no licence stated. `[doc]` {elektron-emu}
 - **digiemu** patches Unicorn (six patches) - details in [`../devices/digitakt.md`](../devices/digitakt.md); dn2mk2 reports that stock Unicorn's destructive SR read corrupts condition flags, so a patched Unicorn is mandatory for any ColdFire work. `[doc]` {digiemu-readme} {dn2mk2-emulator}
+- **Stock Unicorn 2.1.4 (and QEMU master as of 2026-09-15) gets ColdFire wrong in ways that change results** (emu-elektron's patch notes) `[doc]` {emu-elektron-patches}:
+  - **Condition codes:** they are committed lazily, so a hook or a counted stop in mid-block sees stale flags, and the next branch goes the wrong way.
+  - **MAC/MSAC with load is decoded wrongly in four ways:**
+    - Ry with bit 0 or 1 set faults as "dual accumulate" on a CFV4E;
+    - Rx is always D2;
+    - MSAC adds instead of subtracting (this also hits MSAC without load);
+    - MASK is applied to every load address.
+
+    The DT2 main OS reaches one of these at `0x400db9e0`.
+  - EMAC fractional and signed arithmetic is wrong (as found by SyntHack and octabam).
+  - **EMAC saturation with MACSR.OMC** gets its sign and constants wrong.
+
+  Any ColdFire emulator built on Unicorn needs these fixes before its audio or branch results mean anything. emu-elektron carries all of them as patches for five devices.
 - Directory views of the tools: {alt-tools} lists digikit, elekloader, digiscreen (Android page mirroring the 128x64 screen over USB MIDI), Elektron Emu, digiemu, ghidra-dsp56300, digi-roll, Elektroid, Overwitch and elektron-firmware-tool (the page names no source for the last one). elektronmods' Mod List ({em-list}) has 59 entries; its Analog Heat filter shows only Overwitch and elektron-firmware-tool.
 - **Ghidra and EMAC `[?]`:** digikit found that stock Ghidra misdecodes the EMAC line-A words of the MCF5441x and uses a separate language (`68000:BE:32:ColdfireEMAC`). The owner's Heat research notes that Ghidra has known EMAC variants since GP-2197. Check the EMAC decode of your Ghidra version on a known MAC instruction before you trust it. {digikit-f08} {own-heatfx-notes}

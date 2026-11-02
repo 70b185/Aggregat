@@ -40,3 +40,11 @@ Adaptive resampling with a DLL on both host and Overbridge side (credit to Fons 
 - Overbridge works over a **class-compliant-looking USB link with Elektron-specific framing**; a firmware mod that changes audio routing, channel counts or the USB descriptor could break Overbridge. dn2-cfw's builds show "incompatible OS version" in Overbridge (open issue), so **Overbridge compatibility is checked against the OS version/build** - plan for it. `[doc]` {dn2-cfw-roadmap}
 - Official facts: Heat +FX needs OS 1.02 for Overbridge 2.13; Digitakt II OS 1.03 added Overbridge 2.13 support; Digitone II got multitrack streaming with OS 1.10 (plugin later). `[doc]` {elektron-heat-fx-notes} {elektron-dt2-notes} {gearnews-dn2-overbridge}
 - Unknown: the USB class/endpoints, the control channel carrying parameters, and whether the Heat's internal DSP/CPU architecture resembles any other Elektron box. Reading Overwitch's source and `dtdump` would answer the first two.
+
+## Confirmed on a Digitakt mk1 with a Raspberry Pi as host (digitakt-sidecar-pi, OS 1.54) {dt1-sidecar-h01}
+- Alt setting 3: interrupt endpoint `0x83` IN, 368 bytes, and `0x03` OUT, 88 bytes. Seven frames per packet, a 32-byte header and big-endian int32 words, with input data 24-bit in 32-bit words. The measured cadence is 47,999.5 frames/s.
+- A four-minute stream (1.6 M packets each way) ran with zero gaps, short packets or USB errors, on Linux and on a bare-metal (Circle) host.
+- Host-observed analog round trip: 5.3-6.0 ms (median 5.7 ms), including Linux scheduling and the analog loop.
+
+`[hw]`
+

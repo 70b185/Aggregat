@@ -27,6 +27,19 @@ Coverage: **good** (almost entirely through the elekloader family). Projects: [.
 - **The Digitone mk1's "DSP" is a second ColdFire.** Section 7 is ColdFire code running only the FM voices; the main ColdFire runs the effects and the mix. Master-effect mods (RingTone, Tone+FX) are therefore ColdFire C hooked through elekloader. `[doc]`
 - dnfw's instruction census fits this: DN1 1.43 has 613 MAC/MSAC instructions in a tight ~20 KB region against 50 in DN2 1.11. A third-party board list names two MCF54415 plus a Spartan XC3S50A. `[?]` {dn2-hw}
 
+## Load on the main ColdFire, from a master-effects suite (Tone+FX, OS 1.43/1.44) {tonefx-dev}
+- **Budget:** 250 MHz, so **166,667 cycles per 32-sample block**. In the emulator's cycle model, stock plus Tone+FX with all effects off peaks at ~101k cycles per block. With its three heaviest effects on it peaks at ~160k, which leaves 4 % at worst (the p99 is better). The mods' RAM pool is 1.25 MB. `[emu]`
+- **The emulator and the unit disagreed:**
+  - The unit's CPU meter went from ~70 % to ~87 % at idle between two releases, while the emulator's cycle model said the render had become *faster*.
+  - Suspects are what the model leaves out: EMAC mode switches (each handler flipped MACSR between integer and fractional, 12 switches per block), DDR bursts for a 24-bit delay line, instruction-cache pressure from inlining, and UI redraws.
+  - **Still unresolved.** `[hw]`
+- **Measured on the unit:**
+  - Hoisting the MACSR switch to once per block helped.
+  - An EMAC-off build idled lower but ran worse while processing, so EMAC stayed.
+  - A "fused" single-pass insert, meant to save loads and stores, measured **+15 %** on the unit.
+  - Every optimisation is A/B'd on hardware before it lands. `[hw]`
+- Toolchain notes from the same project: ColdFire instructions are at most 6 bytes, and `lsl.l #N` takes only 1-8. `[doc]`
+
 ## Core mods (elekloader)
 | Core | Covers | Notes |
 |---|---|---|

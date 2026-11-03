@@ -19,7 +19,7 @@ Complements [`digitone-2.md`](digitone-2.md) (overview) and [`digitone-2-os111-r
   - L1 block 1 above `0x2e4f46` gives about **12 KB, not the 45 KB** of the static map, because the build keeps the edge for a 32 KB DM cache.
   - Block 3's tail is the 16 KB I-cache.
   - `0x315f8c-0x318000` in block 2 depends on whether the PM cache there is 16 or 32 KB. Code placed there stopped the DSP on a unit (CMP2's LOW MUP stop), so builds refuse it.
-  - L2 candidates: `0x2008823c-0x200918c0` (38,532 B) and `0x200c2000-0x200fa000` (229,376 B). `0x200918c0-0x200c2000` is kept free of data by the build.
+  - L2 candidates: `0x2008823c-0x200918c0` (38,532 B) and `0x200c2000-0x200fa000` (229,376 B). `0x200918c0-0x200c2000` is kept free of data by the build. Other projects use part of that range on units: [CONFLICTS O19](../CONFLICTS.md).
   - Section 7 can grow ~150 KB before its 1 MiB limit. `[doc]`
 - **Code running from L2 in dead stock FX spots stopped the DSP on a unit** (Digiwerk SC01, 2026-10-21): knob turns and random idle moments, while the UI stayed fine. 74 minutes of the same recipes in the SHARC interpreter gave 0 faults, so the cause is something the interpreter doesn't model. Stable builds keep their code in proven L1/L2 regions. `[hw]` {dn2-cfw-roadmap}
 - **selcc inlining grows the stack:** a static helper that selcc inlined pushed one effect's stack to 2,092 bytes; making it non-static brought it back. Check stack use after each build. `[emu]` {dn2-cfw-t53}

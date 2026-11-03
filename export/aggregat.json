@@ -8,7 +8,7 @@
    "relations": 42,
    "rules": 91,
    "sources": 257,
-   "conflicts": 32,
+   "conflicts": 33,
    "facts": 979
   }
  },
@@ -5716,6 +5716,15 @@
    "devices": "syntakt"
   },
   {
+   "id": "O19",
+   "status": "open",
+   "topic": "DN2 SHARC L2 between `0x200918c0` and `0x200c2000`",
+   "a": "in use: stock data words point to `0x200918c0`, `0x200c0008` and `0x200c1f84` (dnfw), so Digiwerk keeps new data out of the whole range and lists `0x2008823c-0x200918c0` and `0x200c2000-0x200fa000` as candidates",
+   "b": "usable: the DN2 modding skill places boot blocks at `0x20090000` (code) and `0x20098000` (data), hardware-proven, and sets the ceiling at `0x200b0000`; elekloader's master-output mod (`0x20090000-0x20098000`) ran on a unit for ten minutes, and its machines take `0x20090000-0x200b0000`",
+   "details": "Both can hold if the pointed-to objects are small or unused in the cases tested. A pointer into the range is not proof of a write. Settle with a run-time write watch over `0x200918c0-0x200c2000` during playback, pattern changes and a save, or a canary read back on a unit. Until then: either stay below `0x200918c0`, or treat code there as tested only for the cases run. [`devices/digitone-2-internals.md`](devices/digitone-2-internals.md), [`devices/digitone-2-os111-reference.md`](devices/digitone-2-os111-reference.md)",
+   "devices": "digitone-2"
+  },
+  {
    "id": "O18",
    "status": "open",
    "topic": "DT2 flash cave `0x403117c4-0x40312000` at boot",
@@ -8928,7 +8937,7 @@
    "file": "hardware/devices/digitone-2-internals.md",
    "line": 18,
    "section": "Digitone II - internals collected from the research repos (OS 1.10E / 1.11 / 1.12) / DSP code room and load on the DN2 (Digiwerk DT01, DC01/DC02, SC01)",
-   "text": "Where DSP code may live, after the probe study (Digiwerk PB01 findings, static, 2026-10-23) {dn2-cfw-pb01}: L1 block 1 above `0x2e4f46` gives about 12 KB, not the 45 KB of the static map, because the build keeps the edge for a 32 KB DM cache. Block 3's tail is the 16 KB I-cache. `0x315f8c-0x318000` in block 2 depends on whether the PM cache there is 16 or 32 KB. Code placed there stopped the DSP on a unit (CMP2's LOW MUP stop), so builds refuse it. L2 candidates: `0x2008823c-0x200918c0` (38,532 B) and `0x200c2000-0x200fa000` (229,376 B). `0x200918c0-0x200c2000` is kept free of data by the build. Section 7 can grow ~150 KB before its 1 MiB limit. `[doc]`",
+   "text": "Where DSP code may live, after the probe study (Digiwerk PB01 findings, static, 2026-10-23) {dn2-cfw-pb01}: L1 block 1 above `0x2e4f46` gives about 12 KB, not the 45 KB of the static map, because the build keeps the edge for a 32 KB DM cache. Block 3's tail is the 16 KB I-cache. `0x315f8c-0x318000` in block 2 depends on whether the PM cache there is 16 or 32 KB. Code placed there stopped the DSP on a unit (CMP2's LOW MUP stop), so builds refuse it. L2 candidates: `0x2008823c-0x200918c0` (38,532 B) and `0x200c2000-0x200fa000` (229,376 B). `0x200918c0-0x200c2000` is kept free of data by the build. Other projects use part of that range on units: [CONFLICTS O19](../CONFLICTS.md). Section 7 can grow ~150 KB before its 1 MiB limit. `[doc]`",
    "evidence": "doc",
    "sources": "dn2-cfw-dc01,dn2-cfw-pb01",
    "devices": "digitone-2",
@@ -10017,7 +10026,7 @@
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
    "line": 51,
    "section": "Digitone II - machine registration, SHARC mod link, sampler/+Drive layout and field incidents / E. Field incidents reported by dn2mk2 users (lessons for any DSP/voice work)",
-   "text": "Voices read their sound by voice number as if it were the track (Monomachine engines; ~2 of 16 voices sounded). Same family as the skill's \"voices are not tracks\" rule. `[hw]` {dn2mk2-reports}",
+   "text": "Voices read their sound by voice number as if it were the track (Monomachine engines; ~2 of 16 voices sounded). Same family as the skill's \"voices are not tracks\" rule ([`digitone-2-os111-reference.md`](digitone-2-os111-reference.md)). `[hw]` {dn2mk2-reports}",
    "evidence": "hw",
    "sources": "dn2mk2-reports",
    "devices": "digitone-2",
@@ -10325,7 +10334,7 @@
    "file": "hardware/devices/digitone-2-os111-reference.md",
    "line": 31,
    "section": "Digitone II (OS 1.11) - engineering reference from the digitone-2-modding-skill / Free memory",
-   "text": "SHARC L2: usable `0x20088400..0x200B0000`; stock loads L2 code only up to `0x2008823c`. Not above `0x200B0000` (stock data points to `0x200C0008` and `0x200C1F84`; `0x200FA000..0x200FDFFF` is non-cacheable DMA buffers; L2 is shared with the boot ROM and one block there stopped a unit from starting). New boot blocks: code at `0x20090000` (sw `0xBC8000`), data at `0x20098000` onward - hardware-proven. `[hw]` {dn2-skill-firmware} {dn2-skill-sharc}",
+   "text": "SHARC L2 (contested between projects: [CONFLICTS O19](../CONFLICTS.md)): usable `0x20088400..0x200B0000`; stock loads L2 code only up to `0x2008823c`. Not above `0x200B0000` (stock data points to `0x200C0008` and `0x200C1F84`; `0x200FA000..0x200FDFFF` is non-cacheable DMA buffers; L2 is shared with the boot ROM and one block there stopped a unit from starting). New boot blocks: code at `0x20090000` (sw `0xBC8000`), data at `0x20098000` onward - hardware-proven. `[hw]` {dn2-skill-firmware} {dn2-skill-sharc}",
    "evidence": "hw",
    "sources": "dn2-skill-firmware,dn2-skill-sharc",
    "devices": "digitone-2",

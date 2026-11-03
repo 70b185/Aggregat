@@ -28,8 +28,11 @@ Data last verified: 2026-11-02
 | **MDX** (Justin Mammarella, Yatao Li) | firmware | active | X.20 B (2026-10-09) | - | 2026-10-09 | [homepage](https://github.com/jmamma/MDX) |
 | **Maschine MD-MM** (sid366) | emulator | active | - | v0.1.1-combined.1 | 2026-09-28 | [repo](https://github.com/sid366/maschine-md-mm-combined) |
 | **Gearmulator MD/MM** (Joe Landers) | emulator | active | mdmm-v0.1.0-alpha.14 (2026-09-21); Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-09-21 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
+| **Say A! (MCL chromatic A tool)** (BartBral) | tool | active | main @ c241980 (2026-05-21) per altstrument | - | 2026-05-21 | [repo](https://github.com/BartBral/MCL-Chromatic-A-tool) · [web app](https://bartbral.github.io/MCL-Chromatic-A-tool/md-transfer.html) |
 | **MDDT (Machinedrum Data Tool)** (waftlord) | editor | active | V2.0 | v1.0.0 | 2026-01-04 | [repo](https://github.com/waftlord/mddt) · [web](https://wftlrd.uk/mddt/) |
 | **TurboMIDI (C++)** (DatanoiseTV) | library | active | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
+| **MachineDrandom** (Kerem Ergener (per altstrument)) | tool | unknown | - | - | - | [web app](https://machinedrandom.keremergener.com/) |
+| **SM (Machinedrum sample manager)** (Fyris) | tool | unknown | - | - | - | [web app](https://sm.fyris.me/) |
 
 ## Details
 
@@ -174,3 +177,21 @@ _Sources: GitHub search 2026-11-02, README_
 Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed).
 
 _Sources: GitHub search 2026-11-02, README_
+
+### MachineDrandom
+
+Closed-source browser app that randomises the loaded Machinedrum kit live over Web MIDI, engine by engine and parameter by parameter, and can generate rhythm patterns played as MIDI notes. Nothing is stored until the kit is saved on the unit. Proprietary.
+
+_Sources: altstrument (2026-11-03)_
+
+### Say A! (MCL chromatic A tool)
+
+Browser sample prep and transfer tool for the Machinedrum UW: shifts each sample so its root lands on an A for MegaCommand's chromatic mode, resamples, processes loops, and sends over MIDI Sample Dump or saves WAV and .syx. Licence not stated. Repo clone timed out (large); details from altstrument.
+
+_Sources: altstrument (2026-11-03)_
+
+### SM (Machinedrum sample manager)
+
+Closed-source browser sample manager for the Machinedrum UW using MIDI Sample Dump Standard over Web MIDI: 48 slots with waveform view, WAV and .syx import/export, reverse, invert, loop and name controls. Proprietary.
+
+_Sources: altstrument (2026-11-03)_

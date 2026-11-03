@@ -6,8 +6,8 @@ Data last verified: 2026-11-02
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0. main since: a mod shop (submit a released mod through an issue form, a check opens the PR, later releases follow automatically; docs/SHOP.md), core-ar2 0.9 (lockable mod fields as velocity/aftertouch destinations; kit fields lockable), core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-11-03 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-03 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
-| **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0. main since: core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-11-02 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **Filter+ (13 filter types)** (DigiAlchemydsp) | mod | released | 1.0 (2026-11-02); Digitakt mk1 OS 1.54; Digitone mk1 / Keys OS 1.44 | v1.0 | 2026-11-02 | [repo](https://github.com/DigiAlchemydsp/FILTER-PLUS) |
 | **elkflash** (Iced-Cream) | tool | active | - | - | 2026-11-02 | [repo](https://github.com/Iced-Cream/elkflash) |
 | **digitakt-digitone-mcp** (jamiew) | tool | active | - | - | 2026-11-01 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
@@ -38,9 +38,11 @@ Data last verified: 2026-11-02
 | **TRIG pages** (digitaktplus) | mod | wip | Digitakt mk1 OS 1.53 | - | 2026-10-17 | [repo](https://github.com/digitaktplus/trig-pages) |
 | **takt1ccname (MIDI CC naming)** (vegadw) | mod | done | Digitakt mk1 | - | 2026-10-16 | [repo](https://github.com/triode-the-andrewsarchus/takt1ccname) · [forum](https://elektronmods.com/thread-66-digitakt-mk1-midi-cc-naming) |
 | **digirequests (Digitakt request mods)** (sumedho) | mod | unknown | - | - | 2026-10-16 | [repo](https://github.com/sumedho/digirequests) · [cc names module](https://github.com/sumedho/digirequests/tree/main/modules/cc-names) |
+| **Digitakt Pattern Editor (JUCE)** (mk3stn3r) | editor | active | main @ 08a6c0c (2026-10-16), no releases; Digitakt MKI; offline sample playback over USB audio needs OS 1.20 or later | - | 2026-10-16 | [repo](https://github.com/mk3stn3r/digitaktEditor) |
 | **digihealth** (pina (irpina)) | mod | wip | v1.1.1 (2026-10-14); Digitakt mk1 OS 1.53 (digihealth 1.0); Digitone mk1 + Keys OS 1.43 (1.1, SYSTEM INFO only) | v1.1.1 | 2026-10-14 | [repo](https://github.com/irpina/digihealth) |
 | **Digineighbor (NEIGHBOR machine)** (pina (irpina)) | mod | alpha | 0.7 (commit 2026-10-09; latest tagged release v0.6, 2026-10-02); Digitakt mk1 1.53, 1.54 | v0.6 | 2026-10-09 | [repo](https://github.com/irpina/digineighbor) · [forum](https://elektronmods.com/thread-21-digineighor-a-neighbor-machine-for-the-digitakt-mk1) |
 | **DT-FM** (mtalikka) | mod | released | v1.2.1 (2026-10-09); Digitakt mk1 OS 1.53 | v1.2.1 | 2026-10-09 | [repo](https://github.com/mtalikka/DT-FM) |
+| **elk-herd** (mzero) | tool | active | 3.3.7 (2026-10-09) per altstrument | - | 2026-10-09 | [repo](https://github.com/mzero/elk-herd) · [web app](https://electric.kitchen/crunch/elk-herd/) |
 | **Digidrum** (soejrd) | mod | unreachable | v0.4.1-alpha.1 (2026-10-06); Digitakt mk1 OS 1.53 (Digitone and Syntakt are stated goals, not current targets) | - | 2026-10-06 | [repo](https://github.com/soejrd/digidrum) |
 | **digiemu** (pina (irpina)) | emulator | stable | v0.4.1 (2026-10-09); firmware from the forum's firmware list; one user reports it needs 1.43 | v0.4.1 | 2026-10-05 | [repo](https://github.com/irpina/digiemu) · [forum](https://elektronmods.com/thread-20-digiemu-a-digitakt-and-digitone-emulator) |
 | **digistring** (Alez22) | mod | released | v0.8.0 (2026-10-05); Digitakt mk1 OS 1.53 only | v0.8.0 | 2026-10-05 | [repo](https://github.com/Alez22/digistring) |
@@ -48,6 +50,8 @@ Data last verified: 2026-11-02
 | **DigiSplash** (DigiAlchemydsp) | mod | unlabeled | v1.1 (2026-09-30); Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | v1.1 | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/DigiSplash) |
 | **DigiCandy** (DigiAlchemydsp) | mod | wip | v1.0 (2026-09-30); Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | v1.0 | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/DigiCandy) |
 | **Digi Battery** (JGuzak) | research | active | - | - | 2026-08-21 | [repo](https://github.com/JGuzak/digi_battery) |
+| **digitakt-reorder** (daguilarc) | tool | active | main @ 21b4103 (2026-08-19) | - | 2026-08-19 | [repo](https://github.com/daguilarc/digitakt_reorder) |
+| **ElekPrep (elektron-sample-prep)** (luizvarela) | tool | inactive | main @ 9f85fc8 (2026-02-27) | - | 2026-02-27 | [repo](https://github.com/luizvarela/elektron-sample-prep) · [web app](https://luizvarela.github.io/elektron-sample-prep/) |
 | **dtdump** (droelfdroelf) | tool | archived | - | - | 2024-09-20 | [repo](https://github.com/droelfdroelf/dtdump) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
 | **digi1_mods** (gdeo607) | mod | wip | builds v3p, v3q-spectrum, v3r-all; elekloader build 2.0d; Digitakt mk1 OS 1.53 | - | - | [repo](https://github.com/gdeo607/digi1_mods) |
@@ -57,6 +61,7 @@ Data last verified: 2026-11-02
 | **Elektroid** (dagargo) | tool | active | 3.4 (2026-08-22) | 3.4 | - | [repo](https://github.com/dagargo/elektroid) |
 | **Overwitch** (dagargo) | tool | active | 2.2 (2025-12-21) | 2.2 | - | [repo](https://github.com/dagargo/overwitch) |
 | **elekloader (simonjohansson fork - Digitakt II / Digitone II support)** (simonjohansson) | loader | wip | Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept) | v0.4.0 | - | [repo](https://github.com/simonjohansson/elekloader) · [plan digitone ii](https://github.com/simonjohansson/elekloader/issues/13) · [devices doc](https://github.com/simonjohansson/elekloader/blob/main/docs/DEVICES.md) |
+| **ElekPrep Transfer** (unknown) | tool | unknown | ElekPrep v0.1 (page label) | - | - | [web app](https://elekprep-transfer.vercel.app/) |
 
 ## Details
 
@@ -70,7 +75,7 @@ _Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
 
 ### Modwerk (formerly Octamod)
 
-Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still early prototypes. last_activity = date of the Dubspot article, not a forum post. 2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI.
+Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still early prototypes. last_activity = date of the Dubspot article, not a forum post. 2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI. 2026-11-03: the site now lets you download a built Analog Rytm MKII .syx (after confirming you know how to get back to stock); new Rytm module quick-velocity-aftertouch-assign with a verification note. Zoom pedals: an effect whose group+ID clashes with one already on the pedal is moved to a free local Delay ID 958-1023 (ID only in the ZDL header at 0x40-0x41, no checksum); two effects with the same group and ID froze an MS-70CDR at boot until its ROM was reprogrammed.
 
 _Sources: gearnews, dubspot, forum thread 36_
 
@@ -262,6 +267,12 @@ _Related: fork of `elekloader` (GitHub fork flag) - see [PROJECT-FAMILIES.md](..
 
 _Sources: GitHub README, GitHub issue 13, search 2026-10-31_
 
+### elk-herd
+
+"Elektron device manager". Browser app in Elm for Digitakt and Digitakt II content over Web MIDI: whole-project transfer to and from device and files, reordering of patterns, sample pool and sound pool, renaming (altstrument 2026-11-03; development continues off GitHub, we do not link the new source location). Other projects call it the de-facto public documentation of Elektron's SysEx protocol (digi-roll-studio) and port its 7-bit SysEx codec and F0 00 20 3C framing (SYXGRID). BSD-2-Clause per those projects. The GitHub page is a stub: README says the project has migrated away from GitHub to an obfuscated address (not decoded by us) and that issues and pull requests generated by AI will be summarily rejected - do not open AI-generated ones. Device support is not stated on the stub; SYXGRID says elk-herd does not support the Digitone family; the Digitakt II entry is an inference from digi-roll (which ports its protocol for DT2/DN2). 70 stars.
+
+_Sources: GitHub stub, digi-roll-studio README, SYXGRID README, altstrument (2026-11-03)_
+
 ### digiscreen
 
 Android web page that mirrors the 128x64 screen over USB MIDI, read-only. Digitakt mk1, Digitone mk1, Model:Cycles, Model:Samples. GPL-2.0-or-later.
@@ -405,3 +416,31 @@ _Sources: GitHub search 2026-11-02, README_
 A Raspberry Pi 4B/5 on the Rytm's USB port adds digital voices, effects and a sequencer; the Rytm runs a patched OS. 0.3.2 adds experimental, emulator-only Digitakt support. The Teensy variant is frozen. GPL-2.0.
 
 _Sources: GitHub search 2026-11-02, README_
+
+### Digitakt Pattern Editor (JUCE)
+
+Native desktop app (C++/JUCE, built for Linux, CMake also for macOS/Windows): downloads a pattern or a whole project over USB MIDI, edits the step grid and sample locks, imports MIDI files, uploads samples to the +Drive and plays patterns offline through the computer. The README says the format layer is a C++ port of elk-herd rather than a wrapper, and that it writes lanes elk-herd only decodes. BSD-2-Clause (licence file carries elk-herd's copyright). Was in ignore.yml as an empty repo; re-reviewed 2026-11-03 after altstrument listed it.
+
+_Related: port of `elk-herd` (README: format layer ported to C++ from elk-herd) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: altstrument (2026-11-03), README_
+
+### digitakt-reorder
+
+Python library and job template that reorders, drops and de-duplicates the sample pool of a Digitakt project dump and remaps every kit and sample-lock reference. Works on a .syx file fetched and sent with elk-herd; no MIDI code. MIT.
+
+_Related: builds on `elk-herd` (README: works on .syx dumps fetched and sent with elk-herd) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: altstrument (2026-11-03), README_
+
+### ElekPrep (elektron-sample-prep)
+
+Single-page browser sample prep: trims at zero crossings, converts to 48 kHz 16-bit WAV, works out loop lengths from BPM and steps; profiles for four devices (device list taken from the related ElekPrep Transfer app, not checked). No MIDI; files go to the unit through Transfer or Elektroid. MIT.
+
+_Sources: altstrument (2026-11-03), README_
+
+### ElekPrep Transfer
+
+Closed-source browser app that preps audio and sends it over Web MIDI SysEx to the +Drive, with Transfer and +Drive Manager views and device profiles for Digitakt II, Digitakt, Analog Rytm (MKI/MKII) and Model:Samples. Proprietary; author not named. Relation to luizvarela's ElekPrep not established (same name). Interesting as a second independent implementation of +Drive upload over SysEx.
+
+_Sources: altstrument (2026-11-03)_

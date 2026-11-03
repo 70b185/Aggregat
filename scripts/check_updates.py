@@ -107,7 +107,12 @@ def check(tid, t, prev, want_diff):
         res["status"] = "unchanged"
         res["files"] = prev.get("files", {})
         return res
-    files, diff = watched_files(t["repo"], t["watch"], prev.get("head") if prev else None, want_diff)
+    try:
+        files, diff = watched_files(t["repo"], t["watch"], prev.get("head") if prev else None, want_diff)
+    except Exception as e:  # clone timed out or failed: report it, keep the old baseline, go on with the others
+        res["status"] = "error"
+        res["error"] = f"listing files failed: {str(e)[:180]}"
+        return res
     res["files"] = files
     res["diff"] = diff
     if not prev:

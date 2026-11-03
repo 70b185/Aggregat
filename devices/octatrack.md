@@ -8,7 +8,7 @@ Data last verified: 2026-11-02
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **octabam** (Sam Banks, Contributors credited per module) | firmware | active | v0.3 (tags v0.2/v0.3, 2026-11-02): v0.2 adds VARISPEED and drops FX2 LOCK; v0.3 names the LOAD/SAVE KIT lists. Unreleased: USB IN/OUT moved to on-chip SRAM (USB share of the frame interrupt ~34 -> 24 us on an MKII); 1.40C | v0.3 | 2026-11-02 | [repo](https://github.com/sambanks/octabam) · [homepage](https://modwerk.app/) |
+| **octabam** (Sam Banks, Contributors credited per module) | firmware | active | v0.3 (tags v0.2/v0.3, 2026-11-02): v0.2 adds VARISPEED and drops FX2 LOCK; v0.3 names the LOAD/SAVE KIT lists. Unreleased: USB IN/OUT moved to on-chip SRAM (USB share of the frame interrupt ~34 -> 24 us on an MKII); 1.40C | v0.3 | 2026-11-03 | [repo](https://github.com/sambanks/octabam) · [homepage](https://modwerk.app/) |
 | **OT Kyoti FW** (Zac Kyoti) | firmware | active | KYOTI V1.7 + MUTE_MODES KEYHOLD (final 2026-11-02, flashed by the user, all tests pass); 1.40C | ref/sp12-midside-vem7 | 2026-11-02 | [repo](https://github.com/Zac-Kyoti/octatrack-kyoti-fw) |
 | **Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)** (radiohagen) | mod | active | Octatrack OS 1.40C via octabam | - | 2026-10-31 | [repo](https://github.com/radiohagen/octatrack-modules) |
 | **ReBirth to Octatrack** (alexandrubelc) | tool | wip | Octatrack with octabam GARDEN36 or later | - | 2026-10-29 | [repo](https://github.com/alexandrubelc/rebirth2octatrack) |
@@ -65,7 +65,7 @@ _Sources: altstrument (2026-11-01)_
 
 ### octabam
 
-Modular Octatrack OS 1.40C "remixer": bus and track effects, FM synth machine, 255 kits, USB audio/MIDI, stock bug fixes. Base of Modwerk. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
+Modular Octatrack OS 1.40C "remixer": bus and track effects, FM synth machine, 255 kits, USB audio/MIDI, stock bug fixes. Base of Modwerk. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet. 2026-11-03: new midi-follow module (docs/site/usage/midi-follow.md, a test remix); not read further.
 
 _Sources: altstrument (2026-11-01)_
 

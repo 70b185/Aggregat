@@ -12,8 +12,10 @@ Data last verified: 2026-11-02
 | **Modded Cycles** (18nelli18, Modded-Cycles contributors) | firmware | active | Release 2.0 (2026-10-19); 1.13 | etude-optimisation-os-2026-10-18 | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
 | **1-Bit Editor** (durchgemacht) | tool | active | v0.1 (2026-10-17) | v0.1 | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |
 | **elektron-model-tweaks** (drumkilla) | mod | active | v2.1.0 (2026-10-11); 1.13 | v2.1.0 | 2026-10-11 | [repo](https://github.com/drumkilla/elektron-model-tweaks) · [homepage](https://drumkilla.github.io/elektron-model-tweaks/flasher/) |
+| **ElekPrep (elektron-sample-prep)** (luizvarela) | tool | inactive | main @ 9f85fc8 (2026-02-27) | - | 2026-02-27 | [repo](https://github.com/luizvarela/elektron-sample-prep) · [web app](https://luizvarela.github.io/elektron-sample-prep/) |
 | **plaits-on-models** (DMDaudio) | mod | active | 1.13 | - | - | [repo](https://github.com/DMDaudio/plaits-on-models) |
 | **ms-multi-output** (Scott Metoyer) | mod | active | 1.13 | - | - | [repo](https://github.com/scottmetoyer/ms-multi-output) |
+| **ElekPrep Transfer** (unknown) | tool | unknown | ElekPrep v0.1 (page label) | - | - | [web app](https://elekprep-transfer.vercel.app/) |
 
 ## Details
 
@@ -54,3 +56,15 @@ Replaces the six stock machines with circuit-modelled TR-909 voices (integer mod
 _Related: builds on `modded-cycles` (README: built on Modded-Cycles and Model-TG) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
+
+### ElekPrep (elektron-sample-prep)
+
+Single-page browser sample prep: trims at zero crossings, converts to 48 kHz 16-bit WAV, works out loop lengths from BPM and steps; profiles for four devices (device list taken from the related ElekPrep Transfer app, not checked). No MIDI; files go to the unit through Transfer or Elektroid. MIT.
+
+_Sources: altstrument (2026-11-03), README_
+
+### ElekPrep Transfer
+
+Closed-source browser app that preps audio and sends it over Web MIDI SysEx to the +Drive, with Transfer and +Drive Manager views and device profiles for Digitakt II, Digitakt, Analog Rytm (MKI/MKII) and Model:Samples. Proprietary; author not named. Relation to luizvarela's ElekPrep not established (same name). Interesting as a second independent implementation of +Drive upload over SysEx.
+
+_Sources: altstrument (2026-11-03)_

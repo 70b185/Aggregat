@@ -32,6 +32,8 @@ Mods for different OS versions cannot be combined and flashing between them can 
 - ColdFire main CPU (big-endian code, GCC-built, C++ RTTI names remain); SHARC+ audio DSP. `[doc]` {dn2-cfw} {dn2-firmware-explore}
 - `MAIN OS` section: 3,085,696 bytes, loads at `0x40000400`. `[doc]` {dn2-firmware-explore}
 - Container **signed with HMAC-SHA256** with a key derived from the image itself, so the tools re-sign modified images ([`../common/firmware-container.md`](../common/firmware-container.md)). `[doc]` {dn2-firmware-explore}
+- **The OS keeps its C++ RTTI, enough to name most code:** on 1.12, 12,350 functions and 1,624 types (752 classes, 872 lambdas), 741 with vtables; about a third of all instructions sit in a function that RTTI names. A function that loads a vtable is a constructor or destructor; a `std::function` lambda's typeinfo names its enclosing method with the signature. The DSP has no application RTTI. `[doc]` {dn2-skill-firmware}
+- **1.11 to 1.12:** sections 2, 4, 7 and 8 are byte-identical (the DSP did not change); section 3 is relinked (+4 KB, BSS +0x1000, DMA alias +0x8000). Overtone ships on 1.12 by translating every 1.11 patch address through a code map built from anchors of 10 matching instructions. `[doc]` {dn2-skill-firmware}
 - DSP works per block; the stock handler can be interpreted offline (sharcvm); new effects are portable C, compiled with selache/selcc and spliced into the DSP section. `[doc]` {dn2-cfw}
 
 - **Board PCBA0109B, read from photographs of the parts** (dnfw `docs/hardware.md`, 2026-09-12) {dn2-hw}. The same board number as the Digitakt II is reported.
@@ -82,6 +84,7 @@ Mods for different OS versions cannot be combined and flashing between them can 
 
 ## Sample memory (dn2mk2)
 - Pool of 400 MB (368 MB user samples + 32 MB recordings, ~5.5 min), up to 122 slots, RAM-checked at power-on (~0.7 s); +Drive library ~20 GB in a region the stock OS does not touch, up to 2,048 samples; slices up to 64 per sample, stored in a 128 KB area. Power-on load grows with stored samples (~30 s for 20 MB). **The 400 MB pool has never run on hardware** per FIRMWARE.md v0.22. `[emu]` {dn2mk2-firmware-md}
+- **A stock DN2 has no sample filesystem, and a mod that mounts one must also create it** (armio R012, 2026-11-03). R012 mounted an existing sample filesystem but did not create one on a unit that never had it; on such a unit Transfer showed 0% Free / 0 bytes, uploads stalled and connections failed. The author says stock FORMAT +DRIVE, EMPTY RESET and FACTORY RESET do not create it and can erase projects. The bug was found by new users; the author's own unit had storage prepared during development, which is why owner testing missed it. A test on a freshly flashed stock unit is the only check that catches this. `[doc]` {armio-samples}
 
 ## Sections
 Protected: sections **2, 4, 5 and 8** (bootstrap, updater and others) must stay byte-identical to stock in dn2mk2's gate; mods change only **3 (MAIN OS) and 7 (DSP)**. Five stock machines; 16 track buffers. 1.10E rebuilt the bootstrap and moved its load address, 1.11 changed it again. `[doc]` {dn2mk2-safety}

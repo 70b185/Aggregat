@@ -43,6 +43,13 @@ Devices: Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II. [repo](htt
 - **elekloader (simonjohansson fork - Digitakt II / Digitone II support)** (simonjohansson) - fork of **elekloader** (GitHub fork flag). [repo](https://github.com/simonjohansson/elekloader)
 - **Synfact** (GSM1980) - builds on **elekloader** (README of synfact-dev: built on elekloader, its engine, file format and checks). [repo](https://github.com/GSM1980/synfact-dev)
 
+## elk-herd (mzero)
+
+Devices: Digitakt (MKI), Digitakt II. [repo](https://github.com/mzero/elk-herd)
+
+- **Digitakt Pattern Editor (JUCE)** (mk3stn3r) - port of **elk-herd** (README: format layer ported to C++ from elk-herd). [repo](https://github.com/mk3stn3r/digitaktEditor)
+- **digitakt-reorder** (daguilarc) - builds on **elk-herd** (README: works on .syx dumps fetched and sent with elk-herd). [repo](https://github.com/daguilarc/digitakt_reorder)
+
 ## Frame Lab (keyframer-lab) (heavylight-industries)
 
 Devices: Digitakt II. [repo](https://github.com/heavylight-industries/keyframer-lab)

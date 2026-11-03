@@ -82,11 +82,11 @@ ignore:
   - c0remusic/gearmulator-md-drums
   - kaidrange/octachainer
   - malooooyy/monomachine-android
-  - mk3stn3r/digitakteditor
   - kostyk348/ftl-tools
   - ktwzk/modded-transfer
   - rhinerad/rhine-smusichardware2ableton
   - mlnoga/underpass
+  - lbl-srg/modelica-json
   - ephemeraldsp/ultrawave
   - bandersong/analog-rytm-chop
   - brian3kb/digichain

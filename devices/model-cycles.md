@@ -8,11 +8,11 @@ Data last verified: 2026-11-02
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **Motor:Cycles (rhythmic-noise firmware)** (nzimas) | firmware | wip | v1.0.0-rc18 (tag); Model:Cycles OS 1.13 | - | 2026-11-03 | [repo](https://github.com/nzimas/motorcycles) · [web patcher](https://nzimas.github.io/motorcycles/install.html) |
+| **Motor:Cycles (rhythmic-noise firmware)** (nzimas) | firmware | wip | v1.0.0-rc18 (tag); Model:Cycles OS 1.13 | v1.0.0-rc18 | 2026-11-03 | [repo](https://github.com/nzimas/motorcycles) · [web patcher](https://nzimas.github.io/motorcycles/install.html) |
 | **model27** (durchgemacht, 18nelli18) | firmware | active | release 0.32 (beta, 2026-11-02): eleven cards in the web flasher; fltslot 0.10; 1.13 | - | 2026-11-03 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
+| **Supermodel Edition** (A.V., 18nelli18) | firmware | active | 3.02 (docs dated 2026-11-03; Optional edition 3.02 experimental); 1.13 | wavetable-pack | 2026-11-03 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |
 | **Elek View (screen viewer in the browser)** (BlueSGL) | tool | active | main @ 29fc485 (2026-11-02) | - | 2026-11-02 | [repo](https://github.com/BlueSGL/Elek_View) · [web app](https://bluesgl.github.io/Elek_View/) · [forum](https://elektronmods.com/thread-93-elek-view-see-your-devices-screens-in-a-browser-via-webmidi) |
 | **Cycles One-Shot** (durchgemacht) | mod | active | machine 0.13 (2026-11-02, on main; newest tag v0.12): Start and Length act on the note that plays; tested in a model27 build, in digiemu and on a Model:Cycles; 1.13 | v0.13 | 2026-11-02 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
-| **Supermodel Edition** (A.V., 18nelli18) | firmware | active | main @ cd6ae4c (2026-11-01); 1.13 | wavetable-pack | 2026-11-02 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |
 | **SPOKES** (A.V.) | tool | active | main @ 1604cbf (2026-10-31); 1.13 | - | 2026-10-31 | [repo](https://github.com/AveyCole/SPOKES) · [homepage](https://aveycole.github.io/SPOKES/) |
 | **Vladiktron Spoke** (imaf6971) | emulator | active | v0.1.0 (2026-10-30); 1.13 | v0.1.0 | 2026-10-30 | [repo](https://github.com/imaf6971/vladiktron-spoke) |
 | **Cycles Engines** (100demons) | loader | wip | Model:Cycles OS 1.13 only | phase-5 | 2026-10-30 | [repo](https://github.com/100demons/cycles-engines) |
@@ -27,6 +27,7 @@ Data last verified: 2026-11-02
 | **Chord Keys** (Nico Heuser) | mod | active | Second version (harmony pads, MIDI chords) (2026-10-07); 1.13 | - | 2026-10-07 | [repo](https://github.com/byNicoHeuser/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
 | **Model-TG** (TinyGregAudio) | mod | active | v1.1.0 (2026-10-02); 1.13 | v1.1.0 | 2026-10-02 | [repo](https://github.com/TinyGregAudio/Model-TG) |
 | **CyclesBridge** (robertfrombadlistener) | tool | active | main @ 29b2017 (2026-10-01) | - | 2026-10-01 | [repo](https://github.com/robertfrombadlistener/CyclesBridge) |
+| **Model:Cycles Web Editor** (tkawamu0622-cmd) | editor | active | main @ 351ea86 (2026-08-25) per altstrument | - | 2026-08-25 | [repo](https://github.com/tkawamu0622-cmd/model-cycles-web-editor) · [web app](https://tkawamu0622-cmd.github.io/model-cycles-web-editor/) |
 | **Model:Cycles .mcpst format notes** (kg4zow) | research | inactive | - | - | 2022-04-12 | [repo](https://github.com/kg4zow/model-cycles) |
 | **plaits-on-models** (DMDaudio) | mod | active | 1.13 | - | - | [repo](https://github.com/DMDaudio/plaits-on-models) |
 | **ms-multi-output** (Scott Metoyer) | mod | active | 1.13 | - | - | [repo](https://github.com/scottmetoyer/ms-multi-output) |
@@ -115,7 +116,7 @@ _Sources: altstrument (2026-11-01)_
 
 ### Supermodel Edition
 
-Fork of Modded Cycles with a 909-style kit flasher, ACID machine, sequence generator, second LFO. Licence: unspecified; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: more screenshots of the running firmware added to docs/assets/screens.
+Fork of Modded Cycles with a 909-style kit flasher, ACID machine, sequence generator, second LFO. Licence: unspecified; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: more screenshots of the running firmware added to docs/assets/screens. 2026-11-03: release 3.02 documented (shortcut guide, printable manual, English and French); playback modes One-Shot, Loop, Slice, Granular, Stretch, Pluck, Wavetable.
 
 _Related: fork of `modded-cycles` (GitHub fork flag) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
@@ -180,3 +181,9 @@ _Sources: GitHub search 2026-11-02, README_
 Reverse-engineered layout of the Model:Cycles preset files (.mcpst) with dump/compare scripts.
 
 _Sources: GitHub search 2026-11-02, README_
+
+### Model:Cycles Web Editor
+
+Browser piano-roll editor and sequencer for the Model:Cycles over Web MIDI: parameters as CC, pattern select by program change, and recording a sequence into the unit one track at a time by playing it in over MIDI clock (no pattern SysEx). Licence not stated. Repo clone failed (transfer error); details from altstrument.
+
+_Sources: altstrument (2026-11-03)_

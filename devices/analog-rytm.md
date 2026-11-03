@@ -16,16 +16,19 @@ Data last verified: 2026-11-02
 | **rytm-builder** (stampman3000-jpg) | tool | active | cursor/rytm-mac-app-0afb @ 90af848 (2026-10-14); Analog Rytm OS 1.70 object layout | - | 2026-10-14 | [repo](https://github.com/stampman3000-jpg/rytm-builder) |
 | **rytm-fw-re** (ethernet) | research | active | master @ 2f7f0c4 (2026-10-13); 1.74 | - | 2026-10-13 | [repo](https://github.com/ethernet8023/rytm-fw-re) |
 | **rytm-mods boot report** (Iced-Cream) | research | active | Analog Rytm MKII OS 1.73 | - | 2026-10-13 | [repo](https://github.com/Iced-Cream/rytm-mods-boot-report) |
-| **rytm-mods-src** (MrScruff (published with permission by Iced-Cream)) | mod | active | Mods 0000-0015 (2026-10-10); 1.73 | - | 2026-10-10 | [repo](https://github.com/Iced-Cream/rytm-mods-src) |
+| **rytm-mods-src** (MrScruff (published with permission by Iced-Cream)) | mod | active | Mods 0000-0015 (2026-10-10); 1.73 | - | 2026-10-10 | [repo](https://github.com/Iced-Cream/rytm-mods-src) · [alias](https://github.com/connorway32/rytm-mods-src) |
 | **RytmRandomizer** (buzzijose-hub) | tool | active | main @ 892aaff (2026-09-28); Analog Rytm MK2 and Analog Four MK2 | - | 2026-09-28 | [repo](https://github.com/buzzijose-hub/rytmrandomizer) |
 | **analog-rytm-mkii-research** (genosdk) | research | active | main @ 14570ea (2026-09-25); 1.72 | - | 2026-09-25 | [repo](https://github.com/genosdk/analog-rytm-mkii-research) |
 | **Kitsmith** (Alina-sul) | tool | wip | Analog Rytm MKII | - | 2026-09-13 | [repo](https://github.com/Alina-sul/kitsmith) |
 | **analog-rytm-agent-bridge** (algonormative) | tool | active | Rytm MKII | - | 2026-09-02 | [repo](https://github.com/algonormative/analog-rytm-agent-bridge) |
+| **Plock (Rytm pattern editor)** (plentyofnames) | editor | active | main @ 12ef58a (2026-06-19), no releases; Analog Rytm OS 1.70 (per altstrument) | v1.0 | 2026-06-19 | [repo](https://github.com/plentyofnames/plock) · [web app](https://plentyofnam.es/plock/plock.html) |
+| **ElekPrep (elektron-sample-prep)** (luizvarela) | tool | inactive | main @ 9f85fc8 (2026-02-27) | - | 2026-02-27 | [repo](https://github.com/luizvarela/elektron-sample-prep) · [web app](https://luizvarela.github.io/elektron-sample-prep/) |
 | **TurboMIDI (C++)** (DatanoiseTV) | library | active | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 | **rytm-rs / rytm-sys** (alisomay) | library | active | Analog Rytm firmware 1.70 | - | 2024-12-07 | [repo](https://github.com/alisomay/rytm-rs) · [sys crate](https://github.com/alisomay/rytm-sys) |
 | **libanalogrytm** (bsp2) | library | dormant | master @ a0a19f6 (2023-12-21) | - | 2023-12-21 | [repo](https://github.com/bsp2/libanalogrytm) |
 | **Chopshop** (Jesus Triana (bandersong)) | mod | active | 1.73 (Rytm), 1.56 (Keys); not 1.74 | - | - | [repo](https://github.com/bandersong/chopshop) · [homepage](https://chopshop-synth.pages.dev/) |
 | **rytm1_mods** (gdeo607) | mod | active | 1.73 | - | - | [repo](https://github.com/gdeo607/rytm1_mods) |
+| **ElekPrep Transfer** (unknown) | tool | unknown | ElekPrep v0.1 (page label) | - | - | [web app](https://elekprep-transfer.vercel.app/) |
 
 ## Details
 
@@ -61,7 +64,7 @@ _Sources: altstrument (2026-11-01)_
 
 ### rytm-mods-src
 
-Public copy of MrScruff's Rytm MKII OS 1.73 mods 0000-0015 (euclid accents, velocity humanise, random LFO, kit A/B, slice loop, control-all and more). Licence: GPL-2.0-only; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
+Public copy of MrScruff's Rytm MKII OS 1.73 mods 0000-0015 (euclid accents, velocity humanise, random LFO, kit A/B, slice loop, control-all and more). Licence: GPL-2.0-only; distribution: patch-your-own. Listed by altstrument; repo not read by us yet. Also reachable as connorway32/rytm-mods-src (same HEAD 3a98e23, 2026-11-03).
 
 _Sources: altstrument (2026-11-01)_
 
@@ -142,3 +145,21 @@ Rust abstractions over the Rytm's undocumented SysEx (bindings to a fork of bsp2
 _Related: builds on `libanalogrytm` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
+
+### Plock (Rytm pattern editor)
+
+Browser pattern editor for the Analog Rytm over Web MIDI: pulls the current pattern and kit by SysEx, edits trigs, parameter locks, retrigs, micro-timing and sound locks in a step grid and sends the result back; opens and saves .syx dumps and exports MIDI. The README credits earlier community work on the format. MIT per README (no licence file in the repo).
+
+_Sources: altstrument (2026-11-03), README_
+
+### ElekPrep (elektron-sample-prep)
+
+Single-page browser sample prep: trims at zero crossings, converts to 48 kHz 16-bit WAV, works out loop lengths from BPM and steps; profiles for four devices (device list taken from the related ElekPrep Transfer app, not checked). No MIDI; files go to the unit through Transfer or Elektroid. MIT.
+
+_Sources: altstrument (2026-11-03), README_
+
+### ElekPrep Transfer
+
+Closed-source browser app that preps audio and sends it over Web MIDI SysEx to the +Drive, with Transfer and +Drive Manager views and device profiles for Digitakt II, Digitakt, Analog Rytm (MKI/MKII) and Model:Samples. Proprietary; author not named. Relation to luizvarela's ElekPrep not established (same name). Interesting as a second independent implementation of +Drive upload over SysEx.
+
+_Sources: altstrument (2026-11-03)_

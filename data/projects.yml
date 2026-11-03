@@ -35,8 +35,8 @@ projects:
       forum: https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices
     status: active
     base_os: "Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed"
-    version: "v0.9.0 (2026-10-30), first full release since 0.4.0. main since: core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs"
-    last_activity: 2026-11-02
+    version: "v0.9.0 (2026-10-30), first full release since 0.4.0. main since: a mod shop (submit a released mod through an issue form, a check opens the PR, later releases follow automatically; docs/SHOP.md), core-ar2 0.9 (lockable mod fields as velocity/aftertouch destinations; kit fields lockable), core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs"
+    last_activity: 2026-11-03
     notes: >
       Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally.
       Also covers Octatrack and (proof of concept) Analog Four MKII, which are out of scope for now.
@@ -65,6 +65,7 @@ projects:
       forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still
       early prototypes. last_activity = date of the Dubspot article, not a forum post.
       2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI.
+      2026-11-03: the site now lets you download a built Analog Rytm MKII .syx (after confirming you know how to get back to stock); new Rytm module quick-velocity-aftertouch-assign with a verification note. Zoom pedals: an effect whose group+ID clashes with one already on the pedal is moved to a free local Delay ID 958-1023 (ID only in the ZDL header at 0x40-0x41, no checksum); two effects with the same group and ID froze an MS-70CDR at boot until its ROM was reprogrammed.
     sources: [gearnews, dubspot, forum thread 36]
 
   - id: elektron-firmware-tool
@@ -355,7 +356,7 @@ projects:
     repo: https://github.com/armio/dn2-dt2-firmware-research
     status: released
     base_os: "Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally"
-    version: "R012 stable (2026-11-03; R011 previous stable, T1E2 before); R008 USB diagnostics superseded"
+    version: "R012 stable (2026-11-03; first-install warning, see notes; R011 previous stable, T1E2 before)"
     last_activity: "2026-11-03"
     notes: >
       Source-only recipes that rebuild T1E2, a Digitone II 1.11 research firmware that transplants the Digitakt II
@@ -370,7 +371,12 @@ projects:
       Nothing is flashed by the tools. AGPL-3.0-or-later. One commit at first sight.
       R008 (2026-11-02) adds checksummed records of rejected USB audio publications. Captured on a unit: USB audio froze while headphones and UI kept working; accepted publications stopped while rejected ones rose by 16,392 in about 10.9 s, and USB transfers kept running with old audio. Cause not identified; R008 is a diagnostic build, not a fix.
       R011 fixed the USB audio that repeated old audio after a project change: the render-time TX selector had bound the retained queue to a destination derived from an older RX phase; R011 picks it from the current DMA START. Owner-confirmed on the unit, R012 needs only the two official OS files.
-    sources: [GitHub README, releases/t1e2.json]
+      2026-11-03: README warns new users NOT to install R012 yet. R012 mounts an existing sample filesystem but does
+      not create one on a DN2 that never had it; symptoms are 0% Free / 0 bytes in Transfer, stalled uploads, Connection
+      failed. The author says stock FORMAT +DRIVE, EMPTY RESET and FACTORY RESET do not create it and can erase projects;
+      an on-device formatter with erase confirmation is in development, not released. Owner testing had used storage
+      prepared during development. A track-2 sample reload report turned out to be an unsaved project, not a bug.
+    sources: [GitHub README, releases/t1e2.json, docs/samples.md, docs/research/2026-11-03.md]
 
   # ---------------------------------------------------------------- Syntakt
   - id: synthack-os
@@ -1090,7 +1096,11 @@ projects:
       cap on Monomachine tracks is gone (the real-time DSP guard decides): SID, VO-6, DENS and DPRO WAVE play 4-note chords,
       DDRW 2; when there is no room the oldest voice is dropped cleanly; DDRW/DENS tables moved to fast memory; a Diagnostics
       section in the import page reads the instrument after a silent voice.
-    sources: [GitHub README, FIRMWARE.md, patcher web page]
+      ROADMAP after v0.40 (2026-11-03): engine-direction talk (a build without Monomachine; the MM chord glitch first),
+      slides on the sample and Machinedrum machines' own continuous controls, Octatrack-style rec trigs, then a
+      comparison with heavylight's Capicola time-stretch. The roadmap also plans to read Aggregat (export DB, research map)
+      before new DN2 work.
+    sources: [GitHub README, FIRMWARE.md, patcher web page, docs/ROADMAP.md]
     relations:
     - {type: builds_on, id: dn2-firmware-explore, evidence: 'docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698'}
 
@@ -1233,20 +1243,24 @@ projects:
     author: mzero
     kind: tool
     list: musician
-    devices: [digitakt-2]
+    devices: [digitakt, digitakt-2]
     repo: https://github.com/mzero/elk-herd
-    status: unknown
+    links:
+      web_app: https://electric.kitchen/crunch/elk-herd/
+    status: active
     base_os: null
-    version: null
-    last_activity: null
+    version: "3.3.7 (2026-10-09) per altstrument"
+    last_activity: '2026-10-09'
     notes: >
-      "Elektron device manager". Other projects call it the de-facto public documentation of Elektron's SysEx protocol
+      "Elektron device manager". Browser app in Elm for Digitakt and Digitakt II content over Web MIDI: whole-project
+      transfer to and from device and files, reordering of patterns, sample pool and sound pool, renaming (altstrument
+      2026-11-03; development continues off GitHub, we do not link the new source location). Other projects call it the de-facto public documentation of Elektron's SysEx protocol
       (digi-roll-studio) and port its 7-bit SysEx codec and F0 00 20 3C framing (SYXGRID). BSD-2-Clause per those projects.
       The GitHub page is a stub: README says the project has migrated away from GitHub to an obfuscated address (not decoded
       by us) and that issues and pull requests generated by AI will be summarily rejected - do not open AI-generated ones.
       Device support is not stated on the stub; SYXGRID says elk-herd does not support the Digitone family; the Digitakt II
       entry is an inference from digi-roll (which ports its protocol for DT2/DN2). 70 stars.
-    sources: [GitHub stub, digi-roll-studio README, SYXGRID README]
+    sources: [GitHub stub, digi-roll-studio README, SYXGRID README, altstrument (2026-11-03)]
 
   # ================================================================ added from altstrument + elektronmods lists (2026-10-31)
   - id: synthack-os-upstream
@@ -1481,13 +1495,16 @@ projects:
     devices:
     - analog-rytm
     repo: https://github.com/Iced-Cream/rytm-mods-src
+    links:
+      alias: https://github.com/connorway32/rytm-mods-src
     status: active
     base_os: '1.73'
     version: Mods 0000-0015 (2026-10-10)
     last_activity: '2026-10-10'
     notes: 'Public copy of MrScruff''s Rytm MKII OS 1.73 mods 0000-0015 (euclid accents, velocity humanise, random
       LFO, kit A/B, slice loop, control-all and more). Licence: GPL-2.0-only; distribution: patch-your-own. Listed
-      by altstrument; repo not read by us yet.'
+      by altstrument; repo not read by us yet. Also reachable as connorway32/rytm-mods-src (same HEAD 3a98e23,
+      2026-11-03).'
     sources:
     - altstrument (2026-11-01)
   - id: rytm1-mods
@@ -1880,9 +1897,9 @@ projects:
     repo: https://github.com/AveyCole/Supermodel
     status: active
     base_os: '1.13'
-    version: main @ cd6ae4c (2026-11-01)
-    last_activity: "2026-11-02"
-    notes: "Fork of Modded Cycles with a 909-style kit flasher, ACID machine, sequence generator, second LFO. Licence: unspecified; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: more screenshots of the running firmware added to docs/assets/screens."
+    version: "3.02 (docs dated 2026-11-03; Optional edition 3.02 experimental)"
+    last_activity: "2026-11-03"
+    notes: "Fork of Modded Cycles with a 909-style kit flasher, ACID machine, sequence generator, second LFO. Licence: unspecified; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: more screenshots of the running firmware added to docs/assets/screens. 2026-11-03: release 3.02 documented (shortcut guide, printable manual, English and French); playback modes One-Shot, Loop, Slice, Granular, Stretch, Pluck, Wavetable."
     sources:
     - altstrument (2026-11-01)
     links:
@@ -2045,10 +2062,11 @@ projects:
     status: active
     base_os: 1.40C
     version: 'v0.3 (tags v0.2/v0.3, 2026-11-02): v0.2 adds VARISPEED and drops FX2 LOCK; v0.3 names the LOAD/SAVE KIT lists. Unreleased: USB IN/OUT moved to on-chip SRAM (USB share of the frame interrupt ~34 -> 24 us on an MKII)'
-    last_activity: '2026-11-02'
+    last_activity: '2026-11-03'
     notes: 'Modular Octatrack OS 1.40C "remixer": bus and track effects, FM synth machine, 255 kits, USB audio/MIDI,
       stock bug fixes. Base of Modwerk. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not
-      read by us yet.'
+      read by us yet. 2026-11-03: new midi-follow module (docs/site/usage/midi-follow.md, a test remix); not read
+      further.'
     sources:
     - altstrument (2026-11-01)
     links:
@@ -3637,3 +3655,183 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+
+  # ================================================================ musician tools from altstrument (2026-11-03)
+  - id: plock
+    name: Plock (Rytm pattern editor)
+    author: plentyofnames
+    kind: editor
+    list: musician
+    devices: [analog-rytm]
+    repo: https://github.com/plentyofnames/plock
+    links:
+      web_app: https://plentyofnam.es/plock/plock.html
+    status: active
+    base_os: "Analog Rytm OS 1.70 (per altstrument)"
+    version: "main @ 12ef58a (2026-06-19), no releases"
+    last_activity: '2026-06-19'
+    notes: >
+      Browser pattern editor for the Analog Rytm over Web MIDI: pulls the current pattern and kit by SysEx, edits trigs,
+      parameter locks, retrigs, micro-timing and sound locks in a step grid and sends the result back; opens and saves
+      .syx dumps and exports MIDI. The README credits earlier community work on the format. MIT per README (no licence
+      file in the repo).
+    sources: [altstrument (2026-11-03), README]
+
+  - id: digitakt-pattern-editor-juce
+    name: Digitakt Pattern Editor (JUCE)
+    author: mk3stn3r
+    kind: editor
+    list: musician
+    devices: [digitakt]
+    repo: https://github.com/mk3stn3r/digitaktEditor
+    status: active
+    base_os: "Digitakt MKI; offline sample playback over USB audio needs OS 1.20 or later"
+    version: "main @ 08a6c0c (2026-10-16), no releases"
+    last_activity: '2026-10-16'
+    relations:
+    - {type: port_of, id: elk-herd, evidence: 'README: format layer ported to C++ from elk-herd'}
+    notes: >
+      Native desktop app (C++/JUCE, built for Linux, CMake also for macOS/Windows): downloads a pattern or a whole project
+      over USB MIDI, edits the step grid and sample locks, imports MIDI files, uploads samples to the +Drive and plays
+      patterns offline through the computer. The README says the format layer is a C++ port of elk-herd rather than a
+      wrapper, and that it writes lanes elk-herd only decodes. BSD-2-Clause (licence file carries elk-herd's copyright).
+      Was in ignore.yml as an empty repo; re-reviewed 2026-11-03 after altstrument listed it.
+    sources: [altstrument (2026-11-03), README]
+
+  - id: digitakt-reorder
+    name: digitakt-reorder
+    author: daguilarc
+    kind: tool
+    list: musician
+    devices: [digitakt]
+    repo: https://github.com/daguilarc/digitakt_reorder
+    status: active
+    version: "main @ 21b4103 (2026-08-19)"
+    last_activity: '2026-08-19'
+    relations:
+    - {type: builds_on, id: elk-herd, evidence: 'README: works on .syx dumps fetched and sent with elk-herd'}
+    notes: >
+      Python library and job template that reorders, drops and de-duplicates the sample pool of a Digitakt project dump
+      and remaps every kit and sample-lock reference. Works on a .syx file fetched and sent with elk-herd; no MIDI code.
+      MIT.
+    sources: [altstrument (2026-11-03), README]
+
+  - id: elekprep
+    name: ElekPrep (elektron-sample-prep)
+    author: luizvarela
+    kind: tool
+    list: musician
+    devices: [digitakt, digitakt-2, analog-rytm, model-samples]
+    repo: https://github.com/luizvarela/elektron-sample-prep
+    links:
+      web_app: https://luizvarela.github.io/elektron-sample-prep/
+    status: inactive
+    version: "main @ 9f85fc8 (2026-02-27)"
+    last_activity: '2026-02-27'
+    notes: >
+      Single-page browser sample prep: trims at zero crossings, converts to 48 kHz 16-bit WAV, works out loop lengths
+      from BPM and steps; profiles for four devices (device list taken from the related ElekPrep Transfer app, not
+      checked). No MIDI; files go to the unit through Transfer or Elektroid. MIT.
+    sources: [altstrument (2026-11-03), README]
+
+  - id: elekprep-transfer
+    name: ElekPrep Transfer
+    author: unknown
+    kind: tool
+    list: musician
+    devices: [digitakt-2, digitakt, analog-rytm, model-samples]
+    repo: null
+    links:
+      web_app: https://elekprep-transfer.vercel.app/
+    status: unknown
+    version: "ElekPrep v0.1 (page label)"
+    notes: >
+      Closed-source browser app that preps audio and sends it over Web MIDI SysEx to the +Drive, with Transfer and
+      +Drive Manager views and device profiles for Digitakt II, Digitakt, Analog Rytm (MKI/MKII) and Model:Samples.
+      Proprietary; author not named. Relation to luizvarela's ElekPrep not established (same name). Interesting as a
+      second independent implementation of +Drive upload over SysEx.
+    sources: [altstrument (2026-11-03)]
+
+  - id: digitone-2-pattern-manager
+    name: Digitone 2 Pattern Manager
+    author: morukutsu
+    kind: tool
+    list: musician
+    devices: [digitone-2]
+    repo: null
+    links:
+      web_app: https://digitone2.morukutsu.fr/
+    status: unknown
+    notes: >
+      Closed-source browser app: requests Pattern+Kit dumps from a Digitone II slot over Web MIDI, keeps them in a local
+      library and sends them back to a chosen slot; also imports project capture .syx files and replays a captured
+      project stream. Proprietary. Shows that DN2 pattern/kit dump requests per slot work over SysEx (claim, not
+      checked by us).
+    sources: [altstrument (2026-11-03)]
+
+  - id: machinedrandom
+    name: MachineDrandom
+    author: Kerem Ergener (per altstrument)
+    kind: tool
+    list: musician
+    devices: [machinedrum]
+    repo: null
+    links:
+      web_app: https://machinedrandom.keremergener.com/
+    status: unknown
+    notes: >
+      Closed-source browser app that randomises the loaded Machinedrum kit live over Web MIDI, engine by engine and
+      parameter by parameter, and can generate rhythm patterns played as MIDI notes. Nothing is stored until the kit is
+      saved on the unit. Proprietary.
+    sources: [altstrument (2026-11-03)]
+
+  - id: say-a
+    name: Say A! (MCL chromatic A tool)
+    author: BartBral
+    kind: tool
+    list: musician
+    devices: [machinedrum]
+    repo: https://github.com/BartBral/MCL-Chromatic-A-tool
+    links:
+      web_app: https://bartbral.github.io/MCL-Chromatic-A-tool/md-transfer.html
+    status: active
+    version: "main @ c241980 (2026-05-21) per altstrument"
+    last_activity: '2026-05-21'
+    notes: >
+      Browser sample prep and transfer tool for the Machinedrum UW: shifts each sample so its root lands on an A for
+      MegaCommand's chromatic mode, resamples, processes loops, and sends over MIDI Sample Dump or saves WAV and .syx.
+      Licence not stated. Repo clone timed out (large); details from altstrument.
+    sources: [altstrument (2026-11-03)]
+
+  - id: fyris-sm
+    name: SM (Machinedrum sample manager)
+    author: Fyris
+    kind: tool
+    list: musician
+    devices: [machinedrum]
+    repo: null
+    links:
+      web_app: https://sm.fyris.me/
+    status: unknown
+    notes: >
+      Closed-source browser sample manager for the Machinedrum UW using MIDI Sample Dump Standard over Web MIDI: 48 slots
+      with waveform view, WAV and .syx import/export, reverse, invert, loop and name controls. Proprietary.
+    sources: [altstrument (2026-11-03)]
+
+  - id: model-cycles-web-editor
+    name: Model:Cycles Web Editor
+    author: tkawamu0622-cmd
+    kind: editor
+    list: musician
+    devices: [model-cycles]
+    repo: https://github.com/tkawamu0622-cmd/model-cycles-web-editor
+    links:
+      web_app: https://tkawamu0622-cmd.github.io/model-cycles-web-editor/
+    status: active
+    version: "main @ 351ea86 (2026-08-25) per altstrument"
+    last_activity: '2026-08-25'
+    notes: >
+      Browser piano-roll editor and sequencer for the Model:Cycles over Web MIDI: parameters as CC, pattern select by
+      program change, and recording a sequence into the unit one track at a time by playing it in over MIDI clock (no
+      pattern SysEx). Licence not stated. Repo clone failed (transfer error); details from altstrument.
+    sources: [altstrument (2026-11-03)]

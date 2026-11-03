@@ -930,13 +930,14 @@ projects:
     devices: [digitone-2, digitone]
     repo: https://github.com/angellinares/dn2_firmware_explore
     status: active
-    base_os: "Digitone II (example: OS 1.10E); README also covers Digitone / Keys"
+    base_os: "Digitone II OS 1.11 (mods); README also covers Digitone / Keys"
     version: null
     last_activity: null
     notes: >
-      Tools to inspect, modify and rebuild Digitone firmware. README status table: recovery path proven
-      on hardware, a patch confirmed on the instrument; open: own images stall at ~80% in the recovery
-      path ("fix built, awaiting a test"), fourth LFO planned. AGPL-3.0-or-later, 269 commits.
+      Tools to inspect, modify and rebuild Digitone firmware (dnfw, CLI and browser), plus 17 mods for
+      Digitone II 1.11 (Waverider wavetable machine, LFO4, arp modes, LFO waves, FX destinations and others),
+      each with a version and a changelog. The ~80% recovery-path stall once listed as open was the MIDI
+      link, not the image (settled 2026-09-11). AGPL-3.0-or-later.
     latest_seen: >
       altstrument: OS 1.11 target; includes the dnfw inspect/modify/rebuild tool, which also runs in the browser. Hardware-confirmed mods: lfo4, arpmodes, lfowaves, midiarp, layermidi, fxmod and the lfolength fix (2026-10-09, audio track). No GitHub releases - tags are work snapshots.
     sources: [GitHub README, lapin-list]

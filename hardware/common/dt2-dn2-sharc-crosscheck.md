@@ -12,6 +12,7 @@ Both units carry the same ADSP-21569 SHARC+ at 1 GHz, and 1,038 of the DT2's 1,2
 - **Hardware loop ends in 48-bit ISA (rule A45):** a DT2 froze at boot from a compressed loop end; stock DN2 1.11 obeys the rule in all 286 loops and the DN2 skill enforces it. {digikit-f91} {dn2-skill-scripts}
 - **Decoded section 7 under 1 MiB (rule A46):** the same 828-byte staging routine on DT2 1.16/1.17 and DN2 1.11/1.12; the overrun crashed a DT2. {digikit-f06} {dt2-lab-capicola}
 - **NaN or Inf in stock FX feedback silences everything until reboot:** on a DT2 from an LFO at large depth on TUNE (digikit) and in the owner's builds; on a DN2 from never-written DDR, which powers on as garbage such as `0xFFFFFFFF` (the DN2 skill). Same failure, two triggers: guard every value you feed into a feedback path, and fill new DDR in emulator tests with `0xFFFFFFFF`. {digikit-f51} {own-dt2-notes} {dn2-skill-firmware}
+- **Shared stock DSP code, by the bytes:** the DT2's six wavetable render stages are in the DN2 image too. Three are byte-identical; in the other three every differing byte is a PC-relative call offset (same target) or one table-pointer literal. All call the same reciprocal helper at sw `0x1c06ba` in both images (RECIPS plus Newton steps, the helper behind A35's divide cost). A fix or measurement on one of these stages carries over. `[doc]` {digikit-f11}
 - **The unused frame tail carries DSP code on both** (+23 instructions per block on DT2, +26 on DN2). `[doc]` {digikit-findings}
 
 ## 2. Silicon-level, seen on one unit, expected on the other

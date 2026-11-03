@@ -115,7 +115,7 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 Round-trip new code through a disassembler and compare, and make the build refuse a mismatch. `[hw]` {octabam-traps} {elekloader-adapting} {mdkit-docs}
 
 **A42. ColdFire is not a full 68000: check every addressing-mode combination against the ColdFire manual, not against the emulator.** The forms below were excluded by ColdFire, ran in the emulator, and failed on a unit:
-- `move.l #imm,d16(An)` (immediate to displacement) crashed a Digitakt II at startup with exception vector 4;
+- `move.l #imm,d16(An)` (immediate to displacement) crashed a Digitakt II at startup with exception vector 4. digikit's machine builder wrote the same form (`2f7c imm 0008`, `move.l #imm,(8,A7)`) independently: it is 8 bytes long, and ColdFire instructions are at most 6, so every image with that shim faults on a real ColdFire while the old generic m68k emulator ran it {digikit-f02};
 - `move.l #imm,abs.L` (immediate to absolute) appeared five times in an early copier of a Digitone mk1 build, which then hung on the logo. It was the most likely cause, though the fault address was never captured.
 
 In the second case, a local ISA checker also accepted the form, because it decoded the instruction without checking the source/destination pair. Assemble with the right `-mcpu`, check hand-encoded bytes against the manual's mode tables (CFPRM pp. 4-47/4-48), and round-trip (A41). `[hw]` {dt2-lab-coldfire-fix} {dn1-arpmod-e04}

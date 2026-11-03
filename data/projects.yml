@@ -59,7 +59,7 @@ projects:
     status: active
     base_os: "Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing"
     version: null
-    last_activity: "2026-11-02"
+    last_activity: "2026-11-03"
     notes: >
       Browser-based hub, builds locally from the user's own stock OS. Browse mods by device,
       forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still
@@ -318,8 +318,8 @@ projects:
     repo: https://github.com/armio/dn2-dt2-firmware-research
     status: released
     base_os: "Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally"
-    version: "T1E2 stable; experimental R003 (Recorder) and R008 (USB diagnostics, 2026-11-02, not validated on hardware)"
-    last_activity: "2026-11-02"
+    version: "R012 stable (2026-11-03; R011 previous stable, T1E2 before); R008 USB diagnostics superseded"
+    last_activity: "2026-11-03"
     notes: >
       Source-only recipes that rebuild T1E2, a Digitone II 1.11 research firmware that transplants the Digitakt II
       sample machines (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE) with stereo samples, sample browsing, DT2
@@ -332,6 +332,7 @@ projects:
       digikit and elektron-firmware-tool (pinned commits). Stable = owner-tested with USB streaming, not every workflow.
       Nothing is flashed by the tools. AGPL-3.0-or-later. One commit at first sight.
       R008 (2026-11-02) adds checksummed records of rejected USB audio publications. Captured on a unit: USB audio froze while headphones and UI kept working; accepted publications stopped while rejected ones rose by 16,392 in about 10.9 s, and USB transfers kept running with old audio. Cause not identified; R008 is a diagnostic build, not a fix.
+      R011 fixed the USB audio that repeated old audio after a project change: the render-time TX selector had bound the retained queue to a destination derived from an older RX phase; R011 picks it from the current DMA START. Owner-confirmed on the unit, R012 needs only the two official OS files.
     sources: [GitHub README, releases/t1e2.json]
 
   # ---------------------------------------------------------------- Syntakt
@@ -1007,8 +1008,8 @@ projects:
       safety_doc: https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/SAFETY.md
     status: wip
     base_os: "Digitone II stock OS 1.11 ONLY (1.10 must update to 1.11 first; 1.12+ must go back to 1.11). Also needs the user's own Digitakt II OS 1.17 (or 1.16), Machinedrum UW OS 1.63 and Monomachine SFX-6 OS 1.32B files"
-    version: "v0.38 JUMP (2026-11-02): Direct Jump (PTN + YES/NO), per-project sample pools, new samples and recordings play at once (silent until a restart since v0.33), THRES 0 learns the noise floor, a SLICE/GRID KEYBOARD chord-memory crash fixed; DN2 OS 1.11; release gate CLEARED TO FLASH (39 gates)"
-    last_activity: "2026-11-02"
+    version: "v0.39 SLIDE (2026-11-03): parameter slides (SLD/SLEN, lock ids 200/201), recordings kept whole again, THRES 0 learns its floor over 48 blocks, +DRIVE look-alike samples matched by identity, +DRIVE key repeat, ERASE MOD DATA; DN2 OS 1.11; gate CLEARED TO FLASH (42 gates)"
+    last_activity: "2026-11-03"
     notes: >
       Adds Digitakt II sample machines (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE) with sample browser and
       recorder, PERC (34 Machinedrum machines incl. TRX, EFM, GND, P-I), Monomachine voices (SID 6581, DPRO WAVE/DDRW/DENS,
@@ -1020,6 +1021,7 @@ projects:
       is kept on the repo's `builds` branch (not main) - unlike most projects here, which only ship patchers; we link
       only to the repo and docs, not to builds. Withdrawn builds: v0.4-v0.7 (oversized image).
       v0.38 (2026-11-02): Direct Jump state kept in its own +Drive sector (0x6FF000); per-project sample lists at +Drive 0x6D0000-0x6E02FF, two checked copies each. Root cause of the silent new samples: the DSP plays a pool slot only below the directory's count, and live adds did not update the count.
+      v0.39 (2026-11-03): recordings had kept only ~2 ms since v0.38 because the DSP recorder took words 2-4 of every new link command as source, channel and threshold, and v0.38 sent a check command at every take's start; now only the recorder's own commands set them.
     latest_seen: >
       v0.34 TIMING: P-I voices that stayed dead after v0.33's guard muted them are now reset on the next note; a FUNC-held
       readout shows V1D (bad data in a voice's delay memory) or V1X (elsewhere); new USB diag tool tools/dn2diag.py reads the
@@ -1546,7 +1548,7 @@ projects:
     status: active
     base_os: Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you)
     version: mdmm-v0.8.1 (2026-10-29)
-    last_activity: "2026-11-02"
+    last_activity: "2026-11-03"
     notes: 'Desktop editors for Machinedrum and Monomachine that run the unit''s own OS in an emulator (app or VST3/AU),
       optional hardware MIDI mode. Licence: GPL-3.0-only; distribution: download. Listed by altstrument; repo not
       read by us yet.'
@@ -1728,7 +1730,7 @@ projects:
     status: active
     base_os: '1.13'
     version: "release 0.32 (beta, 2026-11-02): eleven cards in the web flasher; fltslot 0.10"
-    last_activity: "2026-11-02"
+    last_activity: "2026-11-03"
     notes: "Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: a web Manager keeps one Model:Cycles project per firmware: it backs up the current project, flashes the other firmware over USB and restores that firmware's project (notes/77)."
     sources:
     - altstrument (2026-11-01)
@@ -2008,11 +2010,9 @@ projects:
     repo: https://github.com/Zac-Kyoti/octatrack-kyoti-fw
     status: active
     base_os: 1.40C
-    version: KYOTI V1.6 (2026-10-22); ref tag ref/kyoti-v1.6-2026-10-29 added
-    last_activity: '2026-10-29'
-    notes: 'Feature and fix builds keeping the stock feel: mute modes, pattern jump, sidechain compressor, varispeed,
-      repitch. Tested on an MKI. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read
-      by us yet.'
+    version: "KYOTI V1.7 + MUTE_MODES KEYHOLD (final 2026-11-02, flashed by the user, all tests pass)"
+    last_activity: "2026-11-02"
+    notes: "Feature and fix builds keeping the stock feel: mute modes, pattern jump, sidechain compressor, varispeed, repitch. Tested on an MKI. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet. 2026-11-02: MUTE_MODES KEYHOLD fixes octabam#934: with SIDECHAIN_COMPRESSOR a muted track that had been the KEY played again once KEY moved away; held tracks now keep the post-FX cut until unmuted. Confirmed on an Octatrack MKI."
     sources:
     - altstrument (2026-11-01)
   - id: octatrack-manager
@@ -2106,9 +2106,11 @@ projects:
     devices:
     - syntakt
     repo: https://github.com/GSM1980/Synfact-release
-    status: "unreachable"
+    status: "web app; repo unreachable"
+    links:
+      homepage: https://synfact.app
     last_activity: '2026-10-30'
-    notes: "Mod system for the Syntakt bringing Digitakt mk1 sample machines (ONE SHOT, WERP, REPITCH, SLICE), a per-project sample pool with long samples in slots 65-128 and a basic sample manager. Experimental. MIT. 18 stars at first sight. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read."
+    notes: "Mod system for the Syntakt bringing Digitakt mk1 sample machines (ONE SHOT, WERP, REPITCH, SLICE), a per-project sample pool with long samples in slots 65-128 and a basic sample manager. Experimental. MIT. 18 stars at first sight. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read. 2026-11-03: the Lapin list links it as an external web app, https://synfact.app (builds custom Syntakt firmware from the user's stock OS file)."
     sources:
     - GitHub search 2026-11-02
     - README
@@ -2121,10 +2123,8 @@ projects:
     repo: https://github.com/Vuulgaris/syncrackd
     status: wip
     base_os: Syntakt OS 1.42
-    last_activity: '2026-10-31'
-    notes: 'Sampler for the Syntakt as a patch to OS 1.42: replaces the Twinshot machine with a sample player (64
-      slots, 16-bit 48 kHz, 64 MB pool), loops, slices across the keys, tempo-following time stretch, a sampling page.
-      MIT. Created 2026-10-30. Found by GitHub search 2026-11-02; README start read.'
+    last_activity: "2026-11-03"
+    notes: "Sampler for the Syntakt as a patch to OS 1.42: replaces the Twinshot machine with a sample player (64 slots, 16-bit 48 kHz, 64 MB pool), loops, slices across the keys, tempo-following time stretch, a sampling page. MIT. Created 2026-10-30. Found by GitHub search 2026-11-02; README start read. 2026-11-03: README links a walkthrough video."
     sources:
     - GitHub search 2026-11-02
     - README
@@ -3178,7 +3178,8 @@ projects:
       move_port: https://github.com/sd88me/schwung-machinemodule
       monomodule_mpc: https://github.com/sd88me/mpc-vst-monomodule
     status: active
-    last_activity: '2026-11-01'
+    version: "v1.0.2 (tag, 2026-11-03)"
+    last_activity: "2026-11-03"
     notes: The Machinedrum's own DSP code and machine/LFO/mixer maths as a VST2 for Akai MPC/Force standalone devices
       (all 16 tracks in one instance). The same author ports it to Ableton Move (Schwung) and ships Monomodule for
       MPC OS. User supplies the OS file. AGPL-3.0.

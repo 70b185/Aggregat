@@ -97,6 +97,7 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2mk2-sampler | dn2mk2-firmware `docs/sampler.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/sampler.md |
 | dn2mk2-reports | dn2mk2-firmware `docs/user-reports.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/user-reports.md |
 | dn2mk2-v038 | dn2mk2-firmware `releases/v0.38.md` (Direct Jump, per-project pools, silent-sample fix; 2026-11-02) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/releases/v0.38.md |
+| dn2mk2-v039 | dn2mk2-firmware `releases/v0.39.md` (recorder command fix, parameter slides; 2026-11-03) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/releases/v0.39.md |
 | dn2mk2-changes | dn2mk2-firmware `docs/CHANGES-FROM-UPSTREAM.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/CHANGES-FROM-UPSTREAM.md |
 | overwitch-readme | dagargo/overwitch README (device list, protocol versions, Heat +FX layout) | https://github.com/dagargo/overwitch |
 | overwitch-devices | dagargo/overwitch `res/devices.json` (Overbridge USB product id per device) | https://github.com/dagargo/overwitch/blob/master/res/devices.json |
@@ -202,6 +203,7 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | synthack-guide | Angelo-politek/Synthack-OS `docs/modding-guide.md` | https://github.com/Angelo-politek/Synthack-OS/blob/main/docs/modding-guide.md |
 | armio-t1e2 | armio/dn2-dt2-firmware-research README and `releases/t1e2.json` | https://github.com/armio/dn2-dt2-firmware-research |
 | armio-usb | armio/dn2-dt2-firmware-research `docs/usb-research.md` and `docs/research/2026-11-02.md` (R008 USB diagnostics, DN2 1.11) | https://github.com/armio/dn2-dt2-firmware-research/blob/main/docs/research/2026-11-02.md |
+| armio-r011 | armio/dn2-dt2-firmware-research `docs/research/2026-11-03.md` (R011/R012 stable, the USB publication fix) | https://github.com/armio/dn2-dt2-firmware-research/blob/main/docs/research/2026-11-03.md |
 | digikit-f103 | ElekLabs/digikit findings 103 (DSP facts on a Digitakt II and Digitone II), 102 (RECIPS/RSQRTS seeds), 101 (step word on hardware), 78 (reply in flight) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/103-dsp-facts-on-a-digitakt-ii.md |
 | digikit-f102 | ElekLabs/digikit finding 102, RECIPS/RSQRTS seed tables measured on a DT2 and a DN2 | https://github.com/ElekLabs/digikit/blob/main/docs/findings/102-recips-rsqrts-seed-tables.md |
 | dn2-dt2port | dnfw `docs/dt2-machine-port.md` (DT2 machine port research) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/dt2-machine-port.md |

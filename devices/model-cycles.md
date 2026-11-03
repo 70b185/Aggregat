@@ -8,8 +8,8 @@ Data last verified: 2026-11-02
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **model27** (durchgemacht, 18nelli18) | firmware | active | release 0.32 (beta, 2026-11-02): eleven cards in the web flasher; fltslot 0.10; 1.13 | - | 2026-11-03 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
 | **Cycles One-Shot** (durchgemacht) | mod | active | machine 0.13 (2026-11-02, on main; newest tag v0.12): Start and Length act on the note that plays; tested in a model27 build, in digiemu and on a Model:Cycles; 1.13 | v0.13 | 2026-11-02 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
-| **model27** (durchgemacht, 18nelli18) | firmware | active | release 0.32 (beta, 2026-11-02): eleven cards in the web flasher; fltslot 0.10; 1.13 | - | 2026-11-02 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
 | **Supermodel Edition** (A.V., 18nelli18) | firmware | active | main @ cd6ae4c (2026-11-01); 1.13 | wavetable-pack | 2026-11-02 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |
 | **SPOKES** (A.V.) | tool | active | main @ 1604cbf (2026-10-31); 1.13 | - | 2026-10-31 | [repo](https://github.com/AveyCole/SPOKES) · [homepage](https://aveycole.github.io/SPOKES/) |
 | **Vladiktron Spoke** (imaf6971) | emulator | active | v0.1.0 (2026-10-30); 1.13 | v0.1.0 | 2026-10-30 | [repo](https://github.com/imaf6971/vladiktron-spoke) |

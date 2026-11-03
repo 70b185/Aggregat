@@ -6,10 +6,10 @@ Data last verified: 2026-11-02
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **SynCrackd** (Vuulgaris) | mod | wip | Syntakt OS 1.42 | v0.1.2 | 2026-11-03 | [repo](https://github.com/Vuulgaris/syncrackd) |
 | **elkflash** (Iced-Cream) | tool | active | - | - | 2026-11-02 | [repo](https://github.com/Iced-Cream/elkflash) |
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
-| **SynCrackd** (Vuulgaris) | mod | wip | Syntakt OS 1.42 | v0.1.2 | 2026-10-31 | [repo](https://github.com/Vuulgaris/syncrackd) |
-| **Synfact** (GSM1980) | mod | unreachable | - | v0.0.2 | 2026-10-30 | [repo](https://github.com/GSM1980/Synfact-release) |
+| **Synfact** (GSM1980) | mod | web app; repo unreachable | - | v0.0.2 | 2026-10-30 | [repo](https://github.com/GSM1980/Synfact-release) · [homepage](https://synfact.app) |
 | **Elektron-Screen-Tool** (Fadedlimes) | tool | active | - | - | 2026-10-30 | [repo](https://github.com/Fadedlimes/elektron-screen-tool) |
 | **syntakt-machine45-research** (Humgic) | research | wip | main @ 9511030 (2026-10-28), no tagged releases; Syntakt OS 1.41 | - | 2026-10-28 | [repo](https://github.com/Humgic/syntakt-machine45-research) |
 | **Synthack-OS (Syntakt MAX 1.0, SY FM4 modular builder)** (kariGardarsson) | mod | beta | Syntakt MAX modular builder RC2 (tag, 2026-10-20); RC1 (2026-10-19); MAX 1.0 (2026-10-17); Syntakt OS 1.41 | syntakt-max-v1.0 | 2026-10-21 | [repo](https://github.com/karigardarsson/Synthack-OS) · [release max](https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-v1.0) · [release builder](https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-modular-builder-rc1) · [forum max](https://elektronmods.com/thread-81-good-news-everyone-syntakt-max-1-0-multiple-custom-firmware) · [forum fm4](https://elektronmods.com/thread-85-good-news-everyone-sy-fm4-is-here-a-fully-modular-syntakt) |
@@ -104,13 +104,13 @@ _Sources: GitHub README, altstrument tools page_
 
 ### Synfact
 
-Mod system for the Syntakt bringing Digitakt mk1 sample machines (ONE SHOT, WERP, REPITCH, SLICE), a per-project sample pool with long samples in slots 65-128 and a basic sample manager. Experimental. MIT. 18 stars at first sight. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read.
+Mod system for the Syntakt bringing Digitakt mk1 sample machines (ONE SHOT, WERP, REPITCH, SLICE), a per-project sample pool with long samples in slots 65-128 and a basic sample manager. Experimental. MIT. 18 stars at first sight. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read. 2026-11-03: the Lapin list links it as an external web app, https://synfact.app (builds custom Syntakt firmware from the user's stock OS file).
 
 _Sources: GitHub search 2026-11-02, README_
 
 ### SynCrackd
 
-Sampler for the Syntakt as a patch to OS 1.42: replaces the Twinshot machine with a sample player (64 slots, 16-bit 48 kHz, 64 MB pool), loops, slices across the keys, tempo-following time stretch, a sampling page. MIT. Created 2026-10-30. Found by GitHub search 2026-11-02; README start read.
+Sampler for the Syntakt as a patch to OS 1.42: replaces the Twinshot machine with a sample player (64 slots, 16-bit 48 kHz, 64 MB pool), loops, slices across the keys, tempo-following time stretch, a sampling page. MIT. Created 2026-10-30. Found by GitHub search 2026-11-02; README start read. 2026-11-03: README links a walkthrough video.
 
 _Sources: GitHub search 2026-11-02, README_
 

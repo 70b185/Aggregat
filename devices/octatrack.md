@@ -9,8 +9,8 @@ Data last verified: 2026-11-02
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **octabam** (Sam Banks, Contributors credited per module) | firmware | active | v0.3 (tags v0.2/v0.3, 2026-11-02): v0.2 adds VARISPEED and drops FX2 LOCK; v0.3 names the LOAD/SAVE KIT lists. Unreleased: USB IN/OUT moved to on-chip SRAM (USB share of the frame interrupt ~34 -> 24 us on an MKII); 1.40C | v0.3 | 2026-11-02 | [repo](https://github.com/sambanks/octabam) · [homepage](https://modwerk.app/) |
+| **OT Kyoti FW** (Zac Kyoti) | firmware | active | KYOTI V1.7 + MUTE_MODES KEYHOLD (final 2026-11-02, flashed by the user, all tests pass); 1.40C | ref/sp12-midside-vem7 | 2026-11-02 | [repo](https://github.com/Zac-Kyoti/octatrack-kyoti-fw) |
 | **Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)** (radiohagen) | mod | active | Octatrack OS 1.40C via octabam | - | 2026-10-31 | [repo](https://github.com/radiohagen/octatrack-modules) |
-| **OT Kyoti FW** (Zac Kyoti) | firmware | active | KYOTI V1.6 (2026-10-22); ref tag ref/kyoti-v1.6-2026-10-29 added; 1.40C | ref/sp12-midside-vem7 | 2026-10-29 | [repo](https://github.com/Zac-Kyoti/octatrack-kyoti-fw) |
 | **ReBirth to Octatrack** (alexandrubelc) | tool | wip | Octatrack with octabam GARDEN36 or later | - | 2026-10-29 | [repo](https://github.com/alexandrubelc/rebirth2octatrack) |
 | **TrackPatterns** (pgstath) | mod | wip | 0.1.0 experimental, tested on one MKII; Octatrack OS 1.40C (octabam / Modwerk module) | v0.1.0 | 2026-10-23 | [repo](https://github.com/pgstath/TrackPatterns) |
 | **OType** (nordseele) | mod | wip | Octatrack firmware (custom; see docs) | - | 2026-10-22 | [repo](https://github.com/nordseele/otype) · [docs](https://nordseele.github.io/otype-docs/) |
@@ -89,7 +89,7 @@ _Sources: altstrument (2026-11-01)_
 
 ### OT Kyoti FW
 
-Feature and fix builds keeping the stock feel: mute modes, pattern jump, sidechain compressor, varispeed, repitch. Tested on an MKI. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
+Feature and fix builds keeping the stock feel: mute modes, pattern jump, sidechain compressor, varispeed, repitch. Tested on an MKI. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet. 2026-11-02: MUTE_MODES KEYHOLD fixes octabam#934: with SIDECHAIN_COMPRESSOR a muted track that had been the KEY played again once KEY moved away; held tracks now keep the post-FX cut until unmuted. Confirmed on an Octatrack MKI.
 
 _Sources: altstrument (2026-11-01)_
 

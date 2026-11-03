@@ -47,6 +47,7 @@ digitakt-ii-research grades its own statements as SOURCE/STATIC -> HOST -> SYNTH
 - [`common/agent-workflow.md`](common/agent-workflow.md) - Agent workflow for firmware mods (distilled from the digitone-2-modding-skill)
 - [`common/dt2-dn2-limits-and-audio-chain.md`](common/dt2-dn2-limits-and-audio-chain.md) - Digitakt II / Digitone II - firmware limits, DSP calling convention and the audio chain (DT2 1.17, DN2 1.12)
 - [`common/dt2-dn2-sharc-crosscheck.md`](common/dt2-dn2-sharc-crosscheck.md) - which SHARC findings hold on both the Digitakt II and the Digitone II, which on one only, and where the two differ
+- [`HYPOTHESES.md`](HYPOTHESES.md) - conclusions drawn by comparing projects, not yet shown on a unit, each with the test that would show it (DT2, DT1, DN2, Heat +FX)
 - [`common/ecosystem-lessons.md`](common/ecosystem-lessons.md) - Ecosystem lessons - how the 2026 custom-firmware wave is built, verified and what goes wrong
 - [`common/firmware-container.md`](common/firmware-container.md) - Firmware container (.syx) - facts shared by the devices
 - [`common/flash-procedure.md`](common/flash-procedure.md) - Flash procedure and link pitfalls (Digitone II, as practised by dn2mk2 and dnfw)

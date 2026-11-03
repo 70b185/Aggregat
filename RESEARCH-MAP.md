@@ -155,6 +155,8 @@ When done, update the matching row here and the device file under hardware/devic
 
 ## Shared to-do
 
+Inferred facts waiting for a test on a unit, sorted by effort (stock, probe, build): [hardware/HYPOTHESES.md](hardware/HYPOTHESES.md).
+
 Pick one, check the status above, and go. **S** = an evening, **M** = a few sessions, **L** = a project. "Value" says why the community gains from it.
 
 | # | Task | Device | Needs | Effort | Value |

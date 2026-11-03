@@ -10,7 +10,7 @@ Data last verified: 2026-11-02
 |---|---|---|---|---|---|---|
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.8.1 (2026-10-29); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-02 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
 | **ModuleDrum** (K-X420) | emulator | active | - | v1.4.1 | 2026-11-01 | [repo](https://github.com/K-X420/ModuleDrum) |
-| **Machinemodule for MPC OS** (sd88me) | emulator | active | - | v1.0.1 | 2026-11-01 | [repo](https://github.com/sd88me/mpc-vst-machinedrum) · [move port](https://github.com/sd88me/schwung-machinemodule) · [monomodule mpc](https://github.com/sd88me/mpc-vst-monomodule) |
+| **Machinemodule for MPC OS** (sd88me) | emulator | active | - | v1.0.2 | 2026-11-01 | [repo](https://github.com/sd88me/mpc-vst-machinedrum) · [move port](https://github.com/sd88me/schwung-machinemodule) · [monomodule mpc](https://github.com/sd88me/mpc-vst-monomodule) |
 | **OP-XY MNMD** (mmockett) | emulator | active | - | v1.2.3 | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **BSP Machinedrum** (ABarracu87) | tool | active | - | v0.3.5 | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
 | **MoDule (MD Drums)** (c0remusic) | emulator | active | - | module-v0.1.2 | 2026-10-29 | [repo](https://github.com/c0remusic/MModule) |

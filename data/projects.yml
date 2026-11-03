@@ -269,6 +269,43 @@ projects:
       altstrument: v1.1 (2026-10-30) reworks GROOVE with presets, a random drift control, random weights and arrow-key editing, and restores FUNC + TEMPO as tap tempo; v1.0.1 (2026-10-29) fixes installing Elektron's OS or an Overtone update with Transfer while Overtone runs.
     sources: [forum thread 90, GitHub README]
 
+  - id: x0x
+    name: x0x (808/909 kick machines)
+    author: simonjohansson
+    kind: mod
+    devices: [digitakt, digitone, digitone-2]
+    repo: https://github.com/simonjohansson/x0x
+    status: wip
+    base_os: "Digitakt mk1 1.54; Digitone mk1 1.44; Digitone II 1.12 (Digitakt II not supported)"
+    version: "main @ c79bd5e (2026-10-29), no releases yet"
+    last_activity: "2026-10-29"
+    notes: >
+      808 and 909 kick machines (MODEL 0 = 808, 127 = 909; TNTUN, DECAY, ATTK) that use the device's own sequencer,
+      filters, AMP and effects, built from the user's stock OS for each device. On the Digitone II a new kick fades the
+      previous one on the same track over about 2.7 ms. Physical qualification on Digitakt and Digitone is in progress
+      (issue 94). docs/dn2-remote-control.md drives a DN2 1.12 remotely through a DigiHealth helper (remote keys, screen
+      frames, ColdFire and DSP peek). Licence file not found in the clone. Found by GitHub code search 2026-11-03.
+    sources: [GitHub code search 2026-11-03, README, docs/dn2-remote-control.md]
+
+  - id: motorcycles
+    name: Motor:Cycles (rhythmic-noise firmware)
+    author: nzimas
+    kind: firmware
+    devices: [model-cycles]
+    repo: https://github.com/nzimas/motorcycles
+    links:
+      web_patcher: https://nzimas.github.io/motorcycles/install.html
+    status: wip
+    base_os: "Model:Cycles OS 1.13"
+    version: "v1.0.0-rc18 (tag)"
+    last_activity: "2026-11-03"
+    notes: >
+      Firmware for rhythmic noise and power noise: four generators (Patch, Kit, Phrase, Pattern) entered with PAGE + pad,
+      steps 1-15 set the complexity, step 16 held generates; plus its own sound engines. Ships as a browser patcher that
+      converts the user's own OS 1.13 file; the result is byte for byte the file the author tested on a real Model:Cycles.
+      MIT. Same author and the same generator idea as DigiRust (Digitone II). Found by GitHub code search 2026-11-03.
+    sources: [GitHub code search 2026-11-03, README]
+
   - id: digirust
     name: DigiRust
     author: nzimas
@@ -1571,6 +1608,23 @@ projects:
       of MDX 2.0. Licence: unspecified; distribution: source-only. Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+  - id: rytmrandomizer
+    name: RytmRandomizer
+    author: buzzijose-hub
+    kind: tool
+    list: musician
+    devices: [analog-rytm, analog-four-keys]
+    repo: https://github.com/buzzijose-hub/rytmrandomizer
+    status: active
+    base_os: "Analog Rytm MK2 and Analog Four MK2"
+    version: "main @ 892aaff (2026-09-28)"
+    last_activity: "2026-09-28"
+    notes: >
+      Performance cockpit for the Analog Rytm MK2 and Analog Four MK2 over SysEx: sees the devices at once, transmits
+      nothing until armed, builds and checks kits from recipes against a reference dump. PolyForm Noncommercial 1.0.0
+      (not an open-source licence). Python 3.11+. Found by GitHub code search 2026-11-03.
+    sources: [GitHub code search 2026-11-03, README]
+
   - id: mds-tools
     name: mds-tools (MDS packer and certifier)
     author: Justin Mammarella
@@ -2127,15 +2181,22 @@ projects:
     kind: mod
     devices:
     - syntakt
-    repo: https://github.com/GSM1980/Synfact-release
-    status: "web app; repo unreachable"
+    repo: "https://github.com/GSM1980/synfact-dev"
+    status: "active"
+    version: "main @ 1a6d0c7 (2026-11-03), untagged"
+    base_os: "Syntakt OS 1.41"
     links:
       homepage: https://synfact.app
-    last_activity: '2026-10-30'
-    notes: "Mod system for the Syntakt bringing Digitakt mk1 sample machines (ONE SHOT, WERP, REPITCH, SLICE), a per-project sample pool with long samples in slots 65-128 and a basic sample manager. Experimental. MIT. 18 stars at first sight. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read. 2026-11-03: the Lapin list links it as an external web app, https://synfact.app (builds custom Syntakt firmware from the user's stock OS file)."
+      old_release_repo: https://github.com/GSM1980/Synfact-release
+      release_copy: https://github.com/nrdsrfr/synfact-release
+    last_activity: "2026-11-03"
+    notes: "Mod system for the Syntakt bringing Digitakt mk1 sample machines (ONE SHOT, WERP, REPITCH, SLICE), a per-project sample pool with long samples in slots 65-128 and a basic sample manager. Experimental. MIT. 18 stars at first sight. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read. 2026-11-03: the Lapin list links it as an external web app, https://synfact.app (builds custom Syntakt firmware from the user's stock OS file). 2026-11-03: the project moved to GSM1980/synfact-dev and was rebuilt on elekloader (GPL-2.0; the old release repo was MIT): a core (mods/core-st) with hook bus, UI and SETTINGS events, SMZ4 banks of machines and modules that can change without reinstalling, long-sample storage (HZFS) and a project sample pool. Mods: SP sample machines, SY FM DTONE, audio recorder, third LFO, arpeggiator, POLY, system info, sample manager. Builds change MAIN and a bounded part of AUDIO only; a recovery core that never loads the bank can replace a bank that stops the unit from starting. Also builds in the browser (synfact.app). A snapshot of the old release repo survives as nrdsrfr/synfact-release (2026-10-17)."
     sources:
+    - synfact-dev README (2026-11-03)
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: builds_on, id: elekloader, evidence: 'README of synfact-dev: built on elekloader, its engine, file format and checks'}
   - id: syncrackd
     name: SynCrackd
     author: Vuulgaris

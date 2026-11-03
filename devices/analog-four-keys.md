@@ -11,6 +11,7 @@ Data last verified: 2026-11-02
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
 | **analoghealth** (Iced-Cream) | mod | wip | Rytm MKII 1.74, A4 MKII 1.56 | - | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
 | **Analog Four / Keys MK1 OS 1.56 mods** (hugz202) | mod | wip | Analog Four / Analog Keys MK1, OS 1.56 only (not MKII) | - | 2026-10-28 | [repo](https://github.com/hugz202/AE-analog-four-mods) |
+| **RytmRandomizer** (buzzijose-hub) | tool | active | main @ 892aaff (2026-09-28); Analog Rytm MK2 and Analog Four MK2 | - | 2026-09-28 | [repo](https://github.com/buzzijose-hub/rytmrandomizer) |
 | **TurboMIDI (C++)** (DatanoiseTV) | library | active | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 | **Analog Four sound SysEx cheatsheet** (kimasendorf) | research | inactive | - | - | 2020-12-01 | [repo](https://github.com/kimasendorf/elektron-analog-four-sound-sysex) |
 | **Chopshop** (Jesus Triana (bandersong)) | mod | active | 1.73 (Rytm), 1.56 (Keys); not 1.74 | - | - | [repo](https://github.com/bandersong/chopshop) · [homepage](https://chopshop-synth.pages.dev/) |
@@ -22,6 +23,12 @@ Data last verified: 2026-11-02
 Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog Keys OS 1.56 (chord memory, joystick random). Not OS 1.74, not Analog Four. Licence: GPL-3.0-or-later; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
 
 _Sources: altstrument (2026-11-01)_
+
+### RytmRandomizer
+
+Performance cockpit for the Analog Rytm MK2 and Analog Four MK2 over SysEx: sees the devices at once, transmits nothing until armed, builds and checks kits from recipes against a reference dump. PolyForm Noncommercial 1.0.0 (not an open-source licence). Python 3.11+. Found by GitHub code search 2026-11-03.
+
+_Sources: GitHub code search 2026-11-03, README_
 
 ### analog-emu (rytm-emu)
 

@@ -36,6 +36,13 @@ Devices: Octatrack (MKI, MKII). [repo](https://github.com/sambanks/octabam)
 - **ReBirth to Octatrack** (alexandrubelc) - builds on **octabam** (README: targets the GARDEN engines). [repo](https://github.com/alexandrubelc/rebirth2octatrack)
 - **TrackPatterns** (pgstath) - builds on **octabam** (README: also submitted as octabam PR 846). [repo](https://github.com/pgstath/TrackPatterns)
 
+## elekloader (pina (irpina))
+
+Devices: Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II. [repo](https://github.com/elekloader/elekloader)
+
+- **elekloader (simonjohansson fork - Digitakt II / Digitone II support)** (simonjohansson) - fork of **elekloader** (GitHub fork flag). [repo](https://github.com/simonjohansson/elekloader)
+- **Synfact** (GSM1980) - builds on **elekloader** (README of synfact-dev: built on elekloader, its engine, file format and checks). [repo](https://github.com/GSM1980/synfact-dev)
+
 ## Frame Lab (keyframer-lab) (heavylight-industries)
 
 Devices: Digitakt II. [repo](https://github.com/heavylight-industries/keyframer-lab)
@@ -119,12 +126,6 @@ Devices: Digitakt (MKI). [repo](https://github.com/ClaidArremer/digitakt-directj
 Devices: Digitone II, Digitone (MKI) / Digitone Keys. [repo](https://github.com/angellinares/dn2_firmware_explore)
 
 - **DN2 mk2 Mod (dn2mk2-firmware)** (De-Pattern (README says it builds on the upstream project dn2_firmware_explore / xrcstrecords - not verified by us)) - builds on **dn2_firmware_explore** (docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698). [repo](https://github.com/De-Pattern/dn2mk2-firmware)
-
-## elekloader (pina (irpina))
-
-Devices: Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II. [repo](https://github.com/elekloader/elekloader)
-
-- **elekloader (simonjohansson fork - Digitakt II / Digitone II support)** (simonjohansson) - fork of **elekloader** (GitHub fork flag). [repo](https://github.com/simonjohansson/elekloader)
 
 ## libanalogrytm (bsp2)
 

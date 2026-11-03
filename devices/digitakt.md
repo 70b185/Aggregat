@@ -18,6 +18,7 @@ Data last verified: 2026-11-02
 | **Sidecar (Digitakt mod)** (trigcondition) | mod | wip | Digitakt mk1 | - | 2026-10-31 | [repo](https://github.com/trigcondition/sidecar-digitakt) |
 | **Digitakt integrated sidecar** (soejrd) | research | wip | Digitakt mk1 OS 1.54 | - | 2026-10-30 | [repo](https://github.com/soejrd/digitakt-sidecar) |
 | **Elektron-Screen-Tool** (Fadedlimes) | tool | active | - | - | 2026-10-30 | [repo](https://github.com/Fadedlimes/elektron-screen-tool) |
+| **x0x (808/909 kick machines)** (simonjohansson) | mod | wip | main @ c79bd5e (2026-10-29), no releases yet; Digitakt mk1 1.54; Digitone mk1 1.44; Digitone II 1.12 (Digitakt II not supported) | - | 2026-10-29 | [repo](https://github.com/simonjohansson/x0x) |
 | **digitakt-mods** (hillzeealex) | tool | active | Digitakt mk1 1.53/1.54, Digitakt II 1.17 | v1.0 | 2026-10-29 | [repo](https://github.com/hillzeealex/digitakt-mods) |
 | **Vampire Manga OS** (karlalex732-dotcom) | firmware | beta | Beta 0.1 (B01) | VM09 | 2026-10-28 | [repo](https://github.com/karlalex732-dotcom/VAMPIRE-MANGA-OS-for-Elektron-Digitakt-OG-and-Digitone-OG) |
 | **DIGISNAKE (Digitakt)** (ClaidArremer) | mod | wip | Digitakt mk1 | - | 2026-10-27 | [repo](https://github.com/ClaidArremer/digitakt-digisnake) |
@@ -114,6 +115,12 @@ _Sources: forum thread 66_
 Module collection suggested in the CC-naming thread. Its cc-names module reportedly has memory/storage problems (per vegadw). Needs a closer look.
 
 _Sources: forum thread 66_
+
+### x0x (808/909 kick machines)
+
+808 and 909 kick machines (MODEL 0 = 808, 127 = 909; TNTUN, DECAY, ATTK) that use the device's own sequencer, filters, AMP and effects, built from the user's stock OS for each device. On the Digitone II a new kick fades the previous one on the same track over about 2.7 ms. Physical qualification on Digitakt and Digitone is in progress (issue 94). docs/dn2-remote-control.md drives a DN2 1.12 remotely through a DigiHealth helper (remote keys, screen frames, ColdFire and DSP peek). Licence file not found in the clone. Found by GitHub code search 2026-11-03.
+
+_Sources: GitHub code search 2026-11-03, README, docs/dn2-remote-control.md_
 
 ### Request: additional sequencer pages for DN1/DT1
 

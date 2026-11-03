@@ -15,6 +15,7 @@ Data last verified: 2026-11-02
 | **dn2-cfw** (naturarum) | research | active | Digiwerk v0.2.1 (2026-10-30); Digitone II OS 1.12 (macOS Apple silicon; Linux likely) | v0.2.1 | 2026-10-30 | [repo](https://github.com/naturarum/dn2-cfw) |
 | **DNX** (NoiseAndMatter) | tool | beta | 0.9.0-beta.8; no OS versions stated; Digitone II product id 0x15 | stable/pre-analysis | 2026-10-30 | [repo](https://github.com/NoiseAndMatter/DNX) · [web app](https://noiseandmatter.github.io/DNX/) · [forum](https://elektronmods.com/mods.php?id=39) |
 | **Elektron-Screen-Tool** (Fadedlimes) | tool | active | - | - | 2026-10-30 | [repo](https://github.com/Fadedlimes/elektron-screen-tool) |
+| **x0x (808/909 kick machines)** (simonjohansson) | mod | wip | main @ c79bd5e (2026-10-29), no releases yet; Digitakt mk1 1.54; Digitone mk1 1.44; Digitone II 1.12 (Digitakt II not supported) | - | 2026-10-29 | [repo](https://github.com/simonjohansson/x0x) |
 | **macro-mode (digi_macro)** (toonst) | mod | wip | Digitakt II, Digitone II | - | 2026-10-29 | [repo](https://github.com/toonst/digi_macro) |
 | **digitone-2-mod-hack** (simonjohansson) | mod | wip | Digitone II | - | 2026-10-28 | [repo](https://github.com/simonjohansson/digitone-2-mod-hack) |
 | **coldfire-rs** (FirestormAudio) | tool | wip | not firmware-specific; targets the NXP ColdFire V4e chips MCF54410 and MCF54415-MCF54418 | mcf5441x-pac-v0.1.0 | 2026-10-25 | [repo](https://github.com/FirestormAudio/coldfire-rs) |
@@ -53,6 +54,12 @@ Python 3.11+ patcher (patcher/patch.py) that builds Overtone from the user's own
 _Latest seen (2026-10-31, secondary directories): altstrument: v1.1 (2026-10-30) reworks GROOVE with presets, a random drift control, random weights and arrow-key editing, and restores FUNC + TEMPO as tap tempo; v1.0.1 (2026-10-29) fixes installing Elektron's OS or an Overtone update with Transfer while Overtone runs._
 
 _Sources: forum thread 90, GitHub README_
+
+### x0x (808/909 kick machines)
+
+808 and 909 kick machines (MODEL 0 = 808, 127 = 909; TNTUN, DECAY, ATTK) that use the device's own sequencer, filters, AMP and effects, built from the user's stock OS for each device. On the Digitone II a new kick fades the previous one on the same track over about 2.7 ms. Physical qualification on Digitakt and Digitone is in progress (issue 94). docs/dn2-remote-control.md drives a DN2 1.12 remotely through a DigiHealth helper (remote keys, screen frames, ColdFire and DSP peek). Licence file not found in the clone. Found by GitHub code search 2026-11-03.
+
+_Sources: GitHub code search 2026-11-03, README, docs/dn2-remote-control.md_
 
 ### DigiRust
 

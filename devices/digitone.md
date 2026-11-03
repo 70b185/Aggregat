@@ -18,6 +18,7 @@ Data last verified: 2026-11-02
 | **SAY IT** (x2k77m1) | mod | wip | Digitone mk1, Digitakt mk1 | v1.0b | 2026-10-31 | [repo](https://github.com/x2k77m1/sayit) |
 | **DNX** (NoiseAndMatter) | tool | beta | 0.9.0-beta.8; no OS versions stated; Digitone II product id 0x15 | stable/pre-analysis | 2026-10-30 | [repo](https://github.com/NoiseAndMatter/DNX) · [web app](https://noiseandmatter.github.io/DNX/) · [forum](https://elektronmods.com/mods.php?id=39) |
 | **Elektron-Screen-Tool** (Fadedlimes) | tool | active | - | - | 2026-10-30 | [repo](https://github.com/Fadedlimes/elektron-screen-tool) |
+| **x0x (808/909 kick machines)** (simonjohansson) | mod | wip | main @ c79bd5e (2026-10-29), no releases yet; Digitakt mk1 1.54; Digitone mk1 1.44; Digitone II 1.12 (Digitakt II not supported) | - | 2026-10-29 | [repo](https://github.com/simonjohansson/x0x) |
 | **Vampire Manga OS** (karlalex732-dotcom) | firmware | beta | Beta 0.1 (B01) | VM09 | 2026-10-28 | [repo](https://github.com/karlalex732-dotcom/VAMPIRE-MANGA-OS-for-Elektron-Digitakt-OG-and-Digitone-OG) |
 | **SampleTone** (x2k77m1) | mod | wip | Digitone mk1 / Keys OS 1.44 | - | 2026-10-27 | [repo](https://github.com/x2k77m1/sampletone) |
 | **PHREAKOID** (x2k77m1) | mod | wip | Digitone mk1 | v1.0a | 2026-10-26 | [repo](https://github.com/x2k77m1/phreakoid) |
@@ -91,6 +92,12 @@ _Sources: forum thread 20_
 Master effects with a DIGI FX page. Tested on hardware and in digiemu. Open items per author: encoder acceleration, saving state at pattern level. Built with elekloader. The newer Tone+FX repo of the same author calls this "the older RingTone repo" (successor, see tone-fx).
 
 _Sources: GitHub release 2.0o_
+
+### x0x (808/909 kick machines)
+
+808 and 909 kick machines (MODEL 0 = 808, 127 = 909; TNTUN, DECAY, ATTK) that use the device's own sequencer, filters, AMP and effects, built from the user's stock OS for each device. On the Digitone II a new kick fades the previous one on the same track over about 2.7 ms. Physical qualification on Digitakt and Digitone is in progress (issue 94). docs/dn2-remote-control.md drives a DN2 1.12 remotely through a DigiHealth helper (remote keys, screen frames, ColdFire and DSP peek). Licence file not found in the clone. Found by GitHub code search 2026-11-03.
+
+_Sources: GitHub code search 2026-11-03, README, docs/dn2-remote-control.md_
 
 ### Request: additional sequencer pages for DN1/DT1
 

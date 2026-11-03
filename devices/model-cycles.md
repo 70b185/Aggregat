@@ -8,6 +8,7 @@ Data last verified: 2026-11-02
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **Motor:Cycles (rhythmic-noise firmware)** (nzimas) | firmware | wip | v1.0.0-rc18 (tag); Model:Cycles OS 1.13 | - | 2026-11-03 | [repo](https://github.com/nzimas/motorcycles) · [web patcher](https://nzimas.github.io/motorcycles/install.html) |
 | **model27** (durchgemacht, 18nelli18) | firmware | active | release 0.32 (beta, 2026-11-02): eleven cards in the web flasher; fltslot 0.10; 1.13 | - | 2026-11-03 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
 | **Cycles One-Shot** (durchgemacht) | mod | active | machine 0.13 (2026-11-02, on main; newest tag v0.12): Start and Length act on the note that plays; tested in a model27 build, in digiemu and on a Model:Cycles; 1.13 | v0.13 | 2026-11-02 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
 | **Supermodel Edition** (A.V., 18nelli18) | firmware | active | main @ cd6ae4c (2026-11-01); 1.13 | wavetable-pack | 2026-11-02 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |
@@ -30,6 +31,12 @@ Data last verified: 2026-11-02
 | **ms-multi-output** (Scott Metoyer) | mod | active | 1.13 | - | - | [repo](https://github.com/scottmetoyer/ms-multi-output) |
 
 ## Details
+
+### Motor:Cycles (rhythmic-noise firmware)
+
+Firmware for rhythmic noise and power noise: four generators (Patch, Kit, Phrase, Pattern) entered with PAGE + pad, steps 1-15 set the complexity, step 16 held generates; plus its own sound engines. Ships as a browser patcher that converts the user's own OS 1.13 file; the result is byte for byte the file the author tested on a real Model:Cycles. MIT. Same author and the same generator idea as DigiRust (Digitone II). Found by GitHub code search 2026-11-03.
+
+_Sources: GitHub code search 2026-11-03, README_
 
 ### 1-Bit Editor
 

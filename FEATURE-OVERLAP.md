@@ -22,6 +22,7 @@ The most common pattern. The engines come from the source device's own code or f
 | | plug-ins | Monomodule and its ports, Monomachine Lab | - | |
 | **Digitakt II sample machines** (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE) | Digitone II | dn2mk2; armio's T1E2 (dn2-dt2-firmware-research) | unit | dnfw showed 85 % of DT2 SHARC functions have a twin in the DN2, so the port is a transplant, not a rewrite ([digitone-2-internals.md](hardware/devices/digitone-2-internals.md)) |
 | **Digitakt mk1 sample machines** | Syntakt | Synfact | experimental | |
+| **808/909 kick models** | Digitakt mk1, Digitone mk1, Digitone II | x0x (one source for three devices) | physical qualification in progress | |
 | | Digitone mk1 | taktone (runs the whole Digitakt application on Digitone hardware) | unit | |
 | **Sampler, other designs** | Syntakt | SynCrackd (replaces Twinshot) | - | |
 | | Model:Cycles | Cycles One-Shot, Model-TG, Modded Cycles' sampler | unit | |
@@ -102,6 +103,8 @@ The most common pattern. The engines come from the source device's own code or f
 | **Random / generative** | Analog Four MK1 | hugz202 (random track) | unit | |
 | | Analog Rytm | rytm-mods-src, rytm1_mods (euclid accents, humanise, random LFO) | - | |
 | | Model:Cycles | Supermodel (sequence generator) | - | |
+| | Digitone II | DigiRust (Patch, Kit, Pattern, Phrase generators with Density/Brutality) | unit (developer report) | Same author as Motor:Cycles |
+| | Model:Cycles | Motor:Cycles (Patch, Kit, Phrase, Pattern generators, level on steps 1-15) | unit (author) | Same generator design as DigiRust |
 
 ---
 

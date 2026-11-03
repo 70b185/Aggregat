@@ -17,6 +17,7 @@ Data last verified: 2026-11-02
 | **rytm-fw-re** (ethernet) | research | active | master @ 2f7f0c4 (2026-10-13); 1.74 | - | 2026-10-13 | [repo](https://github.com/ethernet8023/rytm-fw-re) |
 | **rytm-mods boot report** (Iced-Cream) | research | active | Analog Rytm MKII OS 1.73 | - | 2026-10-13 | [repo](https://github.com/Iced-Cream/rytm-mods-boot-report) |
 | **rytm-mods-src** (MrScruff (published with permission by Iced-Cream)) | mod | active | Mods 0000-0015 (2026-10-10); 1.73 | - | 2026-10-10 | [repo](https://github.com/Iced-Cream/rytm-mods-src) |
+| **RytmRandomizer** (buzzijose-hub) | tool | active | main @ 892aaff (2026-09-28); Analog Rytm MK2 and Analog Four MK2 | - | 2026-09-28 | [repo](https://github.com/buzzijose-hub/rytmrandomizer) |
 | **analog-rytm-mkii-research** (genosdk) | research | active | main @ 14570ea (2026-09-25); 1.72 | - | 2026-09-25 | [repo](https://github.com/genosdk/analog-rytm-mkii-research) |
 | **Kitsmith** (Alina-sul) | tool | wip | Analog Rytm MKII | - | 2026-09-13 | [repo](https://github.com/Alina-sul/kitsmith) |
 | **analog-rytm-agent-bridge** (algonormative) | tool | active | Rytm MKII | - | 2026-09-02 | [repo](https://github.com/algonormative/analog-rytm-agent-bridge) |
@@ -71,6 +72,12 @@ Port of the rytm-mods to Rytm MK1 OS 1.73 (per-track cuts, random LFO, euclid ac
 _Related: port of `rytm-mods-src` (README: port of the MKII project to the MK1) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
+
+### RytmRandomizer
+
+Performance cockpit for the Analog Rytm MK2 and Analog Four MK2 over SysEx: sees the devices at once, transmits nothing until armed, builds and checks kits from recipes against a reference dump. PolyForm Noncommercial 1.0.0 (not an open-source licence). Python 3.11+. Found by GitHub code search 2026-11-03.
+
+_Sources: GitHub code search 2026-11-03, README_
 
 ### analog-emu (rytm-emu)
 

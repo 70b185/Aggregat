@@ -17,5 +17,5 @@ Data last verified: 2026-11-02. Repo fingerprints: see state/CHANGES.md
 | [Analog Four / Analog Keys](devices/analog-four-keys.md) | 6 | 0 | 0 |
 | [Model:Cycles](devices/model-cycles.md) | 20 | 0 | 0 |
 | [Model:Samples](devices/model-samples.md) | 6 | 0 | 0 |
-| [Machinedrum (incl. UW)](devices/machinedrum.md) | 21 | 0 | 0 |
+| [Machinedrum (incl. UW)](devices/machinedrum.md) | 22 | 0 | 0 |
 | [Monomachine](devices/monomachine.md) | 11 | 0 | 0 |

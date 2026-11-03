@@ -9,6 +9,7 @@ Data last verified: 2026-11-02
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.8.1 (2026-10-29); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-03 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
+| **mds-tools (MDS packer and certifier)** (Justin Mammarella) | tool | active | main @ 983600a (2026-11-03); MDX 2.0 USR machines (Machinedrum MKI and MKII) | - | 2026-11-03 | [repo](https://github.com/jmamma/mds-tools) |
 | **Machinemodule for MPC OS** (sd88me) | emulator | active | v1.0.2 (tag, 2026-11-03) | v1.0.2 | 2026-11-03 | [repo](https://github.com/sd88me/mpc-vst-machinedrum) · [move port](https://github.com/sd88me/schwung-machinemodule) · [monomodule mpc](https://github.com/sd88me/mpc-vst-monomodule) |
 | **ModuleDrum** (K-X420) | emulator | active | - | v1.4.1 | 2026-11-01 | [repo](https://github.com/K-X420/ModuleDrum) |
 | **OP-XY MNMD** (mmockett) | emulator | active | - | v1.2.3 | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
@@ -73,6 +74,14 @@ _Sources: altstrument (2026-11-01)_
 Machine Dump Standard: spec, example DSP machines and Python packers for custom machines in the USR slots of MDX 2.0. Licence: unspecified; distribution: source-only. Listed by altstrument; repo not read by us yet.
 
 _Sources: altstrument (2026-11-01)_
+
+### mds-tools (MDS packer and certifier)
+
+Tools around the MDS specification: mds_pack.py builds an MDS file from a JSON definition and assembled DSP56300 code (CLD, LOD or raw binary), mds-certifier runs a machine and stamps its cycle costs for MKII, MKI with the program in DRAM and MKI in SRAM, and mds_to_syx.py converts an MDS file to SysEx for a USR slot. A --quick mode checks default, minimum and maximum parameters over four blocks on all sixteen tracks. Needs Motorola's asm56300 (or a compatible assembler). GPL. Found by GitHub search 2026-11-03; READMEs read.
+
+_Related: builds on `mds` (README: tools for the MDS specification) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-03, README and certifier/README.md_
 
 ### MDX
 

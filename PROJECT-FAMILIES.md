@@ -138,6 +138,12 @@ Devices: Machinedrum (incl. UW). [repo](https://github.com/sd88me/mpc-vst-machin
 
 - **MachineModule (desktop)** (AcidReff) - port of **Machinemodule for MPC OS** (README). [repo](https://github.com/AcidReff/MachineModule)
 
+## MDS (Machine Dump Standard) (Justin Mammarella)
+
+Devices: Machinedrum (incl. UW). [repo](https://github.com/jmamma/MDS)
+
+- **mds-tools (MDS packer and certifier)** (Justin Mammarella) - builds on **MDS (Machine Dump Standard)** (README: tools for the MDS specification). [repo](https://github.com/jmamma/mds-tools)
+
 ## PUMP (Digitakt) (ClaidArremer)
 
 Devices: Digitakt (MKI). [repo](https://github.com/ClaidArremer/digitakt-pump)

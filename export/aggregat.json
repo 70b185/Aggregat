@@ -3,9 +3,9 @@
   "checked": "2026-11-02",
   "generator": "scripts/export_db.py",
   "counts": {
-   "projects": 202,
+   "projects": 203,
    "devices": 13,
-   "relations": 42,
+   "relations": 43,
    "rules": 91,
    "sources": 257,
    "conflicts": 33,
@@ -1380,6 +1380,22 @@
    "notes": "Machine Dump Standard: spec, example DSP machines and Python packers for custom machines in the USR slots of MDX 2.0. Licence: unspecified; distribution: source-only. Listed by altstrument; repo not read by us yet.",
    "links": "{}",
    "sources": "[\"altstrument (2026-11-01)\"]"
+  },
+  {
+   "id": "mds-tools",
+   "name": "mds-tools (MDS packer and certifier)",
+   "author": "Justin Mammarella",
+   "kind": "tool",
+   "list": "dev",
+   "devices": "machinedrum",
+   "repo": "https://github.com/jmamma/mds-tools",
+   "status": "active",
+   "base_os": "MDX 2.0 USR machines (Machinedrum MKI and MKII)",
+   "version": "main @ 983600a (2026-11-03)",
+   "last_activity": "2026-11-03",
+   "notes": "Tools around the MDS specification: mds_pack.py builds an MDS file from a JSON definition and assembled DSP56300 code (CLD, LOD or raw binary), mds-certifier runs a machine and stamps its cycle costs for MKII, MKI with the program in DRAM and MKI in SRAM, and mds_to_syx.py converts an MDS file to SysEx for a USR slot. A --quick mode checks default, minimum and maximum parameters over four blocks on all sixteen tracks. Needs Motorola's asm56300 (or a compatible assembler). GPL. Found by GitHub search 2026-11-03; READMEs read.",
+   "links": "{}",
+   "sources": "[\"GitHub search 2026-11-03\", \"README and certifier/README.md\"]"
   },
   {
    "id": "mdx",
@@ -3388,6 +3404,12 @@
    "type": "port_of",
    "target": "rytm-mods-src",
    "evidence": "README: port of the MKII project to the MK1"
+  },
+  {
+   "project": "mds-tools",
+   "type": "builds_on",
+   "target": "mds",
+   "evidence": "README: tools for the MDS specification"
   },
   {
    "project": "chord-keys",

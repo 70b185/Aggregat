@@ -14,6 +14,7 @@ The other lists: [MODS.md](MODS.md) (mods and custom firmware), [MUSICIAN-TOOLS.
 
 | Project | Devices | What it is | Status | Version / OS | Links |
 |---|---|---|---|---|---|
+| **mds-tools (MDS packer and certifier)** (Justin Mammarella) <br>_builds on mds_ | Machinedrum (incl. UW) | Tools around the MDS specification: mds_pack.py builds an MDS file from a JSON definition and assembled DSP56300 code (CLD, LOD or raw binary), mds-certifier runs a … | active | main @ 983600a (2026-11-03) | [repo](https://github.com/jmamma/mds-tools) |
 | **elkflash** (Iced-Cream) | Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II, Digitone II, Syntakt | Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). | active | - | [repo](https://github.com/Iced-Cream/elkflash) |
 | **Frame Lab (keyframer-lab)** (heavylight-industries) | Digitakt II | The Digitakt II keyframer time stretcher and its TKEO transient detector compiled from the unit's C to WebAssembly, runnable in the browser. | active | - | [repo](https://github.com/heavylight-industries/keyframer-lab) |
 | **fsdsp56k** (smoothdeveloper) | Machinedrum (incl. UW) | F# toolchain for DSP56300 machines: prototype and render on an emulated DSP, pack as MDS packages for MDX X.20. | active | main @ 2ac9d9b (2026-10-26) | [repo](https://github.com/smoothdeveloper/fsdsp56k) · [homepage](https://smoothdeveloper.github.io/fsdsp56k/) |

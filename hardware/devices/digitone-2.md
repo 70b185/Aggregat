@@ -51,9 +51,11 @@ Mods for different OS versions cannot be combined and flashing between them can 
 
   digikit's Syntakt 1.42 reading (an FPGA section, a second ColdFire program) fits. `[?]` {dn2-hw}
 
-- **Cross-device transplant (armio's T1E2, DN2 1.11):** the Digitakt II 1.16 sample machines and their UI (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE, stereo samples, sample browsing) run on a Digitone II. Donor routines are extracted from the official DT2 file and relocated at build time.
-  - The same build makes **USB AUDIO class-compliant with 42 capture channels** (48 kHz/24 bit, 21 stereo pairs) and a stereo return. Digiwerk's USB01 note sketched this.
-  - Each of the 115 + 46 build stages is hash-pinned. "Stable" was owner-tested with USB streaming. `[hw]` {armio-t1e2}
+- **Cross-device transplant (armio's R012, DN2 1.11):** the Digitakt II 1.16 sample machines and their UI (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE, stereo samples, sample browsing) run on a Digitone II. Donor routines are extracted from the official DT2 file and relocated at build time. `[doc]` {armio-r012}
+  - The same build makes **USB AUDIO class-compliant with 42 capture channels** (48 kHz/24 bit, 21 stereo pairs) and a stereo return. Digiwerk's USB01 note sketched this. `[doc]` {armio-r012}
+  - **Recorder** adds recording/resampling, source selection, normalization, trimming, audition, saving to +Drive and optional track assignment. VOICE cycles Voice Setup, Sample Manager and Recorder. Exact trimmed-file comparison and full Recorder-source coverage remain unverified. `[doc]` {armio-recorder}
+  - **R012 requires only the two official OS files.** Native and browser builds verify the final SHA-256; the browser builds locally without uploads. No sample bank or factory library is required; historical exact T1E2/R003/R008/R011 builds still need their original private bank. `[doc]` {armio-r012} {armio-browser}
+  - R012 stable is owner-confirmed for stock audio, samples, Recorder and USB audio, including after project changes. This is not exhaustive workflow or endurance validation. `[hw]` {armio-r012}
 - **USB audio repeating old audio after a project change (armio, R007-R011; fixed 2026-11-03):** USB audio froze or repeated while headphones and UI kept working; accepted publications stopped, rejected ones rose by 16,392 in about 10.9 s, and USB transfers kept running. Cause: the render-time TX selector follows RX completion and is not a TX ownership grant, but the build had bound the retained queue head to a destination derived from that older phase. R011 picks the candidate from the current DMA START and leaves the ownership guards to decide; the owner confirmed playback after project changes, and R012 is the stable build. Endurance and end-to-end USB latency are unmeasured. `[hw]` {armio-usb} {armio-r011}
 
 ## Parameter table

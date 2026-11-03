@@ -78,7 +78,7 @@ A probe module ran 143 items on a real Digitakt II, then the same probe on a rea
 - One block measured 666,582 cycles median on DT2 (666,784 on DN2), jittering by ±2.7 % (sd 0.5 %); the emulator does not jitter. With `digikit/remote` and `digikit/debug` loaded, a DN2 showed DSP 57 % average (61 % peak) and ColdFire 26 %.
 - Registers read on silicon (DT2 and DN2 alike):
   - IMASK `0x8040801b`, MODE2 `0x42000021`, SHDBG_REVID `0x20`, CMMR_SYSCTL `0x6004`, SHL1C_CFG `0x00010101`, SHL1C_CFG2 `0xf0`;
-  - **two cached ranges: `0x200fa000-0x200fe000` and `0x28240000-0x283a0000`**;
+  - **two non-cacheable ranges: `0x200fa000-0x200fe000` and `0x28240000-0x283a0000`**, with exclusive end addresses. SHL1C_CFG2 `0xf0` enables ranges 2 and 3 with `RRnSEL = 1` (non-cacheable); L2 and DDR outside them are cached ([finding 103, section 4](https://github.com/ElekLabs/digikit/blob/main/docs/findings/103-dsp-facts-on-a-digitakt-ii.md#4-registers-read-on-silicon-d));
   - the core timer period differs per device (DT2 `0x0025f280`, DN2 `0x00268538`).
 
 **Float and saturation rules the chip follows** (some contradict the PRM):
@@ -89,9 +89,10 @@ A probe module ran 143 items on a real Digitakt II, then the same probe on a rea
 - Reading an MR word into a register **keeps** the multiplier flags (the PRM says it clears them).
 - The RECIPS/RSQRTS seeds come from two 128-entry tables, all measured; the low 15 mantissa bits are zero. Stock's divide helper uses RECIPS plus Newton steps, so the last bit of a division depends on the exact seed.
 
-**The reply record while it is sent** (findings 78 and 101): the DSP's SPI2 is a slave, and the transmit DMA walks two descriptors by itself, so a record can be on the wire while code still writes it.
-- On a real DT2, a word that the hook code wrote into one record arrived as 0 in 3,995 of 4,000 blocks, because stock code rebuilt the record before the DMA read it. The emulator delivered it every second block.
-- **Write your words into the record from the block tail, after all module calls of the block,** not from inside a hook. A value stored in the call that stops the DSP is lost either way; store a "last step" mark one block earlier. `[hw]`
+**Diagnostic reply publication** ([finding 101](https://github.com/ElekLabs/digikit/blob/main/docs/findings/101-module-step-word-on-hardware.md)): the DSP's SPI2 is a slave and its transmit DMA walks two descriptors. Timing of the suspected overlap between DMA and diagnostic writes on silicon remains unmeasured. {digikit-f101}
+- On a real DT2 (OS 1.17), digikit's diagnostic word 25 arrived as 0 in 3,995 of 4,000 collected records. The old scheme delivered every second record in the emulator. `[hw]` {digikit-f101}
+- **Digikit's own `core/fx` and `core/dsp-voice` diagnostic clears overwrote the previous block's reply word.** Removing those clears restored delivery in the DN2 1.12 emulator; this does not identify stock firmware as the writer or establish silicon DMA timing. `[emu]` {digikit-f101}
+- **Keep hook diagnostics in a static word and copy it into the reply at the block tail, after all module calls.** The revised design clears the static word rather than either reply record and passes the emulator regression; finding 101 says it had not yet run on a real DT2. A mark stored in the call that hangs the DSP cannot reach a tail that never runs, so the fault record retains the last completed block's mark. `[emu]` {digikit-f101}
 
 ## What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static) {digikit-f72}
 Instruction counts come from the listings, with no stalls modelled. Use them as a style reference and a lower bound. `[doc]`

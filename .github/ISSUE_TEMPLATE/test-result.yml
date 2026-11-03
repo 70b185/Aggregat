@@ -1,0 +1,70 @@
+name: Test result
+description: Report what you saw when you ran a test from the research map (H.. hypotheses, T.. tasks, O.. conflicts).
+title: "[Test result] <ID>: <device> <OS>"
+labels: ["test result"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. A result that contradicts the expectation is just as useful as one that confirms it.
+        Maintainers check each report by hand before it goes into the knowledge base, with credit to you.
+        Do not attach firmware files (.syx, sections, dumps of the OS); photos, logs and short captures are fine.
+  - type: input
+    id: test_id
+    attributes:
+      label: Test or task ID
+      description: From hardware/HYPOTHESES.md or RESEARCH-MAP.md, e.g. H2, T24, O18.
+      placeholder: H2
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and OS version
+      description: Exactly as shown on the unit (SETTINGS > SYSTEM > OS INFO or similar).
+      placeholder: Digitakt II, OS 1.17
+    validations:
+      required: true
+  - type: dropdown
+    id: firmware
+    attributes:
+      label: Firmware on the unit during the test
+      options:
+        - Stock Elektron OS
+        - Modified OS (say which build below)
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: What you did
+      description: The steps, in order, so someone else can repeat them.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What happened
+      description: What you saw or measured. Numbers, screen text, timings.
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Compared with the expectation
+      options:
+        - Confirms it
+        - Contradicts it
+        - Partly / unclear
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence (optional)
+      description: Photos, screenshots, logs, links to your notes or repo.
+  - type: input
+    id: project
+    attributes:
+      label: Your project (optional)
+      description: If you keep an AGGREGAT_RESEARCH.md in a repo, its link.

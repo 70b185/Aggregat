@@ -4,7 +4,7 @@
 
 The aim: whoever starts a research session (alone or with an AI agent) starts where the community's knowledge ends, instead of re-deriving what is already settled. Every line points to where the details and sources are. Phase 1 devices first (Digitakt MKI/II, Digitone MKI/II, Syntakt, Analog Heat); phase 2 follows.
 
-Last reviewed: 2026-11-02 (second pass the same day: Digiwerk T5.3/T6.5/PB01, dn2mk2 dsp-time/dsp-cost, lalzart's DT2 architecture). Details and sources: [hardware/](hardware/README.md) (rules A1-A41, device files, [CONFLICTS.md](hardware/CONFLICTS.md)). Projects: [MODS.md](MODS.md), [DEV-TOOLS.md](DEV-TOOLS.md).
+Last reviewed: 2026-11-03. Details and sources: [hardware/](hardware/README.md) (rules A1-A46 and sections B-G, device files, [CONFLICTS.md](hardware/CONFLICTS.md)). Projects: [MODS.md](MODS.md), [DEV-TOOLS.md](DEV-TOOLS.md).
 
 ## How to read the status column
 
@@ -20,6 +20,42 @@ Last reviewed: 2026-11-02 (second pass the same day: Digiwerk T5.3/T6.5/PB01, dn
 
 ---
 
+## How the pieces fit: goals, questions, experiments, results
+
+This page is the one place where the research of all projects comes together.
+
+| Layer | What it is | Where |
+|---|---|---|
+| **Goals** (G1-G8) | What the whole community gains, beyond any single mod | [Shared goals](#shared-goals-worth-more-than-any-single-mod) below |
+| **Open questions** | Status ❓/⬜ per device; disagreements between projects (O1-O19) | the device tables below; [CONFLICTS.md](hardware/CONFLICTS.md) |
+| **Experiments** | Tasks that need research (T1-T24) and inferred facts that need one test on a unit (H1-H18) | [Shared to-do](#shared-to-do); [HYPOTHESES.md](hardware/HYPOTHESES.md) |
+| **Results** | Facts with evidence tags and sources; rules distilled from them | [hardware/devices/](hardware/README.md), [AGENT-RULES.md](hardware/AGENT-RULES.md) |
+
+Each goal below lists the questions, tasks and tests that move it. A result goes into the device file, changes the status mark here, and closes the conflict, task or test it answered.
+
+## Help with a test (no flashing needed)
+
+Own a **Digitakt II, Digitakt, Digitone II, Analog Heat (+FX/MKII) or Model:Cycles**? These take minutes with the stock OS and a computer:
+- **H1** read your unit's three ids (USB in each mode, Elektroid's device info);
+- **H2** do unsaved edits survive a power cycle (DT2, DT1)?
+- **H3** where does a received pattern land (DT2, DT1)?
+- **H4** how long can the DT1 recorder record?
+- **H5** does Overbridge accept a build with a changed version field (if you already have such builds)?
+- **H18** does your Heat +FX (or DT1, DN2) show its screen in Elek View?
+
+Report with the **[Test result](https://github.com/70b185/Aggregat/issues/new?template=test-result.yml)** issue template. Details and the probe and build tests for people who flash: [HYPOTHESES.md](hardware/HYPOTHESES.md).
+
+## Take part with your project
+
+Anyone can help; nobody has to. Three ways, from small to ongoing:
+1. **One result:** run a test and report it with the Test result issue template.
+2. **Your own experiment:** take a task (T), hypothesis (H) or open conflict (O) and publish what you find in your repo.
+3. **Ongoing:** copy [research/AGGREGAT_RESEARCH.md](research/AGGREGAT_RESEARCH.md) to the root of your repo. It holds a full copy of the current goals, tasks, hypotheses and open conflicts (with a snapshot id), so your results stay tied to the state you started from, plus a table for your results. We find the file when we update, list your project in [research/PARTICIPANTS.md](research/PARTICIPANTS.md) with tasks that fit what your project already does, and merge your results by hand with credit. We never open issues or pull requests in your repo.
+
+A hypothesis stays a hypothesis until a real unit (or something equally direct) shows it; one unit report makes it 🟢, a second unit or project ✅.
+
+---
+
 ## Start a research session with this
 
 Paste this into a new agent session (Claude Code or similar) that has this repo checked out:
@@ -27,7 +63,7 @@ Paste this into a new agent session (Claude Code or similar) that has this repo 
 ```text
 Read RESEARCH-MAP.md, then hardware/README.md and hardware/AGENT-RULES.md.
 I own a <device> on OS <version> and I have <a DIN MIDI interface / only my OS file / only the manual>.
-Pick one item from the "Shared to-do" that I can do with what I have, or a ❓/⬜ row of my device.
+Pick one item from the "Shared to-do" or hardware/HYPOTHESES.md that I can do with what I have, or a ❓/⬜ row of my device.
 Before researching anything, search hardware/ (and hardware/CONFLICTS.md, hardware/READING-LEDGER.md)
 for what is already known about it, and tell me in a few lines what is settled and what is actually open.
 Then propose a plan of small, checkable steps. Follow the rules: no firmware in git, recovery practised
@@ -45,12 +81,14 @@ When done, update the matching row here and the device file under hardware/devic
 
 | # | Goal | Where it stands | What would move it |
 |---|---|---|---|
-| G1 | **Every device has a recovery path somebody has actually used** | ✅ DN2, DT mk1, Octatrack, A4/Rytm MK1; 🟢 DT2 (one report, OS 1.16); documented for Syntakt (SyntHack) and Heat +FX (official). 🟢 Digitone mk1 (one report, OS 1.44). Every phase-1 device now has a used or official recovery path. | T1 |
-| G2 | **An honest load/headroom measure per device** (rules A25, A34, A37) | ✅ DT2 (idle-task measure on a unit), DN2 (elekloader busy meter, with the "busy is not headroom" caveat). ❓ Syntakt (two readings conflict, O3). ⬜ Heat +FX, Digitone mk1 voice CPU. | T4, T9, T10 |
-| G3 | **Shared-silicon knowledge transfers between devices** | At least six phase-1 boxes use MCF5441x-family ColdFires (DT, DN, DT2, DN2, Syntakt, Heat +FX); DT2 and DN2 share the SHARC and 85 % of its functions. Many rules were found on one box and are only assumed for the others (e.g. A39 USB, A28 cache write-back). | T3, T12, T19 |
+| G1 | **Every device has a recovery path somebody has actually used** | ✅ DN2, DT mk1, Octatrack, A4/Rytm MK1; 🟢 DT2 (one report, OS 1.16); documented for Syntakt (SyntHack) and Heat +FX (official). 🟢 Digitone mk1 (one report, OS 1.44). Every phase-1 device now has a used or official recovery path. | T1; test H16 |
+| G2 | **An honest load/headroom measure per device** (rules A25, A34, A37) | ✅ DT2 (idle-task measure on a unit), DN2 (elekloader busy meter, with the "busy is not headroom" caveat). ❓ Syntakt (two readings conflict, O3). ⬜ Heat +FX, Digitone mk1 voice CPU. | T4, T9, T10; tests H15, H17 |
+| G3 | **Shared-silicon knowledge transfers between devices** | At least six phase-1 boxes use MCF5441x-family ColdFires (DT, DN, DT2, DN2, Syntakt, Heat +FX); DT2 and DN2 share the SHARC and 85 % of its functions. Many rules were found on one box and are only assumed for the others (e.g. A39 USB, A28 cache write-back). | T3, T12, T19; tests H7, H12-H15, H17 |
 | G4 | **Emulators you can trust for more than "it boots"** | ✅ known gaps: no memory stalls (device cycles ~2x emulator), no pipeline model, EMAC fractional-mode bugs in stock Unicorn. ❓ digikit: real-time DSP audio. | T14 |
 | G5 | **Mods that survive OS updates** | Every mod pins one OS version; address translation between versions is done ad hoc. Good news for DSP work: the SHARC sections are **byte-identical** between DT2 1.16 and 1.17 and between DN2 1.11 and 1.12 (digikit finding 53), so only the ColdFire side moves. | T6, T8 |
-| G6 | **Official numbers instead of guesses** (MIDI CC/NRPN tables, startup menus) | The manuals' appendices were beyond what our fetcher extracts. | T13 |
+| G6 | **Official numbers instead of guesses** (MIDI CC/NRPN tables, startup menus) | The manuals' appendices were beyond what our fetcher extracts. | T13; test H4 |
+| G7 | **Talk to every unit the same way** (SysEx dumps, the RPC, device ids, project files) | The dump frame, 7-bit packing and checksum are the same from the Rytm (2014) to the DN2; the type bytes differ; three id namespaces mapped (T22). Project files are zips with LZ4 content. Per-device gaps: Heat +FX RPC, DT2 project format. | T18, T22; tests H1, H2, H3, H18 |
+| G8 | **Mods that coexist** (with each other, with Overbridge, with stock projects) | DT2 and DN2 RAM and hook use of five to six platforms compared: several start at the same addresses, the DT2 flash cave has five users (T21, T23). Open: O17, O18, O19. | T16, T23, T24; tests H5, H6, H8-H11 |
 
 ---
 
@@ -149,7 +187,7 @@ When done, update the matching row here and the device file under hardware/devic
 | +FX CPU reserve with all FX | ❓ | A forum post claims 79 %; not measured. | **T10** |
 | +FX FPGA role | ⬜ | Loaded by the OS; role unknown. Section size is 54,664 B, **the same size as the A4 MKII's FPGA section and the Digitone mk1's bitstream** - a lead, not a finding. | T12 |
 | +FX preset format, latency, flash budget | ⬜ | Not looked at. | - |
-| Community | - | No public Heat firmware project; the repo owner's research is paused. | - |
+| Community | 🟡 | First public +FX custom firmware announced on elektronmods.com ("MultiMode", beta 0.1, 2026-11-02; screenshots only, catalogued as a candidate). The repo owner's research is paused. Stock tests for the +FX: H1, H5, H18. | [HYPOTHESES.md](hardware/HYPOTHESES.md) |
 
 ---
 

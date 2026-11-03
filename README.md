@@ -16,6 +16,7 @@
 | Everything for one device, with full notes | [INDEX.md](INDEX.md) |
 | How the hardware works, for writing mods | [hardware/](hardware/README.md) |
 | **What is known and what is still open, per device, plus a shared to-do and a prompt to start a research session** | [RESEARCH-MAP.md](RESEARCH-MAP.md) |
+| **Help the research:** tests that take minutes on a stock unit, open tasks and shared goals, and how to take part with your own project | [RESEARCH-MAP.md](RESEARCH-MAP.md#help-with-a-test-no-flashing-needed), [research/](research/PARTICIPANTS.md) |
 | **Everything as one database** (projects, relations, rules, sources, conflicts, ~900 hardware facts with full-text search), for agents and scripts | [export/](export/README.md), or search it in the browser: [70b185.github.io/Aggregat](https://70b185.github.io/Aggregat/) |
 
 All three lists are generated from [`data/projects.yml`](data/projects.yml); an entry's `kind` (or an explicit `list:` field) decides where it goes.

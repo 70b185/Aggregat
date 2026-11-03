@@ -208,9 +208,69 @@ for p in plist:
     for r in p.get("relations") or []:
         rrow.append({"project": p["id"], "type": r["type"], "target": r["id"], "evidence": r.get("evidence", "")})
 
+# ---------------------------------------------------------------- research: goals, tasks, hypotheses, participants
+def md_rows(path, first_cell):
+    """(section heading, cells) for table rows whose first cell matches first_cell."""
+    out, head = [], ""
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if line.startswith("## "):
+            head = line[3:].strip()
+        if line.startswith("| "):
+            cells = [c.strip() for c in line.strip().strip("|").split("|")]
+            if re.fullmatch(first_cell, cells[0]):
+                out.append((head, cells))
+    return out
+
+
+IDS = re.compile(r"\b([GTHO]\d+)(?:\s*-\s*[GTHO]?(\d+))?\b")
+
+
+def id_list(text):
+    """All research ids in a text, with ranges like H12-H15 or H8-H11 expanded."""
+    found = []
+    for m in IDS.finditer(text):
+        first = m.group(1)
+        found.append(first)
+        if m.group(2):
+            for n in range(int(first[1:]) + 1, int(m.group(2)) + 1):
+                found.append(f"{first[0]}{n}")
+    return list(dict.fromkeys(found))
+
+
+rmap = ROOT / "RESEARCH-MAP.md"
+goals, tasks, hyps, links = [], [], [], []
+for _, c in md_rows(rmap, r"G\d+"):
+    goals.append({"id": c[0], "goal": clean(c[1].replace("**", "")), "status": clean(c[2]), "moved_by": clean(c[3])})
+    for item in id_list(c[3]):
+        links.append({"item": item, "goal": c[0], "via": "goal table"})
+for _, c in md_rows(rmap, r"T\d+"):
+    done = c[1].startswith("~~") or "**done" in c[1]
+    tasks.append({"id": c[0], "task": clean(c[1].replace("**", "")), "devices": clean(c[2]), "needs": clean(c[3]),
+                  "effort": clean(c[4]), "value": clean(c[5]) if len(c) > 5 else "", "status": "done" if done else "open"})
+for head, c in md_rows(ROOT / "hardware" / "HYPOTHESES.md", r"H\d+"):
+    kind = "stock" if head.startswith("1.") else "probe" if head.startswith("2.") else "build" if head.startswith("3.") else ""
+    hyps.append({"id": c[0], "goals": ",".join(id_list(c[1])), "inference": clean(c[2]), "derived_from": clean(c[3]),
+                 "devices": clean(c[4]), "test": clean(c[5]), "kind": kind, "status": "open"})
+    for g in id_list(c[1]):
+        links.append({"item": c[0], "goal": g, "via": "hypothesis goal column"})
+merged = {}
+for l in links:
+    merged.setdefault((l["goal"], l["item"]), []).append(l["via"])
+links = [{"item": i, "goal": g, "via": "; ".join(sorted(set(v)))} for (g, i), v in sorted(merged.items())]
+participants = []
+part = ROOT / "research" / "PARTICIPANTS.md"
+if part.exists():
+    for m in re.finditer(r"^## (.+?) \((https?://[^)]+)\)\s*$", part.read_text(encoding="utf-8"), re.M):
+        participants.append({"project": m.group(1), "repo": m.group(2)})
+snap = ROOT / "research" / "AGGREGAT_RESEARCH.md"
+snapshot = re.search(r"snapshot `([0-9a-f]+)`", snap.read_text(encoding="utf-8")).group(1) if snap.exists() else ""
+
 meta = {"checked": checked, "generator": "scripts/export_db.py",
         "counts": {"projects": len(prow), "devices": len(devices), "relations": len(rrow), "rules": len(rules),
-                   "sources": len(sources), "conflicts": len(conflicts), "facts": len(facts)}}
+                   "sources": len(sources), "conflicts": len(conflicts), "facts": len(facts),
+                   "goals": len(goals), "tasks": len(tasks), "hypotheses": len(hyps), "research_links": len(links),
+                   "participants": len(participants)},
+        "research_snapshot": snapshot}
 
 # ---------------------------------------------------------------- write SQLite and JSON
 db = OUT / "aggregat.sqlite"
@@ -228,6 +288,12 @@ SCHEMA = {
     "conflicts": "id TEXT PRIMARY KEY, status TEXT, topic TEXT, a TEXT, b TEXT, details TEXT, devices TEXT",
     "facts": "id INTEGER PRIMARY KEY, file TEXT, line INTEGER, section TEXT, text TEXT, evidence TEXT, "
              "sources TEXT, devices TEXT, addresses TEXT",
+    "goals": "id TEXT PRIMARY KEY, goal TEXT, status TEXT, moved_by TEXT",
+    "tasks": "id TEXT PRIMARY KEY, task TEXT, devices TEXT, needs TEXT, effort TEXT, value TEXT, status TEXT",
+    "hypotheses": "id TEXT PRIMARY KEY, goals TEXT, inference TEXT, derived_from TEXT, devices TEXT, test TEXT, "
+                  "kind TEXT, status TEXT",
+    "research_links": "item TEXT, goal TEXT, via TEXT",
+    "participants": "project TEXT, repo TEXT",
 }
 for t, cols in SCHEMA.items():
     con.execute(f"CREATE TABLE {t} ({cols})")
@@ -248,6 +314,11 @@ ins("relations", rrow)
 ins("rules", rules)
 ins("sources", sources)
 ins("conflicts", conflicts)
+ins("goals", goals)
+ins("tasks", tasks)
+ins("hypotheses", hyps)
+ins("research_links", links)
+ins("participants", participants)
 ins("facts", [{k: f[k] for k in ("id", "file", "line", "section", "text", "evidence", "sources", "devices", "addresses")} for f in facts])
 # full-text search over facts and rules, if this SQLite has FTS5
 try:
@@ -261,5 +332,6 @@ con.close()
 
 (OUT / "aggregat.json").write_text(json.dumps({
     "meta": meta, "devices": devices, "projects": prow, "relations": rrow, "rules": rules,
-    "sources": sources, "conflicts": conflicts, "facts": facts}, ensure_ascii=False, indent=1), encoding="utf-8")
+    "sources": sources, "conflicts": conflicts, "facts": facts,
+    "goals": goals, "tasks": tasks, "hypotheses": hyps, "research_links": links, "participants": participants}, ensure_ascii=False, indent=1), encoding="utf-8")
 print("export:", meta["counts"])

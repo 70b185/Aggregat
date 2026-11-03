@@ -13,7 +13,7 @@ The output is deterministic: an unchanged repo gives byte-identical files.
 
 | table | from | columns |
 |---|---|---|
-| `meta` | - | `checked` (date of the last update check), `counts` |
+| `meta` | - | `checked` (date of the last update check), `counts`, `research_snapshot` (id of the current research state, as in research/AGGREGAT_RESEARCH.md) |
 | `devices` | `data/devices.yml` | slug, name, family, phase |
 | `projects` | `data/projects.yml` | id, name, author, kind, list, devices, repo, status, base_os, version, last_activity, notes, links, sources |
 | `relations` | `relations:` in projects.yml | project, type, target, evidence |
@@ -22,6 +22,11 @@ The output is deterministic: an unchanged repo gives byte-identical files.
 | `conflicts` | `hardware/CONFLICTS.md` | id (O1.., S1..), status, topic, a, b, details, devices |
 | `facts` | `hardware/devices/*.md`, `hardware/common/*.md` | id, file, line, section, text, evidence, sources, devices, addresses |
 | `facts_fts` | FTS5 index over `facts` | text, section, devices |
+| `goals` | goals table in `RESEARCH-MAP.md` | id (G1..), goal, status, moved_by |
+| `tasks` | shared to-do in `RESEARCH-MAP.md` | id (T1..), task, devices, needs, effort, value, status (open/done) |
+| `hypotheses` | `hardware/HYPOTHESES.md` | id (H1..), goals, inference, derived_from, devices, test, kind (stock/probe/build), status |
+| `research_links` | goal columns of both | item (T/H id), goal, via |
+| `participants` | `research/PARTICIPANTS.md` | project, repo |
 
 A fact is one top-level bullet (with its continuation lines). `evidence` is the tag in the
 bullet (`hw`, `emu`, `doc`, `?`); without one, the tag in the section's lead paragraph, its
@@ -46,6 +51,13 @@ sqlite3 export/aggregat.sqlite "SELECT id, topic FROM conflicts WHERE status='op
 
 # Forks and copies of a project
 sqlite3 export/aggregat.sqlite "SELECT project, type, evidence FROM relations WHERE target='overtone'"
+
+# Tests a stock unit can run, with the goal each one moves
+sqlite3 export/aggregat.sqlite "SELECT h.id, h.devices, h.test, group_concat(l.goal) FROM hypotheses h
+  JOIN research_links l ON l.item = h.id WHERE h.kind = 'stock' GROUP BY h.id"
+
+# Everything that moves one goal
+sqlite3 export/aggregat.sqlite "SELECT item FROM research_links WHERE goal = 'G8'"
 
 # Rules that only rest on documentation
 sqlite3 export/aggregat.sqlite "SELECT id, title FROM rules WHERE evidence NOT LIKE '%hw%'"

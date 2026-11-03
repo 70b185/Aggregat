@@ -36,3 +36,14 @@ an entry (own words, facts only) or add the repo to `data/ignore.yml` so it is n
 fingerprint baseline on the next `check_updates.py --update`.
 
 Add `--code` once a month: it searches file contents (stock OS file names, the DT2 flash-cave address, `elemod`) and finds projects whose repo name and description never mention Elektron. On 2026-11-03 it found x0x, Motor:Cycles, RytmRandomizer and Synfact's new repo, none of which the keyword search had listed. Its generic hits include unrelated repos, so read each README before adding.
+
+## Research results from other projects (manual, maintainer only)
+Results come in two ways: **Test result** issues in this repo, and the results tables of `AGGREGAT_RESEARCH.md` files
+in participating repos (a change report lists the file when it changed; `find_new.py --code` finds new ones).
+For now a maintainer merges them by hand during manual updates; nothing is taken over automatically.
+1. Read the new rows: test id, unit and OS, what happened, evidence tag, link to details.
+2. Check them against what is already known (device page, HYPOTHESES.md, CONFLICTS.md).
+3. Confirmed: move the fact into the device page with `[hw]` and a source key for the project or issue, update the
+   status mark in RESEARCH-MAP.md, remove or close the hypothesis or task. Contradicted: add a conflict.
+4. A new participant gets a section in `research/PARTICIPANTS.md` with suggested tasks that fit the project.
+5. `python3 scripts/research_snapshot.py`, then build and export as usual.

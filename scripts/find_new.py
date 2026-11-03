@@ -23,7 +23,8 @@ QUERIES = ["digitakt", "digitone", "syntakt", "analog heat elektron", "elektron 
 
 # File contents only Elektron projects carry: stock OS file names and addresses from the device pages.
 CODE_QUERIES = ["Digitakt_II_OS1", "Digitone_II_OS1", "Syntakt_OS1", "Digitakt_OS1", "Digitone_OS1",
-                "Model_Cycles_OS", "Model_Samples_OS", "Analog_Heat", "Octatrack_OS", "0x403117c4", "elemod"]
+                "Model_Cycles_OS", "Model_Samples_OS", "Analog_Heat", "Octatrack_OS", "0x403117c4", "elemod",
+                "filename:AGGREGAT_RESEARCH.md"]   # projects that take part in the research (research/PARTICIPANTS.md)
 
 
 def known_repos():

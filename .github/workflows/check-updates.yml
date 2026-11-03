@@ -27,12 +27,13 @@ jobs:
         run: |
           python3 scripts/export_db.py
           python3 scripts/find_duplicates.py
+          python3 scripts/research_snapshot.py
       - name: Commit if anything changed
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "aggregat-bot"
             git config user.email "aggregat-bot@users.noreply.github.com"
-            git add state INDEX.md devices MODS.md DEV-TOOLS.md MUSICIAN-TOOLS.md PROJECT-FAMILIES.md export hardware/DUPLICATES.md
+            git add state INDEX.md devices MODS.md DEV-TOOLS.md MUSICIAN-TOOLS.md PROJECT-FAMILIES.md export hardware/DUPLICATES.md research
             git commit -m "check-updates: $(head -3 state/CHANGES.md | tail -1)"
             git push
           fi

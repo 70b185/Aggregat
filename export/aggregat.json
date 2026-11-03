@@ -9,8 +9,14 @@
    "rules": 91,
    "sources": 263,
    "conflicts": 33,
-   "facts": 981
-  }
+   "facts": 981,
+   "goals": 8,
+   "tasks": 24,
+   "hypotheses": 18,
+   "research_links": 36,
+   "participants": 0
+  },
+  "research_snapshot": "931eff85d715"
  },
  "devices": [
   {
@@ -16931,5 +16937,638 @@
    "addresses": "",
    "id": 981
   }
- ]
+ ],
+ "goals": [
+  {
+   "id": "G1",
+   "goal": "Every device has a recovery path somebody has actually used",
+   "status": "✅ DN2, DT mk1, Octatrack, A4/Rytm MK1; 🟢 DT2 (one report, OS 1.16); documented for Syntakt (SyntHack) and Heat +FX (official). 🟢 Digitone mk1 (one report, OS 1.44). Every phase-1 device now has a used or official recovery path.",
+   "moved_by": "T1; test H16"
+  },
+  {
+   "id": "G2",
+   "goal": "An honest load/headroom measure per device (rules A25, A34, A37)",
+   "status": "✅ DT2 (idle-task measure on a unit), DN2 (elekloader busy meter, with the \"busy is not headroom\" caveat). ❓ Syntakt (two readings conflict, O3). ⬜ Heat +FX, Digitone mk1 voice CPU.",
+   "moved_by": "T4, T9, T10; tests H15, H17"
+  },
+  {
+   "id": "G3",
+   "goal": "Shared-silicon knowledge transfers between devices",
+   "status": "At least six phase-1 boxes use MCF5441x-family ColdFires (DT, DN, DT2, DN2, Syntakt, Heat +FX); DT2 and DN2 share the SHARC and 85 % of its functions. Many rules were found on one box and are only assumed for the others (e.g. A39 USB, A28 cache write-back).",
+   "moved_by": "T3, T12, T19; tests H7, H12-H15, H17"
+  },
+  {
+   "id": "G4",
+   "goal": "Emulators you can trust for more than \"it boots\"",
+   "status": "✅ known gaps: no memory stalls (device cycles ~2x emulator), no pipeline model, EMAC fractional-mode bugs in stock Unicorn. ❓ digikit: real-time DSP audio.",
+   "moved_by": "T14"
+  },
+  {
+   "id": "G5",
+   "goal": "Mods that survive OS updates",
+   "status": "Every mod pins one OS version; address translation between versions is done ad hoc. Good news for DSP work: the SHARC sections are **byte-identical** between DT2 1.16 and 1.17 and between DN2 1.11 and 1.12 (digikit finding 53), so only the ColdFire side moves.",
+   "moved_by": "T6, T8"
+  },
+  {
+   "id": "G6",
+   "goal": "Official numbers instead of guesses (MIDI CC/NRPN tables, startup menus)",
+   "status": "The manuals' appendices were beyond what our fetcher extracts.",
+   "moved_by": "T13; test H4"
+  },
+  {
+   "id": "G7",
+   "goal": "Talk to every unit the same way (SysEx dumps, the RPC, device ids, project files)",
+   "status": "The dump frame, 7-bit packing and checksum are the same from the Rytm (2014) to the DN2; the type bytes differ; three id namespaces mapped (T22). Project files are zips with LZ4 content. Per-device gaps: Heat +FX RPC, DT2 project format.",
+   "moved_by": "T18, T22; tests H1, H2, H3, H18"
+  },
+  {
+   "id": "G8",
+   "goal": "Mods that coexist (with each other, with Overbridge, with stock projects)",
+   "status": "DT2 and DN2 RAM and hook use of five to six platforms compared: several start at the same addresses, the DT2 flash cave has five users (T21, T23). Open: O17, O18, O19.",
+   "moved_by": "T16, T23, T24; tests H5, H6, H8-H11"
+  }
+ ],
+ "tasks": [
+  {
+   "id": "T1",
+   "task": "~~First DT2 recovery report~~ one exists (OS 1.16). Still useful: a second report on 1.17, with timings and the interface used",
+   "devices": "Digitakt II",
+   "needs": "unit + DIN",
+   "effort": "S",
+   "value": "Confirms the path on the current OS (G1). Low risk: stock file only.",
+   "status": "done"
+  },
+  {
+   "id": "T2",
+   "task": "~~Digitone mk1 recovery~~ done (one report, digitone-arp-mod). Still useful: the same on a Digitone Keys",
+   "devices": "Digitone Keys",
+   "needs": "unit + DIN",
+   "effort": "S",
+   "value": "Keys share the OS file but are untested by most mods.",
+   "status": "done"
+  },
+  {
+   "id": "T3",
+   "task": "Test rule A39 (no EP0 stage of a multiple of 64 bytes) on a small box with a vendor request. The DT2 has the same EHCI-style controller with EP0 max packet 64 and its own EP0 vendor requests (digikit 42), so it is the best candidate",
+   "devices": "DT2 (or DN2, DT/DN mk1)",
+   "needs": "unit + a USB mod",
+   "effort": "M",
+   "value": "Confirms or limits a rule found on the Octatrack (G3).",
+   "status": "open"
+  },
+  {
+   "id": "T4",
+   "task": "Measure CPU #1 load with the digihealth DMA-timer method over the whole interrupt, at rest and busy",
+   "devices": "Syntakt",
+   "needs": "unit + SyntHack",
+   "effort": "M",
+   "value": "Settles O3; gives Syntakt modders a budget (G2).",
+   "status": "open"
+  },
+  {
+   "id": "T5",
+   "task": "Check the trailer and HMAC of 1.40A/1.41/1.42 with your own files (elektron-firmware-tool, digikit)",
+   "devices": "Syntakt (also DT mk1)",
+   "needs": "files",
+   "effort": "S",
+   "value": "Settles O1; tells modders whether 1.42 needs re-signing.",
+   "status": "open"
+  },
+  {
+   "id": "T6",
+   "task": "Translate SyntHack/machine-45 anchors from 1.41 to 1.42 (byte patterns, not addresses)",
+   "devices": "Syntakt",
+   "needs": "files",
+   "effort": "M",
+   "value": "Opens the current OS to mods (G5).",
+   "status": "open"
+  },
+  {
+   "id": "T7",
+   "task": "Find the cause of the sticky \"bitcrush until reboot\"",
+   "devices": "Digitakt II",
+   "needs": "unit + custom engine",
+   "effort": "L",
+   "value": "A hidden state bug that any DT2 engine can trigger.",
+   "status": "open"
+  },
+  {
+   "id": "T8",
+   "task": "Build an address-translation table DN2 1.11 <-> 1.12 from shared anchors",
+   "devices": "Digitone II",
+   "needs": "files",
+   "effort": "M",
+   "value": "Lets dn2mk2 (1.11) and elekloader/dn2-cfw (1.12) share work (G5); settles O6.",
+   "status": "open"
+  },
+  {
+   "id": "T9",
+   "task": "Measure DN2 load with both meters (dnfw idle-task and elekloader dspbusy) in the same states, then calibrate a cost model (dn2mk2's instructions + 4 x L2 + 10 x DDR is a start)",
+   "devices": "Digitone II",
+   "needs": "unit",
+   "effort": "M",
+   "value": "Settles O15 and O12; predict cost before flashing (G2).",
+   "status": "open"
+  },
+  {
+   "id": "T10",
+   "task": "Port a DMA-timer load probe (digihealth / A4 0011-style) to the Heat +FX and measure all FX on",
+   "devices": "Analog Heat +FX",
+   "needs": "unit",
+   "effort": "M",
+   "value": "First budget for the only fresh platform in phase 1 (G2).",
+   "status": "open"
+  },
+  {
+   "id": "T11",
+   "task": "Unpack the MKI and MKII OS files: sections, container, CPU (peripheral census), any DSP section",
+   "devices": "Analog Heat MKI/MKII",
+   "needs": "files",
+   "effort": "S",
+   "value": "Turns two ⬜ devices into mapped ones. Good first task.",
+   "status": "open"
+  },
+  {
+   "id": "T12",
+   "task": "Compare FPGA bitstreams across devices (sizes, SHA-256, header) and the OS code that talks to them. Leads: on the Rytm MKII, sample bit reduction is a command word sent to the external audio hardware, not PCM work on the ColdFire; and three bitstreams are exactly 54,664 bytes - Heat +FX section 1, A4 MKII section 1, and the Digitone mk1's (inside section 7, loaded by the second CPU)",
+   "devices": "Heat +FX, A4 MKII, DN mk1, Syntakt, DT2/DN2, Rytm",
+   "needs": "files",
+   "effort": "M",
+   "value": "First step on \"what does the FPGA do\" everywhere (G3).",
+   "status": "open"
+  },
+  {
+   "id": "T13",
+   "task": "Transcribe the official MIDI CC/NRPN tables from the manuals' appendices into `hardware/common/sysex-and-midi.md`",
+   "devices": "DT2, DN2, Heat +FX",
+   "needs": "PDF",
+   "effort": "S",
+   "value": "Official numbers for every control tool (G6).",
+   "status": "open"
+  },
+  {
+   "id": "T14",
+   "task": "Fix or document digikit's EMAC fractional-mode emulation against a unit measurement",
+   "devices": "DT2/DN2 (all ColdFire boxes)",
+   "needs": "unit + emulator",
+   "effort": "M",
+   "value": "Fewer \"works in the emulator\" surprises (G4).",
+   "status": "open"
+  },
+  {
+   "id": "T15",
+   "task": "Probe free SHARC L2 on DT2 1.17 between `0x200f5a74` and `0x200fa000` on a unit",
+   "devices": "Digitakt II",
+   "needs": "unit",
+   "effort": "M",
+   "value": "Settles O7; more room for engines.",
+   "status": "open"
+  },
+  {
+   "id": "T16",
+   "task": "Save a project on a grown parameter table, load it on stock, record what happens",
+   "devices": "Digitone II",
+   "needs": "unit",
+   "effort": "S",
+   "value": "Tells users whether modded projects stay safe.",
+   "status": "open"
+  },
+  {
+   "id": "T17",
+   "task": "~~Find why Overbridge rejects modified DN2 builds~~ done (Digiwerk OB01: the version field). Remaining: how the plugin treats parameter ids `0x400`+ from a grown table",
+   "devices": "Digitone II",
+   "needs": "unit + Overbridge",
+   "effort": "S",
+   "value": "Grown-table mods with Overbridge automation.",
+   "status": "done"
+  },
+  {
+   "id": "T18",
+   "task": "Document the project file formats (`.dt2prj`, `.dn2prj`) beyond song slots",
+   "devices": "DT2, DN2",
+   "needs": "files",
+   "effort": "M",
+   "value": "Librarians and converters for musicians.",
+   "status": "open"
+  },
+  {
+   "id": "T19",
+   "task": "~~Check which DN2 SHARC findings hold on the DT2 (and back)~~ done as a comparison (2026-11-02, [dt2-dn2-sharc-crosscheck.md](hardware/common/dt2-dn2-sharc-crosscheck.md)): silicon facts hold on both (digikit's probe on both units), firmware facts do not carry over. Remaining unit tests: SIMD L2 access on a DN2, reply-record arrivals on a DN2, single late blocks on a DN2",
+   "devices": "DT2, DN2",
+   "needs": "unit",
+   "effort": "S each",
+   "value": "Doubles the value of every SHARC finding (G3).",
+   "status": "done"
+  },
+  {
+   "id": "T20",
+   "task": "~~DT mk1 machine-id registry~~ done (nine ids). Keep it current: add each new machine mod's id from its `mod.json`",
+   "devices": "Digitakt mk1",
+   "needs": "reading",
+   "effort": "S",
+   "value": "Prevents clashes between mods.",
+   "status": "done"
+  },
+  {
+   "id": "T21",
+   "task": "~~Cross-check the three Digitakt II mod routes~~ done (2026-11-02, six projects: [memory-maps.md](hardware/common/memory-maps.md)). Found: five users share the flash cave, elekloader's RAM lies inside digikit's `cf.expansion`, the listed UI sites are disjoint. Remaining: settle O18 (canary in the flash cave on a unit) and agree one RAM split between digikit and elekloader",
+   "devices": "Digitakt II",
+   "needs": "files, then unit",
+   "effort": "S",
+   "value": "Lets DT2 mods be combined instead of competing.",
+   "status": "done"
+  },
+  {
+   "id": "T22",
+   "task": "~~Compare libanalogrytm's Rytm SysEx container/encoding with Digitakt II and Digitone II~~ done (2026-11-02, [sysex-and-midi.md](hardware/common/sysex-and-midi.md)): same frame, packing, checksum and count on both generations; the type bytes differ; three device-id namespaces tabulated. Remaining: the Rytm MKII's dump byte, and what a Rytm does with the index byte on receive",
+   "devices": "Rytm, DT2, DN2",
+   "needs": "files",
+   "effort": "S",
+   "value": "One shared description of Elektron's SysEx data encoding.",
+   "status": "done"
+  },
+  {
+   "id": "T23",
+   "task": "Keep a DN2 RAM tenancy table: every mod platform's and mod's ranges above the reset clear, per OS version (start: [memory-maps.md](hardware/common/memory-maps.md), five projects compared 2026-11-02); then a unit canary at `0x46700000` after a large +Drive sample load (settles O17)",
+   "devices": "Digitone II",
+   "needs": "reading, then unit",
+   "effort": "S",
+   "value": "dnfw, cfmod and dn2-cfw all start at `0x46800000`; without a table, mods from different platforms cannot be combined.",
+   "status": "open"
+  },
+  {
+   "id": "T24",
+   "task": "Watch DN2 SHARC L2 `0x200918c0-0x200c2000` for stock writes during playback, pattern changes and a save (emulator write watch first, then a canary on a unit); settles O19",
+   "devices": "Digitone II",
+   "needs": "emulator, then unit",
+   "effort": "S",
+   "value": "Decides whether 160 KB of L2 that two projects use and one avoids is really free.",
+   "status": "open"
+  }
+ ],
+ "hypotheses": [
+  {
+   "id": "H1",
+   "goals": "G7",
+   "inference": "Each unit has three different ids: SysEx device byte, product id, Overbridge USB id. Expected: DT2 `0x14` / `0x2A` / USB `0x0B2B`; DT1 `0x0A` / `0x0C` / `0x0B2C`; DN2 `0x15` / `0x2B` / `0x0B34`; Heat +FX `0x13` / `0x20` / `0x0B53`. The USB id's low byte changes with the USB mode (`0x012B` MIDI, `0x102B` audio/MIDI on the DT2).",
+   "derived_from": "Elektroid, Overwitch, digikit f42, digi-roll ([sysex-and-midi.md](common/sysex-and-midi.md))",
+   "devices": "all four",
+   "test": "Read the USB ids in each USB mode (`lsusb` on Linux, System Information on a Mac, Device Manager on Windows). Read the product id with Elektroid's device info.",
+   "kind": "stock",
+   "status": "open"
+  },
+  {
+   "id": "H2",
+   "goals": "G7",
+   "inference": "Unsaved edits survive a power cycle on the DT2 and the DT1 as on the DN2, because the stock edit writer stores each edit in the sound record at once.",
+   "derived_from": "dnfw LFO4 (DN2, E2)",
+   "devices": "DT2, DT1",
+   "test": "On a throwaway project, turn a filter knob, do not save, power-cycle. Is the value still there? Also try a parameter lock.",
+   "kind": "stock",
+   "status": "open"
+  },
+  {
+   "id": "H3",
+   "goals": "G7",
+   "inference": "A received pattern dump lands in the slot armed on the unit, not in the slot its index byte names (shown on the DN2 by syxgrid).",
+   "derived_from": "syxgrid, digi-roll",
+   "devices": "DT2, DT1",
+   "test": "On a throwaway project, send a pattern dump with index A05 while A02 is armed, using Elektroid or digi-roll. Where does it land?",
+   "kind": "stock",
+   "status": "open"
+  },
+  {
+   "id": "H4",
+   "goals": "G6",
+   "inference": "The DT1 recorder holds at most 33.0 s (1,584,000 frames at 48 kHz, mono).",
+   "derived_from": "digigrain's recorder skill (static)",
+   "devices": "DT1",
+   "test": "Record with free length until it stops; time it.",
+   "kind": "stock",
+   "status": "open"
+  },
+  {
+   "id": "H5",
+   "goals": "G8",
+   "inference": "Overbridge rejects a modified OS whose container version field differs from stock (shown on the DN2, Digiwerk OB01).",
+   "derived_from": "Digiwerk OB01",
+   "devices": "DT2, Heat +FX",
+   "test": "No new flash needed if you already have builds: does Overbridge connect to a build whose version field was changed, and to one where it was kept?",
+   "kind": "stock",
+   "status": "open"
+  },
+  {
+   "id": "H18",
+   "goals": "G7",
+   "inference": "The Heat +FX answers the screen request (RPC framing `F0 00 20 3C 10 00`), as the Heat MKII does, so its screen can be mirrored and read without a mod.",
+   "derived_from": "Elek View (DT2, M:C, Heat MKII)",
+   "devices": "Heat +FX, DT1, DN2",
+   "test": "Open Elek View (bluesgl.github.io/Elek_View) with nothing else on the MIDI port, select the unit, Start.",
+   "kind": "stock",
+   "status": "open"
+  },
+  {
+   "id": "H6",
+   "goals": "G8",
+   "inference": "The DT2's SHARC DDR above the sample pool window (`0x9d22b9c8` up to `0xa0000000`, about 46 MB) is never written by stock, as the DN2's tail `0x80531000-0xa0000000` is not.",
+   "derived_from": "dnfw dn2-ddr method; dt2-machine-lab pool window",
+   "devices": "DT2",
+   "test": "dnfw's method: fill the range with a pattern at boot, then scan it during heavy playback, pattern and kit changes, FX extremes, sample loads and a save. Expect a reserved top part for Capicola builds only.",
+   "kind": "probe",
+   "status": "open"
+  },
+  {
+   "id": "H7",
+   "goals": "G3",
+   "inference": "The DT2's ColdFire runs the same FreeRTOS layout as the DN2: higher priority numbers run first, prio 0 never runs, prio 1 is the idle loop; the main task's stack is barely used.",
+   "derived_from": "dnfw coldfire-tasks (DN2)",
+   "devices": "DT2",
+   "test": "With the USB probe: find the ready table and the running-task pointer, sample them 60 times.",
+   "kind": "probe",
+   "status": "open"
+  },
+  {
+   "id": "H8",
+   "goals": "G8",
+   "inference": "The DN2's digikit flash cave `0x402fb7a8` (2,136 B on 1.11) keeps its bytes through a cold boot, as the DT2's `0x403117c4` does.",
+   "derived_from": "digikit f01 (emulator canary)",
+   "devices": "DN2",
+   "test": "A canary in the cave, read back after a cold boot and after playback. Combine with H9.",
+   "kind": "probe",
+   "status": "open"
+  },
+  {
+   "id": "H9",
+   "goals": "G8",
+   "inference": "The DT2 flash cave `0x403117c4-0x40312000` is safe on a stock image; the freeze report (O18) came from something else in that build.",
+   "derived_from": "Deja Vu, 70b185's builds vs dt2-capicola's comment",
+   "devices": "DT2",
+   "test": "A stock image plus a canary in the cave, read back after a cold start after a long power-off (A40).",
+   "kind": "probe",
+   "status": "open"
+  },
+  {
+   "id": "H10",
+   "goals": "G8",
+   "inference": "DN2 L2 `0x200918c0-0x200c2000` is not written by stock in normal use (O19).",
+   "derived_from": "DN2 skill, elekloader vs dnfw, Digiwerk",
+   "devices": "DN2",
+   "test": "A canary or a write watch over the range during playback, pattern changes and a save (T24).",
+   "kind": "probe",
+   "status": "open"
+  },
+  {
+   "id": "H11",
+   "goals": "G8",
+   "inference": "DN2 RAM `0x46700000-0x46701300` is written by stock only when a +Drive transfer is over 60,672 bytes (O17).",
+   "derived_from": "dnfw, Digiwerk",
+   "devices": "DN2",
+   "test": "A canary at `0x46700000`, read back after loading a large sample or project from +Drive.",
+   "kind": "probe",
+   "status": "open"
+  },
+  {
+   "id": "H12",
+   "goals": "G3",
+   "inference": "DT2 reply words that a hook writes mid-block are lost on the DN2 too (on the DT2 3,995 of 4,000 arrived as 0, because stock rebuilds the record before the DMA).",
+   "derived_from": "70b185 (DT2)",
+   "devices": "DN2",
+   "test": "Write a counter word from a hook and from the block tail; count arrivals on the ColdFire side.",
+   "kind": "probe",
+   "status": "open"
+  },
+  {
+   "id": "H13",
+   "goals": "G3",
+   "inference": "SIMD loads or stores into L2 byte space hang the DN2's DSP as they hang the DT2's (same core, same IMASK).",
+   "derived_from": "DT2 Plaits port, digikit f103",
+   "devices": "DN2",
+   "test": "A one-variable probe image with one SIMD L2 access behind a key press; recovery by power cycle.",
+   "kind": "build",
+   "status": "open"
+  },
+  {
+   "id": "H14",
+   "goals": "G3",
+   "inference": "The SHARC's IIR0/FIR0 accelerators compute on the DT2 exactly as measured on the DN2 (output from stored word 5, FIR sums in pairs, INIDX/OUTIDX written the other way round).",
+   "derived_from": "dnfw accelprobe (DN2)",
+   "devices": "DT2",
+   "test": "Port the accelprobe image to the DT2 and compare the 76 result words.",
+   "kind": "build",
+   "status": "open"
+  },
+  {
+   "id": "H15",
+   "goals": "G2,G3",
+   "inference": "On the DN2, a single late DSP block is a one-block dropout that recovers, as on the DT2; the \"silence until power cycle\" reports came from sustained overload.",
+   "derived_from": "70b185 (DT2), dn2mk2 reports",
+   "devices": "DN2",
+   "test": "Provoke single late blocks (a burn loop on a key press) and count them on the DSP side; then hold an overload for seconds.",
+   "kind": "build",
+   "status": "open"
+  },
+  {
+   "id": "H16",
+   "goals": "G1",
+   "inference": "Heat +FX builds need a cold-start test like other ColdFire units: a startup change can pass quick restarts and fail after minutes off (A40).",
+   "derived_from": "Octatrack case (A40)",
+   "devices": "Heat +FX",
+   "test": "For the next startup-touching build: power off for 10 minutes before judging.",
+   "kind": "build",
+   "status": "open"
+  },
+  {
+   "id": "H17",
+   "goals": "G2,G3",
+   "inference": "Code costs on the Heat +FX follow the DT1's ColdFire lessons (EMAC mode switches, D16 hot-path hooks), since both run audio on an MCF5441x ColdFire.",
+   "derived_from": "RingTone/Tone+FX (DN1), digigrain (DT1), 70b185's +FX notes",
+   "devices": "Heat +FX",
+   "test": "Measure an audio-ISR hook with and without a MACSR switch per block.",
+   "kind": "build",
+   "status": "open"
+  }
+ ],
+ "research_links": [
+  {
+   "item": "H16",
+   "goal": "G1",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "T1",
+   "goal": "G1",
+   "via": "goal table"
+  },
+  {
+   "item": "H15",
+   "goal": "G2",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "H17",
+   "goal": "G2",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "T10",
+   "goal": "G2",
+   "via": "goal table"
+  },
+  {
+   "item": "T4",
+   "goal": "G2",
+   "via": "goal table"
+  },
+  {
+   "item": "T9",
+   "goal": "G2",
+   "via": "goal table"
+  },
+  {
+   "item": "H12",
+   "goal": "G3",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "H13",
+   "goal": "G3",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "H14",
+   "goal": "G3",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "H15",
+   "goal": "G3",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "H17",
+   "goal": "G3",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "H7",
+   "goal": "G3",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "T12",
+   "goal": "G3",
+   "via": "goal table"
+  },
+  {
+   "item": "T19",
+   "goal": "G3",
+   "via": "goal table"
+  },
+  {
+   "item": "T3",
+   "goal": "G3",
+   "via": "goal table"
+  },
+  {
+   "item": "T14",
+   "goal": "G4",
+   "via": "goal table"
+  },
+  {
+   "item": "T6",
+   "goal": "G5",
+   "via": "goal table"
+  },
+  {
+   "item": "T8",
+   "goal": "G5",
+   "via": "goal table"
+  },
+  {
+   "item": "H4",
+   "goal": "G6",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "T13",
+   "goal": "G6",
+   "via": "goal table"
+  },
+  {
+   "item": "H1",
+   "goal": "G7",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "H18",
+   "goal": "G7",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "H2",
+   "goal": "G7",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "H3",
+   "goal": "G7",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "T18",
+   "goal": "G7",
+   "via": "goal table"
+  },
+  {
+   "item": "T22",
+   "goal": "G7",
+   "via": "goal table"
+  },
+  {
+   "item": "H10",
+   "goal": "G8",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "H11",
+   "goal": "G8",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "H5",
+   "goal": "G8",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "H6",
+   "goal": "G8",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "H8",
+   "goal": "G8",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "H9",
+   "goal": "G8",
+   "via": "goal table; hypothesis goal column"
+  },
+  {
+   "item": "T16",
+   "goal": "G8",
+   "via": "goal table"
+  },
+  {
+   "item": "T23",
+   "goal": "G8",
+   "via": "goal table"
+  },
+  {
+   "item": "T24",
+   "goal": "G8",
+   "via": "goal table"
+  }
+ ],
+ "participants": []
 }

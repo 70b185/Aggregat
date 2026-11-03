@@ -52,7 +52,7 @@
   <a href="https://github.com/70b185/aggregat">github.com/70b185/aggregat</a></footer>
 <script>
 const REPO = "https://github.com/70b185/aggregat/blob/master/";
-const TABS = [["facts","Hardware facts"],["projects","Projects"],["rules","Agent rules"],["conflicts","Conflicts"],["sources","Sources"]];
+const TABS = [["facts","Hardware facts"],["projects","Projects"],["rules","Agent rules"],["hypotheses","Tests to run"],["tasks","Tasks"],["goals","Goals"],["conflicts","Conflicts"],["sources","Sources"]];
 let D = null, tab = "facts", srcUrl = {}, devName = {};
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -121,6 +121,28 @@ const VIEWS = {
         <div class="text"><b>B:</b> ${hl(md(c.b, "hardware/CONFLICTS.md"), w)}</div>
         ${c.details ? `<div class="meta">${md(c.details, "hardware/CONFLICTS.md")}</div>` : ""}`
   },
+  hypotheses: {
+    rows: () => D.hypotheses || [],
+    hay: h => [h.id, h.goals, h.inference, h.derived_from, h.devices, h.test, h.kind].join(" "),
+    html: (h, w) => `<div class="head"><span class="title">${esc(h.id)}</span> <span class="chip">${esc(h.kind)}</span>
+        ${list(h.goals).map(g => `<span class="chip">${esc(g)}</span>`).join(" ")} <span class="meta">${hl(esc(h.devices), w)}</span></div>
+        <div class="text">${hl(md(h.inference, "hardware/HYPOTHESES.md"), w)}</div>
+        <div class="meta"><b>Test:</b> ${hl(md(h.test, "hardware/HYPOTHESES.md"), w)} · <b>From:</b> ${md(h.derived_from, "hardware/HYPOTHESES.md")}</div>
+        <div class="meta"><a href="https://github.com/70b185/Aggregat/issues/new?template=test-result.yml">Report a result</a></div>`
+  },
+  tasks: {
+    rows: () => D.tasks || [],
+    hay: t => [t.id, t.task, t.devices, t.needs, t.effort, t.value, t.status].join(" "),
+    html: (t, w) => `<div class="head"><span class="title">${esc(t.id)}</span> <span class="chip">${esc(t.status)}</span>
+        <span class="chip">${esc(t.needs)}</span> <span class="chip">effort ${esc(t.effort)}</span> <span class="meta">${esc(t.devices)}</span></div>
+        <div class="text">${hl(md(t.task, "RESEARCH-MAP.md"), w)}</div><div class="meta">${md(t.value, "RESEARCH-MAP.md")}</div>`
+  },
+  goals: {
+    rows: () => D.goals || [],
+    hay: g => [g.id, g.goal, g.status, g.moved_by].join(" "),
+    html: (g, w) => `<div class="head"><span class="title">${esc(g.id)}</span> <span class="title">${hl(esc(g.goal), w)}</span></div>
+        <div class="text">${hl(md(g.status, "RESEARCH-MAP.md"), w)}</div><div class="meta"><b>Moved by:</b> ${md(g.moved_by, "RESEARCH-MAP.md")}</div>`
+  },
   sources: {
     rows: () => D.sources,
     hay: s => [s.key, s.what, s.url].join(" "),
@@ -154,7 +176,7 @@ function init() {
   const p = new URLSearchParams(location.search);
   if (VIEWS[p.get("t")]) tab = p.get("t");
   $("q").value = p.get("q") || "";
-  $("tabs").innerHTML = TABS.map(([k, l]) => `<button data-t="${k}" class="${k === tab ? "on" : ""}">${l} <span class="meta">${D[k].length}</span></button>`).join("");
+  $("tabs").innerHTML = TABS.map(([k, l]) => `<button data-t="${k}" class="${k === tab ? "on" : ""}">${l} <span class="meta">${(D[k] || []).length}</span></button>`).join("");
   $("tabs").onclick = e => { const b = e.target.closest("button"); if (!b) return; tab = b.dataset.t;
     [...$("tabs").children].forEach(x => x.classList.toggle("on", x === b)); render(); };
   D.devices.forEach(d => { devName[d.slug] = d.name; $("dev").insertAdjacentHTML("beforeend", `<option value="${esc(d.slug)}">${esc(d.name)}</option>`); });

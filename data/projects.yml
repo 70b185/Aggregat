@@ -676,6 +676,27 @@ projects:
       expect the occasional rough edge". GPL-2.0-or-later, 7 commits.
     sources: [GitHub README, lapin-list]
 
+  - id: elek-view
+    name: Elek View (screen viewer in the browser)
+    author: BlueSGL
+    kind: tool
+    list: musician
+    devices: [digitakt-2, model-cycles, analog-heat]
+    repo: https://github.com/BlueSGL/Elek_View
+    links:
+      web_app: https://bluesgl.github.io/Elek_View/
+      forum: https://elektronmods.com/thread-93-elek-view-see-your-devices-screens-in-a-browser-via-webmidi
+    status: active
+    version: "main @ 29fc485 (2026-11-02)"
+    last_activity: "2026-11-02"
+    notes: >
+      Shows a device's screen in the browser over Web MIDI, using the stock RPC screen request (an HTML port of
+      screendump). Tested on a Digitakt II and a Model:Cycles; the author reports an Analog Heat MKII working. Nothing
+      else may hold the MIDI port. GPL-3.0. Found on elektronmods.com 2026-11-03.
+    sources: [elektronmods.com thread 93, README, index.html]
+    relations:
+    - {type: port_of, id: screendump, evidence: 'README: a .html implementation of jakobbak/screendump'}
+
   - id: screendump
     name: screendump
     author: jakobbak

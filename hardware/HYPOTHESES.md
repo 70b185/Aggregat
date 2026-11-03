@@ -18,6 +18,7 @@ How to use this page: pick an entry, run its test, and move the result into the 
 | H3 | A received pattern dump lands in the slot armed on the unit, not in the slot its index byte names (shown on the DN2 by syxgrid). | syxgrid, digi-roll | DT2, DT1 | On a throwaway project, send a pattern dump with index A05 while A02 is armed, using Elektroid or digi-roll. Where does it land? |
 | H4 | The DT1 recorder holds at most 33.0 s (1,584,000 frames at 48 kHz, mono). | digigrain's recorder skill (static) | DT1 | Record with free length until it stops; time it. |
 | H5 | Overbridge rejects a modified OS whose container version field differs from stock (shown on the DN2, Digiwerk OB01). | Digiwerk OB01 | DT2, Heat +FX | No new flash needed if you already have builds: does Overbridge connect to a build whose version field was changed, and to one where it was kept? |
+| H18 | The Heat +FX answers the screen request (RPC framing `F0 00 20 3C 10 00`), as the Heat MKII does, so its screen can be mirrored and read without a mod. | Elek View (DT2, M:C, Heat MKII) | Heat +FX, DT1, DN2 | Open Elek View (bluesgl.github.io/Elek_View) with nothing else on the MIDI port, select the unit, Start. |
 
 ## 2. Probe tests (read-only builds)
 

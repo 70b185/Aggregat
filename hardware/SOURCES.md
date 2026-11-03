@@ -19,6 +19,10 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2mk2-firmware-md | De-Pattern/dn2mk2-firmware `FIRMWARE.md` (cut off in v0.20) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/FIRMWARE.md |
 | dn2-modding-skill | complex-ping/digitone-2-modding-skill README | https://github.com/complex-ping/digitone-2-modding-skill |
 | coldfire-rs | FirestormAudio/coldfire-rs README (generic MCF5441x Rust stack; no Elektron mention) | https://github.com/FirestormAudio/coldfire-rs |
+| nxp-cfprm | NXP ColdFire Family Programmer's Reference Manual (CFPRM), section 2.1 Instruction Format | https://www.nxp.com/docs/en/reference-manual/CFPRM.pdf |
+| nxp-mcf5441x-rm | NXP MCF5441x Reference Manual rev. 5 (section 13.2.1, CWCR; only the first part was readable by our fetch tool) | https://www.nxp.com/docs/en/reference-manual/MCF54418RM.pdf |
+| netburner-cwt | NetBurner MCF5441x core watchdog example (the CWT stays off after a power cycle unless code enables it) | https://www.netburner.com/NBDocsTest/Developer/html/example_watchdog-_m_c_f5441x.html |
+| adi-ee408 | Analog Devices EE-408, Using ADSP-2156x High Performance FIR/IIR Accelerators (Aug 2019) | https://www-cce.cldnet.analog.com/media/en/technical-documentation/application-notes/EE408V02.pdf |
 | digiemu | irpina/digiemu | https://github.com/irpina/digiemu |
 | digi-roll | zooloo303/digi-roll README | https://github.com/zooloo303/digi-roll |
 | digi-roll-protocol | zooloo303/digi-roll `docs/elektron-sysex-protocol.md` (RPC and dump framing for DT1/DT2/DN2, product ids, captured on units) | https://github.com/zooloo303/digi-roll/blob/main/docs/elektron-sysex-protocol.md |
@@ -103,6 +107,8 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | overwitch-devices | dagargo/overwitch `res/devices.json` (Overbridge USB product id per device) | https://github.com/dagargo/overwitch/blob/master/res/devices.json |
 | elektroid-readme | dagargo/elektroid README (device list, connectors, filesystems) | https://github.com/dagargo/elektroid |
 | elektroid-devices | dagargo/elektroid `res/elektron/devices.json` and `src/connectors/elektron.c` (product id per device, read from the Ping reply) | https://github.com/dagargo/elektroid/blob/master/res/elektron/devices.json |
+| elek-view | BlueSGL/Elek_View README and index.html, and its elektronmods.com thread 93 (2026-11-02) | https://github.com/BlueSGL/Elek_View |
+| em-dx2-scripts | elektronmods.com thread 25, project file extraction/compaction scripts by blueSGL (2026-10-01) | https://elektronmods.com/thread-25-elektron-project-file-extraction-compaction-scripts-tested-w |
 | elekloader-agents | elekloader `AGENTS.md` (repo root) | https://github.com/elekloader/elekloader/blob/main/AGENTS.md |
 | elekloader-cores | elekloader `docs/CORES.md` | https://github.com/elekloader/elekloader/blob/main/docs/CORES.md |
 | elekloader-format | elekloader `docs/FORMAT.md` | https://github.com/elekloader/elekloader/blob/main/docs/FORMAT.md |

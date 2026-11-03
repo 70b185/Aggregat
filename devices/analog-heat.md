@@ -8,10 +8,12 @@ Data last verified: 2026-11-02
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **Elek View (screen viewer in the browser)** (BlueSGL) | tool | active | main @ 29fc485 (2026-11-02) | - | 2026-11-02 | [repo](https://github.com/BlueSGL/Elek_View) · [web app](https://bluesgl.github.io/Elek_View/) · [forum](https://elektronmods.com/thread-93-elek-view-see-your-devices-screens-in-a-browser-via-webmidi) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | - | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
 | **Elektroid** (dagargo) | tool | active | 3.4 (2026-08-22) | 3.4 | - | [repo](https://github.com/dagargo/elektroid) |
 | **Overwitch** (dagargo) | tool | active | 2.2 (2025-12-21) | 2.2 | - | [repo](https://github.com/dagargo/overwitch) |
+| **Analog Heat FX+ MultiMode (beta 0.1)** (sapfir365karat (elektronmods.com)) | firmware | unverified | - | - | - | [forum](https://elektronmods.com/thread-92-analog-heat-fx-multimode-beta-0-1) |
 
 ## Details
 
@@ -26,6 +28,14 @@ _Sources: forum mod list (mods.php?id=7), forum thread 8_
 Forum thread listing stock firmware. Not fetched in detail yet. Remember: this aggregator links to stock firmware sources but never hosts them.
 
 _Sources: forum overview_
+
+### Elek View (screen viewer in the browser)
+
+Shows a device's screen in the browser over Web MIDI, using the stock RPC screen request (an HTML port of screendump). Tested on a Digitakt II and a Model:Cycles; the author reports an Analog Heat MKII working. Nothing else may hold the MIDI port. GPL-3.0. Found on elektronmods.com 2026-11-03.
+
+_Related: port of `screendump` (README: a .html implementation of jakobbak/screendump) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: elektronmods.com thread 93, README, index.html_
 
 ### Elektroid
 
@@ -42,3 +52,9 @@ Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog
 _Latest seen (2026-10-31, secondary directories): altstrument: v2.2 (2025-12-21), GPL-3.0-or-later, JACK clients streaming multitrack Overbridge 2 audio._
 
 _Sources: GitHub README, lapin-list_
+
+### Analog Heat FX+ MultiMode (beta 0.1)
+
+The first public custom firmware announcement for the Heat +FX (2026-11-02): screenshots only; features, OS version, licence and a unit test are not stated, a GitHub link is promised. Origin: elektronmods.com, read 2026-11-03.
+
+_Sources: _

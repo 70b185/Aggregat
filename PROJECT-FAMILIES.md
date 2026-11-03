@@ -78,6 +78,13 @@ Devices: Analog Rytm (MKI, MKII). [repo](https://github.com/Iced-Cream/rytm-mods
 - **rytm1_mods** (gdeo607) - port of **rytm-mods-src** (README: port of the MKII project to the MK1). [repo](https://github.com/gdeo607/rytm1_mods)
 - **rytm2_mods** (Iced-Cream) - port of **rytm-mods-src** (README: ported to elemod). [repo](https://github.com/Iced-Cream/rytm2_mods)
 
+## screendump (jakobbak)
+
+Devices: Digitakt (MKI). [repo](https://github.com/jakobbak/screendump)
+
+- **Elek View (screen viewer in the browser)** (BlueSGL) - port of **screendump** (README: a .html implementation of jakobbak/screendump). [repo](https://github.com/BlueSGL/Elek_View)
+- **Elektron-Screen-Tool** (Fadedlimes) - fork of **screendump** (README). [repo](https://github.com/Fadedlimes/elektron-screen-tool)
+
 ## Sidecar | Expander (trigcondition)
 
 Devices: Analog Rytm (MKI, MKII), Digitakt (MKI). [repo](https://github.com/trigcondition/sidecar-expander)
@@ -156,12 +163,6 @@ Devices: Digitakt (MKI). [repo](https://github.com/ClaidArremer/digitakt-pump)
 Devices: Digitone (MKI) / Digitone Keys. [repo](https://github.com/DigiAlchemydsp/RingTone)
 
 - **Tone+FX** (DigiAlchemydsp) - same project as **RingTone (master ring mod / wavefold / EQ)** (release repo; source lives in RingTone). [repo](https://github.com/DigiAlchemydsp/Tone-FX)
-
-## screendump (jakobbak)
-
-Devices: Digitakt (MKI). [repo](https://github.com/jakobbak/screendump)
-
-- **Elektron-Screen-Tool** (Fadedlimes) - fork of **screendump** (README). [repo](https://github.com/Fadedlimes/elektron-screen-tool)
 
 ## SyntHack OS (upstream) (Angelo-politek)
 

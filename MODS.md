@@ -134,7 +134,9 @@ The other lists: [DEV-TOOLS.md](DEV-TOOLS.md) (development tools), [MUSICIAN-TOO
 
 ## Analog Heat (MKI, MKII, +FX)
 
-No public mod found yet (last search 2026-11-02).
+| Project | Devices | What it is | Status | Version / OS | Links |
+|---|---|---|---|---|---|
+| **Analog Heat FX+ MultiMode (beta 0.1)** (sapfir365karat (elektronmods.com)) | Analog Heat (MKI, MKII, +FX) | The first public custom firmware announcement for the Heat +FX (2026-11-02): screenshots only; features, OS version, licence and a unit test are not stated, a GitHub … | unverified entry | - | [forum](https://elektronmods.com/thread-92-analog-heat-fx-multimode-beta-0-1) |
 
 ## Octatrack (MKI, MKII)
 

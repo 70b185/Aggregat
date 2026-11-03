@@ -78,7 +78,7 @@ elektron-firmware-tool, elekloader's codec and a ColdFire disassembler. Facts ma
 
 **Open**
 - The flash budget for a larger MAIN OS, the real CPU reserve with all FX (a forum post claims 79 %), latency, the preset format, and the role of the FPGA.
-- Context: there is still no public Heat +FX firmware research, and Elektron ended firmware-mod discussion on Elektronauts on 2026-09-23. The owner has paused further firmware-internals work.
+- Context: there is still no public Heat +FX firmware research, and Elektron ended firmware-mod discussion on Elektronauts on 2026-09-23. The owner has paused further firmware-internals work. Update 2026-11-03: a first public custom-firmware announcement for the +FX appeared on elektronmods.com ("Analog Heat FX+ MultiMode, Beta 0.1", screenshots only, no repo, features and unit test not stated); catalogued as a candidate. `[?]`
 
 ## Unknown / to do
 **+FX OS 1.02 now has a first profile (section above).** For MKI and MKII nothing is verified: CPU/DSP architecture, container specifics, signing, memory map. First step would be running elektron-firmware-tool on the user's own Heat OS files (not by an agent without the user's files).

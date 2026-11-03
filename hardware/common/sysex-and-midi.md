@@ -113,6 +113,8 @@ Not advertised and dead: all `FsRaw*` (unsandboxed paths) and DataSetTags `5f`. 
 - **A second application on the port corrupts replies:** with Overbridge holding the port, replies were cut at exactly **885 bytes**, and with Transfer open a preset list showed 35 of 256. Close Transfer, Overbridge and DNX before a client run. `[hw]`
 - Windows client bug, silent: using `MIM_ERROR` (0x3C5) instead of `MIM_LONGDATA` (0x3C4) drops every SysEx reply while short messages still arrive. Validate a client against a known reply first (rule A31). `[hw]`
 - Screenshot `0x04` returns the 128x64 frame; polling it gives a live mirror of the screen. `[hw]`
+- **The same screen request works on more devices:** Elek View, a browser port of screendump that sends the request in the `F0 00 20 3C 10 00` RPC framing, was tested on a Digitakt II and a Model:Cycles, and its author reports an Analog Heat MKII working too. So the Heat MKII speaks this RPC framing; whether the Heat +FX does is a stock test (HYPOTHESES H18). `[doc]` {elek-view}
+- **Project files (`.dt2prj`, `.dn2prj`, also Model:Samples/Cycles) are renamed zip files** holding a compressed project image named after the project, a `manifest.json` and, on sampling devices, a samples folder. Decompress-recompress scripts round-tripped projects that then loaded on DN2, DT2, M:S and M:C (forum post, no log); the compression is LZ4 according to syxgrid's author. `[doc]` {em-dx2-scripts}
 
 ## The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) {digikit-f58} `[doc]`
 - The panel MCU sends **2-byte packets on UART8**:

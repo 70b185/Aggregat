@@ -84,3 +84,9 @@ All cloned and scanned like the phase-1 sweep.
 - [x] Scanned, nothing new for hardware/: octa-panel and passos (octabam forks, same trap register), model27 and cycles-mod-standard (read earlier), model-tg, cycles-one-shot, model-machinedrum, plaits-on-models, spokes, the emulator ports (MModule, Machinemodule, Monomodule ports, OP-XY), the small Octatrack tools.
 - [x] Supermodel notes 30, 36, 211, 217 (load governor, EMAC wrapper cost, worst-block profiling) read 2026-11-02; the other ~200 are feature logs. [ ] Could still pay: [x] KYOTI caves.md, techniques.md, NOTES DSP quirks; [ ] KYOTI handoffs, [x] MModule's DSP-memory research (-> machinedrum-monomachine.md).
 
+## Sources beyond the project repos (2026-11-03)
+- [x] GitHub code search (`find_new.py --code`): found x0x, Motor:Cycles, RytmRandomizer and Synfact's new repo.
+- [x] Chip manuals: NXP CFPRM section 2.1 confirms ColdFire instructions are 16, 32 or 48 bits (A42); ADI EE-408 gives the IIR/FIR accelerator rates (digitone-2-internals.md). The MCF5441x reference manual and the SHARC+ programming reference are too large for our fetch tool past their first ~88,000 characters: the CWCR reset value and the SHARC loop-end rule still rest on project statements and third-party code.
+- [x] elektronmods.com front page read: Elek View (catalogued), Heat +FX MultiMode beta (candidate), project-file scripts (fact in sysex-and-midi.md); the Model:Cycles U25 thread is an unanswered request.
+- [~] Reddit and news sites: a search found only coverage of projects already catalogued.
+- [-] Archived copies of vanished repos: not searched, by the owner's choice.

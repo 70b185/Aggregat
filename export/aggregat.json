@@ -3,13 +3,13 @@
   "checked": "2026-11-02",
   "generator": "scripts/export_db.py",
   "counts": {
-   "projects": 206,
+   "projects": 208,
    "devices": 13,
-   "relations": 44,
+   "relations": 45,
    "rules": 91,
-   "sources": 257,
+   "sources": 263,
    "conflicts": 33,
-   "facts": 979
+   "facts": 981
   }
  },
  "devices": [
@@ -644,6 +644,22 @@
    "notes": "Full-panel 128x64 image overlay on command. README: work in progress, \"tested on real hardware - expect the occasional rough edge\". GPL-2.0-or-later, 7 commits.",
    "links": "{}",
    "sources": "[\"GitHub README\", \"lapin-list\"]"
+  },
+  {
+   "id": "elek-view",
+   "name": "Elek View (screen viewer in the browser)",
+   "author": "BlueSGL",
+   "kind": "tool",
+   "list": "musician",
+   "devices": "digitakt-2,model-cycles,analog-heat",
+   "repo": "https://github.com/BlueSGL/Elek_View",
+   "status": "active",
+   "base_os": null,
+   "version": "main @ 29fc485 (2026-11-02)",
+   "last_activity": "2026-11-02",
+   "notes": "Shows a device's screen in the browser over Web MIDI, using the stock RPC screen request (an HTML port of screendump). Tested on a Digitakt II and a Model:Cycles; the author reports an Analog Heat MKII working. Nothing else may hold the MIDI port. GPL-3.0. Found on elektronmods.com 2026-11-03.",
+   "links": "{\"web_app\": \"https://bluesgl.github.io/Elek_View/\", \"forum\": \"https://elektronmods.com/thread-93-elek-view-see-your-devices-screens-in-a-browser-via-webmidi\"}",
+   "sources": "[\"elektronmods.com thread 93\", \"README\", \"index.html\"]"
   },
   {
    "id": "screendump",
@@ -3366,6 +3382,22 @@
    "sources": "[\"GitHub search 2026-11-02\", \"README\"]"
   },
   {
+   "id": "heatfx-multimode",
+   "name": "Analog Heat FX+ MultiMode (beta 0.1)",
+   "author": "sapfir365karat (elektronmods.com)",
+   "kind": "firmware",
+   "list": "mods",
+   "devices": "analog-heat",
+   "repo": null,
+   "status": "unverified",
+   "base_os": null,
+   "version": null,
+   "last_activity": "",
+   "notes": "The first public custom firmware announcement for the Heat +FX (2026-11-02): screenshots only; features, OS version, licence and a unit test are not stated, a GitHub link is promised. Origin: elektronmods.com, read 2026-11-03.",
+   "links": "{\"forum\": \"https://elektronmods.com/thread-92-analog-heat-fx-multimode-beta-0-1\"}",
+   "sources": "[]"
+  },
+  {
    "id": "selache",
    "name": "selache (SHARC+ toolchain)",
    "author": "js216 (ElekLabs keeps a fork)",
@@ -3422,6 +3454,12 @@
    "type": "builds_on",
    "target": "digisophie",
    "evidence": "notes"
+  },
+  {
+   "project": "elek-view",
+   "type": "port_of",
+   "target": "screendump",
+   "evidence": "README: a .html implementation of jakobbak/screendump"
   },
   {
    "project": "tone-fx",
@@ -4038,9 +4076,9 @@
    "id": "A42",
    "section": "A. Safety - never skip",
    "title": "ColdFire is not a full 68000: check every addressing-mode combination against the ColdFire manual, not against the emulator.",
-   "text": "A42. ColdFire is not a full 68000: check every addressing-mode combination against the ColdFire manual, not against the emulator. The forms below were excluded by ColdFire, ran in the emulator, and failed on a unit: - `move.l #imm,d16(An)` (immediate to displacement) crashed a Digitakt II at startup with exception vector 4. digikit's machine builder wrote the same form (`2f7c imm 0008`, `move.l #imm,(8,A7)`) independently: it is 8 bytes long, and ColdFire instructions are at most 6, so every image with that shim faults on a real ColdFire while the old generic m68k emulator ran it {digikit-f02}; - `move.l #imm,abs.L` (immediate to absolute) appeared five times in an early copier of a Digitone mk1 build, which then hung on the logo. It was the most likely cause, though the fault address was never captured. In the second case, a local ISA checker also accepted the form, because it decoded the instruction without checking the source/destination pair. Assemble with the right `-mcpu`, check hand-encoded bytes against the manual's mode tables (CFPRM pp. 4-47/4-48), and round-trip (A41). `[hw]` {dt2-lab-coldfire-fix} {dn1-arpmod-e04}",
+   "text": "A42. ColdFire is not a full 68000: check every addressing-mode combination against the ColdFire manual, not against the emulator. The forms below were excluded by ColdFire, ran in the emulator, and failed on a unit: - `move.l #imm,d16(An)` (immediate to displacement) crashed a Digitakt II at startup with exception vector 4. digikit's machine builder wrote the same form (`2f7c imm 0008`, `move.l #imm,(8,A7)`) independently: it is 8 bytes long, and ColdFire instructions are at most 6 (the programmer's reference: \"1 to 3 words\", \"limited to 3 sizes: 16, 32, or 48 bits\" {nxp-cfprm}), so every image with that shim faults on a real ColdFire while the old generic m68k emulator ran it {digikit-f02}; - `move.l #imm,abs.L` (immediate to absolute) appeared five times in an early copier of a Digitone mk1 build, which then hung on the logo. It was the most likely cause, though the fault address was never captured. In the second case, a local ISA checker also accepted the form, because it decoded the instruction without checking the source/destination pair. Assemble with the right `-mcpu`, check hand-encoded bytes against the manual's mode tables (CFPRM pp. 4-47/4-48), and round-trip (A41). `[hw]` {dt2-lab-coldfire-fix} {dn1-arpmod-e04}",
    "evidence": "hw",
-   "sources": "digikit-f02,dn1-arpmod-e04,dt2-lab-coldfire-fix",
+   "sources": "digikit-f02,dn1-arpmod-e04,dt2-lab-coldfire-fix,nxp-cfprm",
    "devices": "digitakt-2,digitone"
   },
   {
@@ -4562,6 +4600,26 @@
    "url": "https://github.com/FirestormAudio/coldfire-rs"
   },
   {
+   "key": "nxp-cfprm",
+   "what": "NXP ColdFire Family Programmer's Reference Manual (CFPRM), section 2.1 Instruction Format",
+   "url": "https://www.nxp.com/docs/en/reference-manual/CFPRM.pdf"
+  },
+  {
+   "key": "nxp-mcf5441x-rm",
+   "what": "NXP MCF5441x Reference Manual rev. 5 (section 13.2.1, CWCR; only the first part was readable by our fetch tool)",
+   "url": "https://www.nxp.com/docs/en/reference-manual/MCF54418RM.pdf"
+  },
+  {
+   "key": "netburner-cwt",
+   "what": "NetBurner MCF5441x core watchdog example (the CWT stays off after a power cycle unless code enables it)",
+   "url": "https://www.netburner.com/NBDocsTest/Developer/html/example_watchdog-_m_c_f5441x.html"
+  },
+  {
+   "key": "adi-ee408",
+   "what": "Analog Devices EE-408, Using ADSP-2156x High Performance FIR/IIR Accelerators (Aug 2019)",
+   "url": "https://www-cce.cldnet.analog.com/media/en/technical-documentation/application-notes/EE408V02.pdf"
+  },
+  {
    "key": "digiemu",
    "what": "irpina/digiemu",
    "url": "https://github.com/irpina/digiemu"
@@ -4970,6 +5028,16 @@
    "key": "elektroid-devices",
    "what": "dagargo/elektroid `res/elektron/devices.json` and `src/connectors/elektron.c` (product id per device, read from the Ping reply)",
    "url": "https://github.com/dagargo/elektroid/blob/master/res/elektron/devices.json"
+  },
+  {
+   "key": "elek-view",
+   "what": "BlueSGL/Elek_View README and index.html, and its elektronmods.com thread 93 (2026-11-02)",
+   "url": "https://github.com/BlueSGL/Elek_View"
+  },
+  {
+   "key": "em-dx2-scripts",
+   "what": "elektronmods.com thread 25, project file extraction/compaction scripts by blueSGL (2026-10-01)",
+   "url": "https://elektronmods.com/thread-25-elektron-project-file-extraction-compaction-scripts-tested-w"
   },
   {
    "key": "elekloader-agents",
@@ -6879,8 +6947,8 @@
    "file": "hardware/devices/analog-heat.md",
    "line": 81,
    "section": "Analog Heat (MKI, MKII, +FX) / Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo)",
-   "text": "Context: there is still no public Heat +FX firmware research, and Elektron ended firmware-mod discussion on Elektronauts on 2026-09-23. The owner has paused further firmware-internals work.",
-   "evidence": "doc,hw",
+   "text": "Context: there is still no public Heat +FX firmware research, and Elektron ended firmware-mod discussion on Elektronauts on 2026-09-23. The owner has paused further firmware-internals work. Update 2026-11-03: a first public custom-firmware announcement for the +FX appeared on elektronmods.com (\"Analog Heat FX+ MultiMode, Beta 0.1\", screenshots only, no repo, features and unit test not stated); catalogued as a candidate. `[?]`",
+   "evidence": "?",
    "sources": "own-heatfx-notes",
    "devices": "analog-heat",
    "addresses": "",
@@ -9530,9 +9598,9 @@
    "file": "hardware/devices/digitone-2-internals.md",
    "line": 119,
    "section": "Digitone II - internals collected from the research repos (OS 1.10E / 1.11 / 1.12) / More from dnfw's notes (read 2026-11-02)",
-   "text": "The SHARC's filter accelerators, read on a DN2 (accelprobe, 2026-10-17). The ADSP-21569 has IIR0 and FIR0; the DN2 1.11 engine uses neither. Only 22 of 76 result words matched the models built from the hardware reference; the chip differs in three ways: IIR0 feeds stored word 5 of a biquad into the output: y = A0 x + s1, then s1 = (A1 x + s2) + B1 y and s2 = A2 x + B2 y, each step rounded to float32 (all 40 outputs and 4 states match). FIR0 adds its four partial sums in pairs, (acc0 + acc1) + (acc2 + acc3). In ACM mode the chip writes `0xFFFFFFFF` to a TCB's INIDX and 0 to OUTIDX after a window, the other way round from the hardware reference. Speed bounds, including setup: at most about 22 cycles per biquad-sample and 4.5 per tap-sample. digikit's models were corrected to match all 76 words. Same silicon on the DT2 ([crosscheck](../common/dt2-dn2-sharc-crosscheck.md)). `[hw]` {dn2-accel}",
+   "text": "The SHARC's filter accelerators, read on a DN2 (accelprobe, 2026-10-17). The ADSP-21569 has IIR0 and FIR0; the DN2 1.11 engine uses neither. Only 22 of 76 result words matched the models built from the hardware reference; the chip differs in three ways: IIR0 feeds stored word 5 of a biquad into the output: y = A0 x + s1, then s1 = (A1 x + s2) + B1 y and s2 = A2 x + B2 y, each step rounded to float32 (all 40 outputs and 4 states match). FIR0 adds its four partial sums in pairs, (acc0 + acc1) + (acc2 + acc3). In ACM mode the chip writes `0xFFFFFFFF` to a TCB's INIDX and 0 to OUTIDX after a window, the other way round from the hardware reference. Speed bounds, including setup: at most about 22 cycles per biquad-sample and 4.5 per tap-sample. ADI's application note gives the theoretical rates as 6 cycles per biquad (one MAC unit) and about 0.25 cycles per tap and sample (four MAC units), and says the coefficient and state preload dominates small jobs, which fits these bounds from jobs of 8-16 samples {adi-ee408}. The INIDX/OUTIDX write-back in ACM is not described there. digikit's models were corrected to match all 76 words. Same silicon on the DT2 ([crosscheck](../common/dt2-dn2-sharc-crosscheck.md)). `[hw]` {dn2-accel}",
    "evidence": "hw",
-   "sources": "dn2-accel",
+   "sources": "adi-ee408,dn2-accel",
    "devices": "digitone-2",
    "addresses": "0xFFFFFFFF",
    "id": 315
@@ -14975,9 +15043,9 @@
    "file": "hardware/common/memory-maps.md",
    "line": 22,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Platform facts from the firmware itself (Digitakt II / Digitone II, digikit finding 08 and 59)",
-   "text": "No ColdFire watchdog. Neither MAIN OS (DT2 1.16/1.17, DN2 1.11/1.12) nor the bootstrap names the core watchdog registers (CWCR `0xFC040016`, CWSR `0xFC04001B`), and the watchdog is off after reset. A ColdFire hang therefore stays hung until a power cycle; nothing resets the unit for you. Static reading; computed addresses are not excluded. `[doc]` {digikit-f17}",
+   "text": "No ColdFire watchdog. Neither MAIN OS (DT2 1.16/1.17, DN2 1.11/1.12) nor the bootstrap names the core watchdog registers (CWCR `0xFC040016`, CWSR `0xFC04001B`), and the watchdog is off after reset. A ColdFire hang therefore stays hung until a power cycle; nothing resets the unit for you. Static reading; computed addresses are not excluded. Third-party MCF5441x code agrees that the core watchdog stays off after a power cycle unless software enables it, and CWCR can be written only once after reset (so a bootstrap write of 0 would also lock it off). `[doc]` {digikit-f17} {netburner-cwt} {nxp-mcf5441x-rm}",
    "evidence": "doc",
-   "sources": "digikit-f17",
+   "sources": "digikit-f17,netburner-cwt,nxp-mcf5441x-rm",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0xFC040016,0xFC04001B",
    "id": 810
@@ -16238,31 +16306,31 @@
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 118,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) `[doc]`",
-   "text": "The panel MCU sends 2-byte packets on UART8: key packet: `0x20 | channel`, then the channel's 8-bit button mask; encoder packet: `0x30 | (encoder-1)`, then a signed 8-bit delta; high nibble 7: the factory console.",
+   "line": 116,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II specifics and client pitfalls (dnfw `midi-rpc.md`, live on a DN2 1.11)",
+   "text": "The same screen request works on more devices: Elek View, a browser port of screendump that sends the request in the `F0 00 20 3C 10 00` RPC framing, was tested on a Digitakt II and a Model:Cycles, and its author reports an Analog Heat MKII working too. So the Heat MKII speaks this RPC framing; whether the Heat +FX does is a stock test (HYPOTHESES H18). `[doc]` {elek-view}",
    "evidence": "doc",
-   "sources": "digikit-f58",
-   "devices": "digitakt-2,digitone-2",
+   "sources": "dn2-midirpc,elek-view",
+   "devices": "analog-heat,digitakt-2,digitone-2,model-cycles",
    "addresses": "",
    "id": 925
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 122,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) `[doc]`",
-   "text": "Key code = `channel*8 + bit + 1` (codes 1-48, plus a few exceptions per device). There are nine encoders.",
+   "line": 117,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II specifics and client pitfalls (dnfw `midi-rpc.md`, live on a DN2 1.11)",
+   "text": "Project files (`.dt2prj`, `.dn2prj`, also Model:Samples/Cycles) are renamed zip files holding a compressed project image named after the project, a `manifest.json` and, on sampling devices, a samples folder. Decompress-recompress scripts round-tripped projects that then loaded on DN2, DT2, M:S and M:C (forum post, no log); the compression is LZ4 according to syxgrid's author. `[doc]` {em-dx2-scripts}",
    "evidence": "doc",
-   "sources": "digikit-f58",
-   "devices": "digitakt-2,digitone-2",
+   "sources": "dn2-midirpc,em-dx2-scripts",
+   "devices": "digitakt-2,digitone-2,model-samples",
    "addresses": "",
    "id": 926
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 123,
+   "line": 120,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) `[doc]`",
-   "text": "Toward the panel: `B9 idx val` sets an LED to a palette entry, `B5 i r g b` sets a palette entry.",
+   "text": "The panel MCU sends 2-byte packets on UART8: key packet: `0x20 | channel`, then the channel's 8-bit button mask; encoder packet: `0x30 | (encoder-1)`, then a signed 8-bit delta; high nibble 7: the factory console.",
    "evidence": "doc",
    "sources": "digikit-f58",
    "devices": "digitakt-2,digitone-2",
@@ -16273,65 +16341,65 @@
    "file": "hardware/common/sysex-and-midi.md",
    "line": 124,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) `[doc]`",
+   "text": "Key code = `channel*8 + bit + 1` (codes 1-48, plus a few exceptions per device). There are nine encoders.",
+   "evidence": "doc",
+   "sources": "digikit-f58",
+   "devices": "digitakt-2,digitone-2",
+   "addresses": "",
+   "id": 928
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 125,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) `[doc]`",
+   "text": "Toward the panel: `B9 idx val` sets an LED to a palette entry, `B5 i r g b` sets a palette entry.",
+   "evidence": "doc",
+   "sources": "digikit-f58",
+   "devices": "digitakt-2,digitone-2",
+   "addresses": "",
+   "id": 929
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 126,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / The panel wire protocol (digikit finding 58, DT2 1.17 / DN2 1.12) `[doc]`",
    "text": "Remote control without touching the UART: the firmware's button decoder `f(channel, new_mask)` (DT2 1.17 `0x4011e318`, DN2 1.12 `0x4011fc8c`) and encoder decoder `f(encoder0, delta)` (`0x4011e598` / `0x4011ff0c`) can be called from a mod. Mask SR to `0x2700` around the call; the decoders do unprotected read-modify-write. Neither checks the channel (safe: buttons 0-6, encoders 0-8). An encoder turn is ignored for 40 ticks after its click key is released. `[emu]`",
    "evidence": "emu",
    "sources": "digikit-f58",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x4011e318,0x4011e598,0x4011fc8c,0x4011ff0c",
-   "id": 928
+   "id": 930
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 129,
+   "line": 131,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Hardware ports and the hidden service console (DT2 1.16 / DN2 1.11)",
    "text": "DIN MIDI runs on UART9 (`0xec074000`, 31,250 baud, receive by eDMA channel 36). The front panel talks over UART8 (`0xec070000`). Panel key codes used by emulators: SETTINGS 8, FUNC 17, YES 10, NO 12, UP 11, DOWN 14, LEFT 13, RIGHT 15. `[emu]`",
    "evidence": "emu",
    "sources": "digikit-f25,dn2-service",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0xec070000,0xec074000",
-   "id": 929
+   "id": 931
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 130,
+   "line": 132,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Hardware ports and the hidden service console (DT2 1.16 / DN2 1.11)",
    "text": "Maintenance mode (a power-on key combination, or a reboot marker) presents a USB CDC-ACM serial port, VID `0x1935` PID `0xFFFF`. It speaks a line protocol: `#COMMAND\\n` text lines, `!` + 4-byte big-endian length for binary frames. About 60 factory commands. Read-only examples: `#HELLO` (answers \"HOW DO YOU DO?\"), `#STATUS` (reports `PLATFORM PCBA0109..`, `PRODUCT 52;5;15;Digitone II`), `#READ_SERIAL` (the \"SERI\" record at flash `0x3C0000`). Writing commands change persistent state: `#WRITE_SERIAL`, `#WRITE_TESTED`, `#WRITE_UI_TESTED`, `#WRITE_AUDIO_TESTED`, `#MMC_RECONFIGURE`, `#WRITE`, `#UPGRADE`, `#FULL_UPGRADE` (unchecked flash path, see `os-update-protocol.md`). Agents never send these. `[doc]` (digi-roll-studio's ceremony - copy it) 1. Re-read and back up the whole destination pattern first; abort if the backup fails. 2. The target's OS build must be on an allowlist. 3. The user confirms a dialog listing the changes. 4. Change only the bytes that must change. 5. Read the result back and byte-compare. Also: keep a local stash of overwritten patterns (50) plus pre-restore snapshots (10). `[hw]` {digi-roll-studio}",
    "evidence": "doc,hw",
    "sources": "digi-roll-studio,digikit-f25,dn2-service",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x3C0000",
-   "id": 930
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 147,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Operating notes",
-   "text": "Digitone II must be in SYSEX RECEIVE mode to accept a pattern; it lands in the slot selected on the device; queued patterns land consecutively; raise the gap (ms) if large dumps lose trigs. `[doc]` {syxgrid}",
-   "evidence": "doc",
-   "sources": "syxgrid",
-   "devices": "digitone-2",
-   "addresses": "",
-   "id": 931
-  },
-  {
-   "file": "hardware/common/sysex-and-midi.md",
-   "line": 148,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Operating notes",
-   "text": "Web MIDI needs Chromium over HTTPS/localhost; Chrome/Edge 152 break SysEx receive on macOS (sending works). `[doc]` {syxgrid}",
-   "evidence": "doc",
-   "sources": "syxgrid",
-   "devices": "",
-   "addresses": "",
    "id": 932
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
    "line": 149,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Operating notes",
-   "text": "NRPN groups (Digitakt II, MCP project): MSB 1 = track/trig/source/filter/amp, MSB 2 = FX, MSB 3 = trig note/velocity/length. Sample select is NRPN MSB 1 / LSB 3 per one forum user, who found that sample-slot control by NRPN looked broken and that a separate \"sample slot\" + \"bank\" CC pair may be the real route. `[?]` {digitakt-midi-mcp} {elektronauts-dt2-sample-slot}",
-   "evidence": "?",
-   "sources": "digitakt-midi-mcp,elektronauts-dt2-sample-slot",
-   "devices": "digitakt-2",
+   "text": "Digitone II must be in SYSEX RECEIVE mode to accept a pattern; it lands in the slot selected on the device; queued patterns land consecutively; raise the gap (ms) if large dumps lose trigs. `[doc]` {syxgrid}",
+   "evidence": "doc",
+   "sources": "syxgrid",
+   "devices": "digitone-2",
    "addresses": "",
    "id": 933
   },
@@ -16339,9 +16407,9 @@
    "file": "hardware/common/sysex-and-midi.md",
    "line": 150,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Operating notes",
-   "text": "External sequencing: the Digitakt needed MIDI Start + clock pulses + Stop to play when externally controlled (MCP project note). `[doc]` {digitakt-midi-mcp}",
+   "text": "Web MIDI needs Chromium over HTTPS/localhost; Chrome/Edge 152 break SysEx receive on macOS (sending works). `[doc]` {syxgrid}",
    "evidence": "doc",
-   "sources": "digitakt-midi-mcp",
+   "sources": "syxgrid",
    "devices": "",
    "addresses": "",
    "id": 934
@@ -16350,10 +16418,10 @@
    "file": "hardware/common/sysex-and-midi.md",
    "line": 151,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Operating notes",
-   "text": "Sample swapping via CC happens on the next trigger, not on a trigger that sends the CC (forum report). `[?]` {elektronauts-dt2-sample-slot}",
+   "text": "NRPN groups (Digitakt II, MCP project): MSB 1 = track/trig/source/filter/amp, MSB 2 = FX, MSB 3 = trig note/velocity/length. Sample select is NRPN MSB 1 / LSB 3 per one forum user, who found that sample-slot control by NRPN looked broken and that a separate \"sample slot\" + \"bank\" CC pair may be the real route. `[?]` {digitakt-midi-mcp} {elektronauts-dt2-sample-slot}",
    "evidence": "?",
-   "sources": "elektronauts-dt2-sample-slot",
-   "devices": "",
+   "sources": "digitakt-midi-mcp,elektronauts-dt2-sample-slot",
+   "devices": "digitakt-2",
    "addresses": "",
    "id": 935
   },
@@ -16361,32 +16429,32 @@
    "file": "hardware/common/sysex-and-midi.md",
    "line": 152,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Operating notes",
-   "text": "Overbridge (USB multitrack audio + parameter control) is proprietary; Overwitch reimplements the audio side on Linux for Overbridge-2 devices incl. Analog Heat. {overwitch}",
-   "evidence": "",
-   "sources": "overwitch",
-   "devices": "analog-heat",
+   "text": "External sequencing: the Digitakt needed MIDI Start + clock pulses + Stop to play when externally controlled (MCP project note). `[doc]` {digitakt-midi-mcp}",
+   "evidence": "doc",
+   "sources": "digitakt-midi-mcp",
+   "devices": "",
    "addresses": "",
    "id": 936
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 155,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Rules for agents",
-   "text": "Never write to a unit's storage with an unverified format: back up via Transfer first, work on throwaway projects, read back and compare.",
-   "evidence": "",
-   "sources": "",
+   "line": 153,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Operating notes",
+   "text": "Sample swapping via CC happens on the next trigger, not on a trigger that sends the CC (forum report). `[?]` {elektronauts-dt2-sample-slot}",
+   "evidence": "?",
+   "sources": "elektronauts-dt2-sample-slot",
    "devices": "",
    "addresses": "",
    "id": 937
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 156,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Rules for agents",
-   "text": "Treat every \"best-guess\" request format as unsafe until you have captured the real traffic with a MIDI monitor.",
+   "line": 154,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Operating notes",
+   "text": "Overbridge (USB multitrack audio + parameter control) is proprietary; Overwitch reimplements the audio side on Linux for Overbridge-2 devices incl. Analog Heat. {overwitch}",
    "evidence": "",
-   "sources": "",
-   "devices": "",
+   "sources": "overwitch",
+   "devices": "analog-heat",
    "addresses": "",
    "id": 938
   },
@@ -16394,32 +16462,32 @@
    "file": "hardware/common/sysex-and-midi.md",
    "line": 157,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Rules for agents",
-   "text": "Do not use libraries that parse a different device generation (Digitone mk1 vs II, Analog Four gen-1 vs gen-2) - the formats differ.",
+   "text": "Never write to a unit's storage with an unverified format: back up via Transfer first, work on throwaway projects, read back and compare.",
    "evidence": "",
    "sources": "",
-   "devices": "analog-four-keys,digitone",
+   "devices": "",
    "addresses": "",
    "id": 939
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 160,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Elektroid (dagargo) - a general sample/SysEx client",
-   "text": "Supported (README list): Analog Four MKI/MKII/Keys, Analog Heat MKI/MKII/+FX, Analog Rytm MKI/MKII, Digitakt I/II, Digitone I/II/Keys, Model:Cycles/Samples, Monomachine MKII, Syntakt, plus non-Elektron gear (Arturia, Casio CZ-101, Eventide, KORG, MFB, Moog, Novation, MIDI SDS samplers). No per-device capability table; `elektroid-cli info <device>` shows the compatible filesystems. `[doc]` {elektroid-readme}",
-   "evidence": "doc",
-   "sources": "elektroid-readme",
-   "devices": "analog-four-keys,analog-heat,analog-rytm,model-cycles,monomachine,syntakt",
+   "line": 158,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Rules for agents",
+   "text": "Treat every \"best-guess\" request format as unsafe until you have captured the real traffic with a MIDI monitor.",
+   "evidence": "",
+   "sources": "",
+   "devices": "",
    "addresses": "",
    "id": 940
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 161,
-   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Elektroid (dagargo) - a general sample/SysEx client",
-   "text": "Connectors: `system` (local computer, for format conversion), `elektron`, `cz`, `sds`, `efactor_preset`. Elektron filesystem families: raw/sample (`raw`, `preset-raw`, `sample`), data (`data`, `project`, `preset`, `preset-takt-ii`, `sound`), memory (`ram`, `track`). The Digitakt II \"Preset\" filesystem is implemented as `preset-takt-ii`. `raw` and `data` are for testing only and not compatible with Transfer formats. A firmware `upgrade` command exists in the CLI (which devices is not stated). Device definitions come from `~/.config/elektroid/elektron/devices.json` if present. Elektron samples cannot be swapped. `[doc]` {elektroid-readme}",
-   "evidence": "doc",
-   "sources": "elektroid-readme",
-   "devices": "digitakt-2",
+   "line": 159,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Rules for agents",
+   "text": "Do not use libraries that parse a different device generation (Digitone mk1 vs II, Analog Four gen-1 vs gen-2) - the formats differ.",
+   "evidence": "",
+   "sources": "",
+   "devices": "analog-four-keys,digitone",
    "addresses": "",
    "id": 941
   },
@@ -16427,23 +16495,45 @@
    "file": "hardware/common/sysex-and-midi.md",
    "line": 162,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Elektroid (dagargo) - a general sample/SysEx client",
-   "text": "Backends: ALSA MIDI and PulseAudio by default on Linux, RtMidi/RtAudio elsewhere. 2,506 commits, 19 open issues; no version shown on the page (altstrument lists v3.4, 2026-08-22).",
-   "evidence": "",
+   "text": "Supported (README list): Analog Four MKI/MKII/Keys, Analog Heat MKI/MKII/+FX, Analog Rytm MKI/MKII, Digitakt I/II, Digitone I/II/Keys, Model:Cycles/Samples, Monomachine MKII, Syntakt, plus non-Elektron gear (Arturia, Casio CZ-101, Eventide, KORG, MFB, Moog, Novation, MIDI SDS samplers). No per-device capability table; `elektroid-cli info <device>` shows the compatible filesystems. `[doc]` {elektroid-readme}",
+   "evidence": "doc",
    "sources": "elektroid-readme",
-   "devices": "",
+   "devices": "analog-four-keys,analog-heat,analog-rytm,model-cycles,monomachine,syntakt",
    "addresses": "",
    "id": 942
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
-   "line": 165,
+   "line": 163,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Elektroid (dagargo) - a general sample/SysEx client",
+   "text": "Connectors: `system` (local computer, for format conversion), `elektron`, `cz`, `sds`, `efactor_preset`. Elektron filesystem families: raw/sample (`raw`, `preset-raw`, `sample`), data (`data`, `project`, `preset`, `preset-takt-ii`, `sound`), memory (`ram`, `track`). The Digitakt II \"Preset\" filesystem is implemented as `preset-takt-ii`. `raw` and `data` are for testing only and not compatible with Transfer formats. A firmware `upgrade` command exists in the CLI (which devices is not stated). Device definitions come from `~/.config/elektroid/elektron/devices.json` if present. Elektron samples cannot be swapped. `[doc]` {elektroid-readme}",
+   "evidence": "doc",
+   "sources": "elektroid-readme",
+   "devices": "digitakt-2",
+   "addresses": "",
+   "id": 943
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 164,
+   "section": "SysEx and MIDI control (talking to a unit without flashing it) / Elektroid (dagargo) - a general sample/SysEx client",
+   "text": "Backends: ALSA MIDI and PulseAudio by default on Linux, RtMidi/RtAudio elsewhere. 2,506 commits, 19 open issues; no version shown on the page (altstrument lists v3.4, 2026-08-22).",
+   "evidence": "",
+   "sources": "elektroid-readme",
+   "devices": "",
+   "addresses": "",
+   "id": 944
+  },
+  {
+   "file": "hardware/common/sysex-and-midi.md",
+   "line": 167,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Where the official MIDI tables live (forum reports, not read from the manuals)",
    "text": "Digitakt (mk1) manual: Appendix A lists sound parameters with CC numbers; high-resolution control needs NRPN, which is four CC messages (CC 99 = NRPN MSB, CC 98 = NRPN LSB, CC 6 = data MSB, CC 38 = data LSB), the MSB/LSB per parameter come from the manual; \"Receive CC/NRPN\" must be enabled under SETTINGS > MIDI CONFIG > PORT CONFIG. Digitone (mk1): Appendix B (MIDI implementation), ratio offsets are in a table B.3, CC 70-77 drive the MIDI track's CC value parameters. A forum user reports that the Digitakt II manual lists no CC values for the Euclidean sequencer parameters and that some Euclidean NRPNs misbehaved before OS 1.10 (\"Some NRPN parameters regarding the Euclidean sequencer didn't work as intended\" is in the 1.10 notes). The Octatrack is said to be the only Elektron device that answers a CC request. Manuals are updated with every OS - always use the one for the OS in hand. `[?]` {elektronauts-dt2-sample-slot} {elektronauts-heat-midi} {elektron-dt2-notes}",
    "evidence": "?",
    "sources": "elektron-dt2-notes,elektronauts-dt2-sample-slot,elektronauts-heat-midi",
    "devices": "digitakt-2,octatrack",
    "addresses": "",
-   "id": 943
+   "id": 945
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16454,7 +16544,7 @@
    "sources": "elekloader-adapting",
    "devices": "digitone",
    "addresses": "",
-   "id": 944
+   "id": 946
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16465,7 +16555,7 @@
    "sources": "dn2-firmware-explore,dn2-modding-skill",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 945
+   "id": 947
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16476,7 +16566,7 @@
    "sources": "dn2-cfw,dn2mk2",
    "devices": "",
    "addresses": "",
-   "id": 946
+   "id": 948
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16487,7 +16577,7 @@
    "sources": "elekloader-adapting,own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 947
+   "id": 949
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16498,7 +16588,7 @@
    "sources": "dn2-cfw-t31,dn2-selache",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 948
+   "id": 950
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16509,7 +16599,7 @@
    "sources": "dn2-selache",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 949
+   "id": 951
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16520,7 +16610,7 @@
    "sources": "dn2-cfw",
    "devices": "",
    "addresses": "",
-   "id": 950
+   "id": 952
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16531,7 +16621,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 951
+   "id": 953
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16542,7 +16632,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 952
+   "id": 954
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16553,7 +16643,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 953
+   "id": 955
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16564,7 +16654,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 954
+   "id": 956
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16575,7 +16665,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 955
+   "id": 957
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16586,7 +16676,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 956
+   "id": 958
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16597,7 +16687,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 957
+   "id": 959
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16608,7 +16698,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 958
+   "id": 960
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16619,7 +16709,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 959
+   "id": 961
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16630,7 +16720,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 960
+   "id": 962
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16641,7 +16731,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 961
+   "id": 963
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16652,7 +16742,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 962
+   "id": 964
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16663,7 +16753,7 @@
    "sources": "digiemu",
    "devices": "digitone",
    "addresses": "",
-   "id": 963
+   "id": 965
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16674,7 +16764,7 @@
    "sources": "digikit",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 964
+   "id": 966
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16685,7 +16775,7 @@
    "sources": "digikit-old",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 965
+   "id": 967
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16696,7 +16786,7 @@
    "sources": "dn2-cfw",
    "devices": "",
    "addresses": "",
-   "id": 966
+   "id": 968
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16707,7 +16797,7 @@
    "sources": "dn2-modding-skill,overtone",
    "devices": "",
    "addresses": "",
-   "id": 967
+   "id": 969
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16718,7 +16808,7 @@
    "sources": "dn2mk2-firmware-md",
    "devices": "",
    "addresses": "",
-   "id": 968
+   "id": 970
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16729,7 +16819,7 @@
    "sources": "kyoti-fw",
    "devices": "",
    "addresses": "",
-   "id": 969
+   "id": 971
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16740,7 +16830,7 @@
    "sources": "overtone",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 970
+   "id": 972
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16751,7 +16841,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 971
+   "id": 973
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16762,7 +16852,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 972
+   "id": 974
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16773,7 +16863,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "0x26f000,0x2c0000,0xfc045654",
-   "id": 973
+   "id": 975
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16784,7 +16874,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 974
+   "id": 976
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16795,7 +16885,7 @@
    "sources": "elektron-emu",
    "devices": "analog-rytm,digitakt-2,digitone-2,model-cycles,syntakt",
    "addresses": "",
-   "id": 975
+   "id": 977
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16806,7 +16896,7 @@
    "sources": "digiemu-readme,dn2mk2-emulator",
    "devices": "",
    "addresses": "",
-   "id": 976
+   "id": 978
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16817,7 +16907,7 @@
    "sources": "emu-elektron-patches",
    "devices": "digitakt-2",
    "addresses": "0x400db9e0",
-   "id": 977
+   "id": 979
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16828,7 +16918,7 @@
    "sources": "alt-tools,em-list",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 978
+   "id": 980
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -16839,7 +16929,7 @@
    "sources": "digikit-f08,own-heatfx-notes",
    "devices": "",
    "addresses": "",
-   "id": 979
+   "id": 981
   }
  ]
 }

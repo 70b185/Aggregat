@@ -10,6 +10,7 @@ Data last verified: 2026-11-02
 |---|---|---|---|---|---|---|
 | **Motor:Cycles (rhythmic-noise firmware)** (nzimas) | firmware | wip | v1.0.0-rc18 (tag); Model:Cycles OS 1.13 | - | 2026-11-03 | [repo](https://github.com/nzimas/motorcycles) · [web patcher](https://nzimas.github.io/motorcycles/install.html) |
 | **model27** (durchgemacht, 18nelli18) | firmware | active | release 0.32 (beta, 2026-11-02): eleven cards in the web flasher; fltslot 0.10; 1.13 | - | 2026-11-03 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
+| **Elek View (screen viewer in the browser)** (BlueSGL) | tool | active | main @ 29fc485 (2026-11-02) | - | 2026-11-02 | [repo](https://github.com/BlueSGL/Elek_View) · [web app](https://bluesgl.github.io/Elek_View/) · [forum](https://elektronmods.com/thread-93-elek-view-see-your-devices-screens-in-a-browser-via-webmidi) |
 | **Cycles One-Shot** (durchgemacht) | mod | active | machine 0.13 (2026-11-02, on main; newest tag v0.12): Start and Length act on the note that plays; tested in a model27 build, in digiemu and on a Model:Cycles; 1.13 | v0.13 | 2026-11-02 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
 | **Supermodel Edition** (A.V., 18nelli18) | firmware | active | main @ cd6ae4c (2026-11-01); 1.13 | wavetable-pack | 2026-11-02 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |
 | **SPOKES** (A.V.) | tool | active | main @ 1604cbf (2026-10-31); 1.13 | - | 2026-10-31 | [repo](https://github.com/AveyCole/SPOKES) · [homepage](https://aveycole.github.io/SPOKES/) |
@@ -37,6 +38,14 @@ Data last verified: 2026-11-02
 Firmware for rhythmic noise and power noise: four generators (Patch, Kit, Phrase, Pattern) entered with PAGE + pad, steps 1-15 set the complexity, step 16 held generates; plus its own sound engines. Ships as a browser patcher that converts the user's own OS 1.13 file; the result is byte for byte the file the author tested on a real Model:Cycles. MIT. Same author and the same generator idea as DigiRust (Digitone II). Found by GitHub code search 2026-11-03.
 
 _Sources: GitHub code search 2026-11-03, README_
+
+### Elek View (screen viewer in the browser)
+
+Shows a device's screen in the browser over Web MIDI, using the stock RPC screen request (an HTML port of screendump). Tested on a Digitakt II and a Model:Cycles; the author reports an Analog Heat MKII working. Nothing else may hold the MIDI port. GPL-3.0. Found on elektronmods.com 2026-11-03.
+
+_Related: port of `screendump` (README: a .html implementation of jakobbak/screendump) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: elektronmods.com thread 93, README, index.html_
 
 ### 1-Bit Editor
 

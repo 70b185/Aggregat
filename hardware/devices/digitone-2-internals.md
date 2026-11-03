@@ -120,7 +120,7 @@ The older files in that project's archive came from an archive.org item and pass
   - IIR0 feeds stored word 5 of a biquad into the output: y = A0 x + s1, then s1 = (A1 x + s2) + B1 y and s2 = A2 x + B2 y, each step rounded to float32 (all 40 outputs and 4 states match).
   - FIR0 adds its four partial sums in pairs, (acc0 + acc1) + (acc2 + acc3).
   - In ACM mode the chip writes `0xFFFFFFFF` to a TCB's INIDX and 0 to OUTIDX after a window, the other way round from the hardware reference.
-  - Speed bounds, including setup: at most about 22 cycles per biquad-sample and 4.5 per tap-sample. digikit's models were corrected to match all 76 words. Same silicon on the DT2 ([crosscheck](../common/dt2-dn2-sharc-crosscheck.md)). `[hw]` {dn2-accel}
+  - Speed bounds, including setup: at most about 22 cycles per biquad-sample and 4.5 per tap-sample. ADI's application note gives the theoretical rates as 6 cycles per biquad (one MAC unit) and about 0.25 cycles per tap and sample (four MAC units), and says the coefficient and state preload dominates small jobs, which fits these bounds from jobs of 8-16 samples {adi-ee408}. The INIDX/OUTIDX write-back in ACM is not described there. digikit's models were corrected to match all 76 words. Same silicon on the DT2 ([crosscheck](../common/dt2-dn2-sharc-crosscheck.md)). `[hw]` {dn2-accel}
 - **ColdFire tasks on a unit** (DN2 1.11, read with the USB probe):
   - The context switch is at `0x40000410-0x40000458`; the ready table at `0x4664ac9c` holds one list head per priority; higher numbers run first.
   - Prio 0 never runs; prio 1 is the real idle loop (entry `0x400cec98`, parked at `0x400cf0e2`); the MIDI task (prio 7) answers the probe.

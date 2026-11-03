@@ -69,6 +69,15 @@ for what is already known about it, and tell me in a few lines what is settled a
 Then propose a plan of small, checkable steps. Follow the rules: no firmware in git, recovery practised
 before any flash, every fact with an evidence tag and a source.
 When done, update the matching row here and the device file under hardware/devices/.
+If this work lives in its own repo: copy research/AGGREGAT_RESEARCH.md to its root and record results there.
+```
+
+**Starting a new mod or research project?** Add this to your agent's first instructions:
+
+```text
+Copy research/AGGREGAT_RESEARCH.md from https://github.com/70b185/Aggregat to the root of this repo and fill in
+"Our project". Whenever we test something that matches a goal, task or hypothesis in it, add a row to its Results
+table (unit, OS, what happened, evidence tag, link to the details).
 ```
 
 **Before you spend tokens on a topic:** `grep -ri "<topic>" hardware/` takes seconds. Read [READING-LEDGER.md](hardware/READING-LEDGER.md) to see which sources were already mined. If two sources disagree, the topic is in [CONFLICTS.md](hardware/CONFLICTS.md).

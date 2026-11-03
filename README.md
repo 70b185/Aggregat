@@ -48,6 +48,8 @@ Point the agent at this repo and tell it to read, in this order (for open-ended 
 4. the device file under [`hardware/devices/`](hardware/devices/)
 5. [`INDEX.md`](INDEX.md) / [`devices/`](devices/) to find the project it builds on
 
+**Starting a new project with this repo?** Copy [`research/AGGREGAT_RESEARCH.md`](research/AGGREGAT_RESEARCH.md) into the root of the new project on day one, and have your agent keep its results table up to date. It holds a copy of the shared goals, tasks and tests as of the day you started, so your findings stay comparable, and we merge your results back (by hand, with credit) when we update. Optional, but it is how one project's finding helps all the others. See [research/PARTICIPANTS.md](research/PARTICIPANTS.md).
+
 Evidence tags used throughout `hardware/`: `[hw]` reported working on a real unit, `[emu]` emulator only, `[doc]` stated without a test result, `[?]` unclear or inferred. Everything is **second-hand** - verify addresses and byte patterns against the original source before relying on them. Source keys like `{dn2-ele3}` resolve in [`hardware/SOURCES.md`](hardware/SOURCES.md); what was read and how deeply is in [`hardware/READING-LEDGER.md`](hardware/READING-LEDGER.md).
 
 ## Ground rules

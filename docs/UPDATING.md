@@ -34,3 +34,5 @@ neither in `data/projects.yml` / `data/candidates.yml` nor in `data/ignore.yml`.
 `git clone --depth 1 --filter=blob:none --no-checkout` plus `git show HEAD:README.md` costs almost nothing), then either add
 an entry (own words, facts only) or add the repo to `data/ignore.yml` so it is not shown again. New entries get a
 fingerprint baseline on the next `check_updates.py --update`.
+
+Add `--code` once a month: it searches file contents (stock OS file names, the DT2 flash-cave address, `elemod`) and finds projects whose repo name and description never mention Elektron. On 2026-11-03 it found x0x, Motor:Cycles, RytmRandomizer and Synfact's new repo, none of which the keyword search had listed. Its generic hits include unrelated repos, so read each README before adding.

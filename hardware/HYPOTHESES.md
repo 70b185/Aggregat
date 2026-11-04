@@ -37,7 +37,7 @@ Collected 2026-11-03.
 | H9 | G8 | The DT2 flash cave `0x403117c4-0x40312000` is safe on a stock image; the freeze report (O18) came from something else in that build. | Deja Vu, 70b185's builds vs dt2-capicola's comment | DT2 | A stock image plus a canary in the cave, read back after a cold start after a long power-off (A40). |
 | H10 | G8 | DN2 L2 `0x200918c0-0x200c2000` is not written by stock in normal use (O19). | DN2 skill, elekloader vs dnfw, Digiwerk | DN2 | A canary or a write watch over the range during playback, pattern changes and a save (T24). |
 | H11 | G8 | DN2 RAM `0x46700000-0x46701300` is written by stock only when a +Drive transfer is over 60,672 bytes (O17). | dnfw, Digiwerk | DN2 | A canary at `0x46700000`, read back after loading a large sample or project from +Drive. |
-| H12 | G3 | DT2 reply words that a hook writes mid-block are lost on the DN2 too (on the DT2 3,995 of 4,000 arrived as 0, because stock rebuilds the record before the DMA). | 70b185 (DT2) | DN2 | Write a counter word from a hook and from the block tail; count arrivals on the ColdFire side. |
+| H12 | G3 | Direct hook writes may race reply publication on a DN2. Digikit measured 3,995 of 4,000 zero diagnostic words on a DT2; its own diagnostic clears overwrote the previous block's record in the DN2 emulator. Silicon DMA timing remains unmeasured. | digikit finding 101 {digikit-f101} | DN2 | Compare a hook's direct counter writes with static-word publication at block tail, without clearing prior reply records; count arrivals on the ColdFire side. |
 
 ## 3. Build tests (something done on purpose)
 

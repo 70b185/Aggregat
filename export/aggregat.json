@@ -5,7 +5,7 @@
   "counts": {
    "projects": 219,
    "devices": 13,
-   "relations": 89,
+   "relations": 329,
    "rules": 91,
    "sources": 269,
    "conflicts": 33,
@@ -5585,16 +5585,88 @@
  ],
  "relations": [
   {
+   "project": "elekloader",
+   "type": "uses_tool",
+   "target": "digikit",
+   "evidence": "README: checks or gates run in digikit's emulator (not shipped)"
+  },
+  {
+   "project": "modwerk",
+   "type": "cites",
+   "target": "elekloader",
+   "evidence": "README mentions elekloader (porting from it / hosted loader)"
+  },
+  {
+   "project": "modwerk",
+   "type": "cites",
+   "target": "octabam",
+   "evidence": "README: porting from octabam is part of the module guide"
+  },
+  {
+   "project": "digiemu",
+   "type": "cites",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: container-format knowledge comes from elektron-firmware-tool"
+  },
+  {
+   "project": "digiemu",
+   "type": "builds_on",
+   "target": "digikit",
+   "evidence": "README: digiemu is derived from m-dwyer/digikit at an upstream commit"
+  },
+  {
+   "project": "digiemu",
+   "type": "cites",
+   "target": "dt2-firmware-research",
+   "evidence": "README: some architecture facts come from lalzart/digitakt-ii-firmware-research-public"
+  },
+  {
    "project": "digineighbor",
    "type": "mod_for",
    "target": "elekloader",
    "evidence": "catalogue notes: \"installed via elekloader\""
   },
   {
+   "project": "digineighbor",
+   "type": "uses_tool",
+   "target": "digikit",
+   "evidence": "README: checks or gates run in digikit's emulator (not shipped)"
+  },
+  {
    "project": "digisophie",
    "type": "mod_for",
    "target": "elekloader",
    "evidence": "catalogue notes: \"needs elekloader\""
+  },
+  {
+   "project": "digisophie",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
+   "project": "takt1ccname",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: built as an elekloader linkable mod"
+  },
+  {
+   "project": "takt1ccname",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
+   "project": "digirequests",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: each mod is an Elekloader format-2 module"
+  },
+  {
+   "project": "digirequests",
+   "type": "mod_for",
+   "target": "modwerk",
+   "evidence": "README: each folder is laid out for Modwerk's source builder"
   },
   {
    "project": "digitakt-ii-research",
@@ -5609,16 +5681,118 @@
    "evidence": "catalogue notes: elektron-firmware-tool (vendored)"
   },
   {
+   "project": "digitakt-ii-research",
+   "type": "cites",
+   "target": "syntakt-firmware-workbench",
+   "evidence": "README: the Syntakt Firmware Workbench as behavioural reference"
+  },
+  {
    "project": "ringtone",
    "type": "mod_for",
    "target": "elekloader",
    "evidence": "catalogue notes: \"built with elekloader\""
   },
   {
+   "project": "ringtone",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
    "project": "overtone",
    "type": "uses_tool",
    "target": "digikit",
    "evidence": "catalogue notes: checks run in digikit for the main OS"
+  },
+  {
+   "project": "overtone",
+   "type": "cites",
+   "target": "digisophie",
+   "evidence": "README credits: Schwung Sophie for the SOPHIE machine"
+  },
+  {
+   "project": "overtone",
+   "type": "vendors",
+   "target": "dn2-firmware-explore",
+   "evidence": "README: patcher/_dnfw is dnfw's code, unchanged"
+  },
+  {
+   "project": "overtone",
+   "type": "cites",
+   "target": "dn2-cfw",
+   "evidence": "README: dn2-cfw showed how to ship Digitone II firmware"
+  },
+  {
+   "project": "overtone",
+   "type": "uses_tool",
+   "target": "digitone-2-modding-skill",
+   "evidence": "README: developed with the digitone-2-modding-skill"
+  },
+  {
+   "project": "motorcycles",
+   "type": "bundles",
+   "target": "modded-cycles",
+   "evidence": "README: mods included from Modded-Cycles are part of Motor:Cycles"
+  },
+  {
+   "project": "motorcycles",
+   "type": "cites",
+   "target": "elektron-model-tweaks",
+   "evidence": "README thanks: drumkilla's mtlib firmware toolkit"
+  },
+  {
+   "project": "motorcycles",
+   "type": "cites",
+   "target": "ms-multi-output",
+   "evidence": "README credits: the original multi-channel USB audio mod"
+  },
+  {
+   "project": "syxgrid",
+   "type": "uses_tool",
+   "target": "digikit",
+   "evidence": "README: checks or gates run in digikit's emulator (not shipped)"
+  },
+  {
+   "project": "syxgrid",
+   "type": "cites",
+   "target": "digi-roll",
+   "evidence": "README: its DN2 pattern-format documentation"
+  },
+  {
+   "project": "syxgrid",
+   "type": "cites",
+   "target": "dn2-firmware-explore",
+   "evidence": "README: cited throughout its maps; its code is not used"
+  },
+  {
+   "project": "syxgrid",
+   "type": "cites",
+   "target": "elektroid",
+   "evidence": "README: reference for Elektron device transfer over USB"
+  },
+  {
+   "project": "syxgrid",
+   "type": "cites",
+   "target": "libanalogrytm",
+   "evidence": "README: reference for Elektron structures"
+  },
+  {
+   "project": "syxgrid",
+   "type": "cites",
+   "target": "dnx",
+   "evidence": "README: its published hardware measurements"
+  },
+  {
+   "project": "syxgrid",
+   "type": "cites",
+   "target": "digitone-syx-toolkit",
+   "evidence": "README: used as cross-reference / prior art"
+  },
+  {
+   "project": "syxgrid",
+   "type": "vendors",
+   "target": "elk-herd",
+   "evidence": "README credits under Code: elk-herd, BSD-2-Clause"
   },
   {
    "project": "dn2-dt2-firmware-research",
@@ -5645,10 +5819,28 @@
    "evidence": "GitHub fork flag"
   },
   {
+   "project": "synthack-os",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: tools/unpack wraps elektron-firmware-tool"
+  },
+  {
    "project": "digistring",
    "type": "mod_for",
    "target": "elekloader",
    "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
+   "project": "digifilter",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: build needs elekloader 0.5+ and its cores"
+  },
+  {
+   "project": "digifilter",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
   },
   {
    "project": "filter-plus",
@@ -5663,10 +5855,58 @@
    "evidence": "catalogue notes: \"elekloader format-2 mods\""
   },
   {
+   "project": "filter-plus",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
+   "project": "drum-plus",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: an elekloader machine mod"
+  },
+  {
+   "project": "digisplash",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: an elekloader mod"
+  },
+  {
+   "project": "digisplash",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
+   "project": "digi1-mods",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: an elekloader mod"
+  },
+  {
+   "project": "digi1-mods",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
+   "project": "digi1-mods",
+   "type": "bundles",
+   "target": "tone-fx",
+   "evidence": "README: Tone+FX, Digital Alchemy DSP's master effects suite, ported"
+  },
+  {
    "project": "digislicer",
    "type": "mod_for",
    "target": "elekloader",
    "evidence": "catalogue notes: a curated mod in the elekloader shop"
+  },
+  {
+   "project": "digislicer",
+   "type": "uses_tool",
+   "target": "digikit",
+   "evidence": "README: checks or gates run in digikit's emulator (not shipped)"
   },
   {
    "project": "dt-fm",
@@ -5675,10 +5915,64 @@
    "evidence": "notes"
   },
   {
+   "project": "dt-fm",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README changelog: compatibility with other Elekloader mods"
+  },
+  {
+   "project": "dt-fm",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
+   "project": "digigrain",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: built with elekloader"
+  },
+  {
+   "project": "digigrain",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
+   "project": "digihealth",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: an elekloader mod"
+  },
+  {
+   "project": "digihealth",
+   "type": "uses_tool",
+   "target": "digikit",
+   "evidence": "README: checks or gates run in digikit's emulator (not shipped)"
+  },
+  {
+   "project": "digirta",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: an elekloader mod"
+  },
+  {
+   "project": "digicandy",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: built for elekloader, needs its core mod"
+  },
+  {
    "project": "elek-view",
    "type": "port_of",
    "target": "screendump",
    "evidence": "README: a .html implementation of jakobbak/screendump"
+  },
+  {
+   "project": "digitables",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: an elekloader mod"
   },
   {
    "project": "tone-fx",
@@ -5687,16 +5981,130 @@
    "evidence": "Tone+FX README calls RingTone \"the older RingTone repo\" (same author); successor or same project not stated. Was same_project until 2026-11-04 (raised in PR #3)"
   },
   {
+   "project": "tone-fx",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: a set of elekloader mods released as one suite"
+  },
+  {
+   "project": "tone-fx",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
+   "project": "digicosm",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: an elekloader mod on fxkit (core-dn1 4.1)"
+  },
+  {
+   "project": "digicosm",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: checked in the digiemu emulator on OS 1.43 and 1.44"
+  },
+  {
+   "project": "digichroma",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: an elekloader mod on fxkit (core-dn1 4.1)"
+  },
+  {
+   "project": "digichroma",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: checked in the digiemu emulator on OS 1.43 and 1.44"
+  },
+  {
+   "project": "digikit",
+   "type": "cites",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: container-format knowledge comes from elektron-firmware-tool"
+  },
+  {
+   "project": "digikit",
+   "type": "cites",
+   "target": "dt2-firmware-research",
+   "evidence": "README: some architecture facts come from lalzart/digitakt-ii-firmware-research-public"
+  },
+  {
+   "project": "digi-roll",
+   "type": "cites",
+   "target": "elk-herd",
+   "evidence": "README: elk-herd as the model it follows"
+  },
+  {
    "project": "digitakt2-perform",
    "type": "uses_tool",
    "target": "digikit",
    "evidence": "catalogue notes: stock behaviour tested in digikit's emulator"
   },
   {
+   "project": "digitakt2-perform",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: elekloader mods for PERFORM KIT mode"
+  },
+  {
    "project": "dt2-machine-lab",
    "type": "bundles",
    "target": "dt2-capicola",
    "evidence": "machines/capicola-reddit/upstream keeps its 66 files byte-exact"
+  },
+  {
+   "project": "dt2-machine-lab",
+   "type": "uses_tool",
+   "target": "digikit",
+   "evidence": "README: DigiKit and Selache pinned by deps.lock.json"
+  },
+  {
+   "project": "digisplash-ii",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: the build needs elektron-firmware-tool"
+  },
+  {
+   "project": "digisplash-ii",
+   "type": "cites",
+   "target": "digitakt-ii-splash-screens",
+   "evidence": "README credits: the original splash research"
+  },
+  {
+   "project": "dn2-firmware-explore",
+   "type": "builds_on",
+   "target": "elektron-firmware-tool",
+   "evidence": "README credit: container, transport, codec and integrity work stands on it"
+  },
+  {
+   "project": "dn2-firmware-explore",
+   "type": "cites",
+   "target": "digihealth",
+   "evidence": "README: the USB SysEx probe adapts the design of irpina/digihealth"
+  },
+  {
+   "project": "dn2-firmware-explore",
+   "type": "uses_tool",
+   "target": "digikit",
+   "evidence": "README: checks or gates run in digikit's emulator (not shipped)"
+  },
+  {
+   "project": "dn2-firmware-explore",
+   "type": "cites",
+   "target": "dn2-cfw",
+   "evidence": "README: the frame-word census follows dn2-cfw's method (no code taken)"
+  },
+  {
+   "project": "dn2-firmware-explore",
+   "type": "cites",
+   "target": "octabam",
+   "evidence": "README: ColdFire disassembly findings / credits"
+  },
+  {
+   "project": "dn2-firmware-explore",
+   "type": "cites",
+   "target": "octa-bt-pt",
+   "evidence": "README: the patch model comes from octa-bt-pt"
   },
   {
    "project": "dn2-cfw",
@@ -5711,16 +6119,82 @@
    "evidence": "catalogue notes: upstream cloned into vendor/ (author's fork, branch dn2-1.12)"
   },
   {
+   "project": "dn2-cfw",
+   "type": "cites",
+   "target": "elektron-firmware-tool",
+   "evidence": "README credits"
+  },
+  {
+   "project": "dn2-cfw",
+   "type": "cites",
+   "target": "syntakt-firmware-workbench",
+   "evidence": "README: the Syntakt Firmware Workbench as behavioural reference"
+  },
+  {
+   "project": "dn2-cfw",
+   "type": "cites",
+   "target": "octabam",
+   "evidence": "README: ColdFire disassembly findings / credits"
+  },
+  {
+   "project": "dn2-cfw",
+   "type": "vendors",
+   "target": "digitakt-ii-research",
+   "evidence": "README: Kari Gardarsson's Deja vu LFO from the Digitakt II, brought to the Digitone II"
+  },
+  {
+   "project": "syntakt-firmware-workbench",
+   "type": "cites",
+   "target": "elektron-firmware-tool",
+   "evidence": "README credits"
+  },
+  {
+   "project": "syntakt-firmware-workbench",
+   "type": "uses_tool",
+   "target": "digikit",
+   "evidence": "README: checks or gates run in digikit's emulator (not shipped)"
+  },
+  {
+   "project": "syntakt-firmware-workbench",
+   "type": "cites",
+   "target": "dn2-firmware-explore",
+   "evidence": "README: the model for a browser-only tool"
+  },
+  {
+   "project": "overwitch",
+   "type": "builds_on",
+   "target": "dtdump",
+   "evidence": "README: based on the Overbridge USB reverse engineering in dtdump"
+  },
+  {
    "project": "dn2mk2",
    "type": "builds_on",
    "target": "dn2-firmware-explore",
    "evidence": "docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698"
   },
   {
+   "project": "dn2mk2",
+   "type": "cites",
+   "target": "elektron-firmware-tool",
+   "evidence": "README credits"
+  },
+  {
+   "project": "dn2mk2",
+   "type": "uses_tool",
+   "target": "digikit",
+   "evidence": "README: checks or gates run in digikit's emulator (not shipped)"
+  },
+  {
    "project": "digitone-2-modding-skill",
    "type": "uses_tool",
    "target": "digikit",
    "evidence": "catalogue notes: verification in digikit"
+  },
+  {
+   "project": "digitone-2-modding-skill",
+   "type": "uses_tool",
+   "target": "dn2-firmware-explore",
+   "evidence": "README: prerequisite dnfw (container, signing, C builds)"
   },
   {
    "project": "elekloader-simonjohansson",
@@ -5741,10 +6215,94 @@
    "evidence": "catalogue notes: protocol code ported from elk-herd"
   },
   {
+   "project": "synthack-os-upstream",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: tools/unpack wraps elektron-firmware-tool"
+  },
+  {
+   "project": "sy-fm4",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: the build needs elektron-firmware-tool"
+  },
+  {
+   "project": "sy-fm4",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
+   "project": "sy-fm4",
+   "type": "cites",
+   "target": "synthack-os-upstream",
+   "evidence": "README refers to SyntHack OS"
+  },
+  {
+   "project": "syntakt-machine45-research",
+   "type": "cites",
+   "target": "synthack-os-upstream",
+   "evidence": "README refers to SyntHack OS"
+  },
+  {
+   "project": "syntakt-machine45-research",
+   "type": "cites",
+   "target": "sy-fm4",
+   "evidence": "README: meant to complement SY FM4"
+  },
+  {
+   "project": "dnx",
+   "type": "cites",
+   "target": "libanalogrytm",
+   "evidence": "README: reference for Elektron structures"
+  },
+  {
+   "project": "dnx",
+   "type": "cites",
+   "target": "digitone-syx-toolkit",
+   "evidence": "README: used as cross-reference / prior art"
+  },
+  {
+   "project": "dnx",
+   "type": "cites",
+   "target": "elk-herd",
+   "evidence": "README: elk-herd as the model it follows"
+  },
+  {
+   "project": "dnx",
+   "type": "cites",
+   "target": "digi-roll",
+   "evidence": "README: digi-roll reached the same write sequence independently; code not read"
+  },
+  {
    "project": "digipools",
    "type": "mod_for",
    "target": "elekloader",
    "evidence": "catalogue notes: \"built on elekloader\""
+  },
+  {
+   "project": "chopshop",
+   "type": "vendors",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: built on elektron-firmware-tool compiled to WebAssembly"
+  },
+  {
+   "project": "chopshop",
+   "type": "builds_on",
+   "target": "rytm1-mods",
+   "evidence": "README: built on gdeo607's rytm1_mods"
+  },
+  {
+   "project": "rytm-fw-re",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: it unpacks and repacks the OS"
+  },
+  {
+   "project": "rytm-mods-src",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: fetched and built into vendor/ by setup, not shipped"
   },
   {
    "project": "rytm1-mods",
@@ -5759,6 +6317,36 @@
    "evidence": "catalogue notes: emits elekloader .elemod files"
   },
   {
+   "project": "rytm1-mods",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: fetched and built into vendor/ by setup, not shipped"
+  },
+  {
+   "project": "fsdsp56k",
+   "type": "cites",
+   "target": "kitbasher",
+   "evidence": "README credits: the TX6 kit in kitbasher"
+  },
+  {
+   "project": "fsdsp56k",
+   "type": "cites",
+   "target": "mds",
+   "evidence": "README credits: MDS"
+  },
+  {
+   "project": "machinedrum-kit",
+   "type": "uses_tool",
+   "target": "gearmulator-md-mm",
+   "evidence": "README: checks out joelanders/gearmulator-md-mm at a pinned commit"
+  },
+  {
+   "project": "mdmm",
+   "type": "builds_on",
+   "target": "gearmulator-md-mm",
+   "evidence": "README: grew out of joelanders' Machinedrum and Monomachine emulation"
+  },
+  {
    "project": "mds-tools",
    "type": "builds_on",
    "target": "mds",
@@ -5771,10 +6359,154 @@
    "evidence": "GitHub fork flag"
   },
   {
+   "project": "cycles-control-all-config",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: the build needs elektron-firmware-tool"
+  },
+  {
+   "project": "cycles-control-all-config",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
+   "project": "cycles-one-shot",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
+   "project": "cycles-one-shot",
+   "type": "mod_for",
+   "target": "modded-cycles",
+   "evidence": "README: registered through Modded-Cycles' registrar for added machines"
+  },
+  {
+   "project": "modded-cycles",
+   "type": "cites",
+   "target": "elektron-firmware-tool",
+   "evidence": "README credits"
+  },
+  {
+   "project": "modded-cycles",
+   "type": "cites",
+   "target": "elektroid",
+   "evidence": "README credits: the Elektron Transfer update protocol behind fast USB flashing"
+  },
+  {
+   "project": "modded-cycles",
+   "type": "bundles",
+   "target": "model-tg",
+   "evidence": "README: Model-TG's Sampler as the 7th machine"
+  },
+  {
+   "project": "modded-cycles",
+   "type": "bundles",
+   "target": "elektron-model-tweaks",
+   "evidence": "README: includes drumkilla's tweaks (latching mute, trig preview)"
+  },
+  {
+   "project": "modded-cycles",
+   "type": "bundles",
+   "target": "ms-multi-output",
+   "evidence": "README: 6-channel audio after scottmetoyer/ms-multi-output"
+  },
+  {
+   "project": "modded-cycles",
+   "type": "cites",
+   "target": "octamax",
+   "evidence": "README credits: reverse-engineering method"
+  },
+  {
+   "project": "modded-cycles",
+   "type": "cites",
+   "target": "octa-bt-pt",
+   "evidence": "README credits: reverse-engineering and patching"
+  },
+  {
+   "project": "model-tg",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: it unpacks and repacks the OS"
+  },
+  {
+   "project": "model-tg",
+   "type": "bundles",
+   "target": "elektron-model-tweaks",
+   "evidence": "README: includes drumkilla's tweaks (latching mute, trig preview)"
+  },
+  {
    "project": "model27",
    "type": "fork_of",
    "target": "modded-cycles",
    "evidence": "own README: beta fork of Modded Cycles 1.55"
+  },
+  {
+   "project": "model27",
+   "type": "cites",
+   "target": "digiemu",
+   "evidence": "README credits digiemu"
+  },
+  {
+   "project": "model27",
+   "type": "cites",
+   "target": "elektroid",
+   "evidence": "README credits: the Elektron Transfer update protocol behind fast USB flashing"
+  },
+  {
+   "project": "model27",
+   "type": "bundles",
+   "target": "elektron-model-tweaks",
+   "evidence": "README: includes drumkilla's tweaks (latching mute, trig preview)"
+  },
+  {
+   "project": "model27",
+   "type": "cites",
+   "target": "octamax",
+   "evidence": "README credits: reverse-engineering method"
+  },
+  {
+   "project": "model27",
+   "type": "cites",
+   "target": "octa-bt-pt",
+   "evidence": "README credits: reverse-engineering and patching"
+  },
+  {
+   "project": "model27",
+   "type": "cites",
+   "target": "model-tg",
+   "evidence": "README: its CPU page built as Model-TG's System page"
+  },
+  {
+   "project": "model27",
+   "type": "cites",
+   "target": "ms-multi-output",
+   "evidence": "README credits: the original 6-channel USB mod"
+  },
+  {
+   "project": "model27",
+   "type": "bundles",
+   "target": "cycles-control-all-config",
+   "evidence": "README: Modded-Cycles 1.55 plus the Control All Config mod"
+  },
+  {
+   "project": "model27",
+   "type": "bundles",
+   "target": "cycles-one-shot",
+   "evidence": "README: the SAMPLE machine of Cycles One-Shot"
+  },
+  {
+   "project": "plaits-on-models",
+   "type": "builds_on",
+   "target": "digi1-mods",
+   "evidence": "README: the base is MACRO from gdeo607/digi1_mods"
+  },
+  {
+   "project": "plaits-on-models",
+   "type": "builds_on",
+   "target": "modded-cycles",
+   "evidence": "README: clone the Modded-Cycles fork with the PLAITS files"
   },
   {
    "project": "spokes",
@@ -5795,10 +6527,100 @@
    "evidence": "README table"
   },
   {
+   "project": "spokes",
+   "type": "cites",
+   "target": "elekloader",
+   "evidence": "README mentions elekloader (porting from it / hosted loader)"
+  },
+  {
+   "project": "spokes",
+   "type": "cites",
+   "target": "motorcycles",
+   "evidence": "README: listed as a builder Spokes integrates"
+  },
+  {
+   "project": "spokes",
+   "type": "cites",
+   "target": "model-tg",
+   "evidence": "README: listed as a builder Spokes integrates"
+  },
+  {
+   "project": "spokes",
+   "type": "cites",
+   "target": "plaits-on-models",
+   "evidence": "README: listed as a builder Spokes integrates"
+  },
+  {
+   "project": "spokes",
+   "type": "cites",
+   "target": "elektron-model-tweaks",
+   "evidence": "README: listed as a builder Spokes integrates"
+  },
+  {
+   "project": "spokes",
+   "type": "cites",
+   "target": "model-machinedrum",
+   "evidence": "README: listed as a builder Spokes integrates"
+  },
+  {
    "project": "supermodel-edition",
    "type": "fork_of",
    "target": "modded-cycles",
    "evidence": "GitHub fork flag"
+  },
+  {
+   "project": "supermodel-edition",
+   "type": "vendors",
+   "target": "model27",
+   "evidence": "README: release 2.61 adds durchgemacht/model27 POTS delay (MIT)"
+  },
+  {
+   "project": "vladiktron-spoke",
+   "type": "builds_on",
+   "target": "modded-cycles",
+   "evidence": "README: this project builds on Modded-Cycles"
+  },
+  {
+   "project": "elektron-model-tweaks",
+   "type": "vendors",
+   "target": "elekloader",
+   "evidence": "README: linked by elekloader's linker, an unchanged copy in elekloader/"
+  },
+  {
+   "project": "elektron-model-tweaks",
+   "type": "builds_on",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: building scripts are based on elektron-firmware-tool"
+  },
+  {
+   "project": "elektron-model-tweaks",
+   "type": "cites",
+   "target": "digihealth",
+   "evidence": "README: based on 18nelli's research and the FAST AUDIO of digihealth"
+  },
+  {
+   "project": "elektron-model-tweaks",
+   "type": "builds_on",
+   "target": "ms-multi-output",
+   "evidence": "README: based on ms-multi-output by Scott Metoyer"
+  },
+  {
+   "project": "ms-multi-output",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: it unpacks and repacks the OS"
+  },
+  {
+   "project": "ms-multi-output",
+   "type": "cites",
+   "target": "octamax",
+   "evidence": "README credits: reverse-engineering method"
+  },
+  {
+   "project": "monomodule",
+   "type": "cites",
+   "target": "elektron-firmware-tool",
+   "evidence": "README credits"
   },
   {
    "project": "midisc-patcher",
@@ -5807,10 +6629,154 @@
    "evidence": "README: patcher for the 1.40MIDISC build"
   },
   {
+   "project": "midisc",
+   "type": "mod_for",
+   "target": "octabam",
+   "evidence": "README: built as octabam modules / with the octabam remixer"
+  },
+  {
    "project": "octa-panel",
    "type": "copy_of",
    "target": "octabam",
    "evidence": "repo content is octabam (README, modules) as of 2026-10-13"
+  },
+  {
+   "project": "octa-panel",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: flash images are packed with elektron-firmware-tool"
+  },
+  {
+   "project": "octa-panel",
+   "type": "bundles",
+   "target": "ems-octakit",
+   "evidence": "README: module table lists OCTAKIT from emuyia/ems-octakit"
+  },
+  {
+   "project": "octa-panel",
+   "type": "bundles",
+   "target": "midisc",
+   "evidence": "README: module table lists MIDI SCENES from bkkbrls-del/midisc"
+  },
+  {
+   "project": "octa-panel",
+   "type": "bundles",
+   "target": "octa-bt-pt",
+   "evidence": "README: module table lists LOFI AMF FIX from bryantysinger/octa-bt-pt"
+  },
+  {
+   "project": "octa-panel",
+   "type": "cites",
+   "target": "octamax",
+   "evidence": "README: builds on or credits octamax's reverse engineering (passos: facts only, nothing copied)"
+  },
+  {
+   "project": "octabam",
+   "type": "cites",
+   "target": "elektron-firmware-tool",
+   "evidence": "README credits"
+  },
+  {
+   "project": "octabam",
+   "type": "bundles",
+   "target": "ems-octakit",
+   "evidence": "README: module table lists OCTAKIT from emuyia/ems-octakit"
+  },
+  {
+   "project": "octabam",
+   "type": "bundles",
+   "target": "midisc",
+   "evidence": "README: module table lists MIDI SCENES from bkkbrls-del/midisc"
+  },
+  {
+   "project": "octabam",
+   "type": "bundles",
+   "target": "octa-bt-pt",
+   "evidence": "README: module table lists LOFI AMF FIX from bryantysinger/octa-bt-pt"
+  },
+  {
+   "project": "octabam",
+   "type": "bundles",
+   "target": "octatrick",
+   "evidence": "README: module table lists DIRECT JUMP from timhastie/octatrick-modules"
+  },
+  {
+   "project": "octabam",
+   "type": "bundles",
+   "target": "octemu",
+   "evidence": "README: module table lists USB from markandrus/octemu"
+  },
+  {
+   "project": "octabam",
+   "type": "fork_of",
+   "target": "octamax",
+   "evidence": "README: began as a fork of mxldyn/octamax"
+  },
+  {
+   "project": "octamax",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: fetched and built into vendor/ by setup, not shipped"
+  },
+  {
+   "project": "octaplay",
+   "type": "mod_for",
+   "target": "octabam",
+   "evidence": "README: built as octabam modules / with the octabam remixer"
+  },
+  {
+   "project": "octatrack-kyoti-fw",
+   "type": "cites",
+   "target": "octamax",
+   "evidence": "README: builds on or credits octamax's reverse engineering (passos: facts only, nothing copied)"
+  },
+  {
+   "project": "octatrack-kyoti-fw",
+   "type": "cites",
+   "target": "octabam",
+   "evidence": "README: credits octabam"
+  },
+  {
+   "project": "octatrack-manager",
+   "type": "builds_on",
+   "target": "ot-tools-io",
+   "evidence": "README: built with ot-tools-io"
+  },
+  {
+   "project": "octatrick",
+   "type": "mod_for",
+   "target": "octabam",
+   "evidence": "README: built as octabam modules / with the octabam remixer"
+  },
+  {
+   "project": "octatrick",
+   "type": "cites",
+   "target": "octamax",
+   "evidence": "README: builds on or credits octamax's reverse engineering (passos: facts only, nothing copied)"
+  },
+  {
+   "project": "octatrick",
+   "type": "uses_tool",
+   "target": "octa-panel",
+   "evidence": "README: an emulator with a virtual front panel, timhastie/octa-panel"
+  },
+  {
+   "project": "octemu",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: fetched and built into vendor/ by setup, not shipped"
+  },
+  {
+   "project": "octemu",
+   "type": "cites",
+   "target": "octamax",
+   "evidence": "README: builds on or credits octamax's reverse engineering (passos: facts only, nothing copied)"
+  },
+  {
+   "project": "octemu",
+   "type": "cites",
+   "target": "octabam",
+   "evidence": "README: credits octabam"
   },
   {
    "project": "passos",
@@ -5819,10 +6785,40 @@
    "evidence": "README"
   },
   {
+   "project": "passos",
+   "type": "cites",
+   "target": "octamax",
+   "evidence": "README: builds on or credits octamax's reverse engineering (passos: facts only, nothing copied)"
+  },
+  {
    "project": "synfact",
    "type": "builds_on",
    "target": "elekloader",
    "evidence": "README of synfact-dev: built on elekloader, its engine, file format and checks"
+  },
+  {
+   "project": "synfact",
+   "type": "vendors",
+   "target": "digikit",
+   "evidence": "README: NOTICE covers the code that comes from elekloader and digikit"
+  },
+  {
+   "project": "syncrackd",
+   "type": "cites",
+   "target": "elektron-firmware-tool",
+   "evidence": "README credits"
+  },
+  {
+   "project": "syncrackd",
+   "type": "cites",
+   "target": "model-tg",
+   "evidence": "README: built on what others worked out first"
+  },
+  {
+   "project": "syncrackd",
+   "type": "cites",
+   "target": "elektron-model-tweaks",
+   "evidence": "README: built on what others worked out first"
   },
   {
    "project": "digitide",
@@ -5831,10 +6827,22 @@
    "evidence": "catalogue notes: \"elekloader mod\""
   },
   {
+   "project": "digitide",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: checked in the digiemu emulator on OS 1.43 and 1.44"
+  },
+  {
    "project": "digitriad",
    "type": "mod_for",
    "target": "elekloader",
    "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
+   "project": "digitriad",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: checked in the digiemu emulator on OS 1.43 and 1.44"
   },
   {
    "project": "digireel",
@@ -5843,10 +6851,22 @@
    "evidence": "catalogue notes: \"elekloader mod\""
   },
   {
+   "project": "digireel",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: checked in the digiemu emulator on OS 1.43 and 1.44"
+  },
+  {
    "project": "digihoard",
    "type": "mod_for",
    "target": "elekloader",
    "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
+   "project": "digihoard",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: checked in the digiemu emulator on OS 1.43 and 1.44"
   },
   {
    "project": "digihalo",
@@ -5855,10 +6875,70 @@
    "evidence": "catalogue notes: \"elekloader mod\""
   },
   {
+   "project": "digihalo",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: checked in the digiemu emulator on OS 1.43 and 1.44"
+  },
+  {
+   "project": "digitakt-digitone-mcp",
+   "type": "builds_on",
+   "target": "digitakt-midi-mcp",
+   "evidence": "README: the project this one grew out of"
+  },
+  {
+   "project": "digitakt-digitone-mcp",
+   "type": "cites",
+   "target": "elk-herd",
+   "evidence": "README: reference for Elektron SysEx"
+  },
+  {
+   "project": "sayit",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: built with elekloader from the stock OS file"
+  },
+  {
+   "project": "sayit",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
+   "project": "sampletone",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: built with elekloader from the stock OS file"
+  },
+  {
+   "project": "phreakoid",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: built with elekloader from the stock OS file"
+  },
+  {
+   "project": "vawt",
+   "type": "uses_tool",
+   "target": "elekloader",
+   "evidence": "README: host tests need an elekloader checkout for headers"
+  },
+  {
+   "project": "vawt",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
    "project": "digiseq-digitakt",
    "type": "mod_for",
    "target": "elekloader",
    "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
+   "project": "digiseq-digitakt",
+   "type": "bundles",
+   "target": "digisnake-digitakt",
+   "evidence": "README: DIGISNAKE for Digitakt, unchanged, as its SNAKE type"
   },
   {
    "project": "digiseq-digitone",
@@ -5871,6 +6951,12 @@
    "type": "mod_for",
    "target": "elekloader",
    "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
+   "project": "digiseq-digitone",
+   "type": "bundles",
+   "target": "digisnake-digitone",
+   "evidence": "README: DIGISNAKE carries on in DIGISEQ for Digitone, unchanged"
   },
   {
    "project": "pump-digitakt",
@@ -5891,6 +6977,12 @@
    "evidence": "catalogue notes: \"elekloader mod\""
   },
   {
+   "project": "pump-digitone",
+   "type": "vendors",
+   "target": "ringtone",
+   "evidence": "README: adapted from Tone+FX's digictl (DigiAlchemydsp/RingTone), GPL-2.0-or-later"
+  },
+  {
    "project": "directjump-digitakt",
    "type": "mod_for",
    "target": "elekloader",
@@ -5909,10 +7001,22 @@
    "evidence": "catalogue notes: \"elekloader mod\""
   },
   {
+   "project": "directjump-digitone",
+   "type": "vendors",
+   "target": "digihealth",
+   "evidence": "README: SETTINGS row callbacks adapted from digihealth's SYSTEM INFO row (GPL-2.0-or-later)"
+  },
+  {
    "project": "digisnake-digitakt",
    "type": "mod_for",
    "target": "elekloader",
    "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
+   "project": "digisnake-digitakt",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
   },
   {
    "project": "digisnake-digitone",
@@ -5933,16 +7037,52 @@
    "evidence": "same author, Digitakt side of Sidecar"
   },
   {
+   "project": "sidecar-digitakt",
+   "type": "uses_tool",
+   "target": "elekloader",
+   "evidence": "README: elekloader builds the OS candidates"
+  },
+  {
+   "project": "sidecar-digitakt",
+   "type": "cites",
+   "target": "digitakt-sidecar-pi",
+   "evidence": "README: thanks to soejrd's digitakt-sidecar for its reverse-engineering findings"
+  },
+  {
+   "project": "sidecar-digitakt",
+   "type": "uses_tool",
+   "target": "analog-emu",
+   "evidence": "README: built or checked in trigcondition/analog-emu"
+  },
+  {
    "project": "digitakt-sidecar-pi",
    "type": "builds_on",
    "target": "sidecar-expander",
    "evidence": "README: based on Sidecar by Trig Condition"
   },
   {
+   "project": "digitakt-sidecar-pi",
+   "type": "uses_tool",
+   "target": "elekloader",
+   "evidence": "README: elekloader builds the OS candidates"
+  },
+  {
+   "project": "digitakt-sidecar-pi",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
    "project": "elektron-screen-tool",
    "type": "fork_of",
    "target": "screendump",
    "evidence": "README"
+  },
+  {
+   "project": "reslicer-digitakt",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: an elekloader mod"
   },
   {
    "project": "dt2-capicola",
@@ -5957,10 +7097,40 @@
    "evidence": "catalogue notes: its build script comments on digikit's flash cave 0x403117c4"
   },
   {
+   "project": "digi-macro",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: built with elekloader"
+  },
+  {
+   "project": "digi-macro",
+   "type": "uses_tool",
+   "target": "digikit",
+   "evidence": "README: checks or gates run in digikit's emulator (not shipped)"
+  },
+  {
+   "project": "digitakt-mods-hillzeealex",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: packs built on elekloader's web page"
+  },
+  {
    "project": "digitone-2-mod-hack",
    "type": "mod_for",
    "target": "elekloader",
    "evidence": "catalogue notes: mods \"via elekloader / DigiHealth\""
+  },
+  {
+   "project": "digitone-2-mod-hack",
+   "type": "uses_tool",
+   "target": "digihealth",
+   "evidence": "README: build the C mods with DigiHealth"
+  },
+  {
+   "project": "digitone-2-mod-hack",
+   "type": "uses_tool",
+   "target": "digikit",
+   "evidence": "README: checks or gates run in digikit's emulator (not shipped)"
   },
   {
    "project": "elektrob-1",
@@ -5969,10 +7139,22 @@
    "evidence": "catalogue notes: a machine \"via elekloader\""
   },
   {
+   "project": "elektrob-1",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
    "project": "diginular",
    "type": "mod_for",
    "target": "elekloader",
    "evidence": "catalogue notes: \"experimental elekloader mod\""
+  },
+  {
+   "project": "diginular",
+   "type": "cites",
+   "target": "digigrain",
+   "evidence": "README: the idea is lucykowal/digigrain's random RATE"
   },
   {
    "project": "elkflash",
@@ -5981,10 +7163,106 @@
    "evidence": "catalogue notes: uses the MIDI RPC OS-upgrade commands as Elektroid does"
   },
   {
+   "project": "elkflash",
+   "type": "uses_tool",
+   "target": "analog-emu",
+   "evidence": "README: built or checked in trigcondition/analog-emu"
+  },
+  {
+   "project": "taktone",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: Elekloader machine integration source"
+  },
+  {
+   "project": "taktone",
+   "type": "vendors",
+   "target": "digiemu",
+   "evidence": "README: the ColdFire instruction decoder comes from irpina/digiemu (GPL retained)"
+  },
+  {
+   "project": "taktone",
+   "type": "bundles",
+   "target": "digisophie",
+   "evidence": "README: Digisophie machines running on the second DSP"
+  },
+  {
+   "project": "trig-pages",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: an elekloader mod"
+  },
+  {
    "project": "digialchemy-gamepack-1",
    "type": "mod_for",
    "target": "elekloader",
    "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
+   "project": "digialchemy-gamepack-1",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
+   "project": "digialchemy-gamepack-1",
+   "type": "cites",
+   "target": "digiscreen",
+   "evidence": "README: compares with the DigiScreen overlay mod"
+  },
+  {
+   "project": "digitakt-ii-splash-screens",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: the build needs elektron-firmware-tool"
+  },
+  {
+   "project": "elektron-mods-rumorismo",
+   "type": "vendors",
+   "target": "elekloader",
+   "evidence": "README: repo tree includes elekloader"
+  },
+  {
+   "project": "elektron-mods-rumorismo",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: tests, probes, captures or measurements run in digiemu"
+  },
+  {
+   "project": "elektron-mods-rumorismo",
+   "type": "cites",
+   "target": "digisophie",
+   "evidence": "README: kept as a reference repository in its workspace"
+  },
+  {
+   "project": "elektron-mods-rumorismo",
+   "type": "cites",
+   "target": "digi1-mods",
+   "evidence": "README: kept as a reference repository in its workspace"
+  },
+  {
+   "project": "elektron-mods-rumorismo",
+   "type": "cites",
+   "target": "digitables",
+   "evidence": "README: kept as a reference repository in its workspace"
+  },
+  {
+   "project": "analoghealth",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: an elekloader mod"
+  },
+  {
+   "project": "analoghealth",
+   "type": "port_of",
+   "target": "digihealth",
+   "evidence": "README: irpina's digihealth for the Digitakt mk1, ported to the Rytm MKII and Analog Four MKII"
+  },
+  {
+   "project": "analoghealth",
+   "type": "uses_tool",
+   "target": "analog-emu",
+   "evidence": "README: built or checked in trigcondition/analog-emu"
   },
   {
    "project": "rytm2-mods",
@@ -6005,10 +7283,46 @@
    "evidence": "README: MD Drums came from gearmulator-md-mm"
   },
   {
+   "project": "mmodule",
+   "type": "builds_on",
+   "target": "machinemodule-mpc",
+   "evidence": "README: Machinemodule by sd88me, the Machinedrum engine without its OS"
+  },
+  {
+   "project": "analog-rytm-agent-bridge",
+   "type": "uses_tool",
+   "target": "elektroid",
+   "evidence": "README: a pinned Elektroid CLI fork for sample management"
+  },
+  {
+   "project": "digiprism",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: an elekloader mod on fxkit (core-dn1 4.1)"
+  },
+  {
+   "project": "digiprism",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: checked in the digiemu emulator on OS 1.43 and 1.44"
+  },
+  {
    "project": "digiswarm",
    "type": "mod_for",
    "target": "elekloader",
    "evidence": "catalogue notes: source also in elekloader as mods/digiswarm-dn1"
+  },
+  {
+   "project": "digiswarm",
+   "type": "uses_tool",
+   "target": "digiemu",
+   "evidence": "README: checked in the digiemu emulator on OS 1.43 and 1.44"
+  },
+  {
+   "project": "a4-mk1-mods",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: it unpacks and repacks the OS"
   },
   {
    "project": "cycles-engines",
@@ -6029,10 +7343,22 @@
    "evidence": "README: implemented in model27"
   },
   {
+   "project": "cycles-mod-standard",
+   "type": "cites",
+   "target": "modded-cycles",
+   "evidence": "README: everything here was read in the code of Modded-Cycles"
+  },
+  {
    "project": "model909",
    "type": "builds_on",
    "target": "modded-cycles",
    "evidence": "README: built on Modded-Cycles and Model-TG"
+  },
+  {
+   "project": "model909",
+   "type": "builds_on",
+   "target": "model-tg",
+   "evidence": "README: Model-TG is ticked with model909"
   },
   {
    "project": "octatrack-modules-radiohagen",
@@ -6053,10 +7379,40 @@
    "evidence": "README: targets the GARDEN engines"
   },
   {
+   "project": "sidecar-expander",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: the Rytm firmware part is an elekloader module"
+  },
+  {
+   "project": "sidecar-expander",
+   "type": "uses_tool",
+   "target": "analog-emu",
+   "evidence": "README: built or checked in trigcondition/analog-emu"
+  },
+  {
    "project": "moduledrum",
    "type": "fork_of",
    "target": "monomodule",
    "evidence": "README"
+  },
+  {
+   "project": "moduledrum",
+   "type": "cites",
+   "target": "elektron-firmware-tool",
+   "evidence": "README credits"
+  },
+  {
+   "project": "machinemodule-mpc",
+   "type": "uses_tool",
+   "target": "gearmulator-md-mm",
+   "evidence": "README: checked against gearmulator-md-mm"
+  },
+  {
+   "project": "machinemodule-mpc",
+   "type": "vendors",
+   "target": "moduledrum",
+   "evidence": "README: ideas and code adapted from ModuleDrum (AGPL-3.0)"
   },
   {
    "project": "machinemodule-desktop",
@@ -6065,10 +7421,46 @@
    "evidence": "README"
   },
   {
+   "project": "machinemodule-desktop",
+   "type": "cites",
+   "target": "monomodule",
+   "evidence": "README: Monomodule informed it / related project"
+  },
+  {
    "project": "schwung-monomodule",
    "type": "port_of",
    "target": "monomodule",
    "evidence": "README"
+  },
+  {
+   "project": "op-xy-mnmd",
+   "type": "uses_tool",
+   "target": "gearmulator-md-mm",
+   "evidence": "README: checked against gearmulator-md-mm"
+  },
+  {
+   "project": "rytm-mk1-mods-hugz202",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: it unpacks and repacks the OS"
+  },
+  {
+   "project": "rytm-mk1-mods-hugz202",
+   "type": "builds_on",
+   "target": "rytm1-mods",
+   "evidence": "README: based on rytm1_mods and keeps its pipeline"
+  },
+  {
+   "project": "rytm-mods-boot-report",
+   "type": "uses_tool",
+   "target": "elekloader",
+   "evidence": "README: elekloader's core-ar2 with two test mods run on a unit"
+  },
+  {
+   "project": "rytm-mods-boot-report",
+   "type": "cites",
+   "target": "modwerk",
+   "evidence": "README: written for Modwerk's Add a machine steps"
   },
   {
    "project": "trackpatterns",
@@ -6077,10 +7469,46 @@
    "evidence": "README: also submitted as octabam PR 846"
   },
   {
+   "project": "trackpatterns",
+   "type": "mod_for",
+   "target": "modwerk",
+   "evidence": "README: a native octabam / Modwerk module"
+  },
+  {
+   "project": "trackpatterns",
+   "type": "cites",
+   "target": "octaplay",
+   "evidence": "README: sequencer addresses come from devilfish707's Play Modes investigation"
+  },
+  {
+   "project": "octa-bt-pt",
+   "type": "uses_tool",
+   "target": "elektron-firmware-tool",
+   "evidence": "README: fetched and built into vendor/ by setup, not shipped"
+  },
+  {
    "project": "acidtrack-modules",
    "type": "builds_on",
    "target": "octabam",
    "evidence": "README"
+  },
+  {
+   "project": "acidtrack-modules",
+   "type": "cites",
+   "target": "octatrack-kyoti-fw",
+   "evidence": "README credits: the dispatcher hook site"
+  },
+  {
+   "project": "acidtrack-modules",
+   "type": "cites",
+   "target": "octatrick",
+   "evidence": "README credits: the FLEX renderer integration it follows"
+  },
+  {
+   "project": "monomachine-lab",
+   "type": "cites",
+   "target": "monomodule",
+   "evidence": "README: Monomodule informed it / related project"
   },
   {
    "project": "maschine-md-mm",
@@ -6093,6 +7521,12 @@
    "type": "builds_on",
    "target": "libanalogrytm",
    "evidence": "README"
+  },
+  {
+   "project": "plock",
+   "type": "cites",
+   "target": "libanalogrytm",
+   "evidence": "README credits: byte layouts derived from libanalogrytm"
   },
   {
    "project": "digitakt-pattern-editor-juce",
@@ -6117,6 +7551,12 @@
    "type": "mod_for",
    "target": "modded-cycles",
    "evidence": "catalogue notes: a fixed-slot tweak for Modded Cycles 2.0"
+  },
+  {
+   "project": "bias",
+   "type": "mod_for",
+   "target": "cycles-engines",
+   "evidence": "README: tested as cycles-engines composes it"
   }
  ],
  "rules": [

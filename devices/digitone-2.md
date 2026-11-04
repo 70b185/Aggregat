@@ -54,7 +54,7 @@ Python 3.11+ patcher (patcher/patch.py) that builds Overtone from the user's own
 
 _Latest seen (2026-10-31, secondary directories): altstrument: v1.1 (2026-10-30) reworks GROOVE with presets, a random drift control, random weights and arrow-key editing, and restores FUNC + TEMPO as tap tempo; v1.0.1 (2026-10-29) fixes installing Elektron's OS or an Overtone update with Transfer while Overtone runs._
 
-_Related: uses tool `digikit` (catalogue notes: checks run in digikit for the main OS) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `digikit` (catalogue notes: checks run in digikit for the main OS); cites `digisophie` (README credits: Schwung Sophie for the SOPHIE machine); vendors `dn2-firmware-explore` (README: patcher/_dnfw is dnfw's code, unchanged); cites `dn2-cfw` (README: dn2-cfw showed how to ship Digitone II firmware); uses tool `digitone-2-modding-skill` (README: developed with the digitone-2-modding-skill) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: forum thread 90, GitHub README_
 
@@ -73,6 +73,8 @@ _Sources: GitHub release v1.2.0_
 ### SYXGRID v2
 
 Free browser-based pattern/sequence editor, not a firmware mod. Repo includes sysexmap/, a public reverse-engineered SysEx format map (CC BY 4.0): 45 mappings, map version 1.13.0, each with a confidence level (A = hardware-confirmed on a DN2: 23; B = corpus-confirmed by repo fixtures: 12; C = inherited, one value exercised: 9; D = unknown, do not rely: 1). Narrowed by bisection on 2026-09-08 against a Digitone II (OS 1.10E) and a Digitakt II. Not decoded: parameter locks, sound parameters (filter, amp, FX, LFO), synth machine choice. Needs the DN2 in SYSEX RECEIVE mode; Web MIDI needs Chromium over HTTPS or localhost (Chrome/Edge 152 break SysEx receive on macOS). App is AGPLv3 since v22.46 (MIT through v22.37). 6 commits.
+
+_Related: uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)); cites `digi-roll` (README: its DN2 pattern-format documentation); cites `dn2-firmware-explore` (README: cited throughout its maps; its code is not used); cites `elektroid` (README: reference for Elektron device transfer over USB); cites `libanalogrytm` (README: reference for Elektron structures); cites `dnx` (README: its published hardware measurements); cites `digitone-syx-toolkit` (README: used as cross-reference / prior art); vendors `elk-herd` (README credits under Code: elk-herd, BSD-2-Clause) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: forum thread 43_
 
@@ -102,6 +104,8 @@ Native Rust emulator that runs the ColdFire and SHARC+ firmware together, with f
 
 _Latest seen (2026-10-31, secondary directories): altstrument (2026-10-31): main @ 283bb90, untagged, described as patch toolchain AND run-time module system plus emulator; AGPL-3.0-or-later. Its device-side tools (dkupload, dklog) belong to that module system._
 
+_Related: cites `elektron-firmware-tool` (README: container-format knowledge comes from elektron-firmware-tool); cites `dt2-firmware-research` (README: some architecture facts come from lalzart/digitakt-ii-firmware-research-public) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub README ElekLabs/digikit, GitHub README m-dwyer/digikit, lapin-list_
 
 ### digi-roll
@@ -109,6 +113,8 @@ _Sources: GitHub README ElekLabs/digikit, GitHub README m-dwyer/digikit, lapin-l
 Browser piano roll that writes patterns over SysEx. Digitakt II / Digitone II: full write path, hardware-verified ("built and tested on hardware 2026-08-09"). Per-trig condition writing not yet smoke-tested. Original Digitakt: project backup and pattern import only; Digitone I: live-record fallback. Not a firmware mod. 57 commits, licence not stated.
 
 _Latest seen (2026-10-31, secondary directories): altstrument: v1.0.0 tag 2026-08-02, main @ aa22ced (2026-09-16); licence unspecified._
+
+_Related: cites `elk-herd` (README: elk-herd as the model it follows) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list_
 
@@ -118,6 +124,8 @@ Tools to inspect, modify and rebuild Digitone firmware (dnfw, CLI and browser), 
 
 _Latest seen (2026-10-31, secondary directories): altstrument: OS 1.11 target; includes the dnfw inspect/modify/rebuild tool, which also runs in the browser. Hardware-confirmed mods: lfo4, arpmodes, lfowaves, midiarp, layermidi, fxmod and the lfolength fix (2026-10-09, audio track). No GitHub releases - tags are work snapshots._
 
+_Related: builds on `elektron-firmware-tool` (README credit: container, transport, codec and integrity work stands on it); cites `digihealth` (README: the USB SysEx probe adapts the design of irpina/digihealth); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)); cites `dn2-cfw` (README: the frame-word census follows dn2-cfw's method (no code taken)); cites `octabam` (README: ColdFire disassembly findings / credits); cites `octa-bt-pt` (README: the patch model comes from octa-bt-pt) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub README, lapin-list_
 
 ### dn2-cfw
@@ -126,7 +134,7 @@ Public lab notebook: notes, tools and new effects, no Elektron firmware included
 
 _Latest seen (2026-10-31, secondary directories): Renamed Digiwerk (altstrument; stock OS 1.12, GPL-2.0-or-later, notarized Mac patcher app). v0.1.0 (2026-10-26): Deja vu LFO waves and the Compressor + Flanger pack (build DJ01). v0.2.0 (2026-10-29): key-following LFO wave, one-cycle and half-cycle LFO modes, SHUF/RAND/TM arp modes (also on MIDI tracks), a tape echo, per-slot effect choice. v0.2.1 (2026-10-30): withdraws the six spring-reverb builds - the page says the CFES and EFTS builds stop the sound on a Digitone II - and removes the spring tile from the patcher; the other eight builds are unchanged._
 
-_Related: vendors `digikit` (catalogue notes: upstream cloned into vendor/ (author's fork, branch dn2-1.12)); vendors `elekloader` (catalogue notes: upstream cloned into vendor/ (author's fork, branch dn2-1.12)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: vendors `digikit` (catalogue notes: upstream cloned into vendor/ (author's fork, branch dn2-1.12)); vendors `elekloader` (catalogue notes: upstream cloned into vendor/ (author's fork, branch dn2-1.12)); cites `elektron-firmware-tool` (README credits); cites `syntakt-firmware-workbench` (README: the Syntakt Firmware Workbench as behavioural reference); cites `octabam` (README: ColdFire disassembly findings / credits); vendors `digitakt-ii-research` (README: Kari Gardarsson's Deja vu LFO from the Digitakt II, brought to the Digitone II) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list_
 
@@ -144,6 +152,8 @@ Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog
 
 _Latest seen (2026-10-31, secondary directories): altstrument: v2.2 (2025-12-21), GPL-3.0-or-later, JACK clients streaming multitrack Overbridge 2 audio._
 
+_Related: builds on `dtdump` (README: based on the Overbridge USB reverse engineering in dtdump) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub README, lapin-list_
 
 ### DN2 mk2 Mod (dn2mk2-firmware)
@@ -152,7 +162,7 @@ Adds Digitakt II sample machines (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE) 
 
 _Latest seen (2026-10-31, secondary directories): v0.34 TIMING: P-I voices that stayed dead after v0.33's guard muted them are now reset on the next note; a FUNC-held readout shows V1D (bad data in a voice's delay memory) or V1X (elsewhere); new USB diag tool tools/dn2diag.py reads the guard record and scans DSP memory for bad values; the ColdFire emulator now fires the audio interrupt at its real rate, and DSP tests charge memory like the chip. v0.35 SWEEP (2026-11-01): fixes only (MACHINE SEL filter list, +DRIVE preview retrigger, SYN-held values, LOAD TO PROJ, deleted folders, LFO page names). Open: why P-I / VO-6 voices go bad on the instrument. Same scope as armio's T1E2 (DT2 sample machines on DN2 1.11). v0.36 VOICES: the fixed two-voice cap on Monomachine tracks is gone (the real-time DSP guard decides): SID, VO-6, DENS and DPRO WAVE play 4-note chords, DDRW 2; when there is no room the oldest voice is dropped cleanly; DDRW/DENS tables moved to fast memory; a Diagnostics section in the import page reads the instrument after a silent voice. ROADMAP after v0.40 (2026-11-03): engine-direction talk (a build without Monomachine; the MM chord glitch first), slides on the sample and Machinedrum machines' own continuous controls, Octatrack-style rec trigs, then a comparison with heavylight's Capicola time-stretch. The roadmap also plans to read Aggregat (export DB, research map) before new DN2 work._
 
-_Related: builds on `dn2-firmware-explore` (docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `dn2-firmware-explore` (docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698); cites `elektron-firmware-tool` (README credits); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, FIRMWARE.md, patcher web page, docs/ROADMAP.md_
 
@@ -162,7 +172,7 @@ Agent skill (Claude Code, Codex, Cursor; install with `npx skills add`) for deve
 
 _Latest seen (2026-10-31, secondary directories): altstrument: main @ 84c8cd3 (2026-10-29), no tagged releases; brick-risk flag set ("flashing carries a known, documented risk of damaging the device")._
 
-_Related: uses tool `digikit` (catalogue notes: verification in digikit) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `digikit` (catalogue notes: verification in digikit); uses tool `dn2-firmware-explore` (README: prerequisite dnfw (container, signing, C builds)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, Overtone README_
 
@@ -198,6 +208,8 @@ _Sources: GitHub README, SYXGRID README_
 
 Browser tools (Web MIDI, Chromium only, nothing uploaded) for Digitone and Digitone II projects: Expander (each sound-locked Digitone 1 sound gets its own track on the Digitone II), Manager (move/copy/swap/clear/rename patterns across banks with undo; Insights: polymeter, PATTERN RESET cost, voice use), Library (browse/search/rename the 2,048 +Drive presets; wavetables need Digitone II with "Waverider" firmware), Backup (whole +Drive into one .dnx with a manifest; excludes global settings), Probe (read-only identification and traffic capture) and CLI commands (project, plan, convert, copy, rearrange, rename, track, rebuild, diff, sheet; dry run by default). Write safeguards: WRITE switch must be armed, copy of current contents saved first, every write read back and compared, destinations checked against a fresh listing, never writes the loaded project, never converts a DN2 preset to DN1; close Transfer and Overbridge first (shared MIDI ports). Formats: .dnprj (DN1) and .dn2prj (DN2) projects, sound banks .syx; payloads LZ4-compressed inside a ZIP; SysEx uses 8-in-7 MSB-first. Author discloses LLM use; AGPL-3.0-or-later, TypeScript, 15 stars, created 2026-09-07. Not firmware modding. Report button opens a prefilled GitHub issue.
 
+_Related: cites `libanalogrytm` (README: reference for Elektron structures); cites `digitone-syx-toolkit` (README: used as cross-reference / prior art); cites `elk-herd` (README: elk-herd as the model it follows); cites `digi-roll` (README: digi-roll reached the same write sequence independently; code not read) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: elektronmods id 39, SYXGRID README_
 
 ### Elektron Emu
@@ -209,6 +221,8 @@ _Sources: GitHub README, altstrument tools page_
 ### digitakt-digitone-mcp
 
 MCP servers that let an LLM play and edit a Digitakt or Digitone over MIDI (trigger tracks, shape FM, etc.). No firmware change. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Related: builds on `digitakt-midi-mcp` (README: the project this one grew out of); cites `elk-herd` (README: reference for Elektron SysEx) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -224,13 +238,15 @@ _Sources: GitHub search 2026-11-02, README_
 
 Eight performance macros (PAGE+MOD), each moving up to four parameters on chosen tracks. README: earlier builds ran on a DT2; the current per-kit build only in an emulator; the DN2 version never on a unit. GPL. Found by GitHub search 2026-11-02; README start read.
 
+_Related: mod for `elekloader` (README: built with elekloader); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### digitone-2-mod-hack
 
 Selectable C synth (SINE, synth id 6) and LOWPASS filter mods for the Digitone II via elekloader / DigiHealth. GPL. Found by GitHub search 2026-11-02; README start read.
 
-_Related: mod for `elekloader` (catalogue notes: mods "via elekloader / DigiHealth") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: mod for `elekloader` (catalogue notes: mods "via elekloader / DigiHealth"); uses tool `digihealth` (README: build the C mods with DigiHealth); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -238,7 +254,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). MIT. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the first Ping on a new port is retried up to 3 times (3 s each) before giving up, before anything is written.
 
-_Related: cites `elektroid` (catalogue notes: uses the MIDI RPC OS-upgrade commands as Elektroid does) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: cites `elektroid` (catalogue notes: uses the MIDI RPC OS-upgrade commands as Elektroid does); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

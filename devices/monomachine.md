@@ -32,6 +32,8 @@ _Sources: altstrument (2026-11-01)_
 
 Desktop editors for Machinedrum and Monomachine that run the unit's own OS in an emulator (app or VST3/AU), optional hardware MIDI mode. Licence: GPL-3.0-only; distribution: download. Listed by altstrument; repo not read by us yet.
 
+_Related: builds on `gearmulator-md-mm` (README: grew out of joelanders' Machinedrum and Monomachine emulation) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### ems-monomachine-firmware
@@ -43,6 +45,8 @@ _Sources: altstrument (2026-11-01)_
 ### Monomodule
 
 DAW plug-ins and a SysEx library app running the Monomachine engine in a DSP56300 emulator from your OS file. Licence: AGPL-3.0-only; distribution: download. Listed by altstrument; repo not read by us yet.
+
+_Related: cites `elektron-firmware-tool` (README credits) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -64,6 +68,8 @@ _Sources: GitHub search 2026-11-02, README_
 
 Machinedrum and Monomachine engines written from scratch (not an emulation of the chips) for the Teenage Engineering OP-XY on the Open-XY SDK. MIT.
 
+_Related: uses tool `gearmulator-md-mm` (README: checked against gearmulator-md-mm) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### BSP Machinedrum
@@ -75,6 +81,8 @@ _Sources: GitHub search 2026-11-02, README_
 ### Monomachine Lab
 
 AU/VST3 that runs one Monomachine DSP track's original DSP56300 code (15 synth and 7 FX machine dispatches, the per-track chain, kit SysEx import). Independent of Monomodule, which it points to for a fuller emulation.
+
+_Related: cites `monomodule` (README: Monomodule informed it / related project) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

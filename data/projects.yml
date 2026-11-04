@@ -55,6 +55,9 @@ projects:
     latest_seen: >
       altstrument.org and the repo (read 2026-10-31): canonical repo is github.com/elekloader/elekloader (183 commits, 103 stars, GPL-2.0-or-later); web app moved to elekloader.github.io/elekloader; the Mac app was absent from v0.9.0 because signing secrets need renewing. v0.9.0 cores: core-4.1 and core-4.1-os1.54 (Digitakt mk1), core-dn1-4.1.1 and -os1.44 (Digitone mk1), core-ar2-0.8 (Analog Rytm MKII 1.74), core-ot-0.8 (Octatrack 1.40C), core-mc-0.3 (Model:Cycles), core-ms-0.1 (Model:Samples), core-a4 0.1-0.4 (Analog Four MKII 1.56). Kit 0.7.0 catalog: 19 cores, 88 mods. machine-pages 1.2/1.3/1.5 need core 3.0+ on Digitakt mk1 and refuse NEIGHBOR 0.6, SOPHIE 1.1.13 and digichain-based machine mods beside them; fxkit 0.1 gives Digitone effect mods a shared mixer, two LFOs, pattern p-locks and a CPU guard; core-dn1 4.1 adds ev_note_queue; kit 0.6.0 gives 4.0 cores larger RAM areas (256 KB Digitakt, 1.25 MB Digitone). docs/ includes AGENTS.md, DEVICES.md, MACHINES-DN2, SHARC-DN2, CORES, FORMAT, BUILDING, ADAPTING (not all read yet - see hardware/MINING.md). The earlier irpina/elekloader repo is where the author's older releases lived.
     sources: [forum thread 30, GitHub release v0.4.0, gearnews, dubspot]
+    relations:
+    - {type: uses_tool, id: digikit, evidence: 'README: checks or gates run in digikit''s emulator (not shipped)'}
+
 
   - id: modwerk
     name: Modwerk (formerly Octamod)
@@ -76,6 +79,10 @@ projects:
       2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI.
       2026-11-03: the site now lets you download a built Analog Rytm MKII .syx (after confirming you know how to get back to stock); new Rytm module quick-velocity-aftertouch-assign with a verification note. Zoom pedals: an effect whose group+ID clashes with one already on the pedal is moved to a free local Delay ID 958-1023 (ID only in the ZDL header at 0x40-0x41, no checksum); two effects with the same group and ID froze an MS-70CDR at boot until its ROM was reprogrammed.
     sources: [gearnews, dubspot, forum thread 36]
+    relations:
+    - {type: cites, id: elekloader, evidence: 'README mentions elekloader (porting from it / hosted loader)'}
+    - {type: cites, id: octabam, evidence: 'README: porting from octabam is part of the module guide'}
+
 
   - id: elektron-firmware-tool
     name: elektron-firmware-tool
@@ -118,6 +125,11 @@ projects:
     latest_seen: >
       altstrument: v0.4.1 (2026-10-09); elektronmods: Windows and Apple silicon; covers Digitakt, Digitone (mk1), Model:Cycles, Model:Samples.
     sources: [forum thread 20]
+    relations:
+    - {type: cites, id: elektron-firmware-tool, evidence: 'README: container-format knowledge comes from elektron-firmware-tool'}
+    - {type: builds_on, id: digikit, evidence: 'README: digiemu is derived from m-dwyer/digikit at an upstream commit'}
+    - {type: cites, id: dt2-firmware-research, evidence: 'README: some architecture facts come from lalzart/digitakt-ii-firmware-research-public'}
+
 
   - id: digineighbor
     name: Digineighbor (NEIGHBOR machine)
@@ -137,6 +149,7 @@ projects:
     sources: [forum thread 21, elekloader release v0.4.0]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "installed via elekloader"'}
+    - {type: uses_tool, id: digikit, evidence: 'README: checks or gates run in digikit''s emulator (not shipped)'}
 
 
   - id: digisophie
@@ -160,6 +173,7 @@ projects:
     sources: [synthtopia, gearnews]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "needs elekloader"'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
 
 
   - id: takt1ccname
@@ -179,6 +193,10 @@ projects:
       list of 64 preset words per knob. Earlier report: names did not survive a reboot (fix not
       confirmed). Users ask for a merge into Modwerk.
     sources: [forum thread 66]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: built as an elekloader linkable mod'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
+
 
   - id: digirequests
     name: digirequests (Digitakt request mods)
@@ -196,6 +214,10 @@ projects:
       Module collection suggested in the CC-naming thread. Its cc-names module reportedly has
       memory/storage problems (per vegadw). Needs a closer look.
     sources: [forum thread 66]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: each mod is an Elekloader format-2 module'}
+    - {type: mod_for, id: modwerk, evidence: 'README: each folder is laid out for Modwerk''s source builder'}
+
 
   # ---------------------------------------------------------------- Digitakt II
   - id: digitakt-ii-research
@@ -238,6 +260,7 @@ projects:
     relations:
     - {type: builds_on, id: digikit, evidence: 'all-in-one/README.md: modified firmware derived from digikit; uses its patchkit'}
     - {type: vendors, id: elektron-firmware-tool, evidence: 'catalogue notes: elektron-firmware-tool (vendored)'}
+    - {type: cites, id: syntakt-firmware-workbench, evidence: 'README: the Syntakt Firmware Workbench as behavioural reference'}
 
   # ---------------------------------------------------------------- Digitone (mk1 / Keys)
   - id: ringtone
@@ -259,6 +282,7 @@ projects:
     sources: [GitHub release 2.0o]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "built with elekloader"'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
 
 
   # ---------------------------------------------------------------- Digitone II
@@ -291,6 +315,10 @@ projects:
     sources: [forum thread 90, GitHub README]
     relations:
     - {type: uses_tool, id: digikit, evidence: 'catalogue notes: checks run in digikit for the main OS'}
+    - {type: cites, id: digisophie, evidence: 'README credits: Schwung Sophie for the SOPHIE machine'}
+    - {type: vendors, id: dn2-firmware-explore, evidence: 'README: patcher/_dnfw is dnfw''s code, unchanged'}
+    - {type: cites, id: dn2-cfw, evidence: 'README: dn2-cfw showed how to ship Digitone II firmware'}
+    - {type: uses_tool, id: digitone-2-modding-skill, evidence: 'README: developed with the digitone-2-modding-skill'}
 
 
   - id: x0x
@@ -329,6 +357,11 @@ projects:
       converts the user's own OS 1.13 file; the result is byte for byte the file the author tested on a real Model:Cycles.
       MIT. Same author and the same generator idea as DigiRust (Digitone II). Found by GitHub code search 2026-11-03.
     sources: [GitHub code search 2026-11-03, README]
+    relations:
+    - {type: bundles, id: modded-cycles, evidence: 'README: mods included from Modded-Cycles are part of Motor:Cycles'}
+    - {type: cites, id: elektron-model-tweaks, evidence: 'README thanks: drumkilla''s mtlib firmware toolkit'}
+    - {type: cites, id: ms-multi-output, evidence: 'README credits: the original multi-channel USB audio mod'}
+
 
   - id: digirust
     name: DigiRust
@@ -370,6 +403,16 @@ projects:
       Needs the DN2 in SYSEX RECEIVE mode; Web MIDI needs Chromium over HTTPS or localhost (Chrome/Edge 152 break SysEx
       receive on macOS). App is AGPLv3 since v22.46 (MIT through v22.37). 6 commits.
     sources: [forum thread 43]
+    relations:
+    - {type: uses_tool, id: digikit, evidence: 'README: checks or gates run in digikit''s emulator (not shipped)'}
+    - {type: cites, id: digi-roll, evidence: 'README: its DN2 pattern-format documentation'}
+    - {type: cites, id: dn2-firmware-explore, evidence: 'README: cited throughout its maps; its code is not used'}
+    - {type: cites, id: elektroid, evidence: 'README: reference for Elektron device transfer over USB'}
+    - {type: cites, id: libanalogrytm, evidence: 'README: reference for Elektron structures'}
+    - {type: cites, id: dnx, evidence: 'README: its published hardware measurements'}
+    - {type: cites, id: digitone-syx-toolkit, evidence: 'README: used as cross-reference / prior art'}
+    - {type: vendors, id: elk-herd, evidence: 'README credits under Code: elk-herd, BSD-2-Clause'}
+
 
   - id: dn2-dt2-firmware-research
     name: DN2 DT2 firmware research
@@ -438,6 +481,7 @@ projects:
     sources: ["forum threads 81 and 85"]
     relations:
     - {type: fork_of, id: synthack-os-upstream, evidence: 'GitHub fork flag'}
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: tools/unpack wraps elektron-firmware-tool'}
 
   # ---------------------------------------------------------------- requests / resources
   - id: req-d50-pcm-machine
@@ -535,6 +579,10 @@ projects:
     latest_seen: >
       altstrument: v1.3 adds a Digitone mk1/Keys build (six filter modes) and splits Filter+FX into its own project; v1.2 caps Digitakt OB resonance at 75 %; v1.1b lowers per-voice cost. Stock OS: Digitakt 1.54, Digitone 1.44. GPL-2.0-or-later.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: build needs elekloader 0.5+ and its cores'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
+
 
   - id: filter-plus
     name: Filter+ (13 filter types)
@@ -558,6 +606,7 @@ projects:
     relations:
     - {type: builds_on, id: digifilter, evidence: 'same author; BP/BP2/COMB/TRASH are DigiFilter modes; LICENSE names the DigiFilter authors'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader format-2 mods"'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
 
   - id: drum-plus
     name: DRUM+ (FM drum machine for Digitone mk1)
@@ -576,6 +625,9 @@ projects:
       .elemod and its SHA-256, no source, although the README states GPL-2.0-or-later for its own code. Found by GitHub
       search 2026-11-02; README read.
     sources: [GitHub README]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader machine mod'}
+
 
   - id: digisplash
     name: DigiSplash
@@ -593,6 +645,10 @@ projects:
     latest_seen: >
       altstrument: animated splashes, the stock rare animation, PNG/GIF generator; v1.0 was 2026-09-29.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
+
 
   - id: digi1-mods
     name: digi1_mods
@@ -609,6 +665,11 @@ projects:
       Hardware test state per README: v3r-all confirmed on a unit, v3p / v3q not yet tested, 2.0d build
       only checked in emulation. MIT for the author's code, 6 commits, 4 stars.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
+    - {type: bundles, id: tone-fx, evidence: 'README: Tone+FX, Digital Alchemy DSP''s master effects suite, ported'}
+
 
   - id: digislicer
     name: digislicer
@@ -628,6 +689,7 @@ projects:
     sources: [GitHub README, lapin-list, elekloader release v0.2.0]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: a curated mod in the elekloader shop'}
+    - {type: uses_tool, id: digikit, evidence: 'README: checks or gates run in digikit''s emulator (not shipped)'}
 
 
   - id: dt-fm
@@ -649,6 +711,8 @@ projects:
     sources: [GitHub README, lapin-list]
     relations:
     - {type: builds_on, id: digisophie, evidence: 'notes'}
+    - {type: mod_for, id: elekloader, evidence: 'README changelog: compatibility with other Elekloader mods'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
 
   - id: digidrum
     name: Digidrum
@@ -682,6 +746,10 @@ projects:
       Granular playback engine. "Verified in the emulator on the real firmware", hardware tests still
       open (8 open issues, 1 open PR). 22 commits. License not stated.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: built with elekloader'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
+
 
   - id: digihealth
     name: digihealth
@@ -699,6 +767,10 @@ projects:
     latest_seen: >
       altstrument: FAST AUDIO runs hot code from SRAM to cut DSP load; v1.1.1 adds a Digitone build (targets 1.44).
     sources: [GitHub README, lapin-list, elekloader release v0.4.0]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
+    - {type: uses_tool, id: digikit, evidence: 'README: checks or gates run in digikit''s emulator (not shipped)'}
+
 
   - id: digirta
     name: digirta
@@ -712,6 +784,9 @@ projects:
     last_activity: null
     notes: Octave-band real-time analyzer. MIT, 1 commit.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
+
 
   - id: digicandy
     name: DigiCandy
@@ -727,6 +802,9 @@ projects:
       Full-panel 128x64 image overlay on command. README: work in progress, "tested on real hardware -
       expect the occasional rough edge". GPL-2.0-or-later, 7 commits.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: built for elekloader, needs its core mod'}
+
 
   - id: elek-view
     name: Elek View (screen viewer in the browser)
@@ -787,6 +865,9 @@ projects:
     latest_seen: >
       altstrument: 1.4 lets both LFOs move table speed and uses one source for 1.43 and 1.44.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
+
 
   - id: tone-fx
     name: Tone+FX
@@ -809,6 +890,8 @@ projects:
     sources: [GitHub README, lapin-list]
     relations:
     - {type: unclear, id: ringtone, evidence: 'Tone+FX README calls RingTone "the older RingTone repo" (same author); successor or same project not stated. Was same_project until 2026-11-04 (raised in PR #3)'}
+    - {type: mod_for, id: elekloader, evidence: 'README: a set of elekloader mods released as one suite'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
 
   - id: digicosm
     name: DigiCosm
@@ -826,6 +909,10 @@ projects:
     latest_seen: >
       Renamed DigiSwarm (altstrument: v0.1.2, 2026-10-18; grain/micro-loop effects and looper). v0.2 (2026-10-18) adds a mixer, two LFOs and pattern-stored p-locks and drops presets. Repo now github.com/irpina/digiswarm (elektronmods lists it as "Digicosm - a Hologram Microcosm Inspired Effects Processor").
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on fxkit (core-dn1 4.1)'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
+
 
   - id: digichroma
     name: DigiChroma
@@ -843,6 +930,10 @@ projects:
     latest_seen: >
       Renamed DigiPrism (altstrument: v0.1.1, 2026-10-18; Digitone audio-input effects pedal, pre-release). v0.2 (2026-10-18) adds a mixer, two LFOs and pattern-stored p-locks and drops presets. Repo now github.com/irpina/digiprism.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on fxkit (core-dn1 4.1)'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
+
 
   # ---------------------------------------------------------------- Digitakt II / Digitone II
   - id: digikit
@@ -879,6 +970,10 @@ projects:
     latest_seen: >
       altstrument (2026-10-31): main @ 283bb90, untagged, described as patch toolchain AND run-time module system plus emulator; AGPL-3.0-or-later. Its device-side tools (dkupload, dklog) belong to that module system.
     sources: [GitHub README ElekLabs/digikit, GitHub README m-dwyer/digikit, lapin-list]
+    relations:
+    - {type: cites, id: elektron-firmware-tool, evidence: 'README: container-format knowledge comes from elektron-firmware-tool'}
+    - {type: cites, id: dt2-firmware-research, evidence: 'README: some architecture facts come from lalzart/digitakt-ii-firmware-research-public'}
+
 
   - id: dt2-firmware-research
     name: digitakt-ii-firmware-research
@@ -918,6 +1013,9 @@ projects:
     latest_seen: >
       altstrument: v1.0.0 tag 2026-08-02, main @ aa22ced (2026-09-16); licence unspecified.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: cites, id: elk-herd, evidence: 'README: elk-herd as the model it follows'}
+
 
   - id: digitakt2-perform
     name: digitakt2-perform
@@ -938,6 +1036,7 @@ projects:
     sources: [GitHub README, lapin-list]
     relations:
     - {type: uses_tool, id: digikit, evidence: 'catalogue notes: stock behaviour tested in digikit''s emulator'}
+    - {type: mod_for, id: elekloader, evidence: 'README: elekloader mods for PERFORM KIT mode'}
 
 
   - id: dt2-machine-lab
@@ -961,6 +1060,7 @@ projects:
     sources: [GitHub README, lapin-list]
     relations:
     - {type: bundles, id: dt2-capicola, evidence: 'machines/capicola-reddit/upstream keeps its 66 files byte-exact'}
+    - {type: uses_tool, id: digikit, evidence: 'README: DigiKit and Selache pinned by deps.lock.json'}
 
   - id: digisplash-ii
     name: DigiSplash-II
@@ -976,6 +1076,10 @@ projects:
     latest_seen: >
       altstrument: converts an image or animated GIF to the Digitakt II OLED format and injects it as a boot logo/animation into the user's OS 1.17 file.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: the build needs elektron-firmware-tool'}
+    - {type: cites, id: digitakt-ii-splash-screens, evidence: 'README credits: the original splash research'}
+
 
   - id: dn2-firmware-explore
     name: dn2_firmware_explore
@@ -996,6 +1100,14 @@ projects:
     latest_seen: >
       altstrument: OS 1.11 target; includes the dnfw inspect/modify/rebuild tool, which also runs in the browser. Hardware-confirmed mods: lfo4, arpmodes, lfowaves, midiarp, layermidi, fxmod and the lfolength fix (2026-10-09, audio track). No GitHub releases - tags are work snapshots.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: builds_on, id: elektron-firmware-tool, evidence: 'README credit: container, transport, codec and integrity work stands on it'}
+    - {type: cites, id: digihealth, evidence: 'README: the USB SysEx probe adapts the design of irpina/digihealth'}
+    - {type: uses_tool, id: digikit, evidence: 'README: checks or gates run in digikit''s emulator (not shipped)'}
+    - {type: cites, id: dn2-cfw, evidence: 'README: the frame-word census follows dn2-cfw''s method (no code taken)'}
+    - {type: cites, id: octabam, evidence: 'README: ColdFire disassembly findings / credits'}
+    - {type: cites, id: octa-bt-pt, evidence: 'README: the patch model comes from octa-bt-pt'}
+
 
   - id: dn2-cfw
     name: dn2-cfw
@@ -1026,6 +1138,10 @@ projects:
     relations:
     - {type: vendors, id: digikit, evidence: 'catalogue notes: upstream cloned into vendor/ (author''s fork, branch dn2-1.12)'}
     - {type: vendors, id: elekloader, evidence: 'catalogue notes: upstream cloned into vendor/ (author''s fork, branch dn2-1.12)'}
+    - {type: cites, id: elektron-firmware-tool, evidence: 'README credits'}
+    - {type: cites, id: syntakt-firmware-workbench, evidence: 'README: the Syntakt Firmware Workbench as behavioural reference'}
+    - {type: cites, id: octabam, evidence: 'README: ColdFire disassembly findings / credits'}
+    - {type: vendors, id: digitakt-ii-research, evidence: 'README: Kari Gardarsson''s Deja vu LFO from the Digitakt II, brought to the Digitone II'}
 
 
   # ---------------------------------------------------------------- Syntakt
@@ -1043,6 +1159,11 @@ projects:
       Browser workbench, use your own official file; put your own waves into SY CHORD. In progress:
       safer test loop that runs program-code changes in an emulator before hardware. MIT, 8 commits.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: cites, id: elektron-firmware-tool, evidence: 'README credits'}
+    - {type: uses_tool, id: digikit, evidence: 'README: checks or gates run in digikit''s emulator (not shipped)'}
+    - {type: cites, id: dn2-firmware-explore, evidence: 'README: the model for a browser-only tool'}
+
 
   - id: sympakt
     name: sympakt
@@ -1100,6 +1221,9 @@ projects:
     latest_seen: >
       altstrument: v2.2 (2025-12-21), GPL-3.0-or-later, JACK clients streaming multitrack Overbridge 2 audio.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: builds_on, id: dtdump, evidence: 'README: based on the Overbridge USB reverse engineering in dtdump'}
+
 
   - id: ghidra-dsp56300
     name: ghidra-dsp56300
@@ -1164,6 +1288,8 @@ projects:
     sources: [GitHub README, FIRMWARE.md, patcher web page, docs/ROADMAP.md]
     relations:
     - {type: builds_on, id: dn2-firmware-explore, evidence: 'docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698'}
+    - {type: cites, id: elektron-firmware-tool, evidence: 'README credits'}
+    - {type: uses_tool, id: digikit, evidence: 'README: checks or gates run in digikit''s emulator (not shipped)'}
 
   - id: digitone-2-modding-skill
     name: digitone-2-modding-skill
@@ -1193,6 +1319,7 @@ projects:
     sources: [GitHub README, Overtone README]
     relations:
     - {type: uses_tool, id: digikit, evidence: 'catalogue notes: verification in digikit'}
+    - {type: uses_tool, id: dn2-firmware-explore, evidence: 'README: prerequisite dnfw (container, signing, C builds)'}
 
 
   - id: coldfire-rs
@@ -1354,6 +1481,9 @@ projects:
       RECOVERY.md exists. Planned: PIN lock, new LFO shapes, 3rd LFO/mod matrix, arpeggiator, resampling, new machines (RISER/DOWNFILTER, SY SWARM+),
       web builder. MIT, 66 commits, 9 stars. Brick-risk flag set on altstrument. Fork "Syntakt MAX" is the synthack-os entry.
     sources: [GitHub README, altstrument Syntakt page]
+    relations:
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: tools/unpack wraps elektron-firmware-tool'}
+
 
   - id: sy-fm4
     name: SY FM4
@@ -1369,6 +1499,11 @@ projects:
       Four-operator FM machine that replaces SY TONE in place; eleven operator algorithms and a second parameter page. Build from source.
       MIT. Brick-risk flag set on altstrument. Syntakt MAX integrates an SY FM4 engine for 1.41 (see synthack-os).
     sources: [altstrument Syntakt page]
+    relations:
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: the build needs elektron-firmware-tool'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
+    - {type: cites, id: synthack-os-upstream, evidence: 'README refers to SyntHack OS'}
+
 
   - id: syntakt-machine45-research
     name: syntakt-machine45-research
@@ -1390,6 +1525,10 @@ projects:
       docs/FROZEN_BASELINE.md, docs/PUBLICATION_POLICY.md. Excludes firmware images, opcode/disassembly dumps, coefficient tables, binary diffs and deployable
       packages. MIT. Meant to complement SyntHack OS and SY FM4 (FM4 extends machine 4; this concerns ID 45).
     sources: [GitHub README, altstrument Syntakt page]
+    relations:
+    - {type: cites, id: synthack-os-upstream, evidence: 'README refers to SyntHack OS'}
+    - {type: cites, id: sy-fm4, evidence: 'README: meant to complement SY FM4'}
+
 
   - id: dnx
     name: DNX
@@ -1415,6 +1554,12 @@ projects:
       .dnprj (DN1) and .dn2prj (DN2) projects, sound banks .syx; payloads LZ4-compressed inside a ZIP; SysEx uses 8-in-7 MSB-first. Author discloses LLM use; AGPL-3.0-or-later,
       TypeScript, 15 stars, created 2026-09-07. Not firmware modding. Report button opens a prefilled GitHub issue.
     sources: [elektronmods id 39, SYXGRID README]
+    relations:
+    - {type: cites, id: libanalogrytm, evidence: 'README: reference for Elektron structures'}
+    - {type: cites, id: digitone-syx-toolkit, evidence: 'README: used as cross-reference / prior art'}
+    - {type: cites, id: elk-herd, evidence: 'README: elk-herd as the model it follows'}
+    - {type: cites, id: digi-roll, evidence: 'README: digi-roll reached the same write sequence independently; code not read'}
+
 
   - id: elektron-emu
     name: Elektron Emu
@@ -1515,6 +1660,10 @@ projects:
     - altstrument (2026-11-01)
     links:
       homepage: https://chopshop-synth.pages.dev/
+    relations:
+    - {type: vendors, id: elektron-firmware-tool, evidence: 'README: built on elektron-firmware-tool compiled to WebAssembly'}
+    - {type: builds_on, id: rytm1-mods, evidence: 'README: built on gdeo607''s rytm1_mods'}
+
   - id: libanalogrytm
     name: libanalogrytm
     author: bsp2
@@ -1563,6 +1712,9 @@ projects:
       distribution: source-only. Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: it unpacks and repacks the OS'}
+
   - id: rytm-mods-src
     name: rytm-mods-src
     author: MrScruff (published with permission by Iced-Cream)
@@ -1583,6 +1735,9 @@ projects:
       2026-11-03).'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: fetched and built into vendor/ by setup, not shipped'}
+
   - id: rytm1-mods
     name: rytm1_mods
     author: gdeo607
@@ -1601,6 +1756,7 @@ projects:
     relations:
     - {type: port_of, id: rytm-mods-src, evidence: 'README: port of the MKII project to the MK1'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: emits elekloader .elemod files'}
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: fetched and built into vendor/ by setup, not shipped'}
   - id: ems-machinedrum-firmware
     name: ems-machinedrum-firmware
     author: June Kiff (emuyia)
@@ -1637,6 +1793,10 @@ projects:
     - altstrument (2026-11-01)
     links:
       homepage: https://smoothdeveloper.github.io/fsdsp56k/
+    relations:
+    - {type: cites, id: kitbasher, evidence: 'README credits: the TX6 kit in kitbasher'}
+    - {type: cites, id: mds, evidence: 'README credits: MDS'}
+
   - id: gearmulator-md-mm
     name: Gearmulator MD/MM
     author: Joe Landers
@@ -1690,6 +1850,9 @@ projects:
       by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: uses_tool, id: gearmulator-md-mm, evidence: 'README: checks out joelanders/gearmulator-md-mm at a pinned commit'}
+
   - id: mdmm
     name: MDMM (Machinedrum and Monomachine Editors)
     author: radekdymacz
@@ -1710,6 +1873,9 @@ projects:
     - altstrument (2026-11-01)
     links:
       homepage: https://mdmm.dev
+    relations:
+    - {type: builds_on, id: gearmulator-md-mm, evidence: 'README: grew out of joelanders'' Machinedrum and Monomachine emulation'}
+
   - id: mds
     name: MDS (Machine Dump Standard)
     author: Justin Mammarella
@@ -1851,6 +2017,10 @@ projects:
       ~3.6 % of the flex pool. README read 2026-11-02.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: the build needs elektron-firmware-tool'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
+
   - id: cycles-one-shot
     name: Cycles One-Shot
     author: durchgemacht
@@ -1866,6 +2036,10 @@ projects:
       MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
+    - {type: mod_for, id: modded-cycles, evidence: 'README: registered through Modded-Cycles'' registrar for added machines'}
+
   - id: cyclesbridge
     name: CyclesBridge
     author: robertfrombadlistener
@@ -1902,6 +2076,15 @@ projects:
     - altstrument (2026-11-01)
     links:
       homepage: https://18nelli18.github.io/Modded-Cycles/
+    relations:
+    - {type: cites, id: elektron-firmware-tool, evidence: 'README credits'}
+    - {type: cites, id: elektroid, evidence: 'README credits: the Elektron Transfer update protocol behind fast USB flashing'}
+    - {type: bundles, id: model-tg, evidence: 'README: Model-TG''s Sampler as the 7th machine'}
+    - {type: bundles, id: elektron-model-tweaks, evidence: 'README: includes drumkilla''s tweaks (latching mute, trig preview)'}
+    - {type: bundles, id: ms-multi-output, evidence: 'README: 6-channel audio after scottmetoyer/ms-multi-output'}
+    - {type: cites, id: octamax, evidence: 'README credits: reverse-engineering method'}
+    - {type: cites, id: octa-bt-pt, evidence: 'README credits: reverse-engineering and patching'}
+
   - id: model-tg
     name: Model-TG
     author: TinyGregAudio
@@ -1917,6 +2100,10 @@ projects:
       master FX. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: it unpacks and repacks the OS'}
+    - {type: bundles, id: elektron-model-tweaks, evidence: 'README: includes drumkilla''s tweaks (latching mute, trig preview)'}
+
   - id: model27
     name: model27
     author: durchgemacht, 18nelli18
@@ -1936,6 +2123,15 @@ projects:
       homepage: https://durchgemacht.github.io/model27/flasher/
     relations:
     - {type: fork_of, id: modded-cycles, evidence: 'own README: beta fork of Modded Cycles 1.55'}
+    - {type: cites, id: digiemu, evidence: 'README credits digiemu'}
+    - {type: cites, id: elektroid, evidence: 'README credits: the Elektron Transfer update protocol behind fast USB flashing'}
+    - {type: bundles, id: elektron-model-tweaks, evidence: 'README: includes drumkilla''s tweaks (latching mute, trig preview)'}
+    - {type: cites, id: octamax, evidence: 'README credits: reverse-engineering method'}
+    - {type: cites, id: octa-bt-pt, evidence: 'README credits: reverse-engineering and patching'}
+    - {type: cites, id: model-tg, evidence: 'README: its CPU page built as Model-TG''s System page'}
+    - {type: cites, id: ms-multi-output, evidence: 'README credits: the original 6-channel USB mod'}
+    - {type: bundles, id: cycles-control-all-config, evidence: 'README: Modded-Cycles 1.55 plus the Control All Config mod'}
+    - {type: bundles, id: cycles-one-shot, evidence: 'README: the SAMPLE machine of Cycles One-Shot'}
   - id: plaits-on-models
     name: plaits-on-models
     author: DMDaudio
@@ -1950,6 +2146,10 @@ projects:
       source-only. Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: builds_on, id: digi1-mods, evidence: 'README: the base is MACRO from gdeo607/digi1_mods'}
+    - {type: builds_on, id: modded-cycles, evidence: 'README: clone the Modded-Cycles fork with the PLAITS files'}
+
   - id: spokes
     name: SPOKES
     author: A.V.
@@ -1973,6 +2173,12 @@ projects:
     - {type: bundles, id: modded-cycles, evidence: 'README table'}
     - {type: bundles, id: model27, evidence: 'README table'}
     - {type: bundles, id: supermodel-edition, evidence: 'README table'}
+    - {type: cites, id: elekloader, evidence: 'README mentions elekloader (porting from it / hosted loader)'}
+    - {type: cites, id: motorcycles, evidence: 'README: listed as a builder Spokes integrates'}
+    - {type: cites, id: model-tg, evidence: 'README: listed as a builder Spokes integrates'}
+    - {type: cites, id: plaits-on-models, evidence: 'README: listed as a builder Spokes integrates'}
+    - {type: cites, id: elektron-model-tweaks, evidence: 'README: listed as a builder Spokes integrates'}
+    - {type: cites, id: model-machinedrum, evidence: 'README: listed as a builder Spokes integrates'}
   - id: supermodel-edition
     name: Supermodel Edition
     author: A.V., 18nelli18
@@ -1992,6 +2198,7 @@ projects:
       homepage: https://aveycole.github.io/Supermodel/flasher-supermodel-909/
     relations:
     - {type: fork_of, id: modded-cycles, evidence: 'GitHub fork flag'}
+    - {type: vendors, id: model27, evidence: 'README: release 2.61 adds durchgemacht/model27 POTS delay (MIT)'}
   - id: vladiktron-spoke
     name: Vladiktron Spoke
     author: imaf6971
@@ -2007,6 +2214,9 @@ projects:
       and MIDI. Licence: GPL-2.0-only; distribution: download. Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: builds_on, id: modded-cycles, evidence: 'README: this project builds on Modded-Cycles'}
+
   - id: elektron-model-tweaks
     name: elektron-model-tweaks
     author: drumkilla
@@ -2026,6 +2236,12 @@ projects:
     - altstrument (2026-11-01)
     links:
       homepage: https://drumkilla.github.io/elektron-model-tweaks/flasher/
+    relations:
+    - {type: vendors, id: elekloader, evidence: 'README: linked by elekloader''s linker, an unchanged copy in elekloader/'}
+    - {type: builds_on, id: elektron-firmware-tool, evidence: 'README: building scripts are based on elektron-firmware-tool'}
+    - {type: cites, id: digihealth, evidence: 'README: based on 18nelli''s research and the FAST AUDIO of digihealth'}
+    - {type: builds_on, id: ms-multi-output, evidence: 'README: based on ms-multi-output by Scott Metoyer'}
+
   - id: ms-multi-output
     name: ms-multi-output
     author: Scott Metoyer
@@ -2040,6 +2256,10 @@ projects:
       only. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: it unpacks and repacks the OS'}
+    - {type: cites, id: octamax, evidence: 'README credits: reverse-engineering method'}
+
   - id: ems-monomachine-firmware
     name: ems-monomachine-firmware
     author: June Kiff (emuyia)
@@ -2074,6 +2294,9 @@ projects:
       file. Licence: AGPL-3.0-only; distribution: download. Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: cites, id: elektron-firmware-tool, evidence: 'README credits'}
+
   - id: ems-octakit
     name: ems-octakit
     author: June Kiff (emuyia)
@@ -2124,6 +2347,9 @@ projects:
       repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: mod_for, id: octabam, evidence: 'README: built as octabam modules / with the octabam remixer'}
+
   - id: octa-panel
     name: octa-panel
     author: Tim Hastie
@@ -2142,6 +2368,11 @@ projects:
     - altstrument (2026-11-01)
     relations:
     - {type: copy_of, id: octabam, evidence: 'repo content is octabam (README, modules) as of 2026-10-13'}
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: flash images are packed with elektron-firmware-tool'}
+    - {type: bundles, id: ems-octakit, evidence: 'README: module table lists OCTAKIT from emuyia/ems-octakit'}
+    - {type: bundles, id: midisc, evidence: 'README: module table lists MIDI SCENES from bkkbrls-del/midisc'}
+    - {type: bundles, id: octa-bt-pt, evidence: 'README: module table lists LOFI AMF FIX from bryantysinger/octa-bt-pt'}
+    - {type: cites, id: octamax, evidence: 'README: builds on or credits octamax''s reverse engineering (passos: facts only, nothing copied)'}
   - id: octabam
     name: octabam
     author: Sam Banks, Contributors credited per module
@@ -2162,6 +2393,15 @@ projects:
     - altstrument (2026-11-01)
     links:
       homepage: https://modwerk.app/
+    relations:
+    - {type: cites, id: elektron-firmware-tool, evidence: 'README credits'}
+    - {type: bundles, id: ems-octakit, evidence: 'README: module table lists OCTAKIT from emuyia/ems-octakit'}
+    - {type: bundles, id: midisc, evidence: 'README: module table lists MIDI SCENES from bkkbrls-del/midisc'}
+    - {type: bundles, id: octa-bt-pt, evidence: 'README: module table lists LOFI AMF FIX from bryantysinger/octa-bt-pt'}
+    - {type: bundles, id: octatrick, evidence: 'README: module table lists DIRECT JUMP from timhastie/octatrick-modules'}
+    - {type: bundles, id: octemu, evidence: 'README: module table lists USB from markandrus/octemu'}
+    - {type: fork_of, id: octamax, evidence: 'README: began as a fork of mxldyn/octamax'}
+
   - id: octachainer2
     name: OctaChainer 2
     author: Kai Drange
@@ -2194,6 +2434,9 @@ projects:
       repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: fetched and built into vendor/ by setup, not shipped'}
+
   - id: octaplay
     name: Octaplay
     author: devilfish707
@@ -2207,6 +2450,9 @@ projects:
       MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: mod_for, id: octabam, evidence: 'README: built as octabam modules / with the octabam remixer'}
+
   - id: octatrack-kyoti-fw
     name: OT Kyoti FW
     author: Zac Kyoti
@@ -2221,6 +2467,10 @@ projects:
     notes: "Feature and fix builds keeping the stock feel: mute modes, pattern jump, sidechain compressor, varispeed, repitch. Tested on an MKI. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet. 2026-11-02: MUTE_MODES KEYHOLD fixes octabam#934: with SIDECHAIN_COMPRESSOR a muted track that had been the KEY played again once KEY moved away; held tracks now keep the post-FX cut until unmuted. Confirmed on an Octatrack MKI."
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: cites, id: octamax, evidence: 'README: builds on or credits octamax''s reverse engineering (passos: facts only, nothing copied)'}
+    - {type: cites, id: octabam, evidence: 'README: credits octabam'}
+
   - id: octatrack-manager
     name: Octatrack Manager
     author: David Ferlay
@@ -2239,6 +2489,9 @@ projects:
     - altstrument (2026-11-01)
     links:
       homepage: https://davidferlay.github.io/octatrack-manager/
+    relations:
+    - {type: builds_on, id: ot-tools-io, evidence: 'README: built with ot-tools-io'}
+
   - id: octatrick
     name: Octatrick
     author: Tim Hastie
@@ -2255,6 +2508,11 @@ projects:
       altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: mod_for, id: octabam, evidence: 'README: built as octabam modules / with the octabam remixer'}
+    - {type: cites, id: octamax, evidence: 'README: builds on or credits octamax''s reverse engineering (passos: facts only, nothing copied)'}
+    - {type: uses_tool, id: octa-panel, evidence: 'README: an emulator with a virtual front panel, timhastie/octa-panel'}
+
   - id: octemu
     name: octemu
     author: Mark Roberts (markandrus)
@@ -2268,6 +2526,11 @@ projects:
       Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
+    relations:
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: fetched and built into vendor/ by setup, not shipped'}
+    - {type: cites, id: octamax, evidence: 'README: builds on or credits octamax''s reverse engineering (passos: facts only, nothing copied)'}
+    - {type: cites, id: octabam, evidence: 'README: credits octabam'}
+
   - id: passos
     name: PassOS
     author: theremoteviewer
@@ -2286,6 +2549,7 @@ projects:
     - altstrument (2026-11-01)
     relations:
     - {type: builds_on, id: octabam, evidence: 'README'}
+    - {type: cites, id: octamax, evidence: 'README: builds on or credits octamax''s reverse engineering (passos: facts only, nothing copied)'}
 
   # ---------------------------------------------------------------- found by GitHub search 2026-11-02 (README start read)
   - id: vampire-manga-os
@@ -2329,6 +2593,7 @@ projects:
     - README
     relations:
     - {type: builds_on, id: elekloader, evidence: 'README of synfact-dev: built on elekloader, its engine, file format and checks'}
+    - {type: vendors, id: digikit, evidence: 'README: NOTICE covers the code that comes from elekloader and digikit'}
   - id: syncrackd
     name: SynCrackd
     author: Vuulgaris
@@ -2343,6 +2608,11 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: cites, id: elektron-firmware-tool, evidence: 'README credits'}
+    - {type: cites, id: model-tg, evidence: 'README: built on what others worked out first'}
+    - {type: cites, id: elektron-model-tweaks, evidence: 'README: built on what others worked out first'}
+
   - id: digitide
     name: DigiTide
     author: irpina
@@ -2360,6 +2630,7 @@ projects:
     - README
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
 
   - id: digitriad
     name: DigiTriad
@@ -2378,6 +2649,7 @@ projects:
     - README
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
 
   - id: digireel
     name: DigiReel
@@ -2396,6 +2668,7 @@ projects:
     - README
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
 
   - id: digihoard
     name: DigiHoard
@@ -2414,6 +2687,7 @@ projects:
     - README
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
 
   - id: digihalo
     name: DigiHalo
@@ -2432,6 +2706,7 @@ projects:
     - README
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
 
   - id: digitakt-digitone-mcp
     name: digitakt-digitone-mcp
@@ -2451,6 +2726,10 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: builds_on, id: digitakt-midi-mcp, evidence: 'README: the project this one grew out of'}
+    - {type: cites, id: elk-herd, evidence: 'README: reference for Elektron SysEx'}
+
   - id: lfox
     name: LFOX
     author: x2k77m1
@@ -2482,6 +2761,10 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: built with elekloader from the stock OS file'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
+
   - id: sampletone
     name: SampleTone
     author: x2k77m1
@@ -2497,6 +2780,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: built with elekloader from the stock OS file'}
+
   - id: phreakoid
     name: PHREAKOID
     author: x2k77m1
@@ -2512,6 +2798,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: built with elekloader from the stock OS file'}
+
   - id: vawt
     name: VAWT
     author: x2k77m1
@@ -2527,6 +2816,10 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: uses_tool, id: elekloader, evidence: 'README: host tests need an elekloader checkout for headers'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
+
   - id: digiseq-digitakt
     name: DIGISEQ (Digitakt)
     author: ClaidArremer
@@ -2545,6 +2838,7 @@ projects:
     - README
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+    - {type: bundles, id: digisnake-digitakt, evidence: 'README: DIGISNAKE for Digitakt, unchanged, as its SNAKE type'}
 
   - id: digiseq-digitone
     name: DIGISEQ (Digitone)
@@ -2566,6 +2860,7 @@ projects:
     relations:
     - {type: variant_of, id: digiseq-digitakt, evidence: 'same author, Digitone build'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+    - {type: bundles, id: digisnake-digitone, evidence: 'README: DIGISNAKE carries on in DIGISEQ for Digitone, unchanged'}
   - id: pump-digitakt
     name: PUMP (Digitakt)
     author: ClaidArremer
@@ -2605,6 +2900,7 @@ projects:
     relations:
     - {type: variant_of, id: pump-digitakt, evidence: 'same author, Digitone build'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+    - {type: vendors, id: ringtone, evidence: 'README: adapted from Tone+FX''s digictl (DigiAlchemydsp/RingTone), GPL-2.0-or-later'}
   - id: directjump-digitakt
     name: DIRECT JUMP (Digitakt)
     author: ClaidArremer
@@ -2643,6 +2939,7 @@ projects:
     relations:
     - {type: variant_of, id: directjump-digitakt, evidence: 'same author, Digitone build'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+    - {type: vendors, id: digihealth, evidence: 'README: SETTINGS row callbacks adapted from digihealth''s SYSTEM INFO row (GPL-2.0-or-later)'}
   - id: digisnake-digitakt
     name: DIGISNAKE (Digitakt)
     author: ClaidArremer
@@ -2661,6 +2958,7 @@ projects:
     - README
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
 
   - id: digisnake-digitone
     name: DIGISNAKE (Digitone)
@@ -2698,6 +2996,9 @@ projects:
     - README
     relations:
     - {type: variant_of, id: sidecar-expander, evidence: 'same author, Digitakt side of Sidecar'}
+    - {type: uses_tool, id: elekloader, evidence: 'README: elekloader builds the OS candidates'}
+    - {type: cites, id: digitakt-sidecar-pi, evidence: 'README: thanks to soejrd''s digitakt-sidecar for its reverse-engineering findings'}
+    - {type: uses_tool, id: analog-emu, evidence: 'README: built or checked in trigcondition/analog-emu'}
   - id: digitakt-sidecar-pi
     name: Digitakt integrated sidecar
     author: soejrd
@@ -2716,6 +3017,8 @@ projects:
     - README
     relations:
     - {type: builds_on, id: sidecar-expander, evidence: 'README: based on Sidecar by Trig Condition'}
+    - {type: uses_tool, id: elekloader, evidence: 'README: elekloader builds the OS candidates'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
   - id: analog-emu
     name: analog-emu (rytm-emu)
     author: trigcondition
@@ -2772,6 +3075,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
+
   - id: keyframer-lab
     name: Frame Lab (keyframer-lab)
     author: heavylight-industries
@@ -2827,6 +3133,10 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: built with elekloader'}
+    - {type: uses_tool, id: digikit, evidence: 'README: checks or gates run in digikit''s emulator (not shipped)'}
+
   - id: digitakt-mods-hillzeealex
     name: digitakt-mods
     author: hillzeealex
@@ -2844,6 +3154,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: packs built on elekloader''s web page'}
+
   - id: digitone-2-mod-hack
     name: digitone-2-mod-hack
     author: simonjohansson
@@ -2861,6 +3174,8 @@ projects:
     - README
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: mods "via elekloader / DigiHealth"'}
+    - {type: uses_tool, id: digihealth, evidence: 'README: build the C mods with DigiHealth'}
+    - {type: uses_tool, id: digikit, evidence: 'README: checks or gates run in digikit''s emulator (not shipped)'}
 
   - id: elektrob-1
     name: OB-1 (elektrob-1)
@@ -2880,6 +3195,7 @@ projects:
     - README
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: a machine "via elekloader"'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
 
   - id: diginular
     name: diginular
@@ -2898,6 +3214,7 @@ projects:
     - README
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "experimental elekloader mod"'}
+    - {type: cites, id: digigrain, evidence: 'README: the idea is lucykowal/digigrain''s random RATE'}
 
   - id: elkflash
     name: elkflash
@@ -2919,6 +3236,7 @@ projects:
     - README
     relations:
     - {type: cites, id: elektroid, evidence: 'catalogue notes: uses the MIDI RPC OS-upgrade commands as Elektroid does'}
+    - {type: uses_tool, id: analog-emu, evidence: 'README: built or checked in trigcondition/analog-emu'}
 
   - id: emu-elektron-joshklomp
     name: Elektron Emu (joshklomp)
@@ -2956,6 +3274,11 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: Elekloader machine integration source'}
+    - {type: vendors, id: digiemu, evidence: 'README: the ColdFire instruction decoder comes from irpina/digiemu (GPL retained)'}
+    - {type: bundles, id: digisophie, evidence: 'README: Digisophie machines running on the second DSP'}
+
   - id: digitone-arp-mod
     name: Digitone arp modifications
     author: scotblock
@@ -2987,6 +3310,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
+
   - id: dt-song-mgmt
     name: dt_song_mgmt
     author: zhelnov
@@ -3020,6 +3346,8 @@ projects:
     - README
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
+    - {type: cites, id: digiscreen, evidence: 'README: compares with the DigiScreen overlay mod'}
 
   - id: fadedlimes-dt2-kb
     name: Digitakt II reverse-engineering knowledge base
@@ -3052,6 +3380,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: the build needs elektron-firmware-tool'}
+
   - id: digi-battery
     name: Digi Battery
     author: JGuzak
@@ -3085,6 +3416,13 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: vendors, id: elekloader, evidence: 'README: repo tree includes elekloader'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
+    - {type: cites, id: digisophie, evidence: 'README: kept as a reference repository in its workspace'}
+    - {type: cites, id: digi1-mods, evidence: 'README: kept as a reference repository in its workspace'}
+    - {type: cites, id: digitables, evidence: 'README: kept as a reference repository in its workspace'}
+
   - id: dtdump
     name: dtdump
     author: droelfdroelf
@@ -3116,6 +3454,11 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
+    - {type: port_of, id: digihealth, evidence: 'README: irpina''s digihealth for the Digitakt mk1, ported to the Rytm MKII and Analog Four MKII'}
+    - {type: uses_tool, id: analog-emu, evidence: 'README: built or checked in trigcondition/analog-emu'}
+
   - id: rytm2-mods
     name: rytm2_mods
     author: Iced-Cream
@@ -3183,6 +3526,7 @@ projects:
     - README
     relations:
     - {type: builds_on, id: gearmulator-md-mm, evidence: 'README: MD Drums came from gearmulator-md-mm'}
+    - {type: builds_on, id: machinemodule-mpc, evidence: 'README: Machinemodule by sd88me, the Machinedrum engine without its OS'}
   - id: analog-rytm-agent-bridge
     name: analog-rytm-agent-bridge
     author: algonormative
@@ -3199,6 +3543,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: uses_tool, id: elektroid, evidence: 'README: a pinned Elektroid CLI fork for sample management'}
+
   # ---------------------------------------------------------------- found by GitHub search 2026-11-02, second pass (README start read)
   - id: digiprism
     name: DigiPrism
@@ -3218,6 +3565,10 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on fxkit (core-dn1 4.1)'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
+
   - id: digiswarm
     name: DigiSwarm
     author: irpina
@@ -3238,6 +3589,7 @@ projects:
     - README
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: source also in elekloader as mods/digiswarm-dn1'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
 
   - id: a4-mk1-mods
     name: Analog Four / Keys MK1 OS 1.56 mods
@@ -3256,6 +3608,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: it unpacks and repacks the OS'}
+
   - id: cycles-engines
     name: Cycles Engines
     author: 100demons
@@ -3295,6 +3650,7 @@ projects:
     - README
     relations:
     - {type: describes, id: model27, evidence: 'README: implemented in model27'}
+    - {type: cites, id: modded-cycles, evidence: 'README: everything here was read in the code of Modded-Cycles'}
   - id: model909
     name: model909
     author: DMDaudio
@@ -3315,6 +3671,7 @@ projects:
     - README
     relations:
     - {type: builds_on, id: modded-cycles, evidence: 'README: built on Modded-Cycles and Model-TG'}
+    - {type: builds_on, id: model-tg, evidence: 'README: Model-TG is ticked with model909'}
   - id: octatrack-modules-radiohagen
     name: Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)
     author: radiohagen
@@ -3405,6 +3762,10 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: the Rytm firmware part is an elekloader module'}
+    - {type: uses_tool, id: analog-emu, evidence: 'README: built or checked in trigcondition/analog-emu'}
+
   - id: c7
     name: C7
     author: sata1000000
@@ -3451,6 +3812,7 @@ projects:
     - README
     relations:
     - {type: fork_of, id: monomodule, evidence: 'README'}
+    - {type: cites, id: elektron-firmware-tool, evidence: 'README credits'}
   - id: machinemodule-mpc
     name: Machinemodule for MPC OS
     author: sd88me
@@ -3471,6 +3833,10 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: uses_tool, id: gearmulator-md-mm, evidence: 'README: checked against gearmulator-md-mm'}
+    - {type: vendors, id: moduledrum, evidence: 'README: ideas and code adapted from ModuleDrum (AGPL-3.0)'}
+
   - id: machinemodule-desktop
     name: MachineModule (desktop)
     author: AcidReff
@@ -3489,6 +3855,7 @@ projects:
     - README
     relations:
     - {type: port_of, id: machinemodule-mpc, evidence: 'README'}
+    - {type: cites, id: monomodule, evidence: 'README: Monomodule informed it / related project'}
   - id: schwung-monomodule
     name: Monomodule for Schwung
     author: legsmechanical
@@ -3535,6 +3902,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: uses_tool, id: gearmulator-md-mm, evidence: 'README: checked against gearmulator-md-mm'}
+
   - id: bsp-machinedrum
     name: BSP Machinedrum
     author: ABarracu87
@@ -3568,6 +3938,10 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: it unpacks and repacks the OS'}
+    - {type: builds_on, id: rytm1-mods, evidence: 'README: based on rytm1_mods and keeps its pipeline'}
+
   - id: rytm-mods-boot-report
     name: rytm-mods boot report
     author: Iced-Cream
@@ -3584,6 +3958,10 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: uses_tool, id: elekloader, evidence: 'README: elekloader''s core-ar2 with two test mods run on a unit'}
+    - {type: cites, id: modwerk, evidence: 'README: written for Modwerk''s Add a machine steps'}
+
   - id: trackpatterns
     name: TrackPatterns
     author: pgstath
@@ -3603,6 +3981,8 @@ projects:
     - README
     relations:
     - {type: builds_on, id: octabam, evidence: 'README: also submitted as octabam PR 846'}
+    - {type: mod_for, id: modwerk, evidence: 'README: a native octabam / Modwerk module'}
+    - {type: cites, id: octaplay, evidence: 'README: sequencer addresses come from devilfish707''s Play Modes investigation'}
   - id: otype
     name: OType
     author: nordseele
@@ -3651,6 +4031,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: fetched and built into vendor/ by setup, not shipped'}
+
   - id: acidtrack-modules
     name: aCiDtRacK modules
     author: braikomarko-hub
@@ -3669,6 +4052,8 @@ projects:
     - README
     relations:
     - {type: builds_on, id: octabam, evidence: 'README'}
+    - {type: cites, id: octatrack-kyoti-fw, evidence: 'README credits: the dispatcher hook site'}
+    - {type: cites, id: octatrick, evidence: 'README credits: the FLEX renderer integration it follows'}
   - id: machinedrum-rasp
     name: Machinedrum USR machines (RASP, KOOK, SMSH...)
     author: SamplesAndSnacks
@@ -3698,6 +4083,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: cites, id: monomodule, evidence: 'README: Monomodule informed it / related project'}
+
   - id: maschine-md-mm
     name: Maschine MD-MM
     author: sid366
@@ -3847,6 +4235,9 @@ projects:
       .syx dumps and exports MIDI. The README credits earlier community work on the format. MIT per README (no licence
       file in the repo).
     sources: [altstrument (2026-11-03), README]
+    relations:
+    - {type: cites, id: libanalogrytm, evidence: 'README credits: byte layouts derived from libanalogrytm'}
+
 
   - id: digitakt-pattern-editor-juce
     name: Digitakt Pattern Editor (JUCE)
@@ -4040,3 +4431,4 @@ projects:
     relations:
     - {type: builds_on, id: model27, evidence: 'altstrument: a machine package for model27; its scripts clone model27 at a pinned commit'}
     - {type: mod_for, id: modded-cycles, evidence: 'catalogue notes: a fixed-slot tweak for Modded Cycles 2.0'}
+    - {type: mod_for, id: cycles-engines, evidence: 'README: tested as cycles-engines composes it'}

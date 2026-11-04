@@ -51,11 +51,15 @@ Mod loader: user supplies the stock OS file, the tool builds the custom .syx loc
 
 _Latest seen (2026-10-31, secondary directories): altstrument.org and the repo (read 2026-10-31): canonical repo is github.com/elekloader/elekloader (183 commits, 103 stars, GPL-2.0-or-later); web app moved to elekloader.github.io/elekloader; the Mac app was absent from v0.9.0 because signing secrets need renewing. v0.9.0 cores: core-4.1 and core-4.1-os1.54 (Digitakt mk1), core-dn1-4.1.1 and -os1.44 (Digitone mk1), core-ar2-0.8 (Analog Rytm MKII 1.74), core-ot-0.8 (Octatrack 1.40C), core-mc-0.3 (Model:Cycles), core-ms-0.1 (Model:Samples), core-a4 0.1-0.4 (Analog Four MKII 1.56). Kit 0.7.0 catalog: 19 cores, 88 mods. machine-pages 1.2/1.3/1.5 need core 3.0+ on Digitakt mk1 and refuse NEIGHBOR 0.6, SOPHIE 1.1.13 and digichain-based machine mods beside them; fxkit 0.1 gives Digitone effect mods a shared mixer, two LFOs, pattern p-locks and a CPU guard; core-dn1 4.1 adds ev_note_queue; kit 0.6.0 gives 4.0 cores larger RAM areas (256 KB Digitakt, 1.25 MB Digitone). docs/ includes AGENTS.md, DEVICES.md, MACHINES-DN2, SHARC-DN2, CORES, FORMAT, BUILDING, ADAPTING (not all read yet - see hardware/MINING.md). The earlier irpina/elekloader repo is where the author's older releases lived._
 
+_Related: uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
 
 ### Modwerk (formerly Octamod)
 
 Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still early prototypes. last_activity = date of the Dubspot article, not a forum post. 2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI. 2026-11-03: the site now lets you download a built Analog Rytm MKII .syx (after confirming you know how to get back to stock); new Rytm module quick-velocity-aftertouch-assign with a verification note. Zoom pedals: an effect whose group+ID clashes with one already on the pedal is moved to a free local Delay ID 958-1023 (ID only in the ZDL header at 0x40-0x41, no checksum); two effects with the same group and ID froze an MS-70CDR at boot until its ROM was reprogrammed.
+
+_Related: cites `elekloader` (README mentions elekloader (porting from it / hosted loader)); cites `octabam` (README: porting from octabam is part of the module guide) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: gearnews, dubspot, forum thread 36_
 
@@ -71,7 +75,7 @@ Windows standalone builder (portable, no Python/Git/WSL needed) that takes the u
 
 _Latest seen (2026-10-31, secondary directories): altstrument lists it as "Digitakt II All-in-One" v0.3.0-beta (2026-10-23) for OS 1.17: patches in Plaits models, DX7 banks, the Deja Vu random-loop LFO, WAVE tables and the one-shot zoom; brick-risk flag set. LICENSE CONFLICT: the repo README/LICENSE we read says MIT, altstrument says AGPL-3.0-or-later - check the repo before reuse. Earlier releases 0.2.0-beta (2026-10-18), 0.1.1-beta (2026-10-17). LICENCE SETTLED (2026-11-02, repo read): both are right for their part. The repo root is MIT; the `all-in-one/` subtree is AGPL-3.0-or-later because it is modified firmware derived from digikit (its README and NOTICE say so). The All-in-One is built with digikit's patchkit: loader in the flash cave at `0x403117c4`, code in digikit's `cf.expansion` region `0x47e8b000-0x47fe0000` (see hardware/devices/digitakt-2.md, "Three Digitakt II mod routes")._
 
-_Related: builds on `digikit` (all-in-one/README.md: modified firmware derived from digikit; uses its patchkit); vendors `elektron-firmware-tool` (catalogue notes: elektron-firmware-tool (vendored)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `digikit` (all-in-one/README.md: modified firmware derived from digikit; uses its patchkit); vendors `elektron-firmware-tool` (catalogue notes: elektron-firmware-tool (vendored)); cites `syntakt-firmware-workbench` (README: the Syntakt Firmware Workbench as behavioural reference) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: forum threads 80 and 83, GitHub README, GitHub releases, all-in-one/README.md and NOTICE read 2026-11-02_
 
@@ -103,6 +107,8 @@ Native Rust emulator that runs the ColdFire and SHARC+ firmware together, with f
 
 _Latest seen (2026-10-31, secondary directories): altstrument (2026-10-31): main @ 283bb90, untagged, described as patch toolchain AND run-time module system plus emulator; AGPL-3.0-or-later. Its device-side tools (dkupload, dklog) belong to that module system._
 
+_Related: cites `elektron-firmware-tool` (README: container-format knowledge comes from elektron-firmware-tool); cites `dt2-firmware-research` (README: some architecture facts come from lalzart/digitakt-ii-firmware-research-public) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub README ElekLabs/digikit, GitHub README m-dwyer/digikit, lapin-list_
 
 ### digitakt-ii-firmware-research
@@ -119,6 +125,8 @@ Browser piano roll that writes patterns over SysEx. Digitakt II / Digitone II: f
 
 _Latest seen (2026-10-31, secondary directories): altstrument: v1.0.0 tag 2026-08-02, main @ aa22ced (2026-09-16); licence unspecified._
 
+_Related: cites `elk-herd` (README: elk-herd as the model it follows) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub README, lapin-list_
 
 ### digitakt2-perform
@@ -127,7 +135,7 @@ PERFORM KIT mods: [PRESET] toggles directly, track levels survive leaving the mo
 
 _Latest seen (2026-10-31, secondary directories): altstrument: v1.0 (2026-10-04), stock OS 1.17, GPL-2.0-or-later; contains perform-direct and perform-levels._
 
-_Related: uses tool `digikit` (catalogue notes: stock behaviour tested in digikit's emulator) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `digikit` (catalogue notes: stock behaviour tested in digikit's emulator); mod for `elekloader` (README: elekloader mods for PERFORM KIT mode) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list_
 
@@ -137,7 +145,7 @@ Local source, builds and offline tests for custom Digitakt II machines. README: 
 
 _Latest seen (2026-10-31, secondary directories): altstrument: emulator-only lab for custom machines on OS 1.16 with a SINE test machine and SHARC-code ports of several Plaits engines (VA, 2-op FM, bass drum, waveshaping, additive, granular formant); not confirmed on hardware._
 
-_Related: bundles `dt2-capicola` (machines/capicola-reddit/upstream keeps its 66 files byte-exact) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: bundles `dt2-capicola` (machines/capicola-reddit/upstream keeps its 66 files byte-exact); uses tool `digikit` (README: DigiKit and Selache pinned by deps.lock.json) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list_
 
@@ -146,6 +154,8 @@ _Sources: GitHub README, lapin-list_
 Injects static logos or animated boot sequences into the user's own firmware. 6 commits, licence not stated.
 
 _Latest seen (2026-10-31, secondary directories): altstrument: converts an image or animated GIF to the Digitakt II OLED format and injects it as a boot logo/animation into the user's OS 1.17 file._
+
+_Related: uses tool `elektron-firmware-tool` (README: the build needs elektron-firmware-tool); cites `digitakt-ii-splash-screens` (README credits: the original splash research) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list_
 
@@ -162,6 +172,8 @@ _Sources: GitHub README, lapin-list_
 Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog Heat, Heat MKII and Heat +FX, Digitakt I/II, Digitone I/II/Keys, Syntakt. Overbridge 1 devices (Analog Four MKI, Analog Keys, Rytm MKI) not supported. GPL-3.0, 671 commits.
 
 _Latest seen (2026-10-31, secondary directories): altstrument: v2.2 (2025-12-21), GPL-3.0-or-later, JACK clients streaming multitrack Overbridge 2 audio._
+
+_Related: builds on `dtdump` (README: based on the Overbridge USB reverse engineering in dtdump) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list_
 
@@ -209,6 +221,8 @@ _Sources: GitHub README, altstrument tools page_
 
 MCP servers that let an LLM play and edit a Digitakt or Digitone over MIDI (trigger tracks, shape FM, etc.). No firmware change. MIT. Found by GitHub search 2026-11-02; README start read.
 
+_Related: builds on `digitakt-midi-mcp` (README: the project this one grew out of); cites `elk-herd` (README: reference for Elektron SysEx) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### Elektron-Screen-Tool
@@ -237,11 +251,15 @@ _Sources: dt2-machine-lab machines/capicola-reddit (README and upstream/README.m
 
 Eight performance macros (PAGE+MOD), each moving up to four parameters on chosen tracks. README: earlier builds ran on a DT2; the current per-kit build only in an emulator; the DN2 version never on a unit. GPL. Found by GitHub search 2026-11-02; README start read.
 
+_Related: mod for `elekloader` (README: built with elekloader); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### digitakt-mods
 
 French-language collection of open-source .elemod mods for Digitakt mk1 and II, checked together and offered as ready packs with a step-by-step guide. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Related: mod for `elekloader` (README: packs built on elekloader's web page) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -249,7 +267,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). MIT. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the first Ping on a new port is retried up to 3 times (3 s each) before giving up, before anything is written.
 
-_Related: cites `elektroid` (catalogue notes: uses the MIDI RPC OS-upgrade commands as Elektroid does) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: cites `elektroid` (catalogue notes: uses the MIDI RPC OS-upgrade commands as Elektroid does); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -274,6 +292,8 @@ _Sources: GitHub search 2026-11-02, README_
 ### Digitakt II splash screens
 
 A 16-byte patch that lets the DT2 pick among all five boot animations instead of one, plus scripts to apply it. MIT. Found by GitHub search 2026-11-02; README start read.
+
+_Related: uses tool `elektron-firmware-tool` (README: the build needs elektron-firmware-tool) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

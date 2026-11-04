@@ -29,11 +29,15 @@ _Sources: altstrument (2026-11-01)_
 
 One community OS for Model:Cycles 1.13, built in a browser from your own files (needs a Syntakt 1.41/1.42 file for its engines): sampler, Syntakt engines, Braids and Open303 machines, extra LFOs, arp, 6-ch USB audio. Experimental on Model:Samples. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
 
+_Related: cites `elektron-firmware-tool` (README credits); cites `elektroid` (README credits: the Elektron Transfer update protocol behind fast USB flashing); bundles `model-tg` (README: Model-TG's Sampler as the 7th machine); bundles `elektron-model-tweaks` (README: includes drumkilla's tweaks (latching mute, trig preview)); bundles `ms-multi-output` (README: 6-channel audio after scottmetoyer/ms-multi-output); cites `octamax` (README credits: reverse-engineering method); cites `octa-bt-pt` (README credits: reverse-engineering and patching) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### plaits-on-models
 
 Plaits engines in fixed point as a Model:Cycles machine; emulator only so far. Licence: MIT; distribution: source-only. Listed by altstrument; repo not read by us yet.
+
+_Related: builds on `digi1-mods` (README: the base is MACRO from gdeo607/digi1_mods); builds on `modded-cycles` (README: clone the Modded-Cycles fork with the PLAITS files) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -41,11 +45,15 @@ _Sources: altstrument (2026-11-01)_
 
 Web flasher and CLI tweaks for Model:Samples and Model:Cycles 1.13 (16-ch USB audio, latching mute, trig preview, stereo samples on M:S). Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
 
+_Related: vendors `elekloader` (README: linked by elekloader's linker, an unchanged copy in elekloader/); builds on `elektron-firmware-tool` (README: building scripts are based on elektron-firmware-tool); cites `digihealth` (README: based on 18nelli's research and the FAST AUDIO of digihealth); builds on `ms-multi-output` (README: based on ms-multi-output by Scott Metoyer) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### ms-multi-output
 
 Six channels of per-track USB audio for Model:Samples and Model:Cycles; patch sources and build script only. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
+
+_Related: uses tool `elektron-firmware-tool` (README: it unpacks and repacks the OS); cites `octamax` (README credits: reverse-engineering method) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -53,7 +61,7 @@ _Sources: altstrument (2026-11-01)_
 
 Replaces the six stock machines with circuit-modelled TR-909 voices (integer models fitted to recordings); the experimental branch adds 808 and 606 voices on SHAPE. Hats/cymbals need user-supplied WAVs. MIT.
 
-_Related: builds on `modded-cycles` (README: built on Modded-Cycles and Model-TG) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `modded-cycles` (README: built on Modded-Cycles and Model-TG); builds on `model-tg` (README: Model-TG is ticked with model909) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

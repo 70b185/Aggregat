@@ -53,19 +53,23 @@ _Sources: altstrument (2026-11-01)_
 
 MIDI scene locks for Octatrack OS 1.40C. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
+_Related: mod for `octabam` (README: built as octabam modules / with the octabam remixer) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### octa-panel
 
 Real-time Octatrack emulator with sound and virtual panel in the browser, for testing OS 1.40C mods; built on octabam. Licence: MIT; distribution: source-only. Listed by altstrument; repo not read by us yet.
 
-_Related: copy of `octabam` (repo content is octabam (README, modules) as of 2026-10-13) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: copy of `octabam` (repo content is octabam (README, modules) as of 2026-10-13); uses tool `elektron-firmware-tool` (README: flash images are packed with elektron-firmware-tool); bundles `ems-octakit` (README: module table lists OCTAKIT from emuyia/ems-octakit); bundles `midisc` (README: module table lists MIDI SCENES from bkkbrls-del/midisc); bundles `octa-bt-pt` (README: module table lists LOFI AMF FIX from bryantysinger/octa-bt-pt); cites `octamax` (README: builds on or credits octamax's reverse engineering (passos: facts only, nothing copied)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
 ### octabam
 
 Modular Octatrack OS 1.40C "remixer": bus and track effects, FM synth machine, 255 kits, USB audio/MIDI, stock bug fixes. Base of Modwerk. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet. 2026-11-03: new midi-follow module (docs/site/usage/midi-follow.md, a test remix); not read further.
+
+_Related: cites `elektron-firmware-tool` (README credits); bundles `ems-octakit` (README: module table lists OCTAKIT from emuyia/ems-octakit); bundles `midisc` (README: module table lists MIDI SCENES from bkkbrls-del/midisc); bundles `octa-bt-pt` (README: module table lists LOFI AMF FIX from bryantysinger/octa-bt-pt); bundles `octatrick` (README: module table lists DIRECT JUMP from timhastie/octatrick-modules); bundles `octemu` (README: module table lists USB from markandrus/octemu); fork of `octamax` (README: began as a fork of mxldyn/octamax) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -79,11 +83,15 @@ _Sources: altstrument (2026-11-01)_
 
 RE toolkit for Octatrack MKII OS 1.40C plus opt-in behaviour patches (lazy part transitions, arp scales, slice playhead, 256 static slots). Licence: unspecified; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
+_Related: uses tool `elektron-firmware-tool` (README: fetched and built into vendor/ by setup, not shipped) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### Octaplay
 
 Octabam module with playhead modes (reverse, ping-pong, random, shuffle) per track or shared. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
+
+_Related: mod for `octabam` (README: built as octabam modules / with the octabam remixer) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -91,11 +99,15 @@ _Sources: altstrument (2026-11-01)_
 
 Feature and fix builds keeping the stock feel: mute modes, pattern jump, sidechain compressor, varispeed, repitch. Tested on an MKI. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet. 2026-11-02: MUTE_MODES KEYHOLD fixes octabam#934: with SIDECHAIN_COMPRESSOR a muted track that had been the KEY played again once KEY moved away; held tracks now keep the post-FX cut until unmuted. Confirmed on an Octatrack MKI.
 
+_Related: cites `octamax` (README: builds on or credits octamax's reverse engineering (passos: facts only, nothing copied)); cites `octabam` (README: credits octabam) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### Octatrack Manager
 
 Desktop app to inspect and edit Octatrack projects, patterns, parts and sample pools on CF cards and backups. Licence: GPL-3.0-only; distribution: download. Listed by altstrument; repo not read by us yet.
+
+_Related: builds on `ot-tools-io` (README: built with ot-tools-io) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -103,11 +115,15 @@ _Sources: altstrument (2026-11-01)_
 
 Four octabam additions for OS 1.40C (two-op FM machine, scale quantizer, pattern jump, tuner) plus USB MIDI and 20-ch USB audio; MKI hardware-tested builds. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
+_Related: mod for `octabam` (README: built as octabam modules / with the octabam remixer); cites `octamax` (README: builds on or credits octamax's reverse engineering (passos: facts only, nothing copied)); uses tool `octa-panel` (README: an emulator with a virtual front panel, timhastie/octa-panel) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### octemu
 
 Octatrack emulator and development environment for firmware changes. Licence: MIT; distribution: source-only. Listed by altstrument; repo not read by us yet.
+
+_Related: uses tool `elektron-firmware-tool` (README: fetched and built into vendor/ by setup, not shipped); cites `octamax` (README: builds on or credits octamax's reverse engineering (passos: facts only, nothing copied)); cites `octabam` (README: credits octabam) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -115,7 +131,7 @@ _Sources: altstrument (2026-11-01)_
 
 Octatrack MK1 mod: 36 Digitone II scales on MIDI tracks and a STOP guard; nothing on the DSP. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
-_Related: builds on `octabam` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `octabam` (README); cites `octamax` (README: builds on or credits octamax's reverse engineering (passos: facts only, nothing copied)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -153,7 +169,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Each of the 16 tracks can play its own pattern of the playing bank and switch at its own loop end (a clip-style workflow). Checked in the ColdFire emulator and on the contributor's MKII; also submitted to octabam (PR 846). MIT.
 
-_Related: builds on `octabam` (README: also submitted as octabam PR 846) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `octabam` (README: also submitted as octabam PR 846); mod for `modwerk` (README: a native octabam / Modwerk module); cites `octaplay` (README: sequencer addresses come from devilfish707's Play Modes investigation) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -173,13 +189,15 @@ _Sources: GitHub search 2026-11-02, README_
 
 Web UI that patches parameter values (effect defaults, FX1/FX2 default assignment, an AMF multiply fix) into the user's own 1.40C file - values, not code, listed in a registry. macOS build tooling. MIT.
 
+_Related: uses tool `elektron-firmware-tool` (README: fetched and built into vendor/ by setup, not shipped) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### aCiDtRacK modules
 
 octabam modules - a circuit-modelled TB-303 voice per track on the ColdFire (calibrated against recordings), Devil Fish mods, an SD-1/RAT-style distortion and a dbx-160-style compressor. The README marks what is proven. MIT.
 
-_Related: builds on `octabam` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `octabam` (README); cites `octatrack-kyoti-fw` (README credits: the dispatcher hook site); cites `octatrick` (README credits: the FLEX renderer integration it follows) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

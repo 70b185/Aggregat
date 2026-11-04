@@ -42,6 +42,8 @@ _Sources: altstrument (2026-11-01)_
 
 Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog Keys OS 1.56 (chord memory, joystick random). Not OS 1.74, not Analog Four. Licence: GPL-3.0-or-later; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
 
+_Related: vendors `elektron-firmware-tool` (README: built on elektron-firmware-tool compiled to WebAssembly); builds on `rytm1-mods` (README: built on gdeo607's rytm1_mods) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### libanalogrytm
@@ -60,11 +62,15 @@ _Sources: altstrument (2026-11-01)_
 
 RE notes for Rytm MKII OS 1.74 (container, boot, display) and a tiny from-source replacement OS that boots on a unit, plus same-size splash and LED-palette patches. Recovery only over DIN MIDI. Licence: unspecified; distribution: source-only. Listed by altstrument; repo not read by us yet.
 
+_Related: uses tool `elektron-firmware-tool` (README: it unpacks and repacks the OS) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### rytm-mods-src
 
 Public copy of MrScruff's Rytm MKII OS 1.73 mods 0000-0015 (euclid accents, velocity humanise, random LFO, kit A/B, slice loop, control-all and more). Licence: GPL-2.0-only; distribution: patch-your-own. Listed by altstrument; repo not read by us yet. Also reachable as connorway32/rytm-mods-src (same HEAD 3a98e23, 2026-11-03).
+
+_Related: uses tool `elektron-firmware-tool` (README: fetched and built into vendor/ by setup, not shipped) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -72,7 +78,7 @@ _Sources: altstrument (2026-11-01)_
 
 Port of the rytm-mods to Rytm MK1 OS 1.73 (per-track cuts, random LFO, euclid accents, humanise); also emits elekloader .elemod files. Licence: unspecified; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
-_Related: port of `rytm-mods-src` (README: port of the MKII project to the MK1); mod for `elekloader` (catalogue notes: emits elekloader .elemod files) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: port of `rytm-mods-src` (README: port of the MKII project to the MK1); mod for `elekloader` (catalogue notes: emits elekloader .elemod files); uses tool `elektron-firmware-tool` (README: fetched and built into vendor/ by setup, not shipped) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -92,6 +98,8 @@ _Sources: GitHub search 2026-11-02, README_
 
 digihealth's SYSTEM INFO and REMOTE KEYS ported to the analog machines. GPL. Found by GitHub search 2026-11-02; README start read.
 
+_Related: mod for `elekloader` (README: an elekloader mod); port of `digihealth` (README: irpina's digihealth for the Digitakt mk1, ported to the Rytm MKII and Analog Four MKII); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### rytm2_mods
@@ -106,6 +114,8 @@ _Sources: GitHub search 2026-11-02, README_
 
 MCP control plane with 32 tools so a coding agent can operate a Rytm MKII (patterns, kits, scenes, songs) with validated SysEx deltas. MIT. Found by GitHub search 2026-11-02; README start read.
 
+_Related: uses tool `elektroid` (README: a pinned Elektroid CLI fork for sample management) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### Kitsmith
@@ -118,17 +128,23 @@ _Sources: GitHub search 2026-11-02, README_
 
 A Raspberry Pi 4B/5 on the Rytm's USB port adds digital voices, effects and a sequencer; the Rytm runs a patched OS. 0.3.2 adds experimental, emulator-only Digitakt support. The Teensy variant is frozen. GPL-2.0.
 
+_Related: mod for `elekloader` (README: the Rytm firmware part is an elekloader module); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### Analog Rytm MK1 OS 1.74 mods
 
 Sister project of the A4 MK1 mods (same registry/verify method). Adds Machinedrum TX-8/TX-9 ports as new machines, a chorus as a third send, a sidechain-style duck at the voices' analog VCAs, and a CPU-load probe build. Has hazards and flashing docs. MIT.
 
+_Related: uses tool `elektron-firmware-tool` (README: it unpacks and repacks the OS); builds on `rytm1-mods` (README: based on rytm1_mods and keeps its pipeline) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### rytm-mods boot report
 
 Evidence for Modwerk's add-a-machine steps on the Rytm MKII - the stock file rebuilt byte for byte, a modified OS booted on a unit and recovered with stock, and elekloader's core-ar2 with every shared event observed on a unit. Hashes, addresses and photos only. GPL-2.0.
+
+_Related: uses tool `elekloader` (README: elekloader's core-ar2 with two test mods run on a unit); cites `modwerk` (README: written for Modwerk's Add a machine steps) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -149,6 +165,8 @@ _Sources: GitHub search 2026-11-02, README_
 ### Plock (Rytm pattern editor)
 
 Browser pattern editor for the Analog Rytm over Web MIDI: pulls the current pattern and kit by SysEx, edits trigs, parameter locks, retrigs, micro-timing and sound locks in a step grid and sends the result back; opens and saves .syx dumps and exports MIDI. The README credits earlier community work on the format. MIT per README (no licence file in the repo).
+
+_Related: cites `libanalogrytm` (README credits: byte layouts derived from libanalogrytm) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-03), README_
 

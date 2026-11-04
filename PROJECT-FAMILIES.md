@@ -19,33 +19,83 @@ Devices: Model:Cycles, Model:Samples. [repo](https://github.com/18nelli18/Modded
 
 - **BIAS (six-oscillator percussion machine)** (100demons) - builds on **model27** (altstrument: a machine package for model27; its scripts clone model27 at a pinned commit). [repo](https://github.com/100demons/bias)
 - **Chord Keys** (Nico Heuser) - fork of **Modded Cycles** (GitHub fork flag). [repo](https://github.com/byNicoHeuser/Modded-Cycles)
+- **Control All Config** (durchgemacht) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/durchgemacht/cycles-control-all-config)
 - **Cycles Engines** (100demons) - builds on **Modded Cycles** (README credits); builds on **model27** (README credits). [repo](https://github.com/100demons/cycles-engines)
 - **Cycles Mod Standard** (durchgemacht) - describes **model27** (README: implemented in model27). [repo](https://github.com/durchgemacht/cycles-mod-standard)
-- **model27** (durchgemacht, 18nelli18) - fork of **Modded Cycles** (own README: beta fork of Modded Cycles 1.55). [repo](https://github.com/durchgemacht/model27)
-- **model909** (DMDaudio) - builds on **Modded Cycles** (README: built on Modded-Cycles and Model-TG). [repo](https://github.com/DMDaudio/model909)
+- **Cycles One-Shot** (durchgemacht) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/durchgemacht/cycles-one-shot)
+- **digi1_mods** (gdeo607) - bundles **Tone+FX** (README: Tone+FX, Digital Alchemy DSP's master effects suite, ported). [repo](https://github.com/gdeo607/digi1_mods)
+- **digiemu** (pina (irpina)) - builds on **digikit** (README: digiemu is derived from m-dwyer/digikit at an upstream commit). [repo](https://github.com/irpina/digiemu)
+- **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/ElekLabs/digikit)
+- **digitakt-ii-research (Deja Vu LFOs, ONESHOT zoom)** (kariGardarsson) - builds on **digikit** (all-in-one/README.md: modified firmware derived from digikit; uses its patchkit). [repo](https://github.com/karigardarsson/digitakt-ii-research)
+- **DN2 DT2 firmware research** (armio) - builds on **dn2_firmware_explore** (catalogue notes: builds on dnfw (pinned commit)); builds on **digikit** (catalogue notes: builds on digikit (pinned commit)); builds on **elektron-firmware-tool** (catalogue notes: builds on elektron-firmware-tool (pinned commit)). [repo](https://github.com/armio/dn2-dt2-firmware-research)
+- **DN2 mk2 Mod (dn2mk2-firmware)** (De-Pattern (README says it builds on the upstream project dn2_firmware_explore / xrcstrecords - not verified by us)) - builds on **dn2_firmware_explore** (docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698). [repo](https://github.com/De-Pattern/dn2mk2-firmware)
+- **dn2_firmware_explore** (angellinares) - builds on **elektron-firmware-tool** (README credit: container, transport, codec and integrity work stands on it). [repo](https://github.com/angellinares/dn2_firmware_explore)
+- **elektron-firmware-tool** (mischa85) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/mischa85/elektron-firmware-tool)
+- **elektron-model-tweaks** (drumkilla) - builds on **elektron-firmware-tool** (README: building scripts are based on elektron-firmware-tool); builds on **ms-multi-output** (README: based on ms-multi-output by Scott Metoyer). [repo](https://github.com/drumkilla/elektron-model-tweaks)
+- **Model-TG** (TinyGregAudio) - bundles **elektron-model-tweaks** (README: includes drumkilla's tweaks (latching mute, trig preview)). [repo](https://github.com/TinyGregAudio/Model-TG)
+- **model27** (durchgemacht, 18nelli18) - fork of **Modded Cycles** (own README: beta fork of Modded Cycles 1.55); bundles **elektron-model-tweaks** (README: includes drumkilla's tweaks (latching mute, trig preview)); bundles **Control All Config** (README: Modded-Cycles 1.55 plus the Control All Config mod); bundles **Cycles One-Shot** (README: the SAMPLE machine of Cycles One-Shot). [repo](https://github.com/durchgemacht/model27)
+- **model909** (DMDaudio) - builds on **Modded Cycles** (README: built on Modded-Cycles and Model-TG); builds on **Model-TG** (README: Model-TG is ticked with model909). [repo](https://github.com/DMDaudio/model909)
+- **Motor:Cycles (rhythmic-noise firmware)** (nzimas) - bundles **Modded Cycles** (README: mods included from Modded-Cycles are part of Motor:Cycles). [repo](https://github.com/nzimas/motorcycles)
+- **ms-multi-output** (Scott Metoyer) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/scottmetoyer/ms-multi-output)
+- **plaits-on-models** (DMDaudio) - builds on **digi1_mods** (README: the base is MACRO from gdeo607/digi1_mods); builds on **Modded Cycles** (README: clone the Modded-Cycles fork with the PLAITS files). [repo](https://github.com/DMDaudio/plaits-on-models)
+- **RingTone (master ring mod / wavefold / EQ)** (DigiAlchemydsp) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/DigiAlchemydsp/RingTone)
 - **SPOKES** (A.V.) - bundles **Modded Cycles** (README table); bundles **model27** (README table); bundles **Supermodel Edition** (README table). [repo](https://github.com/AveyCole/SPOKES)
 - **Supermodel Edition** (A.V., 18nelli18) - fork of **Modded Cycles** (GitHub fork flag). [repo](https://github.com/AveyCole/Supermodel)
+- **Tone+FX** (DigiAlchemydsp) - same name as (relation unclear) **RingTone (master ring mod / wavefold / EQ)** (Tone+FX README calls RingTone "the older RingTone repo" (same author); successor or same project not stated. Was same_project until 2026-11-04 (raised in PR #3)). [repo](https://github.com/DigiAlchemydsp/Tone-FX)
+- **Vladiktron Spoke** (imaf6971) - builds on **Modded Cycles** (README: this project builds on Modded-Cycles). [repo](https://github.com/imaf6971/vladiktron-spoke)
 
 ## octabam (Sam Banks, Contributors credited per module)
 
 Devices: Octatrack (MKI, MKII). [repo](https://github.com/sambanks/octabam)
 
 - **aCiDtRacK modules** (braikomarko-hub) - builds on **octabam** (README). [repo](https://github.com/braikomarko-hub/acidtrack-modules)
-- **octa-panel** (Tim Hastie) - copy of **octabam** (repo content is octabam (README, modules) as of 2026-10-13). [repo](https://github.com/timhastie/octa-panel)
+- **ems-octakit** (June Kiff (emuyia)) - linked to **octabam** through another member of this family. [repo](https://github.com/emuyia/ems-octakit)
+- **midisc** (bkkbrls-del) - linked to **octabam** through another member of this family. [repo](https://github.com/bkkbrls-del/midisc)
+- **midisc (1.40MSC)** (sambanks) - same name as (relation unclear) **midisc** (same name, both created 2026-09-09, neither a GitHub fork). [repo](https://github.com/sambanks/midisc)
+- **midisc-patcher** (bkkbrls-del) - builds on **midisc** (README: patcher for the 1.40MIDISC build). [repo](https://github.com/bkkbrls-del/midisc-patcher)
+- **octa-bt-pt** (bryantysinger) - linked to **octabam** through another member of this family. [repo](https://github.com/bryantysinger/octa-bt-pt)
+- **octa-panel** (Tim Hastie) - copy of **octabam** (repo content is octabam (README, modules) as of 2026-10-13); bundles **ems-octakit** (README: module table lists OCTAKIT from emuyia/ems-octakit); bundles **midisc** (README: module table lists MIDI SCENES from bkkbrls-del/midisc); bundles **octa-bt-pt** (README: module table lists LOFI AMF FIX from bryantysinger/octa-bt-pt). [repo](https://github.com/timhastie/octa-panel)
+- **OCTAMAX** (Maxolydian (mxldyn)) - linked to **octabam** through another member of this family. [repo](https://github.com/mxldyn/octamax)
 - **Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)** (radiohagen) - builds on **octabam** (README). [repo](https://github.com/radiohagen/octatrack-modules)
+- **Octatrick** (Tim Hastie) - linked to **octabam** through another member of this family. [repo](https://github.com/timhastie/octatrick)
+- **octemu** (Mark Roberts (markandrus)) - linked to **octabam** through another member of this family. [repo](https://github.com/markandrus/octemu)
 - **PassOS** (theremoteviewer) - builds on **octabam** (README). [repo](https://github.com/theremoteviewer/octa-passos)
 - **ReBirth to Octatrack** (alexandrubelc) - builds on **octabam** (README: targets the GARDEN engines). [repo](https://github.com/alexandrubelc/rebirth2octatrack)
 - **TrackPatterns** (pgstath) - builds on **octabam** (README: also submitted as octabam PR 846). [repo](https://github.com/pgstath/TrackPatterns)
 
-## digikit (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo)
+## Gearmulator MD/MM (Joe Landers)
 
-Devices: Digitakt II, Digitone II. [repo](https://github.com/ElekLabs/digikit)
+Devices: Machinedrum (incl. UW), Monomachine. [repo](https://github.com/joelanders/gearmulator-md-mm)
 
-- **digitakt-ii-research (Deja Vu LFOs, ONESHOT zoom)** (kariGardarsson) - builds on **digikit** (all-in-one/README.md: modified firmware derived from digikit; uses its patchkit). [repo](https://github.com/karigardarsson/digitakt-ii-research)
-- **DN2 DT2 firmware research** (armio) - builds on **dn2_firmware_explore** (catalogue notes: builds on dnfw (pinned commit)); builds on **digikit** (catalogue notes: builds on digikit (pinned commit)); builds on **elektron-firmware-tool** (catalogue notes: builds on elektron-firmware-tool (pinned commit)). [repo](https://github.com/armio/dn2-dt2-firmware-research)
-- **DN2 mk2 Mod (dn2mk2-firmware)** (De-Pattern (README says it builds on the upstream project dn2_firmware_explore / xrcstrecords - not verified by us)) - builds on **dn2_firmware_explore** (docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698). [repo](https://github.com/De-Pattern/dn2mk2-firmware)
-- **dn2_firmware_explore** (angellinares) - linked to **digikit** through another member of this family. [repo](https://github.com/angellinares/dn2_firmware_explore)
-- **elektron-firmware-tool** (mischa85) - linked to **digikit** through another member of this family. [repo](https://github.com/mischa85/elektron-firmware-tool)
+- **MachineModule (desktop)** (AcidReff) - port of **Machinemodule for MPC OS** (README). [repo](https://github.com/AcidReff/MachineModule)
+- **Machinemodule for MPC OS** (sd88me) - linked to **Gearmulator MD/MM** through another member of this family. [repo](https://github.com/sd88me/mpc-vst-machinedrum)
+- **Maschine MD-MM** (sid366) - fork of **Gearmulator MD/MM** (README). [repo](https://github.com/sid366/maschine-md-mm-combined)
+- **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) - builds on **Gearmulator MD/MM** (README: grew out of joelanders' Machinedrum and Monomachine emulation). [repo](https://github.com/radekdymacz/mdmm)
+- **MoDule (MD Drums)** (c0remusic) - builds on **Gearmulator MD/MM** (README: MD Drums came from gearmulator-md-mm); builds on **Machinemodule for MPC OS** (README: Machinemodule by sd88me, the Machinedrum engine without its OS). [repo](https://github.com/c0remusic/MModule)
+
+## rytm1_mods (gdeo607)
+
+Devices: Analog Rytm (MKI, MKII). [repo](https://github.com/gdeo607/rytm1_mods)
+
+- **Analog Rytm MK1 OS 1.74 mods** (hugz202) - builds on **rytm1_mods** (README: based on rytm1_mods and keeps its pipeline). [repo](https://github.com/hugz202/AE-analog-rytm-mods)
+- **Chopshop** (Jesus Triana (bandersong)) - builds on **rytm1_mods** (README: built on gdeo607's rytm1_mods). [repo](https://github.com/bandersong/chopshop)
+- **rytm-mods-src** (MrScruff (published with permission by Iced-Cream)) - linked to **rytm1_mods** through another member of this family. [repo](https://github.com/Iced-Cream/rytm-mods-src)
+- **rytm2_mods** (Iced-Cream) - port of **rytm-mods-src** (README: ported to elemod). [repo](https://github.com/Iced-Cream/rytm2_mods)
+
+## DIGISNAKE (Digitakt) (ClaidArremer)
+
+Devices: Digitakt (MKI). [repo](https://github.com/ClaidArremer/digitakt-digisnake)
+
+- **DIGISEQ (Digitakt)** (ClaidArremer) - bundles **DIGISNAKE (Digitakt)** (README: DIGISNAKE for Digitakt, unchanged, as its SNAKE type). [repo](https://github.com/ClaidArremer/digitakt-digiseq)
+- **DIGISEQ (Digitone)** (ClaidArremer) - variant of **DIGISEQ (Digitakt)** (same author, Digitone build); bundles **DIGISNAKE (Digitone)** (README: DIGISNAKE carries on in DIGISEQ for Digitone, unchanged). [repo](https://github.com/ClaidArremer/digitone-digiseq)
+- **DIGISNAKE (Digitone)** (ClaidArremer) - variant of **DIGISNAKE (Digitakt)** (same author, Digitone build). [repo](https://github.com/ClaidArremer/digitone-digisnake)
+
+## Digisophie / Sophie for Digitakt (Soejrd)
+
+Devices: Digitakt (MKI). [repo](https://github.com/soejrd/digisophie)
+
+- **DT-FM** (mtalikka) - builds on **Digisophie / Sophie for Digitakt** (notes). [repo](https://github.com/mtalikka/DT-FM)
+- **taktone** (water-feature) - bundles **Digisophie / Sophie for Digitakt** (README: Digisophie machines running on the second DSP). [repo](https://github.com/water-feature/taktone)
 
 ## elekloader (pina (irpina))
 
@@ -68,33 +118,12 @@ Devices: Digitakt II. [repo](https://github.com/heavylight-industries/keyframer-
 - **dt2-capicola (Capicola time stretch for STRETCH/REPITCH/SLICE/GRID)** (hy3na-k1ng) - builds on **Frame Lab (keyframer-lab)** (same Capicola keyframe engine by Heavylight Industries). [repo](https://github.com/hy3na-k1ng/dt2-capicola)
 - **dt2-machine-lab** (lalzart) - bundles **dt2-capicola (Capicola time stretch for STRETCH/REPITCH/SLICE/GRID)** (machines/capicola-reddit/upstream keeps its 66 files byte-exact). [repo](https://github.com/lalzart/dt2-machine-lab)
 
-## Gearmulator MD/MM (Joe Landers)
-
-Devices: Machinedrum (incl. UW), Monomachine. [repo](https://github.com/joelanders/gearmulator-md-mm)
-
-- **Maschine MD-MM** (sid366) - fork of **Gearmulator MD/MM** (README). [repo](https://github.com/sid366/maschine-md-mm-combined)
-- **MoDule (MD Drums)** (c0remusic) - builds on **Gearmulator MD/MM** (README: MD Drums came from gearmulator-md-mm). [repo](https://github.com/c0remusic/MModule)
-
-## midisc (bkkbrls-del)
-
-Devices: Octatrack (MKI, MKII). [repo](https://github.com/bkkbrls-del/midisc)
-
-- **midisc (1.40MSC)** (sambanks) - same name as (relation unclear) **midisc** (same name, both created 2026-09-09, neither a GitHub fork). [repo](https://github.com/sambanks/midisc)
-- **midisc-patcher** (bkkbrls-del) - builds on **midisc** (README: patcher for the 1.40MIDISC build). [repo](https://github.com/bkkbrls-del/midisc-patcher)
-
 ## Monomodule (shnolk)
 
 Devices: Monomachine. [repo](https://github.com/shnolk/monomodule)
 
 - **ModuleDrum** (K-X420) - fork of **Monomodule** (README). [repo](https://github.com/K-X420/ModuleDrum)
 - **Monomodule for Schwung** (legsmechanical) - port of **Monomodule** (README). [repo](https://github.com/legsmechanical/schwung-monomodule)
-
-## rytm-mods-src (MrScruff (published with permission by Iced-Cream))
-
-Devices: Analog Rytm (MKI, MKII). [repo](https://github.com/Iced-Cream/rytm-mods-src)
-
-- **rytm1_mods** (gdeo607) - port of **rytm-mods-src** (README: port of the MKII project to the MK1). [repo](https://github.com/gdeo607/rytm1_mods)
-- **rytm2_mods** (Iced-Cream) - port of **rytm-mods-src** (README: ported to elemod). [repo](https://github.com/Iced-Cream/rytm2_mods)
 
 ## screendump (jakobbak)
 
@@ -116,23 +145,17 @@ Devices: Digitakt (MKI). [repo](https://github.com/DigiAlchemydsp/DigiFilter)
 
 - **Filter+ (13 filter types)** (DigiAlchemydsp) - builds on **DigiFilter** (same author; BP/BP2/COMB/TRASH are DigiFilter modes; LICENSE names the DigiFilter authors). [repo](https://github.com/DigiAlchemydsp/FILTER-PLUS)
 
-## DIGISEQ (Digitakt) (ClaidArremer)
+## digihealth (pina (irpina))
 
-Devices: Digitakt (MKI). [repo](https://github.com/ClaidArremer/digitakt-digiseq)
+Devices: Digitakt (MKI), Digitone (MKI) / Digitone Keys. [repo](https://github.com/irpina/digihealth)
 
-- **DIGISEQ (Digitone)** (ClaidArremer) - variant of **DIGISEQ (Digitakt)** (same author, Digitone build). [repo](https://github.com/ClaidArremer/digitone-digiseq)
+- **analoghealth** (Iced-Cream) - port of **digihealth** (README: irpina's digihealth for the Digitakt mk1, ported to the Rytm MKII and Analog Four MKII). [repo](https://github.com/Iced-Cream/analoghealth)
 
-## DIGISNAKE (Digitakt) (ClaidArremer)
+## digitakt-midi-mcp (feamster)
 
-Devices: Digitakt (MKI). [repo](https://github.com/ClaidArremer/digitakt-digisnake)
+Devices: Digitakt II. [repo](https://github.com/feamster/digitakt-midi-mcp)
 
-- **DIGISNAKE (Digitone)** (ClaidArremer) - variant of **DIGISNAKE (Digitakt)** (same author, Digitone build). [repo](https://github.com/ClaidArremer/digitone-digisnake)
-
-## Digisophie / Sophie for Digitakt (Soejrd)
-
-Devices: Digitakt (MKI). [repo](https://github.com/soejrd/digisophie)
-
-- **DT-FM** (mtalikka) - builds on **Digisophie / Sophie for Digitakt** (notes). [repo](https://github.com/mtalikka/DT-FM)
+- **digitakt-digitone-mcp** (jamiew) - builds on **digitakt-midi-mcp** (README: the project this one grew out of). [repo](https://github.com/jamiew/digitakt-digitone-mcp)
 
 ## DIRECT JUMP (Digitakt) (ClaidArremer)
 
@@ -140,17 +163,17 @@ Devices: Digitakt (MKI). [repo](https://github.com/ClaidArremer/digitakt-directj
 
 - **DIRECT JUMP (Digitone)** (ClaidArremer) - variant of **DIRECT JUMP (Digitakt)** (same author, Digitone build). [repo](https://github.com/ClaidArremer/digitone-directjump)
 
+## dtdump (droelfdroelf)
+
+Devices: Digitakt (MKI). [repo](https://github.com/droelfdroelf/dtdump)
+
+- **Overwitch** (dagargo) - builds on **dtdump** (README: based on the Overbridge USB reverse engineering in dtdump). [repo](https://github.com/dagargo/overwitch)
+
 ## libanalogrytm (bsp2)
 
 Devices: Analog Rytm (MKI, MKII). [repo](https://github.com/bsp2/libanalogrytm)
 
 - **rytm-rs / rytm-sys** (alisomay) - builds on **libanalogrytm** (README). [repo](https://github.com/alisomay/rytm-rs)
-
-## Machinemodule for MPC OS (sd88me)
-
-Devices: Machinedrum (incl. UW). [repo](https://github.com/sd88me/mpc-vst-machinedrum)
-
-- **MachineModule (desktop)** (AcidReff) - port of **Machinemodule for MPC OS** (README). [repo](https://github.com/AcidReff/MachineModule)
 
 ## MDS (Machine Dump Standard) (Justin Mammarella)
 
@@ -158,17 +181,17 @@ Devices: Machinedrum (incl. UW). [repo](https://github.com/jmamma/MDS)
 
 - **mds-tools (MDS packer and certifier)** (Justin Mammarella) - builds on **MDS (Machine Dump Standard)** (README: tools for the MDS specification). [repo](https://github.com/jmamma/mds-tools)
 
+## ot-tools-io (jhw)
+
+Devices: Octatrack (MKI, MKII). [repo](https://github.com/jhw/ot-tools-io)
+
+- **Octatrack Manager** (David Ferlay) - builds on **ot-tools-io** (README: built with ot-tools-io). [repo](https://github.com/davidferlay/octatrack-manager)
+
 ## PUMP (Digitakt) (ClaidArremer)
 
 Devices: Digitakt (MKI). [repo](https://github.com/ClaidArremer/digitakt-pump)
 
 - **PUMP (Digitone)** (ClaidArremer) - variant of **PUMP (Digitakt)** (same author, Digitone build). [repo](https://github.com/ClaidArremer/digitone-pump)
-
-## RingTone (master ring mod / wavefold / EQ) (DigiAlchemydsp)
-
-Devices: Digitone (MKI) / Digitone Keys. [repo](https://github.com/DigiAlchemydsp/RingTone)
-
-- **Tone+FX** (DigiAlchemydsp) - same name as (relation unclear) **RingTone (master ring mod / wavefold / EQ)** (Tone+FX README calls RingTone "the older RingTone repo" (same author); successor or same project not stated. Was same_project until 2026-11-04 (raised in PR #3)). [repo](https://github.com/DigiAlchemydsp/Tone-FX)
 
 ## SyntHack OS (upstream) (Angelo-politek)
 

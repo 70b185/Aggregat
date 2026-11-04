@@ -22,6 +22,8 @@ Data last verified: 2026-11-04
 
 Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog Keys OS 1.56 (chord memory, joystick random). Not OS 1.74, not Analog Four. Licence: GPL-3.0-or-later; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
 
+_Related: vendors `elektron-firmware-tool` (README: built on elektron-firmware-tool compiled to WebAssembly); builds on `rytm1-mods` (README: built on gdeo607's rytm1_mods) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: altstrument (2026-11-01)_
 
 ### RytmRandomizer
@@ -40,11 +42,15 @@ _Sources: GitHub search 2026-11-02, README_
 
 digihealth's SYSTEM INFO and REMOTE KEYS ported to the analog machines. GPL. Found by GitHub search 2026-11-02; README start read.
 
+_Related: mod for `elekloader` (README: an elekloader mod); port of `digihealth` (README: irpina's digihealth for the Digitakt mk1, ported to the Rytm MKII and Analog Four MKII); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### Analog Four / Keys MK1 OS 1.56 mods
 
 Build pipeline that patches the user's own A4/AK MK1 OS 1.56 file with small ColdFire routines. Mods include a scale lock, 303-style slides, kit persistence for the extra settings, a per-track digital path with drive, a digital wave/chord oscillator in place of noise, a random track generator and a resonance limit. Has its own flashing/recovery and hazards docs. The first public firmware mod for the Analog Four found. MIT.
+
+_Related: uses tool `elektron-firmware-tool` (README: it unpacks and repacks the OS) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

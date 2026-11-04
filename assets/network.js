@@ -35,7 +35,7 @@
 
   // ---------------------------------------------------------------- state kept between draws
   const S = {opts: {rel: true, people: true, solo: false, devices: false, lonely: false, color: "kind", size: "stars"},
-             off: new Set(), sel: null, hover: null, needFit: true, view: {x: 0, y: 0, k: 1}, pos: {}, built: null};
+             off: new Set(["cites", "uses_tool"]), sel: null, hover: null, needFit: true, view: {x: 0, y: 0, k: 1}, pos: {}, built: null};
 
   function build(D, dev) {
     const famOf = {}; D.devices.forEach(d => famOf[d.slug] = d.family);
@@ -183,8 +183,9 @@
       el.style.fill = colour(n);
       el.dataset.id = n.id; gN.appendChild(el); return el;
     });
-    const many = G.nodes.length > 200;
-    const big = new Set(G.nodes.filter(n => n.t !== "p" || (!many && n.deg >= 3) || (n.p.stars || 0) >= (many ? 60 : 40)).map(n => n.id));
+    const many = G.nodes.length > 150;   // crowded: label only the hubs, the rest on hover, search or zoom
+    const big = new Set(G.nodes.filter(n => n.t === "d" || (n.t === "o" && (!many || n.ps.length >= 4))
+      || (n.t === "p" && (n.deg >= (many ? 7 : 3) || (n.p.stars || 0) >= (many ? 80 : 40)))).map(n => n.id));
     const lEls = G.nodes.map(n => {
       const t = document.createElementNS(NS, "text");
       t.setAttribute("class", "lbl lbl-" + n.t + (big.has(n.id) ? " lbl-big" : ""));
@@ -257,7 +258,7 @@
         const people = G.nodes.filter(x => x.t === "o").length, projs = G.nodes.filter(x => x.t === "p").length;
         panel.innerHTML = `<h3>How to read this</h3>
           <p>${projs} of ${G.total} projects shown${people ? `, ${people} people` : ""}, ${G.edges.filter(e => e.type === "rel").length} relations.${words.length ? ` <b>${match.size}</b> match the search.` : ""}</p>
-          <p>Read an arrow as "project, link kind, project" (fork of, builds on, mod for ...); each link names its evidence in <code>data/projects.yml</code>. Click a link kind above to hide or show it. Hover a dot to see only its links.
+          <p>Read an arrow as "project, link kind, project" (fork of, builds on, mod for ...); each link names its evidence in <code>data/projects.yml</code>. Click a link kind above to hide or show it ("uses as a tool" and "credits or cites" start hidden, so the map stays readable). Hover a dot to see only its links.
           Uncoloured dots in the text colour are people (GitHub owners), joined to their projects.${S.opts.devices ? " Grey boxes are device families." : ""}</p>
           <p>Click a dot for details and its neighbours. Drag to move, scroll to zoom. The search box above highlights matches.
           The <a href="?t=projects">Projects</a> tab has the same data as a list.</p>`;

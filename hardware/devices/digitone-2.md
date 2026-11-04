@@ -30,7 +30,7 @@ Mods for different OS versions cannot be combined and flashing between them can 
 
 ## Architecture
 - ColdFire main CPU (big-endian code, GCC-built, C++ RTTI names remain); SHARC+ audio DSP. `[doc]` {dn2-cfw} {dn2-firmware-explore}
-- `MAIN OS` section: 3,085,696 bytes, loads at `0x40000400`. `[doc]` {dn2-firmware-explore}
+- `MAIN OS` section: 3,085,696 bytes on 1.10E and 3,192,192 bytes on 1.11 (unpacked), loads at `0x40000400`. `[doc]` {dn2-firmware-explore}
 - Container **signed with HMAC-SHA256** with a key derived from the image itself, so the tools re-sign modified images ([`../common/firmware-container.md`](../common/firmware-container.md)). `[doc]` {dn2-firmware-explore}
 - **The OS keeps its C++ RTTI, enough to name most code:** on 1.12, 12,350 functions and 1,624 types (752 classes, 872 lambdas), 741 with vtables; about a third of all instructions sit in a function that RTTI names. A function that loads a vtable is a constructor or destructor; a `std::function` lambda's typeinfo names its enclosing method with the signature. The DSP has no application RTTI. `[doc]` {dn2-skill-firmware}
 - **1.11 to 1.12:** sections 2, 4, 7 and 8 are byte-identical (the DSP did not change); section 3 is relinked (+4 KB, BSS +0x1000, DMA alias +0x8000). Overtone ships on 1.12 by translating every 1.11 patch address through a code map built from anchors of 10 matching instructions. `[doc]` {dn2-skill-firmware}
@@ -95,7 +95,7 @@ Protected: sections **2, 4, 5 and 8** (bootstrap, updater and others) must stay 
 - FUNC at power-on -> TRIG 4 (OS UPGRADE) -> Elektron Transfer **LEGACY OS UPGRADE** over **5-pin DIN MIDI to MIDI IN; USB does not work in this mode**; takes ~12-15 min, do not interrupt. The bootstrap that holds this menu must stay byte-identical (the brick checker refuses changes). `[hw]` {overtone} {dn2mk2} {dn2-cfw}
 - Overtone 1.0 broke the Transfer update path (stall at "Receiving"/"PREPARING..."); fixed in 1.0.1, way out = STARTUP menu over DIN. Details and the release test that catches it: [`../common/recovery.md`](../common/recovery.md). `[hw]` {overtone}
 - Pre-flash safety kit: back up +Drive, keep the stock OS file for the exact version, volume down, DIN cable ready, check the file's SHA-256 against the gate record (`certutil -hashfile FILE SHA256` on Windows). `[doc]` {dn2mk2-firmware-md}
-- dn2_firmware_explore's own rebuilt images stall at ~80% in the recovery path; stock files are fine. Details: [`../common/recovery.md`](../common/recovery.md). `[doc]` {dn2-firmware-explore}
+- The ~80% recovery-path stall once reported for dn2_firmware_explore's own images was the MIDI link: stock 1.10E stalled on the same route. Details: [`../common/recovery.md`](../common/recovery.md). `[hw]` {dn2-firmware-explore}
 
 ## dn2-cfw working set (README "Getting started")
 Prerequisites: macOS on Apple silicon (Linux likely for most), Python 3, the user's own `Digitone_II_OS1_12.syx` in `elektron-firmware/`. Upstream tools are cloned into `vendor/` at the commits in `VENDOR.md`; digikit and elekloader come as the author's forks on branch `dn2-1.12` (digikit: 1.12 support, audio clock, DIN MIDI, LEDs, live play; elekloader: a Digitone II 1.12 profile and the `core-dn2` hook bus). Every candidate image must pass `tools/brickcheck` (12 checks) before it is flashed; compile C to SHARC code with selache/selcc and splice with `tools/dspsplice`; use elektron-firmware-tool for the `.syx` format and rebuild. The README does not give a flashing procedure (see `../common/flash-procedure.md`). `[doc]` {dn2-cfw}

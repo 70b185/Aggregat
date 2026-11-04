@@ -21,7 +21,7 @@ Know this **before** flashing a test unit. Sources are second-hand; check Elektr
 - The stock OS file can always recover the unit **if** the bootstrap/bootloader was never modified (rule A1).
 - Keep a physical MIDI interface for DIN-only recovery (Digitakt II / Digitone II). {digitakt-ii-research}
 - Do not power off during an upgrade.
-- Known recovery-path problem: dn2_firmware_explore's *own* (rebuilt) images stall at ~80% when sent via the recovery path; a fix is built, untested. Stock files are fine. `[doc]` {dn2-firmware-explore}
+- Settled (2026-09-11): the ~80% stall that dn2_firmware_explore reported for its own images in the recovery path was the MIDI link, not the image. Stock 1.10E stalled on the same route, and a USB MIDI interface that went idle during the transfer dropped packets (30/70/80% on different tries). Use a MIDI interface that stays awake for the whole ~12-15 min transfer. `[hw]` {dn2-firmware-explore}
 - Digitakt II OS 1.16 is no longer on Elektron's download page (author suggests asking Elektron support). Keep stock files you may need. `[doc]` {digitakt-ii-research}
 
 ## What Elektron's own release notes say (elektron.se, pages updated 2026-10-01 for Digitakt II / Digitone II; 2024-10-16 for Heat +FX)

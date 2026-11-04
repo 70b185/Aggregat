@@ -1,11 +1,11 @@
 {
  "meta": {
-  "checked": "2026-11-02",
+  "checked": "2026-11-04",
   "generator": "scripts/export_db.py",
   "counts": {
    "projects": 219,
    "devices": 13,
-   "relations": 48,
+   "relations": 89,
    "rules": 91,
    "sources": 269,
    "conflicts": 33,
@@ -5585,10 +5585,58 @@
  ],
  "relations": [
   {
+   "project": "digineighbor",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"installed via elekloader\""
+  },
+  {
+   "project": "digisophie",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"needs elekloader\""
+  },
+  {
    "project": "digitakt-ii-research",
    "type": "builds_on",
    "target": "digikit",
    "evidence": "all-in-one/README.md: modified firmware derived from digikit; uses its patchkit"
+  },
+  {
+   "project": "digitakt-ii-research",
+   "type": "vendors",
+   "target": "elektron-firmware-tool",
+   "evidence": "catalogue notes: elektron-firmware-tool (vendored)"
+  },
+  {
+   "project": "ringtone",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"built with elekloader\""
+  },
+  {
+   "project": "overtone",
+   "type": "uses_tool",
+   "target": "digikit",
+   "evidence": "catalogue notes: checks run in digikit for the main OS"
+  },
+  {
+   "project": "dn2-dt2-firmware-research",
+   "type": "builds_on",
+   "target": "dn2-firmware-explore",
+   "evidence": "catalogue notes: builds on dnfw (pinned commit)"
+  },
+  {
+   "project": "dn2-dt2-firmware-research",
+   "type": "builds_on",
+   "target": "digikit",
+   "evidence": "catalogue notes: builds on digikit (pinned commit)"
+  },
+  {
+   "project": "dn2-dt2-firmware-research",
+   "type": "builds_on",
+   "target": "elektron-firmware-tool",
+   "evidence": "catalogue notes: builds on elektron-firmware-tool (pinned commit)"
   },
   {
    "project": "synthack-os",
@@ -5597,10 +5645,28 @@
    "evidence": "GitHub fork flag"
   },
   {
+   "project": "digistring",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
    "project": "filter-plus",
    "type": "builds_on",
    "target": "digifilter",
    "evidence": "same author; BP/BP2/COMB/TRASH are DigiFilter modes; LICENSE names the DigiFilter authors"
+  },
+  {
+   "project": "filter-plus",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader format-2 mods\""
+  },
+  {
+   "project": "digislicer",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: a curated mod in the elekloader shop"
   },
   {
    "project": "dt-fm",
@@ -5621,10 +5687,28 @@
    "evidence": "Tone+FX README calls RingTone \"the older RingTone repo\" (same author); successor or same project not stated. Was same_project until 2026-11-04 (raised in PR #3)"
   },
   {
+   "project": "digitakt2-perform",
+   "type": "uses_tool",
+   "target": "digikit",
+   "evidence": "catalogue notes: stock behaviour tested in digikit's emulator"
+  },
+  {
    "project": "dt2-machine-lab",
    "type": "bundles",
    "target": "dt2-capicola",
    "evidence": "machines/capicola-reddit/upstream keeps its 66 files byte-exact"
+  },
+  {
+   "project": "dn2-cfw",
+   "type": "vendors",
+   "target": "digikit",
+   "evidence": "catalogue notes: upstream cloned into vendor/ (author's fork, branch dn2-1.12)"
+  },
+  {
+   "project": "dn2-cfw",
+   "type": "vendors",
+   "target": "elekloader",
+   "evidence": "catalogue notes: upstream cloned into vendor/ (author's fork, branch dn2-1.12)"
   },
   {
    "project": "dn2mk2",
@@ -5633,16 +5717,46 @@
    "evidence": "docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698"
   },
   {
+   "project": "digitone-2-modding-skill",
+   "type": "uses_tool",
+   "target": "digikit",
+   "evidence": "catalogue notes: verification in digikit"
+  },
+  {
    "project": "elekloader-simonjohansson",
    "type": "fork_of",
    "target": "elekloader",
    "evidence": "GitHub fork flag"
   },
   {
+   "project": "elekloader-simonjohansson",
+   "type": "vendors",
+   "target": "digikit",
+   "evidence": "catalogue notes: NOTICE covers digikit code"
+  },
+  {
+   "project": "digi-roll-studio",
+   "type": "vendors",
+   "target": "elk-herd",
+   "evidence": "catalogue notes: protocol code ported from elk-herd"
+  },
+  {
+   "project": "digipools",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"built on elekloader\""
+  },
+  {
    "project": "rytm1-mods",
    "type": "port_of",
    "target": "rytm-mods-src",
    "evidence": "README: port of the MKII project to the MK1"
+  },
+  {
+   "project": "rytm1-mods",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: emits elekloader .elemod files"
   },
   {
    "project": "mds-tools",
@@ -5711,10 +5825,58 @@
    "evidence": "README of synfact-dev: built on elekloader, its engine, file format and checks"
   },
   {
+   "project": "digitide",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
+   "project": "digitriad",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
+   "project": "digireel",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
+   "project": "digihoard",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
+   "project": "digihalo",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
+   "project": "digiseq-digitakt",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
    "project": "digiseq-digitone",
    "type": "variant_of",
    "target": "digiseq-digitakt",
    "evidence": "same author, Digitone build"
+  },
+  {
+   "project": "digiseq-digitone",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
+   "project": "pump-digitakt",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader mod\""
   },
   {
    "project": "pump-digitone",
@@ -5723,16 +5885,46 @@
    "evidence": "same author, Digitone build"
   },
   {
+   "project": "pump-digitone",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
+   "project": "directjump-digitakt",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
    "project": "directjump-digitone",
    "type": "variant_of",
    "target": "directjump-digitakt",
    "evidence": "same author, Digitone build"
   },
   {
+   "project": "directjump-digitone",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
+   "project": "digisnake-digitakt",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
    "project": "digisnake-digitone",
    "type": "variant_of",
    "target": "digisnake-digitakt",
    "evidence": "same author, Digitone build"
+  },
+  {
+   "project": "digisnake-digitone",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader mod\""
   },
   {
    "project": "sidecar-digitakt",
@@ -5759,16 +5951,64 @@
    "evidence": "same Capicola keyframe engine by Heavylight Industries"
   },
   {
+   "project": "dt2-capicola",
+   "type": "cites",
+   "target": "digikit",
+   "evidence": "catalogue notes: its build script comments on digikit's flash cave 0x403117c4"
+  },
+  {
+   "project": "digitone-2-mod-hack",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: mods \"via elekloader / DigiHealth\""
+  },
+  {
+   "project": "elektrob-1",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: a machine \"via elekloader\""
+  },
+  {
+   "project": "diginular",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"experimental elekloader mod\""
+  },
+  {
+   "project": "elkflash",
+   "type": "cites",
+   "target": "elektroid",
+   "evidence": "catalogue notes: uses the MIDI RPC OS-upgrade commands as Elektroid does"
+  },
+  {
+   "project": "digialchemy-gamepack-1",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: \"elekloader mod\""
+  },
+  {
    "project": "rytm2-mods",
    "type": "port_of",
    "target": "rytm-mods-src",
    "evidence": "README: ported to elemod"
   },
   {
+   "project": "rytm2-mods",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: ported to the elemod format for elekloader core-ar2"
+  },
+  {
    "project": "mmodule",
    "type": "builds_on",
    "target": "gearmulator-md-mm",
    "evidence": "README: MD Drums came from gearmulator-md-mm"
+  },
+  {
+   "project": "digiswarm",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "catalogue notes: source also in elekloader as mods/digiswarm-dn1"
   },
   {
    "project": "cycles-engines",
@@ -5871,6 +6111,12 @@
    "type": "builds_on",
    "target": "model27",
    "evidence": "altstrument: a machine package for model27; its scripts clone model27 at a pinned commit"
+  },
+  {
+   "project": "bias",
+   "type": "mod_for",
+   "target": "modded-cycles",
+   "evidence": "catalogue notes: a fixed-slot tweak for Modded Cycles 2.0"
   }
  ],
  "rules": [

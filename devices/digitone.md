@@ -2,7 +2,7 @@
 
 # Digitone (MKI) / Digitone Keys
 
-Data last verified: 2026-11-02
+Data last verified: 2026-11-04
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
@@ -91,6 +91,8 @@ _Sources: forum thread 20_
 
 Master effects with a DIGI FX page. Tested on hardware and in digiemu. Open items per author: encoder acceleration, saving state at pattern level. Built with elekloader. The newer Tone+FX repo of the same author calls this "the older RingTone repo" (successor, see tone-fx).
 
+_Related: mod for `elekloader` (catalogue notes: "built with elekloader") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub release 2.0o_
 
 ### x0x (808/909 kick machines)
@@ -115,7 +117,7 @@ _Sources: forum overview_
 
 elekloader format-2 mods adding 13 per-track filter types (BP, BP2, COMB, TRASH, LP1, HP1, LP4-, HP4-, LP2, HP2, NOTCH, COMB-, TRASH-) as Digitakt TYPE 8-20 and Digitone TYPE 4-16, using each voice's FREQ, RESO and filter envelope; stock TYPE values keep the stock filter. All modes cost less than the stock multimode filter in the author's emulator bench (2,603 cycles per voice and block; LP1 606, COMB 2,037). The FLTR page draws curves and icons for the new modes. Credits x2k_77-m1 for the original Digitone port. Source, host tests and digiemu tests published; GPL-2.0-or-later. Found by GitHub search 2026-11-02; README and CHANGELOG read.
 
-_Related: builds on `digifilter` (same author; BP/BP2/COMB/TRASH are DigiFilter modes; LICENSE names the DigiFilter authors) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `digifilter` (same author; BP/BP2/COMB/TRASH are DigiFilter modes; LICENSE names the DigiFilter authors); mod for `elekloader` (catalogue notes: "elekloader format-2 mods") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, CHANGELOG.md_
 
@@ -209,7 +211,7 @@ _Sources: GitHub README, lapin-list_
 
 GitHub says forked from elekloader/elekloader (not irpina's repo); 173 commits, GPL-2.0-or-later, NOTICE covers digikit code. Per README: Digitakt II 1.17 experimental - whole builds and linkable mods with their own core work, core checked in digikit's emulator, a key-swap mod works on a unit. Digitone II 1.12 experimental - whole builds, linkable mods, SHARC (DSP) mods and selectable synth/filter mods work; UI events and remote input checked on a unit, sine variants ran ten-minute note sweeps plus limited project/effects checks. Analog Rytm MKII 1.74 linkable mods with own core, builds with the core work on a unit; Analog Four MKII 1.56 hook bus, mod storage, unused DDR and recovery checked on a unit. Issue #13 plans Digitone II control-side support modelled on the Digitakt II implementation (hash-based stock-file recognition, devices/digitakt_mk2.py profile). 22 open issues.
 
-_Related: fork of `elekloader` (GitHub fork flag) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: fork of `elekloader` (GitHub fork flag); vendors `digikit` (catalogue notes: NOTICE covers digikit code) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, GitHub issue 13, search 2026-10-31_
 
@@ -241,11 +243,15 @@ _Sources: GitHub search 2026-11-02, README_
 
 Two-channel pedal for the Digitone mk1 audio inputs: a wet channel (reverb, delay, grab, freeze) and an always-listening micro-looper. elekloader mod. GPL-2.0. Found by GitHub search 2026-11-02; README start read.
 
+_Related: mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### DigiTriad
 
 Three-voice rhythmic pitch shifter for the Digitone mk1 inputs, chromatic or in a detected key, with microtune and glide. elekloader mod. GPL-2.0. Found by GitHub search 2026-11-02; README start read.
+
+_Related: mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -253,17 +259,23 @@ _Sources: GitHub search 2026-11-02, README_
 
 Time-warp pedal for the Digitone mk1 inputs: an always-listening tape played at -2x to +2x in tempo windows. elekloader mod. GPL-2.0. Found by GitHub search 2026-11-02; README start read.
 
+_Related: mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### DigiHoard
 
 Echo collector for the Digitone mk1 inputs: a delay that plays from a 3-minute memory with scan and spread. elekloader mod. GPL-2.0. Found by GitHub search 2026-11-02; README start read.
 
+_Related: mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### DigiHalo
 
 Reverb pedal for the Digitone mk1 inputs with twelve reverb machines. elekloader mod. GPL-2.0. Found by GitHub search 2026-11-02; README start read.
+
+_Related: mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -307,7 +319,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Digitone mk1 version of DIGISEQ (per-track sequencer choice). elekloader mod. GPL. Found by GitHub search 2026-11-02; README start read.
 
-_Related: variant of `digiseq-digitakt` (same author, Digitone build) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: variant of `digiseq-digitakt` (same author, Digitone build); mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -315,7 +327,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Digitone version of the PUMP master compressor. elekloader mod (id pump). GPL. Found by GitHub search 2026-11-02; README start read.
 
-_Related: variant of `pump-digitakt` (same author, Digitone build) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: variant of `pump-digitakt` (same author, Digitone build); mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -323,7 +335,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Direct pattern jump and start-on-bar for the Digitone mk1. elekloader mod. GPL. Found by GitHub search 2026-11-02; README start read.
 
-_Related: variant of `directjump-digitakt` (same author, Digitone build) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: variant of `directjump-digitakt` (same author, Digitone build); mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -331,7 +343,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Digitone version of DIGISNAKE. elekloader mod. GPL. Found by GitHub search 2026-11-02; README start read.
 
-_Related: variant of `digisnake-digitakt` (same author, Digitone build) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: variant of `digisnake-digitakt` (same author, Digitone build); mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -347,11 +359,15 @@ _Sources: GitHub search 2026-11-02, README_
 
 Oberheim OB-1 oscillator section as a machine, via elekloader. No licence file seen. Found by GitHub search 2026-11-02; README start read.
 
+_Related: mod for `elekloader` (catalogue notes: a machine "via elekloader") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### elkflash
 
 Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). MIT. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the first Ping on a new port is retried up to 3 times (3 s each) before giving up, before anything is written.
+
+_Related: cites `elektroid` (catalogue notes: uses the MIDI RPC OS-upgrade commands as Elektroid does) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -370,6 +386,8 @@ _Sources: GitHub search 2026-11-02, README_
 ### DigiAlchemy GamePack Vol.1
 
 Three tiny games (raycaster, Space Invaders, Snake) on the 128x64 screen as one elekloader mod. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Related: mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -394,5 +412,7 @@ _Sources: GitHub search 2026-11-02, README_
 ### DigiSwarm
 
 Granular/loop effects engine for the Digitone mk1's two audio inputs (eleven engines with four variations, 60 s looper, hold, reverse, filter, reverb), tempo-synced, with p-locks and the stock LFO page. Owns the audio engine while active. 0.2 tested by the author on a unit and in digiemu; not yet on a Digitone Keys. Source also in elekloader as mods/digiswarm-dn1. GPL-2.0.
+
+_Related: mod for `elekloader` (catalogue notes: source also in elekloader as mods/digiswarm-dn1) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_

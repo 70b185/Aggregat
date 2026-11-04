@@ -2,7 +2,7 @@
 
 # Model:Cycles
 
-Data last verified: 2026-11-02
+Data last verified: 2026-11-04
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
@@ -193,6 +193,6 @@ _Sources: altstrument (2026-11-03)_
 
 Source package for a percussion machine with six oscillators, each with its own envelope, summed, wavefolded and given a second envelope, on a clock locked to the note; written clean-room after Noise Engineering's published description of the Basimilus Iteritas Alia (no NE code or tables per its notices). Fixed-point C for the ColdFire, a table generator, a host build and an emulator test on the OS's own voice loop. A machine package for model27, with a fixed-slot tweak for Modded Cycles 2.0; also on the Cycles Engines flasher. Played on a Model:Cycles 2026-11-03 in slot 11 (README): heavy on the processor, and it does not combine with five model27 Track FX packages (15 overlap problems). Commits a compiled object (bias.o). Found via altstrument 2026-11-04.
 
-_Related: builds on `model27` (altstrument: a machine package for model27; its scripts clone model27 at a pinned commit) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `model27` (altstrument: a machine package for model27; its scripts clone model27 at a pinned commit); mod for `modded-cycles` (catalogue notes: a fixed-slot tweak for Modded Cycles 2.0) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-04)_

@@ -17,14 +17,17 @@
 #   sources        where the information came from
 #   license        optional: the licence the project states, as we read it (e.g. MIT, GPL-2.0-or-later,
 #                  "not stated" when the repo shows none); leave it out when we have not read it
-#   relations      optional: links to other entries, each {type, id, evidence}; type is fork_of | copy_of |
-#                  port_of | variant_of | builds_on | same_project | bundles | describes | unclear; evidence
-#                  names what proves it (GitHub's fork flag, or a file of the project)
+#   relations      optional: links to other entries, each {type, id, evidence}; evidence names what proves it
+#                  (GitHub's fork flag, or a file of the project). Lineage types (grouped in PROJECT-FAMILIES.md):
+#                  fork_of | copy_of | port_of | variant_of | builds_on | same_project | bundles | describes |
+#                  unclear. Dependency types (network map only): mod_for (a mod or package for a loader or
+#                  platform) | uses_tool (runs it, e.g. an emulator, without shipping it) | vendors (ships or ports
+#                  code from it) | cites (names it as a reference for methods or data)
 #
 # All entries last verified on 2026-10-31 (see `checked`). Status values are
 # taken from the authors' own wording where available.
 
-checked: 2026-11-02
+checked: 2026-11-04
 
 projects:
   # ---------------------------------------------------------------- loaders / hubs
@@ -132,6 +135,9 @@ projects:
     latest_seen: >
       altstrument: 0.7 needs the core 3.0 machine pages; OS 1.53/1.54.
     sources: [forum thread 21, elekloader release v0.4.0]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "installed via elekloader"'}
+
 
   - id: digisophie
     name: Digisophie / Sophie for Digitakt
@@ -152,6 +158,9 @@ projects:
     latest_seen: >
       altstrument: four models FUSE, BOOM, PIPE, SHARD, parameter-lockable; OS 1.53/1.54; MIT.
     sources: [synthtopia, gearnews]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "needs elekloader"'}
+
 
   - id: takt1ccname
     name: takt1ccname (MIDI CC naming)
@@ -228,6 +237,7 @@ projects:
     sources: [forum threads 80 and 83, GitHub README, GitHub releases, all-in-one/README.md and NOTICE read 2026-11-02]
     relations:
     - {type: builds_on, id: digikit, evidence: 'all-in-one/README.md: modified firmware derived from digikit; uses its patchkit'}
+    - {type: vendors, id: elektron-firmware-tool, evidence: 'catalogue notes: elektron-firmware-tool (vendored)'}
 
   # ---------------------------------------------------------------- Digitone (mk1 / Keys)
   - id: ringtone
@@ -247,6 +257,9 @@ projects:
       author: encoder acceleration, saving state at pattern level. Built with elekloader.
       The newer Tone+FX repo of the same author calls this "the older RingTone repo" (successor, see tone-fx).
     sources: [GitHub release 2.0o]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "built with elekloader"'}
+
 
   # ---------------------------------------------------------------- Digitone II
   - id: overtone
@@ -276,6 +289,9 @@ projects:
     latest_seen: >
       altstrument: v1.1 (2026-10-30) reworks GROOVE with presets, a random drift control, random weights and arrow-key editing, and restores FUNC + TEMPO as tap tempo; v1.0.1 (2026-10-29) fixes installing Elektron's OS or an Overtone update with Transfer while Overtone runs.
     sources: [forum thread 90, GitHub README]
+    relations:
+    - {type: uses_tool, id: digikit, evidence: 'catalogue notes: checks run in digikit for the main OS'}
+
 
   - id: x0x
     name: x0x (808/909 kick machines)
@@ -392,6 +408,11 @@ projects:
       an on-device formatter with erase confirmation is in development, not released. Owner testing had used storage
       prepared during development. A track-2 sample reload report turned out to be an unsaved project, not a bug.
     sources: [GitHub README, releases/r012.json, docs/recorder.md, docs/browser.md, docs/research/2026-11-03.md, docs/samples.md]
+    relations:
+    - {type: builds_on, id: dn2-firmware-explore, evidence: 'catalogue notes: builds on dnfw (pinned commit)'}
+    - {type: builds_on, id: digikit, evidence: 'catalogue notes: builds on digikit (pinned commit)'}
+    - {type: builds_on, id: elektron-firmware-tool, evidence: 'catalogue notes: builds on elektron-firmware-tool (pinned commit)'}
+
 
   # ---------------------------------------------------------------- Syntakt
   - id: synthack-os
@@ -492,6 +513,9 @@ projects:
     latest_seen: >
       altstrument: v0.8.0 adds OS 1.54 support; v0.7.0 adds STRING-fast.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+
 
   - id: digifilter
     name: DigiFilter
@@ -533,6 +557,7 @@ projects:
     sources: [GitHub README, CHANGELOG.md]
     relations:
     - {type: builds_on, id: digifilter, evidence: 'same author; BP/BP2/COMB/TRASH are DigiFilter modes; LICENSE names the DigiFilter authors'}
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader format-2 mods"'}
 
   - id: drum-plus
     name: DRUM+ (FM drum machine for Digitone mk1)
@@ -601,6 +626,9 @@ projects:
     latest_seen: >
       altstrument: 2.5 replaces GRID with a STRETCH control; needs core 3.0+ and the machine-pages mod; OS 1.53/1.54.
     sources: [GitHub README, lapin-list, elekloader release v0.2.0]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: a curated mod in the elekloader shop'}
+
 
   - id: dt-fm
     name: DT-FM
@@ -908,6 +936,9 @@ projects:
     latest_seen: >
       altstrument: v1.0 (2026-10-04), stock OS 1.17, GPL-2.0-or-later; contains perform-direct and perform-levels.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: uses_tool, id: digikit, evidence: 'catalogue notes: stock behaviour tested in digikit''s emulator'}
+
 
   - id: dt2-machine-lab
     name: dt2-machine-lab
@@ -992,6 +1023,10 @@ projects:
     latest_seen: >
       Renamed Digiwerk (altstrument; stock OS 1.12, GPL-2.0-or-later, notarized Mac patcher app). v0.1.0 (2026-10-26): Deja vu LFO waves and the Compressor + Flanger pack (build DJ01). v0.2.0 (2026-10-29): key-following LFO wave, one-cycle and half-cycle LFO modes, SHUF/RAND/TM arp modes (also on MIDI tracks), a tape echo, per-slot effect choice. v0.2.1 (2026-10-30): withdraws the six spring-reverb builds - the page says the CFES and EFTS builds stop the sound on a Digitone II - and removes the spring tile from the patcher; the other eight builds are unchanged.
     sources: [GitHub README, lapin-list]
+    relations:
+    - {type: vendors, id: digikit, evidence: 'catalogue notes: upstream cloned into vendor/ (author''s fork, branch dn2-1.12)'}
+    - {type: vendors, id: elekloader, evidence: 'catalogue notes: upstream cloned into vendor/ (author''s fork, branch dn2-1.12)'}
+
 
   # ---------------------------------------------------------------- Syntakt
   - id: syntakt-firmware-workbench
@@ -1156,6 +1191,9 @@ projects:
     latest_seen: >
       altstrument: main @ 84c8cd3 (2026-10-29), no tagged releases; brick-risk flag set ("flashing carries a known, documented risk of damaging the device").
     sources: [GitHub README, Overtone README]
+    relations:
+    - {type: uses_tool, id: digikit, evidence: 'catalogue notes: verification in digikit'}
+
 
   - id: coldfire-rs
     name: coldfire-rs
@@ -1206,6 +1244,7 @@ projects:
     sources: [GitHub README, GitHub issue 13, search 2026-10-31]
     relations:
     - {type: fork_of, id: elekloader, evidence: 'GitHub fork flag'}
+    - {type: vendors, id: digikit, evidence: 'catalogue notes: NOTICE covers digikit code'}
 
   - id: digi-roll-studio
     name: digi-roll-studio
@@ -1226,6 +1265,9 @@ projects:
       ported from elk-herd (BSD-2, (c) mzero). Fixtures: 34 real .syx dumps. 124 commits, GPL-3.0-or-later.
       Not firmware modding. Windows/Linux write testing incomplete.
     sources: [GitHub README, search 2026-10-31]
+    relations:
+    - {type: vendors, id: elk-herd, evidence: 'catalogue notes: protocol code ported from elk-herd'}
+
 
   - id: digitone-syx-toolkit
     name: digitone-syx-toolkit
@@ -1420,6 +1462,9 @@ projects:
     last_activity: 2026-10-24
     notes: SRC machine for Digitakt mk1 built on elekloader, played from the Chromatic keyboard; listed on elektronmods 2026-10-24. POOL machine (version string DPLS) over the project's RAM sample slots 1..127 played from the Chromatic keyboard; recorded trigs get a SAMP lock; digipools-1.0.elemod; C; 2 stars.
     sources: [elektronmods list]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "built on elekloader"'}
+
 
   - id: plock2sound
     name: plock2sound
@@ -1555,6 +1600,7 @@ projects:
     - altstrument (2026-11-01)
     relations:
     - {type: port_of, id: rytm-mods-src, evidence: 'README: port of the MKII project to the MK1'}
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: emits elekloader .elemod files'}
   - id: ems-machinedrum-firmware
     name: ems-machinedrum-firmware
     author: June Kiff (emuyia)
@@ -2312,6 +2358,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+
   - id: digitriad
     name: DigiTriad
     author: irpina
@@ -2327,6 +2376,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+
   - id: digireel
     name: DigiReel
     author: irpina
@@ -2342,6 +2394,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+
   - id: digihoard
     name: DigiHoard
     author: irpina
@@ -2357,6 +2412,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+
   - id: digihalo
     name: DigiHalo
     author: irpina
@@ -2372,6 +2430,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+
   - id: digitakt-digitone-mcp
     name: digitakt-digitone-mcp
     author: jamiew
@@ -2482,6 +2543,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+
   - id: digiseq-digitone
     name: DIGISEQ (Digitone)
     author: ClaidArremer
@@ -2501,6 +2565,7 @@ projects:
     - README
     relations:
     - {type: variant_of, id: digiseq-digitakt, evidence: 'same author, Digitone build'}
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
   - id: pump-digitakt
     name: PUMP (Digitakt)
     author: ClaidArremer
@@ -2517,6 +2582,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+
   - id: pump-digitone
     name: PUMP (Digitone)
     author: ClaidArremer
@@ -2536,6 +2604,7 @@ projects:
     - README
     relations:
     - {type: variant_of, id: pump-digitakt, evidence: 'same author, Digitone build'}
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
   - id: directjump-digitakt
     name: DIRECT JUMP (Digitakt)
     author: ClaidArremer
@@ -2552,6 +2621,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+
   - id: directjump-digitone
     name: DIRECT JUMP (Digitone)
     author: ClaidArremer
@@ -2570,6 +2642,7 @@ projects:
     - README
     relations:
     - {type: variant_of, id: directjump-digitakt, evidence: 'same author, Digitone build'}
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
   - id: digisnake-digitakt
     name: DIGISNAKE (Digitakt)
     author: ClaidArremer
@@ -2586,6 +2659,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+
   - id: digisnake-digitone
     name: DIGISNAKE (Digitone)
     author: ClaidArremer
@@ -2603,6 +2679,7 @@ projects:
     - README
     relations:
     - {type: variant_of, id: digisnake-digitakt, evidence: 'same author, Digitone build'}
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
   - id: sidecar-digitakt
     name: Sidecar (Digitakt mod)
     author: trigcondition
@@ -2731,6 +2808,7 @@ projects:
     sources: [dt2-machine-lab machines/capicola-reddit (README and upstream/README.md), read 2026-11-02]
     relations:
     - {type: builds_on, id: keyframer-lab, evidence: 'same Capicola keyframe engine by Heavylight Industries'}
+    - {type: cites, id: digikit, evidence: 'catalogue notes: its build script comments on digikit''s flash cave 0x403117c4'}
 
   - id: digi-macro
     name: macro-mode (digi_macro)
@@ -2781,6 +2859,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: mods "via elekloader / DigiHealth"'}
+
   - id: elektrob-1
     name: OB-1 (elektrob-1)
     author: simonjohansson
@@ -2797,6 +2878,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: a machine "via elekloader"'}
+
   - id: diginular
     name: diginular
     author: Horhik
@@ -2812,6 +2896,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "experimental elekloader mod"'}
+
   - id: elkflash
     name: elkflash
     author: Iced-Cream
@@ -2830,6 +2917,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: cites, id: elektroid, evidence: 'catalogue notes: uses the MIDI RPC OS-upgrade commands as Elektroid does'}
+
   - id: emu-elektron-joshklomp
     name: Elektron Emu (joshklomp)
     author: joshklomp
@@ -2928,6 +3018,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
+
   - id: fadedlimes-dt2-kb
     name: Digitakt II reverse-engineering knowledge base
     author: Fadedlimes
@@ -3041,6 +3134,7 @@ projects:
     - README
     relations:
     - {type: port_of, id: rytm-mods-src, evidence: 'README: ported to elemod'}
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: ported to the elemod format for elekloader core-ar2'}
   - id: cycles-mods-100demons
     name: Cycles Mods
     author: 100demons
@@ -3142,6 +3236,9 @@ projects:
     sources:
     - GitHub search 2026-11-02
     - README
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'catalogue notes: source also in elekloader as mods/digiswarm-dn1'}
+
   - id: a4-mk1-mods
     name: Analog Four / Keys MK1 OS 1.56 mods
     author: hugz202
@@ -3942,3 +4039,4 @@ projects:
     sources: [altstrument (2026-11-04)]
     relations:
     - {type: builds_on, id: model27, evidence: 'altstrument: a machine package for model27; its scripts clone model27 at a pinned commit'}
+    - {type: mod_for, id: modded-cycles, evidence: 'catalogue notes: a fixed-slot tweak for Modded Cycles 2.0'}

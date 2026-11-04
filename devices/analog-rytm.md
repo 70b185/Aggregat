@@ -2,7 +2,7 @@
 
 # Analog Rytm (MKI, MKII)
 
-Data last verified: 2026-11-02
+Data last verified: 2026-11-04
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
@@ -72,7 +72,7 @@ _Sources: altstrument (2026-11-01)_
 
 Port of the rytm-mods to Rytm MK1 OS 1.73 (per-track cuts, random LFO, euclid accents, humanise); also emits elekloader .elemod files. Licence: unspecified; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
-_Related: port of `rytm-mods-src` (README: port of the MKII project to the MK1) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: port of `rytm-mods-src` (README: port of the MKII project to the MK1); mod for `elekloader` (catalogue notes: emits elekloader .elemod files) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -98,7 +98,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 MrScruff's Rytm MKII mods (published with permission) ported to the elemod format for elekloader core-ar2. GPL. Found by GitHub search 2026-11-02; README start read.
 
-_Related: port of `rytm-mods-src` (README: ported to elemod) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: port of `rytm-mods-src` (README: ported to elemod); mod for `elekloader` (catalogue notes: ported to the elemod format for elekloader core-ar2) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

@@ -2,7 +2,7 @@
 
 # Digitone II
 
-Data last verified: 2026-11-02
+Data last verified: 2026-11-04
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
@@ -54,6 +54,8 @@ Python 3.11+ patcher (patcher/patch.py) that builds Overtone from the user's own
 
 _Latest seen (2026-10-31, secondary directories): altstrument: v1.1 (2026-10-30) reworks GROOVE with presets, a random drift control, random weights and arrow-key editing, and restores FUNC + TEMPO as tap tempo; v1.0.1 (2026-10-29) fixes installing Elektron's OS or an Overtone update with Transfer while Overtone runs._
 
+_Related: uses tool `digikit` (catalogue notes: checks run in digikit for the main OS) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: forum thread 90, GitHub README_
 
 ### x0x (808/909 kick machines)
@@ -77,6 +79,8 @@ _Sources: forum thread 43_
 ### DN2 DT2 firmware research
 
 Source-only recipes for Digitone II firmware with six Digitakt II sample machines (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE), stereo samples, sample browsing, DT2 parameter graphics and SLICES trig mode. Recorder adds recording/resampling, source selection, normalization, trimming, audition, saving to +Drive and optional track assignment; VOICE cycles Voice Setup, Sample Manager and Recorder. Class-compliant USB audio provides 42 capture channels at 48 kHz/24 bit (MAIN, tracks 1-16, DELAY, REVERB, CHORUS, INPUT as stereo pairs) and a stereo return. R012 needs only the official DN2 1.11 and DT2 1.16 OS files; silent compatibility data replaces the private sample bank, and users load their own playable samples afterward. Native and browser builders verify exact inputs and the output: 2,563,872 bytes, SHA-256 4a2742a4...63a3a9a. The browser builds locally without uploading files; neither builder flashes the instrument. No firmware images or samples are distributed. Historical exact T1E2/R003/R008/R011 builds still require their original private sample bank. R011 fixed USB publication stalling after project changes by selecting its candidate destination from current DMA START while preserving ownership checks; R012 retains that fix. Owner-confirmed stock audio, samples, Recorder and USB audio on R012, including after project changes. Stable does not mean exhaustive validation: exact trimmed-file comparison, full Recorder-source coverage, endurance and end-to-end USB latency remain unverified. Builds on dnfw (angellinares/dn2_firmware_explore), selache, digikit and elektron-firmware-tool. AGPL-3.0-or-later. 2026-11-03: README warns new users NOT to install R012 yet. R012 mounts an existing sample filesystem but does not create one on a DN2 that never had it; symptoms are 0% Free / 0 bytes in Transfer, stalled uploads, Connection failed. The author says stock FORMAT +DRIVE, EMPTY RESET and FACTORY RESET do not create it and can erase projects; an on-device formatter with erase confirmation is in development, not released. Owner testing had used storage prepared during development. A track-2 sample reload report turned out to be an unsaved project, not a bug.
+
+_Related: builds on `dn2-firmware-explore` (catalogue notes: builds on dnfw (pinned commit)); builds on `digikit` (catalogue notes: builds on digikit (pinned commit)); builds on `elektron-firmware-tool` (catalogue notes: builds on elektron-firmware-tool (pinned commit)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, releases/r012.json, docs/recorder.md, docs/browser.md, docs/research/2026-11-03.md, docs/samples.md_
 
@@ -122,6 +126,8 @@ Public lab notebook: notes, tools and new effects, no Elektron firmware included
 
 _Latest seen (2026-10-31, secondary directories): Renamed Digiwerk (altstrument; stock OS 1.12, GPL-2.0-or-later, notarized Mac patcher app). v0.1.0 (2026-10-26): Deja vu LFO waves and the Compressor + Flanger pack (build DJ01). v0.2.0 (2026-10-29): key-following LFO wave, one-cycle and half-cycle LFO modes, SHUF/RAND/TM arp modes (also on MIDI tracks), a tape echo, per-slot effect choice. v0.2.1 (2026-10-30): withdraws the six spring-reverb builds - the page says the CFES and EFTS builds stop the sound on a Digitone II - and removes the spring tile from the patcher; the other eight builds are unchanged._
 
+_Related: vendors `digikit` (catalogue notes: upstream cloned into vendor/ (author's fork, branch dn2-1.12)); vendors `elekloader` (catalogue notes: upstream cloned into vendor/ (author's fork, branch dn2-1.12)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub README, lapin-list_
 
 ### Elektroid
@@ -156,6 +162,8 @@ Agent skill (Claude Code, Codex, Cursor; install with `npx skills add`) for deve
 
 _Latest seen (2026-10-31, secondary directories): altstrument: main @ 84c8cd3 (2026-10-29), no tagged releases; brick-risk flag set ("flashing carries a known, documented risk of damaging the device")._
 
+_Related: uses tool `digikit` (catalogue notes: verification in digikit) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub README, Overtone README_
 
 ### coldfire-rs
@@ -168,13 +176,15 @@ _Sources: GitHub README, FirestormAudio profile page_
 
 GitHub says forked from elekloader/elekloader (not irpina's repo); 173 commits, GPL-2.0-or-later, NOTICE covers digikit code. Per README: Digitakt II 1.17 experimental - whole builds and linkable mods with their own core work, core checked in digikit's emulator, a key-swap mod works on a unit. Digitone II 1.12 experimental - whole builds, linkable mods, SHARC (DSP) mods and selectable synth/filter mods work; UI events and remote input checked on a unit, sine variants ran ten-minute note sweeps plus limited project/effects checks. Analog Rytm MKII 1.74 linkable mods with own core, builds with the core work on a unit; Analog Four MKII 1.56 hook bus, mod storage, unused DDR and recovery checked on a unit. Issue #13 plans Digitone II control-side support modelled on the Digitakt II implementation (hash-based stock-file recognition, devices/digitakt_mk2.py profile). 22 open issues.
 
-_Related: fork of `elekloader` (GitHub fork flag) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: fork of `elekloader` (GitHub fork flag); vendors `digikit` (catalogue notes: NOTICE covers digikit code) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, GitHub issue 13, search 2026-10-31_
 
 ### digi-roll-studio
 
 Native Rust desktop sequencer for Digitakt II, Digitone II and Analog Four, built from digi-roll. Writes to hardware: README recommends throwaway projects. Safe-write ceremony of five rules (re-read and back up the destination pattern first, OS build on an allowlist, user confirmation, change only needed bytes, read back and byte-compare). Gen-2 dump protocol (digis) vs gen-1 (Analog Four). +Drive file-write commands 0x57/0x58/0x59 hardware-verified for a single chunk only, not called by the app (writes above 16 KiB refused); 0x5A/0x5B/0x5C (move/copy/delete) not implemented. Protocol code ported from elk-herd (BSD-2, (c) mzero). Fixtures: 34 real .syx dumps. 124 commits, GPL-3.0-or-later. Not firmware modding. Windows/Linux write testing incomplete.
+
+_Related: vendors `elk-herd` (catalogue notes: protocol code ported from elk-herd) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, search 2026-10-31_
 
@@ -220,11 +230,15 @@ _Sources: GitHub search 2026-11-02, README_
 
 Selectable C synth (SINE, synth id 6) and LOWPASS filter mods for the Digitone II via elekloader / DigiHealth. GPL. Found by GitHub search 2026-11-02; README start read.
 
+_Related: mod for `elekloader` (catalogue notes: mods "via elekloader / DigiHealth") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### elkflash
 
 Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). MIT. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the first Ping on a new port is retried up to 3 times (3 s each) before giving up, before anything is written.
+
+_Related: cites `elektroid` (catalogue notes: uses the MIDI RPC OS-upgrade commands as Elektroid does) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

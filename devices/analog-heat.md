@@ -2,7 +2,7 @@
 
 # Analog Heat (MKI, MKII, +FX)
 
-Data last verified: 2026-11-02
+Data last verified: 2026-11-04
 
 > No community firmware mod found yet (2026-10-31). Generic tooling covers it: elektron-firmware-tool (firmware container), Elektroid (sample/SysEx manager) and Overwitch (Overbridge audio on Linux) list Analog Heat MKI/MKII/+FX. screendump names it as 'not implemented'. Neither the Lapin list nor altstrument.org has a firmware entry for it. Last official OS we saw on elektron.se: Analog Heat MKI/MKII OS 1.22 (2024-10-16); the +FX has its own OS (release notes last updated 2024-10-16) and MKII firmware is not interchangeable with +FX.
 

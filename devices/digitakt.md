@@ -2,7 +2,7 @@
 
 # Digitakt (MKI)
 
-Data last verified: 2026-11-02
+Data last verified: 2026-11-04
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
@@ -99,6 +99,8 @@ Users ask for a Digitone version. Installed via elekloader.
 
 _Latest seen (2026-10-31, secondary directories): altstrument: 0.7 needs the core 3.0 machine pages; OS 1.53/1.54._
 
+_Related: mod for `elekloader` (catalogue notes: "installed via elekloader") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: forum thread 21, elekloader release v0.4.0_
 
 ### Digisophie / Sophie for Digitakt
@@ -106,6 +108,8 @@ _Sources: forum thread 21, elekloader release v0.4.0_
 Metallic percussion machine (FUSE, BOOM, PIPE, SHARD), fixed-point adaptation of "Sophie for Schwung" by mestela. Repo distributes source only. Needs elekloader. last_activity = Synthtopia article date.
 
 _Latest seen (2026-10-31, secondary directories): altstrument: four models FUSE, BOOM, PIPE, SHARD, parameter-lockable; OS 1.53/1.54; MIT._
+
+_Related: mod for `elekloader` (catalogue notes: "needs elekloader") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: synthtopia, gearnews_
 
@@ -151,6 +155,8 @@ Karplus-Strong plucked-string machine, elekloader mod. MIT, 13 commits.
 
 _Latest seen (2026-10-31, secondary directories): altstrument: v0.8.0 adds OS 1.54 support; v0.7.0 adds STRING-fast._
 
+_Related: mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub README, lapin-list_
 
 ### DigiFilter
@@ -165,7 +171,7 @@ _Sources: GitHub README, lapin-list_
 
 elekloader format-2 mods adding 13 per-track filter types (BP, BP2, COMB, TRASH, LP1, HP1, LP4-, HP4-, LP2, HP2, NOTCH, COMB-, TRASH-) as Digitakt TYPE 8-20 and Digitone TYPE 4-16, using each voice's FREQ, RESO and filter envelope; stock TYPE values keep the stock filter. All modes cost less than the stock multimode filter in the author's emulator bench (2,603 cycles per voice and block; LP1 606, COMB 2,037). The FLTR page draws curves and icons for the new modes. Credits x2k_77-m1 for the original Digitone port. Source, host tests and digiemu tests published; GPL-2.0-or-later. Found by GitHub search 2026-11-02; README and CHANGELOG read.
 
-_Related: builds on `digifilter` (same author; BP/BP2/COMB/TRASH are DigiFilter modes; LICENSE names the DigiFilter authors) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `digifilter` (same author; BP/BP2/COMB/TRASH are DigiFilter modes; LICENSE names the DigiFilter authors); mod for `elekloader` (catalogue notes: "elekloader format-2 mods") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, CHANGELOG.md_
 
@@ -188,6 +194,8 @@ _Sources: GitHub README, lapin-list_
 Slicer for the Digitakt mk1. 1.2 notes say "not yet tried on a unit" (emulator only). GPL-2.0-or-later, 5 commits. Also a "curated mod" in the elekloader shop.
 
 _Latest seen (2026-10-31, secondary directories): altstrument: 2.5 replaces GRID with a STRETCH control; needs core 3.0+ and the machine-pages mod; OS 1.53/1.54._
+
+_Related: mod for `elekloader` (catalogue notes: a curated mod in the elekloader shop) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list, elekloader release v0.2.0_
 
@@ -263,7 +271,7 @@ _Sources: GitHub README, lapin-list_
 
 GitHub says forked from elekloader/elekloader (not irpina's repo); 173 commits, GPL-2.0-or-later, NOTICE covers digikit code. Per README: Digitakt II 1.17 experimental - whole builds and linkable mods with their own core work, core checked in digikit's emulator, a key-swap mod works on a unit. Digitone II 1.12 experimental - whole builds, linkable mods, SHARC (DSP) mods and selectable synth/filter mods work; UI events and remote input checked on a unit, sine variants ran ten-minute note sweeps plus limited project/effects checks. Analog Rytm MKII 1.74 linkable mods with own core, builds with the core work on a unit; Analog Four MKII 1.56 hook bus, mod storage, unused DDR and recovery checked on a unit. Issue #13 plans Digitone II control-side support modelled on the Digitakt II implementation (hash-based stock-file recognition, devices/digitakt_mk2.py profile). 22 open issues.
 
-_Related: fork of `elekloader` (GitHub fork flag) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: fork of `elekloader` (GitHub fork flag); vendors `digikit` (catalogue notes: NOTICE covers digikit code) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, GitHub issue 13, search 2026-10-31_
 
@@ -282,6 +290,8 @@ _Sources: altstrument tools page_
 ### DigiPools
 
 SRC machine for Digitakt mk1 built on elekloader, played from the Chromatic keyboard; listed on elektronmods 2026-10-24. POOL machine (version string DPLS) over the project's RAM sample slots 1..127 played from the Chromatic keyboard; recorded trigs get a SAMP lock; digipools-1.0.elemod; C; 2 stars.
+
+_Related: mod for `elekloader` (catalogue notes: "built on elekloader") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: elektronmods list_
 
@@ -307,11 +317,15 @@ _Sources: GitHub search 2026-11-02, README_
 
 Per-track choice of sequencer on the TRIG page's second page (e.g. SNAKE walking a grid). elekloader mod; a separate Digitone build exists. GPL. Found by GitHub search 2026-11-02; README start read.
 
+_Related: mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### PUMP (Digitakt)
 
 SP-303 Vinyl-Sim-style levelling master compressor in place of the stock compressor. elekloader mod (id pump-dt). GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Related: mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -319,11 +333,15 @@ _Sources: GitHub search 2026-11-02, README_
 
 Direct pattern jump and start-on-bar settings for the Digitakt mk1. elekloader mod. GPL. Found by GitHub search 2026-11-02; README start read.
 
+_Related: mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### DIGISNAKE (Digitakt)
 
 Cartesian sequencer after MDD Snake / Make Noise René. elekloader mod. GPL. Found by GitHub search 2026-11-02; README start read.
+
+_Related: mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -373,17 +391,23 @@ _Sources: GitHub search 2026-11-02, README_
 
 Oberheim OB-1 oscillator section as a machine, via elekloader. No licence file seen. Found by GitHub search 2026-11-02; README start read.
 
+_Related: mod for `elekloader` (catalogue notes: a machine "via elekloader") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### diginular
 
 GRAIN, a granular SRC machine reading up to eight windowed grains from the track's sample. Experimental elekloader mod. GPL. Found by GitHub search 2026-11-02; README start read.
 
+_Related: mod for `elekloader` (catalogue notes: "experimental elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
 _Sources: GitHub search 2026-11-02, README_
 
 ### elkflash
 
 Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). MIT. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the first Ping on a new port is retried up to 3 times (3 s each) before giving up, before anything is written.
+
+_Related: cites `elektroid` (catalogue notes: uses the MIDI RPC OS-upgrade commands as Elektroid does) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

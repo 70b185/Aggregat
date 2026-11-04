@@ -116,7 +116,7 @@ def devs(p):
     return ", ".join(dev_names.get(s, s) for s in p["devices"])
 
 
-REL_SHORT = {"fork_of": "fork of", "copy_of": "copy of", "port_of": "port of", "variant_of": "variant of", "builds_on": "builds on", "same_project": "same project as", "bundles": "bundles", "describes": "describes", "unclear": "cf."}
+REL_SHORT = {"fork_of": "fork of", "copy_of": "copy of", "port_of": "port of", "variant_of": "variant of", "builds_on": "builds on", "same_project": "same project as", "bundles": "bundles", "describes": "describes", "unclear": "cf.", "mod_for": "mod for", "uses_tool": "uses", "vendors": "vendors code from", "cites": "cites"}
 
 
 def lrow(p, show_kind=False):
@@ -191,6 +191,9 @@ print("lists:", {k: len(v) for k, v in bylist.items()},
 REL_WORDS = {"fork_of": "fork of", "copy_of": "copy of", "port_of": "port of", "variant_of": "variant of",
              "builds_on": "builds on", "same_project": "same project as", "bundles": "bundles", "describes": "describes",
              "unclear": "same name as (relation unclear)"}
+# Families are about lineage (the same work in several places). Dependency links (a mod for a loader, a tool a project
+# uses, code it vendors, a project it cites) are shown in the network map, not merged into families.
+LINEAGE = set(REL_WORDS)
 byid = {p["id"]: p for p in projects}
 parent = {p["id"]: p["id"] for p in projects}
 
@@ -204,7 +207,7 @@ def find(x):
 
 for p in projects:
     for r in p.get("relations") or []:
-        if r["id"] in parent:
+        if r["id"] in parent and r["type"] in LINEAGE:
             parent[find(p["id"])] = find(r["id"])
 groups = {}
 for p in projects:
@@ -223,7 +226,8 @@ fam = [GEN, "# Project families\n",
 incoming = {}
 for p in projects:
     for x in p.get("relations") or []:
-        incoming[x["id"]] = incoming.get(x["id"], 0) + 1
+        if x["type"] in LINEAGE:
+            incoming[x["id"]] = incoming.get(x["id"], 0) + 1
 
 
 def pick_root(members):
@@ -241,7 +245,7 @@ for _, members in sorted(groups.items(), key=lambda kv: (-len(kv[1]), byid[pick_
         if p["id"] == root:
             continue
         rels = "; ".join(f"{REL_WORDS.get(x['type'], x['type'])} **{byid[x['id']]['name']}** ({x.get('evidence', '')})"
-                         for x in p.get("relations") or [] if x["id"] in byid)
+                         for x in p.get("relations") or [] if x["id"] in byid and x["type"] in LINEAGE)
         rels = rels or f"linked to **{r['name']}** through another member of this family"
         fam.append(f"- **{p['name']}** ({p.get('author', '?')}) - {rels}. {link('repo', p['repo']) if p.get('repo') else ''}")
 (ROOT / "PROJECT-FAMILIES.md").write_text("\n".join(fam) + "\n", encoding="utf-8")

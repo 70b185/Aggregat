@@ -4,7 +4,7 @@
 
 For people (and agents) who build mods: toolchains, emulators, firmware unpackers, protocol libraries and research write-ups. Pair this with [hardware/](hardware/README.md), which collects the rules and device facts.
 
-Data last verified: 2026-11-02. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Status words are the authors' own; newest activity first in each table. Device pages with full notes: [INDEX.md](INDEX.md).
+Data last verified: 2026-11-04. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Status words are the authors' own; newest activity first in each table. Device pages with full notes: [INDEX.md](INDEX.md).
 
 
 The other lists: [MODS.md](MODS.md) (mods and custom firmware), [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians). Hardware knowledge for writing mods: [hardware/](hardware/README.md).
@@ -15,7 +15,7 @@ The other lists: [MODS.md](MODS.md) (mods and custom firmware), [MUSICIAN-TOOLS.
 | Project | Devices | What it is | Status | Version / OS | Links |
 |---|---|---|---|---|---|
 | **mds-tools (MDS packer and certifier)** (Justin Mammarella) <br>_builds on mds_ | Machinedrum (incl. UW) | Tools around the MDS specification: mds_pack.py builds an MDS file from a JSON definition and assembled DSP56300 code (CLD, LOD or raw binary), mds-certifier runs a … | active | main @ 983600a (2026-11-03) | [repo](https://github.com/jmamma/mds-tools) |
-| **elkflash** (Iced-Cream) | Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II, Digitone II, Syntakt | Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). | active | - | [repo](https://github.com/Iced-Cream/elkflash) |
+| **elkflash** (Iced-Cream) <br>_cites elektroid_ | Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II, Digitone II, Syntakt | Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). | active | - | [repo](https://github.com/Iced-Cream/elkflash) |
 | **Frame Lab (keyframer-lab)** (heavylight-industries) | Digitakt II | The Digitakt II keyframer time stretcher and its TKEO transient detector compiled from the unit's C to WebAssembly, runnable in the browser. | active | - | [repo](https://github.com/heavylight-industries/keyframer-lab) |
 | **fsdsp56k** (smoothdeveloper) | Machinedrum (incl. UW) | F# toolchain for DSP56300 machines: prototype and render on an emulated DSP, pack as MDS packages for MDX X.20. | active | main @ 2ac9d9b (2026-10-26) | [repo](https://github.com/smoothdeveloper/fsdsp56k) · [homepage](https://smoothdeveloper.github.io/fsdsp56k/) |
 | **coldfire-rs** (FirestormAudio) | Digitakt II, Digitone II | Rust stack for ColdFire V4e (MCF5441x): toolchain (rustc_codegen_gcc + libgccjit for m68k-elf), runtime, PAC generated from an SVD, and an Embassy HAL (GPIO, PIT, INTC, … | wip | not firmware-specific; targets the NXP ColdFire V4e chips … | [repo](https://github.com/FirestormAudio/coldfire-rs) |
@@ -64,7 +64,7 @@ The other lists: [MODS.md](MODS.md) (mods and custom firmware), [MUSICIAN-TOOLS.
 
 | Project | Devices | What it is | Status | Version / OS | Links |
 |---|---|---|---|---|---|
-| **dn2-cfw** (naturarum) | Digitone II | Public lab notebook: notes, tools and new effects, no Elektron firmware included. | active | Digiwerk v0.2.1 (2026-10-30) | [repo](https://github.com/naturarum/dn2-cfw) |
+| **dn2-cfw** (naturarum) <br>_vendors code from digikit; vendors code from elekloader_ | Digitone II | Public lab notebook: notes, tools and new effects, no Elektron firmware included. | active | Digiwerk v0.2.1 (2026-10-30) | [repo](https://github.com/naturarum/dn2-cfw) |
 | **Digitakt integrated sidecar** (soejrd) <br>_builds on sidecar-expander_ | Digitakt (MKI) | Runs a TRX-B2 engine on a Raspberry Pi 4B, controlled from a Digitakt mk1 audio track with the audio returned through it. | wip | Digitakt mk1 OS 1.54 | [repo](https://github.com/soejrd/digitakt-sidecar) |
 | **Cycles Mod Standard** (durchgemacht) <br>_describes model27_ | Model:Cycles | Draft standard for Model:Cycles mods (machine contract, extension points, per-mod manifests, clash checks over saved slots, key combos and display). | wip | draft 0.7 | [repo](https://github.com/durchgemacht/cycles-mod-standard) |
 | **syntakt-machine45-research** (Humgic) | Syntakt | Documentation, a C header and tools/check_stock_metadata.py (standard-library only; checks exact input hashes and selected metadata of the user's own extracted MAIN and … | wip | main @ 9511030 (2026-10-28), no tagged releases | [repo](https://github.com/Humgic/syntakt-machine45-research) |
@@ -87,4 +87,4 @@ The other lists: [MODS.md](MODS.md) (mods and custom firmware), [MUSICIAN-TOOLS.
 
 | Project | Devices | What it is | Status | Version / OS | Links |
 |---|---|---|---|---|---|
-| **digitone-2-modding-skill** (complex-ping) | Digitone II | Agent skill (Claude Code, Codex, Cursor; install with `npx skills add`) for developing Digitone II firmware mods: ColdFire MAIN OS patching in C, SHARC DSP audio code, … | wip | Digitone II OS 1.11 (user supplies the .syx; repo gives a … | [repo](https://github.com/complex-ping/digitone-2-modding-skill) |
+| **digitone-2-modding-skill** (complex-ping) <br>_uses digikit_ | Digitone II | Agent skill (Claude Code, Codex, Cursor; install with `npx skills add`) for developing Digitone II firmware mods: ColdFire MAIN OS patching in C, SHARC DSP audio code, … | wip | Digitone II OS 1.11 (user supplies the .syx; repo gives a … | [repo](https://github.com/complex-ping/digitone-2-modding-skill) |

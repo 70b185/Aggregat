@@ -2,7 +2,7 @@
 
 # Project families
 
-Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-02. Edit the `relations:` field in `data/projects.yml`.
+Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-04. Edit the `relations:` field in `data/projects.yml`.
 
 | Relation | Meaning |
 |---|---|
@@ -36,6 +36,16 @@ Devices: Octatrack (MKI, MKII). [repo](https://github.com/sambanks/octabam)
 - **PassOS** (theremoteviewer) - builds on **octabam** (README). [repo](https://github.com/theremoteviewer/octa-passos)
 - **ReBirth to Octatrack** (alexandrubelc) - builds on **octabam** (README: targets the GARDEN engines). [repo](https://github.com/alexandrubelc/rebirth2octatrack)
 - **TrackPatterns** (pgstath) - builds on **octabam** (README: also submitted as octabam PR 846). [repo](https://github.com/pgstath/TrackPatterns)
+
+## digikit (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo)
+
+Devices: Digitakt II, Digitone II. [repo](https://github.com/ElekLabs/digikit)
+
+- **digitakt-ii-research (Deja Vu LFOs, ONESHOT zoom)** (kariGardarsson) - builds on **digikit** (all-in-one/README.md: modified firmware derived from digikit; uses its patchkit). [repo](https://github.com/karigardarsson/digitakt-ii-research)
+- **DN2 DT2 firmware research** (armio) - builds on **dn2_firmware_explore** (catalogue notes: builds on dnfw (pinned commit)); builds on **digikit** (catalogue notes: builds on digikit (pinned commit)); builds on **elektron-firmware-tool** (catalogue notes: builds on elektron-firmware-tool (pinned commit)). [repo](https://github.com/armio/dn2-dt2-firmware-research)
+- **DN2 mk2 Mod (dn2mk2-firmware)** (De-Pattern (README says it builds on the upstream project dn2_firmware_explore / xrcstrecords - not verified by us)) - builds on **dn2_firmware_explore** (docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698). [repo](https://github.com/De-Pattern/dn2mk2-firmware)
+- **dn2_firmware_explore** (angellinares) - linked to **digikit** through another member of this family. [repo](https://github.com/angellinares/dn2_firmware_explore)
+- **elektron-firmware-tool** (mischa85) - linked to **digikit** through another member of this family. [repo](https://github.com/mischa85/elektron-firmware-tool)
 
 ## elekloader (pina (irpina))
 
@@ -106,12 +116,6 @@ Devices: Digitakt (MKI). [repo](https://github.com/DigiAlchemydsp/DigiFilter)
 
 - **Filter+ (13 filter types)** (DigiAlchemydsp) - builds on **DigiFilter** (same author; BP/BP2/COMB/TRASH are DigiFilter modes; LICENSE names the DigiFilter authors). [repo](https://github.com/DigiAlchemydsp/FILTER-PLUS)
 
-## digikit (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo)
-
-Devices: Digitakt II, Digitone II. [repo](https://github.com/ElekLabs/digikit)
-
-- **digitakt-ii-research (Deja Vu LFOs, ONESHOT zoom)** (kariGardarsson) - builds on **digikit** (all-in-one/README.md: modified firmware derived from digikit; uses its patchkit). [repo](https://github.com/karigardarsson/digitakt-ii-research)
-
 ## DIGISEQ (Digitakt) (ClaidArremer)
 
 Devices: Digitakt (MKI). [repo](https://github.com/ClaidArremer/digitakt-digiseq)
@@ -135,12 +139,6 @@ Devices: Digitakt (MKI). [repo](https://github.com/soejrd/digisophie)
 Devices: Digitakt (MKI). [repo](https://github.com/ClaidArremer/digitakt-directjump)
 
 - **DIRECT JUMP (Digitone)** (ClaidArremer) - variant of **DIRECT JUMP (Digitakt)** (same author, Digitone build). [repo](https://github.com/ClaidArremer/digitone-directjump)
-
-## dn2_firmware_explore (angellinares)
-
-Devices: Digitone II, Digitone (MKI) / Digitone Keys. [repo](https://github.com/angellinares/dn2_firmware_explore)
-
-- **DN2 mk2 Mod (dn2mk2-firmware)** (De-Pattern (README says it builds on the upstream project dn2_firmware_explore / xrcstrecords - not verified by us)) - builds on **dn2_firmware_explore** (docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698). [repo](https://github.com/De-Pattern/dn2mk2-firmware)
 
 ## libanalogrytm (bsp2)
 

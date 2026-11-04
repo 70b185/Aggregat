@@ -8,11 +8,12 @@ Data last verified: 2026-11-02
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **model27** (durchgemacht, 18nelli18) | firmware | active | release 0.41 (2026-11-04 per README): thirteen cards in the web flasher (EQ 0.6, Reso 0.4 with block and coefficients in EMAC assembly); POTS 0.2 flashed from the page and tested on a Model:Cycles 2026-11-04; 1.13 | - | 2026-11-04 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
 | **Motor:Cycles (rhythmic-noise firmware)** (nzimas) | firmware | wip | v1.0.0-rc18 (tag); Model:Cycles OS 1.13 | v1.0.0-rc18 | 2026-11-03 | [repo](https://github.com/nzimas/motorcycles) · [web patcher](https://nzimas.github.io/motorcycles/install.html) |
-| **model27** (durchgemacht, 18nelli18) | firmware | active | release 0.32 (beta, 2026-11-02): eleven cards in the web flasher; fltslot 0.10; 1.13 | - | 2026-11-03 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
 | **Supermodel Edition** (A.V., 18nelli18) | firmware | active | 3.02 (docs dated 2026-11-03; Optional edition 3.02 experimental); 1.13 | wavetable-pack | 2026-11-03 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |
+| **BIAS (six-oscillator percussion machine)** (100demons) | mod | active | Model:Cycles OS 1.13 | - | 2026-11-03 | [repo](https://github.com/100demons/bias) · [web patcher](https://100demons.github.io/cycles-engines/flasher/) |
 | **Elek View (screen viewer in the browser)** (BlueSGL) | tool | active | main @ 29fc485 (2026-11-02) | - | 2026-11-02 | [repo](https://github.com/BlueSGL/Elek_View) · [web app](https://bluesgl.github.io/Elek_View/) · [forum](https://elektronmods.com/thread-93-elek-view-see-your-devices-screens-in-a-browser-via-webmidi) |
-| **Cycles One-Shot** (durchgemacht) | mod | active | machine 0.13 (2026-11-02, on main; newest tag v0.12): Start and Length act on the note that plays; tested in a model27 build, in digiemu and on a Model:Cycles; 1.13 | v0.13 | 2026-11-02 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
+| **Cycles One-Shot** (durchgemacht) | mod | active | machine 0.13 (2026-11-02, on main; newest tag v0.12): Start and Length act on the note that plays; tested in a model27 build, in digiemu and on a Model:Cycles; 1.13 | v0.14 | 2026-11-02 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
 | **SPOKES** (A.V.) | tool | active | main @ 1604cbf (2026-10-31); 1.13 | - | 2026-10-31 | [repo](https://github.com/AveyCole/SPOKES) · [homepage](https://aveycole.github.io/SPOKES/) |
 | **Vladiktron Spoke** (imaf6971) | emulator | active | v0.1.0 (2026-10-30); 1.13 | v0.1.0 | 2026-10-30 | [repo](https://github.com/imaf6971/vladiktron-spoke) |
 | **Cycles Engines** (100demons) | loader | wip | Model:Cycles OS 1.13 only | phase-5 | 2026-10-30 | [repo](https://github.com/100demons/cycles-engines) |
@@ -187,3 +188,11 @@ _Sources: GitHub search 2026-11-02, README_
 Browser piano-roll editor and sequencer for the Model:Cycles over Web MIDI: parameters as CC, pattern select by program change, and recording a sequence into the unit one track at a time by playing it in over MIDI clock (no pattern SysEx). Licence not stated. Repo clone failed (transfer error); details from altstrument.
 
 _Sources: altstrument (2026-11-03)_
+
+### BIAS (six-oscillator percussion machine)
+
+Source package for a percussion machine with six oscillators, each with its own envelope, summed, wavefolded and given a second envelope, on a clock locked to the note; written clean-room after Noise Engineering's published description of the Basimilus Iteritas Alia (no NE code or tables per its notices). Fixed-point C for the ColdFire, a table generator, a host build and an emulator test on the OS's own voice loop. A machine package for model27, with a fixed-slot tweak for Modded Cycles 2.0; also on the Cycles Engines flasher. Played on a Model:Cycles 2026-11-03 in slot 11 (README): heavy on the processor, and it does not combine with five model27 Track FX packages (15 overlap problems). Commits a compiled object (bias.o). Found via altstrument 2026-11-04.
+
+_Related: builds on `model27` (altstrument: a machine package for model27; its scripts clone model27 at a pinned commit) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: altstrument (2026-11-04)_

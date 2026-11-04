@@ -26,7 +26,7 @@ Data last verified: 2026-11-02
 | **octa-bt-pt** (bryantysinger) | tool | active | Octatrack OS 1.40C only (hash-checked) | - | 2026-08-23 | [repo](https://github.com/bryantysinger/octa-bt-pt) |
 | **OctaChainer 2** (Kai Drange) | tool | active | v2.0.0 (2026-08-05) | v2.0.0 | 2026-08-05 | [repo](https://github.com/KaiDrange/OctaChainer2) · [homepage](https://ticticelectro.com/2017/08/26/octachainer-v1-3/) |
 | **ot-tools-io** (jhw) | library | active | - | - | 2026-08-03 | [repo](https://github.com/jhw/ot-tools-io) · [python lib](https://github.com/jhw/octapy) |
-| **TurboMIDI (C++)** (DatanoiseTV) | library | active | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
+| **TurboMIDI (C++)** (DatanoiseTV) | library | unknown | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 | **OctaLib** (snugsound) | tool | inactive | - | 0.1.1.0 | 2025-02-28 | [repo](https://github.com/snugsound/OctaLib) |
 | **ems-octakit** (June Kiff (emuyia)) | mod | active | 1.40C | - | - | [repo](https://github.com/emuyia/ems-octakit) · [earlier listed copy](https://github.com/LyingDalai/ems-octakit) |
 | **OCTAMAX** (Maxolydian (mxldyn)) | mod | active | 2.0 BETA; 1.40C | dual256-v1 | - | [repo](https://github.com/mxldyn/octamax) |
@@ -185,7 +185,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 ### TurboMIDI (C++)
 
-Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed).
+Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). On 2026-11-04 the repo no longer answered anonymously (git asked for credentials, so private or removed); not chased.
 
 _Sources: GitHub search 2026-11-02, README_
 

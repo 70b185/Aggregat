@@ -238,6 +238,7 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | rytm-mk1-mods | hugz202/AE-analog-rytm-mods (docs/HAZARDS.md, docs/MANUAL.md 0011 CPU probe, re/fx-engine.md, re/hidden-machines.md, mods/0010-fx-sends/design.md), Rytm MK1 OS 1.73/1.74 | https://github.com/hugz202/AE-analog-rytm-mods/blob/main/docs/HAZARDS.md |
 | octabam-traps | sambanks/octabam `docs/contributing/TRAPS.md` (trap register) and `FAILURE_MODES.md` headings | https://github.com/sambanks/octabam/blob/main/docs/contributing/TRAPS.md |
 | modwerk-ot-traps | repeat98/modwerk `docs/OCTATRACK_HARDWARE_TRAPS.md` (USB/EP0, RAM boot, NOR over USB, load, cold starts) | https://github.com/repeat98/modwerk/blob/main/docs/OCTATRACK_HARDWARE_TRAPS.md |
+| modwerk-st-probe | repeat98/modwerk `docs/verification/2026-11-04-syntakt-boot-probe-on-unit.md` (Syntakt OS 1.42 boot probe and DIN recovery on a contributor's unit) | https://github.com/repeat98/modwerk/blob/main/docs/verification/2026-11-04-syntakt-boot-probe-on-unit.md |
 | gearmulator-md-mm | joelanders/gearmulator-md-mm `source/elektron/md/mdLib` (mdmemorymap.h, mdtypes.h, mdhardware.cpp comments) | https://github.com/joelanders/gearmulator-md-mm |
 | dn2-cfw-t65 | Digiwerk note T6.5, the parameter table grown to 0x180 rows (GT00/GT01, emulator and unit) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T6.5-table-growth.md |
 | dn2-cfw-pb01 | Digiwerk note PB01, DSP memory candidates before the probe build | https://github.com/naturarum/dn2-cfw/blob/main/notes/PB01-findings.md |

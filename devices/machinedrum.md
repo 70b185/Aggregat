@@ -30,7 +30,7 @@ Data last verified: 2026-11-02
 | **Gearmulator MD/MM** (Joe Landers) | emulator | active | mdmm-v0.1.0-alpha.14 (2026-09-21); Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-09-21 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
 | **Say A! (MCL chromatic A tool)** (BartBral) | tool | active | main @ c241980 (2026-05-21) per altstrument | - | 2026-05-21 | [repo](https://github.com/BartBral/MCL-Chromatic-A-tool) · [web app](https://bartbral.github.io/MCL-Chromatic-A-tool/md-transfer.html) |
 | **MDDT (Machinedrum Data Tool)** (waftlord) | editor | active | V2.0 | v1.0.0 | 2026-01-04 | [repo](https://github.com/waftlord/mddt) · [web](https://wftlrd.uk/mddt/) |
-| **TurboMIDI (C++)** (DatanoiseTV) | library | active | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
+| **TurboMIDI (C++)** (DatanoiseTV) | library | unknown | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 | **MachineDrandom** (Kerem Ergener (per altstrument)) | tool | unknown | - | - | - | [web app](https://machinedrandom.keremergener.com/) |
 | **SM (Machinedrum sample manager)** (Fyris) | tool | unknown | - | - | - | [web app](https://sm.fyris.me/) |
 
@@ -174,7 +174,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 ### TurboMIDI (C++)
 
-Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed).
+Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). On 2026-11-04 the repo no longer answered anonymously (git asked for credentials, so private or removed); not chased.
 
 _Sources: GitHub search 2026-11-02, README_
 

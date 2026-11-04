@@ -17,6 +17,7 @@ Entries in the catalogue that belong together: forks, copies, ports to another d
 
 Devices: Model:Cycles, Model:Samples. [repo](https://github.com/18nelli18/Modded-Cycles)
 
+- **BIAS (six-oscillator percussion machine)** (100demons) - builds on **model27** (altstrument: a machine package for model27; its scripts clone model27 at a pinned commit). [repo](https://github.com/100demons/bias)
 - **Chord Keys** (Nico Heuser) - fork of **Modded Cycles** (GitHub fork flag). [repo](https://github.com/byNicoHeuser/Modded-Cycles)
 - **Cycles Engines** (100demons) - builds on **Modded Cycles** (README credits); builds on **model27** (README credits). [repo](https://github.com/100demons/cycles-engines)
 - **Cycles Mod Standard** (durchgemacht) - describes **model27** (README: implemented in model27). [repo](https://github.com/durchgemacht/cycles-mod-standard)

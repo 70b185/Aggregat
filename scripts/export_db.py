@@ -196,7 +196,16 @@ for line in (ROOT / "hardware/CONFLICTS.md").read_text(encoding="utf-8").split("
 
 # ---------------------------------------------------------------- projects, relations
 prow, rrow = [], []
+META_FILE = ROOT / "state" / "repo_meta.json"   # scripts/repo_meta.py: public GitHub numbers per repo
+REPO_META = json.loads(META_FILE.read_text()) if META_FILE.exists() else {}
+GH_REPO = re.compile(r"^https?://github\.com/([^/\s]+)/([^/\s#?]+)", re.I)
+def gh_meta(url):
+    m = GH_REPO.match(url or "")
+    if not m:
+        return None, {}
+    return m.group(1).lower(), REPO_META.get(f"{m.group(1)}/{m.group(2).removesuffix('.git')}".lower(), {})
 for p in plist:
+    owner, gm = gh_meta(p.get("repo"))
     prow.append({
         "id": p["id"], "name": p["name"], "author": p.get("author"), "kind": p["kind"],
         "list": p.get("list") or KIND_LIST.get(p["kind"]), "devices": ",".join(p.get("devices") or []),
@@ -204,6 +213,9 @@ for p in plist:
         "version": p.get("version"), "last_activity": str(p.get("last_activity") or ""),
         "notes": clean(str(p.get("notes") or "")), "links": json.dumps(p.get("links") or {}),
         "sources": json.dumps(p.get("sources") or []),
+        "owner": owner, "created": gm.get("created"), "pushed": gm.get("pushed"), "stars": gm.get("stars"),
+        "forks": gm.get("forks"), "language": gm.get("language"), "gh_fork": gm.get("fork"),
+        "gh_license": None if gm.get("license") in (None, "NOASSERTION") else gm.get("license"),
     })
     for r in p.get("relations") or []:
         rrow.append({"project": p["id"], "type": r["type"], "target": r["id"], "evidence": r.get("evidence", "")})
@@ -281,7 +293,8 @@ SCHEMA = {
     "meta": "key TEXT PRIMARY KEY, value TEXT",
     "devices": "slug TEXT PRIMARY KEY, name TEXT, family TEXT, phase INTEGER",
     "projects": "id TEXT PRIMARY KEY, name TEXT, author TEXT, kind TEXT, list TEXT, devices TEXT, repo TEXT, "
-                "license TEXT, status TEXT, base_os TEXT, version TEXT, last_activity TEXT, notes TEXT, links TEXT, sources TEXT",
+                "license TEXT, status TEXT, base_os TEXT, version TEXT, last_activity TEXT, notes TEXT, links TEXT, sources TEXT, "
+                "owner TEXT, created TEXT, pushed TEXT, stars INTEGER, forks INTEGER, language TEXT, gh_fork INTEGER, gh_license TEXT",
     "relations": "project TEXT, type TEXT, target TEXT, evidence TEXT",
     "rules": "id TEXT PRIMARY KEY, section TEXT, title TEXT, text TEXT, evidence TEXT, sources TEXT, devices TEXT",
     "sources": "key TEXT PRIMARY KEY, what TEXT, url TEXT",

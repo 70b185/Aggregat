@@ -1881,8 +1881,8 @@ projects:
     license: "MIT"
     status: active
     base_os: '1.13'
-    version: "release 0.32 (beta, 2026-11-02): eleven cards in the web flasher; fltslot 0.10"
-    last_activity: "2026-11-03"
+    version: "release 0.41 (2026-11-04 per README): thirteen cards in the web flasher (EQ 0.6, Reso 0.4 with block and coefficients in EMAC assembly); POTS 0.2 flashed from the page and tested on a Model:Cycles 2026-11-04"
+    last_activity: "2026-11-04"
     notes: "Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: a web Manager keeps one Model:Cycles project per firmware: it backs up the current project, flashes the other firmware over USB and restores that firmware's project (notes/77)."
     sources:
     - altstrument (2026-11-01)
@@ -3660,9 +3660,10 @@ projects:
     - analog-rytm
     - analog-four-keys
     repo: https://github.com/DatanoiseTV/TurboMidi
-    status: active
+    status: unknown
     last_activity: '2025-06-07'
-    notes: Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed).
+    notes: Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). On
+      2026-11-04 the repo no longer answered anonymously (git asked for credentials, so private or removed); not chased.
     sources:
     - GitHub search 2026-11-02
     - README
@@ -3917,3 +3918,27 @@ projects:
       program change, and recording a sequence into the unit one track at a time by playing it in over MIDI clock (no
       pattern SysEx). Licence not stated. Repo clone failed (transfer error); details from altstrument.
     sources: [altstrument (2026-11-03)]
+
+  - id: bias
+    name: BIAS (six-oscillator percussion machine)
+    author: 100demons
+    kind: mod
+    devices: [model-cycles]
+    repo: https://github.com/100demons/bias
+    links:
+      web_patcher: https://100demons.github.io/cycles-engines/flasher/
+    status: active
+    base_os: "Model:Cycles OS 1.13"
+    license: MIT
+    last_activity: '2026-11-03'
+    notes: >
+      Source package for a percussion machine with six oscillators, each with its own envelope, summed, wavefolded and
+      given a second envelope, on a clock locked to the note; written clean-room after Noise Engineering's published
+      description of the Basimilus Iteritas Alia (no NE code or tables per its notices). Fixed-point C for the ColdFire,
+      a table generator, a host build and an emulator test on the OS's own voice loop. A machine package for model27, with
+      a fixed-slot tweak for Modded Cycles 2.0; also on the Cycles Engines flasher. Played on a Model:Cycles 2026-11-03 in
+      slot 11 (README): heavy on the processor, and it does not combine with five model27 Track FX packages (15 overlap
+      problems). Commits a compiled object (bias.o). Found via altstrument 2026-11-04.
+    sources: [altstrument (2026-11-04)]
+    relations:
+    - {type: builds_on, id: model27, evidence: 'altstrument: a machine package for model27; its scripts clone model27 at a pinned commit'}

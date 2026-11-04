@@ -23,6 +23,17 @@ Results are merged by hand only, by the repo maintainer, during manual updates.
 
 None yet.
 
+## Contributions by pull request
+
+Pull requests are welcome too: correct a fact about your own project, add evidence, fix the tooling. A maintainer
+reviews and merges them by hand, as with results.
+
+| Date | From | What | PR |
+|---|---|---|---|
+| 2026-11-04 | armio (dn2-dt2-firmware-research) | R012 listing; SHARC cache ranges and diagnostic-word losses corrected against digikit findings 101 and 103 (H12) | [#1](https://github.com/70b185/Aggregat/pull/1) |
+| 2026-11-04 | angellinares (dn2_firmware_explore) | four facts about dn2_firmware_explore corrected from its own records; O17 settled as S17; unit evidence for O19 | [#2](https://github.com/70b185/Aggregat/pull/2) |
+| 2026-11-04 | angellinares | relation graph in the README (`scripts/relation_graph.py`) and the `license` field | [#3](https://github.com/70b185/Aggregat/pull/3) |
+
 <!-- Section template for a participant:
 ## <project> (<repo link>)
 Joined: <date>; snapshot they copied: `<hash>`; devices: <...>; can do: <stock / probe / build>.

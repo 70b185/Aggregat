@@ -23,6 +23,8 @@ Replaces SY TONE in place on the digital tracks: ALGO 0 is SY TONE itself (sampl
 
 ## Recovery (SyntHack OS `RECOVERY.md`)
 Normal case: Drop page in Transfer. If the OS does not boot: DIN MIDI, FUNC at power-on, TRIG 4, SYSEX TRANSFER "OS Upgrade via device startup menu", tens of minutes at 31.25 kbit/s; **avoid TRIG 2 and TRIG 3 (erase data)**; do a dry run with stock first; only flash files whose `eft.py info` shows `checksums : ok`. No hardware results reported on that page. `[doc]` {synthack-recovery}
+- **Tested on a unit (Modwerk, 2026-11-04, OS 1.42):** the startup-menu recovery works over MIDI DIN through a generic USB-to-MIDI cable: FUNC at power-on, TRIG 4 (OS UPGRADE), stock 1.42 sent from Transfer's legacy SysEx page; the unit booted and showed 1.42. This run recovered a working unit; recovery of a unit that does not boot is still untested. USB does not work for this path. `[hw]` {modwerk-st-probe}
+- **A modified 1.42 image boots and runs (same run):** Modwerk's boot probe (version shown `MW01`, flashed over USB with Transfer) booted to the live UI, played a stock project, came back after two power cycles, held every sample slot filled with no hang or exception screen, and played ten minutes cleanly; flashing stock 1.42 over USB restored the unit. Not tested: OS 1.40, the probe under Outbox 8, an SRAM-tail signature. `[hw]` {modwerk-st-probe}
 
 ## Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README {machine45} and handoff dated 2026-10-28; no hardware run, no firmware)
 - Address rule `VA = file offset + 0x40000400`; ColdFire big-endian (ISA-C/EMAC). MAIN is 3,438,480 bytes, section 7 is 383,760 bytes. `[doc]` {machine45-handoff}

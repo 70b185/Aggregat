@@ -15,7 +15,7 @@ The output is deterministic: an unchanged repo gives byte-identical files.
 |---|---|---|
 | `meta` | - | `checked` (date of the last update check), `counts`, `research_snapshot` (id of the current research state, as in research/AGGREGAT_RESEARCH.md) |
 | `devices` | `data/devices.yml` | slug, name, family, phase |
-| `projects` | `data/projects.yml` | id, name, author, kind, list, devices, repo, status, base_os, version, last_activity, notes, links, sources |
+| `projects` | `data/projects.yml` | id, name, author, kind, list, devices, repo, license, status, base_os, version, last_activity, notes, links, sources |
 | `relations` | `relations:` in projects.yml | project, type, target, evidence |
 | `rules` | `hardware/AGENT-RULES.md` | id (A1, B7...), section, title, text, evidence, sources, devices |
 | `sources` | `hardware/SOURCES.md` | key, what, url |

@@ -15,6 +15,11 @@
 #   last_activity  YYYY-MM-DD of the latest forum post / release we saw (not a commit date)
 #   notes          short free text
 #   sources        where the information came from
+#   license        optional: the licence the project states, as we read it (e.g. MIT, GPL-2.0-or-later,
+#                  "not stated" when the repo shows none); leave it out when we have not read it
+#   relations      optional: links to other entries, each {type, id, evidence}; type is fork_of | copy_of |
+#                  port_of | variant_of | builds_on | same_project | bundles | describes | unclear; evidence
+#                  names what proves it (GitHub's fork flag, or a file of the project)
 #
 # All entries last verified on 2026-10-31 (see `checked`). Status values are
 # taken from the authors' own wording where available.
@@ -29,6 +34,7 @@ projects:
     kind: loader
     devices: [digitakt, digitone, digitakt-2]
     repo: https://github.com/elekloader/elekloader
+    license: "GPL-2.0-or-later"
     links:
       web_app: https://irpina.github.io/elekloader/
       releases: https://github.com/irpina/elekloader/releases
@@ -189,6 +195,7 @@ projects:
     kind: mod
     devices: [digitakt-2]
     repo: https://github.com/karigardarsson/digitakt-ii-research
+    license: "MIT"
     links:
       releases: https://github.com/karigardarsson/digitakt-ii-research/releases
       release_latest: https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.2.0-beta
@@ -484,6 +491,7 @@ projects:
     kind: mod
     devices: [digitakt]
     repo: https://github.com/DigiAlchemydsp/DigiFilter
+    license: "GPL-2.0-or-later"
     status: wip
     base_os: "Digitakt mk1 OS 1.53 (Digitakt II explicitly out of scope)"
     version: "v1.3 (2026-10-24)"
@@ -502,6 +510,7 @@ projects:
     kind: mod
     devices: [digitakt, digitone]
     repo: https://github.com/DigiAlchemydsp/FILTER-PLUS
+    license: "GPL-2.0-or-later"
     status: released
     base_os: "Digitakt mk1 OS 1.54; Digitone mk1 / Keys OS 1.44"
     version: "1.0 (2026-11-02)"
@@ -591,6 +600,7 @@ projects:
     kind: mod
     devices: [digitakt]
     repo: https://github.com/mtalikka/DT-FM
+    license: "MIT, part GPL-2.0-or-later"
     status: released
     base_os: "Digitakt mk1 OS 1.53"
     version: "v1.2.1 (2026-10-09)"
@@ -689,6 +699,7 @@ projects:
     list: musician
     devices: [digitakt-2, model-cycles, analog-heat]
     repo: https://github.com/BlueSGL/Elek_View
+    license: "GPL-3.0"
     links:
       web_app: https://bluesgl.github.io/Elek_View/
       forum: https://elektronmods.com/thread-93-elek-view-see-your-devices-screens-in-a-browser-via-webmidi
@@ -710,6 +721,7 @@ projects:
     list: musician
     devices: [digitakt]
     repo: https://github.com/jakobbak/screendump
+    license: "MIT"
     status: unlabeled
     base_os: "no firmware change needed; Digitakt only (--instrument dt)"
     version: null
@@ -746,6 +758,7 @@ projects:
     kind: mod
     devices: [digitone]
     repo: https://github.com/DigiAlchemydsp/Tone-FX
+    license: "GPL-2.0"
     status: wip
     base_os: "Digitone mk1 + Keys OS 1.43"
     version: "v3.2b (2026-10-12)"
@@ -802,6 +815,7 @@ projects:
     kind: emulator
     devices: [digitakt-2, digitone-2]
     repo: https://github.com/ElekLabs/digikit
+    license: "AGPL-3.0-or-later with extra terms"
     links:
       earlier_repo: https://github.com/m-dwyer/digikit
     status: wip
@@ -893,6 +907,7 @@ projects:
     kind: research
     devices: [digitakt-2]
     repo: https://github.com/lalzart/dt2-machine-lab
+    license: "not stated"
     status: wip
     base_os: "Digitakt II OS 1.16 (profiles/dt2-1.16); validated host fixture macOS arm64"
     version: null
@@ -929,6 +944,7 @@ projects:
     kind: research
     devices: [digitone-2, digitone]
     repo: https://github.com/angellinares/dn2_firmware_explore
+    license: "AGPL-3.0-or-later"
     status: active
     base_os: "Digitone II (example: OS 1.10E); README also covers Digitone / Keys"
     version: null
@@ -1065,6 +1081,7 @@ projects:
     kind: mod
     devices: [digitone-2]
     repo: https://github.com/De-Pattern/dn2mk2-firmware
+    license: "AGPL-3.0-or-later"
     links:
       patcher_web: https://de-pattern.github.io/dn2mk2/patcher.html
       import_tool_web: https://de-pattern.github.io/dn2mk2/
@@ -1160,6 +1177,7 @@ projects:
     kind: loader
     devices: [digitakt-2, digitone-2, digitakt, digitone]
     repo: https://github.com/simonjohansson/elekloader
+    license: "GPL-2.0-or-later"
     links:
       plan_digitone_ii: https://github.com/simonjohansson/elekloader/issues/13
       devices_doc: https://github.com/simonjohansson/elekloader/blob/main/docs/DEVICES.md
@@ -1245,6 +1263,7 @@ projects:
     list: musician
     devices: [digitakt, digitakt-2]
     repo: https://github.com/mzero/elk-herd
+    license: "BSD-2-Clause (per other projects)"
     links:
       web_app: https://electric.kitchen/crunch/elk-herd/
     status: active
@@ -1269,6 +1288,7 @@ projects:
     kind: mod
     devices: [syntakt]
     repo: https://github.com/Angelo-politek/Synthack-OS
+    license: "MIT"
     status: beta
     base_os: "Syntakt OS 1.41"
     version: "v0.9.0 (2026-10-19) per altstrument; README text said v0.8.0"
@@ -1448,6 +1468,7 @@ projects:
     devices:
     - analog-rytm
     repo: https://github.com/bsp2/libanalogrytm
+    license: "MIT"
     status: dormant
     version: master @ a0a19f6 (2023-12-21)
     last_activity: '2023-12-21'
@@ -1495,6 +1516,7 @@ projects:
     devices:
     - analog-rytm
     repo: https://github.com/Iced-Cream/rytm-mods-src
+    license: "GPL-2.0-only"
     links:
       alias: https://github.com/connorway32/rytm-mods-src
     status: active
@@ -1514,6 +1536,7 @@ projects:
     devices:
     - analog-rytm
     repo: https://github.com/gdeo607/rytm1_mods
+    license: "not stated"
     status: active
     base_os: '1.73'
     notes: 'Port of the rytm-mods to Rytm MK1 OS 1.73 (per-track cuts, random LFO, euclid accents, humanise); also
@@ -1567,6 +1590,7 @@ projects:
     - machinedrum
     - monomachine
     repo: https://github.com/joelanders/gearmulator-md-mm
+    license: "GPL-3.0-only"
     status: active
     base_os: Machinedrum and Monomachine OS files (supplied by you)
     version: mdmm-v0.1.0-alpha.14 (2026-09-21)
@@ -1638,6 +1662,7 @@ projects:
     devices:
     - machinedrum
     repo: https://github.com/jmamma/MDS
+    license: "not stated"
     status: active
     base_os: MDX 2.0 (X.20 or later)
     version: main @ c446179 (2026-10-09)
@@ -1671,6 +1696,7 @@ projects:
     devices:
     - machinedrum
     repo: https://github.com/jmamma/mds-tools
+    license: "GPL"
     status: active
     base_os: MDX 2.0 USR machines (Machinedrum MKI and MKII)
     version: main @ 983600a (2026-11-03)
@@ -1740,6 +1766,7 @@ projects:
     devices:
     - model-cycles
     repo: https://github.com/byNicoHeuser/Modded-Cycles
+    license: "not stated"
     status: active
     base_os: '1.13'
     version: Second version (harmony pads, MIDI chords) (2026-10-07)
@@ -1807,6 +1834,7 @@ projects:
     - model-cycles
     - model-samples
     repo: https://github.com/18nelli18/Modded-Cycles
+    license: "MIT"
     status: active
     base_os: '1.13'
     version: Release 2.0 (2026-10-19)
@@ -1841,6 +1869,7 @@ projects:
     devices:
     - model-cycles
     repo: https://github.com/durchgemacht/model27
+    license: "MIT"
     status: active
     base_os: '1.13'
     version: "release 0.32 (beta, 2026-11-02): eleven cards in the web flasher; fltslot 0.10"
@@ -1874,6 +1903,7 @@ projects:
     devices:
     - model-cycles
     repo: https://github.com/AveyCole/SPOKES
+    license: "MIT"
     status: active
     base_os: '1.13'
     version: main @ 1604cbf (2026-10-31)
@@ -1895,6 +1925,7 @@ projects:
     devices:
     - model-cycles
     repo: https://github.com/AveyCole/Supermodel
+    license: "not stated"
     status: active
     base_os: '1.13'
     version: "3.02 (docs dated 2026-11-03; Optional edition 3.02 experimental)"
@@ -1979,6 +2010,7 @@ projects:
     devices:
     - monomachine
     repo: https://github.com/shnolk/monomodule
+    license: "AGPL-3.0-only"
     status: active
     base_os: Monomachine OS 1.32B (supplied by you)
     version: 1.0.0 (2026-09-24)
@@ -2010,6 +2042,7 @@ projects:
     devices:
     - octatrack
     repo: https://github.com/bkkbrls-del/midisc-patcher
+    license: "not stated"
     status: active
     base_os: 1.40C
     version: main @ 1ce2245 (2026-09-18)
@@ -2027,6 +2060,7 @@ projects:
     devices:
     - octatrack
     repo: https://github.com/bkkbrls-del/midisc
+    license: "MIT"
     status: active
     base_os: 1.40C
     version: MIDISC2.1 (2026-10-08)
@@ -2042,6 +2076,7 @@ projects:
     devices:
     - octatrack
     repo: https://github.com/timhastie/octa-panel
+    license: "MIT"
     status: active
     base_os: 1.40C
     version: octatrick-2.9 (2026-09-29)
@@ -2059,6 +2094,7 @@ projects:
     devices:
     - octatrack
     repo: https://github.com/sambanks/octabam
+    license: "MIT"
     status: active
     base_os: 1.40C
     version: 'v0.3 (tags v0.2/v0.3, 2026-11-02): v0.2 adds VARISPEED and drops FX2 LOCK; v0.3 names the LOAD/SAVE KIT lists. Unreleased: USB IN/OUT moved to on-chip SRAM (USB share of the frame interrupt ~34 -> 24 us on an MKII)'
@@ -2184,6 +2220,7 @@ projects:
     devices:
     - octatrack
     repo: https://github.com/theremoteviewer/octa-passos
+    license: "MIT"
     status: active
     base_os: 1.40C
     version: v1.0 (2026-09-28)
@@ -2221,6 +2258,7 @@ projects:
     devices:
     - syntakt
     repo: "https://github.com/GSM1980/synfact-dev"
+    license: "GPL-2.0 (old release repo MIT)"
     status: "active"
     version: "main @ 1a6d0c7 (2026-11-03), untagged"
     base_os: "Syntakt OS 1.41"
@@ -2426,6 +2464,7 @@ projects:
     devices:
     - digitakt
     repo: https://github.com/ClaidArremer/digitakt-digiseq
+    license: "GPL"
     status: wip
     base_os: Digitakt mk1
     last_activity: '2026-10-31'
@@ -2441,6 +2480,7 @@ projects:
     devices:
     - digitone
     repo: https://github.com/ClaidArremer/digitone-digiseq
+    license: "GPL"
     status: wip
     version: "0.2 (2026-10-26), Digitone mk1/Keys OS 1.43/1.44; CHANGELOG.md added 2026-11-02"
     base_os: Digitone mk1 / Keys
@@ -2459,6 +2499,7 @@ projects:
     devices:
     - digitakt
     repo: https://github.com/ClaidArremer/digitakt-pump
+    license: "GPL"
     status: wip
     base_os: Digitakt mk1
     last_activity: '2026-10-24'
@@ -2474,6 +2515,7 @@ projects:
     devices:
     - digitone
     repo: https://github.com/ClaidArremer/digitone-pump
+    license: "GPL"
     status: wip
     version: "2.12 (2026-11-02): FUNC + YES is the stock TEMP SAVE again; 2.11 reversed REL to match the stock compressor"
     base_os: Digitone mk1 / Keys
@@ -2492,6 +2534,7 @@ projects:
     devices:
     - digitakt
     repo: https://github.com/ClaidArremer/digitakt-directjump
+    license: "GPL"
     status: wip
     base_os: Digitakt mk1 OS 1.54
     last_activity: '2026-10-24'
@@ -2507,6 +2550,7 @@ projects:
     devices:
     - digitone
     repo: https://github.com/ClaidArremer/digitone-directjump
+    license: "GPL"
     status: wip
     base_os: Digitone mk1 OS 1.44
     last_activity: '2026-10-24'
@@ -2524,6 +2568,7 @@ projects:
     devices:
     - digitakt
     repo: https://github.com/ClaidArremer/digitakt-digisnake
+    license: "GPL"
     status: wip
     base_os: Digitakt mk1
     last_activity: '2026-10-27'
@@ -2539,6 +2584,7 @@ projects:
     devices:
     - digitone
     repo: https://github.com/ClaidArremer/digitone-digisnake
+    license: "GPL"
     status: wip
     base_os: Digitone mk1 / Keys
     last_activity: '2026-10-25'
@@ -2555,6 +2601,7 @@ projects:
     devices:
     - digitakt
     repo: https://github.com/trigcondition/sidecar-digitakt
+    license: "GPL"
     status: wip
     base_os: Digitakt mk1
     last_activity: '2026-10-31'
@@ -2572,6 +2619,7 @@ projects:
     devices:
     - digitakt
     repo: https://github.com/soejrd/digitakt-sidecar
+    license: "not stated"
     status: wip
     base_os: Digitakt mk1 OS 1.54
     last_activity: '2026-10-30'
@@ -2613,6 +2661,7 @@ projects:
     - digitone-2
     - syntakt
     repo: https://github.com/Fadedlimes/elektron-screen-tool
+    license: "MIT"
     status: active
     last_activity: '2026-10-30'
     notes: The instrument's screen live in a terminal or window at 30 fps for OBS capture; fork of jakobbak/screendump.
@@ -2645,6 +2694,7 @@ projects:
     devices:
     - digitakt-2
     repo: https://github.com/heavylight-industries/keyframer-lab
+    license: "AGPL"
     status: active
     last_activity: '2026-10-27'
     notes: The Digitakt II keyframer time stretcher and its TKEO transient detector compiled from the unit's C to
@@ -2971,6 +3021,7 @@ projects:
     devices:
     - analog-rytm
     repo: https://github.com/Iced-Cream/rytm2_mods
+    license: "GPL"
     status: wip
     base_os: Rytm MKII 1.73, 1.74
     last_activity: '2026-10-24'
@@ -3019,6 +3070,7 @@ projects:
     devices:
     - machinedrum
     repo: https://github.com/c0remusic/MModule
+    license: "GPL"
     status: active
     last_activity: '2026-10-29'
     notes: The Machinedrum's synthesis engines as a VST3 instrument edited like Overbridge. GPL. Found by GitHub search
@@ -3124,6 +3176,7 @@ projects:
     devices:
     - model-cycles
     repo: https://github.com/durchgemacht/cycles-mod-standard
+    license: "MIT"
     status: wip
     base_os: Model:Cycles OS 1.13
     version: draft 0.7
@@ -3144,6 +3197,7 @@ projects:
     - model-cycles
     - model-samples
     repo: https://github.com/DMDaudio/model909
+    license: "MIT"
     status: wip
     base_os: Model:Cycles OS 1.13 (also Model:Samples running the Cycles OS)
     version: v1.0 (909 only, stable); main branch adds 808/606 voices (experimental)
@@ -3233,6 +3287,7 @@ projects:
     - analog-rytm
     - digitakt
     repo: https://github.com/trigcondition/sidecar-expander
+    license: "GPL-2.0"
     links:
       firmware_repo: https://github.com/trigcondition/sidecar-firmware
     status: wip
@@ -3280,6 +3335,7 @@ projects:
     devices:
     - machinedrum
     repo: https://github.com/K-X420/ModuleDrum
+    license: "AGPL-3.0"
     status: active
     last_activity: '2026-11-01'
     notes: Chip-level Machinedrum emulation as a DAW plug-in that runs the user's own OS and DSP programs, with the
@@ -3296,6 +3352,7 @@ projects:
     devices:
     - machinedrum
     repo: https://github.com/sd88me/mpc-vst-machinedrum
+    license: "AGPL-3.0"
     links:
       move_port: https://github.com/sd88me/schwung-machinemodule
       monomodule_mpc: https://github.com/sd88me/mpc-vst-monomodule
@@ -3315,6 +3372,7 @@ projects:
     devices:
     - machinedrum
     repo: https://github.com/AcidReff/MachineModule
+    license: "AGPL-3.0"
     status: active
     version: 0.4.6 (native Apple Silicon JIT)
     last_activity: '2026-10-16'
@@ -3332,6 +3390,7 @@ projects:
     devices:
     - monomachine
     repo: https://github.com/legsmechanical/schwung-monomodule
+    license: "GPL-3.0 per README (repo metadata: AGPL-3.0)"
     status: active
     last_activity: '2026-09-28'
     notes: Port of Monomodule (chip-level Monomachine engine) to Ableton Move via Schwung, as one synth track plus the
@@ -3426,6 +3485,7 @@ projects:
     devices:
     - octatrack
     repo: https://github.com/pgstath/TrackPatterns
+    license: "MIT"
     status: wip
     base_os: Octatrack OS 1.40C (octabam / Modwerk module)
     version: 0.1.0 experimental, tested on one MKII
@@ -3492,6 +3552,7 @@ projects:
     devices:
     - octatrack
     repo: https://github.com/braikomarko-hub/acidtrack-modules
+    license: "MIT"
     status: wip
     base_os: Octatrack MKI OS 1.40C via octabam
     last_activity: '2026-10-21'
@@ -3539,6 +3600,7 @@ projects:
     - machinedrum
     - monomachine
     repo: https://github.com/sid366/maschine-md-mm-combined
+    license: "GPL-3.0"
     status: active
     last_activity: '2026-09-28'
     notes: Fork of gearmulator-md-mm with Native Instruments Maschine MK3 integration. GPL-3.0.
@@ -3602,6 +3664,7 @@ projects:
     devices:
     - analog-rytm
     repo: https://github.com/alisomay/rytm-rs
+    license: "MIT"
     links:
       sys_crate: https://github.com/alisomay/rytm-sys
     status: active
@@ -3684,6 +3747,7 @@ projects:
     list: musician
     devices: [digitakt]
     repo: https://github.com/mk3stn3r/digitaktEditor
+    license: "BSD-2-Clause"
     status: active
     base_os: "Digitakt MKI; offline sample playback over USB audio needs OS 1.20 or later"
     version: "main @ 08a6c0c (2026-10-16), no releases"
@@ -3705,6 +3769,7 @@ projects:
     list: musician
     devices: [digitakt]
     repo: https://github.com/daguilarc/digitakt_reorder
+    license: "MIT"
     status: active
     version: "main @ 21b4103 (2026-08-19)"
     last_activity: '2026-08-19'

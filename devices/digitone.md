@@ -51,7 +51,7 @@ Data last verified: 2026-11-02
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
 | **DigiCosm** (pina (irpina)) | mod | pre-release | 0.1; Digitone mk1 OS 1.43 and 1.44 (core-dn1 3.2), checked in digikit's emulator | v0.2 | - | [repo](https://github.com/irpina/digicosm) |
 | **DigiChroma** (pina (irpina)) | mod | pre-release | 0.1; Digitone mk1 OS 1.43 and 1.44 (core-dn1 3.2; source option DIGITONE needs unreleased core-dn1 3.3) | v0.2 | - | [repo](https://github.com/irpina/digichroma) |
-| **dn2_firmware_explore** (angellinares) | research | active | Digitone II (example: OS 1.10E); README also covers Digitone / Keys | pre-rebase/waverider-warp-fm | - | [repo](https://github.com/angellinares/dn2_firmware_explore) |
+| **dn2_firmware_explore** (angellinares) | research | active | Digitone II OS 1.11 (mods); README also covers Digitone / Keys | pre-rebase/waverider-warp-fm | - | [repo](https://github.com/angellinares/dn2_firmware_explore) |
 | **Elektroid** (dagargo) | tool | active | 3.4 (2026-08-22) | 3.4 | - | [repo](https://github.com/dagargo/elektroid) |
 | **Overwitch** (dagargo) | tool | active | 2.2 (2025-12-21) | 2.2 | - | [repo](https://github.com/dagargo/overwitch) |
 | **elekloader (simonjohansson fork - Digitakt II / Digitone II support)** (simonjohansson) | loader | wip | Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept) | v0.4.0 | - | [repo](https://github.com/simonjohansson/elekloader) · [plan digitone ii](https://github.com/simonjohansson/elekloader/issues/13) · [devices doc](https://github.com/simonjohansson/elekloader/blob/main/docs/DEVICES.md) |
@@ -161,7 +161,7 @@ Master effect suite (ring mod, EQ, lo-fi, wavefolder, meter). "Work in progress,
 
 _Latest seen (2026-10-31, secondary directories): altstrument: v3.2b separates WAVE pitch and stereo depths and splits fold from crush; v3.2a adds the PERFORM page._
 
-_Related: same project `ringtone` (release repo; source lives in RingTone) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: unclear `ringtone` (Tone+FX README calls RingTone "the older RingTone repo" (same author); successor or same project not stated. Was same_project until 2026-11-04 (raised in PR #3)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list_
 
@@ -183,7 +183,7 @@ _Sources: GitHub README, lapin-list_
 
 ### dn2_firmware_explore
 
-Tools to inspect, modify and rebuild Digitone firmware. README status table: recovery path proven on hardware, a patch confirmed on the instrument; open: own images stall at ~80% in the recovery path ("fix built, awaiting a test"), fourth LFO planned. AGPL-3.0-or-later, 269 commits.
+Tools to inspect, modify and rebuild Digitone firmware (dnfw, CLI and browser), plus 17 mods for Digitone II 1.11 (Waverider wavetable machine, LFO4, arp modes, LFO waves, FX destinations and others), each with a version and a changelog. The ~80% recovery-path stall once listed as open was the MIDI link, not the image (settled 2026-09-11). AGPL-3.0-or-later.
 
 _Latest seen (2026-10-31, secondary directories): altstrument: OS 1.11 target; includes the dnfw inspect/modify/rebuild tool, which also runs in the browser. Hardware-confirmed mods: lfo4, arpmodes, lfowaves, midiarp, layermidi, fxmod and the lfolength fix (2026-10-09, audio track). No GitHub releases - tags are work snapshots._
 

@@ -200,7 +200,7 @@ for p in plist:
     prow.append({
         "id": p["id"], "name": p["name"], "author": p.get("author"), "kind": p["kind"],
         "list": p.get("list") or KIND_LIST.get(p["kind"]), "devices": ",".join(p.get("devices") or []),
-        "repo": p.get("repo"), "status": p.get("status"), "base_os": p.get("base_os"),
+        "repo": p.get("repo"), "license": p.get("license"), "status": p.get("status"), "base_os": p.get("base_os"),
         "version": p.get("version"), "last_activity": str(p.get("last_activity") or ""),
         "notes": clean(str(p.get("notes") or "")), "links": json.dumps(p.get("links") or {}),
         "sources": json.dumps(p.get("sources") or []),
@@ -281,7 +281,7 @@ SCHEMA = {
     "meta": "key TEXT PRIMARY KEY, value TEXT",
     "devices": "slug TEXT PRIMARY KEY, name TEXT, family TEXT, phase INTEGER",
     "projects": "id TEXT PRIMARY KEY, name TEXT, author TEXT, kind TEXT, list TEXT, devices TEXT, repo TEXT, "
-                "status TEXT, base_os TEXT, version TEXT, last_activity TEXT, notes TEXT, links TEXT, sources TEXT",
+                "license TEXT, status TEXT, base_os TEXT, version TEXT, last_activity TEXT, notes TEXT, links TEXT, sources TEXT",
     "relations": "project TEXT, type TEXT, target TEXT, evidence TEXT",
     "rules": "id TEXT PRIMARY KEY, section TEXT, title TEXT, text TEXT, evidence TEXT, sources TEXT, devices TEXT",
     "sources": "key TEXT PRIMARY KEY, what TEXT, url TEXT",

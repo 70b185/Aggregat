@@ -169,7 +169,7 @@ Devices: Digitakt (MKI). [repo](https://github.com/ClaidArremer/digitakt-pump)
 
 Devices: Digitone (MKI) / Digitone Keys. [repo](https://github.com/DigiAlchemydsp/RingTone)
 
-- **Tone+FX** (DigiAlchemydsp) - same project as **RingTone (master ring mod / wavefold / EQ)** (release repo; source lives in RingTone). [repo](https://github.com/DigiAlchemydsp/Tone-FX)
+- **Tone+FX** (DigiAlchemydsp) - same name as (relation unclear) **RingTone (master ring mod / wavefold / EQ)** (Tone+FX README calls RingTone "the older RingTone repo" (same author); successor or same project not stated. Was same_project until 2026-11-04 (raised in PR #3)). [repo](https://github.com/DigiAlchemydsp/Tone-FX)
 
 ## SyntHack OS (upstream) (Angelo-politek)
 

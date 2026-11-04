@@ -246,3 +246,12 @@ for _, members in sorted(groups.items(), key=lambda kv: (-len(kv[1]), byid[pick_
         fam.append(f"- **{p['name']}** ({p.get('author', '?')}) - {rels}. {link('repo', p['repo']) if p.get('repo') else ''}")
 (ROOT / "PROJECT-FAMILIES.md").write_text("\n".join(fam) + "\n", encoding="utf-8")
 print("families:", sum(1 for g in groups.values() if len(g) > 1))
+
+
+# ---------------------------------------------------------------- relation graph in README.md
+from relation_graph import readme_with_graph
+
+readme_file = ROOT / "README.md"
+readme, n_nodes, n_edges = readme_with_graph(readme_file.read_text(encoding="utf-8"), projects, devices)
+readme_file.write_text(readme, encoding="utf-8")
+print("relation graph:", n_nodes, "entries,", n_edges, "relations")

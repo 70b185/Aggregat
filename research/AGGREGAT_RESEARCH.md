@@ -22,7 +22,7 @@ results by hand, with credit to this project. Taking part is voluntary and can s
 
 | | |
 |---|---|
-| Aggregat state | research map reviewed 2026-11-03, snapshot `14a4c6e72e8c` |
+| Aggregat state | research map reviewed 2026-11-03, snapshot `bf9db7855397` |
 | Copied on | <date you copied it> |
 
 ## What we work on
@@ -49,7 +49,7 @@ emulator, `doc` = read in code or documents.
 
 ---
 
-# Copied state: Aggregat research, snapshot `14a4c6e72e8c` (research map reviewed 2026-11-03)
+# Copied state: Aggregat research, snapshot `bf9db7855397` (research map reviewed 2026-11-03)
 
 ## Goals (copied from Aggregat)
 
@@ -62,7 +62,7 @@ emulator, `doc` = read in code or documents.
 | G5 | **Mods that survive OS updates** | Every mod pins one OS version; address translation between versions is done ad hoc. Good news for DSP work: the SHARC sections are **byte-identical** between DT2 1.16 and 1.17 and between DN2 1.11 and 1.12 (digikit finding 53), so only the ColdFire side moves. | T6, T8 |
 | G6 | **Official numbers instead of guesses** (MIDI CC/NRPN tables, startup menus) | The manuals' appendices were beyond what our fetcher extracts. | T13; test H4 |
 | G7 | **Talk to every unit the same way** (SysEx dumps, the RPC, device ids, project files) | The dump frame, 7-bit packing and checksum are the same from the Rytm (2014) to the DN2; the type bytes differ; three id namespaces mapped (T22). Project files are zips with LZ4 content. Per-device gaps: Heat +FX RPC, DT2 project format. | T18, T22; tests H1, H2, H3, H18 |
-| G8 | **Mods that coexist** (with each other, with Overbridge, with stock projects) | DT2 and DN2 RAM and hook use of five to six platforms compared: several start at the same addresses, the DT2 flash cave has five users (T21, T23). Open: O17, O18, O19. | T16, T23, T24; tests H5, H6, H8-H11 |
+| G8 | **Mods that coexist** (with each other, with Overbridge, with stock projects) | DT2 and DN2 RAM and hook use of five to six platforms compared: several start at the same addresses, the DT2 flash cave has five users (T21, T23). Open: O18, O19 (O17 settled as S17). | T16, T23, T24; tests H5, H6, H8-H11 |
 
 ## Open tasks
 
@@ -83,7 +83,7 @@ emulator, `doc` = read in code or documents.
 | T15 | Probe free SHARC L2 on DT2 1.17 between `0x200f5a74` and `0x200fa000` on a unit | Digitakt II | unit | M |
 | T16 | Save a project on a grown parameter table, load it on stock, record what happens | Digitone II | unit | S |
 | T18 | Document the project file formats (`.dt2prj`, `.dn2prj`) beyond song slots | DT2, DN2 | files | M |
-| T23 | Keep a DN2 RAM tenancy table: every mod platform's and mod's ranges above the reset clear, per OS version (start: [memory-maps.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/memory-maps.md), five projects compared 2026-11-02); then a unit canary at `0x46700000` after a large +Drive sample load (settles O17) | Digitone II | reading, then unit | S |
+| T23 | Keep a DN2 RAM tenancy table: every mod platform's and mod's ranges above the reset clear, per OS version (start: [memory-maps.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/memory-maps.md), five projects compared 2026-11-02); then a unit canary at `0x46700000` after a large +Drive sample load (confirms S17, which dnfw settled from LFO4 project corruption) | Digitone II | reading, then unit | S |
 | T24 | Watch DN2 SHARC L2 `0x200918c0-0x200c2000` for stock writes during playback, pattern changes and a save (emulator write watch first, then a canary on a unit); settles O19 | Digitone II | emulator, then unit | S |
 
 ## Hypotheses (inferred, not yet shown on a unit)
@@ -101,7 +101,7 @@ emulator, `doc` = read in code or documents.
 | H8 | G8 | The DN2's digikit flash cave `0x402fb7a8` (2,136 B on 1.11) keeps its bytes through a cold boot, as the DT2's `0x403117c4` does. | DN2 | A canary in the cave, read back after a cold boot and after playback. Combine with H9. |
 | H9 | G8 | The DT2 flash cave `0x403117c4-0x40312000` is safe on a stock image; the freeze report (O18) came from something else in that build. | DT2 | A stock image plus a canary in the cave, read back after a cold start after a long power-off (A40). |
 | H10 | G8 | DN2 L2 `0x200918c0-0x200c2000` is not written by stock in normal use (O19). | DN2 | A canary or a write watch over the range during playback, pattern changes and a save (T24). |
-| H11 | G8 | DN2 RAM `0x46700000-0x46701300` is written by stock only when a +Drive transfer is over 60,672 bytes (O17). | DN2 | A canary at `0x46700000`, read back after loading a large sample or project from +Drive. |
+| H11 | G8 | DN2 RAM `0x46700000-0x46701300` is written by stock only when a +Drive transfer is over 60,672 bytes (S17: project save and load reach it). | DN2 | A canary at `0x46700000`, read back after loading a large sample or project from +Drive. |
 | H12 | G3 | Direct hook writes may race reply publication on a DN2. Digikit measured 3,995 of 4,000 zero diagnostic words on a DT2; its own diagnostic clears overwrote the previous block's record in the DN2 emulator. Silicon DMA timing remains unmeasured. | DN2 | Compare a hook's direct counter writes with static-word publication at block tail, without clearing prior reply records; count arrivals on the ColdFire side. |
 | H13 | G3 | SIMD loads or stores into L2 byte space hang the DN2's DSP as they hang the DT2's (same core, same IMASK). | DN2 | A one-variable probe image with one SIMD L2 access behind a key press; recovery by power cycle. |
 | H14 | G3 | The SHARC's IIR0/FIR0 accelerators compute on the DT2 exactly as measured on the DN2 (output from stored word 5, FIR sums in pairs, INIDX/OUTIDX written the other way round). | DT2 | Port the accelprobe image to the DT2 and compare the 76 result words. |
@@ -117,7 +117,6 @@ emulator, `doc` = read in code or documents.
 | O3 | Syntakt CPU #1 load |
 | O19 | DN2 SHARC L2 between `0x200918c0` and `0x200c2000` |
 | O18 | DT2 flash cave `0x403117c4-0x40312000` at boot |
-| O17 | DN2 RAM at `0x46700000-0x46701300` |
 | O16 | What section 8 is for |
 | O5 | SHARC L1/L2 labels |
 | O6 | DN2 1.11 parameter table base |

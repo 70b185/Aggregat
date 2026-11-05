@@ -27,7 +27,7 @@
 # All entries last verified on 2026-10-31 (see `checked`). Status values are
 # taken from the authors' own wording where available.
 
-checked: 2026-11-04
+checked: 2026-11-05
 
 projects:
   # ---------------------------------------------------------------- loaders / hubs
@@ -71,13 +71,14 @@ projects:
     status: active
     base_os: "Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing"
     version: null
-    last_activity: "2026-11-03"
+    last_activity: "2026-11-05"
     notes: >
       Browser-based hub, builds locally from the user's own stock OS. Browse mods by device,
       forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still
       early prototypes. last_activity = date of the Dubspot article, not a forum post.
       2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI.
       2026-11-03: the site now lets you download a built Analog Rytm MKII .syx (after confirming you know how to get back to stock); new Rytm module quick-velocity-aftertouch-assign with a verification note. Zoom pedals: an effect whose group+ID clashes with one already on the pedal is moved to a free local Delay ID 958-1023 (ID only in the ZDL header at 0x40-0x41, no checksum); two effects with the same group and ID froze an MS-70CDR at boot until its ROM was reprogrammed.
+      2026-11-04/05: Rytm MKII downloads on (records); npp1993's Control In Actions (footswitch or 0-5 V gate on EXP/CV IN as ACTION for MUTE and more) and Quick Velocity+Aftertouch Assign join the library, Silent Pad+Trig Settings 0.7.0; euclidean 1.1.6 for Digitakt I 1.53/1.54 reported working on a unit by sumedho (all cases, save/reload, power cycle).
     sources: [gearnews, dubspot, forum thread 36]
     relations:
     - {type: cites, id: elekloader, evidence: 'README mentions elekloader (porting from it / hosted loader)'}
@@ -297,7 +298,7 @@ projects:
       releases: https://github.com/complex-ping/overtone/releases
     status: released
     base_os: "Digitone II OS 1.12 only (patcher refuses any other file); NOT compatible with dn2mk2 (OS 1.11)"
-    version: "v1.2 (2026-10-30): instant pattern switch (PTN + YES/NO), saved with the project; v1.1 (2026-10-30) GROOVE rework and tap tempo; v1.0.1 (2026-10-29) fixes OS installs over Transfer while Overtone runs"
+    version: "v1.3 (2026-11-04): per-sound LFOs, two envelope followers and two arps as modulators (played on a Digitone II per README); v1.2 (2026-10-30): instant pattern switch (PTN + YES/NO), saved with the project; v1.1 (2026-10-30) GROOVE rework and tap tempo; v1.0.1 (2026-10-29) fixes OS installs over Transfer while Overtone runs"
     last_activity: 2026-10-31
     notes: >
       Python 3.11+ patcher (patcher/patch.py) that builds Overtone from the user's own OS 1.12 and only saves
@@ -426,8 +427,8 @@ projects:
       release: https://github.com/armio/dn2-dt2-firmware-research/blob/main/releases/r012.json
     status: stable
     base_os: "Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally"
-    version: "R012 stable (2026-11-03; first-install warning, see notes; R011 previous stable, T1E2 earlier)"
-    last_activity: "2026-11-03"
+    version: "R014 candidate (2026-11-05, hardware validation pending); R013 adds SYSTEM > FORMAT SAMPLES (first-time sample storage, passed on the unit); R012 previous stable"
+    last_activity: "2026-11-05"
     notes: >
       Source-only recipes for Digitone II firmware with six Digitakt II sample machines (ONESHOT, WERP, STRETCH,
       REPITCH, GRID, SLICE), stereo samples, sample browsing, DT2 parameter graphics and SLICES trig mode.
@@ -1117,8 +1118,8 @@ projects:
     repo: https://github.com/naturarum/dn2-cfw
     status: active
     base_os: "Digitone II OS 1.12 (macOS Apple silicon; Linux likely)"
-    version: "Digiwerk v0.2.1 (2026-10-30)"
-    last_activity: 2026-10-30
+    version: "Digiwerk v0.3.0 (2026-11-04): multitrack USB audio (USB MULTI/MIDI, 42 inputs, UAC 2.0) in every build, a web patcher, the six spring-reverb builds back; 0.2.0 download withdrawn"
+    last_activity: 2026-11-04
     notes: >
       Public lab notebook: notes, tools and new effects, no Elektron firmware included. Seven builds run
       on real hardware per README (EF01 renamed stock, FLG1 flanger replacing the chorus, FTD1 + one-head tape delay, DH01 core/hook
@@ -3125,11 +3126,13 @@ projects:
     - digitone-2
     repo: https://github.com/toonst/digi_macro
     status: wip
-    base_os: Digitakt II, Digitone II
-    last_activity: '2026-10-29'
+    base_os: "Digitakt II OS 1.17 or Digitone II OS 1.12, exactly (the build checks the file's checksum)"
+    last_activity: '2026-11-05'
     notes: 'Eight performance macros (PAGE+MOD), each moving up to four parameters on chosen tracks. README: earlier
       builds ran on a DT2; the current per-kit build only in an emulator; the DN2 version never on a unit. GPL. Found
-      by GitHub search 2026-11-02; README start read.'
+      by GitHub search 2026-11-02; README start read. 2026-11-05: macro setups are kept per kit and in the project
+      (autosave across a restart not yet checked on a unit); older setups are not read after the format change;
+      MM_KITS=0 builds one setup for the unit.'
     sources:
     - GitHub search 2026-11-02
     - README
@@ -4432,3 +4435,146 @@ projects:
     - {type: builds_on, id: model27, evidence: 'altstrument: a machine package for model27; its scripts clone model27 at a pinned commit'}
     - {type: mod_for, id: modded-cycles, evidence: 'catalogue notes: a fixed-slot tweak for Modded Cycles 2.0'}
     - {type: mod_for, id: cycles-engines, evidence: 'README: tested as cycles-engines composes it'}
+
+  # ================================================================ found 2026-11-05
+  - id: ctrl-plus
+    name: CTRL+ / USER CFG (Digitone mk1)
+    author: DigiAlchemydsp
+    kind: mod
+    devices: [digitone]
+    repo: https://github.com/DigiAlchemydsp/CTRL-PLUS
+    status: wip
+    base_os: "Digitone mk1 / Keys OS 1.44; core-dn1 4.0"
+    license: GPL-2.0-or-later
+    version: "usercfg 0.6a (README)"
+    last_activity: '2026-11-04'
+    notes: >
+      Adds the Digitone Keys' User Mode page (stock page 24) to the regular Digitone's TRIG page rotation, plus a USER CFG
+      page that assigns the eight encoders; the assignment is saved with the project through core-dn1 project data.
+      Testing status not stated. Found by GitHub search 2026-11-05.
+    sources: [GitHub search 2026-11-05, README]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: install usercfg-0.6a.elemod with elekloader after core-dn1 4.0'}
+
+  - id: digichoke
+    name: CHOKE GROUPS (Digitone mk1)
+    author: irpina
+    kind: mod
+    devices: [digitone]
+    repo: https://github.com/irpina/digichoke
+    status: wip
+    base_os: "Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 3.1 or later"
+    license: GPL-2.0-or-later
+    version: "choke 0.1, no release yet"
+    last_activity: '2026-11-05'
+    notes: >
+      Two choke groups set per track from the Mod Menu and saved with the project: a note on a track fades out the
+      voices of the group's other tracks over one 32-sample block (0.7 ms). Names no firmware address (uses
+      ev_voice_on, ev_render_voices, fw_voice_track). Checked only in digiemu (11 voices choked, output RMS measured);
+      not heard, not on a unit.
+    sources: [GitHub search 2026-11-05, README]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on core-dn1'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: checked in digiemu (headless Session)'}
+
+  - id: digipcsound
+    name: PROGRAM CHANGE -> SOUND (Digitone mk1)
+    author: irpina
+    kind: mod
+    devices: [digitone]
+    repo: https://github.com/irpina/digipcsound
+    status: wip
+    base_os: "Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased)"
+    license: GPL-2.0-or-later
+    version: "0.1, no release yet"
+    last_activity: '2026-11-05'
+    notes: >
+      A program change on a track's channel loads that number's sound from the project's pool onto the track, as the
+      SOUND BROWSER's FUNC + YES does (program 1 = pool sound 001). Checked only in digiemu, not on a unit.
+    sources: [GitHub search 2026-11-05, README]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on core-dn1 5.0.1'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: checked in digiemu (headless Session)'}
+
+  - id: digiloop
+    name: MIDI LOOPBACK (Digitone mk1)
+    author: irpina
+    kind: mod
+    devices: [digitone]
+    repo: https://github.com/irpina/digiloop
+    status: wip
+    base_os: "Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased)"
+    license: GPL-2.0-or-later
+    version: "loopback 0.1, no release yet"
+    last_activity: '2026-11-05'
+    notes: >
+      An internal MIDI cable: what the MIDI tracks send on one chosen channel goes back into the unit as if from DIN,
+      so a MIDI track sequences and p-locks a synth track or (on the FX channel) the master effects. Names no firmware
+      address. Checked only in digiemu with its DIN output captured; the CC path only through core_midi_receive.
+    sources: [GitHub search 2026-11-05, README]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on core-dn1 5.0.1'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: checked in digiemu (headless Session)'}
+
+  - id: digisolo
+    name: SOLO & MUTE GROUPS (Digitone mk1)
+    author: irpina
+    kind: mod
+    devices: [digitone]
+    repo: https://github.com/irpina/digisolo
+    status: wip
+    base_os: "Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased)"
+    license: GPL-2.0-or-later
+    version: "0.1, no release yet"
+    last_activity: '2026-11-05'
+    notes: >
+      Track key + FUNC solos a track among its four; four mute groups. Checked only in digiemu (with LOOPBACK and
+      PC SOUND in the same build), not on a unit.
+    sources: [GitHub search 2026-11-05, README]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on core-dn1 5.0.1'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: checked in digiemu (headless Session)'}
+
+  - id: digiarpmenu
+    name: ARP MENU (Digitone mk1)
+    author: irpina
+    kind: mod
+    devices: [digitone]
+    repo: https://github.com/irpina/digiarpmenu
+    status: wip
+    base_os: "Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased)"
+    license: GPL-2.0-or-later
+    version: "0.1, no release yet"
+    last_activity: '2026-11-05'
+    notes: >
+      A long FUNC + KEYBOARD opens the ARP menu (stock: FUNC + SYN1 at the other end of the panel); a quick press
+      still toggles the arp. Checked only in digiemu; not on a Digitone Keys or a unit.
+    sources: [GitHub search 2026-11-05, README]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on core-dn1 5.0.1'}
+    - {type: uses_tool, id: digiemu, evidence: 'README: checked in digiemu (headless Session)'}
+
+  - id: mezclando
+    name: Mezclando (transition mode for Digitakt II)
+    author: Lucioic (Oicul)
+    kind: mod
+    devices: [digitakt-2]
+    repo: https://github.com/Lucioic/mezclando
+    links:
+      web_patcher: https://lucioic.github.io/mezclando/
+    status: active
+    base_os: "Digitakt II OS 1.17 only"
+    license: GPL-3.0-or-later
+    last_activity: '2026-11-04'
+    notes: >
+      A DJ-style mix mode on the SONG key: pick a reference pattern and bring its tracks, with their sequences and
+      sounds, into the playing pattern one by one, with per-track levels, mutes and a one-step undo; YES loads the whole
+      reference pattern with its kit (stock copy + paste). Uses only the firmware's own functions and stores nothing of
+      its own; stock SONG functions move to FUNC + SONG and TRK + SONG. Built locally in a browser patch page or from
+      source (m68k-elf GCC, Node 24, a Modwerk checkout with core-dt2 1.0). English and Spanish README. Found by GitHub
+      search 2026-11-05.
+    sources: [GitHub search 2026-11-05, README]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: NOTICE names elekloader (core-dt2 and its kit) as a base'}
+    - {type: builds_on, id: modwerk, evidence: 'README: build needs a Modwerk checkout with core-dt2 1.0'}
+    - {type: cites, id: digikit, evidence: 'README: NOTICE credits digikit''s research on the Digitakt II'}

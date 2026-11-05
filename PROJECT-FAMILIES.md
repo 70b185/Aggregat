@@ -2,7 +2,7 @@
 
 # Project families
 
-Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-04. Edit the `relations:` field in `data/projects.yml`.
+Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-05. Edit the `relations:` field in `data/projects.yml`.
 
 | Relation | Meaning |
 |---|---|
@@ -180,6 +180,12 @@ Devices: Analog Rytm (MKI, MKII). [repo](https://github.com/bsp2/libanalogrytm)
 Devices: Machinedrum (incl. UW). [repo](https://github.com/jmamma/MDS)
 
 - **mds-tools (MDS packer and certifier)** (Justin Mammarella) - builds on **MDS (Machine Dump Standard)** (README: tools for the MDS specification). [repo](https://github.com/jmamma/mds-tools)
+
+## Modwerk (formerly Octamod) (not named in sources (SDK repo owner repeat98))
+
+Devices: Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II. [repo](https://github.com/repeat98/modwerk)
+
+- **Mezclando (transition mode for Digitakt II)** (Lucioic (Oicul)) - builds on **Modwerk (formerly Octamod)** (README: build needs a Modwerk checkout with core-dt2 1.0). [repo](https://github.com/Lucioic/mezclando)
 
 ## ot-tools-io (jhw)
 

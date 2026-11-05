@@ -2,7 +2,7 @@
 
 # Analog Rytm (MKI, MKII)
 
-Data last verified: 2026-11-04
+Data last verified: 2026-11-05
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 

@@ -4,7 +4,7 @@
 
 For people (and agents) who build mods: toolchains, emulators, firmware unpackers, protocol libraries and research write-ups. Pair this with [hardware/](hardware/README.md), which collects the rules and device facts.
 
-Data last verified: 2026-11-04. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Status words are the authors' own; newest activity first in each table. Device pages with full notes: [INDEX.md](INDEX.md).
+Data last verified: 2026-11-05. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Status words are the authors' own; newest activity first in each table. Device pages with full notes: [INDEX.md](INDEX.md).
 
 
 The other lists: [MODS.md](MODS.md) (mods and custom firmware), [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians). Hardware knowledge for writing mods: [hardware/](hardware/README.md).
@@ -64,7 +64,7 @@ The other lists: [MODS.md](MODS.md) (mods and custom firmware), [MUSICIAN-TOOLS.
 
 | Project | Devices | What it is | Status | Version / OS | Links |
 |---|---|---|---|---|---|
-| **dn2-cfw** (naturarum) <br>_vendors code from digikit; vendors code from elekloader; cites elektron-firmware-tool; cites syntakt-firmware-workbench; cites octabam; vendors code from digitakt-ii-research_ | Digitone II | Public lab notebook: notes, tools and new effects, no Elektron firmware included. | active | Digiwerk v0.2.1 (2026-10-30) | [repo](https://github.com/naturarum/dn2-cfw) |
+| **dn2-cfw** (naturarum) <br>_vendors code from digikit; vendors code from elekloader; cites elektron-firmware-tool; cites syntakt-firmware-workbench; cites octabam; vendors code from digitakt-ii-research_ | Digitone II | Public lab notebook: notes, tools and new effects, no Elektron firmware included. | active | Digiwerk v0.3.0 (2026-11-04): multitrack USB audio (USB … | [repo](https://github.com/naturarum/dn2-cfw) |
 | **Digitakt integrated sidecar** (soejrd) <br>_builds on sidecar-expander; uses elekloader; uses digiemu_ | Digitakt (MKI) | Runs a TRX-B2 engine on a Raspberry Pi 4B, controlled from a Digitakt mk1 audio track with the audio returned through it. | wip | Digitakt mk1 OS 1.54 | [repo](https://github.com/soejrd/digitakt-sidecar) |
 | **Cycles Mod Standard** (durchgemacht) <br>_describes model27; cites modded-cycles_ | Model:Cycles | Draft standard for Model:Cycles mods (machine contract, extension points, per-mod manifests, clash checks over saved slots, key combos and display). | wip | draft 0.7 | [repo](https://github.com/durchgemacht/cycles-mod-standard) |
 | **syntakt-machine45-research** (Humgic) <br>_cites synthack-os-upstream; cites sy-fm4_ | Syntakt | Documentation, a C header and tools/check_stock_metadata.py (standard-library only; checks exact input hashes and selected metadata of the user's own extracted MAIN and … | wip | main @ 9511030 (2026-10-28), no tagged releases | [repo](https://github.com/Humgic/syntakt-machine45-research) |

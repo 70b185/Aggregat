@@ -87,6 +87,8 @@ ignore:
   - rhinerad/rhine-smusichardware2ableton
   - mlnoga/underpass
   - lbl-srg/modelica-json
+  - karma4dollars/syntakt-skill        # music composition coaching skill, no device tooling
+  - karma4dollars/digitakt-ii-skill    # music composition coaching skill, no device tooling
   - ephemeraldsp/ultrawave
   - bandersong/analog-rytm-chop
   - brian3kb/digichain

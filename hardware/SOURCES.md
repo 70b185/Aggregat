@@ -70,8 +70,9 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2-skill-workflow | digitone-2-modding-skill `references/workflow.md` | https://github.com/complex-ping/digitone-2-modding-skill/blob/main/skills/digitone-2-modding-skill/references/workflow.md |
 | dn2-mainos-image | angellinares/dn2_firmware_explore `docs/mainos-image.md` | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/mainos-image.md |
 | dn2-ele3 | angellinares/dn2_firmware_explore `docs/ele3-format.md` | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/ele3-format.md |
+| dn2-cfw-030 | naturarum/dn2-cfw `docs/release/digiwerk-0.3.0.md` and `notes/R1.17-release-0.3.0.md` (Digiwerk 0.3.0, multitrack USB audio) | https://github.com/naturarum/dn2-cfw/blob/main/docs/release/digiwerk-0.3.0.md |
 | dn2-cfw-roadmap | naturarum/dn2-cfw `ROADMAP.md` | https://github.com/naturarum/dn2-cfw/blob/main/ROADMAP.md |
-| dn2-cfw-handoff | naturarum/dn2-cfw `HANDOFF.md` (running log; later entries supersede; the part read is dated 2026-10-06) | https://github.com/naturarum/dn2-cfw/blob/main/HANDOFF.md |
+| dn2-cfw-handoff | naturarum/dn2-cfw `HANDOFF.md` (running log; later entries supersede; read 2026-10-06 and the 2026-10-31 entries on UM01/UM02 and the cache map) | https://github.com/naturarum/dn2-cfw/blob/main/HANDOFF.md |
 | dn2-cfw-firmware | naturarum/dn2-cfw `FIRMWARE.md` | https://github.com/naturarum/dn2-cfw/blob/main/FIRMWARE.md |
 | digikit-findings | ElekLabs/digikit `docs/FINDINGS.md` (index of findings 01-51) | https://github.com/ElekLabs/digikit/blob/main/docs/FINDINGS.md |
 | digirust-readme | nzimas/digirust README | https://github.com/nzimas/digirust |

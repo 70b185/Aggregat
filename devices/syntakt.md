@@ -2,7 +2,7 @@
 
 # Syntakt
 
-Data last verified: 2026-11-04
+Data last verified: 2026-11-05
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|

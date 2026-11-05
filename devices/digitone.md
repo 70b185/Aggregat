@@ -2,12 +2,18 @@
 
 # Digitone (MKI) / Digitone Keys
 
-Data last verified: 2026-11-04
+Data last verified: 2026-11-05
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-05 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
+| **CHOKE GROUPS (Digitone mk1)** (irpina) | mod | wip | choke 0.1, no release yet; Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 3.1 or later | - | 2026-11-05 | [repo](https://github.com/irpina/digichoke) |
+| **PROGRAM CHANGE -> SOUND (Digitone mk1)** (irpina) | mod | wip | 0.1, no release yet; Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased) | - | 2026-11-05 | [repo](https://github.com/irpina/digipcsound) |
+| **MIDI LOOPBACK (Digitone mk1)** (irpina) | mod | wip | loopback 0.1, no release yet; Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased) | - | 2026-11-05 | [repo](https://github.com/irpina/digiloop) |
+| **SOLO & MUTE GROUPS (Digitone mk1)** (irpina) | mod | wip | 0.1, no release yet; Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased) | - | 2026-11-05 | [repo](https://github.com/irpina/digisolo) |
+| **ARP MENU (Digitone mk1)** (irpina) | mod | wip | 0.1, no release yet; Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased) | - | 2026-11-05 | [repo](https://github.com/irpina/digiarpmenu) |
+| **CTRL+ / USER CFG (Digitone mk1)** (DigiAlchemydsp) | mod | wip | usercfg 0.6a (README); Digitone mk1 / Keys OS 1.44; core-dn1 4.0 | v0.6a | 2026-11-04 | [repo](https://github.com/DigiAlchemydsp/CTRL-PLUS) |
 | **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0. main since: a mod shop (submit a released mod through an issue form, a check opens the PR, later releases follow automatically; docs/SHOP.md), core-ar2 0.9 (lockable mod fields as velocity/aftertouch destinations; kit fields lockable), core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-11-03 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
-| **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-03 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **Filter+ (13 filter types)** (DigiAlchemydsp) | mod | released | 1.0 (2026-11-02); Digitakt mk1 OS 1.54; Digitone mk1 / Keys OS 1.44 | v1.0 | 2026-11-02 | [repo](https://github.com/DigiAlchemydsp/FILTER-PLUS) |
 | **DRUM+ (FM drum machine for Digitone mk1)** (DigiAlchemydsp) | mod | released | 1.0 (2026-11-02); Digitone mk1 / Keys OS 1.44 (elekloader core-dn1 4.0 and machines companion 0.2) | v1.0 | 2026-11-02 | [repo](https://github.com/DigiAlchemydsp/DRUM-PLUS) |
 | **LFOX** (x2k77m1) | mod | unreachable | v1.0b (tag, 2026-11-02; v1.0a before); Digitone mk1 | v1.0b | 2026-11-02 | [repo](https://github.com/x2k77m1/lfox) |
@@ -71,7 +77,7 @@ _Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
 
 ### Modwerk (formerly Octamod)
 
-Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still early prototypes. last_activity = date of the Dubspot article, not a forum post. 2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI. 2026-11-03: the site now lets you download a built Analog Rytm MKII .syx (after confirming you know how to get back to stock); new Rytm module quick-velocity-aftertouch-assign with a verification note. Zoom pedals: an effect whose group+ID clashes with one already on the pedal is moved to a free local Delay ID 958-1023 (ID only in the ZDL header at 0x40-0x41, no checksum); two effects with the same group and ID froze an MS-70CDR at boot until its ROM was reprogrammed.
+Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still early prototypes. last_activity = date of the Dubspot article, not a forum post. 2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI. 2026-11-03: the site now lets you download a built Analog Rytm MKII .syx (after confirming you know how to get back to stock); new Rytm module quick-velocity-aftertouch-assign with a verification note. Zoom pedals: an effect whose group+ID clashes with one already on the pedal is moved to a free local Delay ID 958-1023 (ID only in the ZDL header at 0x40-0x41, no checksum); two effects with the same group and ID froze an MS-70CDR at boot until its ROM was reprogrammed. 2026-11-04/05: Rytm MKII downloads on (records); npp1993's Control In Actions (footswitch or 0-5 V gate on EXP/CV IN as ACTION for MUTE and more) and Quick Velocity+Aftertouch Assign join the library, Silent Pad+Trig Settings 0.7.0; euclidean 1.1.6 for Digitakt I 1.53/1.54 reported working on a unit by sumedho (all cases, save/reload, power cycle).
 
 _Related: cites `elekloader` (README mentions elekloader (porting from it / hosted loader)); cites `octabam` (README: porting from octabam is part of the module guide) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
@@ -458,3 +464,51 @@ Granular/loop effects engine for the Digitone mk1's two audio inputs (eleven eng
 _Related: mod for `elekloader` (catalogue notes: source also in elekloader as mods/digiswarm-dn1); uses tool `digiemu` (README: checked in the digiemu emulator on OS 1.43 and 1.44) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
+
+### CTRL+ / USER CFG (Digitone mk1)
+
+Adds the Digitone Keys' User Mode page (stock page 24) to the regular Digitone's TRIG page rotation, plus a USER CFG page that assigns the eight encoders; the assignment is saved with the project through core-dn1 project data. Testing status not stated. Found by GitHub search 2026-11-05.
+
+_Related: mod for `elekloader` (README: install usercfg-0.6a.elemod with elekloader after core-dn1 4.0) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-05, README_
+
+### CHOKE GROUPS (Digitone mk1)
+
+Two choke groups set per track from the Mod Menu and saved with the project: a note on a track fades out the voices of the group's other tracks over one 32-sample block (0.7 ms). Names no firmware address (uses ev_voice_on, ev_render_voices, fw_voice_track). Checked only in digiemu (11 voices choked, output RMS measured); not heard, not on a unit.
+
+_Related: mod for `elekloader` (README: an elekloader mod on core-dn1); uses tool `digiemu` (README: checked in digiemu (headless Session)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-05, README_
+
+### PROGRAM CHANGE -> SOUND (Digitone mk1)
+
+A program change on a track's channel loads that number's sound from the project's pool onto the track, as the SOUND BROWSER's FUNC + YES does (program 1 = pool sound 001). Checked only in digiemu, not on a unit.
+
+_Related: mod for `elekloader` (README: an elekloader mod on core-dn1 5.0.1); uses tool `digiemu` (README: checked in digiemu (headless Session)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-05, README_
+
+### MIDI LOOPBACK (Digitone mk1)
+
+An internal MIDI cable: what the MIDI tracks send on one chosen channel goes back into the unit as if from DIN, so a MIDI track sequences and p-locks a synth track or (on the FX channel) the master effects. Names no firmware address. Checked only in digiemu with its DIN output captured; the CC path only through core_midi_receive.
+
+_Related: mod for `elekloader` (README: an elekloader mod on core-dn1 5.0.1); uses tool `digiemu` (README: checked in digiemu (headless Session)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-05, README_
+
+### SOLO & MUTE GROUPS (Digitone mk1)
+
+Track key + FUNC solos a track among its four; four mute groups. Checked only in digiemu (with LOOPBACK and PC SOUND in the same build), not on a unit.
+
+_Related: mod for `elekloader` (README: an elekloader mod on core-dn1 5.0.1); uses tool `digiemu` (README: checked in digiemu (headless Session)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-05, README_
+
+### ARP MENU (Digitone mk1)
+
+A long FUNC + KEYBOARD opens the ARP menu (stock: FUNC + SYN1 at the other end of the panel); a quick press still toggles the arp. Checked only in digiemu; not on a Digitone Keys or a unit.
+
+_Related: mod for `elekloader` (README: an elekloader mod on core-dn1 5.0.1); uses tool `digiemu` (README: checked in digiemu (headless Session)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-05, README_

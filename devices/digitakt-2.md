@@ -2,20 +2,21 @@
 
 # Digitakt II
 
-Data last verified: 2026-11-04
+Data last verified: 2026-11-05
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **dt2-capicola (Capicola time stretch for STRETCH/REPITCH/SLICE/GRID)** (hy3na-k1ng) | mod | unreachable | Digitakt II (version in the vendored README) | - | unknown | [repo](https://github.com/hy3na-k1ng/dt2-capicola) |
+| **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-05 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
+| **DN2 DT2 firmware research** (armio) | firmware | stable | R014 candidate (2026-11-05, hardware validation pending); R013 adds SYSTEM > FORMAT SAMPLES (first-time sample storage, passed on the unit); R012 previous stable; Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally | - | 2026-11-05 | [repo](https://github.com/armio/dn2-dt2-firmware-research) · [web app](https://armio.github.io/dn2-dt2-firmware-research/) · [recorder](https://github.com/armio/dn2-dt2-firmware-research/blob/main/docs/recorder.md) · [release](https://github.com/armio/dn2-dt2-firmware-research/blob/main/releases/r012.json) |
+| **macro-mode (digi_macro)** (toonst) | mod | wip | Digitakt II OS 1.17 or Digitone II OS 1.12, exactly (the build checks the file's checksum) | - | 2026-11-05 | [repo](https://github.com/toonst/digi_macro) |
+| **Mezclando (transition mode for Digitakt II)** (Lucioic (Oicul)) | mod | active | Digitakt II OS 1.17 only | v1.0.0 | 2026-11-04 | [repo](https://github.com/Lucioic/mezclando) · [web patcher](https://lucioic.github.io/mezclando/) |
 | **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0. main since: a mod shop (submit a released mod through an issue form, a check opens the PR, later releases follow automatically; docs/SHOP.md), core-ar2 0.9 (lockable mod fields as velocity/aftertouch destinations; kit fields lockable), core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-11-03 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
-| **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-03 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
-| **DN2 DT2 firmware research** (armio) | firmware | stable | R012 stable (2026-11-03; first-install warning, see notes; R011 previous stable, T1E2 earlier); Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally | - | 2026-11-03 | [repo](https://github.com/armio/dn2-dt2-firmware-research) · [web app](https://armio.github.io/dn2-dt2-firmware-research/) · [recorder](https://github.com/armio/dn2-dt2-firmware-research/blob/main/docs/recorder.md) · [release](https://github.com/armio/dn2-dt2-firmware-research/blob/main/releases/r012.json) |
 | **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo) | emulator | wip | Digitakt II target 1.17 (emulator also runs 1.16 as default file; 1.15C kept for old analysis); Digitone II target 1.12 (also runs 1.11 as default file; 1.10E kept for old analysis) | - | 2026-11-03 | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
 | **Elek View (screen viewer in the browser)** (BlueSGL) | tool | active | main @ 29fc485 (2026-11-02) | - | 2026-11-02 | [repo](https://github.com/BlueSGL/Elek_View) · [web app](https://bluesgl.github.io/Elek_View/) · [forum](https://elektronmods.com/thread-93-elek-view-see-your-devices-screens-in-a-browser-via-webmidi) |
 | **elkflash** (Iced-Cream) | tool | active | - | - | 2026-11-02 | [repo](https://github.com/Iced-Cream/elkflash) |
 | **digitakt-digitone-mcp** (jamiew) | tool | active | - | - | 2026-11-01 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **Elektron-Screen-Tool** (Fadedlimes) | tool | active | - | - | 2026-10-30 | [repo](https://github.com/Fadedlimes/elektron-screen-tool) |
-| **macro-mode (digi_macro)** (toonst) | mod | wip | Digitakt II, Digitone II | - | 2026-10-29 | [repo](https://github.com/toonst/digi_macro) |
 | **digitakt-mods** (hillzeealex) | tool | active | Digitakt mk1 1.53/1.54, Digitakt II 1.17 | v1.0 | 2026-10-29 | [repo](https://github.com/hillzeealex/digitakt-mods) |
 | **Frame Lab (keyframer-lab)** (heavylight-industries) | tool | active | - | - | 2026-10-27 | [repo](https://github.com/heavylight-industries/keyframer-lab) |
 | **coldfire-rs** (FirestormAudio) | tool | wip | not firmware-specific; targets the NXP ColdFire V4e chips MCF54410 and MCF54415-MCF54418 | mcf5441x-pac-v0.1.0 | 2026-10-25 | [repo](https://github.com/FirestormAudio/coldfire-rs) |
@@ -57,7 +58,7 @@ _Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
 
 ### Modwerk (formerly Octamod)
 
-Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still early prototypes. last_activity = date of the Dubspot article, not a forum post. 2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI. 2026-11-03: the site now lets you download a built Analog Rytm MKII .syx (after confirming you know how to get back to stock); new Rytm module quick-velocity-aftertouch-assign with a verification note. Zoom pedals: an effect whose group+ID clashes with one already on the pedal is moved to a free local Delay ID 958-1023 (ID only in the ZDL header at 0x40-0x41, no checksum); two effects with the same group and ID froze an MS-70CDR at boot until its ROM was reprogrammed.
+Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still early prototypes. last_activity = date of the Dubspot article, not a forum post. 2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI. 2026-11-03: the site now lets you download a built Analog Rytm MKII .syx (after confirming you know how to get back to stock); new Rytm module quick-velocity-aftertouch-assign with a verification note. Zoom pedals: an effect whose group+ID clashes with one already on the pedal is moved to a free local Delay ID 958-1023 (ID only in the ZDL header at 0x40-0x41, no checksum); two effects with the same group and ID froze an MS-70CDR at boot until its ROM was reprogrammed. 2026-11-04/05: Rytm MKII downloads on (records); npp1993's Control In Actions (footswitch or 0-5 V gate on EXP/CV IN as ACTION for MUTE and more) and Quick Velocity+Aftertouch Assign join the library, Silent Pad+Trig Settings 0.7.0; euclidean 1.1.6 for Digitakt I 1.53/1.54 reported working on a unit by sumedho (all cases, save/reload, power cycle).
 
 _Related: cites `elekloader` (README mentions elekloader (porting from it / hosted loader)); cites `octabam` (README: porting from octabam is part of the module guide) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
@@ -249,7 +250,7 @@ _Sources: dt2-machine-lab machines/capicola-reddit (README and upstream/README.m
 
 ### macro-mode (digi_macro)
 
-Eight performance macros (PAGE+MOD), each moving up to four parameters on chosen tracks. README: earlier builds ran on a DT2; the current per-kit build only in an emulator; the DN2 version never on a unit. GPL. Found by GitHub search 2026-11-02; README start read.
+Eight performance macros (PAGE+MOD), each moving up to four parameters on chosen tracks. README: earlier builds ran on a DT2; the current per-kit build only in an emulator; the DN2 version never on a unit. GPL. Found by GitHub search 2026-11-02; README start read. 2026-11-05: macro setups are kept per kit and in the project (autosave across a restart not yet checked on a unit); older setups are not read after the format change; MM_KITS=0 builds one setup for the unit.
 
 _Related: mod for `elekloader` (README: built with elekloader); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
@@ -314,6 +315,14 @@ _Sources: altstrument (2026-11-03), README_
 Closed-source browser app that preps audio and sends it over Web MIDI SysEx to the +Drive, with Transfer and +Drive Manager views and device profiles for Digitakt II, Digitakt, Analog Rytm (MKI/MKII) and Model:Samples. Proprietary; author not named. Relation to luizvarela's ElekPrep not established (same name). Interesting as a second independent implementation of +Drive upload over SysEx.
 
 _Sources: altstrument (2026-11-03)_
+
+### Mezclando (transition mode for Digitakt II)
+
+A DJ-style mix mode on the SONG key: pick a reference pattern and bring its tracks, with their sequences and sounds, into the playing pattern one by one, with per-track levels, mutes and a one-step undo; YES loads the whole reference pattern with its kit (stock copy + paste). Uses only the firmware's own functions and stores nothing of its own; stock SONG functions move to FUNC + SONG and TRK + SONG. Built locally in a browser patch page or from source (m68k-elf GCC, Node 24, a Modwerk checkout with core-dt2 1.0). English and Spanish README. Found by GitHub search 2026-11-05.
+
+_Related: mod for `elekloader` (README: NOTICE names elekloader (core-dt2 and its kit) as a base); builds on `modwerk` (README: build needs a Modwerk checkout with core-dt2 1.0); cites `digikit` (README: NOTICE credits digikit's research on the Digitakt II) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-05, README_
 
 ### selache (SHARC+ toolchain)
 

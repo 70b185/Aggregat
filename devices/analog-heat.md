@@ -57,6 +57,6 @@ _Sources: GitHub README, lapin-list_
 
 ### Analog Heat FX+ MultiMode (beta 0.1)
 
-The first public custom firmware announcement for the Heat +FX (2026-11-02): screenshots only; features, OS version, licence and a unit test are not stated, a GitHub link is promised. Origin: elektronmods.com, read 2026-11-03.
+The first public custom firmware announcement for the Heat +FX (2026-11-02): screenshots only; features, OS version, licence and a unit test are not stated, a GitHub link is promised. Origin: elektronmods.com, read 2026-11-03. Re-read 2026-11-05: still no GitHub link, no description and no replies.
 
 _Sources: _

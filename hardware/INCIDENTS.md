@@ -388,6 +388,26 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** D11, A43
 - **Fact:** [devices/octatrack.md](devices/octatrack.md)
 
+### I49. Idle paths of sixteen mods cost two percent of a Rytm block
+- **Unit:** Analog Rytm MKII, OS 1.74 (Modwerk library, 16-module set, sequencer stopped), 2026-11-06
+- **Seen:** the idle audio block took 72.9 % with the set installed.
+- **Cause (measured on the unit, block timed on DTIM0 over USB MIDI):** three modules did work every block with nothing to do: Ping Pong Loop's four voice gates called the mirror routine for every voice in stock's sample prefetch, Sample Playback Rate walked all eight voices, QPERF ran its handler in full.
+- **Fix:** early returns when idle (a byte of armed voices, "no track has RATE on"): 70.6-71.1 %.
+- **Status:** fixed in the pinned packages; not run alone on a unit.
+- **Evidence:** `[hw]` {modwerk-rytm-idle}
+- **Rule:** A34
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)
+
+### I50. Mod data written for default settings slowed project load and save
+- **Unit:** Syntakt, OS 1.41 (Synfact arp-st), 2026-11-06
+- **Seen:** a user saw a project load slowly when switched to from another project, and a slower save; a reboot straight into it loaded normally.
+- **Cause (shown in the emulator on the user's export):** the ARP mod sealed a 320-byte carrier for every kit even with default settings, so load checked all 1,664 bindings; the project itself was valid.
+- **Fix:** leave the carrier absent while all thirteen rows are defaults: 81 % fewer emulated instructions for a full serialization.
+- **Status:** fixed offline; wall-clock times on the unit not measured yet.
+- **Evidence:** `[doc]` {synfact-lifecycle}
+- **Rule:** E4
+- **Fact:** [devices/syntakt.md](devices/syntakt.md)
+
 ## E. Emulator or toolchain disagreed with the unit
 
 ### I36. The emulator undercounted DSP time by 2x to 12x

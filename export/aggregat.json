@@ -3,19 +3,19 @@
   "checked": "2026-11-06",
   "generator": "scripts/export_db.py",
   "counts": {
-   "projects": 231,
+   "projects": 232,
    "devices": 13,
-   "relations": 356,
-   "rules": 103,
-   "sources": 274,
+   "relations": 358,
+   "rules": 104,
+   "sources": 276,
    "conflicts": 33,
-   "facts": 992,
+   "facts": 993,
    "goals": 8,
    "tasks": 24,
    "hypotheses": 18,
    "research_links": 36,
    "participants": 0,
-   "incidents": 48
+   "incidents": 50
   },
   "research_snapshot": "bf9db7855397"
  },
@@ -494,8 +494,8 @@
    "license": null,
    "status": "stable",
    "base_os": "Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally",
-   "version": "R014 candidate (2026-11-05, hardware validation pending); R013 adds SYSTEM > FORMAT SAMPLES (first-time sample storage, passed on the unit); R012 previous stable",
-   "last_activity": "2026-11-05",
+   "version": "R020 candidate (2026-11-06): accumulated sampler fixes, MIDI controls, SLICE persistence and a start-up guard; owner cold-boot check passed, the saved grid survived it; R013 added SYSTEM > FORMAT SAMPLES; R012 remains the stable target",
+   "last_activity": "2026-11-06",
    "notes": "Source-only recipes for Digitone II firmware with six Digitakt II sample machines (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE), stereo samples, sample browsing, DT2 parameter graphics and SLICES trig mode. Recorder adds recording/resampling, source selection, normalization, trimming, audition, saving to +Drive and optional track assignment; VOICE cycles Voice Setup, Sample Manager and Recorder. Class-compliant USB audio provides 42 capture channels at 48 kHz/24 bit (MAIN, tracks 1-16, DELAY, REVERB, CHORUS, INPUT as stereo pairs) and a stereo return. R012 needs only the official DN2 1.11 and DT2 1.16 OS files; silent compatibility data replaces the private sample bank, and users load their own playable samples afterward. Native and browser builders verify exact inputs and the output: 2,563,872 bytes, SHA-256 4a2742a4...63a3a9a. The browser builds locally without uploading files; neither builder flashes the instrument. No firmware images or samples are distributed. Historical exact T1E2/R003/R008/R011 builds still require their original private sample bank. R011 fixed USB publication stalling after project changes by selecting its candidate destination from current DMA START while preserving ownership checks; R012 retains that fix. Owner-confirmed stock audio, samples, Recorder and USB audio on R012, including after project changes. Stable does not mean exhaustive validation: exact trimmed-file comparison, full Recorder-source coverage, endurance and end-to-end USB latency remain unverified. Builds on dnfw (angellinares/dn2_firmware_explore), selache, digikit and elektron-firmware-tool. AGPL-3.0-or-later. 2026-11-03: README warns new users NOT to install R012 yet. R012 mounts an existing sample filesystem but does not create one on a DN2 that never had it; symptoms are 0% Free / 0 bytes in Transfer, stalled uploads, Connection failed. The author says stock FORMAT +DRIVE, EMPTY RESET and FACTORY RESET do not create it and can erase projects; an on-device formatter with erase confirmation is in development, not released. Owner testing had used storage prepared during development. A track-2 sample reload report turned out to be an unsaved project, not a bug.",
    "links": "{\"web_app\": \"https://armio.github.io/dn2-dt2-firmware-research/\", \"recorder\": \"https://github.com/armio/dn2-dt2-firmware-research/blob/main/docs/recorder.md\", \"release\": \"https://github.com/armio/dn2-dt2-firmware-research/blob/main/releases/r012.json\"}",
    "sources": "[\"GitHub README\", \"releases/r012.json\", \"docs/recorder.md\", \"docs/browser.md\", \"docs/research/2026-11-03.md\", \"docs/samples.md\"]",
@@ -896,7 +896,7 @@
    "base_os": "Digitakt mk1 OS 1.53 (digihealth 1.0); Digitone mk1 + Keys OS 1.43 (1.1, SYSTEM INFO only)",
    "version": "v1.1.1 (2026-10-14)",
    "last_activity": "2026-10-14",
-   "notes": "Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). On Digitone: FAST AUDIO not ported, not yet on a unit. GPL-2.0, 3 commits.",
+   "notes": "Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). On Digitone: FAST AUDIO not ported, not yet on a unit. GPL-2.0, 3 commits. 2026-11-06: a Digitone II variant in dn2/: an elekloader core that measures the master DSP's L2 load and reports it over SysEx frames (declared limits, not observed peaks).",
    "links": "{}",
    "sources": "[\"GitHub README\", \"lapin-list\", \"elekloader release v0.4.0\"]",
    "owner": "irpina",
@@ -2144,8 +2144,8 @@
    "license": null,
    "status": "active",
    "base_os": "Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you)",
-   "version": "mdmm-v0.8.1 (2026-10-29)",
-   "last_activity": "2026-11-03",
+   "version": "mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit)",
+   "last_activity": "2026-11-06",
    "notes": "Desktop editors for Machinedrum and Monomachine that run the unit's own OS in an emulator (app or VST3/AU), optional hardware MIDI mode. Licence: GPL-3.0-only; distribution: download. Listed by altstrument; repo not read by us yet.",
    "links": "{\"homepage\": \"https://mdmm.dev\"}",
    "sources": "[\"altstrument (2026-11-01)\"]",
@@ -3046,7 +3046,7 @@
    "base_os": "Syntakt OS 1.41",
    "version": "main @ 1a6d0c7 (2026-11-03), untagged",
    "last_activity": "2026-11-03",
-   "notes": "Mod system for the Syntakt bringing Digitakt mk1 sample machines (ONE SHOT, WERP, REPITCH, SLICE), a per-project sample pool with long samples in slots 65-128 and a basic sample manager. Experimental. MIT. 18 stars at first sight. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read. 2026-11-03: the Lapin list links it as an external web app, https://synfact.app (builds custom Syntakt firmware from the user's stock OS file). 2026-11-03: the project moved to GSM1980/synfact-dev and was rebuilt on elekloader (GPL-2.0; the old release repo was MIT): a core (mods/core-st) with hook bus, UI and SETTINGS events, SMZ4 banks of machines and modules that can change without reinstalling, long-sample storage (HZFS) and a project sample pool. Mods: SP sample machines, SY FM DTONE, audio recorder, third LFO, arpeggiator, POLY, system info, sample manager. Builds change MAIN and a bounded part of AUDIO only; a recovery core that never loads the bank can replace a bank that stops the unit from starting. Also builds in the browser (synfact.app). A snapshot of the old release repo survives as nrdsrfr/synfact-release (2026-10-17).",
+   "notes": "Mod system for the Syntakt bringing Digitakt mk1 sample machines (ONE SHOT, WERP, REPITCH, SLICE), a per-project sample pool with long samples in slots 65-128 and a basic sample manager. Experimental. MIT. 18 stars at first sight. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read. 2026-11-03: the Lapin list links it as an external web app, https://synfact.app (builds custom Syntakt firmware from the user's stock OS file). 2026-11-03: the project moved to GSM1980/synfact-dev and was rebuilt on elekloader (GPL-2.0; the old release repo was MIT): a core (mods/core-st) with hook bus, UI and SETTINGS events, SMZ4 banks of machines and modules that can change without reinstalling, long-sample storage (HZFS) and a project sample pool. Mods: SP sample machines, SY FM DTONE, audio recorder, third LFO, arpeggiator, POLY, system info, sample manager. Builds change MAIN and a bounded part of AUDIO only; a recovery core that never loads the bank can replace a bank that stops the unit from starting. Also builds in the browser (synfact.app). A snapshot of the old release repo survives as nrdsrfr/synfact-release (2026-10-17). 2026-11-06: project lifecycle audit after a user report of slow project load and save; arp-st leaves default carriers absent (81 % fewer emulated instructions); RANDOMIZE pages documented.",
    "links": "{\"homepage\": \"https://synfact.app\", \"old_release_repo\": \"https://github.com/GSM1980/Synfact-release\", \"release_copy\": \"https://github.com/nrdsrfr/synfact-release\"}",
    "sources": "[\"synfact-dev README (2026-11-03)\", \"GitHub search 2026-11-02\", \"README\"]",
    "owner": "gsm1980",
@@ -4195,8 +4195,8 @@
    "status": "wip",
    "base_os": "Rytm MKII 1.73, 1.74",
    "version": null,
-   "last_activity": "2026-10-24",
-   "notes": "MrScruff's Rytm MKII mods (published with permission) ported to the elemod format for elekloader core-ar2. GPL. Found by GitHub search 2026-11-02; README start read.",
+   "last_activity": "2026-11-06",
+   "notes": "MrScruff's Rytm MKII mods (published with permission) ported to the elemod format for elekloader core-ar2. 2026-11-06: lfo-rnd 1.3 and voice-dac 1.5 (and a 1.5-nodep variant without DAC FILTER's DEP knob) confirmed on a unit on OS 1.74 with core-ar2 0.10 (CCs, offsets, p-locks, kept over kit save and power cycle). GPL. Found by GitHub search 2026-11-02; README start read.",
    "links": "{}",
    "sources": "[\"GitHub search 2026-11-02\", \"README\"]",
    "owner": "iced-cream",
@@ -4569,8 +4569,8 @@
    "license": "GPL-2.0",
    "status": "wip",
    "base_os": "Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module)",
-   "version": "Sidecar 0.3.2 with Rytm firmware 0.3.1",
-   "last_activity": "2026-11-01",
+   "version": "Sidecar 0.4.1 (Pi only: Overbridge passthrough on the Pi 4, USB-C mode switch, USB dropout fixes, MODEL E) with the unchanged Rytm firmware 0.4.0 for OS 1.74/1.73",
+   "last_activity": "2026-11-06",
    "notes": "A Raspberry Pi 4B/5 on the Rytm's USB port adds digital voices, effects and a sequencer; the Rytm runs a patched OS. 0.3.2 adds experimental, emulator-only Digitakt support. The Teensy variant is frozen. GPL-2.0.",
    "links": "{\"firmware_repo\": \"https://github.com/trigcondition/sidecar-firmware\"}",
    "sources": "[\"GitHub search 2026-11-02\", \"README\"]",
@@ -5807,6 +5807,31 @@
    "language": "Python",
    "gh_fork": false,
    "gh_license": "MIT"
+  },
+  {
+   "id": "dbx-k2",
+   "name": "DBX-K2 (resonator kick for MDX)",
+   "author": "MonCalamari",
+   "kind": "mod",
+   "list": "mods",
+   "devices": "machinedrum",
+   "repo": "https://github.com/MonCalamari/DBX-K2",
+   "license": "GPL-3.0-only",
+   "status": "active",
+   "base_os": "Machinedrum MKI/MKII running MDX X.20",
+   "version": "kick2-v0.9 (2026-11-06): HOLD replaces colour, pitch 38-160 Hz, saturation always on; v0.7 first release the same day",
+   "last_activity": "2026-11-06",
+   "notes": "A DSP56300 user machine sent as SysEx into a USR slot: each trigger strikes a tuned resonator whose pitch falls from a higher start; knobs for base pitch, sweep depth and time, decay, attack pulse, hold, saturation and a low-pass tone. The release page lists cycle counts for the MKII and for the MKI with DRAM or SRAM and says it was tested on a MKII with the +Drive. Send the slot-1 .syx with about 300 ms between messages; it replaces USR slot 01. The author credits Claude with the DSP code and tooling. Per altstrument 2026-11-06 (the repo was empty on 2026-11-05).",
+   "links": "{}",
+   "sources": "[\"altstrument (2026-11-06)\"]",
+   "owner": "moncalamari",
+   "created": null,
+   "pushed": null,
+   "stars": null,
+   "forks": null,
+   "language": null,
+   "gh_fork": null,
+   "gh_license": null
   },
   {
    "id": "heatfx-multimode",
@@ -8020,6 +8045,18 @@
    "type": "builds_on",
    "target": "ms-multi-output",
    "evidence": "README credits: the original 6-channel USB audio mod"
+  },
+  {
+   "project": "dbx-k2",
+   "type": "mod_for",
+   "target": "mdx",
+   "evidence": "altstrument: needs a Machinedrum running MDX X.20"
+  },
+  {
+   "project": "dbx-k2",
+   "type": "uses_tool",
+   "target": "mds",
+   "evidence": "altstrument: the repository uses the MDS tooling as submodules"
   }
  ],
  "rules": [
@@ -8324,7 +8361,7 @@
    "id": "A34",
    "section": "A. Safety - never skip",
    "title": "On ColdFire-audio devices (Syntakt, Digitakt mk1, Digitone mk1), the audio interrupt is the budget.",
-   "text": "A34. On ColdFire-audio devices (Syntakt, Digitakt mk1, Digitone mk1), the audio interrupt is the budget. The Syntakt's CPU #1 sits at ~89 % at rest, so a few thousand instructions per block make the UI lag. Measure cost per block in the emulator, keep a regression test, and make effects idle when silent. Never use RAM above the BSS for mod code on the Syntakt: sample loading overwrites it. `[hw]` {synthack-docs} {synthack-guide} On the Digitone mk1 an emulator cycle model even pointed the wrong way: it called a release faster while the unit's idle CPU rose from ~70 % to ~87 %. Only A/B builds on the unit decide. `[hw]` {tonefx-dev} Incidents: [I24](INCIDENTS.md#i24-a-granular-engine-froze-the-ui-at-low-pitch).",
+   "text": "A34. On ColdFire-audio devices (Syntakt, Digitakt mk1, Digitone mk1), the audio interrupt is the budget. The Syntakt's CPU #1 sits at ~89 % at rest, so a few thousand instructions per block make the UI lag. Measure cost per block in the emulator, keep a regression test, and make effects idle when silent. Never use RAM above the BSS for mod code on the Syntakt: sample loading overwrites it. `[hw]` {synthack-docs} {synthack-guide} On the Digitone mk1 an emulator cycle model even pointed the wrong way: it called a release faster while the unit's idle CPU rose from ~70 % to ~87 %. Only A/B builds on the unit decide. `[hw]` {tonefx-dev} Incidents: [I24](INCIDENTS.md#i24-a-granular-engine-froze-the-ui-at-low-pitch), [I49](INCIDENTS.md#i49-idle-paths-of-sixteen-mods-cost-two-percent-of-a-rytm-block).",
    "evidence": "hw",
    "sources": "synthack-docs,synthack-guide,tonefx-dev",
    "devices": "digitakt,digitone,syntakt"
@@ -8832,6 +8869,15 @@
    "evidence": "hw",
    "sources": "dn2-oldproject",
    "devices": "digitone-2,octatrack"
+  },
+  {
+   "id": "E4",
+   "section": "E. Changing parameter tables / saved data (Digitone II)",
+   "title": "Store a mod's data only where it differs from the defaults.",
+   "text": "E4. Store a mod's data only where it differs from the defaults. Every record a mod adds is written and checked on each save and load: Synfact's ARP mod sealed a carrier for every kit even with default settings, and a user saw project load and save slow down; leaving default carriers absent cut the serialization by 81 % in the emulator. Let \"absent\" mean \"default\", remove a record when it returns to default, and keep old projects readable. Incidents: [I50](INCIDENTS.md#i50-mod-data-written-for-default-settings-slowed-project-load-and-save). `[doc]` {synfact-lifecycle}",
+   "evidence": "doc",
+   "sources": "synfact-lifecycle",
+   "devices": ""
   },
   {
    "id": "F1",
@@ -10136,6 +10182,16 @@
    "key": "modwerk-ot-traps",
    "what": "repeat98/modwerk `docs/OCTATRACK_HARDWARE_TRAPS.md` (USB/EP0, RAM boot, NOR over USB, load, cold starts)",
    "url": "https://github.com/repeat98/modwerk/blob/main/docs/OCTATRACK_HARDWARE_TRAPS.md"
+  },
+  {
+   "key": "modwerk-rytm-idle",
+   "what": "repeat98/modwerk `docs/verification/` and `changelog/2026-11-06-*` (Analog Rytm MKII idle-CPU measurements for QPERF, Ping Pong Loop and Sample Playback Rate)",
+   "url": "https://github.com/repeat98/modwerk/tree/main/docs/verification"
+  },
+  {
+   "key": "synfact-lifecycle",
+   "what": "GSM1980/synfact-dev `docs/PROJECT-LIFECYCLE-AUDIT.md` (slow project load and save traced to ARP carriers written for default settings)",
+   "url": "https://github.com/GSM1980/synfact-dev/blob/main/docs/PROJECT-LIFECYCLE-AUDIT.md"
   },
   {
    "key": "modwerk-st-probe",
@@ -11606,16 +11662,16 @@
    "file": "hardware/devices/analog-rytm.md",
    "line": 49,
    "section": "Analog Rytm (MKI, MKII) - OS 1.73 / 1.74 / Analog Rytm MK1 (OS 1.73 / 1.74)",
-   "text": "Load (measured with a probe build on a MK1, OS 1.73): Stock audio alone is about 77 % of the CPU with nothing playing. One readout showed CPU 78.3 %, the audio interrupt at 61.2 % average and 74.0 % peak. With a first chorus-plus-comb send on, the CPU reached 100 %. The CPU runs at roughly 120 MIPS. A one-to-one port of the A4's chorus (~8,000-9,000 instructions per block) would cost ~10 % of the unit and was rejected. Same lesson as A34: replace work, and keep added effects idle when no track sends. `[hw]`",
+   "text": "Load (measured with a probe build on a MK1, OS 1.73): Stock audio alone is about 77 % of the CPU with nothing playing. One readout showed CPU 78.3 %, the audio interrupt at 61.2 % average and 74.0 % peak. With a first chorus-plus-comb send on, the CPU reached 100 %. The CPU runs at roughly 120 MIPS. A one-to-one port of the A4's chorus (~8,000-9,000 instructions per block) would cost ~10 % of the unit and was rejected. Same lesson as A34: replace work, and keep added effects idle when no track sends. `[hw]` Idle mods add up (Modwerk, 2026-11-06, OS 1.74, sequencer stopped, block timed on DTIM0): in a 16-module set the idle block took 72.9 %; making three modules return early when they have nothing to do (Ping Pong Loop's voice gates in stock's sample prefetch, Sample Playback Rate's block handler, QPERF) brought it to 70.6-71.1 %. Each module's idle path is part of the budget. `[hw]` {modwerk-rytm-idle} ([I49](../INCIDENTS.md#i49-idle-paths-of-sixteen-mods-cost-two-percent-of-a-rytm-block))",
    "evidence": "hw",
-   "sources": "analog-emu-mk1,rytm-mk1-mods",
+   "sources": "analog-emu-mk1,modwerk-rytm-idle,rytm-mk1-mods",
    "devices": "analog-rytm",
    "addresses": "",
    "id": 90
   },
   {
    "file": "hardware/devices/analog-rytm.md",
-   "line": 55,
+   "line": 56,
    "section": "Analog Rytm (MKI, MKII) - OS 1.73 / 1.74 / Analog Rytm MK1 (OS 1.73 / 1.74)",
    "text": "Cached vs uncached DRAM: the chorus's delay line moved to a cached DRAM address (`0x428a0000`) in v2. The same rule applies as on the A4 MK1: don't touch uncached memory per sample. `[doc]`",
    "evidence": "doc",
@@ -11626,7 +11682,7 @@
   },
   {
    "file": "hardware/devices/analog-rytm.md",
-   "line": 56,
+   "line": 57,
    "section": "Analog Rytm (MKI, MKII) - OS 1.73 / 1.74 / Analog Rytm MK1 (OS 1.73 / 1.74)",
    "text": "RAM is not cleared at power-up in the regions the mods use: clear your own buffers before use. `[hw]`",
    "evidence": "hw",
@@ -11637,7 +11693,7 @@
   },
   {
    "file": "hardware/devices/analog-rytm.md",
-   "line": 57,
+   "line": 58,
    "section": "Analog Rytm (MKI, MKII) - OS 1.73 / 1.74 / Analog Rytm MK1 (OS 1.73 / 1.74)",
    "text": "Dead code to reuse: The machine table (53 entries at `0x402543d0` on 1.73) holds 19 hidden machines whose voice-mask byte is 0, so no list offers them. They look like earlier development versions of the shipped machines, and none has been played on hardware. TEST machines (SD/RS/CY/CB) also exist. hugz202 reuses their code space. Its only reference is its own table entry, which the mod repoints, and the build checks the stock bytes. A kit received over SysEx that names a hidden machine then plays the mod's machine or nothing. `[hw]` (the `full` image ran on a MK1)",
    "evidence": "hw",
@@ -11648,7 +11704,7 @@
   },
   {
    "file": "hardware/devices/analog-rytm.md",
-   "line": 61,
+   "line": 62,
    "section": "Analog Rytm (MKI, MKII) - OS 1.73 / 1.74 / Analog Rytm MK1 (OS 1.73 / 1.74)",
    "text": "Recovery: FUNC at power-on, TRIG 4 (OS UPGRADE), stock `.syx` over DIN MIDI (Transfer's legacy mode). `[doc]`",
    "evidence": "doc",
@@ -11659,7 +11715,7 @@
   },
   {
    "file": "hardware/devices/analog-rytm.md",
-   "line": 64,
+   "line": 65,
    "section": "Analog Rytm (MKI, MKII) - OS 1.73 / 1.74 / More from the MKII mod and research projects (rytm-mods-src OS 1.73, analog-rytm-mkii-research OS 1.72)",
    "text": "A zero run is not a free cave until it survives a hard run on the unit. octatrack-mods had shipped code into a region that came from someone else's survey. The mod worked with the sequencer stopped and failed during playback, because the region was really `.bss` that the audio engine wrote. rytm-mods-src's check: fill the candidate with a known pattern, flash, run playback, sampling, Overbridge and +Drive access, then read it back. See rule A43. `[hw]`",
    "evidence": "hw",
@@ -11670,7 +11726,7 @@
   },
   {
    "file": "hardware/devices/analog-rytm.md",
-   "line": 65,
+   "line": 66,
    "section": "Analog Rytm (MKI, MKII) - OS 1.73 / 1.74 / More from the MKII mod and research projects (rytm-mods-src OS 1.73, analog-rytm-mkii-research OS 1.72)",
    "text": "Pick the narrowest assembler target that assembles. The project went from `-mcpu=5407` (ISA_A) to `-mcpu=5475` (ISA_B + EMAC) only when a mod needed EMAC, and checked that the earlier mods rebuilt byte-identically. Too narrow a target fails at assembly time; too wide a one silently accepts instructions the chip lacks (rule A42). `[doc]`",
    "evidence": "doc",
@@ -11681,7 +11737,7 @@
   },
   {
    "file": "hardware/devices/analog-rytm.md",
-   "line": 66,
+   "line": 67,
    "section": "Analog Rytm (MKI, MKII) - OS 1.73 / 1.74 / More from the MKII mod and research projects (rytm-mods-src OS 1.73, analog-rytm-mkii-research OS 1.72)",
    "text": "Sections 5, 2, 1 and 8 must come back byte-identical, and the bootstrap (section 2, 42,302 B at `0x07020000`) is checked by hash. Elektron's own bootstrap upgrade, which runs on the first restart after some OS updates, is the one moment the safety net is down: don't cut power then. `[doc]`",
    "evidence": "doc",
@@ -11692,7 +11748,7 @@
   },
   {
    "file": "hardware/devices/analog-rytm.md",
-   "line": 67,
+   "line": 68,
    "section": "Analog Rytm (MKI, MKII) - OS 1.73 / 1.74 / More from the MKII mod and research projects (rytm-mods-src OS 1.73, analog-rytm-mkii-research OS 1.72)",
    "text": "The master compressor is analog (after the analog mix and the master distortion). The MKII firmware never reads its gain back (the MK1 did, through the on-chip ADC input AN1), so any gain-reduction display on the MKII is an estimate. A CC beyond an enumeration's last value makes the unit show ERR instead of clamping. `[doc]`",
    "evidence": "doc",
@@ -11703,7 +11759,7 @@
   },
   {
    "file": "hardware/devices/analog-rytm.md",
-   "line": 68,
+   "line": 69,
    "section": "Analog Rytm (MKI, MKII) - OS 1.73 / 1.74 / More from the MKII mod and research projects (rytm-mods-src OS 1.73, analog-rytm-mkii-research OS 1.72)",
    "text": "Sample bit reduction is not done on the ColdFire. The BR knob becomes a per-voice command word, `0xB31407FF + ceil(BR x 0x40000 / 127)`, sent over DSPI1/eDMA to the external audio hardware. The main OS contains no mask or shift that would apply it to PCM. So sample playback processing on the Rytm MKII likely sits in the FPGA/voice hardware: a lead for research map T12. Static and emulator work only. `[doc]`",
    "evidence": "doc",
@@ -11714,7 +11770,7 @@
   },
   {
    "file": "hardware/devices/analog-rytm.md",
-   "line": 74,
+   "line": 75,
    "section": "Analog Rytm (MKI, MKII) - OS 1.73 / 1.74 / More from the MKII mod and research projects (rytm-mods-src OS 1.73, analog-rytm-mkii-research OS 1.72)",
    "text": "A third reading of the CPU: analog-rytm-mkii-research models the Rytm MKII as MCF5441x (conflict O14), with MAIN at `0x40000400` (2,903,032 B on 1.72) and the stack at `0x48000000`. `[doc]`",
    "evidence": "doc",
@@ -11725,7 +11781,7 @@
   },
   {
    "file": "hardware/devices/analog-rytm.md",
-   "line": 75,
+   "line": 76,
    "section": "Analog Rytm (MKI, MKII) - OS 1.73 / 1.74 / More from the MKII mod and research projects (rytm-mods-src OS 1.73, analog-rytm-mkii-research OS 1.72)",
    "text": "Porting MKII mods to the MK1: same code base, different data (gdeo607/rytm1_mods, OS 1.73) {rytm1-mods}: Most routines are byte-identical, but the parameter info record is 88 bytes on the MK1 and 84 on the MKII. UI glyphs and the screen differ (122 px wide on the MK1, 128x64 on the MKII), so anything that draws its own pixels needs a redesign, not new addresses. Every RAM address (`0x41xxxxxx`, `0x8000xxxx`) has to be found again. Each of these would have been a silent bug. `[doc]`",
    "evidence": "doc",
@@ -17535,9 +17591,9 @@
    "file": "hardware/devices/syntakt.md",
    "line": 26,
    "section": "Syntakt / Recovery (SyntHack OS `RECOVERY.md`)",
-   "text": "Tested on a unit (Modwerk, 2026-11-04, OS 1.42): the startup-menu recovery works over MIDI DIN through a generic USB-to-MIDI cable: FUNC at power-on, TRIG 4 (OS UPGRADE), stock 1.42 sent from Transfer's legacy SysEx page; the unit booted and showed 1.42. This run recovered a working unit; recovery of a unit that does not boot is still untested. USB does not work for this path. `[hw]` {modwerk-st-probe} ([I46](../INCIDENTS.md#i46-syntakt-startup-menu-recovery-tested-over-din))",
-   "evidence": "hw",
-   "sources": "modwerk-st-probe,synthack-recovery",
+   "text": "Mod data written for defaults slows project load and save (Synfact, OS 1.41): a user saw a project load slowly when switched to from another project and save more slowly than usual; a reboot straight into it loaded normally. The export was valid. The ARP mod wrote and sealed a 320-byte carrier for every kit even with default settings, so load checked all 1,664 bindings; leaving default carriers absent cut the emulated serialization from 24.8 M to 4.8 M instructions (81 % fewer). The slowness is a user report; the cost is `[emu]`, the wall-clock gain not yet measured. `[doc]` {synfact-lifecycle} ([I50](../INCIDENTS.md#i50-mod-data-written-for-default-settings-slowed-project-load-and-save))",
+   "evidence": "doc,emu",
+   "sources": "synfact-lifecycle,synthack-recovery",
    "devices": "syntakt",
    "addresses": "",
    "id": 629
@@ -17546,7 +17602,7 @@
    "file": "hardware/devices/syntakt.md",
    "line": 27,
    "section": "Syntakt / Recovery (SyntHack OS `RECOVERY.md`)",
-   "text": "A modified 1.42 image boots and runs (same run): Modwerk's boot probe (version shown `MW01`, flashed over USB with Transfer) booted to the live UI, played a stock project, came back after two power cycles, held every sample slot filled with no hang or exception screen, and played ten minutes cleanly; flashing stock 1.42 over USB restored the unit. Not tested: OS 1.40, the probe under Outbox 8, an SRAM-tail signature. `[hw]` {modwerk-st-probe}",
+   "text": "Tested on a unit (Modwerk, 2026-11-04, OS 1.42): the startup-menu recovery works over MIDI DIN through a generic USB-to-MIDI cable: FUNC at power-on, TRIG 4 (OS UPGRADE), stock 1.42 sent from Transfer's legacy SysEx page; the unit booted and showed 1.42. This run recovered a working unit; recovery of a unit that does not boot is still untested. USB does not work for this path. `[hw]` {modwerk-st-probe} ([I46](../INCIDENTS.md#i46-syntakt-startup-menu-recovery-tested-over-din))",
    "evidence": "hw",
    "sources": "modwerk-st-probe,synthack-recovery",
    "devices": "syntakt",
@@ -17555,53 +17611,53 @@
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 30,
-   "section": "Syntakt / Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware)",
-   "text": "Address rule `VA = file offset + 0x40000400`; ColdFire big-endian (ISA-C/EMAC). MAIN is 3,438,480 bytes, section 7 is 383,760 bytes. `[doc]` {machine45-handoff}",
-   "evidence": "doc",
-   "sources": "machine45,machine45-handoff",
+   "line": 28,
+   "section": "Syntakt / Recovery (SyntHack OS `RECOVERY.md`)",
+   "text": "A modified 1.42 image boots and runs (same run): Modwerk's boot probe (version shown `MW01`, flashed over USB with Transfer) booted to the live UI, played a stock project, came back after two power cycles, held every sample slot filled with no hang or exception screen, and played ten minutes cleanly; flashing stock 1.42 over USB restored the unit. Not tested: OS 1.40, the probe under Outbox 8, an SRAM-tail signature. `[hw]` {modwerk-st-probe}",
+   "evidence": "hw",
+   "sources": "modwerk-st-probe,synthack-recovery",
    "devices": "syntakt",
-   "addresses": "0x40000400",
+   "addresses": "",
    "id": 631
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 31,
    "section": "Syntakt / Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware)",
-   "text": "Stock public Machine IDs are 0-44, stored as a BYTE in each track's machine payload (`P[t]+0xA2`); runtime records `R[t] = model + 0x6C + 0x3C0*t`, `P[t] = *(R[t]+0x10)`; the setter is at `0x40025594` (store at `0x40025620`). 505 parameter descriptors of 52 bytes; only MAIN digital tracks 0-7. `[doc]` {machine45-handoff}",
+   "text": "Address rule `VA = file offset + 0x40000400`; ColdFire big-endian (ISA-C/EMAC). MAIN is 3,438,480 bytes, section 7 is 383,760 bytes. `[doc]` {machine45-handoff}",
    "evidence": "doc",
    "sources": "machine45,machine45-handoff",
    "devices": "syntakt",
-   "addresses": "0x40025594,0x40025620",
+   "addresses": "0x40000400",
    "id": 632
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 32,
    "section": "Syntakt / Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware)",
-   "text": "Section 7 selector: a signed BYTE with a 46-entry map (negative -> 0, 0-45 kept, above 45 clamped to 45); stock maps 0-7 to the same-numbered engine family and 36->8, 37->9, 38->10, 44->11, everything else (incl. 45) to family 0. Stock tables: render pointers `0x400148F0` (12 entries), prep pointers `0x40014920`, the 46-byte map at `0x40014950`. A compact handoff moves MAIN `[0x80002000,0x800021B0)` through a 27x16-byte eDMA transfer (TCD47, channel 47); each track then receives a 20-byte copy into `T[t] = 0x80003C40 + 0x8E*t`. Dslot is 8 x `0x708` = 14,400 bytes. `[doc]` {machine45-handoff}",
+   "text": "Stock public Machine IDs are 0-44, stored as a BYTE in each track's machine payload (`P[t]+0xA2`); runtime records `R[t] = model + 0x6C + 0x3C0*t`, `P[t] = *(R[t]+0x10)`; the setter is at `0x40025594` (store at `0x40025620`). 505 parameter descriptors of 52 bytes; only MAIN digital tracks 0-7. `[doc]` {machine45-handoff}",
    "evidence": "doc",
    "sources": "machine45,machine45-handoff",
    "devices": "syntakt",
-   "addresses": "0x400148F0,0x40014920,0x40014950,0x80002000,0x800021B0,0x80003C40",
+   "addresses": "0x40025594,0x40025620",
    "id": 633
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 33,
    "section": "Syntakt / Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware)",
-   "text": "Persistence confirmed statically: the current-kit Sound-v7 save/load keeps the machine byte (raw 0-45 and 255 retained, 46-254 map to 0); Pattern-v11 stores the byte at row `+0x2EC` and its restoration is not closed; Sound locks, p-locks, held trigs, migration, clipboard and undo not qualified. Evidence labels in that repo: confirmed by static analysis / verified in emulator (none for the whole device) / verified on hardware (none) / hypothesis. `[doc]` {machine45-handoff}",
+   "text": "Section 7 selector: a signed BYTE with a 46-entry map (negative -> 0, 0-45 kept, above 45 clamped to 45); stock maps 0-7 to the same-numbered engine family and 36->8, 37->9, 38->10, 44->11, everything else (incl. 45) to family 0. Stock tables: render pointers `0x400148F0` (12 entries), prep pointers `0x40014920`, the 46-byte map at `0x40014950`. A compact handoff moves MAIN `[0x80002000,0x800021B0)` through a 27x16-byte eDMA transfer (TCD47, channel 47); each track then receives a 20-byte copy into `T[t] = 0x80003C40 + 0x8E*t`. Dslot is 8 x `0x708` = 14,400 bytes. `[doc]` {machine45-handoff}",
    "evidence": "doc",
    "sources": "machine45,machine45-handoff",
    "devices": "syntakt",
-   "addresses": "",
+   "addresses": "0x400148F0,0x40014920,0x40014950,0x80002000,0x800021B0,0x80003C40",
    "id": 634
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 34,
    "section": "Syntakt / Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware)",
-   "text": "Open: safe executable storage for native DSP on \"CPU 2\" (the loader boundary is unresolved); composition with SY FM4 (engine 4, A-table entry overlap) and other descriptor mods; resource IDs 254-261 are unclaimed in the registry but have MIDI CCs, 505+ have no native allocation. `[doc]` {machine45-handoff}",
+   "text": "Persistence confirmed statically: the current-kit Sound-v7 save/load keeps the machine byte (raw 0-45 and 255 retained, 46-254 map to 0); Pattern-v11 stores the byte at row `+0x2EC` and its restoration is not closed; Sound locks, p-locks, held trigs, migration, clipboard and undo not qualified. Evidence labels in that repo: confirmed by static analysis / verified in emulator (none for the whole device) / verified on hardware (none) / hypothesis. `[doc]` {machine45-handoff}",
    "evidence": "doc",
    "sources": "machine45,machine45-handoff",
    "devices": "syntakt",
@@ -17610,230 +17666,230 @@
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 37,
-   "section": "Syntakt / Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41)",
-   "text": "Two ColdFire MCF5441x (V4, EMAC, no FPU, ~250 MHz, so 166,667 cycles per 32-sample block), with 64 KB SRAM at `0x80000000`. RAM shared between the CPUs is at `0x10000000`. `[doc]`",
+   "line": 35,
+   "section": "Syntakt / Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware)",
+   "text": "Open: safe executable storage for native DSP on \"CPU 2\" (the loader boundary is unresolved); composition with SY FM4 (engine 4, A-table entry overlap) and other descriptor mods; resource IDs 254-261 are unclaimed in the registry but have MIDI CCs, 505+ have no native allocation. `[doc]` {machine45-handoff}",
    "evidence": "doc",
-   "sources": "synthack-docs",
+   "sources": "machine45,machine45-handoff",
    "devices": "syntakt",
-   "addresses": "0x10000000,0x80000000",
+   "addresses": "",
    "id": 636
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 38,
    "section": "Syntakt / Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41)",
+   "text": "Two ColdFire MCF5441x (V4, EMAC, no FPU, ~250 MHz, so 166,667 cycles per 32-sample block), with 64 KB SRAM at `0x80000000`. RAM shared between the CPUs is at `0x10000000`. `[doc]`",
+   "evidence": "doc",
+   "sources": "synthack-docs",
+   "devices": "syntakt",
+   "addresses": "0x10000000,0x80000000",
+   "id": 637
+  },
+  {
+   "file": "hardware/devices/syntakt.md",
+   "line": 39,
+   "section": "Syntakt / Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41)",
    "text": "Sections of OS 1.41, stored in the order 5, 2, 1, 3, 4, 6, 7, 8: | Section | Content | Size | Note | |---|---|---|---| | 1 | FPGA bitstream | 149,516 B | never touch | | 2 | bootstrap with the STARTUP menu | 30,782 B | never touch | | 3 | MAIN OS for CPU #1, at `0x40000400` | 3,438,480 B | patched by mods | | 4 | updater | 32,776 B | raw; never touch | | 5 | meta | | | | 6 | ColdFire boot stub | 1,744 B | raw; never touch | | 7 | voice engine for CPU #2, at `0x40000400`, entry `0x40001070` | 383,760 B | raw; patchable | | 8 | the shared ARM Cortex-M image (not a second FPGA; CONFLICTS S15) | 159,948 B | identical in size to the DT1/DN2/Rytm/A4 image whose hash is known | Stock 1.41 SHA-256: `8e2488f4...b9ed19e`.",
    "evidence": "",
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0x40000400,0x40001070",
-   "id": 637
-  },
-  {
-   "file": "hardware/devices/syntakt.md",
-   "line": 51,
-   "section": "Syntakt / Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41)",
-   "text": "Signing conflict `[?]`: SyntHack describes an HMAC-SHA256 over the container for 1.41, with the key derived from the image. digikit found no HMAC trailer in 1.42 (the last 32 bytes are zero). Check the trailer of your own file before you decide.",
-   "evidence": "?",
-   "sources": "synthack-docs",
-   "devices": "syntakt",
-   "addresses": "",
    "id": 638
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 52,
    "section": "Syntakt / Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41)",
+   "text": "Signing conflict `[?]`: SyntHack describes an HMAC-SHA256 over the container for 1.41, with the key derived from the image. digikit found no HMAC trailer in 1.42 (the last 32 bytes are zero). Check the trailer of your own file before you decide.",
+   "evidence": "?",
+   "sources": "synthack-docs",
+   "devices": "syntakt",
+   "addresses": "",
+   "id": 639
+  },
+  {
+   "file": "hardware/devices/syntakt.md",
+   "line": 53,
+   "section": "Syntakt / Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41)",
    "text": "Boot unpack limit: the bootstrap loads compressed section 3 at `0x40200000` and unpacks it to `0x40000400`. The margin (decompressed minus compressed) must stay below ~`0x1FFC00` at every point of the stream. Stock 1.41 has a margin of +99,938 B. A build padded with zeros to `0x40350000` (-8,751 B) did not boot, tested twice and hung on the logo. Zero padding is the worst case; already-compressed payloads raise the margin. SyntHack refuses builds under 4 KB of margin. `[hw]`",
    "evidence": "hw",
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0x1FFC00,0x40000400,0x40200000,0x40350000",
-   "id": 639
+   "id": 640
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 56,
+   "line": 57,
    "section": "Syntakt / Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41)",
    "text": "The Syntakt accepts rebuilt images (recompressed section 3) over USB and DIN. `[hw]`",
    "evidence": "hw",
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "",
-   "id": 640
-  },
-  {
-   "file": "hardware/devices/syntakt.md",
-   "line": 70,
-   "section": "Syntakt / Memory map of CPU #1 (OS 1.41)",
-   "text": "Hardware lesson `[hw]`: SyntHack up to v0.8.0 kept mod code at `0x46000000`. Projects with SP TWINSHOT samples then crashed at boot. Since v0.8.1 the mod code (compressed, appended to section 3 at `0x40348000`) is unpacked into a 64 KB block that a hook at the end of heap init (`0x4010358E`) reserves first. ([I20](../INCIDENTS.md#i20-mod-code-at-a-free-address-crashed-projects-with-certain-samples))",
-   "evidence": "hw",
-   "sources": "synthack-docs",
-   "devices": "syntakt",
-   "addresses": "0x4010358E,0x40348000,0x46000000",
    "id": 641
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 71,
    "section": "Syntakt / Memory map of CPU #1 (OS 1.41)",
-   "text": "Conflict to watch `[?]`: SY FM4 (OS 1.40A) copies its code to `0x47000000`, which it describes as \"above the BSS end, below the stack, addressed by nothing\". That is the region SyntHack found to be overwritten by sample loading on 1.41. Treat any use of RAM above the BSS as unsafe until it is tested with sample-heavy projects.",
-   "evidence": "?",
+   "text": "Hardware lesson `[hw]`: SyntHack up to v0.8.0 kept mod code at `0x46000000`. Projects with SP TWINSHOT samples then crashed at boot. Since v0.8.1 the mod code (compressed, appended to section 3 at `0x40348000`) is unpacked into a 64 KB block that a hook at the end of heap init (`0x4010358E`) reserves first. ([I20](../INCIDENTS.md#i20-mod-code-at-a-free-address-crashed-projects-with-certain-samples))",
+   "evidence": "hw",
    "sources": "synthack-docs",
    "devices": "syntakt",
-   "addresses": "0x47000000",
+   "addresses": "0x4010358E,0x40348000,0x46000000",
    "id": 642
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 72,
    "section": "Syntakt / Memory map of CPU #1 (OS 1.41)",
+   "text": "Conflict to watch `[?]`: SY FM4 (OS 1.40A) copies its code to `0x47000000`, which it describes as \"above the BSS end, below the stack, addressed by nothing\". That is the region SyntHack found to be overwritten by sample loading on 1.41. Treat any use of RAM above the BSS as unsafe until it is tested with sample-heavy projects.",
+   "evidence": "?",
+   "sources": "synthack-docs",
+   "devices": "syntakt",
+   "addresses": "0x47000000",
+   "id": 643
+  },
+  {
+   "file": "hardware/devices/syntakt.md",
+   "line": 73,
+   "section": "Syntakt / Memory map of CPU #1 (OS 1.41)",
    "text": "Boot: entry `0x400004E8`; static constructors loop `0x40082500` (136 entries); the intro animation task `0x40087E6A` gates boot, so never make the intro longer. Screen: 128x64 1 bpp, column-major, double buffer at `0x402D6DC4`/`0x402D6DC0`; frame loop `0x4000A0E6` redraws when `*(0x444E1334)+96` is set. `[doc]`",
    "evidence": "doc",
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0x400004E8,0x4000A0E6,0x40082500,0x40087E6A,0x402D6DC0,0x402D6DC4,0x444E1334",
-   "id": 643
+   "id": 644
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 75,
+   "line": 76,
    "section": "Syntakt / Audio path",
    "text": "CPU #2 (section 7): all work runs in the audio interrupt `0x40000934` (vector 96, DMA timer 0 capture). Per block it copies `0x1B0` bytes of parameters from shared RAM and renders 8 digital voices (`0x40004324`). It returns 8 x 32 int32 over eDMA channel 47 and does no mixing. 12 engines: tables at `0x400148F0` (render), `0x40014920` (update), `0x40014950` (machine id -> engine). Order: BD MODERN, SD BASIC, CY ALLOY, PC CARBON, SY TONE, SY CHORD, SD VINTAGE, CP VINTAGE, SY TOY, SY BITS, SY SWARM, SP TWINSHOT. SY CHORD reads a 512 x int32 wave at `0x4001A300`. `[doc]`",
    "evidence": "doc",
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0x40000934,0x40004324,0x400148F0,0x40014920,0x40014950,0x4001A300",
-   "id": 644
+   "id": 645
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 79,
+   "line": 80,
    "section": "Syntakt / Audio path",
    "text": "CPU #1 (section 3): the per-block routine `0x400A3856` runs CV/gain, ADC deinterleave, then master/FX `0x4008F1CA`. Delay `0x40096890` and reverb `0x40096E3C` are the same code as on the Digitakt mk1. Buffers: digital tracks from CPU #2 at `0x80003D50`. ADC channels at `0x80003950`: 0-3 analog tracks, 4-5 external in, 6-7 the FX-track bus. USB/Overbridge: 20 channels per frame at `0x80004760`. The final mix is analog: digital buses go out through DACs into an analog mixer, with nothing digital after them. 40 control voltages go out over DSPI1 with eDMA channel 15; CV 35/36 are the FX-track bus VCAs. `[doc]`",
    "evidence": "doc",
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0x4008F1CA,0x40096890,0x40096E3C,0x400A3856,0x80003950,0x80003D50,0x80004760",
-   "id": 645
+   "id": 646
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 83,
+   "line": 84,
    "section": "Syntakt / Audio path",
    "text": "CPU #1 load: ~89 % at rest (sequencer stopped), measured on the device with DTIM0 (`0xFC07000C`) at interrupt entry and exit. The UI gets the rest, so a few thousand instructions per block make the UI lag. `[hw]` SY FM4 reports its main-CPU render at 85.8k of 166.7k cycles per block (stock 85.0k). That is a different span of the same interrupt. `[?]`",
    "evidence": "?,hw",
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0xFC07000C",
-   "id": 646
+   "id": 647
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 85,
+   "line": 86,
    "section": "Syntakt / Audio path",
    "text": "Digital filter and amp run on CPU #2; the cutoff is computed on CPU #1. Analog voices and the FX track drive a hardware envelope generator with 20-bit rate codes. Measured curves: the digital biquad f0 = 4.918 Hz x e^(0.0655 x FREQ); the analog filter f = 14.645 Hz x e^(0.0574 x FREQ). Tempo is at `0x402D7010` (BPM x 120). `[hw]` (analog curves measured)",
    "evidence": "hw",
    "sources": "synthack-docs",
    "devices": "syntakt",
    "addresses": "0x402D7010",
-   "id": 647
-  },
-  {
-   "file": "hardware/devices/syntakt.md",
-   "line": 88,
-   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
-   "text": "Section 7 is byte-identical in 1.41 and 1.42 (SHA-256 `daf6451c...783bc2`). It is ColdFire ISA-C with EMAC, MCF5441x-class: compile with `-mcpu=54418`, disassemble with `-m m68k:isa-c:emac`. CPU #2 has its own 128 MB SDRAM at `0x40000000` (SP `0x48000000`, entry `0x40001070`). `[doc]`",
-   "evidence": "doc",
-   "sources": "syncrackd-mm",
-   "devices": "syntakt",
-   "addresses": "0x40000000,0x40001070,0x48000000",
    "id": 648
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 89,
    "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
-   "text": "Only 39.8 KB is code (`0x40000404-0x40009f88`: boot, audio interrupt, voice loop, 12 engines, sample loader), followed by 284 KB of tables and data. Code room for mods is almost nil: ~318 bytes in small pieces remained after SynCrackd's images.",
+   "text": "Section 7 is byte-identical in 1.41 and 1.42 (SHA-256 `daf6451c...783bc2`). It is ColdFire ISA-C with EMAC, MCF5441x-class: compile with `-mcpu=54418`, disassemble with `-m m68k:isa-c:emac`. CPU #2 has its own 128 MB SDRAM at `0x40000000` (SP `0x48000000`, entry `0x40001070`). `[doc]`",
    "evidence": "doc",
    "sources": "syncrackd-mm",
    "devices": "syntakt",
-   "addresses": "0x40000404,0x40009f88",
+   "addresses": "0x40000000,0x40001070,0x48000000",
    "id": 649
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 90,
    "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
-   "text": "CPU #2 configures its own FPGA: a packed bitstream at `0x40041060` is unpacked to `0x40042000` (54,664 bytes) at init. That is the same size as the Analog Heat +FX FPGA section, so it may be the same part `[?]`. Keep away from it (rule A22).",
-   "evidence": "?",
+   "text": "Only 39.8 KB is code (`0x40000404-0x40009f88`: boot, audio interrupt, voice loop, 12 engines, sample loader), followed by 284 KB of tables and data. Code room for mods is almost nil: ~318 bytes in small pieces remained after SynCrackd's images.",
+   "evidence": "doc",
    "sources": "syncrackd-mm",
    "devices": "syntakt",
-   "addresses": "0x40041060,0x40042000",
+   "addresses": "0x40000404,0x40009f88",
    "id": 650
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 91,
    "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
+   "text": "CPU #2 configures its own FPGA: a packed bitstream at `0x40041060` is unpacked to `0x40042000` (54,664 bytes) at init. That is the same size as the Analog Heat +FX FPGA section, so it may be the same part `[?]`. Keep away from it (rule A22).",
+   "evidence": "?",
+   "sources": "syncrackd-mm",
+   "devices": "syntakt",
+   "addresses": "0x40041060,0x40042000",
+   "id": 651
+  },
+  {
+   "file": "hardware/devices/syntakt.md",
+   "line": 92,
+   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
    "text": "The sample pool is in CPU #2's RAM: 64 MB from `0x4004f750`, in BSS zeroed at boot. A 64-entry slot table `{u32 frames, u32 pointer}` is at `0x4404f754`. Format: 64 times `u32 frames` + big-endian int16 mono. The main CPU fills it at boot in 2 KB chunks through the shared window `0x800`, with an unchecked 16-bit index. This is the slow boot the manual mentions. Per slot at most 524,287 frames (10.9 s; positions are 20.12 fixed point). The stock UI limits slots to 5 s and \"32 MB\".",
    "evidence": "doc",
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "0x4004f750,0x4404f754",
-   "id": 651
-  },
-  {
-   "file": "hardware/devices/syntakt.md",
-   "line": 95,
-   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
-   "text": "Above the BSS, `0x4404f980-0x48000000` (63.7 MB) is not referenced by any section-7 instruction and is used for SynCrackd's state. Leave the top megabyte for the stack (its depth is not measured). This is CPU #2's RAM, not the main CPU's region that sample loading overwrites (CONFLICTS O2). `[hw]` (alpha, one unit)",
-   "evidence": "hw",
-   "sources": "syncrackd-mm",
-   "devices": "syntakt",
-   "addresses": "0x4404f980,0x48000000",
    "id": 652
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 96,
    "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
+   "text": "Above the BSS, `0x4404f980-0x48000000` (63.7 MB) is not referenced by any section-7 instruction and is used for SynCrackd's state. Leave the top megabyte for the stack (its depth is not measured). This is CPU #2's RAM, not the main CPU's region that sample loading overwrites (CONFLICTS O2). `[hw]` (alpha, one unit)",
+   "evidence": "hw",
+   "sources": "syncrackd-mm",
+   "devices": "syntakt",
+   "addresses": "0x4404f980,0x48000000",
+   "id": 653
+  },
+  {
+   "file": "hardware/devices/syntakt.md",
+   "line": 97,
+   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
    "text": "Shared window (CPU #2 `0x0-0x1000` = main CPU `0x10000000`, chip select 0, 16-bit, one wait state): `0x000-0x1b0`: the parameter block, copied to `0x80008000` every block; `0x1b0-0x5b0`: 8 mono track buffers, sent by eDMA 47; `0x5b0-0x800`: unused by stock; `0x800-0x1000`: the sample chunk at boot.",
    "evidence": "doc",
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "0x10000000,0x80008000",
-   "id": 653
-  },
-  {
-   "file": "hardware/devices/syntakt.md",
-   "line": 101,
-   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
-   "text": "SRAM `0x80000000`: 8 voices of 1,800 B, 8 mono int32 output buffers, 8 parameter blocks of 142 B. The highest static reference is `0x8000f670`, so treat SRAM as full.",
-   "evidence": "doc",
-   "sources": "syncrackd-mm",
-   "devices": "syntakt",
-   "addresses": "0x80000000,0x8000f670",
    "id": 654
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 102,
    "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
-   "text": "Twinshot (engine 11, machine type 44) reads the parameter slots 18-25: TUN1, SMP1, FLT1, MIX, TUN2, SMP2, loop flag, DEC1. A sample select below the centre plays the slot in reverse. `[emu]`",
-   "evidence": "emu",
+   "text": "SRAM `0x80000000`: 8 voices of 1,800 B, 8 mono int32 output buffers, 8 parameter blocks of 142 B. The highest static reference is `0x8000f670`, so treat SRAM as full.",
+   "evidence": "doc",
    "sources": "syncrackd-mm",
    "devices": "syntakt",
-   "addresses": "",
+   "addresses": "0x80000000,0x8000f670",
    "id": 655
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 103,
    "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
-   "text": "SynCrackd replaces Twinshot (and CY ALLOY) with a 64-slot stereo sampler, loops, slices, time stretch and transient triggers. It is OS 1.42 only, alpha, tested in emulation and on one unit, MIT.",
-   "evidence": "doc",
+   "text": "Twinshot (engine 11, machine type 44) reads the parameter slots 18-25: TUN1, SMP1, FLT1, MIX, TUN2, SMP2, loop flag, DEC1. A sample select below the centre plays the slot in reverse. `[emu]`",
+   "evidence": "emu",
    "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "",
@@ -17843,107 +17899,107 @@
    "file": "hardware/devices/syntakt.md",
    "line": 104,
    "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
-   "text": "Synfact (OS 1.41) adds DT mk1 sample machines, a per-project pool, polyphony across tracks and a third LFO. It ships its firmware change as a zlib-compressed XOR mask against the official file, pinned by hash. It needs a second mods file (515,808 B) sent with its own transfer tool after the flash. Boot and hardware validation are still pending. `[doc]` {synfact}",
+   "text": "SynCrackd replaces Twinshot (and CY ALLOY) with a 64-slot stereo sampler, loops, slices, time stretch and transient triggers. It is OS 1.42 only, alpha, tested in emulation and on one unit, MIT.",
    "evidence": "doc",
-   "sources": "syncrackd-mm,synfact",
+   "sources": "syncrackd-mm",
    "devices": "syntakt",
    "addresses": "",
    "id": 657
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 109,
-   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
-   "text": "Each change is stored with the SHA-256 of the original bytes, so a different OS version fails the build instead of crashing. Every mod runs in a Unicorn emulator next to the original code before flashing. Stock Unicorn gets signed fractional EMAC wrong (the audio comes out silent), so EMAC instructions are trapped and executed in Python from the NXP manual. Use CPU model \"ANY\" (the code needs FF1, MVS/MVZ, SATS).",
+   "line": 105,
+   "section": "Syntakt / CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`",
+   "text": "Synfact (OS 1.41) adds DT mk1 sample machines, a per-project pool, polyphony across tracks and a third LFO. It ships its firmware change as a zlib-compressed XOR mask against the official file, pinned by hash. It needs a second mods file (515,808 B) sent with its own transfer tool after the flash. Boot and hardware validation are still pending. `[doc]` {synfact}",
    "evidence": "doc",
-   "sources": "synthack-guide",
+   "sources": "syncrackd-mm,synfact",
    "devices": "syntakt",
    "addresses": "",
    "id": 658
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 112,
+   "line": 110,
+   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
+   "text": "Each change is stored with the SHA-256 of the original bytes, so a different OS version fails the build instead of crashing. Every mod runs in a Unicorn emulator next to the original code before flashing. Stock Unicorn gets signed fractional EMAC wrong (the audio comes out silent), so EMAC instructions are trapped and executed in Python from the NXP manual. Use CPU model \"ANY\" (the code needs FF1, MVS/MVZ, SATS).",
+   "evidence": "doc",
+   "sources": "synthack-guide",
+   "devices": "syntakt",
+   "addresses": "",
+   "id": 659
+  },
+  {
+   "file": "hardware/devices/syntakt.md",
+   "line": 113,
    "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
    "text": "Hooks: replace at least 6 bytes with `jsr` plus `nop` padding, and the trampoline replays the replaced instructions. Save every register; replay replaced EMAC instructions first. If your code uses EMAC, set MACSR yourself and leave ACC0 at 0, because the OS sum routines start from it. One-time setup goes in a hook in the page initializer (`0x401885D2...`), never in boot time.",
    "evidence": "doc",
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "0x401885D2",
-   "id": 659
+   "id": 660
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 116,
+   "line": 117,
    "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
    "text": "Mod code: gcc/as with `-mcpu=54418`, no `.bss` (put variables in `.data`), no libgcc (`nm -u` empty). ColdFire limits: `muls.l` takes no absolute address, there is no `exg`, `movem` takes only `(An)`/`d16(An)`, short branches reach ±127 B.",
    "evidence": "doc",
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "",
-   "id": 660
+   "id": 661
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 118,
+   "line": 119,
    "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
    "text": "Spare storage the OS saves without knowing: per track: engine word +106 (hidden id 72); per kit: unused words of the pattern kit at `*0x800030BC` (ids 0, 0x1A, 0x24, 0x27, 0x29, 0x2A, 0x37, 0x46, 0x38). Store values XOR their default, so old projects load with defaults; kit words 41-43 of the 12 per-track kit blocks (Digitakt MIDI-track data, unused here); 256 bytes in the project settings file. A \"free\" parameter id can be an alias the OS shows in some modes, so audit it.",
    "evidence": "doc",
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "0x800030BC",
-   "id": 661
-  },
-  {
-   "file": "hardware/devices/syntakt.md",
-   "line": 124,
-   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
-   "text": "UI internals: parameter descriptors at `0x4022D59C + 52*id`; page objects at `0x41B9F3C8` (44 B, 8 slots); per-parameter `std::function` objects at `0x41B9FA24 + 84*id` (+20 text, +36 icon, +68 style). Page 25 (\"OB8\") is a free Digitakt leftover. Rewrite a `std::function` only from UI code, never from the audio interrupt.",
-   "evidence": "doc",
-   "sources": "synthack-guide",
-   "devices": "syntakt",
-   "addresses": "0x4022D59C,0x41B9F3C8,0x41B9FA24",
    "id": 662
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 125,
    "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
+   "text": "UI internals: parameter descriptors at `0x4022D59C + 52*id`; page objects at `0x41B9F3C8` (44 B, 8 slots); per-parameter `std::function` objects at `0x41B9FA24 + 84*id` (+20 text, +36 icon, +68 style). Page 25 (\"OB8\") is a free Digitakt leftover. Rewrite a `std::function` only from UI code, never from the audio interrupt.",
+   "evidence": "doc",
+   "sources": "synthack-guide",
+   "devices": "syntakt",
+   "addresses": "0x4022D59C,0x41B9F3C8,0x41B9FA24",
+   "id": 663
+  },
+  {
+   "file": "hardware/devices/syntakt.md",
+   "line": 126,
+   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
    "text": "Audio mods: Hook the mix function; keep the OS's EMAC `msac` sign convention (the result is -Σ g·x). Do nothing when there is nothing to do. Compute at 24 kHz where the sound allows it. Ramps must snap to their target or the effect never goes idle. Limit how far a modulated delay moves per block. Keep a cost-per-block regression test (count instructions with `UC_HOOK_CODE` after `ctl_flush_tb()`).",
    "evidence": "doc",
    "sources": "synthack-guide",
    "devices": "syntakt",
    "addresses": "",
-   "id": 663
+   "id": 664
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 131,
+   "line": 132,
    "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
    "text": "Where mod code lives at run time (SyntHack modarea, v0.8.1+): The OS image has only ~2 KB free, and everything after it is zeroed at boot. So mod code is appended to section 3 compressed (SHLZ, at `0x40348000 + offset`). At boot it is unpacked into the first 64 KB block of the OS heap: buddy allocator `0x4010350C`, 16 MB pool at `0x444E38C0`. The block is reserved by a call right after heap initialization, so it always gets index 0, and the OS never hands it out again. The earlier home above the BSS (`0x46000000`) was overwritten whenever samples loaded (SyntHack issue 4), which settles conflict O2. `[hw]` {synthack-mods}",
    "evidence": "hw",
    "sources": "synthack-guide,synthack-mods",
    "devices": "syntakt",
    "addresses": "0x4010350C,0x40348000,0x444E38C0,0x46000000",
-   "id": 664
-  },
-  {
-   "file": "hardware/devices/syntakt.md",
-   "line": 136,
-   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
-   "text": "Kit and project storage that round-trips through stock code (SyntHack kitstore/projstore): Kit words 41-43 of the 12 per-track blocks go into 6 file bytes that stock's writer zeroes and its reader ignores. 256 bytes go into the project settings block (`+0x227..+0x3FF` is zeroed by the writer and ignored by the reader), behind an `SH` marker. Tests run the real writer and reader with and without the hooks. Zero must mean \"default\", because stock-saved files load as zero. `[emu]` {synthack-mods}",
-   "evidence": "emu",
-   "sources": "synthack-guide,synthack-mods",
-   "devices": "syntakt",
-   "addresses": "",
    "id": 665
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 141,
+   "line": 137,
    "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
-   "text": "Controlling the analog side digitally (SyntHack master-comp): a feed-forward compressor detects on ADC 6/7 (the FX-track bus before its VCAs) and applies gain through those VCAs' control voltages (CV 35/36), once per block (~1.5 kHz). Its UI uses the Digitakt MIDI-track \"CC Select\" ids 262-268, which the Syntakt never uses. Cost: ~100 instructions per block when off, ~600 when on. Checked on the device (v0.9). `[hw]` {synthack-mods}",
-   "evidence": "hw",
+   "text": "Kit and project storage that round-trips through stock code (SyntHack kitstore/projstore): Kit words 41-43 of the 12 per-track blocks go into 6 file bytes that stock's writer zeroes and its reader ignores. 256 bytes go into the project settings block (`+0x227..+0x3FF` is zeroed by the writer and ignored by the reader), behind an `SH` marker. Tests run the real writer and reader with and without the hooks. Zero must mean \"default\", because stock-saved files load as zero. `[emu]` {synthack-mods}",
+   "evidence": "emu",
    "sources": "synthack-guide,synthack-mods",
    "devices": "syntakt",
    "addresses": "",
@@ -17953,20 +18009,20 @@
    "file": "hardware/devices/syntakt.md",
    "line": 142,
    "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
-   "text": "Projects: SyntHack OS (9 mods on hardware, MIT); SY FM4 (4-operator FM replacing SY TONE, which also patches CPU #2); Syntakt Firmware Workbench. The Workbench replaces SY CHORD's waves: 31 slots of 257 big-endian Q31 samples, measured on a unit within 1 %. It adds a Deja Vu LFO, DV-H. It refuses any file but 1.41 and checks that only the declared regions changed. `[hw]` {syntakt-workbench}",
+   "text": "Controlling the analog side digitally (SyntHack master-comp): a feed-forward compressor detects on ADC 6/7 (the FX-track bus before its VCAs) and applies gain through those VCAs' control voltages (CV 35/36), once per block (~1.5 kHz). Its UI uses the Digitakt MIDI-track \"CC Select\" ids 262-268, which the Syntakt never uses. Cost: ~100 instructions per block when off, ~600 when on. Checked on the device (v0.9). `[hw]` {synthack-mods}",
    "evidence": "hw",
-   "sources": "syntakt-workbench,synthack-guide",
+   "sources": "synthack-guide,synthack-mods",
    "devices": "syntakt",
    "addresses": "",
    "id": 667
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 146,
-   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`",
-   "text": "`Syntakt_OS1.42.syx`: ELE3, 2,029,486 bytes, META stamp 2026-09-30 (same day as DT2 1.17 and DN2 1.12), SHA-256 `ded3c59f...7f37c1`; SysEx transport id `0x16`, OS-stream byte `0x11`; same packing codec as DT2/DN2; per-packet checksum constant K = 0x11. `[doc]` {digikit-f70}",
-   "evidence": "doc",
-   "sources": "digikit-f70",
+   "line": 143,
+   "section": "Syntakt / How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`",
+   "text": "Projects: SyntHack OS (9 mods on hardware, MIT); SY FM4 (4-operator FM replacing SY TONE, which also patches CPU #2); Syntakt Firmware Workbench. The Workbench replaces SY CHORD's waves: 31 slots of 257 big-endian Q31 samples, measured on a unit within 1 %. It adds a Deja Vu LFO, DV-H. It refuses any file but 1.41 and checks that only the declared regions changed. `[hw]` {syntakt-workbench}",
+   "evidence": "hw",
+   "sources": "syntakt-workbench,synthack-guide",
    "devices": "syntakt",
    "addresses": "",
    "id": 668
@@ -17975,7 +18031,7 @@
    "file": "hardware/devices/syntakt.md",
    "line": 147,
    "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`",
-   "text": "No HMAC trailer - the Syntakt OS file is not signed (last 32 bytes zero, no SHA-256 constants in sections 2-4); only the content checksum applies. `[doc]` {digikit-f70}",
+   "text": "`Syntakt_OS1.42.syx`: ELE3, 2,029,486 bytes, META stamp 2026-09-30 (same day as DT2 1.17 and DN2 1.12), SHA-256 `ded3c59f...7f37c1`; SysEx transport id `0x16`, OS-stream byte `0x11`; same packing codec as DT2/DN2; per-packet checksum constant K = 0x11. `[doc]` {digikit-f70}",
    "evidence": "doc",
    "sources": "digikit-f70",
    "devices": "syntakt",
@@ -17986,40 +18042,40 @@
    "file": "hardware/devices/syntakt.md",
    "line": 148,
    "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`",
-   "text": "Sections: 5 META; 2 bootstrap (dest word `0x04000000`, ColdFire code at `0x8000xxxx`, 30,782 B); 1 present only on Syntakt: `0xFF` padding then a bitstream-like blob (149,516 B) - the FPGA configuration (the bootstrap configures a Xilinx-style FPGA via INIT_B/DONE; MAIN only reads a status word); 3 MAIN at `0x40000400` (3,442,576 B, same reset path as DT2: entry `0x400004e8`, SP `0x48000000`); 4 UPDATER at `0x80000400` (32,768 raw); 6 present only on Syntakt (a 5-entry trap/jump table plus SPI helper code, 1,744 B); 7 is not a SHARC stream here but a standalone ColdFire program linked at `0x40000400` (entry `0x40001070`, 383,760 B) driving a DSPI-like block at `0xFC05C000` - consistent with a second ColdFire that runs the digital machines `[?]`; 8 byte-identical to DT2/DN2's section 8. `[doc]` {digikit-f70}",
-   "evidence": "?,doc",
+   "text": "No HMAC trailer - the Syntakt OS file is not signed (last 32 bytes zero, no SHA-256 constants in sections 2-4); only the content checksum applies. `[doc]` {digikit-f70}",
+   "evidence": "doc",
    "sources": "digikit-f70",
    "devices": "syntakt",
-   "addresses": "0x04000000,0x40000400,0x400004e8,0x40001070,0x48000000,0x80000400,0xFC05C000",
+   "addresses": "",
    "id": 670
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 149,
    "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`",
-   "text": "Peer link (\"DSP boot\"): a mailbox in the FlexBus window at `0x10000000` (\"HO\" hello / \"NO\" -> DSP_MEM error; `0xA5A5` at +4 for OK), a doorbell on GPIO PA bit 4, EPORT IRQ4 handshake, 2 KB chunks to `0x10000800`, DSPI2 with eDMA channel 29; status values WAIT, init fail, TIMEOUT, BUFSIZE, DSP_MEM, CF_MEM, OK; the OS shows \"DSP BOOT FAILURE (TIMEOUT/CF/DSP/BUF)\". Peer states include LOAD_OS, BOOT, RUNNING, UPLOAD_SAMPLES. `[doc]` {digikit-f70}",
-   "evidence": "doc",
+   "text": "Sections: 5 META; 2 bootstrap (dest word `0x04000000`, ColdFire code at `0x8000xxxx`, 30,782 B); 1 present only on Syntakt: `0xFF` padding then a bitstream-like blob (149,516 B) - the FPGA configuration (the bootstrap configures a Xilinx-style FPGA via INIT_B/DONE; MAIN only reads a status word); 3 MAIN at `0x40000400` (3,442,576 B, same reset path as DT2: entry `0x400004e8`, SP `0x48000000`); 4 UPDATER at `0x80000400` (32,768 raw); 6 present only on Syntakt (a 5-entry trap/jump table plus SPI helper code, 1,744 B); 7 is not a SHARC stream here but a standalone ColdFire program linked at `0x40000400` (entry `0x40001070`, 383,760 B) driving a DSPI-like block at `0xFC05C000` - consistent with a second ColdFire that runs the digital machines `[?]`; 8 byte-identical to DT2/DN2's section 8. `[doc]` {digikit-f70}",
+   "evidence": "?,doc",
    "sources": "digikit-f70",
    "devices": "syntakt",
-   "addresses": "0x10000000,0x10000800",
+   "addresses": "0x04000000,0x40000400,0x400004e8,0x40001070,0x48000000,0x80000400,0xFC05C000",
    "id": 671
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 150,
    "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`",
-   "text": "Only 27 of 172 digikit anchor rules hit on Syntakt 1.42 (vs 111/111 on DT2 1.17) - the Syntakt is a different platform, DT2 tooling does not carry over.",
+   "text": "Peer link (\"DSP boot\"): a mailbox in the FlexBus window at `0x10000000` (\"HO\" hello / \"NO\" -> DSP_MEM error; `0xA5A5` at +4 for OK), a doorbell on GPIO PA bit 4, EPORT IRQ4 handshake, 2 KB chunks to `0x10000800`, DSPI2 with eDMA channel 29; status values WAIT, init fail, TIMEOUT, BUFSIZE, DSP_MEM, CF_MEM, OK; the OS shows \"DSP BOOT FAILURE (TIMEOUT/CF/DSP/BUF)\". Peer states include LOAD_OS, BOOT, RUNNING, UPLOAD_SAMPLES. `[doc]` {digikit-f70}",
    "evidence": "doc",
    "sources": "digikit-f70",
    "devices": "syntakt",
-   "addresses": "",
+   "addresses": "0x10000000,0x10000800",
    "id": 672
   },
   {
    "file": "hardware/devices/syntakt.md",
    "line": 151,
    "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`",
-   "text": "digikit's scope rule, adopt it: never modify section 1 or the bootstrap, never reconfigure or emulate the FPGA (risk to the analog circuitry). `[doc]` {digikit-f70}",
+   "text": "Only 27 of 172 digikit anchor rules hit on Syntakt 1.42 (vs 111/111 on DT2 1.17) - the Syntakt is a different platform, DT2 tooling does not carry over.",
    "evidence": "doc",
    "sources": "digikit-f70",
    "devices": "syntakt",
@@ -18030,7 +18086,7 @@
    "file": "hardware/devices/syntakt.md",
    "line": 152,
    "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`",
-   "text": "Correction to earlier forum talk (\"two ColdFires and an FPGA\"): digikit's reading supports an FPGA and a second ColdFire program; SY FM4's \"CPU #2\" fits that.",
+   "text": "digikit's scope rule, adopt it: never modify section 1 or the bootstrap, never reconfigure or emulate the FPGA (risk to the analog circuitry). `[doc]` {digikit-f70}",
    "evidence": "doc",
    "sources": "digikit-f70",
    "devices": "syntakt",
@@ -18039,21 +18095,21 @@
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 155,
-   "section": "Syntakt / What the Syntakt shares with other boxes (merged from analog-emu's Syntakt port, OS 1.42, static plus emulator)",
-   "text": "The analog tracks reuse the Analog Rytm MKII's voice design. The voice control records have the Rytm MKII's format (command/depth word, start and target bytes, mode nibble, rate exponent and mantissa). The cymbal oscillator banks use the Rytm's scale (43.62 units per Hz) and load the Rytm's CH/CB CLASSIC values. So Rytm voice research applies here and back. `[doc]` (inferred from the shared formats)",
+   "line": 153,
+   "section": "Syntakt / Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`",
+   "text": "Correction to earlier forum talk (\"two ColdFires and an FPGA\"): digikit's reading supports an FPGA and a second ColdFire program; SY FM4's \"CPU #2\" fits that.",
    "evidence": "doc",
-   "sources": "analog-emu-syntakt",
+   "sources": "digikit-f70",
    "devices": "syntakt",
    "addresses": "",
    "id": 675
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 159,
+   "line": 156,
    "section": "Syntakt / What the Syntakt shares with other boxes (merged from analog-emu's Syntakt port, OS 1.42, static plus emulator)",
-   "text": "Digital tracks: rendered on CPU #2, then handed over by mailbox and eDMA channel 47 to CPU #1, which mixes them and sends them to the SSI1 codec. This agrees with SyntHack's audio path above. `[emu]`",
-   "evidence": "emu",
+   "text": "The analog tracks reuse the Analog Rytm MKII's voice design. The voice control records have the Rytm MKII's format (command/depth word, start and target bytes, mode nibble, rate exponent and mantissa). The cymbal oscillator banks use the Rytm's scale (43.62 units per Hz) and load the Rytm's CH/CB CLASSIC values. So Rytm voice research applies here and back. `[doc]` (inferred from the shared formats)",
+   "evidence": "doc",
    "sources": "analog-emu-syntakt",
    "devices": "syntakt",
    "addresses": "",
@@ -18063,7 +18119,7 @@
    "file": "hardware/devices/syntakt.md",
    "line": 160,
    "section": "Syntakt / What the Syntakt shares with other boxes (merged from analog-emu's Syntakt port, OS 1.42, static plus emulator)",
-   "text": "An emulator now boots 1.42 with both CPUs (analog-emu: stage 1 the main screen with a stand-in for CPU #2, stage 2 CPU #2 running for real). It is the only Syntakt 1.42 emulator in the catalogue; SyntHack's Unicorn harness targets 1.41. `[emu]`",
+   "text": "Digital tracks: rendered on CPU #2, then handed over by mailbox and eDMA channel 47 to CPU #1, which mixes them and sends them to the SSI1 codec. This agrees with SyntHack's audio path above. `[emu]`",
    "evidence": "emu",
    "sources": "analog-emu-syntakt",
    "devices": "syntakt",
@@ -18072,11 +18128,11 @@
   },
   {
    "file": "hardware/devices/syntakt.md",
-   "line": 163,
-   "section": "Syntakt / Gaps",
-   "text": "Signing: the HMAC presence in 1.41 versus 1.42 is a conflict, see above.",
-   "evidence": "",
-   "sources": "",
+   "line": 161,
+   "section": "Syntakt / What the Syntakt shares with other boxes (merged from analog-emu's Syntakt port, OS 1.42, static plus emulator)",
+   "text": "An emulator now boots 1.42 with both CPUs (analog-emu: stage 1 the main screen with a stand-in for CPU #2, stage 2 CPU #2 running for real). It is the only Syntakt 1.42 emulator in the catalogue; SyntHack's Unicorn harness targets 1.41. `[emu]`",
+   "evidence": "emu",
+   "sources": "analog-emu-syntakt",
    "devices": "syntakt",
    "addresses": "",
    "id": 678
@@ -18085,7 +18141,7 @@
    "file": "hardware/devices/syntakt.md",
    "line": 164,
    "section": "Syntakt / Gaps",
-   "text": "Free executable storage on CPU #2: unresolved (machine-45 research).",
+   "text": "Signing: the HMAC presence in 1.41 versus 1.42 is a conflict, see above.",
    "evidence": "",
    "sources": "",
    "devices": "syntakt",
@@ -18096,7 +18152,7 @@
    "file": "hardware/devices/syntakt.md",
    "line": 165,
    "section": "Syntakt / Gaps",
-   "text": "OS 1.42 addresses: all mod projects target 1.41 (SY FM4 targets 1.40A). digikit's 1.42 reading shares only 27 of 172 anchors with the DT2.",
+   "text": "Free executable storage on CPU #2: unresolved (machine-45 research).",
    "evidence": "",
    "sources": "",
    "devices": "syntakt",
@@ -18107,12 +18163,23 @@
    "file": "hardware/devices/syntakt.md",
    "line": 166,
    "section": "Syntakt / Gaps",
-   "text": "The FPGA's role. (Section 8 is now known to be the shared ARM image found on other devices, not a second FPGA: CONFLICTS S15.)",
+   "text": "OS 1.42 addresses: all mod projects target 1.41 (SY FM4 targets 1.40A). digikit's 1.42 reading shares only 27 of 172 anchors with the DT2.",
    "evidence": "",
    "sources": "",
    "devices": "syntakt",
    "addresses": "",
    "id": 681
+  },
+  {
+   "file": "hardware/devices/syntakt.md",
+   "line": 167,
+   "section": "Syntakt / Gaps",
+   "text": "The FPGA's role. (Section 8 is now known to be the shared ARM image found on other devices, not a second FPGA: CONFLICTS S15.)",
+   "evidence": "",
+   "sources": "",
+   "devices": "syntakt",
+   "addresses": "",
+   "id": 682
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18123,7 +18190,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 682
+   "id": 683
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18134,7 +18201,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 683
+   "id": 684
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18145,7 +18212,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 684
+   "id": 685
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18156,7 +18223,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 685
+   "id": 686
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18167,7 +18234,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 686
+   "id": 687
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18178,7 +18245,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 687
+   "id": 688
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18189,7 +18256,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 688
+   "id": 689
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18200,7 +18267,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 689
+   "id": 690
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18211,7 +18278,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 690
+   "id": 691
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18222,7 +18289,7 @@
    "sources": "dn2-skill-workflow",
    "devices": "",
    "addresses": "",
-   "id": 691
+   "id": 692
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18233,7 +18300,7 @@
    "sources": "elekloader-agents",
    "devices": "",
    "addresses": "",
-   "id": 692
+   "id": 693
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18244,7 +18311,7 @@
    "sources": "elekloader-agents",
    "devices": "",
    "addresses": "",
-   "id": 693
+   "id": 694
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18255,7 +18322,7 @@
    "sources": "elekloader-agents",
    "devices": "",
    "addresses": "",
-   "id": 694
+   "id": 695
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18266,7 +18333,7 @@
    "sources": "elekloader-agents",
    "devices": "",
    "addresses": "",
-   "id": 695
+   "id": 696
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18277,7 +18344,7 @@
    "sources": "elekloader-agents",
    "devices": "",
    "addresses": "",
-   "id": 696
+   "id": 697
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18288,7 +18355,7 @@
    "sources": "elekloader-format",
    "devices": "",
    "addresses": "",
-   "id": 697
+   "id": 698
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18299,7 +18366,7 @@
    "sources": "digikit-agents",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 698
+   "id": 699
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18310,7 +18377,7 @@
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
-   "id": 699
+   "id": 700
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18321,7 +18388,7 @@
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
-   "id": 700
+   "id": 701
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18332,7 +18399,7 @@
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
-   "id": 701
+   "id": 702
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18343,7 +18410,7 @@
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
-   "id": 702
+   "id": 703
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18354,7 +18421,7 @@
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
-   "id": 703
+   "id": 704
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18365,7 +18432,7 @@
    "sources": "digikit-agents",
    "devices": "",
    "addresses": "",
-   "id": 704
+   "id": 705
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18376,7 +18443,7 @@
    "sources": "digikit-arch",
    "devices": "",
    "addresses": "",
-   "id": 705
+   "id": 706
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18387,7 +18454,7 @@
    "sources": "digikit-arch",
    "devices": "",
    "addresses": "",
-   "id": 706
+   "id": 707
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18398,7 +18465,7 @@
    "sources": "digikit-arch",
    "devices": "",
    "addresses": "",
-   "id": 707
+   "id": 708
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18409,7 +18476,7 @@
    "sources": "dn2-mods",
    "devices": "",
    "addresses": "",
-   "id": 708
+   "id": 709
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18420,7 +18487,7 @@
    "sources": "dn2-mods",
    "devices": "",
    "addresses": "",
-   "id": 709
+   "id": 710
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18431,7 +18498,7 @@
    "sources": "dn2-mods",
    "devices": "",
    "addresses": "",
-   "id": 710
+   "id": 711
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18442,7 +18509,7 @@
    "sources": "dn2-mods",
    "devices": "",
    "addresses": "0x400dc02a",
-   "id": 711
+   "id": 712
   },
   {
    "file": "hardware/common/agent-workflow.md",
@@ -18453,7 +18520,7 @@
    "sources": "dn2-mods",
    "devices": "",
    "addresses": "",
-   "id": 712
+   "id": 713
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18464,7 +18531,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 713
+   "id": 714
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18475,7 +18542,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x4316e854",
-   "id": 714
+   "id": 715
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18486,7 +18553,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x200f5a74",
-   "id": 715
+   "id": 716
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18497,7 +18564,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x414141",
-   "id": 716
+   "id": 717
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18508,7 +18575,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 717
+   "id": 718
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18519,7 +18586,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 718
+   "id": 719
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18530,7 +18597,7 @@
    "sources": "digikit-f57",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 719
+   "id": 720
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18541,7 +18608,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 720
+   "id": 721
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18552,7 +18619,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 721
+   "id": 722
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18563,7 +18630,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 722
+   "id": 723
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18574,7 +18641,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 723
+   "id": 724
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18585,7 +18652,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x1c06ba",
-   "id": 724
+   "id": 725
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18596,7 +18663,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 725
+   "id": 726
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18607,7 +18674,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 726
+   "id": 727
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18618,7 +18685,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x80000018,0x8005912c,0x80459388",
-   "id": 727
+   "id": 728
   },
   {
    "file": "hardware/common/dt2-dn2-limits-and-audio-chain.md",
@@ -18629,7 +18696,7 @@
    "sources": "digikit-f100,digikit-f53,digikit-f57,digikit-f73",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 728
+   "id": 729
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18640,7 +18707,7 @@
    "sources": "digikit-f103,elekloader-sharc-dn2,own-dt2-notes",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 729
+   "id": 730
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18651,7 +18718,7 @@
    "sources": "digikit-f102,digikit-f103",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 730
+   "id": 731
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18662,7 +18729,7 @@
    "sources": "digikit-f103",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 731
+   "id": 732
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18673,7 +18740,7 @@
    "sources": "dn2-skill-sharc,dt2-plaits",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 732
+   "id": 733
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18684,7 +18751,7 @@
    "sources": "digikit-f91,dn2-skill-scripts",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 733
+   "id": 734
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18695,7 +18762,7 @@
    "sources": "digikit-f06,dt2-lab-capicola",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 734
+   "id": 735
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18706,7 +18773,7 @@
    "sources": "digikit-f51,dn2-skill-firmware,own-dt2-notes",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0xFFFFFFFF",
-   "id": 735
+   "id": 736
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18717,7 +18784,7 @@
    "sources": "digikit-f11",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x1c06ba",
-   "id": 736
+   "id": 737
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18728,7 +18795,7 @@
    "sources": "digikit-findings",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 737
+   "id": 738
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18739,7 +18806,7 @@
    "sources": "dt2-plaits",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 738
+   "id": 739
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18750,7 +18817,7 @@
    "sources": "digikit-f103,dt2-plaits",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 739
+   "id": 740
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18761,7 +18828,7 @@
    "sources": "dn2-dspstop,own-dt2-notes",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 740
+   "id": 741
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18772,7 +18839,7 @@
    "sources": "digikit-f103,dn2-dspstop",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 741
+   "id": 742
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18783,7 +18850,7 @@
    "sources": "dn2-accel",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 742
+   "id": 743
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18794,7 +18861,7 @@
    "sources": "own-dt2-notes",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 743
+   "id": 744
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18805,7 +18872,7 @@
    "sources": "elekloader-sharc-dn2,own-dt2-notes",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x266220,0x267220",
-   "id": 744
+   "id": 745
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18816,7 +18883,7 @@
    "sources": "digikit-f101",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 745
+   "id": 746
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18827,7 +18894,7 @@
    "sources": "dn2-skill-firmware,own-dt2-notes",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x2001ab7c,0x2008823c,0x20088400,0x200b0000,0x200f5a74,0x200fa000",
-   "id": 746
+   "id": 747
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18838,7 +18905,7 @@
    "sources": "dn2-cfw-roadmap",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 747
+   "id": 748
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18849,7 +18916,7 @@
    "sources": "own-dt2-notes",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 748
+   "id": 749
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18860,7 +18927,7 @@
    "sources": "digikit-sharcmap,own-dt2-notes",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 749
+   "id": 750
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18871,7 +18938,7 @@
    "sources": "dn2-ddr,dn2-drive,dt2-lab-flex-mem",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x80531000,0x80a00000,0x82a00000,0x8422b9c8,0x9d22b9c8,0xa0000000",
-   "id": 750
+   "id": 751
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18882,7 +18949,7 @@
    "sources": "dn2-sharcload,own-dt2-notes",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 751
+   "id": 752
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18893,7 +18960,7 @@
    "sources": "dn2mk2-reports,own-dt2-notes",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 752
+   "id": 753
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18904,7 +18971,7 @@
    "sources": "dn2-sharcload,dn2-skill-emulators,own-dt2-notes",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 753
+   "id": 754
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18915,7 +18982,7 @@
    "sources": "digikit-f102,digikit-f103",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 754
+   "id": 755
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18926,7 +18993,7 @@
    "sources": "digikit-f102,digikit-f103",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 755
+   "id": 756
   },
   {
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
@@ -18937,7 +19004,7 @@
    "sources": "digikit-f102,digikit-f103",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 756
+   "id": 757
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -18948,7 +19015,7 @@
    "sources": "dubspot",
    "devices": "",
    "addresses": "",
-   "id": 757
+   "id": 758
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -18959,7 +19026,7 @@
    "sources": "dubspot",
    "devices": "",
    "addresses": "",
-   "id": 758
+   "id": 759
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -18970,7 +19037,7 @@
    "sources": "dubspot",
    "devices": "",
    "addresses": "",
-   "id": 759
+   "id": 760
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -18981,7 +19048,7 @@
    "sources": "dnx-page,dt-fm,dubspot,elk-herd",
    "devices": "",
    "addresses": "",
-   "id": 760
+   "id": 761
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -18992,7 +19059,7 @@
    "sources": "dubspot,elekloader-adapting",
    "devices": "",
    "addresses": "",
-   "id": 761
+   "id": 762
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -19003,7 +19070,7 @@
    "sources": "dubspot",
    "devices": "",
    "addresses": "",
-   "id": 762
+   "id": 763
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -19014,7 +19081,7 @@
    "sources": "dubspot",
    "devices": "",
    "addresses": "",
-   "id": 763
+   "id": 764
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -19025,7 +19092,7 @@
    "sources": "elektronauts-policy",
    "devices": "",
    "addresses": "",
-   "id": 764
+   "id": 765
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -19036,7 +19103,7 @@
    "sources": "dubspot",
    "devices": "",
    "addresses": "",
-   "id": 765
+   "id": 766
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -19047,7 +19114,7 @@
    "sources": "dubspot",
    "devices": "",
    "addresses": "",
-   "id": 766
+   "id": 767
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -19058,7 +19125,7 @@
    "sources": "em-firmware-list",
    "devices": "analog-four-keys,analog-heat,analog-rytm,digitakt-2,digitone-2,machinedrum,model-cycles,monomachine,octatrack,syntakt",
    "addresses": "",
-   "id": 767
+   "id": 768
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -19069,7 +19136,7 @@
    "sources": "em-firmware-list",
    "devices": "",
    "addresses": "",
-   "id": 768
+   "id": 769
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -19080,7 +19147,7 @@
    "sources": "elektron-dt2-notes",
    "devices": "",
    "addresses": "",
-   "id": 769
+   "id": 770
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -19091,7 +19158,7 @@
    "sources": "em-tutorial",
    "devices": "",
    "addresses": "",
-   "id": 770
+   "id": 771
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -19102,7 +19169,7 @@
    "sources": "em-tutorial",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 771
+   "id": 772
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -19113,7 +19180,7 @@
    "sources": "em-tutorial",
    "devices": "",
    "addresses": "",
-   "id": 772
+   "id": 773
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -19124,7 +19191,7 @@
    "sources": "dubspot",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 773
+   "id": 774
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19135,7 +19202,7 @@
    "sources": "elektron-firmware-tool",
    "devices": "",
    "addresses": "",
-   "id": 774
+   "id": 775
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19146,7 +19213,7 @@
    "sources": "elektron-firmware-tool",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 775
+   "id": 776
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19157,7 +19224,7 @@
    "sources": "digikit-old",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 776
+   "id": 777
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19168,7 +19235,7 @@
    "sources": "elektron-firmware-tool",
    "devices": "",
    "addresses": "",
-   "id": 777
+   "id": 778
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19179,7 +19246,7 @@
    "sources": "elektron-faq",
    "devices": "analog-heat,digitone,model-cycles,model-samples",
    "addresses": "",
-   "id": 778
+   "id": 779
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19190,7 +19257,7 @@
    "sources": "dn2-firmware-explore,elektron-firmware-tool",
    "devices": "",
    "addresses": "",
-   "id": 779
+   "id": 780
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19201,7 +19268,7 @@
    "sources": "digikit-old",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 780
+   "id": 781
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19212,7 +19279,7 @@
    "sources": "elektron-firmware-tool",
    "devices": "",
    "addresses": "",
-   "id": 781
+   "id": 782
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19223,7 +19290,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "",
    "addresses": "",
-   "id": 782
+   "id": 783
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19234,7 +19301,7 @@
    "sources": "digikit-old",
    "devices": "digitakt-2",
    "addresses": "0xDEBB20E3,0xEDB88320",
-   "id": 783
+   "id": 784
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19245,7 +19312,7 @@
    "sources": "elektron-firmware-tool",
    "devices": "",
    "addresses": "",
-   "id": 784
+   "id": 785
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19256,7 +19323,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 785
+   "id": 786
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19267,7 +19334,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "digitone",
    "addresses": "",
-   "id": 786
+   "id": 787
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19278,7 +19345,7 @@
    "sources": "digikit-old",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 787
+   "id": 788
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19289,7 +19356,7 @@
    "sources": "",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 788
+   "id": 789
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19300,7 +19367,7 @@
    "sources": "dt2-lab-capicola,elekloader-sharc-boot",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 789
+   "id": 790
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19311,7 +19378,7 @@
    "sources": "digikit,digikit-f01,digikit-f06,digikit-old,dt2-lab-capicola",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x100000,0x400cd20c",
-   "id": 790
+   "id": 791
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19322,7 +19389,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 791
+   "id": 792
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19333,7 +19400,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "digitone,digitone-2",
    "addresses": "0x40000400",
-   "id": 792
+   "id": 793
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19344,7 +19411,7 @@
    "sources": "elekloader-readme",
    "devices": "digitakt",
    "addresses": "",
-   "id": 793
+   "id": 794
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19355,7 +19422,7 @@
    "sources": "analog-emu-a4,dn2-ele3,rytm-fw-re",
    "devices": "analog-four-keys,analog-rytm,digitakt,digitakt-2,digitone,digitone-2,syntakt",
    "addresses": "0x60000000,0x60042000",
-   "id": 794
+   "id": 795
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19366,7 +19433,7 @@
    "sources": "",
    "devices": "analog-four-keys,analog-rytm,digitone-2",
    "addresses": "",
-   "id": 795
+   "id": 796
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19377,7 +19444,7 @@
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 796
+   "id": 797
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19388,7 +19455,7 @@
    "sources": "elektron-firmware-tool",
    "devices": "",
    "addresses": "",
-   "id": 797
+   "id": 798
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19399,7 +19466,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "",
    "addresses": "",
-   "id": 798
+   "id": 799
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19410,7 +19477,7 @@
    "sources": "dn2-ele3",
    "devices": "digitone,digitone-2",
    "addresses": "",
-   "id": 799
+   "id": 800
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19421,7 +19488,7 @@
    "sources": "dn2-ele3",
    "devices": "digitakt-2,digitone,digitone-2",
    "addresses": "",
-   "id": 800
+   "id": 801
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19432,7 +19499,7 @@
    "sources": "dn2-ele3",
    "devices": "digitone",
    "addresses": "",
-   "id": 801
+   "id": 802
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19443,7 +19510,7 @@
    "sources": "dn2-ele3",
    "devices": "",
    "addresses": "",
-   "id": 802
+   "id": 803
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19454,7 +19521,7 @@
    "sources": "dn2-cfw-handoff,dn2-ele3",
    "devices": "digitone,digitone-2",
    "addresses": "0x02000000,0x02000800",
-   "id": 803
+   "id": 804
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19465,7 +19532,7 @@
    "sources": "dn2-ele3",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 804
+   "id": 805
   },
   {
    "file": "hardware/common/firmware-container.md",
@@ -19476,7 +19543,7 @@
    "sources": "dn2-ele3",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 805
+   "id": 806
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -19487,7 +19554,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 806
+   "id": 807
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -19498,7 +19565,7 @@
    "sources": "dn2-flashing,dn2mk2-safety",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 807
+   "id": 808
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -19509,7 +19576,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 808
+   "id": 809
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -19520,7 +19587,7 @@
    "sources": "dn2-flashing,dn2mk2-safety",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 809
+   "id": 810
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -19531,7 +19598,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 810
+   "id": 811
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -19542,7 +19609,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 811
+   "id": 812
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -19553,7 +19620,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 812
+   "id": 813
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -19564,7 +19631,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 813
+   "id": 814
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -19575,7 +19642,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 814
+   "id": 815
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -19586,7 +19653,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 815
+   "id": 816
   },
   {
    "file": "hardware/common/flash-procedure.md",
@@ -19597,7 +19664,7 @@
    "sources": "dn2-flashing",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 816
+   "id": 817
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19608,7 +19675,7 @@
    "sources": "digikit-f08",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0xEC070000,0xEC094000,0xFC044000,0xFC048000,0xFC04C000,0xFC050000,0xFC05C000,0xFC080000,0xFC08C000,0xFC090000",
-   "id": 817
+   "id": 818
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19619,7 +19686,7 @@
    "sources": "digikit-f08",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x40000000,0x44000000,0x47FFFFFF,0x48000000,0x4FFFFFFF",
-   "id": 818
+   "id": 819
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19630,7 +19697,7 @@
    "sources": "digikit-f08,digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x10000,0x80000",
-   "id": 819
+   "id": 820
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19641,7 +19708,7 @@
    "sources": "digikit-f08",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 820
+   "id": 821
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19652,7 +19719,7 @@
    "sources": "digikit-f17,netburner-cwt,nxp-mcf5441x-rm",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0xFC040016,0xFC04001B",
-   "id": 821
+   "id": 822
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19663,7 +19730,7 @@
    "sources": "dn2-drive",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x4029f554,0x402b4a24",
-   "id": 822
+   "id": 823
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19674,7 +19741,7 @@
    "sources": "digikit-f59",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x2DF017F,0x2DF0180,0x2DF1000,0x2E1A000,0x457FFF,0x458000,0x5D7FFF,0x5D8000,0x800000",
-   "id": 823
+   "id": 824
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19685,7 +19752,7 @@
    "sources": "digikit-samples",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x40000,0x48000,0x50000",
-   "id": 824
+   "id": 825
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19696,7 +19763,7 @@
    "sources": "dn2-caves",
    "devices": "digitone-2",
    "addresses": "0x08000000,0x8c000000",
-   "id": 825
+   "id": 826
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19707,7 +19774,7 @@
    "sources": "dn2-caves",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x40312000",
-   "id": 826
+   "id": 827
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19718,7 +19785,7 @@
    "sources": "dn2-caves",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 827
+   "id": 828
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19729,7 +19796,7 @@
    "sources": "dn2-caves",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 828
+   "id": 829
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19740,7 +19807,7 @@
    "sources": "dn2-caves",
    "devices": "digitone-2",
    "addresses": "0x4464abf0,0x46700000,0x4670c000,0x467f0000,0x46800000,0x46900000,0x46a00000,0x47fe0000",
-   "id": 829
+   "id": 830
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19751,7 +19818,7 @@
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitone-2",
    "addresses": "0x46710000,0x4671a000,0x46800000,0x47f00000,0x47fe0000,0x47ffffcc,0x48000000",
-   "id": 830
+   "id": 831
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19762,7 +19829,7 @@
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitone-2",
    "addresses": "0x4464abf0,0x466b8000,0x46700000,0x46701300,0x46701340,0x46708000,0x46710000,0x46900000",
-   "id": 831
+   "id": 832
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19773,7 +19840,7 @@
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitone-2",
    "addresses": "0x46800000,0x46a00000,0x47e00000,0x47f00000",
-   "id": 832
+   "id": 833
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19784,7 +19851,7 @@
    "sources": "digikit-f100,dt2-lab-capicola,elekloader-dt2-profile,own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 833
+   "id": 834
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19795,7 +19862,7 @@
    "sources": "digikit-f100,dt2-lab-capicola,elekloader-dt2-profile,own-dt2-notes",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x40000538,0x4000053e",
-   "id": 834
+   "id": 835
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19806,7 +19873,7 @@
    "sources": "digikit-f100,dt2-lab-capicola,elekloader-dt2-profile,own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 835
+   "id": 836
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19817,7 +19884,7 @@
    "sources": "digikit-f100,dt2-lab-capicola,elekloader-dt2-profile,own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 836
+   "id": 837
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19828,7 +19895,7 @@
    "sources": "digikit-f100,dt2-lab-capicola,elekloader-dt2-profile,own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "0x200f5a74,0x200fa000",
-   "id": 837
+   "id": 838
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19839,7 +19906,7 @@
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitakt,digitakt-2,digitone",
    "addresses": "0x40200000",
-   "id": 838
+   "id": 839
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19850,7 +19917,7 @@
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitakt,digitone",
    "addresses": "0x4009e928,0x4028E000,0x43229E60,0x43EB0000,0x48000000",
-   "id": 839
+   "id": 840
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19861,7 +19928,7 @@
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitakt-2",
    "addresses": "0x40312000,0x47E28470,0x47F00000,0x47F40000,0x80006E80,0x80008000,0x8000F100,0x80010000",
-   "id": 840
+   "id": 841
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19872,7 +19939,7 @@
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitone-2",
    "addresses": "0x200000,0x20090000,0x20098000,0x40000538,0x4002e464,0x4002e4ca,0x4002f20c,0x4002f256,0x400987a2,0x4009ff88,0x402fd000,0x466b84d0",
-   "id": 841
+   "id": 842
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19883,7 +19950,7 @@
    "sources": "elekloader-devices,elekloader-main",
    "devices": "octatrack",
    "addresses": "0x12d05,0x136cb,0x4000050c,0x400c45b0,0x400c4702,0x400d24e0,0x400d2ce0,0x400d64e0,0x400d7c3c,0x400de1e0,0x400e21e0",
-   "id": 842
+   "id": 843
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19894,7 +19961,7 @@
    "sources": "elekloader-devices,elekloader-main",
    "devices": "model-cycles",
    "addresses": "0x40000400,0x40200000,0x47E00000,0x47E40000,0x8000F700,0x80010000",
-   "id": 843
+   "id": 844
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19905,7 +19972,7 @@
    "sources": "elekloader-devices,elekloader-main",
    "devices": "analog-rytm",
    "addresses": "0x1F2BB0,0x300000,0x380000,0x400000,0x80000590",
-   "id": 844
+   "id": 845
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -19916,7 +19983,7 @@
    "sources": "elekloader-devices,elekloader-main",
    "devices": "analog-four-keys",
    "addresses": "0x18DF70,0x300000,0x380000,0x400000,0x40253000,0x41872230,0x42872230,0x448B6D50",
-   "id": 845
+   "id": 846
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -19927,7 +19994,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 846
+   "id": 847
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -19938,7 +20005,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x40000",
-   "id": 847
+   "id": 848
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -19949,7 +20016,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 848
+   "id": 849
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -19960,7 +20027,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x10000,0x80000,0xec090000",
-   "id": 849
+   "id": 850
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -19971,7 +20038,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 850
+   "id": 851
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -19982,7 +20049,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 851
+   "id": 852
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -19993,7 +20060,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 852
+   "id": 853
   },
   {
    "file": "hardware/common/os-update-protocol.md",
@@ -20004,7 +20071,7 @@
    "sources": "digikit-f75",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 853
+   "id": 854
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20015,7 +20082,7 @@
    "sources": "digikit-f42",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "0xFC0B0000",
-   "id": 854
+   "id": 855
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20026,7 +20093,7 @@
    "sources": "digikit-f42",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 855
+   "id": 856
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20037,7 +20104,7 @@
    "sources": "digikit-f42",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 856
+   "id": 857
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20048,7 +20115,7 @@
    "sources": "digikit-f42",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 857
+   "id": 858
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20059,7 +20126,7 @@
    "sources": "dn2-cfw-ob01",
    "devices": "analog-heat,digitone-2",
    "addresses": "",
-   "id": 858
+   "id": 859
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20070,7 +20137,7 @@
    "sources": "dn2-cfw-ob01",
    "devices": "analog-heat,digitone-2",
    "addresses": "",
-   "id": 859
+   "id": 860
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20081,7 +20148,7 @@
    "sources": "dn2-cfw-ob01",
    "devices": "analog-heat,digitone-2",
    "addresses": "",
-   "id": 860
+   "id": 861
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20092,7 +20159,7 @@
    "sources": "overwitch-readme",
    "devices": "analog-four-keys,analog-heat,analog-rytm,digitakt-2,digitone,digitone-2,syntakt",
    "addresses": "",
-   "id": 861
+   "id": 862
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20103,7 +20170,7 @@
    "sources": "overwitch-readme",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 862
+   "id": 863
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20114,7 +20181,7 @@
    "sources": "overwitch-readme",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 863
+   "id": 864
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20125,7 +20192,7 @@
    "sources": "overwitch-readme",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 864
+   "id": 865
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20136,7 +20203,7 @@
    "sources": "dn2-cfw-roadmap",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 865
+   "id": 866
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20147,7 +20214,7 @@
    "sources": "elektron-dt2-notes,elektron-heat-fx-notes,gearnews-dn2-overbridge",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 866
+   "id": 867
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20158,7 +20225,7 @@
    "sources": "overwitch-readme",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 867
+   "id": 868
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20169,7 +20236,7 @@
    "sources": "dt1-sidecar-h01",
    "devices": "analog-heat,digitakt",
    "addresses": "",
-   "id": 868
+   "id": 869
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20180,7 +20247,7 @@
    "sources": "dt1-sidecar-h01",
    "devices": "analog-heat,digitakt",
    "addresses": "",
-   "id": 869
+   "id": 870
   },
   {
    "file": "hardware/common/overbridge-usb.md",
@@ -20191,7 +20258,7 @@
    "sources": "dt1-sidecar-h01",
    "devices": "analog-heat,digitakt",
    "addresses": "",
-   "id": 870
+   "id": 871
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20202,7 +20269,7 @@
    "sources": "overtone",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 871
+   "id": 872
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20213,7 +20280,7 @@
    "sources": "dt2-lab-coldfire-fix",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 872
+   "id": 873
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20224,7 +20291,7 @@
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 873
+   "id": 874
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20235,7 +20302,7 @@
    "sources": "digitakt-ii-research",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 874
+   "id": 875
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20246,7 +20313,7 @@
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 875
+   "id": 876
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20257,7 +20324,7 @@
    "sources": "dn2-firmware-explore",
    "devices": "",
    "addresses": "",
-   "id": 876
+   "id": 877
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20268,7 +20335,7 @@
    "sources": "digitakt-ii-research",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 877
+   "id": 878
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20279,7 +20346,7 @@
    "sources": "elektron-dn2-notes,elektron-dt2-notes",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 878
+   "id": 879
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20290,7 +20357,7 @@
    "sources": "elektron-dn2-notes,elektron-dt2-notes,elektron-heat-fx-notes",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 879
+   "id": 880
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20301,7 +20368,7 @@
    "sources": "elektron-dn2-notes,elektron-dt2-notes",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 880
+   "id": 881
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20312,7 +20379,7 @@
    "sources": "elektron-dt2-notes",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 881
+   "id": 882
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20323,7 +20390,7 @@
    "sources": "elektron-heat-fx-notes",
    "devices": "analog-heat,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 882
+   "id": 883
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20334,7 +20401,7 @@
    "sources": "dt2-recovery",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 883
+   "id": 884
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20345,7 +20412,7 @@
    "sources": "synthack-recovery",
    "devices": "syntakt",
    "addresses": "",
-   "id": 884
+   "id": 885
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20356,7 +20423,7 @@
    "sources": "elekloader-building",
    "devices": "analog-four-keys,analog-rytm,digitakt,digitone,octatrack",
    "addresses": "",
-   "id": 885
+   "id": 886
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20367,7 +20434,7 @@
    "sources": "dt2-install,overtone",
    "devices": "",
    "addresses": "",
-   "id": 886
+   "id": 887
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20378,7 +20445,7 @@
    "sources": "elektron-dt2-support",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 887
+   "id": 888
   },
   {
    "file": "hardware/common/recovery.md",
@@ -20389,7 +20456,7 @@
    "sources": "elektron-dn2-support",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 888
+   "id": 889
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20400,7 +20467,7 @@
    "sources": "digitakt-midi-mcp",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 889
+   "id": 890
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20411,7 +20478,7 @@
    "sources": "elektron-dt2-notes",
    "devices": "",
    "addresses": "",
-   "id": 890
+   "id": 891
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20422,7 +20489,7 @@
    "sources": "digitakt-midi-mcp,syxgrid",
    "devices": "",
    "addresses": "",
-   "id": 891
+   "id": 892
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20433,7 +20500,7 @@
    "sources": "digi-roll-studio,syxgrid",
    "devices": "",
    "addresses": "",
-   "id": 892
+   "id": 893
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20444,7 +20511,7 @@
    "sources": "syxgrid",
    "devices": "digitone,digitone-2",
    "addresses": "",
-   "id": 893
+   "id": 894
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20455,7 +20522,7 @@
    "sources": "digi-roll-studio",
    "devices": "analog-four-keys,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 894
+   "id": 895
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20466,7 +20533,7 @@
    "sources": "digi-roll-studio",
    "devices": "digitone,digitone-2",
    "addresses": "",
-   "id": 895
+   "id": 896
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20477,7 +20544,7 @@
    "sources": "libanalogrytm",
    "devices": "analog-heat,analog-rytm",
    "addresses": "",
-   "id": 896
+   "id": 897
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20488,7 +20555,7 @@
    "sources": "digi-roll-protocol,libanalogrytm-sysex",
    "devices": "analog-rytm",
    "addresses": "",
-   "id": 897
+   "id": 898
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20499,7 +20566,7 @@
    "sources": "digi-roll-protocol,libanalogrytm-sysex,syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 898
+   "id": 899
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20510,7 +20577,7 @@
    "sources": "digi-roll-protocol,libanalogrytm-sysex,syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 899
+   "id": 900
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20521,7 +20588,7 @@
    "sources": "digi-roll-protocol,libanalogrytm-sysex",
    "devices": "analog-rytm",
    "addresses": "",
-   "id": 900
+   "id": 901
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20532,7 +20599,7 @@
    "sources": "digi-roll-protocol,libanalogrytm-sysex,syxgrid-map",
    "devices": "analog-rytm,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 901
+   "id": 902
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20543,7 +20610,7 @@
    "sources": "syxgrid-map",
    "devices": "analog-rytm,digitone-2",
    "addresses": "",
-   "id": 902
+   "id": 903
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20554,7 +20621,7 @@
    "sources": "digi-roll-protocol,libanalogrytm-sysex",
    "devices": "analog-rytm,digitakt-2,digitone-2",
    "addresses": "",
-   "id": 903
+   "id": 904
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20565,7 +20632,7 @@
    "sources": "",
    "devices": "analog-heat,digitakt-2,digitone",
    "addresses": "",
-   "id": 904
+   "id": 905
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20576,7 +20643,7 @@
    "sources": "digi-roll-protocol,elektroid-devices,elektron-faq",
    "devices": "digitakt-2,digitone,digitone-2,model-cycles,model-samples",
    "addresses": "",
-   "id": 905
+   "id": 906
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20587,7 +20654,7 @@
    "sources": "digikit-f42,elektroid-devices,overwitch-devices",
    "devices": "analog-four-keys,analog-rytm,digitakt-2,digitone,syntakt",
    "addresses": "",
-   "id": 906
+   "id": 907
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20598,7 +20665,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 907
+   "id": 908
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20609,7 +20676,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 908
+   "id": 909
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20620,7 +20687,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 909
+   "id": 910
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20631,7 +20698,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 910
+   "id": 911
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20642,7 +20709,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 911
+   "id": 912
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20653,7 +20720,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 912
+   "id": 913
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20664,7 +20731,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 913
+   "id": 914
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20675,7 +20742,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 914
+   "id": 915
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20686,7 +20753,7 @@
    "sources": "syxgrid-map",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 915
+   "id": 916
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20697,7 +20764,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 916
+   "id": 917
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20708,7 +20775,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 917
+   "id": 918
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20719,7 +20786,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 918
+   "id": 919
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20730,7 +20797,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 919
+   "id": 920
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20741,7 +20808,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 920
+   "id": 921
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20752,7 +20819,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 921
+   "id": 922
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20763,7 +20830,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 922
+   "id": 923
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20774,7 +20841,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 923
+   "id": 924
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20785,7 +20852,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 924
+   "id": 925
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20796,7 +20863,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 925
+   "id": 926
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20807,7 +20874,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 926
+   "id": 927
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20818,7 +20885,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 927
+   "id": 928
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20829,7 +20896,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 928
+   "id": 929
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20840,7 +20907,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 929
+   "id": 930
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20851,7 +20918,7 @@
    "sources": "digikit-rpc",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 930
+   "id": 931
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20862,7 +20929,7 @@
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 931
+   "id": 932
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20873,7 +20940,7 @@
    "sources": "dn2-midirpc",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 932
+   "id": 933
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20884,7 +20951,7 @@
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 933
+   "id": 934
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20895,7 +20962,7 @@
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 934
+   "id": 935
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20906,7 +20973,7 @@
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 935
+   "id": 936
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20917,7 +20984,7 @@
    "sources": "dn2-midirpc,elek-view",
    "devices": "analog-heat,digitakt-2,digitone-2,model-cycles",
    "addresses": "",
-   "id": 936
+   "id": 937
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20928,7 +20995,7 @@
    "sources": "dn2-midirpc,em-dx2-scripts",
    "devices": "digitakt-2,digitone-2,model-samples",
    "addresses": "",
-   "id": 937
+   "id": 938
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20939,7 +21006,7 @@
    "sources": "digikit-f58",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 938
+   "id": 939
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20950,7 +21017,7 @@
    "sources": "digikit-f58",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 939
+   "id": 940
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20961,7 +21028,7 @@
    "sources": "digikit-f58",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 940
+   "id": 941
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20972,7 +21039,7 @@
    "sources": "digikit-f58",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x4011e318,0x4011e598,0x4011fc8c,0x4011ff0c",
-   "id": 941
+   "id": 942
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20983,7 +21050,7 @@
    "sources": "digikit-f25,dn2-service",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0xec070000,0xec074000",
-   "id": 942
+   "id": 943
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -20994,7 +21061,7 @@
    "sources": "digi-roll-studio,digikit-f25,dn2-service",
    "devices": "digitakt-2,digitone-2",
    "addresses": "0x3C0000",
-   "id": 943
+   "id": 944
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -21005,7 +21072,7 @@
    "sources": "syxgrid",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 944
+   "id": 945
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -21016,7 +21083,7 @@
    "sources": "syxgrid",
    "devices": "",
    "addresses": "",
-   "id": 945
+   "id": 946
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -21027,7 +21094,7 @@
    "sources": "digitakt-midi-mcp,elektronauts-dt2-sample-slot",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 946
+   "id": 947
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -21038,7 +21105,7 @@
    "sources": "digitakt-midi-mcp",
    "devices": "",
    "addresses": "",
-   "id": 947
+   "id": 948
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -21049,7 +21116,7 @@
    "sources": "elektronauts-dt2-sample-slot",
    "devices": "",
    "addresses": "",
-   "id": 948
+   "id": 949
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -21060,7 +21127,7 @@
    "sources": "overwitch",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 949
+   "id": 950
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -21071,7 +21138,7 @@
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 950
+   "id": 951
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -21082,7 +21149,7 @@
    "sources": "",
    "devices": "",
    "addresses": "",
-   "id": 951
+   "id": 952
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -21093,7 +21160,7 @@
    "sources": "",
    "devices": "analog-four-keys,digitone",
    "addresses": "",
-   "id": 952
+   "id": 953
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -21104,7 +21171,7 @@
    "sources": "elektroid-readme",
    "devices": "analog-four-keys,analog-heat,analog-rytm,model-cycles,monomachine,syntakt",
    "addresses": "",
-   "id": 953
+   "id": 954
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -21115,7 +21182,7 @@
    "sources": "elektroid-readme",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 954
+   "id": 955
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -21126,7 +21193,7 @@
    "sources": "elektroid-readme",
    "devices": "",
    "addresses": "",
-   "id": 955
+   "id": 956
   },
   {
    "file": "hardware/common/sysex-and-midi.md",
@@ -21137,7 +21204,7 @@
    "sources": "elektron-dt2-notes,elektronauts-dt2-sample-slot,elektronauts-heat-midi",
    "devices": "digitakt-2,octatrack",
    "addresses": "",
-   "id": 956
+   "id": 957
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21148,7 +21215,7 @@
    "sources": "elekloader-adapting",
    "devices": "digitone",
    "addresses": "",
-   "id": 957
+   "id": 958
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21159,7 +21226,7 @@
    "sources": "dn2-firmware-explore,dn2-modding-skill",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 958
+   "id": 959
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21170,7 +21237,7 @@
    "sources": "dn2-cfw,dn2mk2",
    "devices": "",
    "addresses": "",
-   "id": 959
+   "id": 960
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21181,7 +21248,7 @@
    "sources": "elekloader-adapting,own-dt2-notes",
    "devices": "digitakt-2",
    "addresses": "",
-   "id": 960
+   "id": 961
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21192,7 +21259,7 @@
    "sources": "dn2-cfw-t31,dn2-selache",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 961
+   "id": 962
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21203,7 +21270,7 @@
    "sources": "dn2-selache",
    "devices": "digitone-2",
    "addresses": "",
-   "id": 962
+   "id": 963
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21214,7 +21281,7 @@
    "sources": "dn2-cfw",
    "devices": "",
    "addresses": "",
-   "id": 963
+   "id": 964
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21225,7 +21292,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 964
+   "id": 965
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21236,7 +21303,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 965
+   "id": 966
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21247,7 +21314,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 966
+   "id": 967
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21258,7 +21325,7 @@
    "sources": "coldfire-rs",
    "devices": "",
    "addresses": "",
-   "id": 967
+   "id": 968
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21269,7 +21336,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 968
+   "id": 969
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21280,7 +21347,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 969
+   "id": 970
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21291,7 +21358,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 970
+   "id": 971
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21302,7 +21369,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 971
+   "id": 972
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21313,7 +21380,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 972
+   "id": 973
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21324,7 +21391,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 973
+   "id": 974
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21335,7 +21402,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 974
+   "id": 975
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21346,7 +21413,7 @@
    "sources": "digigrain-skills",
    "devices": "digitakt",
    "addresses": "",
-   "id": 975
+   "id": 976
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21357,7 +21424,7 @@
    "sources": "digiemu",
    "devices": "digitone",
    "addresses": "",
-   "id": 976
+   "id": 977
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21368,7 +21435,7 @@
    "sources": "digikit",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 977
+   "id": 978
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21379,7 +21446,7 @@
    "sources": "digikit-old",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
-   "id": 978
+   "id": 979
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21390,7 +21457,7 @@
    "sources": "dn2-cfw",
    "devices": "",
    "addresses": "",
-   "id": 979
+   "id": 980
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21401,7 +21468,7 @@
    "sources": "dn2-modding-skill,overtone",
    "devices": "",
    "addresses": "",
-   "id": 980
+   "id": 981
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21412,7 +21479,7 @@
    "sources": "dn2mk2-firmware-md",
    "devices": "",
    "addresses": "",
-   "id": 981
+   "id": 982
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21423,7 +21490,7 @@
    "sources": "kyoti-fw",
    "devices": "",
    "addresses": "",
-   "id": 982
+   "id": 983
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21434,7 +21501,7 @@
    "sources": "overtone",
    "devices": "machinedrum,monomachine",
    "addresses": "",
-   "id": 983
+   "id": 984
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21445,7 +21512,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 984
+   "id": 985
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21456,7 +21523,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 985
+   "id": 986
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21467,7 +21534,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "0x26f000,0x2c0000,0xfc045654",
-   "id": 986
+   "id": 987
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21478,7 +21545,7 @@
    "sources": "digikit-tools",
    "devices": "",
    "addresses": "",
-   "id": 987
+   "id": 988
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21489,7 +21556,7 @@
    "sources": "elektron-emu",
    "devices": "analog-rytm,digitakt-2,digitone-2,model-cycles,syntakt",
    "addresses": "",
-   "id": 988
+   "id": 989
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21500,7 +21567,7 @@
    "sources": "digiemu-readme,dn2mk2-emulator",
    "devices": "",
    "addresses": "",
-   "id": 989
+   "id": 990
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21511,7 +21578,7 @@
    "sources": "emu-elektron-patches",
    "devices": "digitakt-2",
    "addresses": "0x400db9e0",
-   "id": 990
+   "id": 991
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21522,7 +21589,7 @@
    "sources": "alt-tools,em-list",
    "devices": "analog-heat",
    "addresses": "",
-   "id": 991
+   "id": 992
   },
   {
    "file": "hardware/common/toolchain-and-emulators.md",
@@ -21533,7 +21600,7 @@
    "sources": "digikit-f08,own-heatfx-notes",
    "devices": "",
    "addresses": "",
-   "id": 992
+   "id": 993
   }
  ],
  "goals": [
@@ -22747,6 +22814,38 @@
    "devices": "octatrack"
   },
   {
+   "id": "I49",
+   "group": "mod",
+   "title": "Idle paths of sixteen mods cost two percent of a Rytm block",
+   "unit": "Analog Rytm MKII, OS 1.74 (Modwerk library, 16-module set, sequencer stopped), 2026-11-06",
+   "seen": "the idle audio block took 72.9 % with the set installed.",
+   "cause": "three modules did work every block with nothing to do: Ping Pong Loop's four voice gates called the mirror routine for every voice in stock's sample prefetch, Sample Playback Rate walked all eight voices, QPERF ran its handler in full.",
+   "cause_found_by": "measured on the unit, block timed on DTIM0 over USB MIDI",
+   "fix": "early returns when idle (a byte of armed voices, \"no track has RATE on\"): 70.6-71.1 %.",
+   "status": "fixed in the pinned packages; not run alone on a unit.",
+   "evidence": "hw",
+   "sources": "modwerk-rytm-idle",
+   "rules": "A34",
+   "fact_file": "devices/analog-rytm.md",
+   "devices": "analog-rytm"
+  },
+  {
+   "id": "I50",
+   "group": "mod",
+   "title": "Mod data written for default settings slowed project load and save",
+   "unit": "Syntakt, OS 1.41 (Synfact arp-st), 2026-11-06",
+   "seen": "a user saw a project load slowly when switched to from another project, and a slower save; a reboot straight into it loaded normally.",
+   "cause": "the ARP mod sealed a 320-byte carrier for every kit even with default settings, so load checked all 1,664 bindings; the project itself was valid.",
+   "cause_found_by": "shown in the emulator on the user's export",
+   "fix": "leave the carrier absent while all thirteen rows are defaults: 81 % fewer emulated instructions for a full serialization.",
+   "status": "fixed offline; wall-clock times on the unit not measured yet.",
+   "evidence": "doc",
+   "sources": "synfact-lifecycle",
+   "rules": "E4",
+   "fact_file": "devices/syntakt.md",
+   "devices": "syntakt"
+  },
+  {
    "id": "I36",
    "group": "emulator-or-tool",
    "title": "The emulator undercounted DSP time by 2x to 12x",
@@ -23131,6 +23230,14 @@
   {
    "incident": "I48",
    "rule": "A43"
+  },
+  {
+   "incident": "I49",
+   "rule": "A34"
+  },
+  {
+   "incident": "I50",
+   "rule": "E4"
   },
   {
    "incident": "I36",

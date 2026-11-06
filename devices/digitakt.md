@@ -6,6 +6,7 @@ Data last verified: 2026-11-06
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **Sidecar | Expander** (trigcondition) | tool | wip | Sidecar 0.4.1 (Pi only: Overbridge passthrough on the Pi 4, USB-C mode switch, USB dropout fixes, MODEL E) with the unchanged Rytm firmware 0.4.0 for OS 1.74/1.73; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | v0.2.0 | 2026-11-06 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
 | **Digitakt LED colours** (ceredmeat) | mod | wip | ledcolors 0.2; Digitakt MKI OS 1.54; elekloader core 4.1 | LEDCOLORS | 2026-11-06 | [repo](https://github.com/ceredmeat/DIGITAKT-LED-COLORS) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-05 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **MIDI Expression for the Digitakt (Digi-Expression)** (tekomelu) | mod | wip | 0.12.1-experimental; Digitakt MKI OS 1.54 | - | 2026-11-05 | [repo](https://github.com/tekomelu/Digi-Expression) |
@@ -14,7 +15,6 @@ Data last verified: 2026-11-06
 | **elkflash** (Iced-Cream) | tool | active | - | - | 2026-11-02 | [repo](https://github.com/Iced-Cream/elkflash) |
 | **digitakt-digitone-mcp** (jamiew) | tool | active | - | - | 2026-11-01 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
-| **Sidecar | Expander** (trigcondition) | tool | wip | Sidecar 0.3.2 with Rytm firmware 0.3.1; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | v0.2.0 | 2026-11-01 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
 | **SAY IT** (x2k77m1) | mod | wip | Digitone mk1, Digitakt mk1 | v1.0b | 2026-10-31 | [repo](https://github.com/x2k77m1/sayit) |
 | **DIGISEQ (Digitakt)** (ClaidArremer) | mod | wip | Digitakt mk1 | - | 2026-10-31 | [repo](https://github.com/ClaidArremer/digitakt-digiseq) |
 | **Sidecar (Digitakt mod)** (trigcondition) | mod | wip | Digitakt mk1 | - | 2026-10-31 | [repo](https://github.com/trigcondition/sidecar-digitakt) |
@@ -245,7 +245,7 @@ _Sources: GitHub README, lapin-list_
 
 ### digihealth
 
-Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). On Digitone: FAST AUDIO not ported, not yet on a unit. GPL-2.0, 3 commits.
+Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). On Digitone: FAST AUDIO not ported, not yet on a unit. GPL-2.0, 3 commits. 2026-11-06: a Digitone II variant in dn2/: an elekloader core that measures the master DSP's L2 load and reports it over SysEx frames (declared limits, not observed peaks).
 
 _Latest seen (2026-10-31, secondary directories): altstrument: FAST AUDIO runs hot code from SRAM to cut DSP load; v1.1.1 adds a Digitone build (targets 1.44)._
 

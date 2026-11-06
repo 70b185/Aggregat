@@ -8,7 +8,8 @@ Data last verified: 2026-11-06
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.8.1 (2026-10-29); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-03 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
+| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-06 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
+| **DBX-K2 (resonator kick for MDX)** (MonCalamari) | mod | active | kick2-v0.9 (2026-11-06): HOLD replaces colour, pitch 38-160 Hz, saturation always on; v0.7 first release the same day; Machinedrum MKI/MKII running MDX X.20 | kick2-v0.9 | 2026-11-06 | [repo](https://github.com/MonCalamari/DBX-K2) |
 | **mds-tools (MDS packer and certifier)** (Justin Mammarella) | tool | active | main @ 983600a (2026-11-03); MDX 2.0 USR machines (Machinedrum MKI and MKII) | - | 2026-11-03 | [repo](https://github.com/jmamma/mds-tools) |
 | **Machinemodule for MPC OS** (sd88me) | emulator | active | v1.0.2 (tag, 2026-11-03) | v1.0.3 | 2026-11-03 | [repo](https://github.com/sd88me/mpc-vst-machinedrum) · [move port](https://github.com/sd88me/schwung-machinemodule) · [monomodule mpc](https://github.com/sd88me/mpc-vst-monomodule) |
 | **ModuleDrum** (K-X420) | emulator | active | - | v1.4.1 | 2026-11-01 | [repo](https://github.com/K-X420/ModuleDrum) |
@@ -205,3 +206,11 @@ _Sources: altstrument (2026-11-03)_
 Closed-source browser sample manager for the Machinedrum UW using MIDI Sample Dump Standard over Web MIDI: 48 slots with waveform view, WAV and .syx import/export, reverse, invert, loop and name controls. Proprietary.
 
 _Sources: altstrument (2026-11-03)_
+
+### DBX-K2 (resonator kick for MDX)
+
+A DSP56300 user machine sent as SysEx into a USR slot: each trigger strikes a tuned resonator whose pitch falls from a higher start; knobs for base pitch, sweep depth and time, decay, attack pulse, hold, saturation and a low-pass tone. The release page lists cycle counts for the MKII and for the MKI with DRAM or SRAM and says it was tested on a MKII with the +Drive. Send the slot-1 .syx with about 300 ms between messages; it replaces USR slot 01. The author credits Claude with the DSP code and tooling. Per altstrument 2026-11-06 (the repo was empty on 2026-11-05).
+
+_Related: mod for `mdx` (altstrument: needs a Machinedrum running MDX X.20); uses tool `mds` (altstrument: the repository uses the MDS tooling as submodules) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: altstrument (2026-11-06)_

@@ -8,7 +8,7 @@ Data last verified: 2026-11-06
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.8.1 (2026-10-29); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-03 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
+| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-06 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
 | **OP-XY MNMD** (mmockett) | emulator | active | - | v1.3.0 | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **BSP Machinedrum** (ABarracu87) | tool | active | - | v0.3.5 | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
 | **Monomachine Lab** (Jick238) | emulator | wip | Monomachine OS 1.32B (user-supplied) | v0.1.4 | 2026-10-21 | [repo](https://github.com/Jick238/monomachine-lab) |

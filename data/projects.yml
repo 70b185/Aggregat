@@ -431,8 +431,8 @@ projects:
       release: https://github.com/armio/dn2-dt2-firmware-research/blob/main/releases/r012.json
     status: stable
     base_os: "Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally"
-    version: "R014 candidate (2026-11-05, hardware validation pending); R013 adds SYSTEM > FORMAT SAMPLES (first-time sample storage, passed on the unit); R012 previous stable"
-    last_activity: "2026-11-05"
+    version: "R020 candidate (2026-11-06): accumulated sampler fixes, MIDI controls, SLICE persistence and a start-up guard; owner cold-boot check passed, the saved grid survived it; R013 added SYSTEM > FORMAT SAMPLES; R012 remains the stable target"
+    last_activity: "2026-11-06"
     notes: >
       Source-only recipes for Digitone II firmware with six Digitakt II sample machines (ONESHOT, WERP, STRETCH,
       REPITCH, GRID, SLICE), stereo samples, sample browsing, DT2 parameter graphics and SLICES trig mode.
@@ -769,6 +769,8 @@ projects:
     notes: >
       Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). On Digitone:
       FAST AUDIO not ported, not yet on a unit. GPL-2.0, 3 commits.
+      2026-11-06: a Digitone II variant in dn2/: an elekloader core that measures the master DSP's L2 load and
+      reports it over SysEx frames (declared limits, not observed peaks).
     latest_seen: >
       altstrument: FAST AUDIO runs hot code from SRAM to cut DSP load; v1.1.1 adds a Digitone build (targets 1.44).
     sources: [GitHub README, lapin-list, elekloader release v0.4.0]
@@ -1869,8 +1871,8 @@ projects:
     repo: https://github.com/radekdymacz/mdmm
     status: active
     base_os: Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you)
-    version: mdmm-v0.8.1 (2026-10-29)
-    last_activity: "2026-11-03"
+    version: "mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit)"
+    last_activity: "2026-11-06"
     notes: 'Desktop editors for Machinedrum and Monomachine that run the unit''s own OS in an emulator (app or VST3/AU),
       optional hardware MIDI mode. Licence: GPL-3.0-only; distribution: download. Listed by altstrument; repo not
       read by us yet.'
@@ -2591,7 +2593,7 @@ projects:
       old_release_repo: https://github.com/GSM1980/Synfact-release
       release_copy: https://github.com/nrdsrfr/synfact-release
     last_activity: "2026-11-03"
-    notes: "Mod system for the Syntakt bringing Digitakt mk1 sample machines (ONE SHOT, WERP, REPITCH, SLICE), a per-project sample pool with long samples in slots 65-128 and a basic sample manager. Experimental. MIT. 18 stars at first sight. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read. 2026-11-03: the Lapin list links it as an external web app, https://synfact.app (builds custom Syntakt firmware from the user's stock OS file). 2026-11-03: the project moved to GSM1980/synfact-dev and was rebuilt on elekloader (GPL-2.0; the old release repo was MIT): a core (mods/core-st) with hook bus, UI and SETTINGS events, SMZ4 banks of machines and modules that can change without reinstalling, long-sample storage (HZFS) and a project sample pool. Mods: SP sample machines, SY FM DTONE, audio recorder, third LFO, arpeggiator, POLY, system info, sample manager. Builds change MAIN and a bounded part of AUDIO only; a recovery core that never loads the bank can replace a bank that stops the unit from starting. Also builds in the browser (synfact.app). A snapshot of the old release repo survives as nrdsrfr/synfact-release (2026-10-17)."
+    notes: "Mod system for the Syntakt bringing Digitakt mk1 sample machines (ONE SHOT, WERP, REPITCH, SLICE), a per-project sample pool with long samples in slots 65-128 and a basic sample manager. Experimental. MIT. 18 stars at first sight. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read. 2026-11-03: the Lapin list links it as an external web app, https://synfact.app (builds custom Syntakt firmware from the user's stock OS file). 2026-11-03: the project moved to GSM1980/synfact-dev and was rebuilt on elekloader (GPL-2.0; the old release repo was MIT): a core (mods/core-st) with hook bus, UI and SETTINGS events, SMZ4 banks of machines and modules that can change without reinstalling, long-sample storage (HZFS) and a project sample pool. Mods: SP sample machines, SY FM DTONE, audio recorder, third LFO, arpeggiator, POLY, system info, sample manager. Builds change MAIN and a bounded part of AUDIO only; a recovery core that never loads the bank can replace a bank that stops the unit from starting. Also builds in the browser (synfact.app). A snapshot of the old release repo survives as nrdsrfr/synfact-release (2026-10-17). 2026-11-06: project lifecycle audit after a user report of slow project load and save; arp-st leaves default carriers absent (81 % fewer emulated instructions); RANDOMIZE pages documented."
     sources:
     - synfact-dev README (2026-11-03)
     - GitHub search 2026-11-02
@@ -3476,9 +3478,11 @@ projects:
     license: "GPL"
     status: wip
     base_os: Rytm MKII 1.73, 1.74
-    last_activity: '2026-10-24'
-    notes: MrScruff's Rytm MKII mods (published with permission) ported to the elemod format for elekloader core-ar2.
-      GPL. Found by GitHub search 2026-11-02; README start read.
+    last_activity: '2026-11-06'
+    notes: "MrScruff's Rytm MKII mods (published with permission) ported to the elemod format for elekloader core-ar2.
+      2026-11-06: lfo-rnd 1.3 and voice-dac 1.5 (and a 1.5-nodep variant without DAC FILTER's DEP knob) confirmed on a
+      unit on OS 1.74 with core-ar2 0.10 (CCs, offsets, p-locks, kept over kit save and power cycle).
+      GPL. Found by GitHub search 2026-11-02; README start read."
     sources:
     - GitHub search 2026-11-02
     - README
@@ -3762,8 +3766,8 @@ projects:
       firmware_repo: https://github.com/trigcondition/sidecar-firmware
     status: wip
     base_os: Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module)
-    version: Sidecar 0.3.2 with Rytm firmware 0.3.1
-    last_activity: '2026-11-01'
+    version: "Sidecar 0.4.1 (Pi only: Overbridge passthrough on the Pi 4, USB-C mode switch, USB dropout fixes, MODEL E) with the unchanged Rytm firmware 0.4.0 for OS 1.74/1.73"
+    last_activity: '2026-11-06'
     notes: A Raspberry Pi 4B/5 on the Rytm's USB port adds digital voices, effects and a sequencer; the Rytm runs a
       patched OS. 0.3.2 adds experimental, emulator-only Digitakt support. The Teensy variant is frozen. GPL-2.0.
     sources:
@@ -4689,3 +4693,26 @@ projects:
       live by CC/NRPN, mutes tracks (optionally the unit's own mute, CC 94); nothing is saved to the unit. Falls back to a
       virtual MIDI port without hardware. Found by GitHub search 2026-11-06.
     sources: [GitHub search 2026-11-06, README]
+
+  # ================================================================ found 2026-11-06 (evening)
+  - id: dbx-k2
+    name: DBX-K2 (resonator kick for MDX)
+    author: MonCalamari
+    kind: mod
+    devices: [machinedrum]
+    repo: https://github.com/MonCalamari/DBX-K2
+    status: active
+    base_os: "Machinedrum MKI/MKII running MDX X.20"
+    license: GPL-3.0-only
+    version: "kick2-v0.9 (2026-11-06): HOLD replaces colour, pitch 38-160 Hz, saturation always on; v0.7 first release the same day"
+    last_activity: '2026-11-06'
+    notes: >
+      A DSP56300 user machine sent as SysEx into a USR slot: each trigger strikes a tuned resonator whose pitch falls from
+      a higher start; knobs for base pitch, sweep depth and time, decay, attack pulse, hold, saturation and a low-pass tone.
+      The release page lists cycle counts for the MKII and for the MKI with DRAM or SRAM and says it was tested on a MKII
+      with the +Drive. Send the slot-1 .syx with about 300 ms between messages; it replaces USR slot 01. The author
+      credits Claude with the DSP code and tooling. Per altstrument 2026-11-06 (the repo was empty on 2026-11-05).
+    sources: [altstrument (2026-11-06)]
+    relations:
+    - {type: mod_for, id: mdx, evidence: 'altstrument: needs a Machinedrum running MDX X.20'}
+    - {type: uses_tool, id: mds, evidence: 'altstrument: the repository uses the MDS tooling as submodules'}

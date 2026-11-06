@@ -8,11 +8,11 @@ Data last verified: 2026-11-06
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **rytm2_mods** (Iced-Cream) | mod | wip | Rytm MKII 1.73, 1.74 | v1.4 | 2026-11-06 | [repo](https://github.com/Iced-Cream/rytm2_mods) |
+| **Sidecar | Expander** (trigcondition) | tool | wip | Sidecar 0.4.1 (Pi only: Overbridge passthrough on the Pi 4, USB-C mode switch, USB dropout fixes, MODEL E) with the unchanged Rytm firmware 0.4.0 for OS 1.74/1.73; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | v0.2.0 | 2026-11-06 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
 | **analoghealth** (Iced-Cream) | mod | wip | Rytm MKII 1.74, A4 MKII 1.56 | - | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
-| **Sidecar | Expander** (trigcondition) | tool | wip | Sidecar 0.3.2 with Rytm firmware 0.3.1; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | v0.2.0 | 2026-11-01 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
 | **Analog Rytm MK1 OS 1.74 mods** (hugz202) | mod | wip | Analog Rytm MK1, OS 1.74 | - | 2026-10-28 | [repo](https://github.com/hugz202/AE-analog-rytm-mods) |
-| **rytm2_mods** (Iced-Cream) | mod | wip | Rytm MKII 1.73, 1.74 | v1.4 | 2026-10-24 | [repo](https://github.com/Iced-Cream/rytm2_mods) |
 | **rytm-builder** (stampman3000-jpg) | tool | active | cursor/rytm-mac-app-0afb @ 90af848 (2026-10-14); Analog Rytm OS 1.70 object layout | - | 2026-10-14 | [repo](https://github.com/stampman3000-jpg/rytm-builder) |
 | **rytm-fw-re** (ethernet) | research | active | master @ 2f7f0c4 (2026-10-13); 1.74 | - | 2026-10-13 | [repo](https://github.com/ethernet8023/rytm-fw-re) |
 | **rytm-mods boot report** (Iced-Cream) | research | active | Analog Rytm MKII OS 1.73 | - | 2026-10-13 | [repo](https://github.com/Iced-Cream/rytm-mods-boot-report) |
@@ -104,7 +104,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 ### rytm2_mods
 
-MrScruff's Rytm MKII mods (published with permission) ported to the elemod format for elekloader core-ar2. GPL. Found by GitHub search 2026-11-02; README start read.
+MrScruff's Rytm MKII mods (published with permission) ported to the elemod format for elekloader core-ar2. 2026-11-06: lfo-rnd 1.3 and voice-dac 1.5 (and a 1.5-nodep variant without DAC FILTER's DEP knob) confirmed on a unit on OS 1.74 with core-ar2 0.10 (CCs, offsets, p-locks, kept over kit save and power cycle). GPL. Found by GitHub search 2026-11-02; README start read.
 
 _Related: port of `rytm-mods-src` (README: ported to elemod); mod for `elekloader` (catalogue notes: ported to the elemod format for elekloader core-ar2) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 

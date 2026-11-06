@@ -52,6 +52,7 @@ Rytm MKII (`core-ar2`).
   - With a first chorus-plus-comb send on, the CPU reached **100 %**.
   - The CPU runs at roughly 120 MIPS. A one-to-one port of the A4's chorus (~8,000-9,000 instructions per block) would cost ~10 % of the unit and was rejected.
   - Same lesson as A34: replace work, and keep added effects idle when no track sends. `[hw]`
+  - **Idle mods add up (Modwerk, 2026-11-06, OS 1.74, sequencer stopped, block timed on DTIM0):** in a 16-module set the idle block took **72.9 %**; making three modules return early when they have nothing to do (Ping Pong Loop's voice gates in stock's sample prefetch, Sample Playback Rate's block handler, QPERF) brought it to 70.6-71.1 %. Each module's idle path is part of the budget. `[hw]` {modwerk-rytm-idle} ([I49](../INCIDENTS.md#i49-idle-paths-of-sixteen-mods-cost-two-percent-of-a-rytm-block))
 - **Cached vs uncached DRAM:** the chorus's delay line moved to a cached DRAM address (`0x428a0000`) in v2. The same rule applies as on the A4 MK1: don't touch uncached memory per sample. `[doc]`
 - **RAM is not cleared at power-up** in the regions the mods use: clear your own buffers before use. `[hw]`
 - **Dead code to reuse:**

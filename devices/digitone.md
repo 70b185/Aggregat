@@ -153,7 +153,7 @@ _Sources: GitHub README, lapin-list_
 
 ### digihealth
 
-Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). On Digitone: FAST AUDIO not ported, not yet on a unit. GPL-2.0, 3 commits.
+Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). On Digitone: FAST AUDIO not ported, not yet on a unit. GPL-2.0, 3 commits. 2026-11-06: a Digitone II variant in dn2/: an elekloader core that measures the master DSP's L2 load and reports it over SysEx frames (declared limits, not observed peaks).
 
 _Latest seen (2026-10-31, secondary directories): altstrument: FAST AUDIO runs hot code from SRAM to cut DSP load; v1.1.1 adds a Digitone build (targets 1.44)._
 

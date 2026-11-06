@@ -72,7 +72,9 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2-skill-workflow | digitone-2-modding-skill `references/workflow.md` | https://github.com/complex-ping/digitone-2-modding-skill/blob/main/skills/digitone-2-modding-skill/references/workflow.md |
 | dn2-mainos-image | angellinares/dn2_firmware_explore `docs/mainos-image.md` | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/mainos-image.md |
 | dn2-ele3 | angellinares/dn2_firmware_explore `docs/ele3-format.md` | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/ele3-format.md |
-| dn2-cfw-030 | naturarum/dn2-cfw `docs/release/digiwerk-0.3.0.md` and `notes/R1.17-release-0.3.0.md` (Digiwerk 0.3.0, multitrack USB audio) | https://github.com/naturarum/dn2-cfw/blob/main/docs/release/digiwerk-0.3.0.md |
+| dn2-cfw-030 | naturarum/dn2-cfw published `docs/release/digiwerk-0.3.0.md` (eight non-spring builds; six spring builds remain withdrawn; checked 2026-11-06) | https://github.com/naturarum/dn2-cfw/blob/466e28c5de2fc00d67c51d4a129a286f5be4a520/docs/release/digiwerk-0.3.0.md |
+| dn2-cfw-usb | naturarum/dn2-cfw `notes/USB01-class-compliant-multichannel.md` (UM01/UM02 corrected uncached SSI read counts and hardware observations; checked 2026-11-06) | https://github.com/naturarum/dn2-cfw/blob/466e28c5de2fc00d67c51d4a129a286f5be4a520/notes/USB01-class-compliant-multichannel.md |
+| dn2-cfw-um03 | naturarum/dn2-cfw `notes/R1.17-release-0.3.0.md`, section 1 (historical UM03 code/BSS increment, not final release availability or UM04 size; checked 2026-11-06) | https://github.com/naturarum/dn2-cfw/blob/466e28c5de2fc00d67c51d4a129a286f5be4a520/notes/R1.17-release-0.3.0.md |
 | dn2-cfw-roadmap | naturarum/dn2-cfw `ROADMAP.md` | https://github.com/naturarum/dn2-cfw/blob/main/ROADMAP.md |
 | dn2-cfw-handoff | naturarum/dn2-cfw `HANDOFF.md` (running log; later entries supersede; read 2026-10-06 and the 2026-10-31 entries on UM01/UM02 and the cache map) | https://github.com/naturarum/dn2-cfw/blob/main/HANDOFF.md |
 | dn2-cfw-firmware | naturarum/dn2-cfw `FIRMWARE.md` | https://github.com/naturarum/dn2-cfw/blob/main/FIRMWARE.md |

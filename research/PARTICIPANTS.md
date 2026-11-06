@@ -33,6 +33,7 @@ reviews and merges them by hand, as with results.
 | 2026-11-04 | armio (dn2-dt2-firmware-research) | R012 listing; SHARC cache ranges and diagnostic-word losses corrected against digikit findings 101 and 103 (H12) | [#1](https://github.com/70b185/Aggregat/pull/1) |
 | 2026-11-04 | angellinares (dn2_firmware_explore) | four facts about dn2_firmware_explore corrected from its own records; O17 settled as S17; unit evidence for O19 | [#2](https://github.com/70b185/Aggregat/pull/2) |
 | 2026-11-04 | angellinares | relation graph in the README (`scripts/relation_graph.py`) and the `license` field | [#3](https://github.com/70b185/Aggregat/pull/3) |
+| 2026-11-06 | armio (dn2-dt2-firmware-research) | Digiwerk 0.3.0 availability (spring builds still withdrawn) and the scope of two USB research figures, pinned to the source commit | [#4](https://github.com/70b185/Aggregat/pull/4) |
 
 <!-- Section template for a participant:
 ## <project> (<repo link>)

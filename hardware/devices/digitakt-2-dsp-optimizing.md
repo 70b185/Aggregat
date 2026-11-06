@@ -6,7 +6,7 @@ with 25 models. Every model and each optimisation was flashed step by step on th
 `[hw]` ran on a unit; cycle figures are emulator estimates calibrated against the unit.
 
 ## 1. Two hangs on silicon that the emulator ran bit-exactly `[hw]`
-- **H-opt1, RINGS as a hand-written SIMD kernel: the DSP hung on the first block, and all audio died.**
+- **H-opt1, RINGS as a hand-written SIMD kernel: the DSP hung on the first block, and all audio died.** ([I14](../INCIDENTS.md#i14-dag-registers-stored-through-their-own-dag-hung-the-dsp))
   - Cause, confirmed with a one-variable probe image: **DAG registers stored through their own DAG** (`DM(I7, M7) = M4` and similar, used to save I0/I1/M4/M6/L0/L1/L4). The PRM forbids it for Types 3 and 15. Stock loads such registers through their own DAG thousands of times but **never stores** one.
   - The probe was `probe-samedag-store`, a single `DM(I4, M6) = M4` and no SIMD.
   - Fix: push DAG registers through R0.

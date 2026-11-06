@@ -45,7 +45,7 @@ Rytm MKII (`core-ar2`).
 - **The bootstrap is inside MAIN OS, as on the A4 MK1** (rule A38):
   - On 1.74 its version words are at `0x4028c768` and its image at `0x4028c770..0x402a1b84` (87,068 B, ending in its USB descriptors). On 1.73 the same image sat 0x60 lower.
   - At every boot the startup code compares that version with the one in flash at `0x1fff8`. If the embedded one is newer, the OS shows BOOTSTRAP UPGRADE and rewrites the bootstrap sectors. `[doc]`
-- **Container pitfall:** elektron-firmware-tool padded ELE2 containers to 2 bytes; the stock MK1 file pads to 4. A "no change" rebuild therefore came out 2 bytes short and failed the null-repack check. hugz202 patches the tool to pad to 4. **Always run a null repack of the stock file first** (rule A23). `[hw]`
+- **Container pitfall:** elektron-firmware-tool padded ELE2 containers to 2 bytes; the stock MK1 file pads to 4. A "no change" rebuild therefore came out 2 bytes short and failed the null-repack check. hugz202 patches the tool to pad to 4. **Always run a null repack of the stock file first** (rule A23). `[hw]` ([I40](../INCIDENTS.md#i40-a-no-change-rebuild-came-out-2-bytes-short))
 - **Load (measured with a probe build on a MK1, OS 1.73):**
   - Stock audio alone is about **77 % of the CPU with nothing playing**.
   - One readout showed CPU 78.3 %, the audio interrupt at 61.2 % average and 74.0 % peak.

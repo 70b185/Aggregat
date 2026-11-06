@@ -6,15 +6,16 @@
    "projects": 231,
    "devices": 13,
    "relations": 356,
-   "rules": 91,
-   "sources": 271,
+   "rules": 103,
+   "sources": 272,
    "conflicts": 33,
    "facts": 992,
    "goals": 8,
    "tasks": 24,
    "hypotheses": 18,
    "research_links": 36,
-   "participants": 0
+   "participants": 0,
+   "incidents": 48
   },
   "research_snapshot": "bf9db7855397"
  },
@@ -8035,7 +8036,7 @@
    "id": "A2",
    "section": "A. Safety - never skip",
    "title": "Know the recovery path before anything is flashed.",
-   "text": "A2. Know the recovery path before anything is flashed. Write it down in your output, with the exact button combination for the device (see [`common/recovery.md`](common/recovery.md)). Keep the stock OS file and, for Digitakt II / Digitone II, a physical DIN MIDI interface at hand. Note: digikit's README itself says recovery via the bootstrap menu is \"not tested on hardware\" - treat Digitakt II recovery as unproven, Digitone II recovery was exercised by dn2-cfw, Overtone and dn2mk2. `[doc]` {digikit} {digikit-old} {synthack-os} {dn2-cfw}",
+   "text": "A2. Know the recovery path before anything is flashed. Write it down in your output, with the exact button combination for the device (see [`common/recovery.md`](common/recovery.md)). Keep the stock OS file and, for Digitakt II / Digitone II, a physical DIN MIDI interface at hand. Note: digikit's README itself says recovery via the bootstrap menu is \"not tested on hardware\" - treat Digitakt II recovery as unproven, Digitone II recovery was exercised by dn2-cfw, Overtone and dn2mk2. `[doc]` {digikit} {digikit-old} {synthack-os} {dn2-cfw} Incidents: [I45](INCIDENTS.md#i45-recovery-used-on-a-digitone-mk1-after-a-logo-hang).",
    "evidence": "doc",
    "sources": "digikit,digikit-old,dn2-cfw,synthack-os",
    "devices": "digitakt-2,digitone-2"
@@ -8044,7 +8045,7 @@
    "id": "A3",
    "section": "A. Safety - never skip",
    "title": "Back up first.",
-   "text": "A3. Back up first. Back up projects/sounds (+Drive) with Elektron Transfer before flashing. `[doc]` {dn2-cfw}",
+   "text": "A3. Back up first. Back up projects/sounds (+Drive) with Elektron Transfer before flashing. `[doc]` {dn2-cfw} Incidents: [I47](INCIDENTS.md#i47-stock-storage-resets-did-not-create-the-sample-filesystem).",
    "evidence": "doc",
    "sources": "dn2-cfw",
    "devices": ""
@@ -8071,7 +8072,7 @@
    "id": "A6",
    "section": "A. Safety - never skip",
    "title": "Verify every candidate image before it is written",
-   "text": "A6. Verify every candidate image before it is written - re-read it, check all checksums, check that only the intended section differs from stock, check it fits the flash budget, check the main OS unpacks to exactly the patched image. elekloader does this per build; dn2-cfw additionally runs a 12-check brick checker. `[doc]` {elekloader-readme} {dn2-cfw}",
+   "text": "A6. Verify every candidate image before it is written - re-read it, check all checksums, check that only the intended section differs from stock, check it fits the flash budget, check the main OS unpacks to exactly the patched image. elekloader does this per build; dn2-cfw additionally runs a 12-check brick checker. `[doc]` {elekloader-readme} {dn2-cfw} Incidents: [I40](INCIDENTS.md#i40-a-no-change-rebuild-came-out-2-bytes-short).",
    "evidence": "doc",
    "sources": "dn2-cfw,elekloader-readme",
    "devices": ""
@@ -8098,7 +8099,7 @@
    "id": "A9",
    "section": "A. Safety - never skip",
    "title": "Respect transfer limits.",
-   "text": "A9. Respect transfer limits. Digitone II's USB upgrade receiver does not check the size limit of 2 MiB; oversized images stall at the end (nothing is written, a power cycle clears it). The withdrawn dn2mk2 builds v0.4-v0.7 hit this. Also keep the DSP image under 1,048,575 bytes. `[doc]` {dn2mk2-firmware-md}",
+   "text": "A9. Respect transfer limits. Digitone II's USB upgrade receiver does not check the size limit of 2 MiB; oversized images stall at the end (nothing is written, a power cycle clears it). The withdrawn dn2mk2 builds v0.4-v0.7 hit this. Also keep the DSP image under 1,048,575 bytes. `[doc]` {dn2mk2-firmware-md} Incidents: [I3](INCIDENTS.md#i3-usb-upgrade-receiver-does-not-check-the-2-mib-limit).",
    "evidence": "doc",
    "sources": "dn2mk2-firmware-md",
    "devices": "digitone-2"
@@ -8116,7 +8117,7 @@
    "id": "A11",
    "section": "A. Safety - never skip",
    "title": "Rehearse recovery with a stock file before the first modified flash",
-   "text": "A11. Rehearse recovery with a stock file before the first modified flash, and prove the transfer link with stock firmware first. Receivers have no error recovery (a dropped packet freezes the bar near 80 %), and recovery has so far been proven with stock images only. Full procedure in [`common/flash-procedure.md`](common/flash-procedure.md). `[hw]` {dn2-flashing} {dn2mk2-safety}",
+   "text": "A11. Rehearse recovery with a stock file before the first modified flash, and prove the transfer link with stock firmware first. Receivers have no error recovery (a dropped packet freezes the bar near 80 %), and recovery has so far been proven with stock images only. Full procedure in [`common/flash-procedure.md`](common/flash-procedure.md). `[hw]` {dn2-flashing} {dn2mk2-safety} Incidents: [I43](INCIDENTS.md#i43-recovery-stalled-at-80--the-midi-link-not-the-image), [I44](INCIDENTS.md#i44-recovery-used-on-a-digitakt-ii-after-a-crashing-build-a-cheap-cable-delivered-nothing), [I46](INCIDENTS.md#i46-syntakt-startup-menu-recovery-tested-over-din).",
    "evidence": "hw",
    "sources": "dn2-flashing,dn2mk2-safety",
    "devices": ""
@@ -8143,7 +8144,7 @@
    "id": "A14",
    "section": "A. Safety - never skip",
    "title": "Check the size margin at every loader stage, not just the file size.",
-   "text": "A14. Check the size margin at every loader stage, not just the file size. On the Digitone II the in-place loader of section 4 has a stock margin of +31,182 bytes and the default compressor setting turns that into -39,318, corrupting the image; the receive buffer is 2 MiB and the stock container is `0x1CC740` bytes. Use a packer that respects Elektron's stream limits (1 MiB window, 2,048-byte matches) and verify the margin of both stages. `[hw]` {dn2-cfw-handoff} {dn2-ele3}",
+   "text": "A14. Check the size margin at every loader stage, not just the file size. On the Digitone II the in-place loader of section 4 has a stock margin of +31,182 bytes and the default compressor setting turns that into -39,318, corrupting the image; the receive buffer is 2 MiB and the stock container is `0x1CC740` bytes. Use a packer that respects Elektron's stream limits (1 MiB window, 2,048-byte matches) and verify the margin of both stages. `[hw]` {dn2-cfw-handoff} {dn2-ele3} Incidents: [I39](INCIDENTS.md#i39-the-default-compression-level-corrupted-a-dn2-image).",
    "evidence": "hw",
    "sources": "dn2-cfw-handoff,dn2-ele3",
    "devices": "digitone-2"
@@ -8197,7 +8198,7 @@
    "id": "A20",
    "section": "A. Safety - never skip",
    "title": "The progress bar is not proof.",
-   "text": "A20. The progress bar is not proof. On the Digitone II the recovery bar counts received packets only; the write and the decompression (next boot) come later, and a single bad packet stops the transfer silently. `[doc]` {dn2-bootstrap}",
+   "text": "A20. The progress bar is not proof. On the Digitone II the recovery bar counts received packets only; the write and the decompression (next boot) come later, and a single bad packet stops the transfer silently. `[doc]` {dn2-bootstrap} Incidents: [I23](INCIDENTS.md#i23-plaits-builds-failed-normal-transfer-updates-at-preparing), [I43](INCIDENTS.md#i43-recovery-stalled-at-80--the-midi-link-not-the-image).",
    "evidence": "doc",
    "sources": "dn2-bootstrap",
    "devices": "digitone-2"
@@ -8206,7 +8207,7 @@
    "id": "A21",
    "section": "A. Safety - never skip",
    "title": "Upload over USB without auto-commit, then commit explicitly.",
-   "text": "A21. Upload over USB without auto-commit, then commit explicitly. On the Digitone II the \"upload complete\" event can be lost on the first upload after boot (unit stuck on \"Receiving\"); send Start without auto-commit, all blocks, then End(1); keep USB silent ~90 s while flash is written; one upload, no blind retries - look at the screen first. `[hw]` {dn2-skill-scripts}",
+   "text": "A21. Upload over USB without auto-commit, then commit explicitly. On the Digitone II the \"upload complete\" event can be lost on the first upload after boot (unit stuck on \"Receiving\"); send Start without auto-commit, all blocks, then End(1); keep USB silent ~90 s while flash is written; one upload, no blind retries - look at the screen first. `[hw]` {dn2-skill-scripts} Incidents: [I4](INCIDENTS.md#i4-auto-commit-upload-loses-its-complete-event-on-the-first-upload-after-boot).",
    "evidence": "hw",
    "sources": "dn2-skill-scripts",
    "devices": "digitone-2"
@@ -8269,7 +8270,7 @@
    "id": "A28",
    "section": "A. Safety - never skip",
    "title": "Code you copy into SHARC memory at run time must be written back from the data cache before it runs.",
-   "text": "A28. Code you copy into SHARC memory at run time must be written back from the data cache before it runs. Use a write-back invalidation of the DM and PM caches together (`SHL1C_CFG`), then an instruction-cache invalidation, and keep the 12 instructions after every cache-register write 48-bit. Never mix invalidation and write-back-invalidation in one write. The emulator has no cache model. `[hw]` {digikit-f91}",
+   "text": "A28. Code you copy into SHARC memory at run time must be written back from the data cache before it runs. Use a write-back invalidation of the DM and PM caches together (`SHL1C_CFG`), then an instruction-cache invalidation, and keep the 12 instructions after every cache-register write 48-bit. Never mix invalidation and write-back-invalidation in one write. The emulator has no cache model. `[hw]` {digikit-f91} Incidents: [I15](INCIDENTS.md#i15-a-frequency-shifter-froze-the-unit-at-boot), [I35](INCIDENTS.md#i35-usb-replies-stayed-stale-for-minutes).",
    "evidence": "hw",
    "sources": "digikit-f91",
    "devices": ""
@@ -8287,7 +8288,7 @@
    "id": "A30",
    "section": "A. Safety - never skip",
    "title": "Keep the container under `0x200000` bytes and section 2's table version stock.",
-   "text": "A30. Keep the container under `0x200000` bytes and section 2's table version stock. The in-OS flash writer on DN2 1.12 has no length clamp and wraps addresses. A bumped section-2 version triggers the bootstrap self-upgrade on the next boot. Both are ways to lose recovery. `[doc]` {dn2-cfw-t14} {dn2-cfw-t15}",
+   "text": "A30. Keep the container under `0x200000` bytes and section 2's table version stock. The in-OS flash writer on DN2 1.12 has no length clamp and wraps addresses. A bumped section-2 version triggers the bootstrap self-upgrade on the next boot. Both are ways to lose recovery. `[doc]` {dn2-cfw-t14} {dn2-cfw-t15} Incidents: [I3](INCIDENTS.md#i3-usb-upgrade-receiver-does-not-check-the-2-mib-limit).",
    "evidence": "doc",
    "sources": "dn2-cfw-t14,dn2-cfw-t15",
    "devices": "digitone-2"
@@ -8305,7 +8306,7 @@
    "id": "A32",
    "section": "A. Safety - never skip",
    "title": "Store each section the way the original stores it.",
-   "text": "A32. Store each section the way the original stores it. Some sections are aPLib streams and some are raw, and this differs between devices. Decide from the original (do its bytes depack?), never from an argument. A wrongly compressed or raw section passes every checksum and bricks the unit. Mirror the original's own integrity fields and re-verify the written file. `[doc]` {dn2-principles}",
+   "text": "A32. Store each section the way the original stores it. Some sections are aPLib streams and some are raw, and this differs between devices. Decide from the original (do its bytes depack?), never from an argument. A wrongly compressed or raw section passes every checksum and bricks the unit. Mirror the original's own integrity fields and re-verify the written file. `[doc]` {dn2-principles} Incidents: [I40](INCIDENTS.md#i40-a-no-change-rebuild-came-out-2-bytes-short).",
    "evidence": "doc",
    "sources": "dn2-principles",
    "devices": ""
@@ -8314,7 +8315,7 @@
    "id": "A33",
    "section": "A. Safety - never skip",
    "title": "Never store a DAG register through its own DAG, and keep SIMD data moves where stock has them.",
-   "text": "A33. Never store a DAG register through its own DAG, and keep SIMD data moves where stock has them. Both ran bit-exactly in the emulator and hung a real Digitakt II's DSP. Save I/M/L/B registers through an R register. Do SIMD compute on registers, and move data in SISD unless a one-variable probe image has proven the access mode on silicon. `[hw]` {dt2-plaits} Independently confirmed: digikit's unexplained \"rung C\" halt on a DT2 came from 17 such stores in a frame save. The SHARC manual excludes them (a store's source may not be a register of the DAG it addresses through), and the assembler and emulator accepted them. A build without them played on the unit. digikit's patchkit now refuses these encodings at build time. `[hw]` {digikit-f49}",
+   "text": "A33. Never store a DAG register through its own DAG, and keep SIMD data moves where stock has them. Both ran bit-exactly in the emulator and hung a real Digitakt II's DSP. Save I/M/L/B registers through an R register. Do SIMD compute on registers, and move data in SISD unless a one-variable probe image has proven the access mode on silicon. `[hw]` {dt2-plaits} Independently confirmed: digikit's unexplained \"rung C\" halt on a DT2 came from 17 such stores in a frame save. The SHARC manual excludes them (a store's source may not be a register of the DAG it addresses through), and the assembler and emulator accepted them. A build without them played on the unit. digikit's patchkit now refuses these encodings at build time. `[hw]` {digikit-f49} Incidents: [I14](INCIDENTS.md#i14-dag-registers-stored-through-their-own-dag-hung-the-dsp).",
    "evidence": "hw",
    "sources": "digikit-f49,dt2-plaits",
    "devices": "digitakt-2"
@@ -8323,7 +8324,7 @@
    "id": "A34",
    "section": "A. Safety - never skip",
    "title": "On ColdFire-audio devices (Syntakt, Digitakt mk1, Digitone mk1), the audio interrupt is the budget.",
-   "text": "A34. On ColdFire-audio devices (Syntakt, Digitakt mk1, Digitone mk1), the audio interrupt is the budget. The Syntakt's CPU #1 sits at ~89 % at rest, so a few thousand instructions per block make the UI lag. Measure cost per block in the emulator, keep a regression test, and make effects idle when silent. Never use RAM above the BSS for mod code on the Syntakt: sample loading overwrites it. `[hw]` {synthack-docs} {synthack-guide} On the Digitone mk1 an emulator cycle model even pointed the wrong way: it called a release faster while the unit's idle CPU rose from ~70 % to ~87 %. Only A/B builds on the unit decide. `[hw]` {tonefx-dev}",
+   "text": "A34. On ColdFire-audio devices (Syntakt, Digitakt mk1, Digitone mk1), the audio interrupt is the budget. The Syntakt's CPU #1 sits at ~89 % at rest, so a few thousand instructions per block make the UI lag. Measure cost per block in the emulator, keep a regression test, and make effects idle when silent. Never use RAM above the BSS for mod code on the Syntakt: sample loading overwrites it. `[hw]` {synthack-docs} {synthack-guide} On the Digitone mk1 an emulator cycle model even pointed the wrong way: it called a release faster while the unit's idle CPU rose from ~70 % to ~87 %. Only A/B builds on the unit decide. `[hw]` {tonefx-dev} Incidents: [I24](INCIDENTS.md#i24-a-granular-engine-froze-the-ui-at-low-pitch).",
    "evidence": "hw",
    "sources": "synthack-docs,synthack-guide,tonefx-dev",
    "devices": "digitakt,digitone,syntakt"
@@ -8332,7 +8333,7 @@
    "id": "A35",
    "section": "A. Safety - never skip",
    "title": "Budget SHARC code with silicon costs, not instruction counts.",
-   "text": "A35. Budget SHARC code with silicon costs, not instruction counts. Measured on a DT2 and a DN2: taken branches ~7 cycles, CALL+RTS ~14, a dependent float multiply chain 1.5 per instruction, hardware-loop start-up 12, and ~58 cycles for every L2 data miss. Buffers spaced at 16 KiB multiples fight over one cache set. Emulator counts underestimate all of these. `[hw]` {digikit-f103}",
+   "text": "A35. Budget SHARC code with silicon costs, not instruction counts. Measured on a DT2 and a DN2: taken branches ~7 cycles, CALL+RTS ~14, a dependent float multiply chain 1.5 per instruction, hardware-loop start-up 12, and ~58 cycles for every L2 data miss. Buffers spaced at 16 KiB multiples fight over one cache set. Emulator counts underestimate all of these. `[hw]` {digikit-f103} Incidents: [I36](INCIDENTS.md#i36-the-emulator-undercounted-dsp-time-by-2x-to-12x).",
    "evidence": "hw",
    "sources": "digikit-f103",
    "devices": "digitakt-2,digitone-2"
@@ -8341,7 +8342,7 @@
    "id": "A36",
    "section": "A. Safety - never skip",
    "title": "The startup-menu recovery listens to DIN MIDI only, on every Elektron box documented here.",
-   "text": "A36. The startup-menu recovery listens to DIN MIDI only, on every Elektron box documented here. USB updates are received by the running OS. Before flashing anything that replaces or deeply changes the OS, make sure the user has a working DIN (or 3.5 mm TRS on Model:Cycles) MIDI interface and has sent a stock file through it once. A custom OS without the in-OS USB update leaves DIN as the only way back. `[hw]` {rytm-fw-re} {modded-cycles} {octabam}",
+   "text": "A36. The startup-menu recovery listens to DIN MIDI only, on every Elektron box documented here. USB updates are received by the running OS. Before flashing anything that replaces or deeply changes the OS, make sure the user has a working DIN (or 3.5 mm TRS on Model:Cycles) MIDI interface and has sent a stock file through it once. A custom OS without the in-OS USB update leaves DIN as the only way back. `[hw]` {rytm-fw-re} {modded-cycles} {octabam} Incidents: [I22](INCIDENTS.md#i22-a-mod-broke-the-normal-usb-update-path), [I23](INCIDENTS.md#i23-plaits-builds-failed-normal-transfer-updates-at-preparing), [I44](INCIDENTS.md#i44-recovery-used-on-a-digitakt-ii-after-a-crashing-build-a-cheap-cable-delivered-nothing), [I45](INCIDENTS.md#i45-recovery-used-on-a-digitone-mk1-after-a-logo-hang), [I46](INCIDENTS.md#i46-syntakt-startup-menu-recovery-tested-over-din).",
    "evidence": "hw",
    "sources": "modded-cycles,octabam,rytm-fw-re",
    "devices": "model-cycles"
@@ -8368,7 +8369,7 @@
    "id": "A39",
    "section": "A. Safety - never skip",
    "title": "Never let a USB control transfer (EP0) data stage be a whole multiple of 64 bytes on the ColdFire USB controller with stock's driver.",
-   "text": "A39. Never let a USB control transfer (EP0) data stage be a whole multiple of 64 bytes on the ColdFire USB controller with stock's driver. On the Octatrack this froze a unit (a stale zero-length packet) and stalled OUT stages (stock leaves ZLT on). Size replies a byte short, or clear ZLT when you prime the stage. Send DMA'd replies from an uncached copy. Probably the same on every ColdFire box with the stock USB stack: the DT2 uses the same EHCI-style controller (queue heads in on-chip SRAM, EP0 max packet 64) and serves its own vendor requests on EP0 (digikit finding 42). Not yet measured there. `[hw]` {octabam-traps} {modwerk-ot-traps} {digikit-f42}",
+   "text": "A39. Never let a USB control transfer (EP0) data stage be a whole multiple of 64 bytes on the ColdFire USB controller with stock's driver. On the Octatrack this froze a unit (a stale zero-length packet) and stalled OUT stages (stock leaves ZLT on). Size replies a byte short, or clear ZLT when you prime the stage. Send DMA'd replies from an uncached copy. Probably the same on every ColdFire box with the stock USB stack: the DT2 uses the same EHCI-style controller (queue heads in on-chip SRAM, EP0 max packet 64) and serves its own vendor requests on EP0 (digikit finding 42). Not yet measured there. `[hw]` {octabam-traps} {modwerk-ot-traps} {digikit-f42} Incidents: [I5](INCIDENTS.md#i5-ep0-data-stages-of-a-multiple-of-64-bytes-stall-or-freeze-stock-usb-driver), [I6](INCIDENTS.md#i6-about-one-ep0-out-stage-in-50-100-goes-unanswered).",
    "evidence": "hw",
    "sources": "digikit-f42,modwerk-ot-traps,octabam-traps",
    "devices": "digitakt-2,octatrack"
@@ -8377,7 +8378,7 @@
    "id": "A40",
    "section": "A. Safety - never skip",
    "title": "Qualify any startup change after a long power-off, not only after quick restarts or in the emulator.",
-   "text": "A40. Qualify any startup change after a long power-off, not only after quick restarts or in the emulator. An Octatrack change booted in the emulator and in quick power cycles, then stalled at the logo after minutes off. Emulators model neither reset settling nor RAM retention. `[hw]` {modwerk-ot-traps}",
+   "text": "A40. Qualify any startup change after a long power-off, not only after quick restarts or in the emulator. An Octatrack change booted in the emulator and in quick power cycles, then stalled at the logo after minutes off. Emulators model neither reset settling nor RAM retention. `[hw]` {modwerk-ot-traps} Incidents: [I7](INCIDENTS.md#i7-a-soft-reset-leaves-the-usb-controller-running), [I34](INCIDENTS.md#i34-a-startup-change-stalled-at-the-logo-after-a-long-power-off).",
    "evidence": "hw",
    "sources": "modwerk-ot-traps",
    "devices": "octatrack"
@@ -8386,7 +8387,7 @@
    "id": "A41",
    "section": "A. Safety - never skip",
    "title": "Disassemble what you assemble.",
-   "text": "A41. Disassemble what you assemble. Every community assembler for these chips has silently mis-encoded something: - octabam's `dsp_asm`: `tfr` as `rnd`, unknown `mpy` orders as `mpysu`, `cmp` as `max`; - selas: negative shift immediates; - the DSP56300 reference assembler: overlapping `ORG`s accepted silently. Round-trip new code through a disassembler and compare, and make the build refuse a mismatch. `[hw]` {octabam-traps} {elekloader-adapting} {mdkit-docs}",
+   "text": "A41. Disassemble what you assemble. Every community assembler for these chips has silently mis-encoded something: - octabam's `dsp_asm`: `tfr` as `rnd`, unknown `mpy` orders as `mpysu`, `cmp` as `max`; - selas: negative shift immediates; - the DSP56300 reference assembler: overlapping `ORG`s accepted silently. Incidents: [I15](INCIDENTS.md#i15-a-frequency-shifter-froze-the-unit-at-boot), [I27](INCIDENTS.md#i27-an-encoding-every-decoder-accepts-raised-ilopi-on-the-chip). Round-trip new code through a disassembler and compare, and make the build refuse a mismatch. `[hw]` {octabam-traps} {elekloader-adapting} {mdkit-docs}",
    "evidence": "hw",
    "sources": "elekloader-adapting,mdkit-docs,octabam-traps",
    "devices": ""
@@ -8404,7 +8405,7 @@
    "id": "A43",
    "section": "A. Safety - never skip",
    "title": "A cave is free only after it survived a hard run on the unit.",
-   "text": "A43. A cave is free only after it survived a hard run on the unit. Zero bytes in the image can be `.bss` that the engine writes only while it plays. A mod placed in such a region worked with the sequencer stopped and failed during playback (octatrack-mods, reported by rytm-mods-src). Before shipping into a new cave: fill it with a known pattern, flash, exercise playback, sampling, Overbridge and storage, and read it back. Combine this with static proof (no references) and emulator coverage (A4 MK1 practice), not instead of it. The same failure was seen on the Octatrack: tables lost to a heap tail (octamax), and a scratch word at `0x80006a60` overwritten under live recording on an MKI (KYOTI). This applies to data scratch as well as code. `[hw]` {rytm-mods-src} {a4mods} {kyoti-caves}",
+   "text": "A43. A cave is free only after it survived a hard run on the unit. Zero bytes in the image can be `.bss` that the engine writes only while it plays. A mod placed in such a region worked with the sequencer stopped and failed during playback (octatrack-mods, reported by rytm-mods-src). Before shipping into a new cave: fill it with a known pattern, flash, exercise playback, sampling, Overbridge and storage, and read it back. Combine this with static proof (no references) and emulator coverage (A4 MK1 practice), not instead of it. The same failure was seen on the Octatrack: tables lost to a heap tail (octamax), and a scratch word at `0x80006a60` overwritten under live recording on an MKI (KYOTI). This applies to data scratch as well as code. `[hw]` {rytm-mods-src} {a4mods} {kyoti-caves} Incidents: [I18](INCIDENTS.md#i18-the-flash-cave-reportedly-froze-a-unit-at-the-logo), [I19](INCIDENTS.md#i19-patching-a-free-zero-run-crashed-the-unit), [I48](INCIDENTS.md#i48-a-menu-table-in-a-free-zero-run-crashed-the-unit).",
    "evidence": "hw",
    "sources": "a4mods,kyoti-caves,rytm-mods-src",
    "devices": "analog-four-keys,octatrack"
@@ -8422,7 +8423,7 @@
    "id": "A45",
    "section": "A. Safety - never skip",
    "title": "Keep the end of every SHARC hardware loop in 48-bit ISA (DT2/DN2).",
-   "text": "A45. Keep the end of every SHARC hardware loop in 48-bit ISA (DT2/DN2). The last 11 instructions of a hardware loop, and all of a loop shorter than that, must be legacy 48-bit instructions; the rest of the code may be compressed. Three projects reached this independently: - digikit: a selas defect left the end of a nested loop compressed, and `fx/freqshift` froze a real Digitakt II at boot while the emulator ran it ([digitakt-2.md](devices/digitakt-2.md)) {digikit-f91}; - the digitone-2-modding-skill checks it with `hwrules.py`, and stock DN2 1.11 obeys it in all 286 loops; its full list (loop end, `LCE`, CALL and branch spacing, same-DAG) is in [digitone-2-os111-firmware-map.md](devices/digitone-2-os111-firmware-map.md) {dn2-skill-scripts}; - the DT2 Plaits port compresses everything else and keeps loop ends in ISA ([digitakt-2-dsp-optimizing.md](devices/digitakt-2-dsp-optimizing.md)). Wrap nested loops in `.NOCOMPRESS`, and check the rule on the disassembly (A41), since the emulator does not enforce it. `[hw]`",
+   "text": "A45. Keep the end of every SHARC hardware loop in 48-bit ISA (DT2/DN2). The last 11 instructions of a hardware loop, and all of a loop shorter than that, must be legacy 48-bit instructions; the rest of the code may be compressed. Three projects reached this independently: - digikit: a selas defect left the end of a nested loop compressed, and `fx/freqshift` froze a real Digitakt II at boot while the emulator ran it ([digitakt-2.md](devices/digitakt-2.md)) {digikit-f91}; - the digitone-2-modding-skill checks it with `hwrules.py`, and stock DN2 1.11 obeys it in all 286 loops; its full list (loop end, `LCE`, CALL and branch spacing, same-DAG) is in [digitone-2-os111-firmware-map.md](devices/digitone-2-os111-firmware-map.md) {dn2-skill-scripts}; - the DT2 Plaits port compresses everything else and keeps loop ends in ISA ([digitakt-2-dsp-optimizing.md](devices/digitakt-2-dsp-optimizing.md)). Incidents: [I15](INCIDENTS.md#i15-a-frequency-shifter-froze-the-unit-at-boot). Wrap nested loops in `.NOCOMPRESS`, and check the rule on the disassembly (A41), since the emulator does not enforce it. `[hw]`",
    "evidence": "hw",
    "sources": "digikit-f91,dn2-skill-scripts",
    "devices": "digitakt-2,digitone-2"
@@ -8431,10 +8432,73 @@
    "id": "A46",
    "section": "A. Safety - never skip",
    "title": "Keep a decoded section 7 under `0xfffff` bytes, and count the decoded size, not the stored one (DT2/DN2).",
-   "text": "A46. Keep a decoded section 7 under `0xfffff` bytes, and count the decoded size, not the stored one (DT2/DN2). The ColdFire depacks section 7 into a 1 MiB buffer and checks the size only afterwards, so a larger stream overruns the buffer before it is refused. One build with a 1,314,460-byte stream raised an exception on a unit. Run the stock depacker (or an exact copy) in the build and fail above the limit; zero regions can be fill blocks instead of stored bytes. Details: [firmware-container.md](common/firmware-container.md). `[hw]` {dt2-lab-capicola} {digikit-f06}",
+   "text": "A46. Keep a decoded section 7 under `0xfffff` bytes, and count the decoded size, not the stored one (DT2/DN2). The ColdFire depacks section 7 into a 1 MiB buffer and checks the size only afterwards, so a larger stream overruns the buffer before it is refused. One build with a 1,314,460-byte stream raised an exception on a unit. Run the stock depacker (or an exact copy) in the build and fail above the limit; zero regions can be fill blocks instead of stored bytes. Details: [firmware-container.md](common/firmware-container.md). `[hw]` {dt2-lab-capicola} {digikit-f06} Incidents: [I16](INCIDENTS.md#i16-a-decoded-section-7-over-1-mib-crashed-the-unit).",
    "evidence": "hw",
    "sources": "digikit-f06,dt2-lab-capicola",
    "devices": "digitakt-2,digitone-2"
+  },
+  {
+   "id": "A47",
+   "section": "A. Safety - never skip",
+   "title": "Before a stock storage command, check the card is idle; never assume the stock driver times out (DN2, likely DT2).",
+   "text": "A47. Before a stock storage command, check the card is idle; never assume the stock driver times out (DN2, likely DT2). The DN2's eMMC TRIM can report TRIM ERROR on a busy card: the stock busy wait arms its DAT0 interrupt before testing DAT0 and leaves a stale semaphore post, and the driver has no timeout. Read the eSDHC present state (`PRSSTAT` `0xfc0cc024`) before every TRIM and verify read and call only when DAT0 is high and no inhibit is set; retry an idempotent command a few times; let a long erase pause and resume instead of failing. Incidents: [I1](INCIDENTS.md#i1-stock-emmc-trim-fails-with-trim-error-on-a-busy-card). `[hw]` {dn2mk2-v040}",
+   "evidence": "hw",
+   "sources": "dn2mk2-v040",
+   "devices": "digitakt-2,digitone-2"
+  },
+  {
+   "id": "A48",
+   "section": "A. Safety - never skip",
+   "title": "Find out what is cached from the OS's own start-up, not the bootstrap; keep hot-path accesses to uncached memory few and word-sized.",
+   "text": "A48. Find out what is cached from the OS's own start-up, not the bootstrap; keep hot-path accesses to uncached memory few and word-sized. On the DN2 the bootstrap leaves the data cache off, but the main OS turns it on for `0x40000000-0x47ffffff` only; the SSI DMA buffers stay uncached. 84 byte reads a frame from them stalled the sequencer, 14 word reads did not. On the A4 MK1 only `0x40000000-0x43ffffff` is cached and ~1,000 uncached accesses per block per voice slowed the UI and could crash the unit. The reverse also bites: DMA reads RAM, not the copyback cache, so a reply the CPU wrote may go out stale. Copy hot state into cached memory (or the stack) once per block, work there, write it back; send DMA data through the uncached alias. Incidents: [I10](INCIDENTS.md#i10-byte-wise-reads-of-uncached-dma-buffers-stalled-the-sequencer), [I11](INCIDENTS.md#i11-uncached-state-in-a-chord-oscillator-slowed-the-ui-and-could-crash-the-unit), [I35](INCIDENTS.md#i35-usb-replies-stayed-stale-for-minutes). `[hw]` {dn2-cfw-handoff} {a4mods} {modwerk-ot-traps}",
+   "evidence": "hw",
+   "sources": "a4mods,dn2-cfw-handoff,modwerk-ot-traps",
+   "devices": "analog-four-keys,digitone-2"
+  },
+  {
+   "id": "A49",
+   "section": "A. Safety - never skip",
+   "title": "Test the first install on a unit in stock condition, not only on the developer's unit.",
+   "text": "A49. Test the first install on a unit in stock condition, not only on the developer's unit. A development unit carries state the users' units lack: armio's R012 mounted a sample filesystem it never created, and only new users' units (0 bytes in Transfer, stalled uploads) showed it. Before a release, flash stock, reset, then install the build as a new user would, and check every storage path it relies on. Incidents: [I12](INCIDENTS.md#i12-a-sample-machine-mod-could-not-create-the-storage-it-needed), [I47](INCIDENTS.md#i47-stock-storage-resets-did-not-create-the-sample-filesystem). `[hw]` {armio-samples}",
+   "evidence": "hw",
+   "sources": "armio-samples",
+   "devices": ""
+  },
+  {
+   "id": "A50",
+   "section": "A. Safety - never skip",
+   "title": "Go through stock's own input paths; never post into its internal queues or overwrite state another core reads.",
+   "text": "A50. Go through stock's own input paths; never post into its internal queues or overwrite state another core reads. On the Octatrack, key events posted straight into stock's queues crashed the unit minutes later, and restoring DSP-read data every frame corrupted the audio. Feed the panel parser its own bytes; restore only CPU-side bookkeeping. (E2 is the same rule for stored sound data.) Incidents: [I30](INCIDENTS.md#i30-key-events-posted-into-stocks-queues-crashed-the-unit-minutes-later), [I31](INCIDENTS.md#i31-restoring-dsp-read-state-every-frame-corrupted-the-audio). `[hw]` {modwerk-ot-traps} {octamax}",
+   "evidence": "hw",
+   "sources": "modwerk-ot-traps,octamax",
+   "devices": "octatrack"
+  },
+  {
+   "id": "A51",
+   "section": "A. Safety - never skip",
+   "title": "Run a long soak before a release, and mask every counter to its register width.",
+   "text": "A51. Run a long soak before a release, and mask every counter to its register width. An Octatrack DSP frame engine stopped after 50.7 minutes because its counter saturated past `$7fffff`. Short tests do not reach such limits; let a build play for at least an hour with the busiest project you have. Incidents: [I32](INCIDENTS.md#i32-a-dsp-frame-counter-saturated-after-507-minutes). `[hw]` {octabam-traps}",
+   "evidence": "hw",
+   "sources": "octabam-traps",
+   "devices": "octatrack"
+  },
+  {
+   "id": "A52",
+   "section": "A. Safety - never skip",
+   "title": "Keep per-sample DSP accesses out of external DDR (DT2/DN2).",
+   "text": "A52. Keep per-sample DSP accesses out of external DDR (DT2/DN2). Per-sample stores to the Digitakt II's DDR output buffer crashed the unit while the emulator was bit-identical, and a per-voice DDR path can cost ~10x its instruction count on the DN2. Render into L2 and copy once per block; read int16 samples two at a time. Incidents: [I17](INCIDENTS.md#i17-per-sample-stores-to-the-ddr-output-buffer-crashed-the-unit), [I36](INCIDENTS.md#i36-the-emulator-undercounted-dsp-time-by-2x-to-12x). `[hw]` {own-dt2-notes} {dn2-skill-sharc}",
+   "evidence": "hw",
+   "sources": "dn2-skill-sharc,own-dt2-notes",
+   "devices": "digitakt-2,digitone-2"
+  },
+  {
+   "id": "A53",
+   "section": "A. Safety - never skip",
+   "title": "Use only addresses the unit decodes after the OS has set up its memory map.",
+   "text": "A53. Use only addresses the unit decodes after the OS has set up its memory map. Emulators often map more than the hardware: Gearmulator maps the Machinedrum's flash at `0x0` and at `0x10000000`, but after the OS remaps CS0 nothing decodes the low window, so images with low-window pointers boot in the emulator and hang on the unit. Link through the address the running OS uses and scan images for the other one. Incidents: [I38](INCIDENTS.md#i38-low-window-flash-pointers-boot-in-the-emulator-and-hang-on-the-unit). `[hw]` {mdkit-docs}",
+   "evidence": "hw",
+   "sources": "mdkit-docs",
+   "devices": "machinedrum"
   },
   {
    "id": "B1",
@@ -8530,7 +8594,7 @@
    "id": "C4",
    "section": "C. Process",
    "title": "Emulators do not prove real-time DSP behaviour.",
-   "text": "C4. Emulators do not prove real-time DSP behaviour. The earlier digikit README said \"no audio\"; the current ElekLabs README has ColdFire + SHARC+ running together with audio, but the DSP \"does not run in real time yet\", and dn2mk2 reports the emulators do not model the two chips' timing. DSP overruns show up only on a unit. `[doc]` {digikit-old}",
+   "text": "C4. Emulators do not prove real-time DSP behaviour. The earlier digikit README said \"no audio\"; the current ElekLabs README has ColdFire + SHARC+ running together with audio, but the DSP \"does not run in real time yet\", and dn2mk2 reports the emulators do not model the two chips' timing. DSP overruns show up only on a unit. `[doc]` {digikit-old} Incidents: [I36](INCIDENTS.md#i36-the-emulator-undercounted-dsp-time-by-2x-to-12x).",
    "evidence": "doc",
    "sources": "digikit-old",
    "devices": ""
@@ -8566,10 +8630,37 @@
    "id": "C8",
    "section": "C. Process",
    "title": "Give every check a control that fails when the checker is broken.",
-   "text": "C8. Give every check a control that fails when the checker is broken. dnfw's LFO4 bridge passed every check and then faulted on a Digitone II. Three checks had reported success about work they never did: snapshot harnesses cleared code that no real boot had run; a boot gate printed \"Safe to flash\" after an unrelated edit had deleted its coverage section; and an emulator call returned 0 for a value that was present. Use a key nothing set that must read back absent, a routine list that must not be empty, a coverage line that must appear. A green result from an untested instrument is not evidence. `[hw]` {dn2-lfo4}",
+   "text": "C8. Give every check a control that fails when the checker is broken. dnfw's LFO4 bridge passed every check and then faulted on a Digitone II. Three checks had reported success about work they never did: snapshot harnesses cleared code that no real boot had run; a boot gate printed \"Safe to flash\" after an unrelated edit had deleted its coverage section; and an emulator call returned 0 for a value that was present. Use a key nothing set that must read back absent, a routine list that must not be empty, a coverage line that must appear. A green result from an untested instrument is not evidence. `[hw]` {dn2-lfo4} Incidents: [I42](INCIDENTS.md#i42-checks-reported-success-about-work-they-never-did).",
    "evidence": "hw",
    "sources": "dn2-lfo4",
    "devices": "digitone-2"
+  },
+  {
+   "id": "C9",
+   "section": "C. Process",
+   "title": "After every install, open a project saved before it, and install the next build over the normal route.",
+   "text": "C9. After every install, open a project saved before it, and install the next build over the normal route. Old data meets new code only on the unit: a DN2 project with a stored row count out of range crashed stock and modded builds, Octatrack projects stalled when an effect layout changed, dn2mk2's MD/MM tracks went silent after an install, armio's USB audio repeated after a project change, and Overtone 1.0 broke the next USB update. A release test opens an old project and a stock project, changes project once, and installs the following build with Transfer. Incidents: [I2](INCIDENTS.md#i2-stock-song-load-trusts-a-stored-row-count), [I13](INCIDENTS.md#i13-usb-audio-repeated-old-audio-after-a-project-change), [I21](INCIDENTS.md#i21-md-and-monomachine-tracks-went-silent-after-an-install), [I22](INCIDENTS.md#i22-a-mod-broke-the-normal-usb-update-path), [I28](INCIDENTS.md#i28-a-select-value-outside-its-count-stalled-the-sequencer). `[hw]`",
+   "evidence": "hw",
+   "sources": "",
+   "devices": "digitone-2,octatrack"
+  },
+  {
+   "id": "C10",
+   "section": "C. Process",
+   "title": "Calibrate the emulator against stock and the unit before trusting its numbers.",
+   "text": "C10. Calibrate the emulator against stock and the unit before trusting its numbers. Call stock routines in the emulator and compare with what they must return (complex-ping's check found that its SHARC emulator shifted every fractional multiply); measure one timing per project on the unit and carry the ratio (2x on the DT2 for DDR-reading code, 7-12x in one digimod case, a hard stop that overshot 3x as far). An emulator that agrees with itself proves nothing about silicon. Incidents: [I36](INCIDENTS.md#i36-the-emulator-undercounted-dsp-time-by-2x-to-12x), [I37](INCIDENTS.md#i37-a-sharc-emulator-shifted-every-fractional-multiply). `[hw]` {own-dt2-notes} {digimod} {dn2-skill-md}",
+   "evidence": "hw",
+   "sources": "digimod,dn2-skill-md,own-dt2-notes",
+   "devices": "digitakt-2"
+  },
+  {
+   "id": "C11",
+   "section": "C. Process",
+   "title": "Every failure or test on a unit becomes an incident, and every incident that teaches something general becomes a rule.",
+   "text": "C11. Every failure or test on a unit becomes an incident, and every incident that teaches something general becomes a rule. Record it in [INCIDENTS.md](INCIDENTS.md) with the next free I-number: unit and OS, what was seen, the cause and how it was found (measured, read from code, emulator, unknown), the fix, the status and the evidence level. Then either add a rule here or add the incident to the rule it confirms, and mark the fact in the device page with `(I<n>)`. Rules grow from tests, not from opinion.",
+   "evidence": "",
+   "sources": "",
+   "devices": ""
   },
   {
    "id": "D1",
@@ -8602,7 +8693,7 @@
    "id": "D4",
    "section": "D. Writing mods (format-2 / linkable, Digitakt mk1 and Digitone mk1)",
    "title": "Prefix every global symbol with the mod id, make internals `static`.",
-   "text": "D4. Prefix every global symbol with the mod id, make internals `static`. `[doc]` {elekloader-adapting}",
+   "text": "D4. Prefix every global symbol with the mod id, make internals `static`. `[doc]` {elekloader-adapting} Incidents: [I41](INCIDENTS.md#i41-a-label-defined-twice-resolved-to-the-wrong-file).",
    "evidence": "doc",
    "sources": "elekloader-adapting",
    "devices": ""
@@ -8665,7 +8756,7 @@
    "id": "D11",
    "section": "D. Writing mods (format-2 / linkable, Digitakt mk1 and Digitone mk1)",
    "title": "An address that exists or maps onto another is not thereby free.",
-   "text": "D11. An address that exists or maps onto another is not thereby free. Prove an area unused (stock data pointers, caches, DMA buffers, boot ROM sharing) before placing code or data there; an unreferenced-looking L2 block once stopped a unit from starting. `[hw]` {elekloader-sharc-dn2} {dn2-skill-firmware}",
+   "text": "D11. An address that exists or maps onto another is not thereby free. Prove an area unused (stock data pointers, caches, DMA buffers, boot ROM sharing) before placing code or data there; an unreferenced-looking L2 block once stopped a unit from starting. `[hw]` {elekloader-sharc-dn2} {dn2-skill-firmware} Incidents: [I19](INCIDENTS.md#i19-patching-a-free-zero-run-crashed-the-unit), [I20](INCIDENTS.md#i20-mod-code-at-a-free-address-crashed-projects-with-certain-samples), [I29](INCIDENTS.md#i29-dsp-scratch-at-84-and-up-hung-the-unit), [I33](INCIDENTS.md#i33-module-state-on-a-load-meter-counter-gave-a-jittery-pitch), [I48](INCIDENTS.md#i48-a-menu-table-in-a-free-zero-run-crashed-the-unit).",
    "evidence": "hw",
    "sources": "dn2-skill-firmware,elekloader-sharc-dn2",
    "devices": ""
@@ -8674,7 +8765,7 @@
    "id": "D12",
    "section": "D. Writing mods (format-2 / linkable, Digitakt mk1 and Digitone mk1)",
    "title": "Budget voices, not tracks.",
-   "text": "D12. Budget voices, not tracks. Dynamic voice allocation can need far more voices than tracks; guard the DSP frame time and expose a CPU indicator. `[hw]` {dn2mk2-reports}",
+   "text": "D12. Budget voices, not tracks. Dynamic voice allocation can need far more voices than tracks; guard the DSP frame time and expose a CPU indicator. `[hw]` {dn2mk2-reports} Incidents: [I24](INCIDENTS.md#i24-a-granular-engine-froze-the-ui-at-low-pitch).",
    "evidence": "hw",
    "sources": "dn2mk2-reports",
    "devices": ""
@@ -8734,6 +8825,15 @@
    "devices": "digitone-2"
   },
   {
+   "id": "E3",
+   "section": "E. Changing parameter tables / saved data (Digitone II)",
+   "title": "Keep every stored count and select value in range, and stamp old projects after a layout change.",
+   "text": "E3. Keep every stored count and select value in range, and stamp old projects after a layout change. Stock trusts what it loads: the DN2's song LOAD copies a stored row count without a check (21,503 rows instead of at most 99 crashed stock and modded builds alike), and an Octatrack select value outside its count stalled the sequencer on first play after an effect's layout changed. Clamp every count and enum a mod writes; when a build changes a stored layout, rewrite old projects' values on load. Incidents: [I2](INCIDENTS.md#i2-stock-song-load-trusts-a-stored-row-count), [I28](INCIDENTS.md#i28-a-select-value-outside-its-count-stalled-the-sequencer). `[hw]` {dn2-oldproject}",
+   "evidence": "hw",
+   "sources": "dn2-oldproject",
+   "devices": "digitone-2,octatrack"
+  },
+  {
    "id": "F1",
    "section": "F. Writing to a unit over SysEx (control-side tools)",
    "title": "",
@@ -8782,9 +8882,18 @@
    "id": "F6",
    "section": "F. Writing to a unit over SysEx (control-side tools)",
    "title": "",
-   "text": "F6. Treat file-write / delete commands of the +Drive API as dangerous: only single-chunk writes were hardware-verified; move/copy/delete are not implemented anywhere we know. `[hw]` {digi-roll-studio} Full loop, spec questions and triage in [`common/agent-workflow.md`](common/agent-workflow.md). Short form:",
+   "text": "F6. Treat file-write / delete commands of the +Drive API as dangerous: only single-chunk writes were hardware-verified; move/copy/delete are not implemented anywhere we know. `[hw]` {digi-roll-studio}",
    "evidence": "hw",
    "sources": "digi-roll-studio",
+   "devices": ""
+  },
+  {
+   "id": "F7",
+   "section": "F. Writing to a unit over SysEx (control-side tools)",
+   "title": "",
+   "text": "F7. Close every other application on the port (Transfer, Overbridge, DNX) before a client run, and check every reply's length. With Overbridge holding the port replies were cut at exactly 885 bytes; with Transfer open a preset list showed 35 of 256. Incidents: [I9](INCIDENTS.md#i9-a-second-application-on-the-port-corrupts-sysex-replies). `[hw]` Full loop, spec questions and triage in [`common/agent-workflow.md`](common/agent-workflow.md). Short form:",
+   "evidence": "hw",
+   "sources": "",
    "devices": ""
   },
   {
@@ -8818,7 +8927,7 @@
    "id": "G8",
    "section": "G. Working method (from the digitone-2-modding-skill - the one public agent skill that shipped a firmware mod)",
    "title": "",
-   "text": "G8. Keep levels honest: measure worst cases, add no unrequested gain compensation, clamp audio output, never read memory you did not write. `[doc]` {dn2-skill-md} {dn2-skill-workflow}",
+   "text": "G8. Keep levels honest: measure worst cases, add no unrequested gain compensation, clamp audio output, never read memory you did not write. `[doc]` {dn2-skill-md} {dn2-skill-workflow} Incidents (G8): [I8](INCIDENTS.md#i8-power-on-ddr-holds-garbage-often-a-nan).",
    "evidence": "doc",
    "sources": "dn2-skill-md,dn2-skill-workflow",
    "devices": ""
@@ -8836,7 +8945,7 @@
    "id": "G9",
    "section": "G. Working method (from the digitone-2-modding-skill - the one public agent skill that shipped a firmware mod)",
    "title": "DSP rules the emulators cannot check",
-   "text": "G9. DSP rules the emulators cannot check (Digitone II, each reportedly silenced or crashed a real unit): whole 32-byte boot blocks, stock instruction encodings only (incl. sign bits of negative shift immediates), PRM loop/DAG/branch rules, no L2 above `0x200B0000`, never read unwritten DDR (power-on NaN), preserve registers at hooks (clobbered R8 at the FX-bus mixer hook lost all audio), count memory accesses not instructions. Details and addresses in [`devices/digitone-2-os111-reference.md`](devices/digitone-2-os111-reference.md). `[hw]` {dn2-skill-sharc}",
+   "text": "G9. DSP rules the emulators cannot check (Digitone II, each reportedly silenced or crashed a real unit): whole 32-byte boot blocks, stock instruction encodings only (incl. sign bits of negative shift immediates), PRM loop/DAG/branch rules, no L2 above `0x200B0000`, never read unwritten DDR (power-on NaN), preserve registers at hooks (clobbered R8 at the FX-bus mixer hook lost all audio), count memory accesses not instructions. Details and addresses in [`devices/digitone-2-os111-reference.md`](devices/digitone-2-os111-reference.md). `[hw]` {dn2-skill-sharc} Incidents: [I8](INCIDENTS.md#i8-power-on-ddr-holds-garbage-often-a-nan), [I25](INCIDENTS.md#i25-clobbering-r8-at-the-fx-bus-mixer-hook-lost-all-audio), [I26](INCIDENTS.md#i26-a-boot-block-of-8n4-bytes-left-the-unit-silent), [I27](INCIDENTS.md#i27-an-encoding-every-decoder-accepts-raised-ilopi-on-the-chip).",
    "evidence": "hw",
    "sources": "dn2-skill-sharc",
    "devices": "digitone-2"
@@ -8907,6 +9016,11 @@
    "key": "dn2mk2-v040",
    "what": "De-Pattern/dn2mk2-firmware `FIRMWARE.md` and `releases/v0.40.md` (v0.40: TRIM ERROR on a unit traced to the stock eMMC driver; the fix)",
    "url": "https://github.com/De-Pattern/dn2mk2-firmware/blob/main/releases/v0.40.md"
+  },
+  {
+   "key": "digimod",
+   "what": "endlea/digimod README and mod READMEs (DT2 1.16 mod builder; DSP time on hardware vs emulator)",
+   "url": "https://github.com/endlea/digimod"
   },
   {
    "key": "dn2mk2-firmware-md",
@@ -10569,7 +10683,7 @@
    "file": "hardware/devices/analog-four-keys.md",
    "line": 28,
    "section": "Analog Four / Analog Keys (MKI, MKII) - OS 1.56 / Silicon and memory",
-   "text": "MK1: only `0x40000000-0x43ffffff` is cached. ACR0 covers that range and the default is cache-inhibited, so the effect delay lines (`0x468xxxxx` and up) and any mod state placed beside them are uncached: every access is a full bus round trip. An early chord-oscillator build made ~1,000 such accesses per block per voice; the UI slowed and the unit could crash. Copy state to the stack once per block, work there, write it back. `[hw]` {a4mods}",
+   "text": "MK1: only `0x40000000-0x43ffffff` is cached. ACR0 covers that range and the default is cache-inhibited, so the effect delay lines (`0x468xxxxx` and up) and any mod state placed beside them are uncached: every access is a full bus round trip. An early chord-oscillator build made ~1,000 such accesses per block per voice; the UI slowed and the unit could crash. Copy state to the stack once per block, work there, write it back. `[hw]` {a4mods} ([I11](../INCIDENTS.md#i11-uncached-state-in-a-chord-oscillator-slowed-the-ui-and-could-crash-the-unit))",
    "evidence": "hw",
    "sources": "a4mods",
    "devices": "analog-four-keys",
@@ -11471,7 +11585,7 @@
    "file": "hardware/devices/analog-rytm.md",
    "line": 48,
    "section": "Analog Rytm (MKI, MKII) - OS 1.73 / 1.74 / Analog Rytm MK1 (OS 1.73 / 1.74)",
-   "text": "Container pitfall: elektron-firmware-tool padded ELE2 containers to 2 bytes; the stock MK1 file pads to 4. A \"no change\" rebuild therefore came out 2 bytes short and failed the null-repack check. hugz202 patches the tool to pad to 4. Always run a null repack of the stock file first (rule A23). `[hw]`",
+   "text": "Container pitfall: elektron-firmware-tool padded ELE2 containers to 2 bytes; the stock MK1 file pads to 4. A \"no change\" rebuild therefore came out 2 bytes short and failed the null-repack check. hugz202 patches the tool to pad to 4. Always run a null repack of the stock file first (rule A23). `[hw]` ([I40](../INCIDENTS.md#i40-a-no-change-rebuild-came-out-2-bytes-short))",
    "evidence": "hw",
    "sources": "analog-emu-mk1,rytm-mk1-mods",
    "devices": "analog-rytm",
@@ -11614,7 +11728,7 @@
    "file": "hardware/devices/digitakt-2-dsp-optimizing.md",
    "line": 9,
    "section": "Digitakt II (OS 1.17) - writing fast and safe SHARC code: lessons from the PLAITS port / 1. Two hangs on silicon that the emulator ran bit-exactly `[hw]`",
-   "text": "H-opt1, RINGS as a hand-written SIMD kernel: the DSP hung on the first block, and all audio died. Cause, confirmed with a one-variable probe image: DAG registers stored through their own DAG (`DM(I7, M7) = M4` and similar, used to save I0/I1/M4/M6/L0/L1/L4). The PRM forbids it for Types 3 and 15. Stock loads such registers through their own DAG thousands of times but never stores one. The probe was `probe-samedag-store`, a single `DM(I4, M6) = M4` and no SIMD. Fix: push DAG registers through R0.",
+   "text": "H-opt1, RINGS as a hand-written SIMD kernel: the DSP hung on the first block, and all audio died. ([I14](../INCIDENTS.md#i14-dag-registers-stored-through-their-own-dag-hung-the-dsp)) Cause, confirmed with a one-variable probe image: DAG registers stored through their own DAG (`DM(I7, M7) = M4` and similar, used to save I0/I1/M4/M6/L0/L1/L4). The PRM forbids it for Types 3 and 15. Stock loads such registers through their own DAG thousands of times but never stores one. The probe was `probe-samedag-store`, a single `DM(I4, M6) = M4` and no SIMD. Fix: push DAG registers through R0.",
    "evidence": "hw",
    "sources": "dt2-plaits",
    "devices": "digitakt-2",
@@ -12076,7 +12190,7 @@
    "file": "hardware/devices/digitakt-2-sharc-measured.md",
    "line": 13,
    "section": "Digitakt II (OS 1.17) - SHARC facts measured on a real unit / 1. Timing - the numbers that matter",
-   "text": "Device cycles are about 2x the emulator's instruction count for this project's own code, which reads samples from DDR. The emulator models no memory stalls. Stock render code is reported at ~9 cycles/instruction on the DN2. A hard stop that the emulator showed overshooting by ~25k overshot by ~75k on the unit. `[hw]`",
+   "text": "Device cycles are about 2x the emulator's instruction count for this project's own code, which reads samples from DDR. The emulator models no memory stalls. Stock render code is reported at ~9 cycles/instruction on the DN2. A hard stop that the emulator showed overshooting by ~25k overshot by ~75k on the unit. `[hw]` ([I36](../INCIDENTS.md#i36-the-emulator-undercounted-dsp-time-by-2x-to-12x))",
    "evidence": "hw",
    "sources": "own-dt2-notes",
    "devices": "digitakt-2",
@@ -12307,7 +12421,7 @@
    "file": "hardware/devices/digitakt-2-sharc-measured.md",
    "line": 56,
    "section": "Digitakt II (OS 1.17) - SHARC facts measured on a real unit / 6. Memory rules learned the hard way",
-   "text": "External DDR: the stock output buffer (`0x8045b3c0`) and the sample data are in DDR. Per-sample stores to the DDR output buffer crashed the unit (continuous tone), although the emulator was bit-identical. Render into L2 and copy once per block. Read int16 samples two at a time. `[hw]`",
+   "text": "External DDR: the stock output buffer (`0x8045b3c0`) and the sample data are in DDR. Per-sample stores to the DDR output buffer crashed the unit (continuous tone), although the emulator was bit-identical. Render into L2 and copy once per block. Read int16 samples two at a time. `[hw]` ([I17](../INCIDENTS.md#i17-per-sample-stores-to-the-ddr-output-buffer-crashed-the-unit))",
    "evidence": "hw",
    "sources": "own-dt2-notes",
    "devices": "digitakt-2",
@@ -12659,7 +12773,7 @@
    "file": "hardware/devices/digitakt-2.md",
    "line": 47,
    "section": "Digitakt II / Hardware test evidence for the mods",
-   "text": "A second SHARC stop on a real DT2: `fx/freqshift` on the send route froze the unit at boot; the emulator showed nothing (findings 77, 91). Two causes were found. `[hw]` {digikit-f91} A selas defect left the end of a nested hardware loop compressed (VISA). The last 11 instructions of every hardware loop must be 48-bit ISA, so wrap nested loops in `.NOCOMPRESS` ([rule A45](../AGENT-RULES.md)). Code copied into L2 at run time was not written back from the data cache. After both fixes, freqshift ran on the send and master routes (2026-10-30).",
+   "text": "A second SHARC stop on a real DT2: `fx/freqshift` on the send route froze the unit at boot; the emulator showed nothing (findings 77, 91). Two causes were found. `[hw]` {digikit-f91} ([I15](../INCIDENTS.md#i15-a-frequency-shifter-froze-the-unit-at-boot)) A selas defect left the end of a nested hardware loop compressed (VISA). The last 11 instructions of every hardware loop must be 48-bit ISA, so wrap nested loops in `.NOCOMPRESS` ([rule A45](../AGENT-RULES.md)). Code copied into L2 at run time was not written back from the data cache. After both fixes, freqshift ran on the send and master routes (2026-10-30).",
    "evidence": "hw",
    "sources": "digikit-f91",
    "devices": "digitakt-2",
@@ -13000,7 +13114,7 @@
    "file": "hardware/devices/digitakt-2.md",
    "line": 152,
    "section": "Digitakt II / Three Digitakt II mod routes side by side (T21, 2026-11-02)",
-   "text": "A decoded section 7 over 1 MiB crashed a unit (dt2-machine-lab, OS 1.16): [firmware-container.md](../common/firmware-container.md), rule A46. `[hw]` {dt2-lab-capicola}",
+   "text": "A decoded section 7 over 1 MiB crashed a unit (dt2-machine-lab, OS 1.16): [firmware-container.md](../common/firmware-container.md), rule A46. `[hw]` {dt2-lab-capicola} ([I16](../INCIDENTS.md#i16-a-decoded-section-7-over-1-mib-crashed-the-unit))",
    "evidence": "hw",
    "sources": "dt2-lab-capicola",
    "devices": "digitakt-2",
@@ -13187,7 +13301,7 @@
    "file": "hardware/devices/digitakt.md",
    "line": 29,
    "section": "Digitakt (mk1) / Render path, injection point and key tables (digigrain's platform skills, OS 1.53, Ghidra plus digiemu)",
-   "text": "Bound the worst case, not the average: an early granular engine froze the UI at low pitch, because fixed-length source grains became long, the pool filled up and every voice ran its worst case. The fix made grain length independent of pitch and capped overlap. `[hw]`",
+   "text": "Bound the worst case, not the average: an early granular engine froze the UI at low pitch, because fixed-length source grains became long, the pool filled up and every voice ran its worst case. The fix made grain length independent of pitch and capped overlap. `[hw]` ([I24](../INCIDENTS.md#i24-a-granular-engine-froze-the-ui-at-low-pitch))",
    "evidence": "hw",
    "sources": "digigrain-skills",
    "devices": "digitakt",
@@ -13770,7 +13884,7 @@
    "file": "hardware/devices/digitone-2-internals.md",
    "line": 92,
    "section": "Digitone II - internals collected from the research repos (OS 1.10E / 1.11 / 1.12) / Hardware map and budgets (OS 1.12 unless noted)",
-   "text": "The in-place loader is the hidden size limit. Section 4's loader (`0x8000357c`, stage `0x40200000`) has a stock margin of +31,182 bytes; elektron-firmware-tool's default compression level (`-l 3`) gives -39,318 and corrupts the image. Every build needs a margin >= 0 at both loader stages; elekloader's default packer produced a container too large for the receive buffer, so the DN2 build uses a dense packer (`codec/dense.py`). Stock Digitakt II 1.17 also fails the in-place path (margin -31,912). `[hw]` {dn2-cfw-handoff}",
+   "text": "The in-place loader is the hidden size limit. Section 4's loader (`0x8000357c`, stage `0x40200000`) has a stock margin of +31,182 bytes; elektron-firmware-tool's default compression level (`-l 3`) gives -39,318 and corrupts the image. Every build needs a margin >= 0 at both loader stages; elekloader's default packer produced a container too large for the receive buffer, so the DN2 build uses a dense packer (`codec/dense.py`). Stock Digitakt II 1.17 also fails the in-place path (margin -31,912). `[hw]` {dn2-cfw-handoff} ([I39](../INCIDENTS.md#i39-the-default-compression-level-corrupted-a-dn2-image))",
    "evidence": "hw",
    "sources": "dn2-cfw-handoff",
    "devices": "digitone-2",
@@ -14001,7 +14115,7 @@
    "file": "hardware/devices/digitone-2-internals.md",
    "line": 129,
    "section": "Digitone II - internals collected from the research repos (OS 1.10E / 1.11 / 1.12) / More from dnfw's notes (read 2026-11-02)",
-   "text": "Stock 1.11 trusts a stored song row count. The song LOAD (`0x400dea6a`) copies `count` stored 29-byte rows into 37-byte live rows without checking it. One project held 21,503 instead of at most 99 and crashed stock and modded builds alike when opened; the damage had entered between two exports. A mod that writes project data must keep every count in range, and a repair tool must use the storage-version-4 offsets (row count at record `+0x147`). `[hw]` {dn2-oldproject}",
+   "text": "Stock 1.11 trusts a stored song row count. The song LOAD (`0x400dea6a`) copies `count` stored 29-byte rows into 37-byte live rows without checking it. One project held 21,503 instead of at most 99 and crashed stock and modded builds alike when opened; the damage had entered between two exports. A mod that writes project data must keep every count in range, and a repair tool must use the storage-version-4 offsets (row count at record `+0x147`). `[hw]` {dn2-oldproject} ([I2](../INCIDENTS.md#i2-stock-song-load-trusts-a-stored-row-count))",
    "evidence": "hw",
    "sources": "dn2-oldproject",
    "devices": "digitone-2",
@@ -14573,7 +14687,7 @@
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
    "line": 53,
    "section": "Digitone II - machine registration, SHARC mod link, sampler/+Drive layout and field incidents / E. Field incidents reported by dn2mk2 users (lessons for any DSP/voice work)",
-   "text": "After an install MD and Monomachine tracks went silent until the track was cleared (intermittent, suspected stale voice-slot state or state carried from an older version's project) - always test an old project after an install. A YES on the OS-update prompt could open the app's own pop-up instead of the update question (keys must be routed to stock questions). `[hw]` {dn2mk2-reports}",
+   "text": "After an install MD and Monomachine tracks went silent until the track was cleared (intermittent, suspected stale voice-slot state or state carried from an older version's project) - always test an old project after an install. A YES on the OS-update prompt could open the app's own pop-up instead of the update question (keys must be routed to stock questions). `[hw]` {dn2mk2-reports} ([I21](../INCIDENTS.md#i21-md-and-monomachine-tracks-went-silent-after-an-install))",
    "evidence": "hw",
    "sources": "dn2mk2-reports",
    "devices": "digitone-2",
@@ -14672,7 +14786,7 @@
    "file": "hardware/devices/digitone-2-machines-sampler-sharc.md",
    "line": 70,
    "section": "Digitone II - machine registration, SHARC mod link, sampler/+Drive layout and field incidents / Reading a DSP stop, and what the silicon enforces (dnfw, DN2 1.11)",
-   "text": "ILOPI is what toolchains miss: an encoding that selas emits and every decoder accepts, but the chip rejects. Examples are negative shift immediates and selas's 48-bit `Rn = <sysreg>` (Type 5a), which put the wrong source code for every register from PC up, so `R0 = EMUCLK` became `R0 = LCNTR`. Use the compressed forms. `[hw]` {dn2-stall}",
+   "text": "ILOPI is what toolchains miss: an encoding that selas emits and every decoder accepts, but the chip rejects. Examples are negative shift immediates and selas's 48-bit `Rn = <sysreg>` (Type 5a), which put the wrong source code for every register from PC up, so `R0 = EMUCLK` became `R0 = LCNTR`. Use the compressed forms. `[hw]` {dn2-stall} ([I27](../INCIDENTS.md#i27-an-encoding-every-decoder-accepts-raised-ilopi-on-the-chip))",
    "evidence": "hw",
    "sources": "dn2-dspstop,dn2-stall",
    "devices": "digitone-2",
@@ -14749,7 +14863,7 @@
    "file": "hardware/devices/digitone-2-os111-firmware-map.md",
    "line": 62,
    "section": "Digitone II OS 1.11 - function and data map (from the digitone-2-modding-skill sources) / Talking to the running unit over USB (MIDI RPC, as used by Transfer/Elektroid and the skill)",
-   "text": "Upload pitfall `[hw]`: with auto-commit the OS posts \"upload complete\" to the upgrade view as the last block is parsed; on the first upload after a boot that view is not open yet, the event is lost and the unit sits on \"OS UPGRADE / Receiving\". The skill therefore sends Start without auto-commit, all blocks, waits a few seconds, then End(1) - the End handler checks every byte arrived and posts the event itself; the stock OS then validates the container and asks UPGRADE OS NOW? (press YES). Keep USB silent while it writes flash (~90 s), then ping until it answers; one upload, no retries. Raw OS SysEx sent over USB to the running OS is ignored. Python + mido can hang at exit in CoreMIDI. `[hw]` {dn2-skill-scripts} {dn2-skill-setup}",
+   "text": "Upload pitfall `[hw]`: with auto-commit the OS posts \"upload complete\" to the upgrade view as the last block is parsed; on the first upload after a boot that view is not open yet, the event is lost and the unit sits on \"OS UPGRADE / Receiving\". The skill therefore sends Start without auto-commit, all blocks, waits a few seconds, then End(1) - the End handler checks every byte arrived and posts the event itself; the stock OS then validates the container and asks UPGRADE OS NOW? (press YES). Keep USB silent while it writes flash (~90 s), then ping until it answers; one upload, no retries. Raw OS SysEx sent over USB to the running OS is ignored. Python + mido can hang at exit in CoreMIDI. `[hw]` {dn2-skill-scripts} {dn2-skill-setup} ([I4](../INCIDENTS.md#i4-auto-commit-upload-loses-its-complete-event-on-the-first-upload-after-boot))",
    "evidence": "hw",
    "sources": "dn2-skill-scripts,dn2-skill-setup",
    "devices": "digitone-2",
@@ -14881,7 +14995,7 @@
    "file": "hardware/devices/digitone-2-os111-reference.md",
    "line": 33,
    "section": "Digitone II (OS 1.11) - engineering reference from the digitone-2-modding-skill / Free memory",
-   "text": "Power-on DDR is garbage (`0xFFFFFFFF`, a NaN, is common). A NaN that reaches a feedback state (send FX, say) silences the unit until restart. The emulator zero-fills DDR and hides this: fill new DDR with `0xFFFFFFFF` in tests. `[hw]` {dn2-skill-firmware}",
+   "text": "Power-on DDR is garbage (`0xFFFFFFFF`, a NaN, is common). A NaN that reaches a feedback state (send FX, say) silences the unit until restart. The emulator zero-fills DDR and hides this: fill new DDR with `0xFFFFFFFF` in tests. `[hw]` {dn2-skill-firmware} ([I8](../INCIDENTS.md#i8-power-on-ddr-holds-garbage-often-a-nan))",
    "evidence": "hw",
    "sources": "dn2-skill-firmware",
    "devices": "digitone-2",
@@ -15145,7 +15259,7 @@
    "file": "hardware/devices/digitone-2.md",
    "line": 37,
    "section": "Digitone II / Architecture",
-   "text": "Cache map (OS 1.11 and 1.12): the bootstrap leaves the data cache off (CACR `0x000cc100`), but the main OS start-up at `0x40000554` writes CACR `0xa50ce100` and ACR0 `0x4007e020`: `0x40000000-0x47ffffff` is cached copyback, everything else uncached, including the SSI DMA buffers at `0x4e6e7100`. Reading those buffers byte by byte from a mod is slow enough to stall the sequencer: Digiwerk's first multichannel USB build (UM01, 84 DDR reads a frame) lagged until unusable; reading each slot once as a word (UM02, 14 reads) ran on the unit with busy sequences and no lag. Checking only the bootstrap's CACR gave a wrong \"cache off\" conclusion first, corrected the same day. `[hw]` {dn2-cfw-handoff}",
+   "text": "Cache map (OS 1.11 and 1.12): the bootstrap leaves the data cache off (CACR `0x000cc100`), but the main OS start-up at `0x40000554` writes CACR `0xa50ce100` and ACR0 `0x4007e020`: `0x40000000-0x47ffffff` is cached copyback, everything else uncached, including the SSI DMA buffers at `0x4e6e7100`. Reading those buffers byte by byte from a mod is slow enough to stall the sequencer: Digiwerk's first multichannel USB build (UM01, 84 DDR reads a frame) lagged until unusable; reading each slot once as a word (UM02, 14 reads) ran on the unit with busy sequences and no lag. Checking only the bootstrap's CACR gave a wrong \"cache off\" conclusion first, corrected the same day. `[hw]` {dn2-cfw-handoff} ([I10](../INCIDENTS.md#i10-byte-wise-reads-of-uncached-dma-buffers-stalled-the-sequencer))",
    "evidence": "hw",
    "sources": "dn2-cfw-handoff",
    "devices": "digitone-2",
@@ -15222,7 +15336,7 @@
    "file": "hardware/devices/digitone-2.md",
    "line": 64,
    "section": "Digitone II / Architecture",
-   "text": "USB audio repeating old audio after a project change (armio, R007-R011; fixed 2026-11-03): USB audio froze or repeated while headphones and UI kept working; accepted publications stopped, rejected ones rose by 16,392 in about 10.9 s, and USB transfers kept running. Cause: the render-time TX selector follows RX completion and is not a TX ownership grant, but the build had bound the retained queue head to a destination derived from that older phase. R011 picks the candidate from the current DMA START and leaves the ownership guards to decide; the owner confirmed playback after project changes, and R012 is the stable build. Endurance and end-to-end USB latency are unmeasured. `[hw]` {armio-usb} {armio-r011}",
+   "text": "USB audio repeating old audio after a project change (armio, R007-R011; fixed 2026-11-03): USB audio froze or repeated while headphones and UI kept working; accepted publications stopped, rejected ones rose by 16,392 in about 10.9 s, and USB transfers kept running. Cause: the render-time TX selector follows RX completion and is not a TX ownership grant, but the build had bound the retained queue head to a destination derived from that older phase. R011 picks the candidate from the current DMA START and leaves the ownership guards to decide; the owner confirmed playback after project changes, and R012 is the stable build. Endurance and end-to-end USB latency are unmeasured. `[hw]` {armio-usb} {armio-r011} ([I13](../INCIDENTS.md#i13-usb-audio-repeated-old-audio-after-a-project-change))",
    "evidence": "hw",
    "sources": "armio-r011,armio-usb",
    "devices": "digitone-2",
@@ -15365,7 +15479,7 @@
    "file": "hardware/devices/digitone-2.md",
    "line": 83,
    "section": "Digitone II / Limits and budgets",
-   "text": "USB upgrade limit 2 MiB, not checked by the receiver; oversized images stall at the end, nothing written, power cycle clears. `[hw]` {dn2mk2-firmware-md}",
+   "text": "USB upgrade limit 2 MiB, not checked by the receiver; oversized images stall at the end, nothing written, power cycle clears. `[hw]` {dn2mk2-firmware-md} ([I3](../INCIDENTS.md#i3-usb-upgrade-receiver-does-not-check-the-2-mib-limit))",
    "evidence": "hw",
    "sources": "dn2mk2-firmware-md",
    "devices": "digitone-2",
@@ -15442,7 +15556,7 @@
    "file": "hardware/devices/digitone-2.md",
    "line": 92,
    "section": "Digitone II / Sample memory (dn2mk2)",
-   "text": "A stock DN2 has no sample filesystem, and a mod that mounts one must also create it (armio R012, 2026-11-03). R012 mounted an existing sample filesystem but did not create one on a unit that never had it; on such a unit Transfer showed 0% Free / 0 bytes, uploads stalled and connections failed. The author says stock FORMAT +DRIVE, EMPTY RESET and FACTORY RESET do not create it and can erase projects. The bug was found by new users; the author's own unit had storage prepared during development, which is why owner testing missed it. A test on a freshly flashed stock unit is the only check that catches this. `[doc]` {armio-samples}",
+   "text": "A stock DN2 has no sample filesystem, and a mod that mounts one must also create it (armio R012, 2026-11-03). R012 mounted an existing sample filesystem but did not create one on a unit that never had it; on such a unit Transfer showed 0% Free / 0 bytes, uploads stalled and connections failed. The author says stock FORMAT +DRIVE, EMPTY RESET and FACTORY RESET do not create it and can erase projects. The bug was found by new users; the author's own unit had storage prepared during development, which is why owner testing missed it. A test on a freshly flashed stock unit is the only check that catches this. `[doc]` {armio-samples} ([I12](../INCIDENTS.md#i12-a-sample-machine-mod-could-not-create-the-storage-it-needed))",
    "evidence": "doc",
    "sources": "armio-samples",
    "devices": "digitone-2",
@@ -15453,7 +15567,7 @@
    "file": "hardware/devices/digitone-2.md",
    "line": 93,
    "section": "Digitone II / Sample memory (dn2mk2)",
-   "text": "Stock eMMC TRIM can fail with TRIM ERROR on a busy card (OS 1.11). A unit running dn2mk2 v0.39 stopped with TRIM ERROR at two different sector ranges while erasing mod data. dn2mk2's reading of the stock code: TRIM `0x4012c4b2` fails only when CMD35/36/38 get no answer (command timeout); after CMD38 the busy wait arms the DAT0 edge interrupt (`0x4012c53e`) before testing DAT0 (`0x4012c544`), so a short TRIM whose card finishes in between leaves a stale semaphore post (`0x4461b6c0`), the next TRIM on a really busy card returns at once, and the call after it gets no answer. The driver has no timeout. v0.40's fix: read the eSDHC present-state register `PRSSTAT` `0xfc0cc024` before every TRIM and verify read and call only when the card is idle; retry a failed call five times (TRIM is idempotent); report ERASE PAUSED and continue on request. The error is `[hw]`; the race is a static reading of stock code, not seen on the bus. Anything that issues TRIMs through the stock driver on a DN2 (and, not checked, a DT2 with the same driver) should do the same. `[hw]` {dn2mk2-v040}",
+   "text": "Stock eMMC TRIM can fail with TRIM ERROR on a busy card (OS 1.11). A unit running dn2mk2 v0.39 stopped with TRIM ERROR at two different sector ranges while erasing mod data. dn2mk2's reading of the stock code: TRIM `0x4012c4b2` fails only when CMD35/36/38 get no answer (command timeout); after CMD38 the busy wait arms the DAT0 edge interrupt (`0x4012c53e`) before testing DAT0 (`0x4012c544`), so a short TRIM whose card finishes in between leaves a stale semaphore post (`0x4461b6c0`), the next TRIM on a really busy card returns at once, and the call after it gets no answer. The driver has no timeout. v0.40's fix: read the eSDHC present-state register `PRSSTAT` `0xfc0cc024` before every TRIM and verify read and call only when the card is idle; retry a failed call five times (TRIM is idempotent); report ERASE PAUSED and continue on request. The error is `[hw]`; the race is a static reading of stock code, not seen on the bus. Anything that issues TRIMs through the stock driver on a DN2 (and, not checked, a DT2 with the same driver) should do the same. `[hw]` {dn2mk2-v040} ([I1](../INCIDENTS.md#i1-stock-emmc-trim-fails-with-trim-error-on-a-busy-card))",
    "evidence": "hw",
    "sources": "dn2mk2-v040",
    "devices": "digitone-2",
@@ -16047,7 +16161,7 @@
    "file": "hardware/devices/machinedrum-monomachine.md",
    "line": 44,
    "section": "Machinedrum (SPS-1 UW) and Monomachine (SFX-6/60) / Emulator vs unit (Gearmulator's Machinedrum board model)",
-   "text": "Flash appears at both `0x0` and `0x10000000` in the emulator. On hardware, after the OS remaps CS0 nothing decodes the low window: images with low-window flash pointers boot in the emulator and hang on the unit. Link and point through `0x10000000`, and scan images for low pointers. `[hw]`",
+   "text": "Flash appears at both `0x0` and `0x10000000` in the emulator. On hardware, after the OS remaps CS0 nothing decodes the low window: images with low-window flash pointers boot in the emulator and hang on the unit. Link and point through `0x10000000`, and scan images for low pointers. `[hw]` ([I38](../INCIDENTS.md#i38-low-window-flash-pointers-boot-in-the-emulator-and-hang-on-the-unit))",
    "evidence": "hw",
    "sources": "mdkit-docs",
    "devices": "machinedrum,monomachine",
@@ -16883,7 +16997,7 @@
    "file": "hardware/devices/octatrack.md",
    "line": 46,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / OS format, update and recovery",
-   "text": "After flashing a build that changes an effect's parameter layout, old projects need their stored values stamped. A select value outside its count stalls the sequencer on first play. `[hw]`",
+   "text": "After flashing a build that changes an effect's parameter layout, old projects need their stored values stamped. A select value outside its count stalls the sequencer on first play. `[hw]` ([I28](../INCIDENTS.md#i28-a-select-value-outside-its-count-stalled-the-sequencer))",
    "evidence": "hw",
    "sources": "octabam",
    "devices": "octatrack",
@@ -16894,7 +17008,7 @@
    "file": "hardware/devices/octatrack.md",
    "line": 49,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / Memory and code placement",
-   "text": "The free ROM is small: zero runs in `0x400c0000-0x400d8000` total ~8.4 KB, shared by every mod. The zero region above `0x400d8000` is the PROJECT subsystem's RAM. A menu table placed in a 15 KB zero run at `0x401087e4` crashed a unit. Larger code goes to a loader-copied area: octabam's loader is a stub at `0x4010fdf0`, right after the OS image, reached from the boot site. `[hw]`",
+   "text": "The free ROM is small: zero runs in `0x400c0000-0x400d8000` total ~8.4 KB, shared by every mod. The zero region above `0x400d8000` is the PROJECT subsystem's RAM. A menu table placed in a 15 KB zero run at `0x401087e4` crashed a unit. ([I48](../INCIDENTS.md#i48-a-menu-table-in-a-free-zero-run-crashed-the-unit)) Larger code goes to a loader-copied area: octabam's loader is a stub at `0x4010fdf0`, right after the OS image, reached from the boot site. `[hw]`",
    "evidence": "hw",
    "sources": "octabam",
    "devices": "octatrack",
@@ -16916,7 +17030,7 @@
    "file": "hardware/devices/octatrack.md",
    "line": 53,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / Memory and code placement",
-   "text": "DSP scratch: r7 scratch `$00-$83` is the per-instance block, and `$84+` hangs the unit. Stock effects scratch `X:0x20-0xff`, and the hardware dispatcher passes the audio block at X:0. `[hw]`",
+   "text": "DSP scratch: r7 scratch `$00-$83` is the per-instance block, and `$84+` hangs the unit. Stock effects scratch `X:0x20-0xff`, and the hardware dispatcher passes the audio block at X:0. `[hw]` ([I29](../INCIDENTS.md#i29-dsp-scratch-at-84-and-up-hung-the-unit))",
    "evidence": "hw",
    "sources": "octabam",
    "devices": "octatrack",
@@ -16993,7 +17107,7 @@
    "file": "hardware/devices/octatrack.md",
    "line": 69,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / USB device side (both octabam and Modwerk, measured on units)",
-   "text": "No EP0 reply or OUT data stage may be a whole multiple of 64 bytes. A reply of 64/128/192/256 bytes left a stale zero-length packet, and the next request returned 0 bytes (once, the unit froze). Stock leaves zero-length termination on in the EP0 OUT queue head, so a 128- or 192-byte OUT stage never completed. Send one byte less, or clear ZLT when priming. `[hw]` Rule A39.",
+   "text": "No EP0 reply or OUT data stage may be a whole multiple of 64 bytes. A reply of 64/128/192/256 bytes left a stale zero-length packet, and the next request returned 0 bytes (once, the unit froze). Stock leaves zero-length termination on in the EP0 OUT queue head, so a 128- or 192-byte OUT stage never completed. Send one byte less, or clear ZLT when priming. `[hw]` Rule A39. ([I5](../INCIDENTS.md#i5-ep0-data-stages-of-a-multiple-of-64-bytes-stall-or-freeze-stock-usb-driver))",
    "evidence": "hw",
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
@@ -17004,7 +17118,7 @@
    "file": "hardware/devices/octatrack.md",
    "line": 70,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / USB device side (both octabam and Modwerk, measured on units)",
-   "text": "About one EP0 OUT stage in 50-100 goes unanswered on a MKII: completed inside the ISR after stock's poll, or stopped part-way. Modwerk runs a 60 Hz tick that finishes a completed stage, or stalls EP0 after 0.5 s so the host resubmits. `[hw]`",
+   "text": "About one EP0 OUT stage in 50-100 goes unanswered on a MKII: completed inside the ISR after stock's poll, or stopped part-way. Modwerk runs a 60 Hz tick that finishes a completed stage, or stalls EP0 after 0.5 s so the host resubmits. `[hw]` ([I6](../INCIDENTS.md#i6-about-one-ep0-out-stage-in-50-100-goes-unanswered))",
    "evidence": "hw",
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
@@ -17015,7 +17129,7 @@
    "file": "hardware/devices/octatrack.md",
    "line": 71,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / USB device side (both octabam and Modwerk, measured on units)",
-   "text": "DMA reads RAM, not the copyback cache. A value the CPU stores rarely stayed stale for minutes in USB replies, while values stored every frame looked live. Copy a reply through the uncached alias and send it from there. `[hw]` (Same idea as A28 on the SHARC.)",
+   "text": "DMA reads RAM, not the copyback cache. A value the CPU stores rarely stayed stale for minutes in USB replies, while values stored every frame looked live. Copy a reply through the uncached alias and send it from there. `[hw]` (Same idea as A28 on the SHARC.) ([I35](../INCIDENTS.md#i35-usb-replies-stayed-stale-for-minutes))",
    "evidence": "hw",
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
@@ -17026,7 +17140,7 @@
    "file": "hardware/devices/octatrack.md",
    "line": 72,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / USB device side (both octabam and Modwerk, measured on units)",
-   "text": "A soft reset leaves the USB controller and PHY as they were: one RAM boot in about six came back with no USB until a power cycle. Stop the controller (USBCMD.RS = 0) and wait ~50 ms before resetting; that gave 20 of 20 good boots. `[hw]` {modwerk-ot-traps}",
+   "text": "A soft reset leaves the USB controller and PHY as they were: one RAM boot in about six came back with no USB until a power cycle. Stop the controller (USBCMD.RS = 0) and wait ~50 ms before resetting; that gave 20 of 20 good boots. `[hw]` {modwerk-ot-traps} ([I7](../INCIDENTS.md#i7-a-soft-reset-leaves-the-usb-controller-running))",
    "evidence": "hw",
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
@@ -17037,7 +17151,7 @@
    "file": "hardware/devices/octatrack.md",
    "line": 73,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / USB device side (both octabam and Modwerk, measured on units)",
-   "text": "Never post key events into stock's queues directly (two crashes minutes later). Feed the panel parser its own bytes instead. `[hw]` {modwerk-ot-traps}",
+   "text": "Never post key events into stock's queues directly (two crashes minutes later). Feed the panel parser its own bytes instead. `[hw]` {modwerk-ot-traps} ([I30](../INCIDENTS.md#i30-key-events-posted-into-stocks-queues-crashed-the-unit-minutes-later))",
    "evidence": "hw",
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
@@ -17136,7 +17250,7 @@
    "file": "hardware/devices/octatrack.md",
    "line": 89,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / More DSP and boot traps (measured on units)",
-   "text": "A DSP frame counter past `$7fffff` saturates in `move a,nN`, which stopped a frame engine after 50.7 minutes. Mask counters to 23 bits. `[hw]`",
+   "text": "A DSP frame counter past `$7fffff` saturates in `move a,nN`, which stopped a frame engine after 50.7 minutes. Mask counters to 23 bits. `[hw]` ([I32](../INCIDENTS.md#i32-a-dsp-frame-counter-saturated-after-507-minutes))",
    "evidence": "hw",
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
@@ -17147,7 +17261,7 @@
    "file": "hardware/devices/octatrack.md",
    "line": 90,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / More DSP and boot traps (measured on units)",
-   "text": "Core 1's load-meter counter is at `X:$2840` on Modwerk USB bases; module state there gave a jittery pitch. `[hw]`",
+   "text": "Core 1's load-meter counter is at `X:$2840` on Modwerk USB bases; module state there gave a jittery pitch. `[hw]` ([I33](../INCIDENTS.md#i33-module-state-on-a-load-meter-counter-gave-a-jittery-pitch))",
    "evidence": "hw",
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
@@ -17158,7 +17272,7 @@
    "file": "hardware/devices/octatrack.md",
    "line": 91,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / More DSP and boot traps (measured on units)",
-   "text": "Cold starts: an early-startup change passed emulator boots and quick power cycles but stalled at the logo after several minutes powered off. Keeping the activation helper resident in the OS image fixed it; the mechanism is unknown. Qualify startup changes after a long power-off (rule A40). `[hw]`",
+   "text": "Cold starts: an early-startup change passed emulator boots and quick power cycles but stalled at the logo after several minutes powered off. Keeping the activation helper resident in the OS image fixed it; the mechanism is unknown. Qualify startup changes after a long power-off (rule A40). `[hw]` ([I34](../INCIDENTS.md#i34-a-startup-change-stalled-at-the-logo-after-a-long-power-off))",
    "evidence": "hw",
    "sources": "modwerk-ot-traps,octabam-traps",
    "devices": "octatrack",
@@ -17257,7 +17371,7 @@
    "file": "hardware/devices/octatrack.md",
    "line": 110,
    "section": "Octatrack (MKI, MKII) - OS 1.40C / Debugging on the unit by writing a log to the CF card (OctaMax, MKII, OS 1.40C)",
-   "text": "Restoring state every frame is safe only for CPU-side bookkeeping. Overwriting data the DSP reads corrupted the audio. `[hw]`",
+   "text": "Restoring state every frame is safe only for CPU-side bookkeeping. Overwriting data the DSP reads corrupted the audio. `[hw]` ([I31](../INCIDENTS.md#i31-restoring-dsp-read-state-every-frame-corrupted-the-audio))",
    "evidence": "hw",
    "sources": "octamax",
    "devices": "octatrack",
@@ -17411,7 +17525,7 @@
    "file": "hardware/devices/syntakt.md",
    "line": 26,
    "section": "Syntakt / Recovery (SyntHack OS `RECOVERY.md`)",
-   "text": "Tested on a unit (Modwerk, 2026-11-04, OS 1.42): the startup-menu recovery works over MIDI DIN through a generic USB-to-MIDI cable: FUNC at power-on, TRIG 4 (OS UPGRADE), stock 1.42 sent from Transfer's legacy SysEx page; the unit booted and showed 1.42. This run recovered a working unit; recovery of a unit that does not boot is still untested. USB does not work for this path. `[hw]` {modwerk-st-probe}",
+   "text": "Tested on a unit (Modwerk, 2026-11-04, OS 1.42): the startup-menu recovery works over MIDI DIN through a generic USB-to-MIDI cable: FUNC at power-on, TRIG 4 (OS UPGRADE), stock 1.42 sent from Transfer's legacy SysEx page; the unit booted and showed 1.42. This run recovered a working unit; recovery of a unit that does not boot is still untested. USB does not work for this path. `[hw]` {modwerk-st-probe} ([I46](../INCIDENTS.md#i46-syntakt-startup-menu-recovery-tested-over-din))",
    "evidence": "hw",
    "sources": "modwerk-st-probe,synthack-recovery",
    "devices": "syntakt",
@@ -17543,7 +17657,7 @@
    "file": "hardware/devices/syntakt.md",
    "line": 70,
    "section": "Syntakt / Memory map of CPU #1 (OS 1.41)",
-   "text": "Hardware lesson `[hw]`: SyntHack up to v0.8.0 kept mod code at `0x46000000`. Projects with SP TWINSHOT samples then crashed at boot. Since v0.8.1 the mod code (compressed, appended to section 3 at `0x40348000`) is unpacked into a 64 KB block that a hook at the end of heap init (`0x4010358E`) reserves first.",
+   "text": "Hardware lesson `[hw]`: SyntHack up to v0.8.0 kept mod code at `0x46000000`. Projects with SP TWINSHOT samples then crashed at boot. Since v0.8.1 the mod code (compressed, appended to section 3 at `0x40348000`) is unpacked into a 64 KB block that a hook at the end of heap init (`0x4010358E`) reserves first. ([I20](../INCIDENTS.md#i20-mod-code-at-a-free-address-crashed-projects-with-certain-samples))",
    "evidence": "hw",
    "sources": "synthack-docs",
    "devices": "syntakt",
@@ -19589,7 +19703,7 @@
    "file": "hardware/common/memory-maps.md",
    "line": 37,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11)",
-   "text": "The DN2's code region has no free run of even 24 bytes. Zero runs exist in the constants region, and code there does execute (a boot-path cave printed \"CAVE RAN!!!\" on a real DN2). One \"free\" run was an array the code fills at run time: patching it crashed the unit, and the emulator watch read zeros. Two static checks catch most cases: a fixed stride between equal gaps marks an array, and `lea`/`pea`/`move.l #` operands mark referenced space. On 1.11 only 13 runs (4,207 B) pass both, not the \"~29 KB\" first assumed. `[hw]`",
+   "text": "The DN2's code region has no free run of even 24 bytes. Zero runs exist in the constants region, and code there does execute (a boot-path cave printed \"CAVE RAN!!!\" on a real DN2). One \"free\" run was an array the code fills at run time: patching it crashed the unit, and the emulator watch read zeros. Two static checks catch most cases: a fixed stride between equal gaps marks an array, and `lea`/`pea`/`move.l #` operands mark referenced space. On 1.11 only 13 runs (4,207 B) pass both, not the \"~29 KB\" first assumed. `[hw]` ([I19](../INCIDENTS.md#i19-patching-a-free-zero-run-crashed-the-unit))",
    "evidence": "hw",
    "sources": "dn2-caves",
    "devices": "digitone-2",
@@ -19655,7 +19769,7 @@
    "file": "hardware/common/memory-maps.md",
    "line": 87,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02)",
-   "text": "The flash cave is the most contested 2 KB on the DT2. Five users share it, and they fit only because each checked the bytes the others left: Deja Vu leaves 50 bytes between its payload and its latches, and 70b185's project uses 28 of them. One report says the cave froze a unit at the logo ([CONFLICTS O18](../CONFLICTS.md)); Deja Vu's releases and 70b185's builds boot from it on units. `[hw]`",
+   "text": "The flash cave is the most contested 2 KB on the DT2. Five users share it, and they fit only because each checked the bytes the others left: Deja Vu leaves 50 bytes between its payload and its latches, and 70b185's project uses 28 of them. One report says the cave froze a unit at the logo ([CONFLICTS O18](../CONFLICTS.md)); Deja Vu's releases and 70b185's builds boot from it on units. `[hw]` ([I18](../INCIDENTS.md#i18-the-flash-cave-reportedly-froze-a-unit-at-the-logo))",
    "evidence": "hw",
    "sources": "digikit-f100,dt2-lab-capicola,elekloader-dt2-profile,own-dt2-notes",
    "devices": "digitakt-2",
@@ -20073,7 +20187,7 @@
    "file": "hardware/common/recovery.md",
    "line": 19,
    "section": "Recovery and flashing / Rules of thumb (all from the sources above)",
-   "text": "A mod can break the normal USB update path without anyone noticing until the next update. On Overtone 1.0 (Digitone II), an OS sent with Transfer stopped at \"Receiving\" or \"PREPARING...\" and wrote nothing. The only way off it was the STARTUP menu over DIN, about 15 minutes. Test \"install the next build over USB\" as part of every release (rule A36). `[hw]` {overtone}",
+   "text": "A mod can break the normal USB update path without anyone noticing until the next update. On Overtone 1.0 (Digitone II), an OS sent with Transfer stopped at \"Receiving\" or \"PREPARING...\" and wrote nothing. The only way off it was the STARTUP menu over DIN, about 15 minutes. Test \"install the next build over USB\" as part of every release (rule A36). `[hw]` {overtone} ([I22](../INCIDENTS.md#i22-a-mod-broke-the-normal-usb-update-path))",
    "evidence": "hw",
    "sources": "overtone",
    "devices": "digitone-2",
@@ -20084,7 +20198,7 @@
    "file": "hardware/common/recovery.md",
    "line": 20,
    "section": "Recovery and flashing / Rules of thumb (all from the sources above)",
-   "text": "Test your DIN interface before you need it. On a DT2, a generic \"USB2.0-MIDI\" cable adapter (VID 1a86, PID 752d) delivered nothing, while a controller's DIN out worked. Cheap cable adapters are known to drop or mangle long SysEx; a stock-OS dry run with your exact cable is the only proof. `[hw]` {dt2-lab-coldfire-fix}",
+   "text": "Test your DIN interface before you need it. On a DT2, a generic \"USB2.0-MIDI\" cable adapter (VID 1a86, PID 752d) delivered nothing, while a controller's DIN out worked. Cheap cable adapters are known to drop or mangle long SysEx; a stock-OS dry run with your exact cable is the only proof. `[hw]` {dt2-lab-coldfire-fix} ([I44](../INCIDENTS.md#i44-recovery-used-on-a-digitakt-ii-after-a-crashing-build-a-cheap-cable-delivered-nothing))",
    "evidence": "hw",
    "sources": "dt2-lab-coldfire-fix",
    "devices": "digitakt-2",
@@ -20128,7 +20242,7 @@
    "file": "hardware/common/recovery.md",
    "line": 24,
    "section": "Recovery and flashing / Rules of thumb (all from the sources above)",
-   "text": "Settled (2026-09-11): the ~80% stall that dn2_firmware_explore reported for its own images in the recovery path was the MIDI link, not the image. Stock 1.10E stalled on the same route, and a USB MIDI interface that went idle during the transfer dropped packets (30/70/80% on different tries). Use a MIDI interface that stays awake for the whole ~12-15 min transfer. `[hw]` {dn2-firmware-explore}",
+   "text": "Settled (2026-09-11): the ~80% stall that dn2_firmware_explore reported for its own images in the recovery path was the MIDI link, not the image. Stock 1.10E stalled on the same route, and a USB MIDI interface that went idle during the transfer dropped packets (30/70/80% on different tries). Use a MIDI interface that stays awake for the whole ~12-15 min transfer. `[hw]` {dn2-firmware-explore} ([I43](../INCIDENTS.md#i43-recovery-stalled-at-80--the-midi-link-not-the-image))",
    "evidence": "hw",
    "sources": "dn2-firmware-explore",
    "devices": "",
@@ -20238,7 +20352,7 @@
    "file": "hardware/common/recovery.md",
    "line": 38,
    "section": "Recovery and flashing / Additions from the \"read everything\" pass (2026-10-31)",
-   "text": "Transfer \"PREPARING\" stalls are not unique to Overtone 1.0 (above): the earlier Plaits builds in digitakt-ii-research's All-in-One line \"failed normal Transfer updates at 0%/PREPARING\" and the author says not to assume the route is reliable on every installation. Recovery from such a stall is a power cycle and the startup menu. `[hw]` {overtone} {dt2-install}",
+   "text": "Transfer \"PREPARING\" stalls are not unique to Overtone 1.0 (above): the earlier Plaits builds in digitakt-ii-research's All-in-One line \"failed normal Transfer updates at 0%/PREPARING\" and the author says not to assume the route is reliable on every installation. Recovery from such a stall is a power cycle and the startup menu. `[hw]` {overtone} {dt2-install} ([I23](../INCIDENTS.md#i23-plaits-builds-failed-normal-transfer-updates-at-preparing))",
    "evidence": "hw",
    "sources": "dt2-install,overtone",
    "devices": "",
@@ -20755,7 +20869,7 @@
    "file": "hardware/common/sysex-and-midi.md",
    "line": 113,
    "section": "SysEx and MIDI control (talking to a unit without flashing it) / Digitone II specifics and client pitfalls (dnfw `midi-rpc.md`, live on a DN2 1.11)",
-   "text": "A second application on the port corrupts replies: with Overbridge holding the port, replies were cut at exactly 885 bytes, and with Transfer open a preset list showed 35 of 256. Close Transfer, Overbridge and DNX before a client run. `[hw]`",
+   "text": "A second application on the port corrupts replies: with Overbridge holding the port, replies were cut at exactly 885 bytes, and with Transfer open a preset list showed 35 of 256. Close Transfer, Overbridge and DNX before a client run. `[hw]` ([I9](../INCIDENTS.md#i9-a-second-application-on-the-port-corrupts-sysex-replies))",
    "evidence": "hw",
    "sources": "dn2-midirpc",
    "devices": "digitone-2",
@@ -22044,5 +22158,1049 @@
    "via": "goal table"
   }
  ],
- "participants": []
+ "participants": [],
+ "incidents": [
+  {
+   "id": "I1",
+   "group": "stock",
+   "title": "Stock eMMC TRIM fails with TRIM ERROR on a busy card",
+   "unit": "Digitone II, OS 1.11 (dn2mk2 v0.39, erasing mod data), 2026-11-05",
+   "seen": "TRIM ERROR at sector 817905, after a restart further on at CB1905.",
+   "cause": "after CMD38 the stock busy wait arms the DAT0 edge interrupt before it tests DAT0; a short TRIM that finishes in between leaves a stale semaphore post, so the next TRIM on a really busy card returns at once and the call after it gets no answer. The driver has no timeout.",
+   "cause_found_by": "read statically from stock code, not seen on the bus",
+   "fix": "read `PRSSTAT` `0xfc0cc024` before every TRIM and verify read, call only when idle; retry five times; ERASE PAUSED and resume on request (v0.40).",
+   "status": "fixed in the mod; the stock race remains.",
+   "evidence": "hw",
+   "sources": "dn2mk2-v040",
+   "rules": "A47",
+   "fact_file": "devices/digitone-2.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I2",
+   "group": "stock",
+   "title": "Stock song LOAD trusts a stored row count",
+   "unit": "Digitone II, OS 1.11",
+   "seen": "one project crashed stock and modded builds alike when opened.",
+   "cause": "song LOAD `0x400dea6a` copies `count` stored rows without checking it; the project held 21,503 rows instead of at most 99.",
+   "cause_found_by": "read statically and confirmed on the project file",
+   "fix": "repair the project (row count at record `+0x147`, storage version 4); mods must keep every count in range.",
+   "status": "stock bug, open.",
+   "evidence": "hw",
+   "sources": "dn2-oldproject",
+   "rules": "E3",
+   "fact_file": "devices/digitone-2-internals.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I3",
+   "group": "stock",
+   "title": "USB upgrade receiver does not check the 2 MiB limit",
+   "unit": "Digitone II",
+   "seen": "an oversized image stalls at the end; nothing is written; a power cycle clears it.",
+   "cause": "the receive buffer is 2 MiB and the receiver does not check the size.",
+   "cause_found_by": "seen on the unit",
+   "fix": "keep the container under `0x200000` bytes.",
+   "status": "stock limit.",
+   "evidence": "hw",
+   "sources": "dn2mk2-firmware-md",
+   "rules": "A30,A9",
+   "fact_file": "devices/digitone-2.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I4",
+   "group": "stock",
+   "title": "Auto-commit upload loses its \"complete\" event on the first upload after boot",
+   "unit": "Digitone II, OS 1.11",
+   "seen": "the unit sits on \"OS UPGRADE / Receiving\".",
+   "cause": "with auto-commit the OS posts \"upload complete\" while the upgrade view is not open yet; the event is lost.",
+   "cause_found_by": "read from stock code, seen on the unit",
+   "fix": "upload without auto-commit, then send End(1), which checks the bytes and posts the event itself.",
+   "status": "stock bug, worked around.",
+   "evidence": "hw",
+   "sources": "dn2-skill-scripts",
+   "rules": "A21",
+   "fact_file": "devices/digitone-2-os111-firmware-map.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I5",
+   "group": "stock",
+   "title": "EP0 data stages of a multiple of 64 bytes stall or freeze (stock USB driver)",
+   "unit": "Octatrack MKII, OS 1.40C (Modwerk USB base)",
+   "seen": "the request after a 64/128/192/256-byte reply returned 0 bytes; once the unit froze. 128/192-byte OUT stages never completed.",
+   "cause": "stock leaves zero-length termination on in the EP0 OUT queue head.",
+   "cause_found_by": "measured on the unit",
+   "fix": "size replies a byte short, or clear ZLT when priming.",
+   "status": "stock behaviour, worked around.",
+   "evidence": "hw",
+   "sources": "modwerk-ot-traps",
+   "rules": "A39",
+   "fact_file": "devices/octatrack.md",
+   "devices": "octatrack"
+  },
+  {
+   "id": "I6",
+   "group": "stock",
+   "title": "About one EP0 OUT stage in 50-100 goes unanswered",
+   "unit": "Octatrack MKII (Modwerk USB base)",
+   "seen": "host requests time out now and then.",
+   "cause": "the stage completes inside the ISR after stock's poll, or stops part-way.",
+   "cause_found_by": "measured on the unit",
+   "fix": "a 60 Hz tick finishes a completed stage, or stalls EP0 after 0.5 s so the host resubmits.",
+   "status": "worked around.",
+   "evidence": "hw",
+   "sources": "modwerk-ot-traps",
+   "rules": "A39",
+   "fact_file": "devices/octatrack.md",
+   "devices": "octatrack"
+  },
+  {
+   "id": "I7",
+   "group": "stock",
+   "title": "A soft reset leaves the USB controller running",
+   "unit": "Octatrack (RAM boot through Modwerk)",
+   "seen": "about one RAM boot in six came back with no USB until a power cycle.",
+   "cause": "the controller and PHY keep their state over a soft reset.",
+   "cause_found_by": "measured on the unit",
+   "fix": "stop the controller (USBCMD.RS = 0), wait ~50 ms, then reset; 20 of 20 good boots.",
+   "status": "worked around.",
+   "evidence": "hw",
+   "sources": "modwerk-ot-traps",
+   "rules": "A40",
+   "fact_file": "devices/octatrack.md",
+   "devices": "octatrack"
+  },
+  {
+   "id": "I8",
+   "group": "stock",
+   "title": "Power-on DDR holds garbage (often a NaN)",
+   "unit": "Digitone II (SHARC)",
+   "seen": "a NaN that reached a feedback state (a send effect) silenced the unit until restart.",
+   "cause": "DSP DDR is not cleared at power-on; the emulator zero-fills it and hides this.",
+   "cause_found_by": "seen on the unit",
+   "fix": "never read memory you did not write; fill new DDR with `0xFFFFFFFF` in tests.",
+   "status": "hardware behaviour.",
+   "evidence": "hw",
+   "sources": "dn2-skill-firmware",
+   "rules": "G8,G9",
+   "fact_file": "devices/digitone-2-os111-reference.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I9",
+   "group": "stock",
+   "title": "A second application on the port corrupts SysEx replies",
+   "unit": "Digitone II (and others with Overbridge/Transfer)",
+   "seen": "with Overbridge holding the port replies were cut at exactly 885 bytes; with Transfer open a preset list showed 35 of 256.",
+   "cause": "two clients share the USB MIDI port.",
+   "cause_found_by": "seen on the unit",
+   "fix": "close Transfer, Overbridge and DNX before a client run; check reply lengths.",
+   "status": "behaviour of the host side.",
+   "evidence": "hw",
+   "sources": "",
+   "rules": "F7",
+   "fact_file": "common/sysex-and-midi.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I10",
+   "group": "mod",
+   "title": "Byte-wise reads of uncached DMA buffers stalled the sequencer",
+   "unit": "Digitone II, OS 1.12 (Digiwerk UM01, multichannel USB audio), 2026-10-31",
+   "seen": "42 channels arrived on the Mac, but the sequencer lagged until unusable.",
+   "cause": "the main OS sets CACR `0xa50ce100` / ACR0 `0x4007e020` (`0x40000000-0x47ffffff` cached); the SSI DMA buffers at `0x4e6e7100` are uncached, and UM01 made 84 DDR reads a frame. A first look at the bootstrap's CACR (cache off) gave a wrong conclusion.",
+   "cause_found_by": "read from the start-up code, confirmed by the fixed build on the unit",
+   "fix": "read each slot once as a word (UM02, 14 reads): no lag with busy sequences.",
+   "status": "fixed (Digiwerk 0.3.0).",
+   "evidence": "hw",
+   "sources": "dn2-cfw-handoff",
+   "rules": "A48",
+   "fact_file": "devices/digitone-2.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I11",
+   "group": "mod",
+   "title": "Uncached state in a chord oscillator slowed the UI and could crash the unit",
+   "unit": "Analog Four MK1, OS 1.56",
+   "seen": "UI slowed; the unit could crash.",
+   "cause": "only `0x40000000-0x43ffffff` is cached; mod state beside the effect delay lines (`0x468xxxxx`) was uncached; ~1,000 accesses per block per voice.",
+   "cause_found_by": "read from ACR0, measured by the fix",
+   "fix": "copy state to the stack once per block, work there, write it back.",
+   "status": "fixed.",
+   "evidence": "hw",
+   "sources": "a4mods",
+   "rules": "A48",
+   "fact_file": "devices/analog-four-keys.md",
+   "devices": "analog-four-keys"
+  },
+  {
+   "id": "I12",
+   "group": "mod",
+   "title": "A sample-machine mod could not create the storage it needed",
+   "unit": "Digitone II, OS 1.11 (armio R012), 2026-11-03",
+   "seen": "on units that never had it: 0 % free / 0 bytes in Transfer, stalled uploads, \"Connection failed\".",
+   "cause": "R012 mounts an existing sample filesystem but does not create one; stock FORMAT +DRIVE and the resets do not create it.",
+   "cause_found_by": "found by new users; the author's unit had storage prepared during development",
+   "fix": "R013 adds SYSTEM > FORMAT SAMPLES; formatting, Transfer capacity (~20 GB) and uploads passed on the unit.",
+   "status": "fixed in R013 (R014 candidate).",
+   "evidence": "hw",
+   "sources": "armio-samples",
+   "rules": "A49",
+   "fact_file": "devices/digitone-2.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I13",
+   "group": "mod",
+   "title": "USB audio repeated old audio after a project change",
+   "unit": "Digitone II, OS 1.11 (armio R007-R011)",
+   "seen": "USB audio froze or repeated while headphones and UI kept working; rejected publications rose by 16,392 in ~10.9 s.",
+   "cause": "the TX selector follows RX completion and is no ownership grant; the build bound its queue head to a destination from an older phase.",
+   "cause_found_by": "measured with the build's counters",
+   "fix": "R011 picks the candidate from the current DMA START.",
+   "status": "fixed; endurance unmeasured.",
+   "evidence": "hw",
+   "sources": "armio-r011,armio-usb",
+   "rules": "C9",
+   "fact_file": "devices/digitone-2.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I14",
+   "group": "mod",
+   "title": "DAG registers stored through their own DAG hung the DSP",
+   "unit": "Digitakt II (PLAITS RINGS kernel, digitakt-ii-research All-in-One)",
+   "seen": "the DSP hung on the first block; all audio died. The emulator ran it bit-exactly.",
+   "cause": "`DM(I7, M7) = M4` and similar; the PRM forbids it and stock never does it.",
+   "cause_found_by": "one-variable probe image on the unit",
+   "fix": "move DAG registers through an R register.",
+   "status": "fixed; the encoding gate now refuses same-DAG stores.",
+   "evidence": "hw",
+   "sources": "dt2-plaits",
+   "rules": "A33",
+   "fact_file": "devices/digitakt-2-dsp-optimizing.md",
+   "devices": "digitakt-2"
+  },
+  {
+   "id": "I15",
+   "group": "mod",
+   "title": "A frequency shifter froze the unit at boot",
+   "unit": "Digitakt II (digikit `fx/freqshift`, send route)",
+   "seen": "frozen at boot; the emulator showed nothing.",
+   "cause": "a selas defect left a nested hardware-loop end compressed; code copied into L2 at run time was not written back from the data cache.",
+   "cause_found_by": "two causes, isolated on the unit",
+   "fix": "`.NOCOMPRESS` around nested loops; cache write-back before running copied code. Ran on send and master 2026-10-30.",
+   "status": "fixed.",
+   "evidence": "hw",
+   "sources": "digikit-f91",
+   "rules": "A45,A28,A41",
+   "fact_file": "devices/digitakt-2.md",
+   "devices": "digitakt-2"
+  },
+  {
+   "id": "I16",
+   "group": "mod",
+   "title": "A decoded section 7 over 1 MiB crashed the unit",
+   "unit": "Digitakt II, OS 1.16 (dt2-machine-lab)",
+   "seen": "crash; recovered over the startup menu.",
+   "cause": "the ColdFire depacks section 7 into a 1 MiB buffer and checks the size only afterwards.",
+   "cause_found_by": "read from the loader",
+   "fix": "keep the decoded section 7 under `0xfffff` bytes.",
+   "status": "rule.",
+   "evidence": "hw",
+   "sources": "dt2-lab-capicola",
+   "rules": "A46",
+   "fact_file": "devices/digitakt-2.md",
+   "devices": "digitakt-2"
+  },
+  {
+   "id": "I17",
+   "group": "mod",
+   "title": "Per-sample stores to the DDR output buffer crashed the unit",
+   "unit": "Digitakt II, OS 1.17 (70b185's STRETCH replacement)",
+   "seen": "continuous tone, unit crashed; the emulator was bit-identical.",
+   "cause": "per-sample accesses to stock buffers in external DDR (`0x8045b3c0`).",
+   "cause_found_by": "measured on the unit",
+   "fix": "render into L2 and copy once per block.",
+   "status": "fixed.",
+   "evidence": "hw",
+   "sources": "own-dt2-notes",
+   "rules": "A52",
+   "fact_file": "devices/digitakt-2-sharc-measured.md",
+   "devices": "digitakt-2"
+  },
+  {
+   "id": "I18",
+   "group": "mod",
+   "title": "The flash cave reportedly froze a unit at the logo",
+   "unit": "Digitakt II, OS 1.17",
+   "seen": "one report of a freeze at the logo with code in the cave `0x403117c4-0x40312000`; other projects boot from the same cave on units.",
+   "cause": "not settled ([CONFLICTS O18](CONFLICTS.md)).",
+   "cause_found_by": "",
+   "fix": "check the bytes the other cave users leave; prove the cave on a hard run.",
+   "status": "open conflict.",
+   "evidence": "hw",
+   "sources": "",
+   "rules": "A43",
+   "fact_file": "common/memory-maps.md",
+   "devices": "digitakt-2"
+  },
+  {
+   "id": "I19",
+   "group": "mod",
+   "title": "Patching a \"free\" zero run crashed the unit",
+   "unit": "Digitone II, OS 1.11 (dnfw cave search)",
+   "seen": "crash; the emulator watch read zeros there.",
+   "cause": "the run was an array that the code fills at run time.",
+   "cause_found_by": "found by a run-time watch and static analysis",
+   "fix": "two static checks (equal-stride gaps, referenced operands); only 13 runs (4,207 B) pass both.",
+   "status": "rule.",
+   "evidence": "hw",
+   "sources": "dn2-caves",
+   "rules": "D11,A43",
+   "fact_file": "common/memory-maps.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I20",
+   "group": "mod",
+   "title": "Mod code at a \"free\" address crashed projects with certain samples",
+   "unit": "Syntakt, OS 1.41 (SyntHack up to v0.8.0)",
+   "seen": "projects with SP TWINSHOT samples crashed at boot.",
+   "cause": "mod code at `0x46000000`, memory stock uses for those samples.",
+   "cause_found_by": "",
+   "fix": "v0.8.1 unpacks the mod code into a 64 KB block that a hook at the end of heap init (`0x4010358E`) reserves first.",
+   "status": "fixed.",
+   "evidence": "hw",
+   "sources": "synthack-docs",
+   "rules": "D11",
+   "fact_file": "devices/syntakt.md",
+   "devices": "syntakt"
+  },
+  {
+   "id": "I21",
+   "group": "mod",
+   "title": "MD and Monomachine tracks went silent after an install",
+   "unit": "Digitone II, OS 1.11 (dn2mk2)",
+   "seen": "intermittent: tracks silent until cleared.",
+   "cause": "unknown (suspected stale voice-slot state or state from an older version's project).",
+   "cause_found_by": "",
+   "fix": "none yet; test an old project after every install.",
+   "status": "open.",
+   "evidence": "hw",
+   "sources": "dn2mk2-reports",
+   "rules": "C9",
+   "fact_file": "devices/digitone-2-machines-sampler-sharc.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I22",
+   "group": "mod",
+   "title": "A mod broke the normal USB update path",
+   "unit": "Digitone II (Overtone 1.0)",
+   "seen": "the next OS sent with Transfer stopped at \"Receiving\" or \"PREPARING...\" and wrote nothing.",
+   "cause": "the mod's build; fixed in 1.0.1.",
+   "cause_found_by": "",
+   "fix": "the STARTUP menu over DIN (~15 min); a release test that installs the next build over USB.",
+   "status": "fixed.",
+   "evidence": "hw",
+   "sources": "overtone",
+   "rules": "A36,C9",
+   "fact_file": "common/recovery.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I23",
+   "group": "mod",
+   "title": "Plaits builds failed normal Transfer updates at PREPARING",
+   "unit": "Digitakt II (digitakt-ii-research All-in-One, earlier Plaits builds)",
+   "seen": "updates stopped at 0 % / PREPARING.",
+   "cause": "not stated; the author says not to assume the route is reliable everywhere.",
+   "cause_found_by": "",
+   "fix": "power cycle and the startup menu.",
+   "status": "later builds changed.",
+   "evidence": "hw",
+   "sources": "dt2-install",
+   "rules": "A20,A36",
+   "fact_file": "common/recovery.md",
+   "devices": "digitakt-2"
+  },
+  {
+   "id": "I24",
+   "group": "mod",
+   "title": "A granular engine froze the UI at low pitch",
+   "unit": "Digitakt MKI, OS 1.53 (digigrain)",
+   "seen": "UI froze at low pitch.",
+   "cause": "fixed-length source grains became long, the pool filled and every voice ran its worst case.",
+   "cause_found_by": "",
+   "fix": "grain length independent of pitch; overlap capped.",
+   "status": "fixed.",
+   "evidence": "hw",
+   "sources": "digigrain-skills",
+   "rules": "A34,D12",
+   "fact_file": "devices/digitakt.md",
+   "devices": "digitakt"
+  },
+  {
+   "id": "I25",
+   "group": "mod",
+   "title": "Clobbering R8 at the FX-bus mixer hook lost all audio",
+   "unit": "Digitone II, OS 1.11 (SHARC)",
+   "seen": "no audio; the emulator ignored the stray state.",
+   "cause": "the mixer takes R4 and R8 as arguments; the hook changed R8.",
+   "cause_found_by": "",
+   "fix": "preserve every register and flag that code after a hook reads; compare callee registers between stock and the build.",
+   "status": "rule.",
+   "evidence": "hw",
+   "sources": "dn2-skill-sharc",
+   "rules": "G9",
+   "fact_file": "devices/digitone-2-os111-reference.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I26",
+   "group": "mod",
+   "title": "A boot block of 8n+4 bytes left the unit silent",
+   "unit": "Digitone II (SHARC section 7)",
+   "seen": "silent from power-on; boots in the emulator.",
+   "cause": "the L2 instruction-cache line fill over the block's end faults on ECC.",
+   "cause_found_by": "",
+   "fix": "whole 32-byte boot blocks (`dspblocks.pad_lines`, `bootblocks.py`).",
+   "status": "rule.",
+   "evidence": "hw",
+   "sources": "dn2-skill-sharc",
+   "rules": "G9",
+   "fact_file": "devices/digitone-2-os111-reference.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I27",
+   "group": "mod",
+   "title": "An encoding every decoder accepts raised ILOPI on the chip",
+   "unit": "Digitone II and Digitakt II (SHARC)",
+   "seen": "the unit stopped (illegal opcode).",
+   "cause": "negative shift immediates with zero sign bits in the middle parcel (stock: `023e 7800`); selas's 48-bit `Rn = <sysreg>` put the wrong register (EMUCLK read as LCNTR).",
+   "cause_found_by": "decoded against stock",
+   "fix": "stock encodings only; compressed forms for system registers; check the disassembly.",
+   "status": "rule.",
+   "evidence": "hw",
+   "sources": "dn2-skill-sharc,dn2-stall",
+   "rules": "A41,G9",
+   "fact_file": "devices/digitone-2-machines-sampler-sharc.md",
+   "devices": "digitakt-2,digitone-2"
+  },
+  {
+   "id": "I28",
+   "group": "mod",
+   "title": "A select value outside its count stalled the sequencer",
+   "unit": "Octatrack",
+   "seen": "after a build changed an effect's parameter layout, an old project stalled the sequencer on first play.",
+   "cause": "stored values no longer fit the new layout.",
+   "cause_found_by": "",
+   "fix": "stamp old projects' stored values after a layout change.",
+   "status": "rule.",
+   "evidence": "hw",
+   "sources": "",
+   "rules": "E3,C9",
+   "fact_file": "devices/octatrack.md",
+   "devices": "octatrack"
+  },
+  {
+   "id": "I29",
+   "group": "mod",
+   "title": "DSP scratch at `$84` and up hung the unit",
+   "unit": "Octatrack (DSP56300)",
+   "seen": "hang.",
+   "cause": "r7 scratch `$00-$83` is the per-instance block; above it belongs to others.",
+   "cause_found_by": "",
+   "fix": "stay inside the per-instance block.",
+   "status": "rule.",
+   "evidence": "hw",
+   "sources": "",
+   "rules": "D11",
+   "fact_file": "devices/octatrack.md",
+   "devices": "octatrack"
+  },
+  {
+   "id": "I30",
+   "group": "mod",
+   "title": "Key events posted into stock's queues crashed the unit minutes later",
+   "unit": "Octatrack (Modwerk)",
+   "seen": "two crashes, minutes after the event.",
+   "cause": "events posted straight into stock's internal queues.",
+   "cause_found_by": "",
+   "fix": "feed the panel parser its own bytes instead.",
+   "status": "rule.",
+   "evidence": "hw",
+   "sources": "modwerk-ot-traps",
+   "rules": "A50",
+   "fact_file": "devices/octatrack.md",
+   "devices": "octatrack"
+  },
+  {
+   "id": "I31",
+   "group": "mod",
+   "title": "Restoring DSP-read state every frame corrupted the audio",
+   "unit": "Octatrack",
+   "seen": "corrupted audio.",
+   "cause": "a mod overwrote data the DSP reads each frame; doing so is safe only for CPU-side bookkeeping.",
+   "cause_found_by": "",
+   "fix": "restore only CPU-side state.",
+   "status": "rule.",
+   "evidence": "hw",
+   "sources": "octamax",
+   "rules": "A50",
+   "fact_file": "devices/octatrack.md",
+   "devices": "octatrack"
+  },
+  {
+   "id": "I32",
+   "group": "mod",
+   "title": "A DSP frame counter saturated after 50.7 minutes",
+   "unit": "Octatrack (DSP56300)",
+   "seen": "a frame engine stopped after 50.7 minutes.",
+   "cause": "a counter past `$7fffff` saturates in `move a,nN`.",
+   "cause_found_by": "",
+   "fix": "mask counters to 23 bits.",
+   "status": "fixed.",
+   "evidence": "hw",
+   "sources": "octabam-traps",
+   "rules": "A51",
+   "fact_file": "devices/octatrack.md",
+   "devices": "octatrack"
+  },
+  {
+   "id": "I33",
+   "group": "mod",
+   "title": "Module state on a load-meter counter gave a jittery pitch",
+   "unit": "Octatrack (Modwerk USB base)",
+   "seen": "jittery pitch.",
+   "cause": "module state at `X:$2840`, core 1's load-meter counter.",
+   "cause_found_by": "",
+   "fix": "move the state.",
+   "status": "fixed.",
+   "evidence": "hw",
+   "sources": "octabam-traps",
+   "rules": "D11",
+   "fact_file": "devices/octatrack.md",
+   "devices": "octatrack"
+  },
+  {
+   "id": "I34",
+   "group": "mod",
+   "title": "A startup change stalled at the logo after a long power-off",
+   "unit": "Octatrack",
+   "seen": "passed emulator boots and quick power cycles, stalled at the logo after several minutes off.",
+   "cause": "unknown; keeping the activation helper resident fixed it.",
+   "cause_found_by": "",
+   "fix": "qualify startup changes after a long power-off.",
+   "status": "fixed; mechanism unknown.",
+   "evidence": "hw",
+   "sources": "modwerk-ot-traps",
+   "rules": "A40",
+   "fact_file": "devices/octatrack.md",
+   "devices": "octatrack"
+  },
+  {
+   "id": "I35",
+   "group": "mod",
+   "title": "USB replies stayed stale for minutes",
+   "unit": "Octatrack (Modwerk)",
+   "seen": "a value the CPU stores rarely stayed stale in USB replies; values stored every frame looked live.",
+   "cause": "DMA reads RAM, not the copyback cache.",
+   "cause_found_by": "measured",
+   "fix": "copy a reply through the uncached alias and send it from there.",
+   "status": "fixed.",
+   "evidence": "hw",
+   "sources": "modwerk-ot-traps",
+   "rules": "A48,A28",
+   "fact_file": "devices/octatrack.md",
+   "devices": "octatrack"
+  },
+  {
+   "id": "I48",
+   "group": "mod",
+   "title": "A menu table in a \"free\" zero run crashed the unit",
+   "unit": "Octatrack",
+   "seen": "crash.",
+   "cause": "the 15 KB zero run at `0x401087e4` lies in the PROJECT subsystem's RAM (the zero region above `0x400d8000`).",
+   "cause_found_by": "",
+   "fix": "larger code goes to a loader-copied area (octabam's loader stub at `0x4010fdf0`).",
+   "status": "rule.",
+   "evidence": "hw",
+   "sources": "",
+   "rules": "D11,A43",
+   "fact_file": "devices/octatrack.md",
+   "devices": "octatrack"
+  },
+  {
+   "id": "I36",
+   "group": "emulator-or-tool",
+   "title": "The emulator undercounted DSP time by 2x to 12x",
+   "unit": "Digitakt II (70b185's project; digimod's Plaits mod)",
+   "seen": "device cycles about 2x the emulator's instruction count for code reading DDR; a hard stop the emulator showed overshooting by ~25k overshot by ~75k on the unit; digimod reports 7-12x on hardware for one case.",
+   "cause": "the emulators model no memory stalls.",
+   "cause_found_by": "",
+   "fix": "budget with silicon costs; leave a margin; measure once per project on the unit.",
+   "status": "known limit.",
+   "evidence": "hw",
+   "sources": "digimod,own-dt2-notes",
+   "rules": "A35,C4,C10",
+   "fact_file": "devices/digitakt-2-sharc-measured.md",
+   "devices": "digitakt-2"
+  },
+  {
+   "id": "I37",
+   "group": "emulator-or-tool",
+   "title": "A SHARC emulator shifted every fractional multiply",
+   "unit": "Digitone II (complex-ping's emulator)",
+   "seen": "found when the emulator was checked against stock routines.",
+   "cause": "the emulator shifted every fractional multiply left; the PRM shifts only signed x signed.",
+   "cause_found_by": "",
+   "fix": "fixed in the emulator; `sharc_checks.py` calls stock routines and compares.",
+   "status": "fixed.",
+   "evidence": "emu",
+   "sources": "dn2-skill-md",
+   "rules": "C10",
+   "fact_file": "devices/digitone-2-os111-reference.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I38",
+   "group": "emulator-or-tool",
+   "title": "Low-window flash pointers boot in the emulator and hang on the unit",
+   "unit": "Machinedrum / Monomachine (Gearmulator board model)",
+   "seen": "images boot in the emulator and hang on the unit.",
+   "cause": "after the OS remaps CS0, nothing decodes the low window on hardware; the emulator maps flash at `0x0` and `0x10000000`.",
+   "cause_found_by": "",
+   "fix": "link and point through `0x10000000`; scan images for low pointers.",
+   "status": "rule.",
+   "evidence": "hw",
+   "sources": "mdkit-docs",
+   "rules": "A53",
+   "fact_file": "devices/machinedrum-monomachine.md",
+   "devices": "machinedrum,monomachine"
+  },
+  {
+   "id": "I39",
+   "group": "emulator-or-tool",
+   "title": "The default compression level corrupted a DN2 image",
+   "unit": "Digitone II",
+   "seen": "corrupt image.",
+   "cause": "section 4's in-place loader has a stock margin of +31,182 bytes; elektron-firmware-tool's `-l 3` gives -39,318. Stock DT2 1.17 also fails the in-place path (margin -31,912).",
+   "cause_found_by": "",
+   "fix": "check the margin at every loader stage; a dense packer.",
+   "status": "rule.",
+   "evidence": "hw",
+   "sources": "dn2-cfw-handoff",
+   "rules": "A14",
+   "fact_file": "devices/digitone-2-internals.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I40",
+   "group": "emulator-or-tool",
+   "title": "A \"no change\" rebuild came out 2 bytes short",
+   "unit": "Analog Rytm MK1",
+   "seen": "the null repack failed.",
+   "cause": "elektron-firmware-tool padded ELE2 containers to 2 bytes; stock pads to 4.",
+   "cause_found_by": "",
+   "fix": "pad to 4; always null-repack the stock file first.",
+   "status": "fixed in hugz202's patch.",
+   "evidence": "hw",
+   "sources": "rytm-mk1-mods",
+   "rules": "A6,A32",
+   "fact_file": "devices/analog-rytm.md",
+   "devices": "analog-rytm"
+  },
+  {
+   "id": "I41",
+   "group": "emulator-or-tool",
+   "title": "A label defined twice resolved to the wrong file",
+   "unit": "Digitakt II (Plaits kernels, caught before a unit)",
+   "seen": "each kernel's own test passed; the merged image jumped into the wrong file.",
+   "cause": "a label defined in two sources resolves to one of them in the merged object.",
+   "cause_found_by": "",
+   "fix": "unique label prefixes per file.",
+   "status": "rule.",
+   "evidence": "emu",
+   "sources": "dt2-plaits",
+   "rules": "D4",
+   "fact_file": "devices/digitakt-2-dsp-optimizing.md",
+   "devices": "digitakt-2"
+  },
+  {
+   "id": "I42",
+   "group": "emulator-or-tool",
+   "title": "Checks reported success about work they never did",
+   "unit": "Digitone II (dnfw LFO4 bridge)",
+   "seen": "the build passed every check and faulted on the unit.",
+   "cause": "snapshot harnesses cleared code no real boot ran; a boot gate printed \"Safe to flash\" after its coverage section was deleted; an emulator call returned 0 for a present value.",
+   "cause_found_by": "",
+   "fix": "every check gets a control that must fail.",
+   "status": "rule.",
+   "evidence": "hw",
+   "sources": "dn2-lfo4",
+   "rules": "C8",
+   "fact_file": "AGENT-RULES.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I43",
+   "group": "recovery-or-link",
+   "title": "Recovery stalled at ~80 %: the MIDI link, not the image",
+   "unit": "Digitone II (dn2_firmware_explore), 2026-09-11",
+   "seen": "Transfer showed 100 % sent; the unit's bar froze near 80 % (30/70/80 % on different tries).",
+   "cause": "a USB MIDI interface went idle mid-transfer and dropped packets.",
+   "cause_found_by": "shown by sending stock 1.10E over the same route",
+   "fix": "a MIDI interface that stays awake for the ~12-15 min transfer.",
+   "status": "settled.",
+   "evidence": "hw",
+   "sources": "dn2-firmware-explore,dn2-flashing",
+   "rules": "A11,A20",
+   "fact_file": "common/recovery.md",
+   "devices": "digitone-2"
+  },
+  {
+   "id": "I44",
+   "group": "recovery-or-link",
+   "title": "Recovery used on a Digitakt II after a crashing build; a cheap cable delivered nothing",
+   "unit": "Digitakt II, OS 1.16 (dt2-machine-lab), 2026-10-06",
+   "seen": "startup menu over DIN restored 1.16; a generic USB-MIDI cable (VID 1a86, PID 752d) showed no reception, a known-good interface worked.",
+   "cause": "the cable.",
+   "cause_found_by": "",
+   "fix": "rehearse recovery with your exact cable and the stock file.",
+   "status": "recovered.",
+   "evidence": "hw",
+   "sources": "dt2-lab-coldfire-fix",
+   "rules": "A11,A36",
+   "fact_file": "common/recovery.md",
+   "devices": "digitakt-2"
+  },
+  {
+   "id": "I45",
+   "group": "recovery-or-link",
+   "title": "Recovery used on a Digitone MK1 after a logo hang",
+   "unit": "Digitone mk1, OS 1.44 (digitone-arp-mod), 2026-10-08",
+   "seen": "a build hung on the logo; stock 1.44 restored over the startup menu and DIN.",
+   "cause": "the build.",
+   "cause_found_by": "",
+   "fix": "startup menu; not EMPTY RESET or FACTORY RESET.",
+   "status": "recovered.",
+   "evidence": "hw",
+   "sources": "dn1-arpmod-e04",
+   "rules": "A2,A36",
+   "fact_file": "common/recovery.md",
+   "devices": "digitone"
+  },
+  {
+   "id": "I46",
+   "group": "recovery-or-link",
+   "title": "Syntakt startup-menu recovery tested over DIN",
+   "unit": "Syntakt, OS 1.42 (Modwerk boot probe), 2026-11-04",
+   "seen": "FUNC at power-on, TRIG 4, stock 1.42 from Transfer's legacy SysEx page through a generic USB-to-MIDI cable: the unit booted 1.42. A working unit; a unit that does not boot is untested.",
+   "cause": "test.",
+   "cause_found_by": "",
+   "fix": "—",
+   "status": "tested.",
+   "evidence": "hw",
+   "sources": "modwerk-st-probe",
+   "rules": "A11,A36",
+   "fact_file": "devices/syntakt.md",
+   "devices": "syntakt"
+  },
+  {
+   "id": "I47",
+   "group": "recovery-or-link",
+   "title": "Stock storage resets did not create the sample filesystem",
+   "unit": "Digitone II, OS 1.11 (armio)",
+   "seen": "per the author, FORMAT +DRIVE, EMPTY RESET and FACTORY RESET do not create the sample filesystem and can erase projects.",
+   "cause": "stock has no such filesystem on the DN2.",
+   "cause_found_by": "",
+   "fix": "the mod's own FORMAT SAMPLES (R013).",
+   "status": "see I12.",
+   "evidence": "doc",
+   "sources": "armio-samples",
+   "rules": "A3,A49",
+   "fact_file": "devices/digitone-2.md",
+   "devices": "digitone-2"
+  }
+ ],
+ "incident_rules": [
+  {
+   "incident": "I1",
+   "rule": "A47"
+  },
+  {
+   "incident": "I2",
+   "rule": "E3"
+  },
+  {
+   "incident": "I3",
+   "rule": "A30"
+  },
+  {
+   "incident": "I3",
+   "rule": "A9"
+  },
+  {
+   "incident": "I4",
+   "rule": "A21"
+  },
+  {
+   "incident": "I5",
+   "rule": "A39"
+  },
+  {
+   "incident": "I6",
+   "rule": "A39"
+  },
+  {
+   "incident": "I7",
+   "rule": "A40"
+  },
+  {
+   "incident": "I8",
+   "rule": "G8"
+  },
+  {
+   "incident": "I8",
+   "rule": "G9"
+  },
+  {
+   "incident": "I9",
+   "rule": "F7"
+  },
+  {
+   "incident": "I10",
+   "rule": "A48"
+  },
+  {
+   "incident": "I11",
+   "rule": "A48"
+  },
+  {
+   "incident": "I12",
+   "rule": "A49"
+  },
+  {
+   "incident": "I13",
+   "rule": "C9"
+  },
+  {
+   "incident": "I14",
+   "rule": "A33"
+  },
+  {
+   "incident": "I15",
+   "rule": "A45"
+  },
+  {
+   "incident": "I15",
+   "rule": "A28"
+  },
+  {
+   "incident": "I15",
+   "rule": "A41"
+  },
+  {
+   "incident": "I16",
+   "rule": "A46"
+  },
+  {
+   "incident": "I17",
+   "rule": "A52"
+  },
+  {
+   "incident": "I18",
+   "rule": "A43"
+  },
+  {
+   "incident": "I19",
+   "rule": "D11"
+  },
+  {
+   "incident": "I19",
+   "rule": "A43"
+  },
+  {
+   "incident": "I20",
+   "rule": "D11"
+  },
+  {
+   "incident": "I21",
+   "rule": "C9"
+  },
+  {
+   "incident": "I22",
+   "rule": "A36"
+  },
+  {
+   "incident": "I22",
+   "rule": "C9"
+  },
+  {
+   "incident": "I23",
+   "rule": "A20"
+  },
+  {
+   "incident": "I23",
+   "rule": "A36"
+  },
+  {
+   "incident": "I24",
+   "rule": "A34"
+  },
+  {
+   "incident": "I24",
+   "rule": "D12"
+  },
+  {
+   "incident": "I25",
+   "rule": "G9"
+  },
+  {
+   "incident": "I26",
+   "rule": "G9"
+  },
+  {
+   "incident": "I27",
+   "rule": "A41"
+  },
+  {
+   "incident": "I27",
+   "rule": "G9"
+  },
+  {
+   "incident": "I28",
+   "rule": "E3"
+  },
+  {
+   "incident": "I28",
+   "rule": "C9"
+  },
+  {
+   "incident": "I29",
+   "rule": "D11"
+  },
+  {
+   "incident": "I30",
+   "rule": "A50"
+  },
+  {
+   "incident": "I31",
+   "rule": "A50"
+  },
+  {
+   "incident": "I32",
+   "rule": "A51"
+  },
+  {
+   "incident": "I33",
+   "rule": "D11"
+  },
+  {
+   "incident": "I34",
+   "rule": "A40"
+  },
+  {
+   "incident": "I35",
+   "rule": "A48"
+  },
+  {
+   "incident": "I35",
+   "rule": "A28"
+  },
+  {
+   "incident": "I48",
+   "rule": "D11"
+  },
+  {
+   "incident": "I48",
+   "rule": "A43"
+  },
+  {
+   "incident": "I36",
+   "rule": "A35"
+  },
+  {
+   "incident": "I36",
+   "rule": "C4"
+  },
+  {
+   "incident": "I36",
+   "rule": "C10"
+  },
+  {
+   "incident": "I37",
+   "rule": "C10"
+  },
+  {
+   "incident": "I38",
+   "rule": "A53"
+  },
+  {
+   "incident": "I39",
+   "rule": "A14"
+  },
+  {
+   "incident": "I40",
+   "rule": "A6"
+  },
+  {
+   "incident": "I40",
+   "rule": "A32"
+  },
+  {
+   "incident": "I41",
+   "rule": "D4"
+  },
+  {
+   "incident": "I42",
+   "rule": "C8"
+  },
+  {
+   "incident": "I43",
+   "rule": "A11"
+  },
+  {
+   "incident": "I43",
+   "rule": "A20"
+  },
+  {
+   "incident": "I44",
+   "rule": "A11"
+  },
+  {
+   "incident": "I44",
+   "rule": "A36"
+  },
+  {
+   "incident": "I45",
+   "rule": "A2"
+  },
+  {
+   "incident": "I45",
+   "rule": "A36"
+  },
+  {
+   "incident": "I46",
+   "rule": "A11"
+  },
+  {
+   "incident": "I46",
+   "rule": "A36"
+  },
+  {
+   "incident": "I47",
+   "rule": "A3"
+  },
+  {
+   "incident": "I47",
+   "rule": "A49"
+  }
+ ]
 }

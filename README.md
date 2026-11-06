@@ -421,7 +421,7 @@ Snapshot (2026-11-02): 199 project entries for 13 devices (115 mods/firmware/loa
 Point the agent at this repo and tell it to read, in this order (for open-ended research, start with the ready-made prompt in [RESEARCH-MAP.md](RESEARCH-MAP.md) instead):
 
 1. [`hardware/README.md`](hardware/README.md) - the ten things to know first
-2. [`hardware/AGENT-RULES.md`](hardware/AGENT-RULES.md) - safety, legal, process and coding rules
+2. [`hardware/AGENT-RULES.md`](hardware/AGENT-RULES.md) - safety, legal, process and coding rules, and [`hardware/INCIDENTS.md`](hardware/INCIDENTS.md) - what already went wrong on real units and the rule each failure taught
 3. [`hardware/common/recovery.md`](hardware/common/recovery.md) and [`hardware/common/flash-procedure.md`](hardware/common/flash-procedure.md)
 4. the device file under [`hardware/devices/`](hardware/devices/)
 5. [`INDEX.md`](INDEX.md) / [`devices/`](devices/) to find the project it builds on

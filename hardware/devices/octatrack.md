@@ -43,14 +43,14 @@ Key {octabam}. **A different platform from the DT2/DN2:** the ColdFire is an MCF
   - Both routines poll the chip themselves and mask interrupts only around the command bytes, so a mod can call them from a task without breaking the frame interrupt.
   - The bootloader below `0x4000` is never written. It depacks NOR from `0x4012` **without checking anything**, so an image that doesn't boot is recoverable over DIN MIDI only. The startup menu's MIDI UPGRADE checks the received file, not NOR. `[hw]` (testers' units)
 - **Don't verify a running image against its own RAM:** once running, stock rewrites bytes inside its bootloader copy (`0x400e201e-0x400e2108`) and reuses the RAM after the image. Compare against digests taken before stock started. `[hw]` {modwerk-ot-traps}
-- After flashing a build that changes an effect's parameter layout, old projects need their stored values stamped. A select value outside its count stalls the sequencer on first play. `[hw]`
+- After flashing a build that changes an effect's parameter layout, old projects need their stored values stamped. A select value outside its count stalls the sequencer on first play. `[hw]` ([I28](../INCIDENTS.md#i28-a-select-value-outside-its-count-stalled-the-sequencer))
 
 ## Memory and code placement
 - **The free ROM is small:** zero runs in `0x400c0000-0x400d8000` total ~8.4 KB, shared by every mod.
-  - **The zero region above `0x400d8000` is the PROJECT subsystem's RAM.** A menu table placed in a 15 KB zero run at `0x401087e4` crashed a unit.
+  - **The zero region above `0x400d8000` is the PROJECT subsystem's RAM.** A menu table placed in a 15 KB zero run at `0x401087e4` crashed a unit. ([I48](../INCIDENTS.md#i48-a-menu-table-in-a-free-zero-run-crashed-the-unit))
   - Larger code goes to a loader-copied area: octabam's loader is a stub at `0x4010fdf0`, right after the OS image, reached from the boot site. `[hw]`
 - DSP code that does not fit a core's P memory (ends `P:0x1fff`) runs from the shared window `P:0x30000-0x3ffff`. This was proven on a unit (PEXT probe, 2026-10-25). `[hw]`
-- **DSP scratch:** r7 scratch `$00-$83` is the per-instance block, and **`$84+` hangs the unit**. Stock effects scratch `X:0x20-0xff`, and the hardware dispatcher passes the audio block at X:0. `[hw]`
+- **DSP scratch:** r7 scratch `$00-$83` is the per-instance block, and **`$84+` hangs the unit**. Stock effects scratch `X:0x20-0xff`, and the hardware dispatcher passes the audio block at X:0. `[hw]` ([I29](../INCIDENTS.md#i29-dsp-scratch-at-84-and-up-hung-the-unit))
 
 ## DSP56300 assembler and emulator traps (from octabam's trap register; each cost real work)
 - `dsp_asm` **silently mis-encodes**: `tfr a,b` as `rnd b`, and any `mpy` operand order it does not know as `mpysu`. `lua (rN+d),rM` takes d in -64..63 and silently wraps larger values. Labels resolve **by prefix**, so a new label may not have an existing label as its prefix.
@@ -66,11 +66,11 @@ Key {octabam}. **A different platform from the DT2/DN2:** the ColdFire is an MCF
 - The emulator (`ot_emu`) charges one step per instruction, with no cache or memory timing. A change can be cycle-identical in the port and several percent worse on the unit.
 
 ## USB device side (both octabam and Modwerk, measured on units) {octabam-traps} {modwerk-ot-traps}
-- **No EP0 reply or OUT data stage may be a whole multiple of 64 bytes.** A reply of 64/128/192/256 bytes left a stale zero-length packet, and the next request returned 0 bytes (once, the unit froze). Stock leaves zero-length termination on in the EP0 OUT queue head, so a 128- or 192-byte OUT stage never completed. Send one byte less, or clear ZLT when priming. `[hw]` Rule A39.
-- **About one EP0 OUT stage in 50-100 goes unanswered** on a MKII: completed inside the ISR after stock's poll, or stopped part-way. Modwerk runs a 60 Hz tick that finishes a completed stage, or stalls EP0 after 0.5 s so the host resubmits. `[hw]`
-- **DMA reads RAM, not the copyback cache.** A value the CPU stores rarely stayed stale for minutes in USB replies, while values stored every frame looked live. Copy a reply through the uncached alias and send it from there. `[hw]` (Same idea as A28 on the SHARC.)
-- **A soft reset leaves the USB controller and PHY as they were:** one RAM boot in about six came back with no USB until a power cycle. Stop the controller (USBCMD.RS = 0) and wait ~50 ms before resetting; that gave 20 of 20 good boots. `[hw]` {modwerk-ot-traps}
-- **Never post key events into stock's queues directly** (two crashes minutes later). Feed the panel parser its own bytes instead. `[hw]` {modwerk-ot-traps}
+- **No EP0 reply or OUT data stage may be a whole multiple of 64 bytes.** A reply of 64/128/192/256 bytes left a stale zero-length packet, and the next request returned 0 bytes (once, the unit froze). Stock leaves zero-length termination on in the EP0 OUT queue head, so a 128- or 192-byte OUT stage never completed. Send one byte less, or clear ZLT when priming. `[hw]` Rule A39. ([I5](../INCIDENTS.md#i5-ep0-data-stages-of-a-multiple-of-64-bytes-stall-or-freeze-stock-usb-driver))
+- **About one EP0 OUT stage in 50-100 goes unanswered** on a MKII: completed inside the ISR after stock's poll, or stopped part-way. Modwerk runs a 60 Hz tick that finishes a completed stage, or stalls EP0 after 0.5 s so the host resubmits. `[hw]` ([I6](../INCIDENTS.md#i6-about-one-ep0-out-stage-in-50-100-goes-unanswered))
+- **DMA reads RAM, not the copyback cache.** A value the CPU stores rarely stayed stale for minutes in USB replies, while values stored every frame looked live. Copy a reply through the uncached alias and send it from there. `[hw]` (Same idea as A28 on the SHARC.) ([I35](../INCIDENTS.md#i35-usb-replies-stayed-stale-for-minutes))
+- **A soft reset leaves the USB controller and PHY as they were:** one RAM boot in about six came back with no USB until a power cycle. Stop the controller (USBCMD.RS = 0) and wait ~50 ms before resetting; that gave 20 of 20 good boots. `[hw]` {modwerk-ot-traps} ([I7](../INCIDENTS.md#i7-a-soft-reset-leaves-the-usb-controller-running))
+- **Never post key events into stock's queues directly** (two crashes minutes later). Feed the panel parser its own bytes instead. `[hw]` {modwerk-ot-traps} ([I30](../INCIDENTS.md#i30-key-events-posted-into-stocks-queues-crashed-the-unit-minutes-later))
 
 ## ColdFire load (Modwerk's meter on a MKII, Oct 2026) {modwerk-ot-traps}
 - The Modwerk base with nothing installed shows ~42-47 % CPU. That is mostly stock's own tasks; there is no clean stock baseline yet. `[hw]`
@@ -86,9 +86,9 @@ Key {octabam}. **A different platform from the DT2/DN2:** the ColdFire is an MCF
 - **An effect's `init` must preserve r1:** the FX1 dispatcher keeps the effect id there and calls `proc` through it. An init that moved r1 jumped to the reset vector and killed the core at project load. octabam's build refuses an init that writes r1/n1/m1. `[hw]`
 - **A persistent slot that `init` does not clear holds the previous effect's leftovers.** The emulator boots with zeroed RAM and cannot show it. `[hw]`
 - **Resident window code must sit in `0x33da3..0x37eff`:** payload B's boot loop clears `Y:0x37f00..0x3ffff`, and DARK REV writes up to `0x33da2`. `[emu]` (both cores faulted at boot in the port)
-- **A DSP frame counter past `$7fffff` saturates in `move a,nN`**, which stopped a frame engine after 50.7 minutes. Mask counters to 23 bits. `[hw]`
-- **Core 1's load-meter counter** is at `X:$2840` on Modwerk USB bases; module state there gave a jittery pitch. `[hw]`
-- **Cold starts:** an early-startup change passed emulator boots and quick power cycles but stalled at the logo after several minutes powered off. Keeping the activation helper resident in the OS image fixed it; the mechanism is unknown. **Qualify startup changes after a long power-off** (rule A40). `[hw]`
+- **A DSP frame counter past `$7fffff` saturates in `move a,nN`**, which stopped a frame engine after 50.7 minutes. Mask counters to 23 bits. `[hw]` ([I32](../INCIDENTS.md#i32-a-dsp-frame-counter-saturated-after-507-minutes))
+- **Core 1's load-meter counter** is at `X:$2840` on Modwerk USB bases; module state there gave a jittery pitch. `[hw]` ([I33](../INCIDENTS.md#i33-module-state-on-a-load-meter-counter-gave-a-jittery-pitch))
+- **Cold starts:** an early-startup change passed emulator boots and quick power cycles but stalled at the logo after several minutes powered off. Keeping the activation helper resident in the OS image fixed it; the mechanism is unknown. **Qualify startup changes after a long power-off** (rule A40). `[hw]` ([I34](../INCIDENTS.md#i34-a-startup-change-stalled-at-the-logo-after-a-long-power-off))
 - **A write-watch on cached addresses is blind to a clear through the uncached alias.** A "free 8.8 MB" region turned out to be the stock delay rings. Before trusting a null result, ask what the instrument cannot see (rule A31). `[emu]`
 
 ## From KYOTI (Zac-Kyoti/octatrack-kyoti-fw, OS 1.40C) {kyoti-fw}
@@ -107,7 +107,7 @@ Key {octabam}. **A different platform from the DT2/DN2:** the ColdFire is an MCF
   - It works on hardware, and it showed that values seeded in the emulator had been guessed wrong (a voice type byte of 1, not 4). `[hw]`
 - **The DSP never plays on its own:** every frame the ColdFire builds a per-voice packet in shared RAM (double buffer at `0x80000000`, selector `0x800000e0`) and pokes the DSP. A voice that stops being fed goes silent without any "stop". `[doc]`
 - Recorder buffers live in a paged RAM pool (base `0x40a955e0`, ~89 MB) that survives a project change; the voices are torn down and rebuilt by the load. `[hw]`
-- **Restoring state every frame is safe only for CPU-side bookkeeping.** Overwriting data the DSP reads corrupted the audio. `[hw]`
+- **Restoring state every frame is safe only for CPU-side bookkeeping.** Overwriting data the DSP reads corrupted the audio. `[hw]` ([I31](../INCIDENTS.md#i31-restoring-dsp-read-state-every-frame-corrupted-the-audio))
 - An Octatrack emulator built on QEMU (ColdFire MCF54455) plus dsp56300, octemu by markandrus, targets firmware development including USB MIDI and audio; PassOS uses its 20-channel USB audio work. `[doc]`
 
 ## Where code and data may go: KYOTI's cave ledger (OS 1.40C, `reference/kb/caves.md`) {kyoti-caves}

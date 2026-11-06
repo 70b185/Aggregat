@@ -25,7 +25,7 @@ Projects: [../../devices/analog-four-keys.md](../../devices/analog-four-keys.md)
 | Display | 128x64 OLED | 122x32 LCD |
 | USB | high-speed capable | **full speed only** |
 
-- **MK1: only `0x40000000-0x43ffffff` is cached.** ACR0 covers that range and the default is cache-inhibited, so the effect delay lines (`0x468xxxxx` and up) and any mod state placed beside them are uncached: every access is a full bus round trip. An early chord-oscillator build made ~1,000 such accesses per block per voice; the UI slowed and the unit could crash. **Copy state to the stack once per block, work there, write it back.** `[hw]` {a4mods}
+- **MK1: only `0x40000000-0x43ffffff` is cached.** ACR0 covers that range and the default is cache-inhibited, so the effect delay lines (`0x468xxxxx` and up) and any mod state placed beside them are uncached: every access is a full bus round trip. An early chord-oscillator build made ~1,000 such accesses per block per voice; the UI slowed and the unit could crash. **Copy state to the stack once per block, work there, write it back.** `[hw]` {a4mods} ([I11](../INCIDENTS.md#i11-uncached-state-in-a-chord-oscillator-slowed-the-ui-and-could-crash-the-unit))
 - **On-chip SRAM is fully used.** The OS fills the whole 64 KB SRAM from its image at boot, so the Digitakt mk1 trick of running audio code from free SRAM (digihealth's FAST AUDIO) has no room here. `[doc]` {analoghealth}
 - MKII flash part on one unit: Winbond W25Q64 (8 MB, 256-byte pages, 64 KB sectors), reported by the factory console; the Rytm MKII uses an S25FL128S. Compare conflict O8 in [../CONFLICTS.md](../CONFLICTS.md). `[hw]` {analog-emu-a4}
 

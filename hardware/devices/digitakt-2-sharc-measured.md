@@ -10,7 +10,7 @@ Code addresses marked "sw" are short-word SHARC addresses. DM data addresses are
 - **The core runs at 1.000 GHz** (DSP clock against the host's wall clock: 1000.1 MHz median). A block is 32 samples at 48 kHz = **666,667 cycles, 1,500 blocks/s**. Earlier "~650k / ~975 MHz" figures were a unit error (counted in units of 1,024). Guards built on 650k are about 2.5 % too strict. `[hw]` {own-dt2-notes}
 - **Stock load with nothing playing: about 43-49 %** (word 0 ~280-320k cycles, idle-task measure 48.6-49 %). `[hw]`
 - **On the Digitakt II, reply word 0 is a true load figure.** It tracks an idle-task measure second by second, about **6.5k cycles/block below it** (interrupts, RPC, timers outside the frame handler). This differs from the Digitone II, where dn2_firmware_explore found word 0 misreading. Add ~6.5k for the whole DSP. `[hw]`
-- Device cycles are about **2x the emulator's instruction count** for this project's own code, which reads samples from DDR. The emulator models no memory stalls. Stock render code is reported at ~9 cycles/instruction on the DN2. A hard stop that the emulator showed overshooting by ~25k overshot by ~75k on the unit. `[hw]`
+- Device cycles are about **2x the emulator's instruction count** for this project's own code, which reads samples from DDR. The emulator models no memory stalls. Stock render code is reported at ~9 cycles/instruction on the DN2. A hard stop that the emulator showed overshooting by ~25k overshot by ~75k on the unit. `[hw]` ([I36](../INCIDENTS.md#i36-the-emulator-undercounted-dsp-time-by-2x-to-12x))
 - Free budget with one plain stock track: about 330k cycles per block (calibration burn builds). `[hw]`
 
 ## 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit)
@@ -53,7 +53,7 @@ Code addresses marked "sw" are short-word SHARC addresses. DM data addresses are
 
 ## 6. Memory rules learned the hard way
 - **L2:** the static analysis says `0x2001ab7c..0x20100000` minus `0x200fa000..0x200fe000` is free, but going past **`0x200f5a74`** gave clicks and leaks into the delay on the unit. Keep your data at or below that. `[hw]`
-- **External DDR:** the stock output buffer (`0x8045b3c0`) and the sample data are in DDR. Per-sample stores to the DDR output buffer crashed the unit (continuous tone), although the emulator was bit-identical. **Render into L2 and copy once per block.** Read int16 samples two at a time. `[hw]`
+- **External DDR:** the stock output buffer (`0x8045b3c0`) and the sample data are in DDR. Per-sample stores to the DDR output buffer crashed the unit (continuous tone), although the emulator was bit-identical. **Render into L2 and copy once per block.** Read int16 samples two at a time. `[hw]` ([I17](../INCIDENTS.md#i17-per-sample-stores-to-the-ddr-output-buffer-crashed-the-unit))
 - DM and PM data caches are not coherent on DDR (DN2 finding). Don't write through one bus and read through the other. `[doc]`
 - Keep long calls short with interrupts off: a watchdog of **at most ~1M cycles per call**. Burns of ~1.27M with interrupts off left no lasting harm; longer calls knocked the audio stream out of step for good. `[hw]`
 - Save MODE1 on entry and restore it on exit. A changed MODE1 alters the whole stock DSP until reboot. `[doc]`

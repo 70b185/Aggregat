@@ -102,7 +102,7 @@
 <script src="assets/community.js"></script>
 <script>
 const REPO = "https://github.com/70b185/aggregat/blob/master/";
-const TABS = [["network","Network map"],["community","Community"],["facts","Hardware facts"],["projects","Projects"],["rules","Agent rules"],["hypotheses","Tests to run"],["tasks","Tasks"],["goals","Goals"],["conflicts","Conflicts"],["sources","Sources"]];
+const TABS = [["network","Network map"],["community","Community"],["facts","Hardware facts"],["projects","Projects"],["rules","Agent rules"],["incidents","Incidents"],["hypotheses","Tests to run"],["tasks","Tasks"],["goals","Goals"],["conflicts","Conflicts"],["sources","Sources"]];
 let D = null, tab = "network", srcUrl = {}, devName = {};
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -131,6 +131,7 @@ function evChip(e) {
 }
 function devChips(d) { return list(d).map(x => `<span class="chip">${esc(devName[x] || x)}</span>`).join(" "); }
 
+const INC_GROUP = {stock: "stock firmware", mod: "mod on a unit", "emulator-or-tool": "emulator / tool vs unit", "recovery-or-link": "recovery / link"};
 const VIEWS = {
   network: {
     custom: true, rows: () => D.projects, dev: p => p.devices, hay: () => "",
@@ -171,6 +172,21 @@ const VIEWS = {
     dev: r => r.devices, ev: r => r.evidence,
     html: (r, w) => `<div class="head"><span class="title">${esc(r.id)}</span> <span class="meta">${esc(r.section)}</span> ${evChip(r.evidence)} ${devChips(r.devices)}</div>
         <div class="text">${hl(md(r.text, "hardware/AGENT-RULES.md"), w)}</div>`
+  },
+  incidents: {
+    rows: () => D.incidents || [],
+    hay: i => [i.id, i.group, i.title, i.unit, i.seen, i.cause, i.cause_found_by, i.fix, i.status, i.rules].join(" "),
+    dev: i => i.devices,
+    ev: i => i.evidence,
+    html: (i, w) => `<div class="head"><span class="title">${esc(i.id)}</span> <span class="chip">${esc(INC_GROUP[i.group] || i.group)}</span> ${evChip(i.evidence)}
+        <span class="title">${hl(esc(i.title), w)}</span> ${devChips(i.devices)}</div>
+        <div class="meta">${hl(esc(i.unit), w)}</div>
+        <div class="text"><b>Seen:</b> ${hl(md(i.seen, "hardware/INCIDENTS.md"), w)}</div>
+        <div class="text"><b>Cause${i.cause_found_by ? ` (${esc(i.cause_found_by)})` : ""}:</b> ${hl(md(i.cause, "hardware/INCIDENTS.md"), w)}</div>
+        <div class="text"><b>Fix:</b> ${hl(md(i.fix, "hardware/INCIDENTS.md"), w)} <span class="meta">${esc(i.status)}</span></div>
+        <div class="meta">Rule${list(i.rules).length > 1 ? "s" : ""}: ${list(i.rules).map(r => `<a href="?t=rules&q=${encodeURIComponent(r)}">${esc(r)}</a>`).join(", ")}
+        ${i.fact_file ? ` · <a href="${REPO}hardware/${esc(i.fact_file)}">fact</a>` : ""}
+        · <a href="${REPO}hardware/INCIDENTS.md">INCIDENTS.md</a></div>`
   },
   conflicts: {
     rows: () => D.conflicts,

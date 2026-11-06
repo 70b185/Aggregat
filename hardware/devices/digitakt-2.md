@@ -44,7 +44,7 @@ Coverage: **medium**. Projects: [../../devices/digitakt-2.md](../../devices/digi
   - Rung B added the DSP link and voice hook (sections 3 and 7) and played stock audio.
   - Rung C, a machine loaded at run time (pluck, 4,484 B uploaded over SysEx), **halted the SHARC at the first trig**. Breadcrumbs narrowed it to the step after the type match.
   - The fix (C3d2) was to route 17 DAG-register stores through an R register, the same-DAG rule. With it, pluck played at ~1,500 dispatches/s with DSP load 41.5 -> 42 %.
-- **A second SHARC stop on a real DT2: `fx/freqshift` on the send route froze the unit at boot; the emulator showed nothing** (findings 77, 91). Two causes were found. `[hw]` {digikit-f91}
+- **A second SHARC stop on a real DT2: `fx/freqshift` on the send route froze the unit at boot; the emulator showed nothing** (findings 77, 91). Two causes were found. `[hw]` {digikit-f91} ([I15](../INCIDENTS.md#i15-a-frequency-shifter-froze-the-unit-at-boot))
   - A selas defect left the end of a nested hardware loop compressed (VISA). The last 11 instructions of every hardware loop must be 48-bit ISA, so wrap nested loops in `.NOCOMPRESS` ([rule A45](../AGENT-RULES.md)).
   - Code copied into L2 at run time was not written back from the data cache.
   - After both fixes, freqshift ran on the send and master routes (2026-10-30).
@@ -149,7 +149,7 @@ These figures are from the source and emulator runs, not from a unit. `[emu]`
 
 ## Three Digitakt II mod routes side by side (T21, 2026-11-02)
 - digikit's patchkit (used by digitakt-ii-research's All-in-One and dt2-machine-lab), elekloader's core-dt2 (used by digitakt2-perform) and the hand-placed builds share the flash cave `0x403117c4-0x40312000`. elekloader's RAM `0x47f00000-0x47f40000` lies inside digikit's `cf.expansion` `0x47e8b000-0x47fe0000`. Full table of ranges and hook sites: [memory-maps.md](../common/memory-maps.md). `[doc]`
-- A decoded section 7 over 1 MiB crashed a unit (dt2-machine-lab, OS 1.16): [firmware-container.md](../common/firmware-container.md), rule A46. `[hw]` {dt2-lab-capicola}
+- A decoded section 7 over 1 MiB crashed a unit (dt2-machine-lab, OS 1.16): [firmware-container.md](../common/firmware-container.md), rule A46. `[hw]` {dt2-lab-capicola} ([I16](../INCIDENTS.md#i16-a-decoded-section-7-over-1-mib-crashed-the-unit))
 
 ## SHARC measured on a real unit
 Which of these hold on the Digitone II, and which DN2 findings hold here: [`../common/dt2-dn2-sharc-crosscheck.md`](../common/dt2-dn2-sharc-crosscheck.md).

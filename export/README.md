@@ -20,6 +20,8 @@ The output is deterministic: an unchanged repo gives byte-identical files.
 | `rules` | `hardware/AGENT-RULES.md` | id (A1, B7...), section, title, text, evidence, sources, devices |
 | `sources` | `hardware/SOURCES.md` | key, what, url |
 | `conflicts` | `hardware/CONFLICTS.md` | id (O1.., S1..), status, topic, a, b, details, devices |
+| `incidents` | `hardware/INCIDENTS.md` | id (I1..), group (stock, mod, emulator-or-tool, recovery-or-link), title, unit, seen, cause, cause_found_by, fix, status, evidence, sources, rules, fact_file, devices |
+| `incident_rules` | `hardware/INCIDENTS.md` | incident, rule: which rule each incident taught or confirmed (join with `rules`) |
 | `facts` | `hardware/devices/*.md`, `hardware/common/*.md` | id, file, line, section, text, evidence, sources, devices, addresses |
 | `facts_fts` | FTS5 index over `facts` | text, section, devices |
 | `goals` | goals table in `RESEARCH-MAP.md` | id (G1..), goal, status, moved_by |
@@ -48,6 +50,9 @@ sqlite3 export/aggregat.sqlite "SELECT file, line FROM facts WHERE addresses LIK
 
 # Open conflicts for the Digitakt II
 sqlite3 export/aggregat.sqlite "SELECT id, topic FROM conflicts WHERE status='open' AND devices LIKE '%digitakt-2%'"
+
+# What went wrong on Digitone II units, and the rules it taught
+sqlite3 export/aggregat.sqlite "SELECT i.id, i.title, r.id, r.title FROM incidents i JOIN incident_rules ir ON ir.incident=i.id JOIN rules r ON r.id=ir.rule WHERE i.devices LIKE '%digitone-2%'"
 
 # Forks and copies of a project
 sqlite3 export/aggregat.sqlite "SELECT project, type, evidence FROM relations WHERE target='overtone'"

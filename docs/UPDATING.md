@@ -45,5 +45,8 @@ For now a maintainer merges them by hand during manual updates; nothing is taken
 2. Check them against what is already known (device page, HYPOTHESES.md, CONFLICTS.md).
 3. Confirmed: move the fact into the device page with `[hw]` and a source key for the project or issue, update the
    status mark in RESEARCH-MAP.md, remove or close the hypothesis or task. Contradicted: add a conflict.
+   A failure or a test on a unit (a hang, crash, silence, stall, wrong behaviour, a recovery) also becomes an incident
+   in `hardware/INCIDENTS.md` (rule C11): next free I-number, cause and how it was found, fix, status, evidence. Then
+   add a rule to AGENT-RULES.md or add the incident to the rule it confirms, and tag the device-page fact `(I<n>)`.
 4. A new participant gets a section in `research/PARTICIPANTS.md` with suggested tasks that fit the project.
 5. `python3 scripts/research_snapshot.py`, then build and export as usual.

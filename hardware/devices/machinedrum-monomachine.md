@@ -41,7 +41,7 @@ Projects: [../../devices/machinedrum.md](../../devices/machinedrum.md), [../../d
 
 ## Emulator vs unit (Gearmulator's Machinedrum board model) {mdkit-docs}
 Things that pass in the emulator and fail on a unit:
-- **Flash appears at both `0x0` and `0x10000000` in the emulator.** On hardware, after the OS remaps CS0 nothing decodes the low window: images with low-window flash pointers **boot in the emulator and hang on the unit.** Link and point through `0x10000000`, and scan images for low pointers. `[hw]`
+- **Flash appears at both `0x0` and `0x10000000` in the emulator.** On hardware, after the OS remaps CS0 nothing decodes the low window: images with low-window flash pointers **boot in the emulator and hang on the unit.** Link and point through `0x10000000`, and scan images for low pointers. `[hw]` ([I38](../INCIDENTS.md#i38-low-window-flash-pointers-boot-in-the-emulator-and-hang-on-the-unit))
 - **`P:0x400-0x4FF` on DSP2 is not internal memory** on hardware (the cache is on, so internal P ends at `0x3FF`). Early prototypes put code there. `[hw]`
 - No pipeline interlocks, no wait states and no instruction-cache timing in the emulator. Bit-exact tests can't see any of them.
 - A coarse CPU/DSP time slice (125 µs) produced false "missed blocks" that look exactly like overruns. Use a 30 µs quantum before blaming your code. `[emu]`

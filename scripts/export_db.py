@@ -6,6 +6,7 @@ Writes export/aggregat.sqlite and export/aggregat.json from:
   hardware/AGENT-RULES.md                                     -> rules
   hardware/SOURCES.md                                         -> sources
   hardware/CONFLICTS.md                                       -> conflicts
+  hardware/INCIDENTS.md                                       -> incidents, incident_rules
   hardware/devices/*.md, hardware/common/*.md                 -> facts (one row per top-level bullet)
 
 Facts are extracted automatically: each top-level bullet with its sub-bullets is one fact, tagged with the
@@ -274,6 +275,31 @@ part = ROOT / "research" / "PARTICIPANTS.md"
 if part.exists():
     for m in re.finditer(r"^## (.+?) \((https?://[^)]+)\)\s*$", part.read_text(encoding="utf-8"), re.M):
         participants.append({"project": m.group(1), "repo": m.group(2)})
+# ---------------------------------------------------------------- incidents (hardware/INCIDENTS.md)
+incidents, incident_rules = [], []
+GROUPS = {"S": "stock", "M": "mod", "E": "emulator-or-tool", "R": "recovery-or-link"}
+itext = (ROOT / "hardware" / "INCIDENTS.md").read_text(encoding="utf-8") if (ROOT / "hardware" / "INCIDENTS.md").exists() else ""
+igroup = ""
+for block in re.split(r"^(?=## |### )", itext, flags=re.M):
+    g = re.match(r"^## ([A-Z])\. ", block)
+    if g:
+        igroup = GROUPS.get(g.group(1), "")
+        continue
+    h = re.match(r"^### (I\d+)\. (.+)", block)
+    if not h:
+        continue
+    f = {k.lower(): v.strip() for k, v in re.findall(r"^- \*\*([A-Za-z]+)(?: \([^)]*\))?:\*\* (.+)$", block, re.M)}
+    how = re.search(r"^- \*\*Cause \(([^)]*)\):", block, re.M)
+    row = {"id": h.group(1), "group": igroup, "title": clean(h.group(2)), "unit": clean(f.get("unit", "")),
+           "seen": clean(f.get("seen", "")), "cause": clean(f.get("cause", "")), "cause_found_by": how.group(1) if how else "",
+           "fix": clean(f.get("fix", "")), "status": clean(f.get("status", "")),
+           "evidence": ",".join(sorted(set(EVID.findall(block)))), "sources": ",".join(sorted(set(KEYS.findall(block)))),
+           "rules": ",".join(re.findall(r"[A-G]\d+", f.get("rule", ""))), "fact_file": (re.search(r"\]\(([^)]+)\)", f.get("fact", "")) or [None, ""])[1],
+           "devices": ",".join(devices_in(f.get("unit", "")))}
+    incidents.append(row)
+    for r in row["rules"].split(","):
+        if r:
+            incident_rules.append({"incident": row["id"], "rule": r})
 snap = ROOT / "research" / "AGGREGAT_RESEARCH.md"
 snapshot = re.search(r"snapshot `([0-9a-f]+)`", snap.read_text(encoding="utf-8")).group(1) if snap.exists() else ""
 
@@ -281,7 +307,7 @@ meta = {"checked": checked, "generator": "scripts/export_db.py",
         "counts": {"projects": len(prow), "devices": len(devices), "relations": len(rrow), "rules": len(rules),
                    "sources": len(sources), "conflicts": len(conflicts), "facts": len(facts),
                    "goals": len(goals), "tasks": len(tasks), "hypotheses": len(hyps), "research_links": len(links),
-                   "participants": len(participants)},
+                   "participants": len(participants), "incidents": len(incidents)},
         "research_snapshot": snapshot}
 
 # ---------------------------------------------------------------- write SQLite and JSON
@@ -307,6 +333,9 @@ SCHEMA = {
                   "kind TEXT, status TEXT",
     "research_links": "item TEXT, goal TEXT, via TEXT",
     "participants": "project TEXT, repo TEXT",
+    "incidents": "id TEXT PRIMARY KEY, \"group\" TEXT, title TEXT, unit TEXT, seen TEXT, cause TEXT, cause_found_by TEXT, "
+                 "fix TEXT, status TEXT, evidence TEXT, sources TEXT, rules TEXT, fact_file TEXT, devices TEXT",
+    "incident_rules": "incident TEXT, rule TEXT",
 }
 for t, cols in SCHEMA.items():
     con.execute(f"CREATE TABLE {t} ({cols})")
@@ -332,6 +361,10 @@ ins("tasks", tasks)
 ins("hypotheses", hyps)
 ins("research_links", links)
 ins("participants", participants)
+con.executemany('INSERT INTO incidents VALUES (' + ','.join('?' * 14) + ')',
+                [[i[k] for k in ("id", "group", "title", "unit", "seen", "cause", "cause_found_by", "fix", "status", "evidence",
+                                 "sources", "rules", "fact_file", "devices")] for i in incidents])
+ins("incident_rules", incident_rules)
 ins("facts", [{k: f[k] for k in ("id", "file", "line", "section", "text", "evidence", "sources", "devices", "addresses")} for f in facts])
 # full-text search over facts and rules, if this SQLite has FTS5
 try:
@@ -346,5 +379,6 @@ con.close()
 (OUT / "aggregat.json").write_text(json.dumps({
     "meta": meta, "devices": devices, "projects": prow, "relations": rrow, "rules": rules,
     "sources": sources, "conflicts": conflicts, "facts": facts,
-    "goals": goals, "tasks": tasks, "hypotheses": hyps, "research_links": links, "participants": participants}, ensure_ascii=False, indent=1), encoding="utf-8")
+    "goals": goals, "tasks": tasks, "hypotheses": hyps, "research_links": links, "participants": participants,
+    "incidents": incidents, "incident_rules": incident_rules}, ensure_ascii=False, indent=1), encoding="utf-8")
 print("export:", meta["counts"])

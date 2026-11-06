@@ -13,9 +13,9 @@ patch targets) {dn2-cfw} (brick checker refuses any bootstrap change).
 **A2. Know the recovery path before anything is flashed.** Write it down in your output, with the exact
 button combination for the device (see [`common/recovery.md`](common/recovery.md)). Keep the stock OS file and,
 for Digitakt II / Digitone II, a physical DIN MIDI interface at hand. Note: digikit's README itself says recovery via the bootstrap menu is **"not tested on hardware"** - treat Digitakt II recovery as unproven, Digitone II recovery was exercised by dn2-cfw, Overtone and dn2mk2. `[doc]` {digikit} {digikit-old} {synthack-os}
-{dn2-cfw}
+{dn2-cfw} Incidents: [I45](INCIDENTS.md#i45-recovery-used-on-a-digitone-mk1-after-a-logo-hang).
 
-**A3. Back up first.** Back up projects/sounds (+Drive) with Elektron Transfer before flashing. `[doc]` {dn2-cfw}
+**A3. Back up first.** Back up projects/sounds (+Drive) with Elektron Transfer before flashing. `[doc]` {dn2-cfw} Incidents: [I47](INCIDENTS.md#i47-stock-storage-resets-did-not-create-the-sample-filesystem).
 
 **A4. Never power off during an upgrade.** `[doc]` {elekloader-readme}
 
@@ -25,7 +25,7 @@ bootstrap version is strictly higher). Never build or send an image with a highe
 **A6. Verify every candidate image before it is written** - re-read it, check all checksums, check
 that only the intended section differs from stock, check it fits the flash budget, check the main OS unpacks to
 exactly the patched image. elekloader does this per build; dn2-cfw additionally runs a 12-check brick checker. `[doc]`
-{elekloader-readme} {dn2-cfw}
+{elekloader-readme} {dn2-cfw} Incidents: [I40](INCIDENTS.md#i40-a-no-change-rebuild-came-out-2-bytes-short).
 
 **A7. First run of a new DSP/audio build: volume down.** `[doc]` {dn2-cfw} {dn2mk2-firmware-md}
 
@@ -35,7 +35,7 @@ that passed the project's own checks (Overtone: ~160 emulator checks per build; 
 
 **A9. Respect transfer limits.** Digitone II's USB upgrade receiver does not check the size limit of 2 MiB; oversized
 images stall at the end (nothing is written, a power cycle clears it). The withdrawn dn2mk2 builds v0.4-v0.7 hit this.
-Also keep the DSP image under 1,048,575 bytes. `[doc]` {dn2mk2-firmware-md}
+Also keep the DSP image under 1,048,575 bytes. `[doc]` {dn2mk2-firmware-md} Incidents: [I3](INCIDENTS.md#i3-usb-upgrade-receiver-does-not-check-the-2-mib-limit).
 
 **A10. Mods can be mutually exclusive by OS version.** On Digitone II, Overtone needs stock OS 1.12 and dn2mk2 needs
 1.11; getting from 1.12 to dn2mk2 means going back to a 1.11 base, and projects saved under the newer OS may not open.
@@ -43,14 +43,14 @@ Always state the exact OS in the first line of a README. `[doc]` {overtone} {dn2
 
 **A11. Rehearse recovery with a stock file before the first modified flash**, and prove the transfer link with stock firmware first.
 Receivers have no error recovery (a dropped packet freezes the bar near 80 %), and recovery has so far been proven with stock images only.
-Full procedure in [`common/flash-procedure.md`](common/flash-procedure.md). `[hw]` {dn2-flashing} {dn2mk2-safety}
+Full procedure in [`common/flash-procedure.md`](common/flash-procedure.md). `[hw]` {dn2-flashing} {dn2mk2-safety} Incidents: [I43](INCIDENTS.md#i43-recovery-stalled-at-80--the-midi-link-not-the-image), [I44](INCIDENTS.md#i44-recovery-used-on-a-digitakt-ii-after-a-crashing-build-a-cheap-cable-delivered-nothing), [I46](INCIDENTS.md#i46-syntakt-startup-menu-recovery-tested-over-din).
 
 **A12. One change per flash.** Never combine a new feature with a fix or a second patch in one image; keep the unmodified stock `.syx` untouched. `[doc]` {dn2-flashing}
 
 **A13. Gate DSP code against hardware rules the emulators cannot see.** dn2mk2 runs `gate_hwrules.py` (complex-ping's `hwrules.py`) because DSP code that
 runs in the emulator can fail on silicon with DSP silence until power cycle. Use a comparable static check and keep to instruction encodings found in stock. `[doc]` {dn2mk2-safety}
 
-**A14. Check the size margin at every loader stage, not just the file size.** On the Digitone II the in-place loader of section 4 has a stock margin of +31,182 bytes and the default compressor setting turns that into -39,318, corrupting the image; the receive buffer is 2 MiB and the stock container is `0x1CC740` bytes. Use a packer that respects Elektron's stream limits (1 MiB window, 2,048-byte matches) and verify the margin of both stages. `[hw]` {dn2-cfw-handoff} {dn2-ele3}
+**A14. Check the size margin at every loader stage, not just the file size.** On the Digitone II the in-place loader of section 4 has a stock margin of +31,182 bytes and the default compressor setting turns that into -39,318, corrupting the image; the receive buffer is 2 MiB and the stock container is `0x1CC740` bytes. Use a packer that respects Elektron's stream limits (1 MiB window, 2,048-byte matches) and verify the margin of both stages. `[hw]` {dn2-cfw-handoff} {dn2-ele3} Incidents: [I39](INCIDENTS.md#i39-the-default-compression-level-corrupted-a-dn2-image).
 
 **A15. Leave the panel-MCU blob, its updater and section 8 (Outbox 8 firmware) stock**, together with the bootstrap and updater. `[doc]` {dn2-cfw-handoff} {dn2-ele3}
 
@@ -62,9 +62,9 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A19. Red-team your own safety gate.** Build deliberately unsafe candidates (patched upgrade validator, changed DSP, computed flash addresses) and make sure the gate refuses them; "incomplete" is never "accept"; protected ranges need exact end addresses. Details in [`common/agent-workflow.md`](common/agent-workflow.md). `[doc]` {dn2-cfw-redteam}
 
-**A20. The progress bar is not proof.** On the Digitone II the recovery bar counts received packets only; the write and the decompression (next boot) come later, and a single bad packet stops the transfer silently. `[doc]` {dn2-bootstrap}
+**A20. The progress bar is not proof.** On the Digitone II the recovery bar counts received packets only; the write and the decompression (next boot) come later, and a single bad packet stops the transfer silently. `[doc]` {dn2-bootstrap} Incidents: [I23](INCIDENTS.md#i23-plaits-builds-failed-normal-transfer-updates-at-preparing), [I43](INCIDENTS.md#i43-recovery-stalled-at-80--the-midi-link-not-the-image).
 
-**A21. Upload over USB without auto-commit, then commit explicitly.** On the Digitone II the "upload complete" event can be lost on the first upload after boot (unit stuck on "Receiving"); send Start without auto-commit, all blocks, then End(1); keep USB silent ~90 s while flash is written; one upload, no blind retries - look at the screen first. `[hw]` {dn2-skill-scripts}
+**A21. Upload over USB without auto-commit, then commit explicitly.** On the Digitone II the "upload complete" event can be lost on the first upload after boot (unit stuck on "Receiving"); send Start without auto-commit, all blocks, then End(1); keep USB silent ~90 s while flash is written; one upload, no blind retries - look at the screen first. `[hw]` {dn2-skill-scripts} Incidents: [I4](INCIDENTS.md#i4-auto-commit-upload-loses-its-complete-event-on-the-first-upload-after-boot).
 
 **A22. Never touch an FPGA bitstream or its configuration path** (Syntakt section 1 and bootstrap); a wrong configuration can harm analog circuitry. Do not emulate or reconfigure the FPGA; stub its status only. `[doc]` {digikit-f70}
 
@@ -78,39 +78,39 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A27. Analog Heat +FX: change only section 3 (MAIN OS), and keep custom code below `0x40206000`.** Everything above is cleared at boot. Never touch the bootstrap (it holds the STARTUP menu and recovery), the FPGA bitstream, or the MAIN OS factory console (`#UPGRADE`, `#FACTORY_DUMP`, calibration blob). `[hw]` {own-heatfx-notes}
 
-**A28. Code you copy into SHARC memory at run time must be written back from the data cache before it runs.** Use a write-back invalidation of the DM and PM caches together (`SHL1C_CFG`), then an instruction-cache invalidation, and keep the 12 instructions after every cache-register write 48-bit. Never mix invalidation and write-back-invalidation in one write. The emulator has no cache model. `[hw]` {digikit-f91}
+**A28. Code you copy into SHARC memory at run time must be written back from the data cache before it runs.** Use a write-back invalidation of the DM and PM caches together (`SHL1C_CFG`), then an instruction-cache invalidation, and keep the 12 instructions after every cache-register write 48-bit. Never mix invalidation and write-back-invalidation in one write. The emulator has no cache model. `[hw]` {digikit-f91} Incidents: [I15](INCIDENTS.md#i15-a-frequency-shifter-froze-the-unit-at-boot), [I35](INCIDENTS.md#i35-usb-replies-stayed-stale-for-minutes).
 
 **A29. Leave a trail the ColdFire can read when the DSP stops.** Write a breadcrumb word (step, voice, type) straight into both reply records before each risky step, and keep a heartbeat. A stopped core never reaches the block-tail copy. On a stall, write a hang record to RAM that survives a soft reset (digikit uses `0x47fe0000`), then boot into a safe mode. `[hw]` {digikit-f48} {digikit-f77} On ColdFire boxes with storage, the firmware's own file primitives can write a text log to the card or drive (OctaMax did this on an Octatrack); this is often the only way to see code the emulator can't run. {octamax}
 
-**A30. Keep the container under `0x200000` bytes and section 2's table version stock.** The in-OS flash writer on DN2 1.12 has no length clamp and wraps addresses. A bumped section-2 version triggers the bootstrap self-upgrade on the next boot. Both are ways to lose recovery. `[doc]` {dn2-cfw-t14} {dn2-cfw-t15}
+**A30. Keep the container under `0x200000` bytes and section 2's table version stock.** The in-OS flash writer on DN2 1.12 has no length clamp and wraps addresses. A bumped section-2 version triggers the bootstrap self-upgrade on the next boot. Both are ways to lose recovery. `[doc]` {dn2-cfw-t14} {dn2-cfw-t15} Incidents: [I3](INCIDENTS.md#i3-usb-upgrade-receiver-does-not-check-the-2-mib-limit).
 
 **A31. A negative is only as good as the search that produced it.** Before you write "X is not there", run the same search on something you know is there. Say what the search covered (addresses, encodings, pages), and write "not found by <method>", not "not present". Every expensive wrong answer in dnfw's history was such a negative. Examples:
 - "no SHARC program in the update": it was a boot stream, not raw code;
 - "no upload path": it was on the DSPI next door;
 - "no references": the addresses live in another address space. `[doc]` {dn2-principles}
 
-**A32. Store each section the way the original stores it.** Some sections are aPLib streams and some are raw, and this differs between devices. Decide from the original (do its bytes depack?), never from an argument. A wrongly compressed or raw section passes every checksum and bricks the unit. Mirror the original's own integrity fields and re-verify the written file. `[doc]` {dn2-principles}
+**A32. Store each section the way the original stores it.** Some sections are aPLib streams and some are raw, and this differs between devices. Decide from the original (do its bytes depack?), never from an argument. A wrongly compressed or raw section passes every checksum and bricks the unit. Mirror the original's own integrity fields and re-verify the written file. `[doc]` {dn2-principles} Incidents: [I40](INCIDENTS.md#i40-a-no-change-rebuild-came-out-2-bytes-short).
 
-**A33. Never store a DAG register through its own DAG, and keep SIMD data moves where stock has them.** Both ran bit-exactly in the emulator and hung a real Digitakt II's DSP. Save I/M/L/B registers through an R register. Do SIMD compute on registers, and move data in SISD unless a one-variable probe image has proven the access mode on silicon. `[hw]` {dt2-plaits} **Independently confirmed:** digikit's unexplained "rung C" halt on a DT2 came from 17 such stores in a frame save. The SHARC manual excludes them (a store's source may not be a register of the DAG it addresses through), and the assembler and emulator accepted them. A build without them played on the unit. digikit's patchkit now refuses these encodings at build time. `[hw]` {digikit-f49}
+**A33. Never store a DAG register through its own DAG, and keep SIMD data moves where stock has them.** Both ran bit-exactly in the emulator and hung a real Digitakt II's DSP. Save I/M/L/B registers through an R register. Do SIMD compute on registers, and move data in SISD unless a one-variable probe image has proven the access mode on silicon. `[hw]` {dt2-plaits} **Independently confirmed:** digikit's unexplained "rung C" halt on a DT2 came from 17 such stores in a frame save. The SHARC manual excludes them (a store's source may not be a register of the DAG it addresses through), and the assembler and emulator accepted them. A build without them played on the unit. digikit's patchkit now refuses these encodings at build time. `[hw]` {digikit-f49} Incidents: [I14](INCIDENTS.md#i14-dag-registers-stored-through-their-own-dag-hung-the-dsp).
 
-**A34. On ColdFire-audio devices (Syntakt, Digitakt mk1, Digitone mk1), the audio interrupt is the budget.** The Syntakt's CPU #1 sits at ~89 % at rest, so a few thousand instructions per block make the UI lag. Measure cost per block in the emulator, keep a regression test, and make effects idle when silent. Never use RAM above the BSS for mod code on the Syntakt: sample loading overwrites it. `[hw]` {synthack-docs} {synthack-guide} On the Digitone mk1 an emulator cycle model even pointed the wrong way: it called a release faster while the unit's idle CPU rose from ~70 % to ~87 %. Only A/B builds on the unit decide. `[hw]` {tonefx-dev}
+**A34. On ColdFire-audio devices (Syntakt, Digitakt mk1, Digitone mk1), the audio interrupt is the budget.** The Syntakt's CPU #1 sits at ~89 % at rest, so a few thousand instructions per block make the UI lag. Measure cost per block in the emulator, keep a regression test, and make effects idle when silent. Never use RAM above the BSS for mod code on the Syntakt: sample loading overwrites it. `[hw]` {synthack-docs} {synthack-guide} On the Digitone mk1 an emulator cycle model even pointed the wrong way: it called a release faster while the unit's idle CPU rose from ~70 % to ~87 %. Only A/B builds on the unit decide. `[hw]` {tonefx-dev} Incidents: [I24](INCIDENTS.md#i24-a-granular-engine-froze-the-ui-at-low-pitch).
 
-**A35. Budget SHARC code with silicon costs, not instruction counts.** Measured on a DT2 and a DN2: taken branches ~7 cycles, CALL+RTS ~14, a dependent float multiply chain 1.5 per instruction, hardware-loop start-up 12, and ~58 cycles for every L2 data miss. Buffers spaced at 16 KiB multiples fight over one cache set. Emulator counts underestimate all of these. `[hw]` {digikit-f103}
+**A35. Budget SHARC code with silicon costs, not instruction counts.** Measured on a DT2 and a DN2: taken branches ~7 cycles, CALL+RTS ~14, a dependent float multiply chain 1.5 per instruction, hardware-loop start-up 12, and ~58 cycles for every L2 data miss. Buffers spaced at 16 KiB multiples fight over one cache set. Emulator counts underestimate all of these. `[hw]` {digikit-f103} Incidents: [I36](INCIDENTS.md#i36-the-emulator-undercounted-dsp-time-by-2x-to-12x).
 
-**A36. The startup-menu recovery listens to DIN MIDI only, on every Elektron box documented here.** USB updates are received by the running OS. Before flashing anything that replaces or deeply changes the OS, make sure the user has a working DIN (or 3.5 mm TRS on Model:Cycles) MIDI interface and has sent a stock file through it once. A custom OS without the in-OS USB update leaves DIN as the only way back. `[hw]` {rytm-fw-re} {modded-cycles} {octabam}
+**A36. The startup-menu recovery listens to DIN MIDI only, on every Elektron box documented here.** USB updates are received by the running OS. Before flashing anything that replaces or deeply changes the OS, make sure the user has a working DIN (or 3.5 mm TRS on Model:Cycles) MIDI interface and has sent a stock file through it once. A custom OS without the in-OS USB update leaves DIN as the only way back. `[hw]` {rytm-fw-re} {modded-cycles} {octabam} Incidents: [I22](INCIDENTS.md#i22-a-mod-broke-the-normal-usb-update-path), [I23](INCIDENTS.md#i23-plaits-builds-failed-normal-transfer-updates-at-preparing), [I44](INCIDENTS.md#i44-recovery-used-on-a-digitakt-ii-after-a-crashing-build-a-cheap-cable-delivered-nothing), [I45](INCIDENTS.md#i45-recovery-used-on-a-digitone-mk1-after-a-logo-hang), [I46](INCIDENTS.md#i46-syntakt-startup-menu-recovery-tested-over-din).
 
 **A37. A busy share is not headroom (DT2/DN2 SHARC).** Stock's audio task waits inside its block, so "time outside the idle task" and stock's block-handler span both read ~80 % on an idle DN2 and *fall* to ~65 % with 64 notes held. To know whether added code fits, measure the deadline margin of the block itself (A25) under the heaviest stock load, not the busy percentage. `[hw]` {elekloader-sharc-dn2}
 
 **A38. If the OS carries a copy of the bootstrap, no patch may touch that copy or the check that triggers it (A4 MK1, Rytm MK1, Machinedrum).** The OS re-flashes the boot code from its embedded copy when a version or magic check says so (A4 MK1: a newer embedded version; Machinedrum: magic `0x224B` missing at flash `0x3FFE`), so a stray byte there can become the recovery path. Locate the embedded image per OS version, keep every cave and pool outside it, and verify copy and check byte-identical to stock on the finished `.syx`. `[doc]` {a4mods} {rytm-mk1-mods} {mdkit-docs}
 
-**A39. Never let a USB control transfer (EP0) data stage be a whole multiple of 64 bytes on the ColdFire USB controller with stock's driver.** On the Octatrack this froze a unit (a stale zero-length packet) and stalled OUT stages (stock leaves ZLT on). Size replies a byte short, or clear ZLT when you prime the stage. Send DMA'd replies from an uncached copy. Probably the same on every ColdFire box with the stock USB stack: the DT2 uses the same EHCI-style controller (queue heads in on-chip SRAM, EP0 max packet 64) and serves its own vendor requests on EP0 (digikit finding 42). Not yet measured there. `[hw]` {octabam-traps} {modwerk-ot-traps} {digikit-f42}
+**A39. Never let a USB control transfer (EP0) data stage be a whole multiple of 64 bytes on the ColdFire USB controller with stock's driver.** On the Octatrack this froze a unit (a stale zero-length packet) and stalled OUT stages (stock leaves ZLT on). Size replies a byte short, or clear ZLT when you prime the stage. Send DMA'd replies from an uncached copy. Probably the same on every ColdFire box with the stock USB stack: the DT2 uses the same EHCI-style controller (queue heads in on-chip SRAM, EP0 max packet 64) and serves its own vendor requests on EP0 (digikit finding 42). Not yet measured there. `[hw]` {octabam-traps} {modwerk-ot-traps} {digikit-f42} Incidents: [I5](INCIDENTS.md#i5-ep0-data-stages-of-a-multiple-of-64-bytes-stall-or-freeze-stock-usb-driver), [I6](INCIDENTS.md#i6-about-one-ep0-out-stage-in-50-100-goes-unanswered).
 
-**A40. Qualify any startup change after a long power-off, not only after quick restarts or in the emulator.** An Octatrack change booted in the emulator and in quick power cycles, then stalled at the logo after minutes off. Emulators model neither reset settling nor RAM retention. `[hw]` {modwerk-ot-traps}
+**A40. Qualify any startup change after a long power-off, not only after quick restarts or in the emulator.** An Octatrack change booted in the emulator and in quick power cycles, then stalled at the logo after minutes off. Emulators model neither reset settling nor RAM retention. `[hw]` {modwerk-ot-traps} Incidents: [I7](INCIDENTS.md#i7-a-soft-reset-leaves-the-usb-controller-running), [I34](INCIDENTS.md#i34-a-startup-change-stalled-at-the-logo-after-a-long-power-off).
 
 **A41. Disassemble what you assemble.** Every community assembler for these chips has silently mis-encoded something:
 - octabam's `dsp_asm`: `tfr` as `rnd`, unknown `mpy` orders as `mpysu`, `cmp` as `max`;
 - selas: negative shift immediates;
-- the DSP56300 reference assembler: overlapping `ORG`s accepted silently.
+- the DSP56300 reference assembler: overlapping `ORG`s accepted silently. Incidents: [I15](INCIDENTS.md#i15-a-frequency-shifter-froze-the-unit-at-boot), [I27](INCIDENTS.md#i27-an-encoding-every-decoder-accepts-raised-ilopi-on-the-chip).
 
 Round-trip new code through a disassembler and compare, and make the build refuse a mismatch. `[hw]` {octabam-traps} {elekloader-adapting} {mdkit-docs}
 
@@ -120,7 +120,7 @@ Round-trip new code through a disassembler and compare, and make the build refus
 
 In the second case, a local ISA checker also accepted the form, because it decoded the instruction without checking the source/destination pair. Assemble with the right `-mcpu`, check hand-encoded bytes against the manual's mode tables (CFPRM pp. 4-47/4-48), and round-trip (A41). `[hw]` {dt2-lab-coldfire-fix} {dn1-arpmod-e04}
 
-**A43. A cave is free only after it survived a hard run on the unit.** Zero bytes in the image can be `.bss` that the engine writes only while it plays. A mod placed in such a region worked with the sequencer stopped and failed during playback (octatrack-mods, reported by rytm-mods-src). Before shipping into a new cave: fill it with a known pattern, flash, exercise playback, sampling, Overbridge and storage, and read it back. Combine this with static proof (no references) and emulator coverage (A4 MK1 practice), not instead of it. The same failure was seen on the Octatrack: tables lost to a heap tail (octamax), and a scratch word at `0x80006a60` overwritten under live recording on an MKI (KYOTI). This applies to **data scratch as well as code**. `[hw]` {rytm-mods-src} {a4mods} {kyoti-caves}
+**A43. A cave is free only after it survived a hard run on the unit.** Zero bytes in the image can be `.bss` that the engine writes only while it plays. A mod placed in such a region worked with the sequencer stopped and failed during playback (octatrack-mods, reported by rytm-mods-src). Before shipping into a new cave: fill it with a known pattern, flash, exercise playback, sampling, Overbridge and storage, and read it back. Combine this with static proof (no references) and emulator coverage (A4 MK1 practice), not instead of it. The same failure was seen on the Octatrack: tables lost to a heap tail (octamax), and a scratch word at `0x80006a60` overwritten under live recording on an MKI (KYOTI). This applies to **data scratch as well as code**. `[hw]` {rytm-mods-src} {a4mods} {kyoti-caves} Incidents: [I18](INCIDENTS.md#i18-the-flash-cave-reportedly-froze-a-unit-at-the-logo), [I19](INCIDENTS.md#i19-patching-a-free-zero-run-crashed-the-unit), [I48](INCIDENTS.md#i48-a-menu-table-in-a-free-zero-run-crashed-the-unit).
 
 **A44. A load governor acts on sustained load, never on one block that is already over.** When a mod sheds voices to stay inside the audio budget:
 - Trigger on a peak that lasts several blocks or on a slow average. Isolated heavy blocks (a step with many trigs, caches flushed by the UI) are over before you see them, and cutting a voice then only adds an audible gap.
@@ -132,11 +132,25 @@ On a Model:Cycles this turned "the last track always cuts out" into clean playba
 **A45. Keep the end of every SHARC hardware loop in 48-bit ISA (DT2/DN2).** The last 11 instructions of a hardware loop, and all of a loop shorter than that, must be legacy 48-bit instructions; the rest of the code may be compressed. Three projects reached this independently:
 - digikit: a selas defect left the end of a nested loop compressed, and `fx/freqshift` froze a real Digitakt II at boot while the emulator ran it ([digitakt-2.md](devices/digitakt-2.md)) {digikit-f91};
 - the digitone-2-modding-skill checks it with `hwrules.py`, and stock DN2 1.11 obeys it in all 286 loops; its full list (loop end, `LCE`, CALL and branch spacing, same-DAG) is in [digitone-2-os111-firmware-map.md](devices/digitone-2-os111-firmware-map.md) {dn2-skill-scripts};
-- the DT2 Plaits port compresses everything else and keeps loop ends in ISA ([digitakt-2-dsp-optimizing.md](devices/digitakt-2-dsp-optimizing.md)).
+- the DT2 Plaits port compresses everything else and keeps loop ends in ISA ([digitakt-2-dsp-optimizing.md](devices/digitakt-2-dsp-optimizing.md)). Incidents: [I15](INCIDENTS.md#i15-a-frequency-shifter-froze-the-unit-at-boot).
 
 Wrap nested loops in `.NOCOMPRESS`, and check the rule on the disassembly (A41), since the emulator does not enforce it. `[hw]`
 
-**A46. Keep a decoded section 7 under `0xfffff` bytes, and count the decoded size, not the stored one (DT2/DN2).** The ColdFire depacks section 7 into a 1 MiB buffer and checks the size only afterwards, so a larger stream overruns the buffer before it is refused. One build with a 1,314,460-byte stream raised an exception on a unit. Run the stock depacker (or an exact copy) in the build and fail above the limit; zero regions can be fill blocks instead of stored bytes. Details: [firmware-container.md](common/firmware-container.md). `[hw]` {dt2-lab-capicola} {digikit-f06}
+**A46. Keep a decoded section 7 under `0xfffff` bytes, and count the decoded size, not the stored one (DT2/DN2).** The ColdFire depacks section 7 into a 1 MiB buffer and checks the size only afterwards, so a larger stream overruns the buffer before it is refused. One build with a 1,314,460-byte stream raised an exception on a unit. Run the stock depacker (or an exact copy) in the build and fail above the limit; zero regions can be fill blocks instead of stored bytes. Details: [firmware-container.md](common/firmware-container.md). `[hw]` {dt2-lab-capicola} {digikit-f06} Incidents: [I16](INCIDENTS.md#i16-a-decoded-section-7-over-1-mib-crashed-the-unit).
+
+**A47. Before a stock storage command, check the card is idle; never assume the stock driver times out (DN2, likely DT2).** The DN2's eMMC TRIM can report TRIM ERROR on a busy card: the stock busy wait arms its DAT0 interrupt before testing DAT0 and leaves a stale semaphore post, and the driver has no timeout. Read the eSDHC present state (`PRSSTAT` `0xfc0cc024`) before every TRIM and verify read and call only when DAT0 is high and no inhibit is set; retry an idempotent command a few times; let a long erase pause and resume instead of failing. Incidents: [I1](INCIDENTS.md#i1-stock-emmc-trim-fails-with-trim-error-on-a-busy-card). `[hw]` {dn2mk2-v040}
+
+**A48. Find out what is cached from the OS's own start-up, not the bootstrap; keep hot-path accesses to uncached memory few and word-sized.** On the DN2 the bootstrap leaves the data cache off, but the main OS turns it on for `0x40000000-0x47ffffff` only; the SSI DMA buffers stay uncached. 84 byte reads a frame from them stalled the sequencer, 14 word reads did not. On the A4 MK1 only `0x40000000-0x43ffffff` is cached and ~1,000 uncached accesses per block per voice slowed the UI and could crash the unit. The reverse also bites: DMA reads RAM, not the copyback cache, so a reply the CPU wrote may go out stale. Copy hot state into cached memory (or the stack) once per block, work there, write it back; send DMA data through the uncached alias. Incidents: [I10](INCIDENTS.md#i10-byte-wise-reads-of-uncached-dma-buffers-stalled-the-sequencer), [I11](INCIDENTS.md#i11-uncached-state-in-a-chord-oscillator-slowed-the-ui-and-could-crash-the-unit), [I35](INCIDENTS.md#i35-usb-replies-stayed-stale-for-minutes). `[hw]` {dn2-cfw-handoff} {a4mods} {modwerk-ot-traps}
+
+**A49. Test the first install on a unit in stock condition, not only on the developer's unit.** A development unit carries state the users' units lack: armio's R012 mounted a sample filesystem it never created, and only new users' units (0 bytes in Transfer, stalled uploads) showed it. Before a release, flash stock, reset, then install the build as a new user would, and check every storage path it relies on. Incidents: [I12](INCIDENTS.md#i12-a-sample-machine-mod-could-not-create-the-storage-it-needed), [I47](INCIDENTS.md#i47-stock-storage-resets-did-not-create-the-sample-filesystem). `[hw]` {armio-samples}
+
+**A50. Go through stock's own input paths; never post into its internal queues or overwrite state another core reads.** On the Octatrack, key events posted straight into stock's queues crashed the unit minutes later, and restoring DSP-read data every frame corrupted the audio. Feed the panel parser its own bytes; restore only CPU-side bookkeeping. (E2 is the same rule for stored sound data.) Incidents: [I30](INCIDENTS.md#i30-key-events-posted-into-stocks-queues-crashed-the-unit-minutes-later), [I31](INCIDENTS.md#i31-restoring-dsp-read-state-every-frame-corrupted-the-audio). `[hw]` {modwerk-ot-traps} {octamax}
+
+**A51. Run a long soak before a release, and mask every counter to its register width.** An Octatrack DSP frame engine stopped after 50.7 minutes because its counter saturated past `$7fffff`. Short tests do not reach such limits; let a build play for at least an hour with the busiest project you have. Incidents: [I32](INCIDENTS.md#i32-a-dsp-frame-counter-saturated-after-507-minutes). `[hw]` {octabam-traps}
+
+**A52. Keep per-sample DSP accesses out of external DDR (DT2/DN2).** Per-sample stores to the Digitakt II's DDR output buffer crashed the unit while the emulator was bit-identical, and a per-voice DDR path can cost ~10x its instruction count on the DN2. Render into L2 and copy once per block; read int16 samples two at a time. Incidents: [I17](INCIDENTS.md#i17-per-sample-stores-to-the-ddr-output-buffer-crashed-the-unit), [I36](INCIDENTS.md#i36-the-emulator-undercounted-dsp-time-by-2x-to-12x). `[hw]` {own-dt2-notes} {dn2-skill-sharc}
+
+**A53. Use only addresses the unit decodes after the OS has set up its memory map.** Emulators often map more than the hardware: Gearmulator maps the Machinedrum's flash at `0x0` and at `0x10000000`, but after the OS remaps CS0 nothing decodes the low window, so images with low-window pointers boot in the emulator and hang on the unit. Link through the address the running OS uses and scan images for the other one. Incidents: [I38](INCIDENTS.md#i38-low-window-flash-pointers-boot-in-the-emulator-and-hang-on-the-unit). `[hw]` {mdkit-docs}
 
 ## B. Legal / distribution
 
@@ -180,7 +194,7 @@ projects ship builds that are lint-clean but "not yet run on a unit". `[doc]` {d
 
 **C4. Emulators do not prove real-time DSP behaviour.** The earlier digikit README said "no audio"; the current ElekLabs
 README has ColdFire + SHARC+ running together with audio, but the DSP "does not run in real time yet", and dn2mk2
-reports the emulators do not model the two chips' timing. DSP overruns show up only on a unit. `[doc]` {digikit-old}
+reports the emulators do not model the two chips' timing. DSP overruns show up only on a unit. `[doc]` {digikit-old} Incidents: [I36](INCIDENTS.md#i36-the-emulator-undercounted-dsp-time-by-2x-to-12x).
 
 **C5. Windows:** the DN2 tooling needs an m68k objdump; use WSL. `[doc]` {dn2-firmware-explore}
 
@@ -190,7 +204,13 @@ authors apply. `[doc]` {dn2-cfw}
 **C7. Porting to a new OS version = re-locating, not re-applying.** Diff decoded content, check bootstrap and updater separately, re-find every patch by masked pattern (`find`/`expect`) and pin the build by hash; inspect unfamiliar sections first. (Digitone II 1.11 vs 1.12 MAIN images share only their first 28 bytes.) `[doc]` {dn2-os-versions} {dn2-cfw-release-history}
 
 
-**C8. Give every check a control that fails when the checker is broken.** dnfw's LFO4 bridge passed every check and then faulted on a Digitone II. Three checks had reported success about work they never did: snapshot harnesses cleared code that no real boot had run; a boot gate printed "Safe to flash" after an unrelated edit had deleted its coverage section; and an emulator call returned 0 for a value that was present. Use a key nothing set that must read back absent, a routine list that must not be empty, a coverage line that must appear. A green result from an untested instrument is not evidence. `[hw]` {dn2-lfo4}
+**C8. Give every check a control that fails when the checker is broken.** dnfw's LFO4 bridge passed every check and then faulted on a Digitone II. Three checks had reported success about work they never did: snapshot harnesses cleared code that no real boot had run; a boot gate printed "Safe to flash" after an unrelated edit had deleted its coverage section; and an emulator call returned 0 for a value that was present. Use a key nothing set that must read back absent, a routine list that must not be empty, a coverage line that must appear. A green result from an untested instrument is not evidence. `[hw]` {dn2-lfo4} Incidents: [I42](INCIDENTS.md#i42-checks-reported-success-about-work-they-never-did).
+
+**C9. After every install, open a project saved before it, and install the next build over the normal route.** Old data meets new code only on the unit: a DN2 project with a stored row count out of range crashed stock and modded builds, Octatrack projects stalled when an effect layout changed, dn2mk2's MD/MM tracks went silent after an install, armio's USB audio repeated after a project change, and Overtone 1.0 broke the next USB update. A release test opens an old project and a stock project, changes project once, and installs the following build with Transfer. Incidents: [I2](INCIDENTS.md#i2-stock-song-load-trusts-a-stored-row-count), [I13](INCIDENTS.md#i13-usb-audio-repeated-old-audio-after-a-project-change), [I21](INCIDENTS.md#i21-md-and-monomachine-tracks-went-silent-after-an-install), [I22](INCIDENTS.md#i22-a-mod-broke-the-normal-usb-update-path), [I28](INCIDENTS.md#i28-a-select-value-outside-its-count-stalled-the-sequencer). `[hw]`
+
+**C10. Calibrate the emulator against stock and the unit before trusting its numbers.** Call stock routines in the emulator and compare with what they must return (complex-ping's check found that its SHARC emulator shifted every fractional multiply); measure one timing per project on the unit and carry the ratio (2x on the DT2 for DDR-reading code, 7-12x in one digimod case, a hard stop that overshot 3x as far). An emulator that agrees with itself proves nothing about silicon. Incidents: [I36](INCIDENTS.md#i36-the-emulator-undercounted-dsp-time-by-2x-to-12x), [I37](INCIDENTS.md#i37-a-sharc-emulator-shifted-every-fractional-multiply). `[hw]` {own-dt2-notes} {digimod} {dn2-skill-md}
+
+**C11. Every failure or test on a unit becomes an incident, and every incident that teaches something general becomes a rule.** Record it in [INCIDENTS.md](INCIDENTS.md) with the next free I-number: unit and OS, what was seen, the cause and how it was found (measured, read from code, emulator, unknown), the fix, the status and the evidence level. Then either add a rule here or add the incident to the rule it confirms, and mark the fact in the device page with `(I<n>)`. Rules grow from tests, not from opinion.
 ## D. Writing mods (format-2 / linkable, Digitakt mk1 and Digitone mk1)
 
 **D1. Prefer events over raw patch sites.** The core mod owns the shared hook sites; subscribe via its event
@@ -201,7 +221,7 @@ bus, do not patch core-owned sites. `[doc]` {elekloader-adapting}
 **D3. No overlapping claims.** No two mods may patch or claim overlapping bytes, memory or named resources. Declare
 resources (`sysex:`, `settings:`, `drive:`, `ui:`, `machine:` names; other memory as regions). `[doc]` {elekloader-adapting}
 
-**D4. Prefix every global symbol with the mod id, make internals `static`.** `[doc]` {elekloader-adapting}
+**D4. Prefix every global symbol with the mod id, make internals `static`.** `[doc]` {elekloader-adapting} Incidents: [I41](INCIDENTS.md#i41-a-label-defined-twice-resolved-to-the-wrong-file).
 
 **D5. Let the linker place code and data, never hard-code addresses.** Sections allowed: `.run`, `.fast`, `.bss`.
 `[doc]` {elekloader-adapting}
@@ -224,9 +244,9 @@ but readers decide on risk from it. `[doc]` {dt-fm}
 
 **D10b. Device-specific core rules (elekloader ADAPTING.md, 2026-10):** Digitakt II has no render events (audio runs on the DSP) - subscribe only `.run` code to `ev_key`/`ev_enc` before the first tick; Digitone II has no `.fast` code (such mods are refused), remote panel input uses `core_keys_set`/`core_keys_clear`, SysEx uses `ev_sysex`, SHARC mods run at the master output in 32-sample blocks at 48 kHz with a 428-byte stack; RAM budgets: Digitakt mk1 128 KB (256 KB with core 4.0) plus 2,304 B fast SRAM, Analog Rytm MKII 128 KB and no fast SRAM; Digitone mk1 core 4.1.1 changed SETTINGS-row allocation (before it two rows could stall a first boot); each feature needs a minimum core version in `resources.core`. `[doc]` {elekloader-adapting}
 
-**D11. An address that exists or maps onto another is not thereby free.** Prove an area unused (stock data pointers, caches, DMA buffers, boot ROM sharing) before placing code or data there; an unreferenced-looking L2 block once stopped a unit from starting. `[hw]` {elekloader-sharc-dn2} {dn2-skill-firmware}
+**D11. An address that exists or maps onto another is not thereby free.** Prove an area unused (stock data pointers, caches, DMA buffers, boot ROM sharing) before placing code or data there; an unreferenced-looking L2 block once stopped a unit from starting. `[hw]` {elekloader-sharc-dn2} {dn2-skill-firmware} Incidents: [I19](INCIDENTS.md#i19-patching-a-free-zero-run-crashed-the-unit), [I20](INCIDENTS.md#i20-mod-code-at-a-free-address-crashed-projects-with-certain-samples), [I29](INCIDENTS.md#i29-dsp-scratch-at-84-and-up-hung-the-unit), [I33](INCIDENTS.md#i33-module-state-on-a-load-meter-counter-gave-a-jittery-pitch), [I48](INCIDENTS.md#i48-a-menu-table-in-a-free-zero-run-crashed-the-unit).
 
-**D12. Budget voices, not tracks.** Dynamic voice allocation can need far more voices than tracks; guard the DSP frame time and expose a CPU indicator. `[hw]` {dn2mk2-reports}
+**D12. Budget voices, not tracks.** Dynamic voice allocation can need far more voices than tracks; guard the DSP frame time and expose a CPU indicator. `[hw]` {dn2mk2-reports} Incidents: [I24](INCIDENTS.md#i24-a-granular-engine-froze-the-ui-at-low-pitch).
 
 **D13. Keep a trap register in your agent file.** Known entries: OLED y runs bottom-to-top (`63 - y`; elekloader `ev_draw`: y=0 is the bottom row); compile ColdFire code with `-fno-ipa-sra` when using `-O2` (reported to corrupt interrupt pointers); `-mcpu=5475 -Os` is what the Digitone II skill uses; no libc (zero-initialised locals become `memset`). Add each new surprise when you meet it. `[?]` {dubspot} {dn2-skill-coldfire}
 
@@ -244,6 +264,8 @@ the saved format. New rows are only safe if they follow the author's growth rule
 
 
 **E2. Persist a mod's own sound parameters through the stock edit event, not a writer of your own.** On the Digitone II (1.11) an edit is written into the stored sound record at once, so unsaved edits survive a power cycle; the writer is `Sound::updateMirror` (`0x4004ca80`). dnfw's LFO4 values did not survive until its setter sent the stock whole-sound event (`SoundConfigChangedInfo`) through the sound's holder; `updateMirror` then re-serialised the sound with LFO4's lane. Confirmed on the unit: unsaved LFO4 edits survive a power cycle, and SAVE PROJECT stores them. `[hw]` {dn2-lfo4}
+
+**E3. Keep every stored count and select value in range, and stamp old projects after a layout change.** Stock trusts what it loads: the DN2's song LOAD copies a stored row count without a check (21,503 rows instead of at most 99 crashed stock and modded builds alike), and an Octatrack select value outside its count stalled the sequencer on first play after an effect's layout changed. Clamp every count and enum a mod writes; when a build changes a stored layout, rewrite old projects' values on load. Incidents: [I2](INCIDENTS.md#i2-stock-song-load-trusts-a-stored-row-count), [I28](INCIDENTS.md#i28-a-select-value-outside-its-count-stalled-the-sequencer). `[hw]` {dn2-oldproject}
 ## F. Writing to a unit over SysEx (control-side tools)
 **F1.** Back up first, via Elektron Transfer and by re-reading the destination pattern; abort if the backup fails. `[hw]` {digi-roll-studio}
 **F2.** Allowlist the exact OS builds you have tested; refuse others. `[hw]` {digi-roll-studio}
@@ -252,6 +274,8 @@ the saved format. New rows are only safe if they follow the author's growth rule
 **F5.** Never run parsers across device generations (Digitone mk1 device ID 0x0D vs Digitone II, Analog Four gen-1 vs gen-2). `[doc]` {syxgrid} {digi-roll-studio}
 **F6.** Treat file-write / delete commands of the +Drive API as dangerous: only single-chunk writes were hardware-verified; move/copy/delete are not implemented anywhere we know. `[hw]` {digi-roll-studio}
 
+**F7.** Close every other application on the port (Transfer, Overbridge, DNX) before a client run, and check every reply's length. With Overbridge holding the port replies were cut at exactly 885 bytes; with Transfer open a preset list showed 35 of 256. Incidents: [I9](INCIDENTS.md#i9-a-second-application-on-the-port-corrupts-sysex-replies). `[hw]`
+
 ## G. Working method (from the digitone-2-modding-skill - the one public agent skill that shipped a firmware mod)
 Full loop, spec questions and triage in [`common/agent-workflow.md`](common/agent-workflow.md). Short form:
 **G1.** Ask the spec questions in one round before building. **G2.** Reproduce every bug as a failing test with a stock control before fixing it.
@@ -259,12 +283,12 @@ Full loop, spec questions and triage in [`common/agent-workflow.md`](common/agen
 the unit should only judge sound and feel. **G5.** Flash one clearly named image with its SHA-256 and a list of what to try; never overwrite older images.
 **G6.** After two failed flashes on the same problem stop and restate goal, proven facts, unknowns and options. **G7.** Ask the user before cloning or installing anything.
 **G8.** Keep levels honest: measure worst cases, add no unrequested gain compensation, clamp audio output, never read memory you did not write.
-`[doc]` {dn2-skill-md} {dn2-skill-workflow}
+`[doc]` {dn2-skill-md} {dn2-skill-workflow} Incidents (G8): [I8](INCIDENTS.md#i8-power-on-ddr-holds-garbage-often-a-nan).
 
 **G10. Repo conventions to adopt from elekloader's AGENTS.md:** never weaken a check to make a test pass; a skipped test is not a pass - report which tests ran; keep device facts in profile files; check whether a core event already exists before adding a code site; keep byte-exact writer tests. `[doc]` {elekloader-agents}
 
 **G9. DSP rules the emulators cannot check** (Digitone II, each reportedly silenced or crashed a real unit): whole 32-byte boot blocks, stock instruction encodings only
 (incl. sign bits of negative shift immediates), PRM loop/DAG/branch rules, no L2 above `0x200B0000`, never read unwritten DDR (power-on NaN), preserve registers at hooks
 (clobbered R8 at the FX-bus mixer hook lost all audio), count memory accesses not instructions. Details and addresses in
-[`devices/digitone-2-os111-reference.md`](devices/digitone-2-os111-reference.md). `[hw]` {dn2-skill-sharc}
+[`devices/digitone-2-os111-reference.md`](devices/digitone-2-os111-reference.md). `[hw]` {dn2-skill-sharc} Incidents: [I8](INCIDENTS.md#i8-power-on-ddr-holds-garbage-often-a-nan), [I25](INCIDENTS.md#i25-clobbering-r8-at-the-fx-bus-mixer-hook-lost-all-audio), [I26](INCIDENTS.md#i26-a-boot-block-of-8n4-bytes-left-the-unit-silent), [I27](INCIDENTS.md#i27-an-encoding-every-decoder-accepts-raised-ilopi-on-the-chip).
 

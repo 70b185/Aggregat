@@ -4,7 +4,7 @@
 
 Software for using and managing the devices - editors, sample and project managers, Overbridge audio, screen mirrors, control from a computer or an AI agent. **None of these change the firmware.**
 
-Data last verified: 2026-11-05. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Status words are the authors' own; newest activity first in each table. Device pages with full notes: [INDEX.md](INDEX.md).
+Data last verified: 2026-11-06. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Status words are the authors' own; newest activity first in each table. Device pages with full notes: [INDEX.md](INDEX.md).
 
 
 The other lists: [MODS.md](MODS.md) (mods and custom firmware), [DEV-TOOLS.md](DEV-TOOLS.md) (development tools). Hardware knowledge for writing mods: [hardware/](hardware/README.md).
@@ -12,6 +12,7 @@ The other lists: [MODS.md](MODS.md) (mods and custom firmware), [DEV-TOOLS.md](D
 
 | Project | Kind | Devices | What it is | Status | Version / OS | Links |
 |---|---|---|---|---|---|---|
+| **Whiplash (agent plays a Digitakt II)** (hejijunhao) | tool | Digitakt II | A Hermes Agent plugin that jams on a Digitakt II over USB MIDI: starts patterns by genre or mood, changes sounds live by CC/NRPN, mutes tracks (optionally the unit's … | active | - | [repo](https://github.com/hejijunhao/whiplash) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) <br>_builds on gearmulator-md-mm_ | tool | Machinedrum (incl. UW), Monomachine | Desktop editors for Machinedrum and Monomachine that run the unit's own OS in an emulator (app or VST3/AU), optional hardware MIDI mode. | active | mdmm-v0.8.1 (2026-10-29) | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
 | **Elek View (screen viewer in the browser)** (BlueSGL) <br>_port of screendump_ | tool | Digitakt II, Model:Cycles, Analog Heat (MKI, MKII, +FX) | Shows a device's screen in the browser over Web MIDI, using the stock RPC screen request (an HTML port of screendump). | active | main @ 29fc485 (2026-11-02) | [repo](https://github.com/BlueSGL/Elek_View) · [web app](https://bluesgl.github.io/Elek_View/) · [forum](https://elektronmods.com/thread-93-elek-view-see-your-devices-screens-in-a-browser-via-webmidi) |
 | **digitakt-digitone-mcp** (jamiew) <br>_builds on digitakt-midi-mcp; cites elk-herd_ | tool | Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II, Digitone II | MCP servers that let an LLM play and edit a Digitakt or Digitone over MIDI (trigger tracks, shape FM, etc.). | active | - | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |

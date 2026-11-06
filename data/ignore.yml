@@ -87,6 +87,8 @@ ignore:
   - rhinerad/rhine-smusichardware2ableton
   - mlnoga/underpass
   - lbl-srg/modelica-json
+  - verytired/machinedrum-web          # browser drum machine in the Machinedrum's style, no device tooling
+  - tristan202/padready                # generic multi-brand sample converter (formerly sonicwaretool)
   - karma4dollars/syntakt-skill        # music composition coaching skill, no device tooling
   - karma4dollars/digitakt-ii-skill    # music composition coaching skill, no device tooling
   - ephemeraldsp/ultrawave

@@ -2,11 +2,13 @@
 
 # Digitakt (MKI)
 
-Data last verified: 2026-11-05
+Data last verified: 2026-11-06
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **Digitakt LED colours** (ceredmeat) | mod | wip | ledcolors 0.2; Digitakt MKI OS 1.54; elekloader core 4.1 | LEDCOLORS | 2026-11-06 | [repo](https://github.com/ceredmeat/DIGITAKT-LED-COLORS) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-05 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
+| **MIDI Expression for the Digitakt (Digi-Expression)** (tekomelu) | mod | wip | 0.12.1-experimental; Digitakt MKI OS 1.54 | - | 2026-11-05 | [repo](https://github.com/tekomelu/Digi-Expression) |
 | **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0. main since: a mod shop (submit a released mod through an issue form, a check opens the PR, later releases follow automatically; docs/SHOP.md), core-ar2 0.9 (lockable mod fields as velocity/aftertouch destinations; kit fields lockable), core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-11-03 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **Filter+ (13 filter types)** (DigiAlchemydsp) | mod | released | 1.0 (2026-11-02); Digitakt mk1 OS 1.54; Digitone mk1 / Keys OS 1.44 | v1.0 | 2026-11-02 | [repo](https://github.com/DigiAlchemydsp/FILTER-PLUS) |
 | **elkflash** (Iced-Cream) | tool | active | - | - | 2026-11-02 | [repo](https://github.com/Iced-Cream/elkflash) |
@@ -508,3 +510,19 @@ _Sources: altstrument (2026-11-03), README_
 Closed-source browser app that preps audio and sends it over Web MIDI SysEx to the +Drive, with Transfer and +Drive Manager views and device profiles for Digitakt II, Digitakt, Analog Rytm (MKI/MKII) and Model:Samples. Proprietary; author not named. Relation to luizvarela's ElekPrep not established (same name). Interesting as a second independent implementation of +Drive upload over SysEx.
 
 _Sources: altstrument (2026-11-03)_
+
+### Digitakt LED colours
+
+LED theme editor and standby light show: six themes plus CUSTOM, eleven colour families with RGB 0-31, trig-key previews, COMET / RAINBOW / BREATHE idle animations, settings restored at start-up. Tested only in digiemu (README: not on a physical Digitakt). Found by GitHub search 2026-11-06.
+
+_Related: mod for `elekloader` (README: an Elekloader mod for core 4.1); uses tool `digiemu` (README: tested in the digiemu emulator against OS 1.54) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-06, README_
+
+### MIDI Expression for the Digitakt (Digi-Expression)
+
+Pitch bend, mod wheel, aftertouch and breath controller from an external keyboard: modulation of audio tracks 1-8, pass-through to MIDI out on tracks A-H, velocity sensitivity per track, presets, saved with the project. A Modwerk SDK module, not submitted to the Modwerk library yet. Tested with host unit checks and in digiemu; ships a hardware stress-test script. Found by GitHub search 2026-11-05.
+
+_Related: mod for `modwerk` (README: a module for Modwerk, written with the Modwerk SDK); uses tool `digiemu` (README: tested on the firmware in the digiemu emulator) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-06, README_

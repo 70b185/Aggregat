@@ -2,7 +2,7 @@
 
 # Model:Samples
 
-Data last verified: 2026-11-05
+Data last verified: 2026-11-06
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 

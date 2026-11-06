@@ -2,12 +2,12 @@
 
 # Index by device
 
-Data last verified: 2026-11-05. Repo fingerprints: see state/CHANGES.md
+Data last verified: 2026-11-06. Repo fingerprints: see state/CHANGES.md
 
 | Device | Verified | Unverified candidates | Requests / resources |
 |---|---|---|---|
-| [Digitakt (MKI)](devices/digitakt.md) | 53 | 0 | 3 |
-| [Digitakt II](devices/digitakt-2.md) | 35 | 1 | 1 |
+| [Digitakt (MKI)](devices/digitakt.md) | 55 | 0 | 3 |
+| [Digitakt II](devices/digitakt-2.md) | 37 | 1 | 1 |
 | [Digitone (MKI) / Digitone Keys](devices/digitone.md) | 54 | 0 | 2 |
 | [Digitone II](devices/digitone-2.md) | 30 | 1 | 2 |
 | [Syntakt](devices/syntakt.md) | 16 | 0 | 1 |
@@ -15,7 +15,7 @@ Data last verified: 2026-11-05. Repo fingerprints: see state/CHANGES.md
 | [Octatrack (MKI, MKII)](devices/octatrack.md) | 24 | 0 | 0 |
 | [Analog Rytm (MKI, MKII)](devices/analog-rytm.md) | 21 | 0 | 0 |
 | [Analog Four / Analog Keys](devices/analog-four-keys.md) | 7 | 0 | 0 |
-| [Model:Cycles](devices/model-cycles.md) | 24 | 0 | 0 |
+| [Model:Cycles](devices/model-cycles.md) | 25 | 0 | 0 |
 | [Model:Samples](devices/model-samples.md) | 8 | 0 | 0 |
 | [Machinedrum (incl. UW)](devices/machinedrum.md) | 25 | 0 | 0 |
 | [Monomachine](devices/monomachine.md) | 11 | 0 | 0 |

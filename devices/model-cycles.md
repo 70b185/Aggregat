@@ -2,18 +2,19 @@
 
 # Model:Cycles
 
-Data last verified: 2026-11-05
+Data last verified: 2026-11-06
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **Modded Cycles Techno Edition** (mbreilly (m_reilly)) | firmware | active | Model:Cycles OS 1.13 | v1.0-beta | 2026-11-05 | [repo](https://github.com/mbreilly/Modded_f-king_cycles) |
 | **model27** (durchgemacht, 18nelli18) | firmware | active | release 0.41 (2026-11-04 per README): thirteen cards in the web flasher (EQ 0.6, Reso 0.4 with block and coefficients in EMAC assembly); POTS 0.2 flashed from the page and tested on a Model:Cycles 2026-11-04; 1.13 | - | 2026-11-04 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
 | **Motor:Cycles (rhythmic-noise firmware)** (nzimas) | firmware | wip | v1.0.0-rc18 (tag); Model:Cycles OS 1.13 | v1.0.0-rc18 | 2026-11-03 | [repo](https://github.com/nzimas/motorcycles) · [web patcher](https://nzimas.github.io/motorcycles/install.html) |
 | **Supermodel Edition** (A.V., 18nelli18) | firmware | active | 3.02 (docs dated 2026-11-03; Optional edition 3.02 experimental); 1.13 | wavetable-pack | 2026-11-03 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |
 | **BIAS (six-oscillator percussion machine)** (100demons) | mod | active | Model:Cycles OS 1.13 | - | 2026-11-03 | [repo](https://github.com/100demons/bias) · [web patcher](https://100demons.github.io/cycles-engines/flasher/) |
 | **Elek View (screen viewer in the browser)** (BlueSGL) | tool | active | main @ 29fc485 (2026-11-02) | - | 2026-11-02 | [repo](https://github.com/BlueSGL/Elek_View) · [web app](https://bluesgl.github.io/Elek_View/) · [forum](https://elektronmods.com/thread-93-elek-view-see-your-devices-screens-in-a-browser-via-webmidi) |
-| **Cycles One-Shot** (durchgemacht) | mod | active | machine 0.13 (2026-11-02, on main; newest tag v0.12): Start and Length act on the note that plays; tested in a model27 build, in digiemu and on a Model:Cycles; 1.13 | v0.14 | 2026-11-02 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
+| **Cycles One-Shot** (durchgemacht) | mod | active | machine 0.13 (2026-11-02, on main; newest tag v0.12): Start and Length act on the note that plays; tested in a model27 build, in digiemu and on a Model:Cycles; 1.13 | v0.15 | 2026-11-02 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
 | **SPOKES** (A.V.) | tool | active | main @ 1604cbf (2026-10-31); 1.13 | - | 2026-10-31 | [repo](https://github.com/AveyCole/SPOKES) · [homepage](https://aveycole.github.io/SPOKES/) |
 | **Vladiktron Spoke** (imaf6971) | emulator | active | v0.1.0 (2026-10-30); 1.13 | v0.1.0 | 2026-10-30 | [repo](https://github.com/imaf6971/vladiktron-spoke) |
 | **Cycles Engines** (100demons) | loader | wip | Model:Cycles OS 1.13 only | phase-5 | 2026-10-30 | [repo](https://github.com/100demons/cycles-engines) |
@@ -214,3 +215,11 @@ Source package for a percussion machine with six oscillators, each with its own 
 _Related: builds on `model27` (altstrument: a machine package for model27; its scripts clone model27 at a pinned commit); mod for `modded-cycles` (catalogue notes: a fixed-slot tweak for Modded Cycles 2.0); mod for `cycles-engines` (README: tested as cycles-engines composes it) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-04)_
+
+### Modded Cycles Techno Edition
+
+25 machines (Elektron's six plus 19: 909/808/606 voices, rumble kick, modal metal, additive drum, acid and growl basses, Braids, VA, cross-mod, 6-op FM, pad, and a sampler / granular / wavetable engine), a filter and insert effect per track, sidechain, master DJ EQ, 6-channel USB audio, CPU monitor and budget; plus a VST3/AU/standalone plug-in that follows the Cycles and reads sounds back. Built locally from the official OS (Python only), checked byte for byte. README: every part tested in emulation, and played on real hardware. Found by GitHub search 2026-11-05.
+
+_Related: builds on `modded-cycles` (README credits: build toolchain, per-track filter, machine list, MACRO and ACID ports); bundles `model909` (README credits: the 909 kick, toms, rim and clap from DMDaudio/model909); bundles `elektron-model-tweaks` (README credits: scrolling names and the mtlib toolkit); cites `model-tg` (README credits: CPU measurement, sample transfer identity, delay/reverb tricks); builds on `ms-multi-output` (README credits: the original 6-channel USB audio mod) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-06, README_

@@ -16,6 +16,7 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | syntakt-workbench | Bezronczek/syntakt-firmware-workbench README | https://github.com/Bezronczek/syntakt-firmware-workbench |
 | overtone | complex-ping/overtone README | https://github.com/complex-ping/overtone |
 | dn2mk2 | De-Pattern/dn2mk2-firmware README and patcher page | https://github.com/De-Pattern/dn2mk2-firmware , https://de-pattern.github.io/dn2mk2/patcher.html |
+| dn2mk2-v040 | De-Pattern/dn2mk2-firmware `FIRMWARE.md` and `releases/v0.40.md` (v0.40: TRIM ERROR on a unit traced to the stock eMMC driver; the fix) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/releases/v0.40.md |
 | dn2mk2-firmware-md | De-Pattern/dn2mk2-firmware `FIRMWARE.md` (cut off in v0.20) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/FIRMWARE.md |
 | dn2-modding-skill | complex-ping/digitone-2-modding-skill README | https://github.com/complex-ping/digitone-2-modding-skill |
 | coldfire-rs | FirestormAudio/coldfire-rs README (generic MCF5441x Rust stack; no Elektron mention) | https://github.com/FirestormAudio/coldfire-rs |

@@ -2,7 +2,7 @@
 
 # Project families
 
-Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-05. Edit the `relations:` field in `data/projects.yml`.
+Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-06. Edit the `relations:` field in `data/projects.yml`.
 
 | Relation | Meaning |
 |---|---|
@@ -32,6 +32,7 @@ Devices: Model:Cycles, Model:Samples. [repo](https://github.com/18nelli18/Modded
 - **dn2_firmware_explore** (angellinares) - builds on **elektron-firmware-tool** (README credit: container, transport, codec and integrity work stands on it). [repo](https://github.com/angellinares/dn2_firmware_explore)
 - **elektron-firmware-tool** (mischa85) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/mischa85/elektron-firmware-tool)
 - **elektron-model-tweaks** (drumkilla) - builds on **elektron-firmware-tool** (README: building scripts are based on elektron-firmware-tool); builds on **ms-multi-output** (README: based on ms-multi-output by Scott Metoyer). [repo](https://github.com/drumkilla/elektron-model-tweaks)
+- **Modded Cycles Techno Edition** (mbreilly (m_reilly)) - builds on **Modded Cycles** (README credits: build toolchain, per-track filter, machine list, MACRO and ACID ports); bundles **model909** (README credits: the 909 kick, toms, rim and clap from DMDaudio/model909); bundles **elektron-model-tweaks** (README credits: scrolling names and the mtlib toolkit); builds on **ms-multi-output** (README credits: the original 6-channel USB audio mod). [repo](https://github.com/mbreilly/Modded_f-king_cycles)
 - **Model-TG** (TinyGregAudio) - bundles **elektron-model-tweaks** (README: includes drumkilla's tweaks (latching mute, trig preview)). [repo](https://github.com/TinyGregAudio/Model-TG)
 - **model27** (durchgemacht, 18nelli18) - fork of **Modded Cycles** (own README: beta fork of Modded Cycles 1.55); bundles **elektron-model-tweaks** (README: includes drumkilla's tweaks (latching mute, trig preview)); bundles **Control All Config** (README: Modded-Cycles 1.55 plus the Control All Config mod); bundles **Cycles One-Shot** (README: the SAMPLE machine of Cycles One-Shot). [repo](https://github.com/durchgemacht/model27)
 - **model909** (DMDaudio) - builds on **Modded Cycles** (README: built on Modded-Cycles and Model-TG); builds on **Model-TG** (README: Model-TG is ticked with model909). [repo](https://github.com/DMDaudio/model909)

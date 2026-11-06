@@ -7,7 +7,7 @@
    "devices": 13,
    "relations": 356,
    "rules": 103,
-   "sources": 272,
+   "sources": 274,
    "conflicts": 33,
    "facts": 992,
    "goals": 8,
@@ -1294,11 +1294,11 @@
    "license": null,
    "status": "active",
    "base_os": "Digitone II OS 1.12 (macOS Apple silicon; Linux likely)",
-   "version": "Digiwerk v0.3.0 (2026-11-04): multitrack USB audio (USB MULTI/MIDI, 42 inputs, UAC 2.0) in every build, a web patcher, the six spring-reverb builds back; 0.2.0 download withdrawn",
+   "version": "Digiwerk v0.3.0 (2026-11-04): multitrack USB audio (USB MULTI/MIDI, 42 inputs, UAC 2.0) in every build and a web patcher; eight non-spring builds released, six spring-reverb builds remain withdrawn; 0.2.0 download withdrawn",
    "last_activity": "2026-11-04",
    "notes": "Public lab notebook: notes, tools and new effects, no Elektron firmware included. Seven builds run on real hardware per README (EF01 renamed stock, FLG1 flanger replacing the chorus, FTD1 + one-head tape delay, DH01 core/hook bus with a MIDI test mod, FTN1 renamed screens, GT00 parameter table moved, GT01 + 17 hidden rows for the 3-band compressor); not yet on the unit: the 3-band compressor and a Space-Echo-style delay (fx/spaceecho.c). Rule of the author: \"nothing counts as working until it has run on my unit\". Getting started (README): macOS on Apple silicon (Linux likely for most), Python 3, the user's own Digitone_II_OS1_12.syx in elektron-firmware/, upstream tools cloned into vendor/ (VENDOR.md) - for digikit and elekloader the author's forks on branch dn2-1.12 (digikit: 1.12 support, audio clock, DIN MIDI, LEDs, live play; elekloader: Digitone II 1.12 profile and the core-dn2 hook bus), commands scripts/dn2-emu-112.sh all, scripts/dn2-live.sh, fx make test/renders, tools/brickcheck/brickcheck CANDIDATE.syx (12 checks, must pass before any flash). README gives no step-by-step flashing procedure. Docs: ROADMAP.md, HANDOFF.md (later entries supersede earlier), FIRMWARE.md (sha256s), VENDOR.md, docs/parameter-table-growth.md, notes/ (one report per task, claims marked [verified] or [inferred]), analysis/ (class hierarchy recovered from RTTI). 28 commits, GPL-2.0(-or-later).",
    "links": "{}",
-   "sources": "[\"GitHub README\", \"lapin-list\"]",
+   "sources": "[\"GitHub README\", \"lapin-list\", \"https://github.com/naturarum/dn2-cfw/blob/466e28c5de2fc00d67c51d4a129a286f5be4a520/docs/release/digiwerk-0.3.0.md\"]",
    "owner": "naturarum",
    "created": "2026-10-12",
    "pushed": "2026-11-04",
@@ -8450,9 +8450,9 @@
    "id": "A48",
    "section": "A. Safety - never skip",
    "title": "Find out what is cached from the OS's own start-up, not the bootstrap; keep hot-path accesses to uncached memory few and word-sized.",
-   "text": "A48. Find out what is cached from the OS's own start-up, not the bootstrap; keep hot-path accesses to uncached memory few and word-sized. On the DN2 the bootstrap leaves the data cache off, but the main OS turns it on for `0x40000000-0x47ffffff` only; the SSI DMA buffers stay uncached. 84 byte reads a frame from them stalled the sequencer, 14 word reads did not. On the A4 MK1 only `0x40000000-0x43ffffff` is cached and ~1,000 uncached accesses per block per voice slowed the UI and could crash the unit. The reverse also bites: DMA reads RAM, not the copyback cache, so a reply the CPU wrote may go out stale. Copy hot state into cached memory (or the stack) once per block, work there, write it back; send DMA data through the uncached alias. Incidents: [I10](INCIDENTS.md#i10-byte-wise-reads-of-uncached-dma-buffers-stalled-the-sequencer), [I11](INCIDENTS.md#i11-uncached-state-in-a-chord-oscillator-slowed-the-ui-and-could-crash-the-unit), [I35](INCIDENTS.md#i35-usb-replies-stayed-stale-for-minutes). `[hw]` {dn2-cfw-handoff} {a4mods} {modwerk-ot-traps}",
+   "text": "A48. Find out what is cached from the OS's own start-up, not the bootstrap; keep hot-path accesses to uncached memory few and word-sized. On the DN2 the bootstrap leaves the data cache off, but the main OS turns it on for `0x40000000-0x47ffffff` only; the SSI DMA buffers stay uncached. Packing the SSI slots with byte-wise uncached reads stalled the sequencer; reading each of the 14 slots once as a 32-bit word did not. On the A4 MK1 only `0x40000000-0x43ffffff` is cached and ~1,000 uncached accesses per block per voice slowed the UI and could crash the unit. The reverse also bites: DMA reads RAM, not the copyback cache, so a reply the CPU wrote may go out stale. Copy hot state into cached memory (or the stack) once per block, work there, write it back; send DMA data through the uncached alias. Incidents: [I10](INCIDENTS.md#i10-byte-wise-reads-of-uncached-dma-buffers-stalled-the-sequencer), [I11](INCIDENTS.md#i11-uncached-state-in-a-chord-oscillator-slowed-the-ui-and-could-crash-the-unit), [I35](INCIDENTS.md#i35-usb-replies-stayed-stale-for-minutes). `[hw]` {dn2-cfw-handoff} {dn2-cfw-usb} {a4mods} {modwerk-ot-traps}",
    "evidence": "hw",
-   "sources": "a4mods,dn2-cfw-handoff,modwerk-ot-traps",
+   "sources": "a4mods,dn2-cfw-handoff,dn2-cfw-usb,modwerk-ot-traps",
    "devices": "analog-four-keys,digitone-2"
   },
   {
@@ -9284,8 +9284,18 @@
   },
   {
    "key": "dn2-cfw-030",
-   "what": "naturarum/dn2-cfw `docs/release/digiwerk-0.3.0.md` and `notes/R1.17-release-0.3.0.md` (Digiwerk 0.3.0, multitrack USB audio)",
-   "url": "https://github.com/naturarum/dn2-cfw/blob/main/docs/release/digiwerk-0.3.0.md"
+   "what": "naturarum/dn2-cfw published `docs/release/digiwerk-0.3.0.md` (eight non-spring builds; six spring builds remain withdrawn; checked 2026-11-06)",
+   "url": "https://github.com/naturarum/dn2-cfw/blob/466e28c5de2fc00d67c51d4a129a286f5be4a520/docs/release/digiwerk-0.3.0.md"
+  },
+  {
+   "key": "dn2-cfw-usb",
+   "what": "naturarum/dn2-cfw `notes/USB01-class-compliant-multichannel.md` (UM01/UM02 corrected uncached SSI read counts and hardware observations; checked 2026-11-06)",
+   "url": "https://github.com/naturarum/dn2-cfw/blob/466e28c5de2fc00d67c51d4a129a286f5be4a520/notes/USB01-class-compliant-multichannel.md"
+  },
+  {
+   "key": "dn2-cfw-um03",
+   "what": "naturarum/dn2-cfw `notes/R1.17-release-0.3.0.md`, section 1 (historical UM03 code/BSS increment, not final release availability or UM04 size; checked 2026-11-06)",
+   "url": "https://github.com/naturarum/dn2-cfw/blob/466e28c5de2fc00d67c51d4a129a286f5be4a520/notes/R1.17-release-0.3.0.md"
   },
   {
    "key": "dn2-cfw-roadmap",
@@ -15259,9 +15269,9 @@
    "file": "hardware/devices/digitone-2.md",
    "line": 37,
    "section": "Digitone II / Architecture",
-   "text": "Cache map (OS 1.11 and 1.12): the bootstrap leaves the data cache off (CACR `0x000cc100`), but the main OS start-up at `0x40000554` writes CACR `0xa50ce100` and ACR0 `0x4007e020`: `0x40000000-0x47ffffff` is cached copyback, everything else uncached, including the SSI DMA buffers at `0x4e6e7100`. Reading those buffers byte by byte from a mod is slow enough to stall the sequencer: Digiwerk's first multichannel USB build (UM01, 84 DDR reads a frame) lagged until unusable; reading each slot once as a word (UM02, 14 reads) ran on the unit with busy sequences and no lag. Checking only the bootstrap's CACR gave a wrong \"cache off\" conclusion first, corrected the same day. `[hw]` {dn2-cfw-handoff} ([I10](../INCIDENTS.md#i10-byte-wise-reads-of-uncached-dma-buffers-stalled-the-sequencer))",
+   "text": "Cache map (OS 1.11 and 1.12): the bootstrap leaves the data cache off (CACR `0x000cc100`), but the main OS start-up at `0x40000554` writes CACR `0xa50ce100` and ACR0 `0x4007e020`: `0x40000000-0x47ffffff` is cached copyback, everything else uncached, including the SSI DMA buffers at `0x4e6e7100`. Reading those buffers byte by byte from a mod is slow enough to stall the sequencer: Digiwerk's first multichannel USB build (UM01) packed the SSI slots with byte-wise uncached reads and lagged until unusable; reading each of the 14 slots once as a 32-bit word (UM02) ran on the unit with busy sequences and no lag. Checking only the bootstrap's CACR gave a wrong \"cache off\" conclusion first, corrected the same day. `[hw]` {dn2-cfw-handoff} {dn2-cfw-usb} ([I10](../INCIDENTS.md#i10-byte-wise-reads-of-uncached-dma-buffers-stalled-the-sequencer))",
    "evidence": "hw",
-   "sources": "dn2-cfw-handoff",
+   "sources": "dn2-cfw-handoff,dn2-cfw-usb",
    "devices": "digitone-2",
    "addresses": "0x000cc100,0x40000000,0x40000554,0x4007e020,0x47ffffff,0x4e6e7100,0xa50ce100",
    "id": 423
@@ -15325,16 +15335,16 @@
    "file": "hardware/devices/digitone-2.md",
    "line": 60,
    "section": "Digitone II / Architecture",
-   "text": "Two independent 42-channel USB audio builds now exist for the DN2, on different OS versions: armio's (1.11, above) and Digiwerk 0.3.0 (1.12, USB MULTI/MIDI as a fourth USB CONFIG choice; UAC 2.0, 48 kHz/24 bit; inputs 1-32 the 16 tracks, 33-34 main, 35-40 delay/reverb/chorus returns, 41-42 the inputs; used with a Mac and with AUM on an iPhone). Digiwerk's is main OS only (no DSP code) and adds about 2.6 KB at `0x47e00000-0x47e075a4`. `[hw]` {dn2-cfw-030} Recorder adds recording/resampling, source selection, normalization, trimming, audition, saving to +Drive and optional track assignment. VOICE cycles Voice Setup, Sample Manager and Recorder. Exact trimmed-file comparison and full Recorder-source coverage remain unverified. `[doc]` {armio-recorder} R012 requires only the two official OS files. Native and browser builds verify the final SHA-256; the browser builds locally without uploads. No sample bank or factory library is required; historical exact T1E2/R003/R008/R011 builds still need their original private bank. `[doc]` {armio-r012} {armio-browser} R012 stable is owner-confirmed for stock audio, samples, Recorder and USB audio, including after project changes. This is not exhaustive workflow or endurance validation. `[hw]` {armio-r012}",
+   "text": "Two independent 42-channel USB audio builds now exist for the DN2, on different OS versions: armio's (1.11, above) and Digiwerk 0.3.0 (1.12, USB MULTI/MIDI as a fourth USB CONFIG choice; UAC 2.0, 48 kHz/24 bit; inputs 1-32 the 16 tracks, 33-34 main, 35-40 delay/reverb/chorus returns, 41-42 the inputs; used with a Mac and with AUM on an iPhone). Digiwerk's USB addition changes only the main OS, leaving each build's DSP section unchanged. `[hw]` {dn2-cfw-030} {dn2-cfw-usb} Historical size estimate (UM03): the USB addition's code and BSS added about 2.6 KB to the existing 1 MB mod region. `0x47e00000-0x47e075a4` describes the combined used span, not the USB addition alone; this is not a size measurement of the later UM04 implementation shipped in 0.3.0. `[doc]` {dn2-cfw-um03} Recorder adds recording/resampling, source selection, normalization, trimming, audition, saving to +Drive and optional track assignment. VOICE cycles Voice Setup, Sample Manager and Recorder. Exact trimmed-file comparison and full Recorder-source coverage remain unverified. `[doc]` {armio-recorder} R012 requires only the two official OS files. Native and browser builds verify the final SHA-256; the browser builds locally without uploads. No sample bank or factory library is required; historical exact T1E2/R003/R008/R011 builds still need their original private bank. `[doc]` {armio-r012} {armio-browser} R012 stable is owner-confirmed for stock audio, samples, Recorder and USB audio, including after project changes. This is not exhaustive workflow or endurance validation. `[hw]` {armio-r012}",
    "evidence": "doc,hw",
-   "sources": "armio-browser,armio-r012,armio-recorder,dn2-cfw-030",
+   "sources": "armio-browser,armio-r012,armio-recorder,dn2-cfw-030,dn2-cfw-um03,dn2-cfw-usb",
    "devices": "digitone-2",
    "addresses": "0x47e00000,0x47e075a4",
    "id": 429
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 64,
+   "line": 65,
    "section": "Digitone II / Architecture",
    "text": "USB audio repeating old audio after a project change (armio, R007-R011; fixed 2026-11-03): USB audio froze or repeated while headphones and UI kept working; accepted publications stopped, rejected ones rose by 16,392 in about 10.9 s, and USB transfers kept running. Cause: the render-time TX selector follows RX completion and is not a TX ownership grant, but the build had bound the retained queue head to a destination derived from that older phase. R011 picks the candidate from the current DMA START and leaves the ownership guards to decide; the owner confirmed playback after project changes, and R012 is the stable build. Endurance and end-to-end USB latency are unmeasured. `[hw]` {armio-usb} {armio-r011} ([I13](../INCIDENTS.md#i13-usb-audio-repeated-old-audio-after-a-project-change))",
    "evidence": "hw",
@@ -15345,7 +15355,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 67,
+   "line": 68,
    "section": "Digitone II / Parameter table",
    "text": "1.12: one OS table of 321 rows, no free space after it. dn2-cfw's patch GT00 copies it at start-up into free memory with room for 384 rows; GT01 adds 17 hidden rows (3-band compressor). `[hw]` {dn2-cfw}",
    "evidence": "hw",
@@ -15356,7 +15366,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 68,
+   "line": 69,
    "section": "Digitone II / Parameter table",
    "text": "Projects store values by slot, not by row, so moving the table keeps the saved format; new rows follow `docs/parameter-table-growth.md` (not read yet). Table growth was first done on 1.11 for the LFO4 mod in dn2_firmware_explore. `[doc]` {dn2-cfw}",
    "evidence": "doc",
@@ -15367,7 +15377,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 69,
+   "line": 70,
    "section": "Digitone II / Parameter table",
    "text": "Overtone: LFO 3's storage holds ARP 2, so a sound that used LFO 3 loses it; ENV3/LFO3 no longer exist in Overtone. `[doc]` {overtone}",
    "evidence": "doc",
@@ -15378,7 +15388,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 72,
+   "line": 73,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "Each parameter is one 60-byte row. Table base `0x401f83a4`, stock 321 rows. Offsets: `+0x00` group (set/page family), `+0x04` k (the slot that holds the value in its set), `+0x08..0x14` min/max/default/bipolar, `+0x18` MIDI CC, `+0x1c` NRPN, `+0x20` Overbridge id, `+0x28..0x38` names/formatter/suffix. A separate RAM display table holds glyph, lock flags and randomiser data. `[doc]` {dn2-cfw-param-table}",
    "evidence": "doc",
@@ -15389,7 +15399,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 73,
+   "line": 74,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "Row ids are not saved; projects store values by slot k through fixed k-to-stored-id tables. Slot maps and CC/NRPN maps are rebuilt from the table at each boot (`0x400dc634`); page records are built at boot from code constants (`0x400c2c4e`). Moving the table does not change project storage; new rows do, via their k and display flags. `[doc]` {dn2-cfw-param-table}",
    "evidence": "doc",
@@ -15400,7 +15410,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 74,
+   "line": 75,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "Grown table at `0x47D00000`, room for 384 rows (`0x180`), copied at boot by `pg_boot` (called from `0x40000568`). New row ids `0x141`-`0x17f` (63 ids); the same-length-edit ceiling is `0x1e0` (480 rows). 56 address operands in 53 functions had to be redirected; 57 row-count compares changed (`#0x141`->`#0x180`, `#0x140`->`#0x17f`; five look similar and stay). The display-table reader at `0x400c257c` has its first 10 bytes turned into a jump plus two nops. The MIDI input cache (33 constants in five functions) grows by 12,852 bytes. `[doc]` {dn2-cfw-param-table}",
    "evidence": "doc",
@@ -15411,7 +15421,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 75,
+   "line": 76,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "The grown table ran on a unit (Digiwerk GT00/GT01, OS 1.12, 2026-10-13): boot, cold start, +Drive project save and load were all reported fine, and GT01 added 17 hidden rows for the 3-band compressor that later shipped (CMP3). In the emulator, not one instruction read the stock table after the boot copy. Since projects store values by slot k, and stock saves FX k 25-69 only, values in new slots k 70+ need their own storage (the 3-band compressor uses 28 FX-record words that stock never writes or reads). Whether such a project opens cleanly on a stock OS has not been reported. `[hw]` {dn2-cfw-t65}",
    "evidence": "hw",
@@ -15422,7 +15432,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 76,
+   "line": 77,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "New rows carry Overbridge ids of `0x400` and up. Each is sent to the plugin as soon as its value changes; what the plugin does with an id it doesn't know is not known. `[emu]` {dn2-cfw-t65}",
    "evidence": "emu",
@@ -15433,7 +15443,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 77,
+   "line": 78,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "Map builders hold 101 entries each, so k must stay in range (0..100 for sound/FX/MIDI, 0..25 for trig). Stock saves FX k 25-69 only; FX k 70+ and sound k 65 and 100 are not saved. `[doc]` {dn2-cfw-param-table}",
    "evidence": "doc",
@@ -15444,7 +15454,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 78,
+   "line": 79,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "Rules for a new row: use a free k in the set's table, one row per k (the last row written wins and can silently replace a stock knob); value 0 must keep classic behaviour (existing projects store 0 in slots stock has no row for); send-FX rows set `flags_set = 8` so they are never lockable; synth rows use free saved k values (FM Tone 34, 49; WaveTone 50-64; FM Drum 55-64; Swarmer 33-64); no randomiser; MIDI: no CC already in the set's map, none in 32-63, none taken by the CC parser (1, 2, 6, 64, 66, 94, 98, 99, 110, 120, 121, 123), NRPN 398 at most; Overbridge id outside stock's 0..387 (e.g. `0x400`+n, untested with the plugin). `[doc]` {dn2-cfw-param-table}",
    "evidence": "doc",
@@ -15455,7 +15465,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 79,
+   "line": 80,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "P-lock trap: a row is lockable when display flag bits 0 and 3 are clear; locks are stored as (track, k), so an FX row with k 70 could create a lock on a sound's slot 70, which stock would play back. A bad row can write past map tables, replace a stock knob, or leave stray p-locks that persist after returning to stock. A project saved on a grown build and loaded on stock 1.12 is untested on hardware. `[doc]` {dn2-cfw-param-table}",
    "evidence": "doc",
@@ -15466,7 +15476,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 80,
+   "line": 81,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "Checks used: brick checker 12/12 for GT00/GT01 (\"a pass is not proof for code changes\"), `scripts/t65_build.py check_rows` for FX rows, `pg_boot` only skips ids outside `0x141`-`0x17f` (it does not check k, flags, CCs or Overbridge ids), an emulator run of 7,100 MIDI messages giving the same 991 parameter sets as baseline. Never flash `param-test-dn2` or `fx-page2-dn2`. `[doc]` {dn2-cfw-param-table}",
    "evidence": "doc",
@@ -15477,7 +15487,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 83,
+   "line": 84,
    "section": "Digitone II / Limits and budgets",
    "text": "USB upgrade limit 2 MiB, not checked by the receiver; oversized images stall at the end, nothing written, power cycle clears. `[hw]` {dn2mk2-firmware-md} ([I3](../INCIDENTS.md#i3-usb-upgrade-receiver-does-not-check-the-2-mib-limit))",
    "evidence": "hw",
@@ -15488,7 +15498,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 84,
+   "line": 85,
    "section": "Digitone II / Limits and budgets",
    "text": "DSP image limit 1,048,575 bytes; recent dn2mk2 builds sit at ~1,017,000-1,018,000. `[doc]` {dn2mk2-firmware-md}",
    "evidence": "doc",
@@ -15499,7 +15509,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 85,
+   "line": 86,
    "section": "Digitone II / Limits and budgets",
    "text": "DSP time: SETTINGS > SYSTEM > DSP LOAD shows it; at 100 % the audio crackles. Heavy machines can push it over. `[hw]` {overtone}",
    "evidence": "hw",
@@ -15510,7 +15520,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 86,
+   "line": 87,
    "section": "Digitone II / Limits and budgets",
    "text": "dn2mk2 cost figures: a PERC voice up to ~41,000 instructions per block, P-I machines ~9,000-19,000; Monomachine budget about two SIDs, four DPRO Waves, one DDRW and one DENS, or two VO-6 at once. A frame guard silences voices that no longer fit (limit 0.6 of the frame, estimated, not measured). `[doc]` {dn2mk2-firmware-md}",
    "evidence": "doc",
@@ -15521,7 +15531,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 87,
+   "line": 88,
    "section": "Digitone II / Limits and budgets",
    "text": "Fast on-chip DSP memory vs DDR: voice state moved to fast memory in dn2mk2 v0.32; Monomachine tables and P-I delay lines remain in DDR. Savings can only be measured on a unit. `[doc]` {dn2mk2-firmware-md}",
    "evidence": "doc",
@@ -15532,7 +15542,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 88,
+   "line": 89,
    "section": "Digitone II / Limits and budgets",
    "text": "Overtone: LOOP records 8 s stereo per track; LOOP in STRC mode, P-I and many SOPHIE voices can push DSP over 100 %. `[doc]` {overtone}",
    "evidence": "doc",
@@ -15543,7 +15553,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 91,
+   "line": 92,
    "section": "Digitone II / Sample memory (dn2mk2)",
    "text": "Pool of 400 MB (368 MB user samples + 32 MB recordings, ~5.5 min), up to 122 slots, RAM-checked at power-on (~0.7 s); +Drive library ~20 GB in a region the stock OS does not touch, up to 2,048 samples; slices up to 64 per sample, stored in a 128 KB area. Power-on load grows with stored samples (~30 s for 20 MB). The 400 MB pool has never run on hardware per FIRMWARE.md v0.22. `[emu]` {dn2mk2-firmware-md}",
    "evidence": "emu",
@@ -15554,7 +15564,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 92,
+   "line": 93,
    "section": "Digitone II / Sample memory (dn2mk2)",
    "text": "A stock DN2 has no sample filesystem, and a mod that mounts one must also create it (armio R012, 2026-11-03). R012 mounted an existing sample filesystem but did not create one on a unit that never had it; on such a unit Transfer showed 0% Free / 0 bytes, uploads stalled and connections failed. The author says stock FORMAT +DRIVE, EMPTY RESET and FACTORY RESET do not create it and can erase projects. The bug was found by new users; the author's own unit had storage prepared during development, which is why owner testing missed it. A test on a freshly flashed stock unit is the only check that catches this. `[doc]` {armio-samples} ([I12](../INCIDENTS.md#i12-a-sample-machine-mod-could-not-create-the-storage-it-needed))",
    "evidence": "doc",
@@ -15565,7 +15575,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 93,
+   "line": 94,
    "section": "Digitone II / Sample memory (dn2mk2)",
    "text": "Stock eMMC TRIM can fail with TRIM ERROR on a busy card (OS 1.11). A unit running dn2mk2 v0.39 stopped with TRIM ERROR at two different sector ranges while erasing mod data. dn2mk2's reading of the stock code: TRIM `0x4012c4b2` fails only when CMD35/36/38 get no answer (command timeout); after CMD38 the busy wait arms the DAT0 edge interrupt (`0x4012c53e`) before testing DAT0 (`0x4012c544`), so a short TRIM whose card finishes in between leaves a stale semaphore post (`0x4461b6c0`), the next TRIM on a really busy card returns at once, and the call after it gets no answer. The driver has no timeout. v0.40's fix: read the eSDHC present-state register `PRSSTAT` `0xfc0cc024` before every TRIM and verify read and call only when the card is idle; retry a failed call five times (TRIM is idempotent); report ERASE PAUSED and continue on request. The error is `[hw]`; the race is a static reading of stock code, not seen on the bus. Anything that issues TRIMs through the stock driver on a DN2 (and, not checked, a DT2 with the same driver) should do the same. `[hw]` {dn2mk2-v040} ([I1](../INCIDENTS.md#i1-stock-emmc-trim-fails-with-trim-error-on-a-busy-card))",
    "evidence": "hw",
@@ -15576,7 +15586,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 99,
+   "line": 100,
    "section": "Digitone II / Recovery (full procedure in [`../common/flash-procedure.md`](../common/flash-procedure.md))",
    "text": "FUNC at power-on -> TRIG 4 (OS UPGRADE) -> Elektron Transfer LEGACY OS UPGRADE over 5-pin DIN MIDI to MIDI IN; USB does not work in this mode; takes ~12-15 min, do not interrupt. The bootstrap that holds this menu must stay byte-identical (the brick checker refuses changes). `[hw]` {overtone} {dn2mk2} {dn2-cfw}",
    "evidence": "hw",
@@ -15587,7 +15597,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 100,
+   "line": 101,
    "section": "Digitone II / Recovery (full procedure in [`../common/flash-procedure.md`](../common/flash-procedure.md))",
    "text": "Overtone 1.0 broke the Transfer update path (stall at \"Receiving\"/\"PREPARING...\"); fixed in 1.0.1, way out = STARTUP menu over DIN. Details and the release test that catches it: [`../common/recovery.md`](../common/recovery.md). `[hw]` {overtone}",
    "evidence": "hw",
@@ -15598,7 +15608,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 101,
+   "line": 102,
    "section": "Digitone II / Recovery (full procedure in [`../common/flash-procedure.md`](../common/flash-procedure.md))",
    "text": "Pre-flash safety kit: back up +Drive, keep the stock OS file for the exact version, volume down, DIN cable ready, check the file's SHA-256 against the gate record (`certutil -hashfile FILE SHA256` on Windows). `[doc]` {dn2mk2-firmware-md}",
    "evidence": "doc",
@@ -15609,7 +15619,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 102,
+   "line": 103,
    "section": "Digitone II / Recovery (full procedure in [`../common/flash-procedure.md`](../common/flash-procedure.md))",
    "text": "The ~80% recovery-path stall once reported for dn2_firmware_explore's own images was the MIDI link: stock 1.10E stalled on the same route. Details: [`../common/recovery.md`](../common/recovery.md). `[hw]` {dn2-firmware-explore}",
    "evidence": "hw",
@@ -15620,7 +15630,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 110,
+   "line": 111,
    "section": "Digitone II / Hardware test evidence",
    "text": "dn2-cfw: EF01 (renamed stock 1.12) proved rebuild/seal/flash; FLG1 (flanger), FTD1, DH01 (hook bus), FTN1, GT00, GT01 ran on the unit. `[hw]` {dn2-cfw}",
    "evidence": "hw",
@@ -15631,7 +15641,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 111,
+   "line": 112,
    "section": "Digitone II / Hardware test evidence",
    "text": "Overtone 1.0.1: played on a Digitone II, Transfer installs tested on the unit. `[hw]` {overtone}",
    "evidence": "hw",
@@ -15642,7 +15652,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 112,
+   "line": 113,
    "section": "Digitone II / Hardware test evidence",
    "text": "dn2mk2: v0.21-v0.33 mostly emulator-only, hardware checks outstanding; user reports of p-lock clicks and silence were the reason for the DSP guard (v0.27) and AMD fix (v0.30.1). `[emu]` {dn2mk2-firmware-md}",
    "evidence": "emu",
@@ -15653,7 +15663,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 113,
+   "line": 114,
    "section": "Digitone II / Hardware test evidence",
    "text": "Emulators do not model the two chips' timing, so overruns show only on a unit ([`../common/toolchain-and-emulators.md`](../common/toolchain-and-emulators.md)). `[doc]` {dn2mk2-firmware-md}",
    "evidence": "doc",
@@ -22310,12 +22320,12 @@
    "title": "Byte-wise reads of uncached DMA buffers stalled the sequencer",
    "unit": "Digitone II, OS 1.12 (Digiwerk UM01, multichannel USB audio), 2026-10-31",
    "seen": "42 channels arrived on the Mac, but the sequencer lagged until unusable.",
-   "cause": "the main OS sets CACR `0xa50ce100` / ACR0 `0x4007e020` (`0x40000000-0x47ffffff` cached); the SSI DMA buffers at `0x4e6e7100` are uncached, and UM01 made 84 DDR reads a frame. A first look at the bootstrap's CACR (cache off) gave a wrong conclusion.",
+   "cause": "the main OS sets CACR `0xa50ce100` / ACR0 `0x4007e020` (`0x40000000-0x47ffffff` cached); the SSI DMA buffers at `0x4e6e7100` are uncached, and UM01 packed their slots with byte-wise reads. A first look at the bootstrap's CACR (cache off) gave a wrong conclusion.",
    "cause_found_by": "read from the start-up code, confirmed by the fixed build on the unit",
-   "fix": "read each slot once as a word (UM02, 14 reads): no lag with busy sequences.",
+   "fix": "read each of the 14 SSI slots once as a 32-bit word (UM02): no lag with busy sequences.",
    "status": "fixed (Digiwerk 0.3.0).",
    "evidence": "hw",
-   "sources": "dn2-cfw-handoff",
+   "sources": "dn2-cfw-handoff,dn2-cfw-usb",
    "rules": "A48",
    "fact_file": "devices/digitone-2.md",
    "devices": "digitone-2"

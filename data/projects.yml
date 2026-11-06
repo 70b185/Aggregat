@@ -1122,7 +1122,7 @@ projects:
     repo: https://github.com/naturarum/dn2-cfw
     status: active
     base_os: "Digitone II OS 1.12 (macOS Apple silicon; Linux likely)"
-    version: "Digiwerk v0.3.0 (2026-11-04): multitrack USB audio (USB MULTI/MIDI, 42 inputs, UAC 2.0) in every build, a web patcher, the six spring-reverb builds back; 0.2.0 download withdrawn"
+    version: "Digiwerk v0.3.0 (2026-11-04): multitrack USB audio (USB MULTI/MIDI, 42 inputs, UAC 2.0) in every build and a web patcher; eight non-spring builds released, six spring-reverb builds remain withdrawn; 0.2.0 download withdrawn"
     last_activity: 2026-11-04
     notes: >
       Public lab notebook: notes, tools and new effects, no Elektron firmware included. Seven builds run
@@ -1139,7 +1139,7 @@ projects:
       28 commits, GPL-2.0(-or-later).
     latest_seen: >
       Renamed Digiwerk (altstrument; stock OS 1.12, GPL-2.0-or-later, notarized Mac patcher app). v0.1.0 (2026-10-26): Deja vu LFO waves and the Compressor + Flanger pack (build DJ01). v0.2.0 (2026-10-29): key-following LFO wave, one-cycle and half-cycle LFO modes, SHUF/RAND/TM arp modes (also on MIDI tracks), a tape echo, per-slot effect choice. v0.2.1 (2026-10-30): withdraws the six spring-reverb builds - the page says the CFES and EFTS builds stop the sound on a Digitone II - and removes the spring tile from the patcher; the other eight builds are unchanged.
-    sources: [GitHub README, lapin-list]
+    sources: [GitHub README, lapin-list, 'https://github.com/naturarum/dn2-cfw/blob/466e28c5de2fc00d67c51d4a129a286f5be4a520/docs/release/digiwerk-0.3.0.md']
     relations:
     - {type: vendors, id: digikit, evidence: 'catalogue notes: upstream cloned into vendor/ (author''s fork, branch dn2-1.12)'}
     - {type: vendors, id: elekloader, evidence: 'catalogue notes: upstream cloned into vendor/ (author''s fork, branch dn2-1.12)'}

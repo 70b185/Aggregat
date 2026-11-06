@@ -120,10 +120,11 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 ### I10. Byte-wise reads of uncached DMA buffers stalled the sequencer
 - **Unit:** Digitone II, OS 1.12 (Digiwerk UM01, multichannel USB audio), 2026-10-31
 - **Seen:** 42 channels arrived on the Mac, but the sequencer lagged until unusable.
-- **Cause (read from the start-up code, confirmed by the fixed build on the unit):** the main OS sets CACR `0xa50ce100` / ACR0 `0x4007e020` (`0x40000000-0x47ffffff` cached); the SSI DMA buffers at `0x4e6e7100` are uncached, and UM01 made 84 DDR reads a frame. A first look at the bootstrap's CACR (cache off) gave a wrong conclusion.
-- **Fix:** read each slot once as a word (UM02, 14 reads): no lag with busy sequences.
+- **Cause (read from the start-up code, confirmed by the fixed build on the unit):** the main OS sets CACR `0xa50ce100` / ACR0 `0x4007e020` (`0x40000000-0x47ffffff` cached); the SSI DMA buffers at `0x4e6e7100` are uncached, and UM01 packed their slots with byte-wise reads. A first look at the bootstrap's CACR (cache off) gave a wrong conclusion.
+- **Fix:** read each of the 14 SSI slots once as a 32-bit word (UM02): no lag with busy sequences.
 - **Status:** fixed (Digiwerk 0.3.0).
-- **Evidence:** `[hw]` {dn2-cfw-handoff}
+- **Evidence:** `[hw]` {dn2-cfw-handoff} {dn2-cfw-usb}
+- **Count scope:** HANDOFF reports 84 reads per frame; the corrected USB technical note specifies 42 uncached SSI reads (14 slots times three bytes), with the table reads cached. The summaries above retain the byte-wise-to-word-wise change without treating those counts as equivalent.
 - **Rule:** A48
 - **Fact:** [devices/digitone-2.md](devices/digitone-2.md)
 

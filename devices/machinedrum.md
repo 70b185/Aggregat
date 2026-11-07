@@ -13,7 +13,7 @@ Data last verified: 2026-11-06
 | **mds-tools (MDS packer and certifier)** (Justin Mammarella) | tool | active | main @ 983600a (2026-11-03); MDX 2.0 USR machines (Machinedrum MKI and MKII) | - | 2026-11-03 | [repo](https://github.com/jmamma/mds-tools) |
 | **Machinemodule for MPC OS** (sd88me) | emulator | active | v1.0.2 (tag, 2026-11-03) | v1.0.3 | 2026-11-03 | [repo](https://github.com/sd88me/mpc-vst-machinedrum) · [move port](https://github.com/sd88me/schwung-machinemodule) · [monomodule mpc](https://github.com/sd88me/mpc-vst-monomodule) |
 | **ModuleDrum** (K-X420) | emulator | active | - | v1.4.1 | 2026-11-01 | [repo](https://github.com/K-X420/ModuleDrum) |
-| **OP-XY MNMD** (mmockett) | emulator | active | - | v1.3.0 | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
+| **OP-XY MNMD** (mmockett) | emulator | active | - | v1.3.1 | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **BSP Machinedrum** (ABarracu87) | tool | active | - | v0.3.5 | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
 | **MoDule (MD Drums)** (c0remusic) | emulator | active | - | module-v0.1.2 | 2026-10-29 | [repo](https://github.com/c0remusic/MModule) |
 | **fsdsp56k** (smoothdeveloper) | tool | active | main @ 2ac9d9b (2026-10-26); MDX X.20 for running packed machines on hardware | - | 2026-10-26 | [repo](https://github.com/smoothdeveloper/fsdsp56k) · [homepage](https://smoothdeveloper.github.io/fsdsp56k/) |

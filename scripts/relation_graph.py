@@ -1,6 +1,6 @@
-"""Draw the relations between catalogue entries as a Mermaid graph for README.md.
+"""Draw the lineage relations between catalogue entries as a Mermaid graph (at the end of PROJECT-FAMILIES.md).
 
-build.py calls readme_with_graph() on every run. Standard library only.
+build.py calls readme_with_graph() on the generated PROJECT-FAMILIES.md on every run. Standard library only.
 
 - Nodes: entries that have at least one drawn relation (all others stay in the lists only).
   Each node shows the entry's name and its `license` field ("not recorded" when it has none).

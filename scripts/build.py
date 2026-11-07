@@ -248,14 +248,14 @@ for _, members in sorted(groups.items(), key=lambda kv: (-len(kv[1]), byid[pick_
                          for x in p.get("relations") or [] if x["id"] in byid and x["type"] in LINEAGE)
         rels = rels or f"linked to **{r['name']}** through another member of this family"
         fam.append(f"- **{p['name']}** ({p.get('author', '?')}) - {rels}. {link('repo', p['repo']) if p.get('repo') else ''}")
-(ROOT / "PROJECT-FAMILIES.md").write_text("\n".join(fam) + "\n", encoding="utf-8")
+from relation_graph import readme_with_graph, START as G_START, END as G_END
+
+# The static lineage graph (scripts/relation_graph.py) sits at the end of PROJECT-FAMILIES.md, for readers without
+# the website; the interactive network map on the website shows every relation kind.
+fam_text = "\n".join(fam) + "\n\n## Lineage graph\n\nDrawn by GitHub from the lineage relations (fork, copy, port, variant, builds on, bundles, describes, vendors code from); the [network map](https://70b185.github.io/Aggregat/?t=network) shows all relation kinds and the people behind the projects.\n\n" + G_START + "\n" + G_END + "\n"
+fam_text, n_nodes, n_edges = readme_with_graph(fam_text, projects, devices)
+(ROOT / "PROJECT-FAMILIES.md").write_text(fam_text, encoding="utf-8")
+print("relation graph:", n_nodes, "entries,", n_edges, "relations (in PROJECT-FAMILIES.md)")
 print("families:", sum(1 for g in groups.values() if len(g) > 1))
 
 
-# ---------------------------------------------------------------- relation graph in README.md
-from relation_graph import readme_with_graph
-
-readme_file = ROOT / "README.md"
-readme, n_nodes, n_edges = readme_with_graph(readme_file.read_text(encoding="utf-8"), projects, devices)
-readme_file.write_text(readme, encoding="utf-8")
-print("relation graph:", n_nodes, "entries,", n_edges, "relations")

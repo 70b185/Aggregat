@@ -8,7 +8,7 @@ Data last verified: 2026-11-07
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **DBX-DR (dark drone for MDX)** (MonCalamari) | mod | active | Machinedrum MKI/MKII running MDX X.20 (MDS 1.1) | - | 2026-11-07 | [repo](https://github.com/MonCalamari/DBX-DR) |
+| **DBX-DR (dark drone for MDX)** (MonCalamari) | mod | active | Machinedrum MKI/MKII running MDX X.20 (MDS 1.1) | drone-v0.5 | 2026-11-07 | [repo](https://github.com/MonCalamari/DBX-DR) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-06 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
 | **DBX-K2 (resonator kick for MDX)** (MonCalamari) | mod | active | kick2-v0.9 (2026-11-06): HOLD replaces colour, pitch 38-160 Hz, saturation always on; v0.7 first release the same day; Machinedrum MKI/MKII running MDX X.20 | kick2-v0.9 | 2026-11-06 | [repo](https://github.com/MonCalamari/DBX-K2) |
 | **mds-tools (MDS packer and certifier)** (Justin Mammarella) | tool | active | main @ 983600a (2026-11-03); MDX 2.0 USR machines (Machinedrum MKI and MKII) | - | 2026-11-03 | [repo](https://github.com/jmamma/mds-tools) |

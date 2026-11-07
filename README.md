@@ -1,45 +1,87 @@
 # Aggregat
 
-**A metadata index and agent knowledge base for unofficial firmware and tooling on Elektron devices** - in depth for the small boxes (Digitakt MKI/II, Digitone MKI/Keys/II, Syntakt, Analog Heat MKI/MKII/+FX), as a catalogue for Octatrack, Analog Rytm/Four/Keys, Model:Cycles/Samples, Machinedrum and Monomachine.
+**An index and agent knowledge base for community firmware, mods and tools on Elektron devices.** In depth for
+Digitakt MKI/II, Digitone MKI/Keys/II, Syntakt and Analog Heat MKI/MKII/+FX; as a catalogue for Octatrack, Analog
+Rytm/Four/Keys, Model:Cycles/Samples, Machinedrum and Monomachine.
 
----
+**[Website](https://70b185.github.io/Aggregat/)** (search everything) ·
+[Network map](https://70b185.github.io/Aggregat/?t=network) ·
+[Community](https://70b185.github.io/Aggregat/?t=community) ·
+[Stock bugs](hardware/STOCK-BUGS.md) ·
+[Incidents](hardware/INCIDENTS.md) ·
+[Research map](RESEARCH-MAP.md)
 
-## Looking for something?
+## Start here
 
-| You want | Read |
+| You are | Read |
 |---|---|
-| **Mods and custom firmware** for your device, and the loaders that install them | [MODS.md](MODS.md) |
-| **Development tools**: toolchains, emulators, firmware unpackers, protocol libraries, research | [DEV-TOOLS.md](DEV-TOOLS.md) |
-| **Tools for musicians**: editors, sample/project managers, Overbridge audio, screen mirrors - nothing that changes firmware | [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) |
-| **The same feature built more than once** (engines carried between boxes, compressors, scales, direct jump, load meters): where to start instead of from zero | [FEATURE-OVERLAP.md](FEATURE-OVERLAP.md) |
-| Which entries are forks, copies, ports or builds of each other (so nothing is counted twice) | [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md) |
-| Everything for one device, with full notes | [INDEX.md](INDEX.md) |
-| How the hardware works, for writing mods | [hardware/](hardware/README.md) |
-| **What is known and what is still open, per device, plus a shared to-do and a prompt to start a research session** | [RESEARCH-MAP.md](RESEARCH-MAP.md) |
-| **Help the research:** tests that take minutes on a stock unit, open tasks and shared goals, and how to take part with your own project | [RESEARCH-MAP.md](RESEARCH-MAP.md#help-with-a-test-no-flashing-needed), [research/](research/PARTICIPANTS.md) |
-| **See the scene at a glance:** an interactive network map of projects, the people behind them, device families and how projects build on each other; a community page with new repos per week, projects per device, licences and the most active people | [Network map](https://70b185.github.io/Aggregat/?t=network), [Community](https://70b185.github.io/Aggregat/?t=community) |
-| **Everything as one database** (projects, relations, rules, sources, conflicts, ~900 hardware facts with full-text search), for agents and scripts | [export/](export/README.md), or search it in the browser: [70b185.github.io/Aggregat](https://70b185.github.io/Aggregat/) |
+| **Musician** looking for a mod or a tool | [MODS.md](MODS.md) (mods, custom firmware, loaders) · [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (editors, sample and project managers, nothing that changes firmware) · [INDEX.md](INDEX.md) and [devices/](devices/) (everything per device) |
+| **Developer** writing a mod | [hardware/](hardware/README.md) (how the hardware works) · [AGENT-RULES.md](hardware/AGENT-RULES.md) (rules, grown from tests) · [INCIDENTS.md](hardware/INCIDENTS.md) (what went wrong on real units) · [STOCK-BUGS.md](hardware/STOCK-BUGS.md) (bugs in Elektron's own OS, check before you blame your mod) · [DEV-TOOLS.md](DEV-TOOLS.md) (toolchains, emulators, unpackers) · [FEATURE-OVERLAP.md](FEATURE-OVERLAP.md) (features already built elsewhere) |
+| **Researcher**, or want to help | [RESEARCH-MAP.md](RESEARCH-MAP.md) (what is known and open per device, shared goals, tests that take minutes on a stock unit) · [research/PARTICIPANTS.md](research/PARTICIPANTS.md) (take part with your project) |
+| **Agent or script** | [export/](export/README.md): one SQLite/JSON database with projects, relations, rules, incidents, stock bugs, sources, conflicts and about 1,000 hardware facts, with full-text search |
 
-All three lists are generated from [`data/projects.yml`](data/projects.yml); an entry's `kind` (or an explicit `list:` field) decides where it goes.
+The lists are generated from [`data/projects.yml`](data/projects.yml); [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)
+shows which entries are forks, ports or copies of each other, so nothing is counted twice.
+
+## Using it with an AI agent
+
+Point the agent at this repo. For open-ended research, start with the prompt in [RESEARCH-MAP.md](RESEARCH-MAP.md);
+otherwise have it read, in this order:
+
+1. [`hardware/README.md`](hardware/README.md): the ten things to know first
+2. [`hardware/AGENT-RULES.md`](hardware/AGENT-RULES.md), [`hardware/INCIDENTS.md`](hardware/INCIDENTS.md) and [`hardware/STOCK-BUGS.md`](hardware/STOCK-BUGS.md)
+3. [`hardware/common/recovery.md`](hardware/common/recovery.md) and [`hardware/common/flash-procedure.md`](hardware/common/flash-procedure.md)
+4. the device file under [`hardware/devices/`](hardware/devices/), then [`INDEX.md`](INDEX.md) for the project it builds on
+
+Evidence tags: `[hw]` seen on a real unit, `[emu]` emulator only, `[doc]` stated without a test result, `[?]` unclear
+or inferred. Everything is second-hand: check addresses and byte patterns against the original source. Source keys
+like `{dn2-ele3}` resolve in [`hardware/SOURCES.md`](hardware/SOURCES.md).
+
+**Starting a new project?** Copy [`research/AGGREGAT_RESEARCH.md`](research/AGGREGAT_RESEARCH.md) into its root on
+day one and let your agent keep its results table. It holds the shared goals, tasks and tests as of that day; we merge
+results back by hand, with credit.
+
+## Contributing
+
+- **Pull requests** are welcome: correct a fact about your project, add evidence, fix the tooling. A maintainer
+  reviews and merges by hand ([credits](research/PARTICIPANTS.md)).
+- **Issue forms:** [test result](https://github.com/70b185/Aggregat/issues/new?template=test-result.yml) for a test
+  from the research map, [stock bug](https://github.com/70b185/Aggregat/issues/new?template=stock-bug.yml) for a bug in
+  Elektron's OS.
+- **Ground rules:** metadata only (names, links, status, short notes in our own words); never firmware, extracted
+  sections, built images or copied code. Every entry has a source and a date. Do not post firmware-mod links on
+  Elektronauts (Elektron's policy since 2026-09-16), and read each project's contribution rules before opening issues
+  there.
+- **Not affiliated with Elektron.** Custom firmware can brick a unit and may affect warranty. This repo points to
+  projects; it does not endorse or test them.
+
+## Keeping it current
+
+A daily GitHub Action checks every catalogued repo for changes and writes [`state/CHANGES.md`](state/CHANGES.md).
+To update by hand: edit [`data/projects.yml`](data/projects.yml) (fields are documented at its top) and run
+`python3 scripts/build.py`; generated Markdown carries a marker, so edit the YAML, not the Markdown. The full
+procedure, including finding new projects and merging research results, is in [`docs/UPDATING.md`](docs/UPDATING.md).
+
+## Scope
+
+- **Phase 1, in depth:** Digitakt MKI/II, Digitone MKI/Keys/II, Syntakt, Analog Heat MKI/MKII/+FX: catalogue plus the
+  knowledge base in [`hardware/`](hardware/).
+- **Phase 2, catalogue:** Octatrack, Analog Rytm, Analog Four/Keys, Model:Cycles/Samples, Machinedrum, Monomachine,
+  with device profiles in `hardware/devices/` where projects have published research.
+- Not covered: Tonverk and other brands ([`docs/BACKLOG.md`](docs/BACKLOG.md)).
+
+Related directories: [Awesome Music Gear Firmware](https://github.com/Lapin/awesome-music-gear-firmware) (19 brands),
+[altstrument](https://altstrument.org) (structured directory of alternative firmware),
+[elektronmods.com](https://elektronmods.com) (community forum). Aggregat goes deeper on fewer devices: the current
+version and OS per project, and a hardware knowledge base for agents.
 
 ## How the projects relate
 
-The [interactive network map](https://70b185.github.io/Aggregat/?t=network) shows the same relations together with the people (GitHub owners) and, if you like, the device families; click a project or a person for details. The static graph below is drawn by GitHub.
-
-The graph shows the entries that are linked to another entry. A link is a fork, a copy, a port, a variant for another device, or a project that builds on, bundles or describes another one. An arrow points from an entry to the entry it names, for example from a fork to its original.
-
-Each box groups the entries for one device family. An entry for more than one family is in "Several device families". Each node shows the licence the project states, or "not recorded" when the entry has no `license` field. Entries without a link are not in the graph. They are in the lists above.
-
-`scripts/build.py` draws the graph again on each run, from the `relations:` and `license` fields in [`data/projects.yml`](data/projects.yml). Each relation names its evidence: GitHub's fork flag, or a file of the project such as its README. [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md) lists each relation with its evidence. A relation of type `unclear` is not drawn, because no source states what it is.
-
-To add a relation, add it to the entry in `data/projects.yml` and run `python3 scripts/build.py`:
-
-```yaml
-    relations:
-    - {type: fork_of, id: <id of the other entry>, evidence: 'GitHub fork flag'}
-```
-
-The types are `fork_of`, `copy_of`, `port_of`, `variant_of`, `builds_on`, `same_project`, `bundles`, `describes` and `unclear`. Add a relation only when a source proves it, and name that source in `evidence`.
+The [network map](https://70b185.github.io/Aggregat/?t=network) shows all relations, including mods for a loader,
+tools a project uses and projects it cites. The graph below, drawn by GitHub, shows lineage only: forks, copies,
+ports, variants, and projects that build on, bundle, describe or vendor code from another. Arrows point to the entry
+named, boxes group device families, colours show the licence. Each relation names its evidence in
+[`data/projects.yml`](data/projects.yml); [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md) lists them.
 
 <!-- relation-graph:start - generated by scripts/build.py from data/projects.yml, do not edit by hand -->
 
@@ -399,72 +441,7 @@ flowchart LR
 
 <!-- relation-graph:end -->
 
-## What is in here
-
-| Path | What it is | Who it is for |
-|---|---|---|
-| [`INDEX.md`](INDEX.md) | Overview: projects per device, verified vs. unverified | everyone |
-| [`devices/`](devices/) | One generated page per device: table of projects with kind, status, OS, last activity, links | developers looking for a tool or mod |
-| [`data/projects.yml`](data/projects.yml) | The source of truth: one entry per project (repo, links, status, base OS, version, notes, sources) | contributors, scripts |
-| [`data/candidates.yml`](data/candidates.yml) | Entries seen in other directories but not yet checked against their repo | contributors |
-| [`data/devices.yml`](data/devices.yml) | Device catalogue and scope phases | scripts |
-| [`hardware/`](hardware/) | **Knowledge base for AI agents**: rules, recovery, firmware container, memory maps, toolchains, per-device internals - every fact with an evidence tag and a source | agents and humans writing mods |
-| [`state/CHANGES.md`](state/CHANGES.md) | Latest change report from the fingerprint check - **read this first when updating** | agents, maintainers |
-| [`docs/UPDATING.md`](docs/UPDATING.md) | Token-cheap update procedure (fingerprints, diffs, daily GitHub Action) | agents, maintainers |
-| [`docs/BACKLOG.md`](docs/BACKLOG.md) | Research backlog and phase-2 devices | maintainers |
-| [`scripts/build.py`](scripts/build.py) | Regenerates `INDEX.md`, `devices/*.md` and the three lists from `data/` | maintainers |
-
-Snapshot (2026-11-02): 199 project entries for 13 devices (115 mods/firmware/loaders, 53 development tools, 27 musician tools); `hardware/` holds about 35 files with rules A1-A38, drawn from more than 70 repositories, two directories, official release notes and forum threads.
-
-## Using it with an AI agent
-
-Point the agent at this repo and tell it to read, in this order (for open-ended research, start with the ready-made prompt in [RESEARCH-MAP.md](RESEARCH-MAP.md) instead):
-
-1. [`hardware/README.md`](hardware/README.md) - the ten things to know first
-2. [`hardware/AGENT-RULES.md`](hardware/AGENT-RULES.md) - safety, legal, process and coding rules, and [`hardware/INCIDENTS.md`](hardware/INCIDENTS.md) - what already went wrong on real units and the rule each failure taught
-3. [`hardware/common/recovery.md`](hardware/common/recovery.md) and [`hardware/common/flash-procedure.md`](hardware/common/flash-procedure.md)
-4. the device file under [`hardware/devices/`](hardware/devices/)
-5. [`INDEX.md`](INDEX.md) / [`devices/`](devices/) to find the project it builds on
-
-**Starting a new project with this repo?** Copy [`research/AGGREGAT_RESEARCH.md`](research/AGGREGAT_RESEARCH.md) into the root of the new project on day one, and have your agent keep its results table up to date. It holds a copy of the shared goals, tasks and tests as of the day you started, so your findings stay comparable, and we merge your results back (by hand, with credit) when we update. Optional, but it is how one project's finding helps all the others. See [research/PARTICIPANTS.md](research/PARTICIPANTS.md).
-
-Evidence tags used throughout `hardware/`: `[hw]` reported working on a real unit, `[emu]` emulator only, `[doc]` stated without a test result, `[?]` unclear or inferred. Everything is **second-hand** - verify addresses and byte patterns against the original source before relying on them. Source keys like `{dn2-ele3}` resolve in [`hardware/SOURCES.md`](hardware/SOURCES.md); what was read and how deeply is in [`hardware/READING-LEDGER.md`](hardware/READING-LEDGER.md).
-
-## Ground rules
-
-- **Metadata only.** Names, links, status, short paraphrased notes. No Elektron firmware, no extracted sections, no built images, no binaries, no copied third-party code. Never commit a `.syx`.
-- **Every entry has a source and a date.** Status words follow the authors' own wording; where sources disagree, the note says so.
-- **Respect the communities.** Elektron does not allow firmware-mod links or files on Elektronauts (policy of 2026-09-16) - do not post there. Some projects reject AI-generated issues or pull requests; read each project's contribution rules first.
-- **Not affiliated with Elektron.** Custom firmware can brick a unit and may affect warranty. This repo only points to projects; it does not endorse or test them.
-
-## Updating the data
-
-```bash
-pip install pyyaml
-# edit data/projects.yml (or move an entry from data/candidates.yml once checked)
-python3 scripts/build.py      # regenerates INDEX.md and devices/*.md
-```
-
-Entry fields are documented at the top of `data/projects.yml`. To find out *what* needs updating, run `python3 scripts/check_updates.py` (or read `state/CHANGES.md`, written daily by the GitHub Action) - see [`docs/UPDATING.md`](docs/UPDATING.md). Generated files carry a marker - edit the YAML, not the Markdown.
-
-## Status and scope
-
-- **Phase 1 (in depth):** Digitakt MKI/II, Digitone MKI/Keys/II, Syntakt, Analog Heat MKI/MKII/+FX: project catalogue plus the agent knowledge base in [`hardware/`](hardware/).
-- **Phase 2 (catalogue, since 2026-11-01):** Octatrack, Analog Rytm, Analog Four/Keys, Model:Cycles, Model:Samples, Machinedrum, Monomachine: 45 projects imported from altstrument as facts with our own short notes, watched daily; repos not yet read, no hardware notes yet. Tonverk and non-Elektron gear: see [`docs/BACKLOG.md`](docs/BACKLOG.md).
-- **Known gap:** no community firmware work exists for the Analog Heat yet; only official facts, Overbridge channel layout and tool support lists are collected.
-- **Open reading list:** [`hardware/MINING.md`](hardware/MINING.md) (e.g. the MIDI appendices of the official manuals, which our tooling could not extract).
-
-## Related directories
-
-- [Awesome Music Gear Firmware](https://github.com/Lapin/awesome-music-gear-firmware) - curated link list across 19 brands (CC0)
-- [altstrument](https://altstrument.org) / [repo](https://github.com/philmillman/altstrument) - structured directory of alternative firmware (CC-BY-4.0 data)
-- [elektronmods.com](https://elektronmods.com) - community forum and GitHub mod list for Elektron devices
-
-Aggregat differs from these by focusing on a few devices in depth: current version and OS per project, and an agent-readable hardware knowledge base.
-
 ## Licence
 
-Everything in this repository - texts, data and scripts - is dedicated to the public domain under
-[CC0 1.0 Universal](LICENSE). Use it for anything, no attribution required (a mention is welcome).
-The linked projects are not part of this repository and keep their own licences; check those before
-you reuse their code.
+Everything in this repository (texts, data and scripts) is dedicated to the public domain under
+[CC0 1.0 Universal](LICENSE). The linked projects keep their own licences.

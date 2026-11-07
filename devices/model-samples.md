@@ -8,7 +8,7 @@ Data last verified: 2026-11-07
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **Model:Samples battery base** (malthelm) | research | wip | v0.6.0 experimental CAD release | - | 2026-11-06 | [repo](https://github.com/malthelm/model-samples-battery-base) |
+| **Model:Samples battery base** (malthelm) | research | wip | v0.6.0 experimental CAD release | v0.6.0 | 2026-11-06 | [repo](https://github.com/malthelm/model-samples-battery-base) |
 | **model909** (DMDaudio) | mod | wip | v1.0 (909 only, stable); main branch adds 808/606 voices (experimental); Model:Cycles OS 1.13 (also Model:Samples running the Cycles OS) | v1.0 | 2026-10-28 | [repo](https://github.com/DMDaudio/model909) |
 | **Modded Cycles** (18nelli18, Modded-Cycles contributors) | firmware | active | Release 2.0 (2026-10-19); 1.13 | etude-optimisation-os-2026-10-18 | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
 | **1-Bit Editor** (durchgemacht) | tool | active | v0.1 (2026-10-17) | v0.1 | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |

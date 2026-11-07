@@ -1,0 +1,57 @@
+name: Stock firmware bug
+description: Report a bug in Elektron's own OS that you found while testing (it also happens on the unmodified OS).
+title: "[Stock bug] <device> <OS>: <short description>"
+labels: ["stock bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. This list helps other developers tell stock bugs from bugs in their own mods.
+        Please first check hardware/STOCK-BUGS.md. Maintainers check each report by hand before it goes into the list, with credit to you.
+        Do not attach firmware files (.syx, sections, dumps of the OS); photos, logs and short captures are fine.
+  - type: input
+    id: device_os
+    attributes:
+      label: Device and OS version
+      placeholder: Digitone II, OS 1.12
+    validations:
+      required: true
+  - type: dropdown
+    id: stock
+    attributes:
+      label: Does it happen on the unmodified OS?
+      options:
+        - "Yes, reproduced on the unmodified OS"
+        - "Only seen with a mod installed, but the cause is in stock code"
+        - "Not checked yet"
+    validations:
+      required: true
+  - type: textarea
+    id: symptom
+    attributes:
+      label: What happens
+      description: What you see or hear, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: trigger
+    attributes:
+      label: Steps to reproduce
+      description: As exact as you can, starting from a known state (new project, factory sound, ...).
+    validations:
+      required: true
+  - type: textarea
+    id: cause
+    attributes:
+      label: Cause, if known, and how you found it
+      description: Read from the code, measured on the unit, shown in an emulator, or unknown. Addresses are welcome; long disassembly is not.
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Workaround or fix
+      description: What a mod or a user can do. Link your fix if you have one.
+  - type: input
+    id: source
+    attributes:
+      label: Where it is documented
+      description: Your repo, file or issue (a link).

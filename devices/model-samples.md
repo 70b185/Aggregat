@@ -2,12 +2,13 @@
 
 # Model:Samples
 
-Data last verified: 2026-11-06
+Data last verified: 2026-11-07
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **Model:Samples battery base** (malthelm) | research | wip | v0.6.0 experimental CAD release | - | 2026-11-06 | [repo](https://github.com/malthelm/model-samples-battery-base) |
 | **model909** (DMDaudio) | mod | wip | v1.0 (909 only, stable); main branch adds 808/606 voices (experimental); Model:Cycles OS 1.13 (also Model:Samples running the Cycles OS) | v1.0 | 2026-10-28 | [repo](https://github.com/DMDaudio/model909) |
 | **Modded Cycles** (18nelli18, Modded-Cycles contributors) | firmware | active | Release 2.0 (2026-10-19); 1.13 | etude-optimisation-os-2026-10-18 | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
 | **1-Bit Editor** (durchgemacht) | tool | active | v0.1 (2026-10-17) | v0.1 | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |
@@ -76,3 +77,9 @@ _Sources: altstrument (2026-11-03), README_
 Closed-source browser app that preps audio and sends it over Web MIDI SysEx to the +Drive, with Transfer and +Drive Manager views and device profiles for Digitakt II, Digitakt, Analog Rytm (MKI/MKII) and Model:Samples. Proprietary; author not named. Relation to luizvarela's ElekPrep not established (same name). Interesting as a second independent implementation of +Drive upload over SysEx.
 
 _Sources: altstrument (2026-11-03)_
+
+### Model:Samples battery base
+
+Open-hardware battery base using the original side mounting points and the left battery input: editable CAD, STEP/STL, parts list, build guide and printable fit gauges. No working physical prototype validated yet. Found by GitHub search 2026-11-07.
+
+_Sources: GitHub search 2026-11-07, README_

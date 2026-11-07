@@ -21,6 +21,7 @@ The output is deterministic: an unchanged repo gives byte-identical files.
 | `sources` | `hardware/SOURCES.md` | key, what, url |
 | `conflicts` | `hardware/CONFLICTS.md` | id (O1.., S1..), status, topic, a, b, details, devices |
 | `incidents` | `hardware/INCIDENTS.md` | id (I1..), group (stock, mod, emulator-or-tool, recovery-or-link), title, unit, seen, cause, cause_found_by, fix, status, evidence, sources, rules, fact_file, devices |
+| `stock_bugs` | `hardware/STOCK-BUGS.md` | id (SB1..), title, device_os, area, symptom, trigger, cause, workaround, test_tip, found_by, status, evidence, sources, incidents, devices |
 | `incident_rules` | `hardware/INCIDENTS.md` | incident, rule: which rule each incident taught or confirmed (join with `rules`) |
 | `facts` | `hardware/devices/*.md`, `hardware/common/*.md` | id, file, line, section, text, evidence, sources, devices, addresses |
 | `facts_fts` | FTS5 index over `facts` | text, section, devices |

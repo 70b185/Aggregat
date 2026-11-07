@@ -493,6 +493,19 @@
   "archived": false,
   "seen": "2026-11-07"
  },
+ "claptom-music/elektron-project-companion": {
+  "full_name": "Claptom-music/elektron-project-companion",
+  "created": "2026-11-07",
+  "pushed": "2026-11-07",
+  "stars": 0,
+  "forks": 0,
+  "language": "JavaScript",
+  "fork": false,
+  "license": null,
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-07"
+ },
  "complex-ping/digitone-2-modding-skill": {
   "full_name": "complex-ping/digitone-2-modding-skill",
   "created": "2026-10-28",
@@ -1629,6 +1642,19 @@
   "archived": false,
   "seen": "2026-11-07"
  },
+ "julesyoungberg/sample-shepherd": {
+  "full_name": "julesyoungberg/sample-shepherd",
+  "created": "2026-11-07",
+  "pushed": "2026-11-07",
+  "stars": 0,
+  "forks": 0,
+  "language": "Python",
+  "fork": false,
+  "license": null,
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-07"
+ },
  "k-x420/moduledrum": {
   "full_name": "K-X420/ModuleDrum",
   "created": "2026-10-06",
@@ -1798,6 +1824,19 @@
   "archived": false,
   "seen": "2026-11-07"
  },
+ "malthelm/model-samples-battery-base": {
+  "full_name": "malthelm/model-samples-battery-base",
+  "created": "2026-11-06",
+  "pushed": "2026-11-06",
+  "stars": 0,
+  "forks": 0,
+  "language": "Python",
+  "fork": false,
+  "license": "CERN-OHL-P-2.0",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-07"
+ },
  "markandrus/octemu": {
   "full_name": "markandrus/octemu",
   "created": "2026-09-19",
@@ -1807,6 +1846,19 @@
   "language": "C",
   "fork": false,
   "license": "NOASSERTION",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-07"
+ },
+ "mbaumannn/mutiny": {
+  "full_name": "mbaumannn/mutiny",
+  "created": "2026-11-07",
+  "pushed": "2026-11-07",
+  "stars": 1,
+  "forks": 0,
+  "language": "C",
+  "fork": false,
+  "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
   "seen": "2026-11-07"
@@ -1859,6 +1911,19 @@
   "language": "C++",
   "fork": false,
   "license": "MIT",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-07"
+ },
+ "moncalamari/dbx-dr": {
+  "full_name": "MonCalamari/DBX-DR",
+  "created": "2026-11-06",
+  "pushed": "2026-11-07",
+  "stars": 0,
+  "forks": 0,
+  "language": "Python",
+  "fork": false,
+  "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
   "seen": "2026-11-07"

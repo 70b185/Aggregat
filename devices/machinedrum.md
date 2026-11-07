@@ -2,12 +2,13 @@
 
 # Machinedrum (incl. UW)
 
-Data last verified: 2026-11-06
+Data last verified: 2026-11-07
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **DBX-DR (dark drone for MDX)** (MonCalamari) | mod | active | Machinedrum MKI/MKII running MDX X.20 (MDS 1.1) | - | 2026-11-07 | [repo](https://github.com/MonCalamari/DBX-DR) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-06 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
 | **DBX-K2 (resonator kick for MDX)** (MonCalamari) | mod | active | kick2-v0.9 (2026-11-06): HOLD replaces colour, pitch 38-160 Hz, saturation always on; v0.7 first release the same day; Machinedrum MKI/MKII running MDX X.20 | kick2-v0.9 | 2026-11-06 | [repo](https://github.com/MonCalamari/DBX-K2) |
 | **mds-tools (MDS packer and certifier)** (Justin Mammarella) | tool | active | main @ 983600a (2026-11-03); MDX 2.0 USR machines (Machinedrum MKI and MKII) | - | 2026-11-03 | [repo](https://github.com/jmamma/mds-tools) |
@@ -214,3 +215,11 @@ A DSP56300 user machine sent as SysEx into a USR slot: each trigger strikes a tu
 _Related: mod for `mdx` (altstrument: needs a Machinedrum running MDX X.20); uses tool `mds` (altstrument: the repository uses the MDS tooling as submodules) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-06)_
+
+### DBX-DR (dark drone for MDX)
+
+Single-voice drone USR machine: three detuned saws and a square sub into saturation and a 4-pole ladder lowpass, with a phase-inverted feedback loop (gain up to 1.5, self-oscillating above 1) and WARP drift. Certified cycle counts per track and block: MKII 2,610, MKI DRAM 3,017, MKI SRAM 2,681; tested on one MKII +Drive UW, MKI certified but not played. Found by GitHub search 2026-11-07.
+
+_Related: mod for `mdx` (README: a USR machine for the Machinedrum running MDX X.20) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-07, README_

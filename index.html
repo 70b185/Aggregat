@@ -102,7 +102,7 @@
 <script src="assets/community.js"></script>
 <script>
 const REPO = "https://github.com/70b185/aggregat/blob/master/";
-const TABS = [["network","Network map"],["community","Community"],["facts","Hardware facts"],["projects","Projects"],["rules","Agent rules"],["incidents","Incidents"],["hypotheses","Tests to run"],["tasks","Tasks"],["goals","Goals"],["conflicts","Conflicts"],["sources","Sources"]];
+const TABS = [["network","Network map"],["community","Community"],["facts","Hardware facts"],["projects","Projects"],["rules","Agent rules"],["incidents","Incidents"],["stock_bugs","Stock bugs"],["hypotheses","Tests to run"],["tasks","Tasks"],["goals","Goals"],["conflicts","Conflicts"],["sources","Sources"]];
 let D = null, tab = "network", srcUrl = {}, devName = {};
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -172,6 +172,22 @@ const VIEWS = {
     dev: r => r.devices, ev: r => r.evidence,
     html: (r, w) => `<div class="head"><span class="title">${esc(r.id)}</span> <span class="meta">${esc(r.section)}</span> ${evChip(r.evidence)} ${devChips(r.devices)}</div>
         <div class="text">${hl(md(r.text, "hardware/AGENT-RULES.md"), w)}</div>`
+  },
+  stock_bugs: {
+    rows: () => D.stock_bugs || [],
+    hay: b => [b.id, b.title, b.device_os, b.area, b.symptom, b.trigger, b.cause, b.workaround, b.test_tip, b.found_by, b.status].join(" "),
+    dev: b => b.devices,
+    ev: b => b.evidence,
+    html: (b, w) => `<div class="head"><span class="title">${esc(b.id)}</span> ${evChip(b.evidence)}
+        <span class="title">${hl(esc(b.title), w)}</span> ${devChips(b.devices)}</div>
+        <div class="meta">${hl(esc(b.device_os), w)} · ${esc(b.area)} · ${esc(b.status)}</div>
+        <div class="text"><b>Symptom:</b> ${hl(md(b.symptom, "hardware/STOCK-BUGS.md"), w)}</div>
+        ${b.trigger ? `<div class="text"><b>Trigger:</b> ${hl(md(b.trigger, "hardware/STOCK-BUGS.md"), w)}</div>` : ""}
+        ${b.cause ? `<div class="text"><b>Cause:</b> ${hl(md(b.cause, "hardware/STOCK-BUGS.md"), w)}</div>` : ""}
+        <div class="text"><b>Workaround:</b> ${hl(md(b.workaround, "hardware/STOCK-BUGS.md"), w)}</div>
+        ${b.test_tip ? `<div class="text"><b>Test tip:</b> ${hl(md(b.test_tip, "hardware/STOCK-BUGS.md"), w)}</div>` : ""}
+        <div class="meta">Found by ${esc(b.found_by)}${b.incidents ? ` · incident ${list(b.incidents).map(i => `<a href="?t=incidents&q=${i}">${esc(i)}</a>`).join(", ")}` : ""}
+        · <a href="${REPO}hardware/STOCK-BUGS.md">STOCK-BUGS.md</a> · <a href="https://github.com/70b185/Aggregat/issues/new?template=stock-bug.yml">Report a stock bug</a></div>`
   },
   incidents: {
     rows: () => D.incidents || [],

@@ -2,10 +2,11 @@
 
 # Digitone (MKI) / Digitone Keys
 
-Data last verified: 2026-11-06
+Data last verified: 2026-11-07
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **MUTINY (modular sequencers for Digitone mk1)** (mbaumannn) | mod | active | Digitone mk1 OS 1.44 | - | 2026-11-07 | [repo](https://github.com/mbaumannn/mutiny) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-05 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **CHOKE GROUPS (Digitone mk1)** (irpina) | mod | wip | choke 0.1, no release yet; Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 3.1 or later | v0.2 | 2026-11-05 | [repo](https://github.com/irpina/digichoke) |
 | **PROGRAM CHANGE -> SOUND (Digitone mk1)** (irpina) | mod | wip | 0.1, no release yet; Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased) | v0.2 | 2026-11-05 | [repo](https://github.com/irpina/digipcsound) |
@@ -512,3 +513,11 @@ A long FUNC + KEYBOARD opens the ARP menu (stock: FUNC + SYN1 at the other end o
 _Related: mod for `elekloader` (README: an elekloader mod on core-dn1 5.0.1); uses tool `digiemu` (README: checked in digiemu (headless Session)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-05, README_
+
+### MUTINY (modular sequencers for Digitone mk1)
+
+Three generative sequencers on the synth tracks: a Euclidean rhythm, a Turing Machine and a TB-303-style acid line, played from the encoders; YES writes what you hear into the pattern as ordinary trigs. The author tested it for about an hour on one Digitone mk1 (OS 1.44). Found by GitHub search 2026-11-07.
+
+_Related: mod for `elekloader` (README: an Elekloader mod) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-07, README_

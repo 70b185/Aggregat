@@ -2,13 +2,15 @@
 
 # Digitakt II
 
-Data last verified: 2026-11-06
+Data last verified: 2026-11-07
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **dt2-capicola (Capicola time stretch for STRETCH/REPITCH/SLICE/GRID)** (hy3na-k1ng) | mod | unreachable | Digitakt II (version in the vendored README) | - | unknown | [repo](https://github.com/hy3na-k1ng/dt2-capicola) |
+| **DN2 DT2 firmware research** (armio) | firmware | stable | R022 candidate (2026-11-07): loaded samples kept in the unsaved working-state backup used at boot, SYN-to-sampler menu repair (R021); offline checks pass, hardware confirmation pending; an iPhone USB freeze is unresolved. R020: owner cold-boot check passed. R012 remains the stable target; Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally | - | 2026-11-07 | [repo](https://github.com/armio/dn2-dt2-firmware-research) · [web app](https://armio.github.io/dn2-dt2-firmware-research/) · [recorder](https://github.com/armio/dn2-dt2-firmware-research/blob/main/docs/recorder.md) · [release](https://github.com/armio/dn2-dt2-firmware-research/blob/main/releases/r012.json) |
+| **Elektron Project Companion** (Claptom-music) | tool | active | - | - | 2026-11-07 | [repo](https://github.com/Claptom-music/elektron-project-companion) |
+| **sample-shepherd** (julesyoungberg) | tool | active | - | - | 2026-11-07 | [repo](https://github.com/julesyoungberg/sample-shepherd) |
 | **digitakt-ii-research (Deja Vu LFOs, ONESHOT zoom)** (kariGardarsson) | mod | beta | v0.3.0-beta "All-in-One" (2026-10-23) per altstrument; GitHub releases page showed v0.2.0-beta (18 Oct) as newest when read; Digitakt II OS 1.17 (recommended; Deja Vu + ONESHOT zoom) and 1.16 (Deja Vu only) | v0.3.0-beta | 2026-11-06 | [repo](https://github.com/karigardarsson/digitakt-ii-research) · [releases](https://github.com/karigardarsson/digitakt-ii-research/releases) · [release latest](https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.2.0-beta) · [forum deja vu](https://elektronmods.com/thread-80-good-news-everyone-i-got-deja-vu-lfos-running-on-the) · [forum waveform zoom](https://elektronmods.com/thread-83-good-news-everyone-i-added-waveform-zoom-to-the-digitakt-ii) |
-| **DN2 DT2 firmware research** (armio) | firmware | stable | R020 candidate (2026-11-06): accumulated sampler fixes, MIDI controls, SLICE persistence and a start-up guard; owner cold-boot check passed, the saved grid survived it; R013 added SYSTEM > FORMAT SAMPLES; R012 remains the stable target; Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally | - | 2026-11-06 | [repo](https://github.com/armio/dn2-dt2-firmware-research) · [web app](https://armio.github.io/dn2-dt2-firmware-research/) · [recorder](https://github.com/armio/dn2-dt2-firmware-research/blob/main/docs/recorder.md) · [release](https://github.com/armio/dn2-dt2-firmware-research/blob/main/releases/r012.json) |
 | **digimod (Digitakt II mod builder)** (endlea) | loader | active | Digitakt II OS 1.16 | 0.1.0 | 2026-11-06 | [repo](https://github.com/endlea/digimod) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-05 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **macro-mode (digi_macro)** (toonst) | mod | wip | Digitakt II OS 1.17 or Digitone II OS 1.12, exactly (the build checks the file's checksum) | - | 2026-11-05 | [repo](https://github.com/toonst/digi_macro) |
@@ -339,6 +341,20 @@ _Sources: GitHub search 2026-11-06, README_
 A Hermes Agent plugin that jams on a Digitakt II over USB MIDI: starts patterns by genre or mood, changes sounds live by CC/NRPN, mutes tracks (optionally the unit's own mute, CC 94); nothing is saved to the unit. Falls back to a virtual MIDI port without hardware. Found by GitHub search 2026-11-06.
 
 _Sources: GitHub search 2026-11-06, README_
+
+### Elektron Project Companion
+
+Windows editor for arranging live sets from local project backups: place patterns in banks A-H and export a new project for Transfer. Rytm MKII: .arprj and whole-project .syx (patterns, kits, sound locks, sample references). Digitakt II: .dt2prj project image v4 (patterns with their kits; merging only with identical sample pools, since relocating a sample changes locks). File-level testing on a real OS. Licence not stated. Found by GitHub search 2026-11-07.
+
+_Sources: GitHub search 2026-11-07, README_
+
+### sample-shepherd
+
+Organises a sample library (through Fourier Samples), exports it per device profile and syncs it to a sampler without breaking the projects on it: backs up projects, works out which samples they use, plans uploads and deletions and carries them out resumably; never deletes a sample a project uses. Elektron devices through elektroid-cli; used only with a Digitakt II so far (about 30,000 samples over a USB link measured at about 77 KB/s). Licence not stated. Found by GitHub search 2026-11-07.
+
+_Related: uses tool `elektroid` (README: Elektron devices through elektroid-cli) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-07, README_
 
 ### selache (SHARC+ toolchain)
 

@@ -27,7 +27,7 @@
 # All entries last verified on 2026-10-31 (see `checked`). Status values are
 # taken from the authors' own wording where available.
 
-checked: 2026-11-06
+checked: 2026-11-07
 
 projects:
   # ---------------------------------------------------------------- loaders / hubs
@@ -431,8 +431,8 @@ projects:
       release: https://github.com/armio/dn2-dt2-firmware-research/blob/main/releases/r012.json
     status: stable
     base_os: "Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally"
-    version: "R020 candidate (2026-11-06): accumulated sampler fixes, MIDI controls, SLICE persistence and a start-up guard; owner cold-boot check passed, the saved grid survived it; R013 added SYSTEM > FORMAT SAMPLES; R012 remains the stable target"
-    last_activity: "2026-11-06"
+    version: "R022 candidate (2026-11-07): loaded samples kept in the unsaved working-state backup used at boot, SYN-to-sampler menu repair (R021); offline checks pass, hardware confirmation pending; an iPhone USB freeze is unresolved. R020: owner cold-boot check passed. R012 remains the stable target"
+    last_activity: "2026-11-07"
     notes: >
       Source-only recipes for Digitone II firmware with six Digitakt II sample machines (ONESHOT, WERP, STRETCH,
       REPITCH, GRID, SLICE), stereo samples, sample browsing, DT2 parameter graphics and SLICES trig mode.
@@ -4716,3 +4716,93 @@ projects:
     relations:
     - {type: mod_for, id: mdx, evidence: 'altstrument: needs a Machinedrum running MDX X.20'}
     - {type: uses_tool, id: mds, evidence: 'altstrument: the repository uses the MDS tooling as submodules'}
+
+  # ================================================================ found 2026-11-07
+  - id: mutiny
+    name: MUTINY (modular sequencers for Digitone mk1)
+    author: mbaumannn
+    kind: mod
+    devices: [digitone]
+    repo: https://github.com/mbaumannn/mutiny
+    status: active
+    base_os: "Digitone mk1 OS 1.44"
+    license: GPL-2.0
+    last_activity: '2026-11-07'
+    notes: >
+      Three generative sequencers on the synth tracks: a Euclidean rhythm, a Turing Machine and a TB-303-style acid line,
+      played from the encoders; YES writes what you hear into the pattern as ordinary trigs. The author tested it for about
+      an hour on one Digitone mk1 (OS 1.44). Found by GitHub search 2026-11-07.
+    sources: [GitHub search 2026-11-07, README]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an Elekloader mod'}
+
+  - id: dbx-dr
+    name: DBX-DR (dark drone for MDX)
+    author: MonCalamari
+    kind: mod
+    devices: [machinedrum]
+    repo: https://github.com/MonCalamari/DBX-DR
+    status: active
+    base_os: "Machinedrum MKI/MKII running MDX X.20 (MDS 1.1)"
+    license: GPL-3.0
+    last_activity: '2026-11-07'
+    notes: >
+      Single-voice drone USR machine: three detuned saws and a square sub into saturation and a 4-pole ladder lowpass, with
+      a phase-inverted feedback loop (gain up to 1.5, self-oscillating above 1) and WARP drift. Certified cycle counts per
+      track and block: MKII 2,610, MKI DRAM 3,017, MKI SRAM 2,681; tested on one MKII +Drive UW, MKI certified but not
+      played. Found by GitHub search 2026-11-07.
+    sources: [GitHub search 2026-11-07, README]
+    relations:
+    - {type: mod_for, id: mdx, evidence: 'README: a USR machine for the Machinedrum running MDX X.20'}
+
+  - id: elektron-project-companion
+    name: Elektron Project Companion
+    author: Claptom-music
+    kind: tool
+    list: musician
+    devices: [analog-rytm, digitakt-2]
+    repo: https://github.com/Claptom-music/elektron-project-companion
+    status: active
+    last_activity: '2026-11-07'
+    notes: >
+      Windows editor for arranging live sets from local project backups: place patterns in banks A-H and export a new
+      project for Transfer. Rytm MKII: .arprj and whole-project .syx (patterns, kits, sound locks, sample references).
+      Digitakt II: .dt2prj project image v4 (patterns with their kits; merging only with identical sample pools, since
+      relocating a sample changes locks). File-level testing on a real OS. Licence not stated. Found by GitHub search
+      2026-11-07.
+    sources: [GitHub search 2026-11-07, README]
+
+  - id: sample-shepherd
+    name: sample-shepherd
+    author: julesyoungberg
+    kind: tool
+    list: musician
+    devices: [digitakt-2]
+    repo: https://github.com/julesyoungberg/sample-shepherd
+    status: active
+    last_activity: '2026-11-07'
+    notes: >
+      Organises a sample library (through Fourier Samples), exports it per device profile and syncs it to a sampler without
+      breaking the projects on it: backs up projects, works out which samples they use, plans uploads and deletions and
+      carries them out resumably; never deletes a sample a project uses. Elektron devices through elektroid-cli; used only
+      with a Digitakt II so far (about 30,000 samples over a USB link measured at about 77 KB/s). Licence not stated.
+      Found by GitHub search 2026-11-07.
+    sources: [GitHub search 2026-11-07, README]
+    relations:
+    - {type: uses_tool, id: elektroid, evidence: 'README: Elektron devices through elektroid-cli'}
+
+  - id: model-samples-battery-base
+    name: Model:Samples battery base
+    author: malthelm
+    kind: research
+    devices: [model-samples]
+    repo: https://github.com/malthelm/model-samples-battery-base
+    status: wip
+    license: CERN-OHL-P-2.0
+    version: "v0.6.0 experimental CAD release"
+    last_activity: '2026-11-06'
+    notes: >
+      Open-hardware battery base using the original side mounting points and the left battery input: editable CAD,
+      STEP/STL, parts list, build guide and printable fit gauges. No working physical prototype validated yet. Found by
+      GitHub search 2026-11-07.
+    sources: [GitHub search 2026-11-07, README]

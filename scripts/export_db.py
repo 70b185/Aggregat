@@ -7,6 +7,7 @@ Writes export/aggregat.sqlite and export/aggregat.json from:
   hardware/SOURCES.md                                         -> sources
   hardware/CONFLICTS.md                                       -> conflicts
   hardware/INCIDENTS.md                                       -> incidents, incident_rules
+  hardware/STOCK-BUGS.md                                      -> stock_bugs
   hardware/devices/*.md, hardware/common/*.md                 -> facts (one row per top-level bullet)
 
 Facts are extracted automatically: each top-level bullet with its sub-bullets is one fact, tagged with the
@@ -300,6 +301,21 @@ for block in re.split(r"^(?=## |### )", itext, flags=re.M):
     for r in row["rules"].split(","):
         if r:
             incident_rules.append({"incident": row["id"], "rule": r})
+# ---------------------------------------------------------------- stock firmware bugs (hardware/STOCK-BUGS.md)
+stock_bugs = []
+btext = (ROOT / "hardware" / "STOCK-BUGS.md").read_text(encoding="utf-8") if (ROOT / "hardware" / "STOCK-BUGS.md").exists() else ""
+for block in re.split(r"^(?=### )", btext, flags=re.M):
+    h = re.match(r"^### (SB\d+)\. (.+)", block)
+    if not h:
+        continue
+    f = {k.lower(): v.strip() for k, v in re.findall(r"^- \*\*([A-Za-z ]+?)(?: \([^)]*\))?:\*\* (.+)$", block, re.M)}
+    stock_bugs.append({"id": h.group(1), "title": clean(h.group(2)), "device_os": clean(f.get("device and os", "")),
+                       "area": clean(f.get("area", "")), "symptom": clean(f.get("symptom", "")), "trigger": clean(f.get("trigger", "")),
+                       "cause": clean(f.get("cause", "")), "workaround": clean(f.get("workaround", "")), "test_tip": clean(f.get("test tip", "")),
+                       "found_by": clean(f.get("found by", "")), "status": clean(f.get("status", "")),
+                       "evidence": ",".join(sorted(set(EVID.findall(block)))), "sources": ",".join(sorted(set(KEYS.findall(block)))),
+                       "incidents": ",".join(re.findall(r"\bI\d+\b", f.get("incident", ""))),
+                       "devices": ",".join(devices_in(f.get("device and os", "")))})
 snap = ROOT / "research" / "AGGREGAT_RESEARCH.md"
 snapshot = re.search(r"snapshot `([0-9a-f]+)`", snap.read_text(encoding="utf-8")).group(1) if snap.exists() else ""
 
@@ -307,7 +323,7 @@ meta = {"checked": checked, "generator": "scripts/export_db.py",
         "counts": {"projects": len(prow), "devices": len(devices), "relations": len(rrow), "rules": len(rules),
                    "sources": len(sources), "conflicts": len(conflicts), "facts": len(facts),
                    "goals": len(goals), "tasks": len(tasks), "hypotheses": len(hyps), "research_links": len(links),
-                   "participants": len(participants), "incidents": len(incidents)},
+                   "participants": len(participants), "incidents": len(incidents), "stock_bugs": len(stock_bugs)},
         "research_snapshot": snapshot}
 
 # ---------------------------------------------------------------- write SQLite and JSON
@@ -336,6 +352,8 @@ SCHEMA = {
     "incidents": "id TEXT PRIMARY KEY, \"group\" TEXT, title TEXT, unit TEXT, seen TEXT, cause TEXT, cause_found_by TEXT, "
                  "fix TEXT, status TEXT, evidence TEXT, sources TEXT, rules TEXT, fact_file TEXT, devices TEXT",
     "incident_rules": "incident TEXT, rule TEXT",
+    "stock_bugs": "id TEXT PRIMARY KEY, title TEXT, device_os TEXT, area TEXT, symptom TEXT, \"trigger\" TEXT, cause TEXT, "
+                  "workaround TEXT, test_tip TEXT, found_by TEXT, status TEXT, evidence TEXT, sources TEXT, incidents TEXT, devices TEXT",
 }
 for t, cols in SCHEMA.items():
     con.execute(f"CREATE TABLE {t} ({cols})")
@@ -365,6 +383,9 @@ con.executemany('INSERT INTO incidents VALUES (' + ','.join('?' * 14) + ')',
                 [[i[k] for k in ("id", "group", "title", "unit", "seen", "cause", "cause_found_by", "fix", "status", "evidence",
                                  "sources", "rules", "fact_file", "devices")] for i in incidents])
 ins("incident_rules", incident_rules)
+SB_COLS = ("id", "title", "device_os", "area", "symptom", "trigger", "cause", "workaround", "test_tip", "found_by", "status",
+           "evidence", "sources", "incidents", "devices")
+con.executemany('INSERT INTO stock_bugs VALUES (' + ','.join('?' * len(SB_COLS)) + ')', [[b[k] for k in SB_COLS] for b in stock_bugs])
 ins("facts", [{k: f[k] for k in ("id", "file", "line", "section", "text", "evidence", "sources", "devices", "addresses")} for f in facts])
 # full-text search over facts and rules, if this SQLite has FTS5
 try:
@@ -380,5 +401,5 @@ con.close()
     "meta": meta, "devices": devices, "projects": prow, "relations": rrow, "rules": rules,
     "sources": sources, "conflicts": conflicts, "facts": facts,
     "goals": goals, "tasks": tasks, "hypotheses": hyps, "research_links": links, "participants": participants,
-    "incidents": incidents, "incident_rules": incident_rules}, ensure_ascii=False, indent=1), encoding="utf-8")
+    "incidents": incidents, "incident_rules": incident_rules, "stock_bugs": stock_bugs}, ensure_ascii=False, indent=1), encoding="utf-8")
 print("export:", meta["counts"])

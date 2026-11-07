@@ -267,6 +267,11 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | ar-mkii-research | analog-rytm-mkii-research `docs/hardware_profile.md`, `AR172_BR_HARDWARE_CHARACTERIZATION.md`, `AR172_PREHARDWARE_STATUS.md` (OS 1.72) | https://github.com/genosdk/analog-rytm-mkii-research |
 | kitbasher-safety | etcetc000/kitbasher `docs/FIRMWARE-SAFETY.md` (Machinedrum OS 1.63 / X.14, MKII +Drive UW) | https://github.com/etcetc000/kitbasher/blob/main/docs/FIRMWARE-SAFETY.md |
 | kyoti-fw | Zac-Kyoti/octatrack-kyoti-fw `reference/kb/memory-map.md`, `reference/handoffs/KYOTI_LOAD_AUDIT.md` (OS 1.40C) | https://github.com/Zac-Kyoti/octatrack-kyoti-fw/tree/main/reference |
+| kyoti-bugfixes | Zac-Kyoti/octatrack-kyoti-fw `octabam-modules/batch-bugfixes/README.md` and `erase-empty-trigless-locks/README.md` (stock OT 1.40C bug fixes) | https://github.com/Zac-Kyoti/octatrack-kyoti-fw/tree/main/octabam-modules/batch-bugfixes |
+| kyoti-ot303 | Zac-Kyoti/octatrack-kyoti-fw `reference/handoffs/OT303_SCOPE.md` (probable SPATIALIZER stock bug, emulator) | https://github.com/Zac-Kyoti/octatrack-kyoti-fw/blob/main/reference/handoffs/OT303_SCOPE.md |
+| octa-lofi-amf | repeat98/modwerk `sdk/drafts/lofi-amf-fix/README.md` (from bryantysinger/octa-bt-pt's LOFI AMF FIX) | https://github.com/repeat98/modwerk/tree/main/sdk/drafts/lofi-amf-fix |
+| model-tg-internals | TinyGregAudio/Model-TG `docs/INTERNALS.md` | https://github.com/TinyGregAudio/Model-TG/blob/main/docs/INTERNALS.md |
+| elekloader-core-dn1 | elekloader `mods/core-dn1/README.md` (core-dn1 events and exports, `core_restart`) | https://github.com/elekloader/elekloader/blob/main/mods/core-dn1/README.md |
 | supermodel-notes | AveyCole/Supermodel (Modded Cycles) `notes/` 23, 30, 35, 36, 211, 217 and release notes (Model:Cycles OS 1.13, French) | https://github.com/AveyCole/Supermodel/tree/main/notes |
 | octamax | mxldyn/octamax `HOTCHANGE_FINDINGS.md` and `NOTES.md` (MAXODBG CF logging), Octatrack MKII OS 1.40C | https://github.com/mxldyn/octamax/blob/main/HOTCHANGE_FINDINGS.md |
 | rytm1-mods | gdeo607/rytm1_mods `docs/HAZARDS.md` (Rytm MK1 port of the MKII mods, OS 1.73) | https://github.com/gdeo607/rytm1_mods/blob/main/docs/HAZARDS.md |

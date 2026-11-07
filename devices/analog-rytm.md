@@ -2,12 +2,13 @@
 
 # Analog Rytm (MKI, MKII)
 
-Data last verified: 2026-11-06
+Data last verified: 2026-11-07
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **Elektron Project Companion** (Claptom-music) | tool | active | - | - | 2026-11-07 | [repo](https://github.com/Claptom-music/elektron-project-companion) |
 | **rytm2_mods** (Iced-Cream) | mod | wip | Rytm MKII 1.73, 1.74 | v1.4 | 2026-11-06 | [repo](https://github.com/Iced-Cream/rytm2_mods) |
 | **Sidecar | Expander** (trigcondition) | tool | wip | Sidecar 0.4.1 (Pi only: Overbridge passthrough on the Pi 4, USB-C mode switch, USB dropout fixes, MODEL E) with the unchanged Rytm firmware 0.4.0 for OS 1.74/1.73; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | v0.2.0 | 2026-11-06 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
@@ -181,3 +182,9 @@ _Sources: altstrument (2026-11-03), README_
 Closed-source browser app that preps audio and sends it over Web MIDI SysEx to the +Drive, with Transfer and +Drive Manager views and device profiles for Digitakt II, Digitakt, Analog Rytm (MKI/MKII) and Model:Samples. Proprietary; author not named. Relation to luizvarela's ElekPrep not established (same name). Interesting as a second independent implementation of +Drive upload over SysEx.
 
 _Sources: altstrument (2026-11-03)_
+
+### Elektron Project Companion
+
+Windows editor for arranging live sets from local project backups: place patterns in banks A-H and export a new project for Transfer. Rytm MKII: .arprj and whole-project .syx (patterns, kits, sound locks, sample references). Digitakt II: .dt2prj project image v4 (patterns with their kits; merging only with identical sample pools, since relocating a sample changes locks). File-level testing on a real OS. Licence not stated. Found by GitHub search 2026-11-07.
+
+_Sources: GitHub search 2026-11-07, README_

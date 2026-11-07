@@ -2,7 +2,7 @@
 
 # Project families
 
-Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-06. Edit the `relations:` field in `data/projects.yml`.
+Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-07. Edit the `relations:` field in `data/projects.yml`.
 
 | Relation | Meaning |
 |---|---|

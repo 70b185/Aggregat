@@ -429,9 +429,10 @@ projects:
       web_app: https://armio.github.io/dn2-dt2-firmware-research/
       recorder: https://github.com/armio/dn2-dt2-firmware-research/blob/main/docs/recorder.md
       release: https://github.com/armio/dn2-dt2-firmware-research/blob/main/releases/r012.json
+      candidate: https://github.com/armio/dn2-dt2-firmware-research/blob/main/releases/r022.json
     status: stable
     base_os: "Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally"
-    version: "R022 candidate (2026-11-07): loaded samples kept in the unsaved working-state backup used at boot, SYN-to-sampler menu repair (R021); offline checks pass, hardware confirmation pending; an iPhone USB freeze is unresolved. R020: owner cold-boot check passed. R012 remains the stable target"
+    version: "R022 candidate (2026-11-06): working-project sample autosave and sampler SYN-page routing fixes; native replay passed, hardware confirmation pending; includes R020 cold-start guard and R013 FORMAT SAMPLES; an iPhone USB freeze is unresolved; R012 remains the stable target"
     last_activity: "2026-11-07"
     notes: >
       Source-only recipes for Digitone II firmware with six Digitakt II sample machines (ONESHOT, WERP, STRETCH,
@@ -453,9 +454,12 @@ projects:
       2026-11-03: README warns new users NOT to install R012 yet. R012 mounts an existing sample filesystem but does
       not create one on a DN2 that never had it; symptoms are 0% Free / 0 bytes in Transfer, stalled uploads, Connection
       failed. The author says stock FORMAT +DRIVE, EMPTY RESET and FACTORY RESET do not create it and can erase projects;
-      an on-device formatter with erase confirmation is in development, not released. Owner testing had used storage
-      prepared during development. A track-2 sample reload report turned out to be an unsaved project, not a bug.
-    sources: [GitHub README, releases/r012.json, docs/recorder.md, docs/browser.md, docs/research/2026-11-03.md, docs/samples.md]
+      at that point an on-device formatter was still in development. R013 subsequently added FORMAT SAMPLES with
+      erase confirmation; formatting, restart, capacity and post-format uploads were checked on the owner's unit.
+      Owner testing of R012 had used storage prepared during development. An earlier track-2 saved-project reload
+      report was an unsaved checkpoint; R022 addresses a separate, reproduced failure to refresh the sample table
+      in the unsaved working-state backup. This does not establish recovery from an interrupted write or USB freeze.
+    sources: [GitHub README, releases/r012.json, releases/r022.json, docs/recorder.md, docs/browser.md, docs/research/2026-11-03.md, docs/research/2026-11-06-autosave.md, docs/samples.md]
     relations:
     - {type: builds_on, id: dn2-firmware-explore, evidence: 'catalogue notes: builds on dnfw (pinned commit)'}
     - {type: builds_on, id: digikit, evidence: 'catalogue notes: builds on digikit (pinned commit)'}

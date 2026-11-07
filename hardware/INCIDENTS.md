@@ -408,6 +408,26 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** E4
 - **Fact:** [devices/syntakt.md](devices/syntakt.md)
 
+### I51. The sample popup did not open after switching Machines
+- **Unit:** Digitone II, OS 1.11 (armio; R020 last confirmed installation), 2026-11-06
+- **Seen:** after selecting ONESHOT, turning knob D did not open the sample list.
+- **Cause (native replay):** the separate sampler SYN view was not selected when the Machine changed within the audio-track class. Generic notifications redrew the old stock view. Earlier tests manually reselected SYN and hid the missing lifecycle transition. No live capture established that every intermittent popup report shares this cause.
+- **Fix:** R021 defers reconciliation to the existing UI poll, uses native selection and ownership, and avoids modal/selected-trig transitions; included in R022.
+- **Status:** ten native transitions and nine guard cases passed; hardware confirmation pending.
+- **Evidence:** `[hw]` owner symptom; `[emu]` matching defect and fix {armio-r022}
+- **Rule:** C8
+- **Fact:** [devices/digitone-2.md](devices/digitone-2.md#sampler-port-lifecycle-findings-dn2-os-111-2026-11-06)
+
+### I52. New project samples were missing after reboot
+- **Unit:** Digitone II, OS 1.11 (armio; report build unconfirmed, exact R020 reproduced), 2026-11-06
+- **Seen:** newly loaded samples disappeared from the unsaved working project after a freeze and reboot. Deletion of the +Drive sample files was not established.
+- **Cause (native replay):** load notification ran the native incremental settings serializer, but the port updated its sample companion only during whole-project serialization. Both prepared working backup and fresh emulated boot retained an empty identity for the loaded slot. The frozen device's actual backup state was not captured.
+- **Fix:** R022 refreshes the working sample companion in that settings worker under the existing project lock, validates owner/UID, and preserves explicit saved checkpoints.
+- **Status:** load, unload, fresh-emulator restore, saved-cache isolation and invalid-state guards passed. Physical reboot confirmation is pending; a frozen worker or interrupted write can still lose pending work. The USB freeze is unresolved.
+- **Evidence:** `[hw]` owner symptom; `[emu]` reproduced stale snapshot and fix {armio-r022}
+- **Rule:** E5
+- **Fact:** [devices/digitone-2.md](devices/digitone-2.md#sampler-port-lifecycle-findings-dn2-os-111-2026-11-06)
+
 ## E. Emulator or toolchain disagreed with the unit
 
 ### I36. The emulator undercounted DSP time by 2x to 12x

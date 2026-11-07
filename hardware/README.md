@@ -11,7 +11,7 @@ published by the authors, and rules.
 
 ## How to use
 
-1. Read [`AGENT-RULES.md`](AGENT-RULES.md) first (safety and process rules, valid for every device), skim [`INCIDENTS.md`](INCIDENTS.md) (50 failures and tests on real units, each with the rule it taught) and [`STOCK-BUGS.md`](STOCK-BUGS.md) (bugs in Elektron's own OS that projects found while testing), and check [`CONFLICTS.md`](CONFLICTS.md) for numbers that sources disagree on.
+1. Read [`AGENT-RULES.md`](AGENT-RULES.md) first (safety and process rules, valid for every device), skim [`INCIDENTS.md`](INCIDENTS.md) (52 failures and tests on real units, each with the rule it taught) and [`STOCK-BUGS.md`](STOCK-BUGS.md) (bugs in Elektron's own OS that projects found while testing), and check [`CONFLICTS.md`](CONFLICTS.md) for numbers that sources disagree on.
 2. Read [`common/firmware-container.md`](common/firmware-container.md), [`common/recovery.md`](common/recovery.md), [`common/flash-procedure.md`](common/flash-procedure.md) before any flash, and - if you only talk to a unit over MIDI/SysEx - [`common/sysex-and-midi.md`](common/sysex-and-midi.md).
 3. Read the file for your device in [`devices/`](devices/).
 4. Look up the project you build on in [`../INDEX.md`](../INDEX.md) (who maintains what, which OS, which state).

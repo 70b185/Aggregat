@@ -44,6 +44,7 @@ Own a **Digitakt II, Digitakt, Digitone II, Analog Heat (+FX/MKII) or Model:Cycl
 - **H4** how long can the DT1 recorder record?
 - **H5** does Overbridge accept a build with a changed version field (if you already have such builds)?
 - **H18** does your Heat +FX (or DT1, DN2) show its screen in Elek View?
+- **H19** how long does the start-up animation of your DT2 or DN2 run (film a cold start; about 5.8 s or 11.7 s)?
 
 Report with the **[Test result](https://github.com/70b185/Aggregat/issues/new?template=test-result.yml)** issue template. Details and the probe and build tests for people who flash: [HYPOTHESES.md](hardware/HYPOTHESES.md).
 

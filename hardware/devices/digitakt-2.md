@@ -128,6 +128,18 @@ lalzart's public research grades each claim. Everything below is **static or sim
 
 `[doc]`
 
+## The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) {digikit-f117}
+digikit marks most of this as verified against the image bytes by a second agent; the timing figures come from its emulator. Addresses are for DT2 1.17 unless named. `[doc]`
+- **The intro is its own task, priority 7**, created once by the installer before the main-OS task (DT2 `0x400d1448`, DN2 1.12 `0x400d3920`) and woken by a PIT3 tick. A higher number is more urgent here, so the intro preempts the main-OS task (priority 6). **A frame callback that never returns starves the main OS until power-off.**
+- **Five scene tables** at `0x402a1b64`, `0x402a1b74`, `0x402a1b84`, `0x402a1b94`, `0x402a1ba4`. Each boot picks one with an LCG; the first is picked about 99.9 % of the time and has 175 frames. An entry is `{callback, frame count}`, ended by a 0.
+- **One pointer drives it:** the current entry is at DT2 `0x43153a00`, DN2 1.12 `0x42c4cacc`, DN2 1.11 `0x42c4bacc`. Only the setup function (DT2 `0x400d1832`, DN2 1.12 `0x400d3d0a`) and the tick function (DT2 `0x400d18f0`, DN2 1.12 `0x400d3dc8`) touch it. Each frame calls `callback(index, count, bitmap)`; count 0 ends the intro the normal way: the pointer is cleared, PIT3 stops and semaphore `0x43149550` releases the main-OS task.
+- **Swapping the intro:** a hook before the setup function's argument load (`move.l (0x24,SP),D0; movea.l D0,A0`, DT2 `0x400d183a`, DN2 1.12 `0x400d3d12`, DN2 1.11 `0x400d3bae`, the same 6 bytes on all three) can point it at an own table. In digikit's emulator the UI was then reached after 115 audio blocks instead of 5,973 (DT2) and 6,180 (DN2). Stock's frame clear is `0x40113700` (DN2 1.12 `0x40115074`, DN2 1.11 `0x40114d94`), called as `(bitmap, 0, 1)`. `[emu]`
+- **Frame rate unresolved:** digikit's timer model gives 30 Hz (175 frames = 5.8 s); its earlier emulator notes derived 15 Hz. Open conflict [O20](../CONFLICTS.md). Module code first runs at about frame 53-57 of the intro (emulator); almost all of that delay is stock setup.
+- **Faults during the intro reach stock's halting handler** (see the section above): digikit installs its own crash handler only from the UI loop.
+- **Frame layout on the panel** (measured on one DT2 1.17): with y = 0 at the top, the intro bitmap holds pixel (x, y) at byte `8*x + (63-y)/8`, bit `7 - (63-y)%8`, flipped vertically only. digikit's emulator shows these frames the other way up. `[hw]` ([I53](../INCIDENTS.md#i53-boot-screen-frames-were-upright-in-the-emulator-and-flipped-on-the-panel))
+- **Safe mode is digikit's, not stock's:** REC (key `0x13`, state byte 2 bit 2; key state array at DT2 `0x44dc8644`, DN2 `0x445a2e30`) held from power-on skips all modules. On one DT2 1.17 it worked, and a custom boot screen started about 1.8 s after the stock intro. `[hw]` ([I54](../INCIDENTS.md#i54-safe-mode-by-rec-at-power-on-tested-on-a-digitakt-ii))
+- With the black intro patch set, the bootstrap's logo, "B" and the OS version stay until the main OS first writes the display, then about 1-2 s of black, then the boot screen. `[hw]`
+
 ## Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) {dt2-lab-flex-mem}
 These figures are from the source and emulator runs, not from a unit. `[emu]`
 - **ColdFire heap:** a 32 MiB buddy allocator at `0x44f39c40-0x46f39c40` (16-byte minimum, power-of-two blocks), parameters at `0x402b406c`.

@@ -500,6 +500,16 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** C8
 - **Fact:** [AGENT-RULES.md](AGENT-RULES.md)
 
+### I53. Boot-screen frames were upright in the emulator and flipped on the panel
+- **Unit:** Digitakt II, OS 1.17 (digikit, branch image), 2026-11-08
+- **Seen:** a boot screen whose bar was at the bottom in the preview and the emulator appeared at the top on the panel; left-to-right fill was unchanged.
+- **Cause (shown on the unit, plus a comparison of the stock logo with the bootloader picture: 0 mismatching pixels after a vertical flip):** the emulator decodes the intro bitmap as if the intro flush flipped like the main-UI blit. On the panel, intro rows are stored top-down mirrored. Why the intro path differs (flush routine or panel scan direction) is not established.
+- **Fix:** digikit's `.dkbs` frames, safe screen and pixel helper use the panel's layout. The emulator decoder is not fixed yet.
+- **Status:** worked around; emulator still wrong for intro frames.
+- **Evidence:** `[hw]` {digikit-f117}
+- **Rule:** C10, D13
+- **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md#the-stock-intro-and-boot-screens-digikit-finding-117-dt2-117-and-dn2-111112-digikit-f117)
+
 ## R. Recovery and transfer links
 
 ### I43. Recovery stalled at ~80 %: the MIDI link, not the image
@@ -551,4 +561,14 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[doc]` {armio-samples}
 - **Rule:** A3, A49
 - **Fact:** [devices/digitone-2.md](devices/digitone-2.md)
+
+### I54. Safe mode by REC at power-on, tested on a Digitakt II
+- **Unit:** Digitakt II, OS 1.17 (digikit, branch image with loadable boot screens), 2026-11-08
+- **Seen:** REC held from power-on gave digikit's safe mode (no modules loaded; the DIGIKIT menu showed "safe mode key held"). Without REC, the selected boot screen played about 1.8 s after the stock intro started, and the module setting survived power cycles.
+- **Cause:** test. In the emulator, digikit's earlier queue scan missed the key (`safe:0`); reading the stock key state fixed it. On the unit, a key held at power-on does produce a report.
+- **Fix:** â€”
+- **Status:** tested on one DT2. Other panel firmware versions and the Digitone II are not measured. A fault during the intro still reaches stock's halting handler; the 30 s boot counter, not REC, catches that (emulator only).
+- **Evidence:** `[hw]` {digikit-f117}
+- **Rule:** A29
+- **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md#the-stock-intro-and-boot-screens-digikit-finding-117-dt2-117-and-dn2-111112-digikit-f117)
 

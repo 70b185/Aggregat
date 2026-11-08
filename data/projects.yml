@@ -1017,8 +1017,13 @@ projects:
     status: wip
     base_os: "Digitakt II target 1.17 (emulator also runs 1.16 as default file; 1.15C kept for old analysis); Digitone II target 1.12 (also runs 1.11 as default file; 1.10E kept for old analysis)"
     version: null
-    last_activity: "2026-11-03"
+    last_activity: "2026-11-08"
     notes: >
+      2026-11-08 (PR #321, finding 117): loadable boot screens. A `.dkbs` file (1-bit 128x64 frames at 30 ticks/s,
+      at most 10 s and 64 KiB, authored as a Canvas 2D script) replaces the stock intro through the module
+      `bootscreen`; an optional patch set `device-introblank` blanks the stock intro. Holding REC at power-on starts a
+      safe mode that loads no modules. Finding 117 reports both on one Digitakt II 1.17 with a branch image; the
+      Digitone II is emulator-only so far.
       Native Rust emulator that runs the ColdFire and SHARC+ firmware together, with front panel, display and audio,
       plus a web panel (WASM core), a Tauri desktop app, the patch toolchain "patchkit" (applies modules to the
       user's own .syx), a headless scenario runner with pinned PCM hashes, a control socket for patch injection and
@@ -1821,14 +1826,18 @@ projects:
     links:
       alias: https://github.com/connorway32/rytm-mods-src
     status: active
-    tested: not-stated
+    tested: partly
+    tested_note: "README status table: 0002-0008, 0010 and 0012-0015 hardware-verified; 0009's display checked on the device; 0017 and 0018 built and emulator-checked only"
     base_os: '1.73'
-    version: Mods 0000-0015 (2026-10-10)
-    last_activity: '2026-10-10'
-    notes: 'Public copy of MrScruff''s Rytm MKII OS 1.73 mods 0000-0015 (euclid accents, velocity humanise, random
+    version: Mods 0000-0018 (2026-11-08; 0017 CTRL IN to performance macro, 0018 scene mutes)
+    last_activity: '2026-11-08'
+    notes: 'Public copy of MrScruff''s Rytm MKII OS 1.73 mods (euclid accents, velocity humanise, random
       LFO, kit A/B, slice loop, control-all and more). Licence: GPL-2.0-only; distribution: patch-your-own. Listed
-      by altstrument; repo not read by us yet. Also reachable as connorway32/rytm-mods-src (same HEAD 3a98e23,
-      2026-11-03).'
+      by altstrument. Also reachable as connorway32/rytm-mods-src (same HEAD 3a98e23, 2026-11-03).
+      2026-11-08: 0017 lets a CTRL IN jack in CV or EXPR mode drive one of the performance macros PF1-PF12
+      (device-wide setting); 0018 lets a scene store track mutes (SCENE held, FUNC + trig), kept per kit in the
+      project. Its re/subsystems notes (control inputs, scenes and mutes, the "loosened" kit and sound bytes) are
+      folded into hardware/devices/analog-rytm.md.'
     sources:
     - altstrument (2026-11-01)
     relations:

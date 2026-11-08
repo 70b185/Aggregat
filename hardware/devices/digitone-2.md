@@ -118,6 +118,9 @@ Notes in the repo mark each claim `[verified]` or `[inferred]` - copy that conve
 - dn2mk2: v0.21-v0.33 mostly emulator-only, hardware checks outstanding; user reports of p-lock clicks and silence were the reason for the DSP guard (v0.27) and AMD fix (v0.30.1). `[emu]` {dn2mk2-firmware-md}
 - Emulators do not model the two chips' timing, so overruns show only on a unit ([`../common/toolchain-and-emulators.md`](../common/toolchain-and-emulators.md)). `[doc]` {dn2mk2-firmware-md}
 
+## Stock intro (OS 1.11 and 1.12)
+The intro works as on the Digitakt II: its own task at priority 7 above the main OS, scene tables, one current-entry pointer (1.12 `0x42c4cacc`, 1.11 `0x42c4bacc`). All addresses and the swap point are in [`digitakt-2.md`](digitakt-2.md#the-stock-intro-and-boot-screens-digikit-finding-117-dt2-117-and-dn2-111112-digikit-f117). digikit's boot screens and REC safe mode are emulator-only on the DN2 so far. `[doc]` {digikit-f117}
+
 ## Official OS list (elektron.se release notes, page updated 2026-10-01)
 Newest **1.12** (adds routing of the Main outputs through Outbox 8 and FUNC+UP/DOWN channel navigation in the Outbox 8 configuration menus), then 1.11, 1.10E, 1.10D, 1.10C, 1.10B, 1.10A, 1.10, 1.00A. No dates per version. So Overtone (1.12) targets the **current** OS and dn2mk2 (1.11) a one-version-old OS. `[doc]` {elektron-dn2-notes}
 Digitone II reached Overbridge streaming with OS 1.10 (plugin followed later). `[doc]` {gearnews-dn2-overbridge}

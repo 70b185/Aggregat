@@ -8,6 +8,7 @@ Data last verified: 2026-11-08
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **rytm-mods-src** (MrScruff (published with permission by Iced-Cream)) | mod | active | Mods 0000-0018 (2026-11-08; 0017 CTRL IN to performance macro, 0018 scene mutes); 1.73 | - | 2026-11-08 | [repo](https://github.com/Iced-Cream/rytm-mods-src) · [alias](https://github.com/connorway32/rytm-mods-src) |
 | **Elektron Project Companion** (Claptom-music) | tool | active | - | - | 2026-11-07 | [repo](https://github.com/Claptom-music/elektron-project-companion) |
 | **rytm2_mods** (Iced-Cream) | mod | wip | Rytm MKII 1.73, 1.74 | v1.4 | 2026-11-06 | [repo](https://github.com/Iced-Cream/rytm2_mods) |
 | **Sidecar | Expander** (trigcondition) | tool | wip | Sidecar 0.4.1 (Pi only: Overbridge passthrough on the Pi 4, USB-C mode switch, USB dropout fixes, MODEL E) with the unchanged Rytm firmware 0.4.0 for OS 1.74/1.73; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | v0.2.0 | 2026-11-06 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
@@ -17,7 +18,6 @@ Data last verified: 2026-11-08
 | **rytm-builder** (stampman3000-jpg) | tool | active | cursor/rytm-mac-app-0afb @ 90af848 (2026-10-14); Analog Rytm OS 1.70 object layout | - | 2026-10-14 | [repo](https://github.com/stampman3000-jpg/rytm-builder) |
 | **rytm-fw-re** (ethernet) | research | active | master @ 2f7f0c4 (2026-10-13); 1.74 | - | 2026-10-13 | [repo](https://github.com/ethernet8023/rytm-fw-re) |
 | **rytm-mods boot report** (Iced-Cream) | research | active | Analog Rytm MKII OS 1.73 | - | 2026-10-13 | [repo](https://github.com/Iced-Cream/rytm-mods-boot-report) |
-| **rytm-mods-src** (MrScruff (published with permission by Iced-Cream)) | mod | active | Mods 0000-0015 (2026-10-10); 1.73 | - | 2026-10-10 | [repo](https://github.com/Iced-Cream/rytm-mods-src) · [alias](https://github.com/connorway32/rytm-mods-src) |
 | **RytmRandomizer** (buzzijose-hub) | tool | active | main @ 892aaff (2026-09-28); Analog Rytm MK2 and Analog Four MK2 | - | 2026-09-28 | [repo](https://github.com/buzzijose-hub/rytmrandomizer) |
 | **analog-rytm-mkii-research** (genosdk) | research | active | main @ 14570ea (2026-09-25); 1.72 | - | 2026-09-25 | [repo](https://github.com/genosdk/analog-rytm-mkii-research) |
 | **Kitsmith** (Alina-sul) | tool | wip | Analog Rytm MKII | - | 2026-09-13 | [repo](https://github.com/Alina-sul/kitsmith) |
@@ -69,7 +69,7 @@ _Sources: altstrument (2026-11-01)_
 
 ### rytm-mods-src
 
-Public copy of MrScruff's Rytm MKII OS 1.73 mods 0000-0015 (euclid accents, velocity humanise, random LFO, kit A/B, slice loop, control-all and more). Licence: GPL-2.0-only; distribution: patch-your-own. Listed by altstrument; repo not read by us yet. Also reachable as connorway32/rytm-mods-src (same HEAD 3a98e23, 2026-11-03).
+Public copy of MrScruff's Rytm MKII OS 1.73 mods (euclid accents, velocity humanise, random LFO, kit A/B, slice loop, control-all and more). Licence: GPL-2.0-only; distribution: patch-your-own. Listed by altstrument. Also reachable as connorway32/rytm-mods-src (same HEAD 3a98e23, 2026-11-03). 2026-11-08: 0017 lets a CTRL IN jack in CV or EXPR mode drive one of the performance macros PF1-PF12 (device-wide setting); 0018 lets a scene store track mutes (SCENE held, FUNC + trig), kept per kit in the project. Its re/subsystems notes (control inputs, scenes and mutes, the "loosened" kit and sound bytes) are folded into hardware/devices/analog-rytm.md.
 
 _Related: uses tool `elektron-firmware-tool` (README: fetched and built into vendor/ by setup, not shipped) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 

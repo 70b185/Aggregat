@@ -79,3 +79,12 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | Source | Depth | Folded into |
 |---|---|---|
 | armio `docs/research/2026-11-06-autosave.md`, `releases/r022.json`, and sampler-fixes helpers `r021_source_route.py` / `r022_sample_mirror.py` | full research note and helpers; native replay results reported by the source, no independent hardware test | digitone-2, I51-I52, C8, E5; R022 candidate listing with R012 stable retained |
+
+## Pass 2026-11-08 (change report: digikit, modwerk, rytm-mods-src, model27 copy)
+| Source | Depth | Folded into |
+|---|---|---|
+| digikit findings 116 and 117, `docs/DEVELOPMENT.md` "Boot screens", `devices/fw/rtos.toml` and `draw.toml` diffs, port anchors for DT2 1.17 / DN2 1.11 / 1.12 (af0ef08) | full | devices/digitakt-2, devices/digitone-2, CONFLICTS O20, INCIDENTS I53/I54, A29, C10, D13, common/agent-workflow, FEATURE-OVERLAP, projects.yml |
+| modwerk `docs/verification/2026-11-08-beta-diagnostics.md`, Rytm MKII SDK README (machine list, mod machines), changelogs 2026-11-05 to 11-08 (93270f5) | full / key sections | devices/analog-rytm, devices/octatrack, D6c |
+| rytm-mods-src README, `docs/MANUAL.md` (0017, 0018), `mods/0018-scene-mutes/design.md`, `re/subsystems/control-inputs.md`, `scenes-mutes.md`, first parts of `loosened-scopes.md` and `loosened-sound.md` (cd4ded4) | full / key sections | devices/analog-rytm, projects.yml |
+| nicolai-creates/model27 README and LOST_CHANGES.md diff | full | candidates.yml (model27-restored) |
+| dn2_firmware_explore and altstrument changes of 2026-11-08 | not re-read: the fingerprint baseline had already moved, so no diff was available; the earlier run of the same day judged them doc changes | - |

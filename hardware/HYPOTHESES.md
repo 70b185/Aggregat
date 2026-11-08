@@ -26,6 +26,7 @@ Collected 2026-11-03.
 | H4 | G6 | The DT1 recorder holds at most 33.0 s (1,584,000 frames at 48 kHz, mono). | digigrain's recorder skill (static) | DT1 | Record with free length until it stops; time it. |
 | H5 | G8 | Overbridge rejects a modified OS whose container version field differs from stock (shown on the DN2, Digiwerk OB01). | Digiwerk OB01 | DT2, Heat +FX | No new flash needed if you already have builds: does Overbridge connect to a build whose version field was changed, and to one where it was kept? |
 | H18 | G7 | The Heat +FX answers the screen request (RPC framing `F0 00 20 3C 10 00`), as the Heat MKII does, so its screen can be mirrored and read without a mod. | Elek View (DT2, M:C, Heat MKII) | Heat +FX, DT1, DN2 | Open Elek View (bluesgl.github.io/Elek_View) with nothing else on the MIDI port, select the unit, Start. |
+| H19 | G4 | The stock start-up animation runs at 30 frames per second, so it lasts about 5.8 s (175 frames), not about 11.7 s at 15 fps (O20). | digikit f117 (timer model) vs digikit f07 (derived) | DT2, DN2 | Film a cold start with your phone, three times, and time the animation from its first frame to its last; also say whether it looked the same each time (one of five animations is picked at random, the first about 99.9 % of the time). |
 
 ## 2. Probe tests (read-only builds)
 

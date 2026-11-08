@@ -121,8 +121,8 @@ The most common pattern. The engines come from the source device's own code or f
 | | Model:Cycles | Supermodel's counter and worst-block profiler | unit | |
 | | Machinedrum | Kitbasher CPU indicator | unit | |
 | **Boot splash** | Digitakt mk1, Digitone mk1 | DigiSplash, digisplash-ii | - | |
-| | Digitakt II | digitakt-ii-splash-screens | - | |
-| | Digitone II | dn2mk2 start-up animation | unit | |
+| | Digitakt II | digitakt-ii-splash-screens; digikit `bootscreen` module (`.dkbs` files, 2026-11-08) | unit (digikit, one DT2 1.17) | digikit swaps the stock intro's scene table rather than patching the picture ([digitakt-2.md](hardware/devices/digitakt-2.md#the-stock-intro-and-boot-screens-digikit-finding-117-dt2-117-and-dn2-111112-digikit-f117)) |
+| | Digitone II | dn2mk2 start-up animation; dn2_firmware_explore `bootscreen`; digikit `bootscreen` | unit (dn2mk2); emulator (digikit) | |
 | | Syntakt | Synthack-OS splash | unit | |
 | **USB multichannel audio** | Model:Cycles, Model:Samples | ms-multi-output (6 ch), elektron-model-tweaks (16 ch), Modded Cycles | unit | Supermodel's fix: send at a fixed time, not right after a variable render |
 | | Octatrack | octatrick (20 ch), octemu's USB audio (used by PassOS) | MKI tested | octemu loads its USB-audio payload from the CF card |

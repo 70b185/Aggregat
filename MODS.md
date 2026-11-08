@@ -338,13 +338,14 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 ## Analog Rytm (MKI, MKII)
 
-7 entries, 3 reported running on a unit.
+7 entries, 4 reported running on a unit.
 
 
 ### Ran on a real unit
 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
+| **rytm-mods-src** <br>MrScruff (published with permission by … | Public copy of MrScruff's Rytm MKII OS 1.73 mods (euclid accents, velocity humanise, random LFO, kit A/B, slice loop, control-all and more). | own patcher / builder | 1.73 | partly (README status table: 0002-0008, 0010 and 0012-0015 hardware-verified; 0009's display checked on the device; 0017 and 0018 built and emulator-checked only) | 2026-11-08 | [repo](https://github.com/Iced-Cream/rytm-mods-src) · [alias](https://github.com/connorway32/rytm-mods-src) |
 | **rytm2_mods** <br>Iced-Cream <br>_wip_ | MrScruff's Rytm MKII mods (published with permission) ported to the elemod format for elekloader core-ar2. | elekloader | Rytm MKII 1.73, 1.74 | yes, on a unit | 2026-11-06 | [repo](https://github.com/Iced-Cream/rytm2_mods) |
 | **analoghealth** <br>Iced-Cream <br>_wip_ | digihealth's SYSTEM INFO and REMOTE KEYS ported to the analog machines. | elekloader | Rytm MKII 1.74, A4 MKII 1.56 | yes, on a unit (1.3 on a Rytm MKII, OS 1.74, in test builds since 2026-10-26) | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
 | **rytm-fw-re** <br>ethernet | RE notes for Rytm MKII OS 1.74 (container, boot, display) and a tiny from-source replacement OS that boots on a unit, plus same-size splash and … | own scripts | 1.74 | yes, on a unit (the small replacement OS boots on a unit) | 2026-10-13 | [repo](https://github.com/ethernet8023/rytm-fw-re) |
@@ -355,7 +356,6 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 |---|---|---|---|---|---|---|
 | **Analog Rytm MK1 OS 1.74 mods** <br>hugz202 <br>_wip_ | Sister project of the A4 MK1 mods (same registry/verify method). | see repo | Analog Rytm MK1, OS 1.74 | not stated | 2026-10-28 | [repo](https://github.com/hugz202/AE-analog-rytm-mods) |
 | **Chopshop** <br>Jesus Triana (bandersong) | Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog Keys OS 1.56 (chord memory, joystick … | own patcher / builder | 1.73 (Rytm), 1.56 (Keys); not 1.74 | not stated | 2026-10-13 | [repo](https://github.com/bandersong/chopshop) · [homepage](https://chopshop-synth.pages.dev/) |
-| **rytm-mods-src** <br>MrScruff (published with permission by … | Public copy of MrScruff's Rytm MKII OS 1.73 mods 0000-0015 (euclid accents, velocity humanise, random LFO, kit A/B, slice loop, control-all and more). | own patcher / builder | 1.73 | not stated | 2026-10-10 | [repo](https://github.com/Iced-Cream/rytm-mods-src) · [alias](https://github.com/connorway32/rytm-mods-src) |
 | **rytm1_mods** <br>gdeo607 | Port of the rytm-mods to Rytm MK1 OS 1.73 (per-track cuts, random LFO, euclid accents, humanise); also emits elekloader .elemod files. | elekloader | 1.73 | not stated | 2026-09-28 | [repo](https://github.com/gdeo607/rytm1_mods) |
 
 ## Analog Four / Analog Keys

@@ -66,6 +66,11 @@ Lessons: keep byte-identity checks strict (a resealed modified bootstrap was cau
 - For performance claims: give the theoretical ceiling first, then one paired A/B measurement.
 - Before work likely to take more than a day: state payoff and confidence, recommend stopping when weak.
 
+### Flaky tests that follow the memory layout (digikit finding 116, emulator) {digikit-f116}
+- **A retry loop whose step is larger than its acceptance window does not converge; it lands by luck.** digikit's knob-turn helper sent steps of about 2,048 raw against a window of ±512, so the value swung around the target. Any change in layout changed the luck, and an unrelated commit "broke" a test.
+- **To tell a layout-dependent failure from a logic bug, bisect size and placement:** add an empty BSS pad and vary it. In digikit's case `0x4000` passed and `0x4800` failed with the same code.
+- A test that passed after many attempts was swinging as well. Count the attempts and fail on a high count.
+
 ## How digikit separates firmware from mods (ARCHITECTURE.md, worth copying) {digikit-arch}
 - Layers, each depending only on the one below:
   - **content modules** (`.dkm` machines/FX/tools, loaded from the card at run time);

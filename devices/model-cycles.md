@@ -254,7 +254,7 @@ _Sources: GitHub search 2026-11-07, README_
 
 ### model27 (restored copy)
 
-A third party's restoration of durchgemacht/model27 after its author took it offline on 2026-11-06/07: the original history up to commit 574cf73 (after release 0.51), recovered through the GitHub fork network, plus a warning in the README and LOST_CHANGES.md. Not maintained by the original author; the web flasher links in it no longer work. Found by GitHub search 2026-11-08. Kept as a lead, not listed as a project, because the original author withdrew the work.
+A third party's restoration of durchgemacht/model27 after its author took it offline on 2026-11-06/07: the original history up to commit 574cf73 (after release 0.51), recovered through the GitHub fork network, plus a warning in the README and LOST_CHANGES.md. Not maintained by the original author. Found by GitHub search 2026-11-08. Kept as a lead, not listed as a project, because the original author withdrew the work. Update 2026-11-08 (later the same day): the README now says "unofficial" instead of "untested" restoration. The copy serves the author's web flasher again from its own GitHub Pages, with a notice and the repository links pointing to the copy. LOST_CHANGES.md reports the project's own checks (229) passing against the official OS 1.13 file, and a browser build of all fourteen cards matching the MAIN OS hash that the author had confirmed on a unit on 2026-11-06. Nothing has been flashed since.
 
 _Related: copy of `model27` (README: restoration of durchgemacht/model27 up to 574cf73) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 

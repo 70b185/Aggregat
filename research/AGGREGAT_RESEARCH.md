@@ -22,7 +22,7 @@ results by hand, with credit to this project. Taking part is voluntary and can s
 
 | | |
 |---|---|
-| Aggregat state | research map reviewed 2026-11-03, snapshot `bf9db7855397` |
+| Aggregat state | research map reviewed 2026-11-03, snapshot `a9f2d0677fff` |
 | Copied on | <date you copied it> |
 
 ## What we work on
@@ -49,7 +49,7 @@ emulator, `doc` = read in code or documents.
 
 ---
 
-# Copied state: Aggregat research, snapshot `bf9db7855397` (research map reviewed 2026-11-03)
+# Copied state: Aggregat research, snapshot `a9f2d0677fff` (research map reviewed 2026-11-03)
 
 ## Goals (copied from Aggregat)
 
@@ -96,6 +96,7 @@ emulator, `doc` = read in code or documents.
 | H4 | G6 | The DT1 recorder holds at most 33.0 s (1,584,000 frames at 48 kHz, mono). | DT1 | Record with free length until it stops; time it. |
 | H5 | G8 | Overbridge rejects a modified OS whose container version field differs from stock (shown on the DN2, Digiwerk OB01). | DT2, Heat +FX | No new flash needed if you already have builds: does Overbridge connect to a build whose version field was changed, and to one where it was kept? |
 | H18 | G7 | The Heat +FX answers the screen request (RPC framing `F0 00 20 3C 10 00`), as the Heat MKII does, so its screen can be mirrored and read without a mod. | Heat +FX, DT1, DN2 | Open Elek View (bluesgl.github.io/Elek_View) with nothing else on the MIDI port, select the unit, Start. |
+| H19 | G4 | The stock start-up animation runs at 30 frames per second, so it lasts about 5.8 s (175 frames), not about 11.7 s at 15 fps (O20). | DT2, DN2 | Film a cold start with your phone, three times, and time the animation from its first frame to its last; also say whether it looked the same each time (one of five animations is picked at random, the first about 99.9 % of the time). |
 | H6 | G8 | The DT2's SHARC DDR above the sample pool window (`0x9d22b9c8` up to `0xa0000000`, about 46 MB) is never written by stock, as the DN2's tail `0x80531000-0xa0000000` is not. | DT2 | dnfw's method: fill the range with a pattern at boot, then scan it during heavy playback, pattern and kit changes, FX extremes, sample loads and a save. Expect a reserved top part for Capicola builds only. |
 | H7 | G3 | The DT2's ColdFire runs the same FreeRTOS layout as the DN2: higher priority numbers run first, prio 0 never runs, prio 1 is the idle loop; the main task's stack is barely used. | DT2 | With the USB probe: find the ready table and the running-task pointer, sample them 60 times. |
 | H8 | G8 | The DN2's digikit flash cave `0x402fb7a8` (2,136 B on 1.11) keeps its bytes through a cold boot, as the DT2's `0x403117c4` does. | DN2 | A canary in the cave, read back after a cold boot and after playback. Combine with H9. |
@@ -113,6 +114,7 @@ emulator, `doc` = read in code or documents.
 
 | # | Topic |
 |---|---|
+| O20 | DT2/DN2 stock intro frame rate |
 | O1 | Syntakt OS signing |
 | O3 | Syntakt CPU #1 load |
 | O19 | DN2 SHARC L2 between `0x200918c0` and `0x200c2000` |

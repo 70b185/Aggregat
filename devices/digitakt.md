@@ -2,10 +2,12 @@
 
 # Digitakt (MKI)
 
-Data last verified: 2026-11-07
+Data last verified: 2026-11-08
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **digitakt-digitone-mcp** (jamiew) | tool | active | v0.5.2 | v0.5.2 | 2026-11-07 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
+| **Flex+ (FlexBus machine)** (DigiAlchemydsp) | mod | active | 1.0; Digitone mk1 / Keys OS 1.44 (core-dn1 4.0 + machines 0.2); Digitakt mk1 OS 1.54 (core 4.0 + machine-pages 1.1) | v1.0 | 2026-11-07 | [repo](https://github.com/DigiAlchemydsp/Flex-Plus) |
 | **Sidecar | Expander** (trigcondition) | tool | wip | Sidecar 0.4.1 (Pi only: Overbridge passthrough on the Pi 4, USB-C mode switch, USB dropout fixes, MODEL E) with the unchanged Rytm firmware 0.4.0 for OS 1.74/1.73; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | v0.2.0 | 2026-11-06 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
 | **Digitakt LED colours** (ceredmeat) | mod | wip | ledcolors 0.2; Digitakt MKI OS 1.54; elekloader core 4.1 | LEDCOLORS | 2026-11-06 | [repo](https://github.com/ceredmeat/DIGITAKT-LED-COLORS) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-05 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
@@ -13,7 +15,6 @@ Data last verified: 2026-11-07
 | **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0. main since: a mod shop (submit a released mod through an issue form, a check opens the PR, later releases follow automatically; docs/SHOP.md), core-ar2 0.9 (lockable mod fields as velocity/aftertouch destinations; kit fields lockable), core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-11-03 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **Filter+ (13 filter types)** (DigiAlchemydsp) | mod | released | 1.0 (2026-11-02); Digitakt mk1 OS 1.54; Digitone mk1 / Keys OS 1.44 | v1.0 | 2026-11-02 | [repo](https://github.com/DigiAlchemydsp/FILTER-PLUS) |
 | **elkflash** (Iced-Cream) | tool | active | - | - | 2026-11-02 | [repo](https://github.com/Iced-Cream/elkflash) |
-| **digitakt-digitone-mcp** (jamiew) | tool | active | - | - | 2026-11-01 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
 | **SAY IT** (x2k77m1) | mod | wip | Digitone mk1, Digitakt mk1 | v1.0b | 2026-10-31 | [repo](https://github.com/x2k77m1/sayit) |
 | **DIGISEQ (Digitakt)** (ClaidArremer) | mod | wip | Digitakt mk1 | - | 2026-10-31 | [repo](https://github.com/ClaidArremer/digitakt-digiseq) |
@@ -49,7 +50,7 @@ Data last verified: 2026-11-07
 | **digiemu** (pina (irpina)) | emulator | stable | v0.4.1 (2026-10-09); firmware from the forum's firmware list; one user reports it needs 1.43 | v0.4.1 | 2026-10-05 | [repo](https://github.com/irpina/digiemu) · [forum](https://elektronmods.com/thread-20-digiemu-a-digitakt-and-digitone-emulator) |
 | **digistring** (Alez22) | mod | released | v0.8.0 (2026-10-05); Digitakt mk1 OS 1.53 only | v0.8.0 | 2026-10-05 | [repo](https://github.com/Alez22/digistring) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | - | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
-| **DigiSplash** (DigiAlchemydsp) | mod | unlabeled | v1.1 (2026-09-30); Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | v1.1 | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/DigiSplash) |
+| **DigiSplash** (DigiAlchemydsp) | mod | unlabeled | v1.1 (2026-09-30); Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | v1.2 | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/DigiSplash) |
 | **DigiCandy** (DigiAlchemydsp) | mod | wip | v1.0 (2026-09-30); Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | v1.0 | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/DigiCandy) |
 | **Digi Battery** (JGuzak) | research | active | - | - | 2026-08-21 | [repo](https://github.com/JGuzak/digi_battery) |
 | **digitakt-reorder** (daguilarc) | tool | active | main @ 21b4103 (2026-08-19) | - | 2026-08-19 | [repo](https://github.com/daguilarc/digitakt_reorder) |
@@ -526,3 +527,11 @@ Pitch bend, mod wheel, aftertouch and breath controller from an external keyboar
 _Related: mod for `modwerk` (README: a module for Modwerk, written with the Modwerk SDK); uses tool `digiemu` (README: tested on the firmware in the digiemu emulator) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-06, README_
+
+### Flex+ (FlexBus machine)
+
+Routes the audio inputs or internal tracks into a track, with a low-CPU pitch shifter and an oscilloscope on the machine page. Found by GitHub search 2026-11-07.
+
+_Related: mod for `elekloader` (README: build a custom OS with elekloader) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-07, README_

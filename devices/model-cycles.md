@@ -2,12 +2,15 @@
 
 # Model:Cycles
 
-Data last verified: 2026-11-07
+Data last verified: 2026-11-08
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **FERAL (nine noisy models)** (100demons) | mod | active | Model:Cycles OS 1.13 | v9.0 | 2026-11-07 | [repo](https://github.com/100demons/feral) · [flasher](https://100demons.github.io/cycles-engines/flasher/) |
+| **BLAST (OPL2-style FM)** (100demons) | mod | active | Model:Cycles OS 1.13 | v3.0 | 2026-11-07 | [repo](https://github.com/100demons/blast) · [flasher](https://100demons.github.io/cycles-engines/flasher/) |
+| **PUNCH (OPL2-style FM percussion)** (100demons) | mod | active | Model:Cycles OS 1.13 | v1.0 | 2026-11-07 | [repo](https://github.com/100demons/punch) · [flasher](https://100demons.github.io/cycles-engines/flasher/) |
 | **Modded Cycles Techno Edition** (mbreilly (m_reilly)) | firmware | active | Model:Cycles OS 1.13 | v1.0-beta | 2026-11-05 | [repo](https://github.com/mbreilly/Modded_f-king_cycles) |
 | **model27** (durchgemacht, 18nelli18) | firmware | active | release 0.41 (2026-11-04 per README): thirteen cards in the web flasher (EQ 0.6, Reso 0.4 with block and coefficients in EMAC assembly); POTS 0.2 flashed from the page and tested on a Model:Cycles 2026-11-04; 1.13 | - | 2026-11-04 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
 | **Motor:Cycles (rhythmic-noise firmware)** (nzimas) | firmware | wip | v1.0.0-rc18 (tag); Model:Cycles OS 1.13 | v1.0.0-rc18 | 2026-11-03 | [repo](https://github.com/nzimas/motorcycles) · [web patcher](https://nzimas.github.io/motorcycles/install.html) |
@@ -223,3 +226,27 @@ _Sources: altstrument (2026-11-04)_
 _Related: builds on `modded-cycles` (README credits: build toolchain, per-track filter, machine list, MACRO and ACID ports); bundles `model909` (README credits: the 909 kick, toms, rim and clap from DMDaudio/model909); bundles `elektron-model-tweaks` (README credits: scrolling names and the mtlib toolkit); cites `model-tg` (README credits: CPU measurement, sample transfer identity, delay/reverb tricks); builds on `ms-multi-output` (README credits: the original 6-channel USB audio mod) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-06, README_
+
+### FERAL (nine noisy models)
+
+One added machine with nine noisy, unpredictable synthesis models, light on the processor; COLOR and SWEEP as macros. Source package for the Cycles Engines flasher. Found by GitHub search 2026-11-07.
+
+_Related: mod for `cycles-engines` (README: tick FERAL in the Cycles Engines flasher) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-07, README_
+
+### BLAST (OPL2-style FM)
+
+One added machine with fourteen melodic two-operator FM models in the manner of the Yamaha OPL2 ('90s SoundBlaster). Source package for the Cycles Engines flasher. Found by GitHub search 2026-11-07.
+
+_Related: mod for `cycles-engines` (README: tick BLAST in the Cycles Engines flasher) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-07, README_
+
+### PUNCH (OPL2-style FM percussion)
+
+One added machine with twelve two-operator FM percussion engines with extended ratios. Source package for the Cycles Engines flasher. Found by GitHub search 2026-11-07.
+
+_Related: mod for `cycles-engines` (README: tick PUNCH in the Cycles Engines flasher) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-07, README_

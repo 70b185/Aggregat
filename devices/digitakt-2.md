@@ -2,16 +2,17 @@
 
 # Digitakt II
 
-Data last verified: 2026-11-07
+Data last verified: 2026-11-08
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **dt2-capicola (Capicola time stretch for STRETCH/REPITCH/SLICE/GRID)** (hy3na-k1ng) | mod | unreachable | Digitakt II (version in the vendored README) | - | unknown | [repo](https://github.com/hy3na-k1ng/dt2-capicola) |
 | **DN2 DT2 firmware research** (armio) | firmware | stable | R022 candidate (2026-11-06): working-project sample autosave and sampler SYN-page routing fixes; native replay passed, hardware confirmation pending; includes R020 cold-start guard and R013 FORMAT SAMPLES; an iPhone USB freeze is unresolved; R012 remains the stable target; Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally | - | 2026-11-07 | [repo](https://github.com/armio/dn2-dt2-firmware-research) · [web app](https://armio.github.io/dn2-dt2-firmware-research/) · [recorder](https://github.com/armio/dn2-dt2-firmware-research/blob/main/docs/recorder.md) · [release](https://github.com/armio/dn2-dt2-firmware-research/blob/main/releases/r012.json) · [candidate](https://github.com/armio/dn2-dt2-firmware-research/blob/main/releases/r022.json) |
+| **digitakt-digitone-mcp** (jamiew) | tool | active | v0.5.2 | v0.5.2 | 2026-11-07 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
+| **digimod (Digitakt II mod builder)** (endlea) | loader | active | 0.2.0 (tag, 2026-11-07; Polyphony mod revised); Digitakt II OS 1.16 | 0.2.0 | 2026-11-07 | [repo](https://github.com/endlea/digimod) |
 | **Elektron Project Companion** (Claptom-music) | tool | active | - | - | 2026-11-07 | [repo](https://github.com/Claptom-music/elektron-project-companion) |
 | **sample-shepherd** (julesyoungberg) | tool | active | - | - | 2026-11-07 | [repo](https://github.com/julesyoungberg/sample-shepherd) |
 | **digitakt-ii-research (Deja Vu LFOs, ONESHOT zoom)** (kariGardarsson) | mod | beta | v0.3.0-beta "All-in-One" (2026-10-23) per altstrument; GitHub releases page showed v0.2.0-beta (18 Oct) as newest when read; Digitakt II OS 1.17 (recommended; Deja Vu + ONESHOT zoom) and 1.16 (Deja Vu only) | v0.3.0-beta | 2026-11-06 | [repo](https://github.com/karigardarsson/digitakt-ii-research) · [releases](https://github.com/karigardarsson/digitakt-ii-research/releases) · [release latest](https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.2.0-beta) · [forum deja vu](https://elektronmods.com/thread-80-good-news-everyone-i-got-deja-vu-lfos-running-on-the) · [forum waveform zoom](https://elektronmods.com/thread-83-good-news-everyone-i-added-waveform-zoom-to-the-digitakt-ii) |
-| **digimod (Digitakt II mod builder)** (endlea) | loader | active | Digitakt II OS 1.16 | 0.1.0 | 2026-11-06 | [repo](https://github.com/endlea/digimod) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-05 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **macro-mode (digi_macro)** (toonst) | mod | wip | Digitakt II OS 1.17 or Digitone II OS 1.12, exactly (the build checks the file's checksum) | - | 2026-11-05 | [repo](https://github.com/toonst/digi_macro) |
 | **Whiplash (agent plays a Digitakt II)** (hejijunhao) | tool | active | - | - | 2026-11-05 | [repo](https://github.com/hejijunhao/whiplash) |
@@ -20,7 +21,6 @@ Data last verified: 2026-11-07
 | **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo) | emulator | wip | Digitakt II target 1.17 (emulator also runs 1.16 as default file; 1.15C kept for old analysis); Digitone II target 1.12 (also runs 1.11 as default file; 1.10E kept for old analysis) | - | 2026-11-03 | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
 | **Elek View (screen viewer in the browser)** (BlueSGL) | tool | active | main @ 29fc485 (2026-11-02) | - | 2026-11-02 | [repo](https://github.com/BlueSGL/Elek_View) · [web app](https://bluesgl.github.io/Elek_View/) · [forum](https://elektronmods.com/thread-93-elek-view-see-your-devices-screens-in-a-browser-via-webmidi) |
 | **elkflash** (Iced-Cream) | tool | active | - | - | 2026-11-02 | [repo](https://github.com/Iced-Cream/elkflash) |
-| **digitakt-digitone-mcp** (jamiew) | tool | active | - | - | 2026-11-01 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **Elektron-Screen-Tool** (Fadedlimes) | tool | active | - | - | 2026-10-30 | [repo](https://github.com/Fadedlimes/elektron-screen-tool) |
 | **digitakt-mods** (hillzeealex) | tool | active | Digitakt mk1 1.53/1.54, Digitakt II 1.17 | v1.0 | 2026-10-29 | [repo](https://github.com/hillzeealex/digitakt-mods) |
 | **Frame Lab (keyframer-lab)** (heavylight-industries) | tool | active | - | - | 2026-10-27 | [repo](https://github.com/heavylight-industries/keyframer-lab) |

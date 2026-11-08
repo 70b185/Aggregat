@@ -12,6 +12,19 @@
   "archived": false,
   "seen": "2026-11-07"
  },
+ "100demons/blast": {
+  "full_name": "100demons/blast",
+  "created": "2026-11-07",
+  "pushed": "2026-11-07",
+  "stars": 0,
+  "forks": 0,
+  "language": "C",
+  "fork": false,
+  "license": "MIT",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-08"
+ },
  "100demons/cycles-engines": {
   "full_name": "100demons/cycles-engines",
   "created": "2026-10-24",
@@ -37,6 +50,32 @@
   "owner_type": "User",
   "archived": false,
   "seen": "2026-11-07"
+ },
+ "100demons/feral": {
+  "full_name": "100demons/feral",
+  "created": "2026-11-07",
+  "pushed": "2026-11-07",
+  "stars": 0,
+  "forks": 0,
+  "language": "C",
+  "fork": false,
+  "license": "MIT",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-08"
+ },
+ "100demons/punch": {
+  "full_name": "100demons/punch",
+  "created": "2026-11-07",
+  "pushed": "2026-11-07",
+  "stars": 0,
+  "forks": 0,
+  "language": "C",
+  "fork": false,
+  "license": "MIT",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-08"
  },
  "18nelli18/modded-cycles": {
   "full_name": "18nelli18/Modded-Cycles",
@@ -76,6 +115,19 @@
   "owner_type": "User",
   "archived": false,
   "seen": "2026-11-07"
+ },
+ "aleks-karachevtsev/digitone-midi-arpeggiator": {
+  "full_name": "aleks-karachevtsev/Digitone-MIDI-Arpeggiator",
+  "created": "2026-11-07",
+  "pushed": "2026-11-07",
+  "stars": 0,
+  "forks": 0,
+  "language": "C",
+  "fork": false,
+  "license": "GPL-2.0",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-08"
  },
  "alexandrubelc/rebirth2octatrack": {
   "full_name": "alexandrubelc/rebirth2octatrack",
@@ -700,6 +752,19 @@
   "owner_type": "User",
   "archived": false,
   "seen": "2026-11-07"
+ },
+ "digialchemydsp/flex-plus": {
+  "full_name": "DigiAlchemydsp/Flex-Plus",
+  "created": "2026-11-07",
+  "pushed": "2026-11-07",
+  "stars": 2,
+  "forks": 0,
+  "language": null,
+  "fork": false,
+  "license": "GPL-2.0",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-08"
  },
  "digialchemydsp/ringtone": {
   "full_name": "DigiAlchemydsp/RingTone",
@@ -1433,6 +1498,19 @@
   "owner_type": "User",
   "archived": false,
   "seen": "2026-11-07"
+ },
+ "irpina/digisendfx": {
+  "full_name": "irpina/digisendfx",
+  "created": "2026-11-05",
+  "pushed": "2026-11-06",
+  "stars": 0,
+  "forks": 0,
+  "language": "C",
+  "fork": false,
+  "license": "GPL-2.0",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-08"
  },
  "irpina/digislicer": {
   "full_name": "irpina/digislicer",
@@ -2382,6 +2460,19 @@
   "owner_type": "User",
   "archived": false,
   "seen": "2026-11-07"
+ },
+ "slingdinger/octatrack-step-view": {
+  "full_name": "Slingdinger/octatrack-step-view",
+  "created": "2026-11-07",
+  "pushed": "2026-11-08",
+  "stars": 0,
+  "forks": 0,
+  "language": "Assembly",
+  "fork": false,
+  "license": "MIT",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-08"
  },
  "smoothdeveloper/fsdsp56k": {
   "full_name": "smoothdeveloper/fsdsp56k",

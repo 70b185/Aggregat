@@ -16,6 +16,19 @@ projects:
 
   # ------------------------------------------------------------- Syntakt
 
+  # ------------------------------------------------------------- Octatrack
+  - id: octacloudz
+    name: Octacloudz
+    author: davidecaldarola1-ship-it
+    kind: mod
+    devices: [octatrack]
+    repo: https://github.com/davidecaldarola1-ship-it/Octacloudz
+    status: unverified
+    notes: >
+      Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds.
+      No README yet, so OS, loader, licence and tests are unknown. Found by GitHub search 2026-11-08.
+    sources: [GitHub search 2026-11-08]
+
   # ------------------------------------------------------------- Analog Heat
   - id: heatfx-multimode
     name: Analog Heat FX+ MultiMode (beta 0.1)

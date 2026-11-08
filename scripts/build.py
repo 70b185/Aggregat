@@ -138,23 +138,125 @@ names = {"mods": "[MODS.md](MODS.md) (mods and custom firmware)", "dev": "[DEV-T
 bylist = {k: [p for p in projects if which_list(p) == k] for k in names}
 by_act = lambda rows: sorted(rows, key=lambda x: str(x.get("last_activity") or ""), reverse=True)
 
-# MODS.md: grouped by device; patchers/loaders in their own section
-mods = [GEN, "# Mods and custom firmware\n",
-        "What you can put on a device: mods, custom OS builds and the loaders/patchers that build them from your own "
-        "stock OS file. **Read the recovery notes before flashing anything:** "
-        "[hardware/common/recovery.md](hardware/common/recovery.md).\n", HEAD.format(c=checked),
-        other.format(o=", ".join(v for k, v in names.items() if k != "mods"))]
+# MODS.md: platforms first, then per device grouped by how far the mod is tested
+import datetime as _dt
+import json as _json
+_meta_f = ROOT / "state" / "repo_meta.json"
+_meta = _json.loads(_meta_f.read_text()) if _meta_f.exists() else {}
+_pid = {p["id"]: p for p in projects}
+
+
+def gh(p):
+    m = re.match(r"https://github\.com/([^/]+/[^/#?]+)", str(p.get("repo") or ""))
+    return _meta.get(m.group(1).removesuffix(".git"), {}) if m else {}
+
+
+def updated(p):
+    return max(str(p.get("last_activity") or ""), str(gh(p).get("pushed") or "")) or "-"
+
+
+def found(p):
+    t = " ".join(map(str, p.get("sources") or [])) + " " + str(p.get("notes") or "")
+    d = re.findall(r"(?:search|Found by[^.]*?|found by[^.]*?|code search)\s*(\d{4}-\d{2}-\d{2})", t)
+    return min(d) if d else str(gh(p).get("created") or "")
+
+
+TESTED = {"unit": "yes, on a unit", "partly": "partly", "emulator": "emulator only", "not-stated": "not stated"}
+
+
+def tested(p):
+    if p["status"] == "unverified":
+        return "unverified lead"
+    t = TESTED.get(p.get("tested"), "not stated")
+    return t + (f" ({p['tested_note']})" if p.get("tested_note") else "")
+
+
+def via(p):
+    hosts = [x["id"] for x in p.get("relations") or [] if x["type"] == "mod_for"]
+    if hosts:
+        return ", ".join(_pid[h]["name"] if h in _pid else h for h in hosts)
+    if p["kind"] in ("firmware", "loader") or p.get("links"):
+        return "own patcher / builder"
+    return "see repo"
+
+
+def cut(t, n):
+    t = " ".join(str(t or "-").split()).replace("|", "/")
+    return t if len(t) <= n else t[: n - 1].rsplit(" ", 1)[0] + " …"
+
+
+def links2(p):
+    parts = [link("repo", p["repo"])] if p.get("repo") else []
+    for k, v in list((p.get("links") or {}).items())[: 3 - len(parts)]:
+        parts.append(link(k.replace("_", " "), v))
+    return " · ".join(parts) or "-"
+
+
+def mrow(p, show_dev=False):
+    st = "" if p["status"] in ("active", "unverified", "unreachable") else f" <br>_{p['status']}_"
+    dv = f" | {devs(p)}" if show_dev else ""
+    return (f"| **{cut(p['name'], 90)}** <br>{cut(p.get('author', '?'), 40)}{st}{dv} | {short(p, 150)} | {via(p)} | "
+            f"{cut(p.get('base_os'), 45)} | {tested(p)} | {updated(p)} | {links2(p)} |")
+
+
+MHEAD = "| Mod | What it does | Install via | Needs OS | Tested | Updated | Links |\n|---|---|---|---|---|---|---|"
 inst = [p for p in bylist["mods"] if p["kind"] == "loader" or p.get("list") == "mods" and p["kind"] == "tool"]
 real = [p for p in bylist["mods"] if p not in inst]
-mods.append("\n## Loaders and patchers (how mods get onto a device)\n")
-mods.append("| Project | Devices | What it is | Status | Version / OS | Links |\n|---|---|---|---|---|---|")
-mods += [lrow(p) for p in by_act(inst)]
+by_upd = lambda rows: sorted(rows, key=updated, reverse=True)
+cut_new = str(_dt.date.fromisoformat(str(checked)) - _dt.timedelta(days=14))
+new = [p for p in real if p["status"] != "unverified" and found(p) >= cut_new]
+cnt = {p["id"]: sum(1 for q in real if any(x["type"] == "mod_for" and x["id"] == p["id"] for x in q.get("relations") or []))
+       for p in inst}
+mods = [GEN, "# Mods and custom firmware\n",
+        "What you can put on an Elektron device today: mods, custom OS builds, and the loaders and patchers that build "
+        "them from **your own** stock OS file. Nothing here is hosted by Aggregat; every link goes to the author.\n",
+        "> **Before you flash anything:** read [hardware/common/recovery.md](hardware/common/recovery.md) and make sure "
+        "you can get back to the stock OS. Mods are unofficial, Elektron does not support them, and the authors' own "
+        "words about stability are summarised below, not checked by us.\n",
+        "## How to read this list\n",
+        "- **Install via** - the loader or platform that builds the mod into your OS file (see the next table), or "
+        "the project's own patcher.\n"
+        "- **Tested** - what the author or a cited report says: *yes, on a unit* (ran on a real device), *partly* "
+        "(some builds or parts), *emulator only*, or *not stated* (the sources we read say nothing). It is a claim, "
+        "not our own test.\n"
+        "- **Updated** - the later of the last release or post we saw and the repo's last push.\n"
+        "- Each device section lists mods that ran on a unit first, then the rest; unreachable projects come last. "
+        "Full notes per project: [INDEX.md](INDEX.md) and the device pages.\n",
+        f"Data last verified {checked}; generated from `data/projects.yml`.\n",
+        other.format(o=", ".join(v for k, v in names.items() if k != "mods")),
+        "\n## Contents\n",
+        "[New in the last 14 days](#new-in-the-last-14-days) · [Loaders and platforms](#loaders-and-platforms) · "
+        + " · ".join(f"[{dev_names[s]}](#{re.sub(r'[^a-z0-9 -]', '', dev_names[s].lower()).replace(' ', '-')})"
+                     for s in dev_order if any(s in p["devices"] for p in real)) + "\n"]
+mods.append(f"\n## New in the last 14 days\n\nFirst seen by us since {cut_new}, newest first.\n")
+if new:
+    mods.append("| Mod | Device | What it does | Install via | Tested |\n|---|---|---|---|---|")
+    mods += [f"| **{cut(p['name'], 90)}** ({cut(p.get('author', '?'), 30)}) | {devs(p)} | {short(p, 120)} | {via(p)} | {tested(p)} |"
+             for p in sorted(new, key=found, reverse=True)]
+else:
+    mods.append("Nothing new.")
+mods.append("\n## Loaders and platforms\n\nThese do not change the sound themselves: they take your stock OS file "
+            "and the mods you pick and build the custom OS on your computer or in the browser.\n")
+mods.append("| Loader / platform | Devices | How it works | Mods listed here | Status | Tested | Updated | Links |\n"
+            "|---|---|---|---|---|---|---|---|")
+mods += [f"| **{cut(p['name'], 90)}** <br>{cut(p.get('author', '?'), 40)} | {devs(p)} | {short(p, 150)} | {cnt[p['id']] or '-'} | "
+         f"{p['status']} | {tested(p)} | {updated(p)} | {links2(p)} |"
+         for p in sorted(inst, key=lambda q: (-cnt[q["id"]], q["name"].lower()))]
+GROUPS = [("Ran on a real unit", lambda p: p["status"] not in ("unreachable", "unverified") and p.get("tested") in ("unit", "partly")),
+          ("Not yet confirmed on a unit", lambda p: p["status"] not in ("unreachable", "unverified") and p.get("tested") not in ("unit", "partly")),
+          ("Unverified leads", lambda p: p["status"] == "unverified"),
+          ("Unreachable (repo gone or private)", lambda p: p["status"] == "unreachable")]
 for s in dev_order:
     rows = [p for p in real if s in p["devices"]]
     if rows:
-        mods.append(f"\n## {dev_names[s]}\n")
-        mods.append("| Project | Devices | What it is | Status | Version / OS | Links |\n|---|---|---|---|---|---|")
-        mods += [lrow(p) for p in by_act(rows)]
+        n_unit = sum(1 for p in rows if GROUPS[0][1](p))
+        mods.append(f"\n## {dev_names[s]}\n\n{len(rows)} entries, {n_unit} reported running on a unit.\n")
+        for title, f in GROUPS:
+            g = [p for p in rows if f(p)]
+            if g:
+                mods.append(f"\n### {title}\n")
+                mods.append(MHEAD)
+                mods += [mrow(p) for p in by_upd(g)]
     elif next(d for d in devices if d["slug"] == s).get("phase") == 1:
         mods.append(f"\n## {dev_names[s]}\n\nNo public mod found yet (last search {checked}).")
 (ROOT / "MODS.md").write_text("\n".join(mods) + "\n", encoding="utf-8")

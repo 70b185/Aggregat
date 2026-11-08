@@ -2,14 +2,14 @@
 
 # Analog Four / Analog Keys
 
-Data last verified: 2026-11-07
+Data last verified: 2026-11-08
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
-| **analoghealth** (Iced-Cream) | mod | wip | Rytm MKII 1.74, A4 MKII 1.56 | - | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
+| **analoghealth** (Iced-Cream) | mod | wip | Rytm MKII 1.74, A4 MKII 1.56 | v1.3 | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
 | **Analog Four / Keys MK1 OS 1.56 mods** (hugz202) | mod | wip | Analog Four / Analog Keys MK1, OS 1.56 only (not MKII) | - | 2026-10-28 | [repo](https://github.com/hugz202/AE-analog-four-mods) |
 | **RytmRandomizer** (buzzijose-hub) | tool | active | main @ 892aaff (2026-09-28); Analog Rytm MK2 and Analog Four MK2 | - | 2026-09-28 | [repo](https://github.com/buzzijose-hub/rytmrandomizer) |
 | **TurboMIDI (C++)** (DatanoiseTV) | library | unknown | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |

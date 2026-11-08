@@ -2,11 +2,15 @@
 
 # Digitone (MKI) / Digitone Keys
 
-Data last verified: 2026-11-07
+Data last verified: 2026-11-08
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **digitakt-digitone-mcp** (jamiew) | tool | active | v0.5.2 | v0.5.2 | 2026-11-07 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **MUTINY (modular sequencers for Digitone mk1)** (mbaumannn) | mod | active | Digitone mk1 OS 1.44 | v0.2.0 | 2026-11-07 | [repo](https://github.com/mbaumannn/mutiny) |
+| **SEND FX (Digitone mk1)** (irpina) | mod | wip | Digitone mk1 / Keys OS 1.43 and 1.44 | v0.2 | 2026-11-07 | [repo](https://github.com/irpina/digisendfx) |
+| **Flex+ (FlexBus machine)** (DigiAlchemydsp) | mod | active | 1.0; Digitone mk1 / Keys OS 1.44 (core-dn1 4.0 + machines 0.2); Digitakt mk1 OS 1.54 (core 4.0 + machine-pages 1.1) | v1.0 | 2026-11-07 | [repo](https://github.com/DigiAlchemydsp/Flex-Plus) |
+| **DigiArp MIDI (DA27)** (aleks-karachevtsev) | mod | beta | DA27 0.9-dev11 (experimental beta); Digitone mk1 OS 1.44; elekloader core 4.1.1 + seq-events 0.1 | v0.9.0-beta | 2026-11-07 | [repo](https://github.com/aleks-karachevtsev/Digitone-MIDI-Arpeggiator) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-05 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **CHOKE GROUPS (Digitone mk1)** (irpina) | mod | wip | choke 0.1, no release yet; Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 3.1 or later | v0.2 | 2026-11-05 | [repo](https://github.com/irpina/digichoke) |
 | **PROGRAM CHANGE -> SOUND (Digitone mk1)** (irpina) | mod | wip | 0.1, no release yet; Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased) | v0.2 | 2026-11-05 | [repo](https://github.com/irpina/digipcsound) |
@@ -16,12 +20,11 @@ Data last verified: 2026-11-07
 | **CTRL+ / USER CFG (Digitone mk1)** (DigiAlchemydsp) | mod | wip | usercfg 0.6a (README); Digitone mk1 / Keys OS 1.44; core-dn1 4.0 | v0.6a | 2026-11-04 | [repo](https://github.com/DigiAlchemydsp/CTRL-PLUS) |
 | **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0. main since: a mod shop (submit a released mod through an issue form, a check opens the PR, later releases follow automatically; docs/SHOP.md), core-ar2 0.9 (lockable mod fields as velocity/aftertouch destinations; kit fields lockable), core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-11-03 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **Filter+ (13 filter types)** (DigiAlchemydsp) | mod | released | 1.0 (2026-11-02); Digitakt mk1 OS 1.54; Digitone mk1 / Keys OS 1.44 | v1.0 | 2026-11-02 | [repo](https://github.com/DigiAlchemydsp/FILTER-PLUS) |
-| **DRUM+ (FM drum machine for Digitone mk1)** (DigiAlchemydsp) | mod | released | 1.0 (2026-11-02); Digitone mk1 / Keys OS 1.44 (elekloader core-dn1 4.0 and machines companion 0.2) | v1.0 | 2026-11-02 | [repo](https://github.com/DigiAlchemydsp/DRUM-PLUS) |
+| **DRUM+ (FM drum machine for Digitone mk1)** (DigiAlchemydsp) | mod | released | 1.0 (2026-11-02); Digitone mk1 / Keys OS 1.44 (elekloader core-dn1 4.0 and machines companion 0.2) | v1.0.1 | 2026-11-02 | [repo](https://github.com/DigiAlchemydsp/DRUM-PLUS) |
 | **LFOX** (x2k77m1) | mod | unreachable | v1.0b (tag, 2026-11-02; v1.0a before); Digitone mk1 | v1.0b | 2026-11-02 | [repo](https://github.com/x2k77m1/lfox) |
 | **DIGISEQ (Digitone)** (ClaidArremer) | mod | wip | 0.2 (2026-10-26), Digitone mk1/Keys OS 1.43/1.44; CHANGELOG.md added 2026-11-02; Digitone mk1 / Keys | - | 2026-11-02 | [repo](https://github.com/ClaidArremer/digitone-digiseq) |
 | **PUMP (Digitone)** (ClaidArremer) | mod | wip | 2.12 (2026-11-02): FUNC + YES is the stock TEMP SAVE again; 2.11 reversed REL to match the stock compressor; Digitone mk1 / Keys | - | 2026-11-02 | [repo](https://github.com/ClaidArremer/digitone-pump) |
 | **elkflash** (Iced-Cream) | tool | active | - | - | 2026-11-02 | [repo](https://github.com/Iced-Cream/elkflash) |
-| **digitakt-digitone-mcp** (jamiew) | tool | active | - | - | 2026-11-01 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **SAY IT** (x2k77m1) | mod | wip | Digitone mk1, Digitakt mk1 | v1.0b | 2026-10-31 | [repo](https://github.com/x2k77m1/sayit) |
 | **DNX** (NoiseAndMatter) | tool | beta | 0.9.0-beta.8; no OS versions stated; Digitone II product id 0x15 | stable/pre-analysis | 2026-10-30 | [repo](https://github.com/NoiseAndMatter/DNX) · [web app](https://noiseandmatter.github.io/DNX/) · [forum](https://elektronmods.com/mods.php?id=39) |
 | **Elektron-Screen-Tool** (Fadedlimes) | tool | active | - | - | 2026-10-30 | [repo](https://github.com/Fadedlimes/elektron-screen-tool) |
@@ -52,7 +55,7 @@ Data last verified: 2026-11-07
 | **digiemu** (pina (irpina)) | emulator | stable | v0.4.1 (2026-10-09); firmware from the forum's firmware list; one user reports it needs 1.43 | v0.4.1 | 2026-10-05 | [repo](https://github.com/irpina/digiemu) · [forum](https://elektronmods.com/thread-20-digiemu-a-digitakt-and-digitone-emulator) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | - | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **RingTone (master ring mod / wavefold / EQ)** (DigiAlchemydsp) | mod | wip | 2.0o (2026-09-30); Digitone mk1 / Digitone Keys OS 1.43 | v2.0o | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/RingTone) · [releases](https://github.com/DigiAlchemydsp/RingTone/releases) |
-| **DigiSplash** (DigiAlchemydsp) | mod | unlabeled | v1.1 (2026-09-30); Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | v1.1 | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/DigiSplash) |
+| **DigiSplash** (DigiAlchemydsp) | mod | unlabeled | v1.1 (2026-09-30); Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | v1.2 | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/DigiSplash) |
 | **DigiCandy** (DigiAlchemydsp) | mod | wip | v1.0 (2026-09-30); Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | v1.0 | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/DigiCandy) |
 | **Digi Battery** (JGuzak) | research | active | - | - | 2026-08-21 | [repo](https://github.com/JGuzak/digi_battery) |
 | **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
@@ -519,5 +522,29 @@ _Sources: GitHub search 2026-11-05, README_
 Three generative sequencers on the synth tracks: a Euclidean rhythm, a Turing Machine and a TB-303-style acid line, played from the encoders; YES writes what you hear into the pattern as ordinary trigs. The author tested it for about an hour on one Digitone mk1 (OS 1.44). Found by GitHub search 2026-11-07.
 
 _Related: mod for `elekloader` (README: an Elekloader mod) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-07, README_
+
+### SEND FX (Digitone mk1)
+
+More from the Digitone mk1's own send effects and master drive: LUSH, a new bucket-brigade-style chorus in place of the stock one (VIBE, DRIFT, TONE, SAT, FDBK), two LFOs that move any chorus, delay, reverb or drive parameter (free or synced), and SHORT delay times. Written without Elektron code or tables. Checked in digikit's emulator. Found by GitHub search 2026-11-07.
+
+_Related: mod for `elekloader` (README: fxsend-0.2.elemod for OS 1.43 and 1.44); uses tool `digikit` (README: checked in digikit's emulator) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-07, README_
+
+### Flex+ (FlexBus machine)
+
+Routes the audio inputs or internal tracks into a track, with a low-CPU pitch shifter and an oscilloscope on the machine page. Found by GitHub search 2026-11-07.
+
+_Related: mod for `elekloader` (README: build a custom OS with elekloader) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-07, README_
+
+### DigiArp MIDI (DA27)
+
+MIDI arpeggiator for the Digitone mk1's MIDI tracks A-D, each with its own settings, controlled from the stock ARP page and step editor: tempo sync, recorded MIDI trigs, the stock modes plus UP TWICE, DOWN TWICE and UP/DOWN REPEAT. Known issues and test results are documented. Found by GitHub search 2026-11-07.
+
+_Related: mod for `elekloader` (README: requires Elekloader core 4.1.1 and seq-events 0.1) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-07, README_

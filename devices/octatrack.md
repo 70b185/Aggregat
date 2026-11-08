@@ -2,12 +2,13 @@
 
 # Octatrack (MKI, MKII)
 
-Data last verified: 2026-11-07
+Data last verified: 2026-11-08
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **STEP VIEW (Octatrack MIDI step editor)** (Slingdinger) | mod | wip | Octatrack MKI/MKII OS 1.40C | - | 2026-11-08 | [repo](https://github.com/Slingdinger/octatrack-step-view) |
 | **octabam** (Sam Banks, Contributors credited per module) | firmware | active | v0.3 (tags v0.2/v0.3, 2026-11-02): v0.2 adds VARISPEED and drops FX2 LOCK; v0.3 names the LOAD/SAVE KIT lists. Unreleased: USB IN/OUT moved to on-chip SRAM (USB share of the frame interrupt ~34 -> 24 us on an MKII); 1.40C | v0.4 | 2026-11-03 | [repo](https://github.com/sambanks/octabam) · [homepage](https://modwerk.app/) |
 | **OT Kyoti FW** (Zac Kyoti) | firmware | active | KYOTI V1.7 + MUTE_MODES KEYHOLD (final 2026-11-02, flashed by the user, all tests pass); 1.40C | ref/sp12-midside-vem7 | 2026-11-02 | [repo](https://github.com/Zac-Kyoti/octatrack-kyoti-fw) |
 | **Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)** (radiohagen) | mod | active | Octatrack OS 1.40C via octabam | - | 2026-10-31 | [repo](https://github.com/radiohagen/octatrack-modules) |
@@ -32,6 +33,7 @@ Data last verified: 2026-11-07
 | **OCTAMAX** (Maxolydian (mxldyn)) | mod | active | 2.0 BETA; 1.40C | dual256-v1 | - | [repo](https://github.com/mxldyn/octamax) |
 | **Octaplay** (devilfish707) | mod | active | 1.40C | - | - | [repo](https://github.com/devilfish707/Octaplay) |
 | **octemu** (Mark Roberts (markandrus)) | emulator | active | 1.40C | - | - | [repo](https://github.com/markandrus/octemu) |
+| **Octacloudz** (davidecaldarola1-ship-it) | mod | unverified | - | - | - | [repo](https://github.com/davidecaldarola1-ship-it/Octacloudz) |
 
 ## Details
 
@@ -212,3 +214,17 @@ _Sources: GitHub search 2026-11-02, README_
 Rust crate for reading and writing the Octatrack's binary project/bank/marker files; the same author's octapy does it in Python. GPL-3.0.
 
 _Sources: GitHub search 2026-11-02, README_
+
+### STEP VIEW (Octatrack MIDI step editor)
+
+A step editor and piano-roll pitch view for the eight MIDI tracks (MIXER + MIDI): all tracks at 32 steps a row, one track's 64 steps, notes with VEL and LEN per step. Found by GitHub search 2026-11-08.
+
+_Related: mod for `octabam` (README: a module for octabam) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-08, README_
+
+### Octacloudz
+
+Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds. No README yet, so OS, loader, licence and tests are unknown. Found by GitHub search 2026-11-08.
+
+_Sources: GitHub search 2026-11-08_

@@ -6,7 +6,7 @@ Data last verified: 2026-11-08
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **Filter-FX (seven filter effects)** (DigiAlchemydsp) | mod | active | 1.2; Digitakt mk1; Digitone mk1 / Keys | - | 2026-11-08 | [repo](https://github.com/DigiAlchemydsp/Filter-FX) |
+| **Filter-FX (seven filter effects)** (DigiAlchemydsp) | mod | active | 1.2; Digitakt mk1; Digitone mk1 / Keys | v1.2 | 2026-11-08 | [repo](https://github.com/DigiAlchemydsp/Filter-FX) |
 | **digitakt-digitone-mcp** (jamiew) | tool | active | v0.5.2 | v0.5.2 | 2026-11-07 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **Flex+ (FlexBus machine)** (DigiAlchemydsp) | mod | active | 1.0; Digitone mk1 / Keys OS 1.44 (core-dn1 4.0 + machines 0.2); Digitakt mk1 OS 1.54 (core 4.0 + machine-pages 1.1) | v1.0 | 2026-11-07 | [repo](https://github.com/DigiAlchemydsp/Flex-Plus) |
 | **Sidecar | Expander** (trigcondition) | tool | wip | Sidecar 0.4.1 (Pi only: Overbridge passthrough on the Pi 4, USB-C mode switch, USB dropout fixes, MODEL E) with the unchanged Rytm firmware 0.4.0 for OS 1.74/1.73; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | v0.2.0 | 2026-11-06 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |

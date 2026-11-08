@@ -6,8 +6,8 @@ Data last verified: 2026-11-08
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **ESOTERIKA (four Digitone voices)** (DigiAlchemydsp) | mod | active | ESOTERIKA 1.0, RUIN 1.1, XTAL 1.1, VOID 1.1, CREPUS 1.0; Digitone mk1 / Keys OS 1.44 | - | 2026-11-08 | [repo](https://github.com/DigiAlchemydsp/ESOTERIKA) |
-| **Filter-FX (seven filter effects)** (DigiAlchemydsp) | mod | active | 1.2; Digitakt mk1; Digitone mk1 / Keys | - | 2026-11-08 | [repo](https://github.com/DigiAlchemydsp/Filter-FX) |
+| **ESOTERIKA (four Digitone voices)** (DigiAlchemydsp) | mod | active | ESOTERIKA 1.0, RUIN 1.1, XTAL 1.1, VOID 1.1, CREPUS 1.0; Digitone mk1 / Keys OS 1.44 | v1.2.1 | 2026-11-08 | [repo](https://github.com/DigiAlchemydsp/ESOTERIKA) |
+| **Filter-FX (seven filter effects)** (DigiAlchemydsp) | mod | active | 1.2; Digitakt mk1; Digitone mk1 / Keys | v1.2 | 2026-11-08 | [repo](https://github.com/DigiAlchemydsp/Filter-FX) |
 | **digitakt-digitone-mcp** (jamiew) | tool | active | v0.5.2 | v0.5.2 | 2026-11-07 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **MUTINY (modular sequencers for Digitone mk1)** (mbaumannn) | mod | active | Digitone mk1 OS 1.44 | v0.2.0 | 2026-11-07 | [repo](https://github.com/mbaumannn/mutiny) |
 | **SEND FX (Digitone mk1)** (irpina) | mod | wip | Digitone mk1 / Keys OS 1.43 and 1.44 | v0.2 | 2026-11-07 | [repo](https://github.com/irpina/digisendfx) |

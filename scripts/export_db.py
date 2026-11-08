@@ -198,6 +198,7 @@ for line in (ROOT / "hardware/CONFLICTS.md").read_text(encoding="utf-8").split("
 
 # ---------------------------------------------------------------- projects, relations
 prow, rrow = [], []
+FIRST_SEEN = json.loads((ROOT / "state" / "first_seen.json").read_text()) if (ROOT / "state" / "first_seen.json").exists() else {}
 META_FILE = ROOT / "state" / "repo_meta.json"   # scripts/repo_meta.py: public GitHub numbers per repo
 REPO_META = json.loads(META_FILE.read_text()) if META_FILE.exists() else {}
 GH_REPO = re.compile(r"^https?://github\.com/([^/\s]+)/([^/\s#?]+)", re.I)
@@ -210,10 +211,11 @@ for p in plist:
     owner, gm = gh_meta(p.get("repo"))
     prow.append({
         "id": p["id"], "name": p["name"], "author": p.get("author"), "kind": p["kind"],
-        "list": p.get("list") or KIND_LIST.get(p["kind"]), "devices": ",".join(p.get("devices") or []),
+        "list": ",".join(dict.fromkeys([p.get("list") or KIND_LIST.get(p["kind"]) or ""] + list(p.get("also_lists") or []))).strip(","), "devices": ",".join(p.get("devices") or []),
         "repo": p.get("repo"), "license": p.get("license"), "status": p.get("status"), "base_os": p.get("base_os"),
         "version": p.get("version"), "last_activity": str(p.get("last_activity") or ""),
-        "tested": p.get("tested"), "tested_note": p.get("tested_note"),
+        "tested": p.get("tested"), "tested_note": p.get("tested_note"), "install": p.get("install"),
+        "contains": p.get("contains"), "first_seen": FIRST_SEEN.get(p["id"]),
         "notes": clean(str(p.get("notes") or "")), "links": json.dumps(p.get("links") or {}),
         "sources": json.dumps(p.get("sources") or []),
         "owner": owner, "created": gm.get("created"), "pushed": gm.get("pushed"), "stars": gm.get("stars"),
@@ -336,7 +338,7 @@ SCHEMA = {
     "meta": "key TEXT PRIMARY KEY, value TEXT",
     "devices": "slug TEXT PRIMARY KEY, name TEXT, family TEXT, phase INTEGER",
     "projects": "id TEXT PRIMARY KEY, name TEXT, author TEXT, kind TEXT, list TEXT, devices TEXT, repo TEXT, "
-                "license TEXT, status TEXT, base_os TEXT, version TEXT, last_activity TEXT, tested TEXT, tested_note TEXT, notes TEXT, links TEXT, "
+                "license TEXT, status TEXT, base_os TEXT, version TEXT, last_activity TEXT, tested TEXT, tested_note TEXT, install TEXT, contains TEXT, first_seen TEXT, notes TEXT, links TEXT, "
                 "sources TEXT, owner TEXT, created TEXT, pushed TEXT, stars INTEGER, forks INTEGER, language TEXT, gh_fork INTEGER, gh_license TEXT",
     "relations": "project TEXT, type TEXT, target TEXT, evidence TEXT",
     "rules": "id TEXT PRIMARY KEY, section TEXT, title TEXT, text TEXT, evidence TEXT, sources TEXT, devices TEXT",

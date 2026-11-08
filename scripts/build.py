@@ -135,7 +135,7 @@ HEAD = ("Data last verified: {c}. Generated from `data/projects.yml` (and unveri
 other = ("\nThe other lists: {o}. Hardware knowledge for writing mods: [hardware/](hardware/README.md).\n")
 names = {"mods": "[MODS.md](MODS.md) (mods and custom firmware)", "dev": "[DEV-TOOLS.md](DEV-TOOLS.md) (development tools)",
          "musician": "[MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians)"}
-bylist = {k: [p for p in projects if which_list(p) == k] for k in names}
+bylist = {k: [p for p in projects if which_list(p) == k or k in (p.get("also_lists") or [])] for k in names}
 by_act = lambda rows: sorted(rows, key=lambda x: str(x.get("last_activity") or ""), reverse=True)
 
 # MODS.md: platforms first, then per device grouped by how far the mod is tested
@@ -144,6 +144,8 @@ import json as _json
 _meta_f = ROOT / "state" / "repo_meta.json"
 _meta = _json.loads(_meta_f.read_text()) if _meta_f.exists() else {}
 _pid = {p["id"]: p for p in projects}
+_fs_f = ROOT / "state" / "first_seen.json"   # scripts/first_seen.py: first commit that listed each id
+_first = _json.loads(_fs_f.read_text()) if _fs_f.exists() else {}
 
 
 def gh(p):
@@ -156,9 +158,7 @@ def updated(p):
 
 
 def found(p):
-    t = " ".join(map(str, p.get("sources") or [])) + " " + str(p.get("notes") or "")
-    d = re.findall(r"(?:search|Found by[^.]*?|found by[^.]*?|code search)\s*(\d{4}-\d{2}-\d{2})", t)
-    return min(d) if d else str(gh(p).get("created") or "")
+    return _first.get(p["id"], str(checked))
 
 
 TESTED = {"unit": "yes, on a unit", "partly": "partly", "emulator": "emulator only", "not-stated": "not stated"}
@@ -172,6 +172,8 @@ def tested(p):
 
 
 def via(p):
+    if p.get("install"):
+        return p["install"]
     hosts = [x["id"] for x in p.get("relations") or [] if x["type"] == "mod_for"]
     if hosts:
         return ", ".join(_pid[h]["name"] if h in _pid else h for h in hosts)
@@ -202,9 +204,12 @@ def mrow(p, show_dev=False):
 MHEAD = "| Mod | What it does | Install via | Needs OS | Tested | Updated | Links |\n|---|---|---|---|---|---|---|"
 inst = [p for p in bylist["mods"] if p["kind"] == "loader" or p.get("list") == "mods" and p["kind"] == "tool"]
 real = [p for p in bylist["mods"] if p not in inst]
+colls = [p for p in bylist["mods"] if p.get("contains")]
 by_upd = lambda rows: sorted(rows, key=updated, reverse=True)
-cut_new = str(_dt.date.fromisoformat(str(checked)) - _dt.timedelta(days=14))
-new = [p for p in real if p["status"] != "unverified" and found(p) >= cut_new]
+# "new": added in the last 7 days, but not during the catalogue's first bulk imports (until BULK_UNTIL)
+BULK_UNTIL = "2026-11-03"
+cut_new = max(str(_dt.date.fromisoformat(str(checked)) - _dt.timedelta(days=7)), BULK_UNTIL)
+new = [p for p in real if p["status"] != "unverified" and found(p) > cut_new]
 cnt = {p["id"]: sum(1 for q in real if any(x["type"] == "mod_for" and x["id"] == p["id"] for x in q.get("relations") or []))
        for p in inst}
 mods = [GEN, "# Mods and custom firmware\n",
@@ -225,10 +230,11 @@ mods = [GEN, "# Mods and custom firmware\n",
         f"Data last verified {checked}; generated from `data/projects.yml`.\n",
         other.format(o=", ".join(v for k, v in names.items() if k != "mods")),
         "\n## Contents\n",
-        "[New in the last 14 days](#new-in-the-last-14-days) · [Loaders and platforms](#loaders-and-platforms) · "
+        "[New in the last 7 days](#new-in-the-last-7-days) · [Loaders and platforms](#loaders-and-platforms) · "
+        "[Inside the collections](#what-is-inside-the-collections) · "
         + " · ".join(f"[{dev_names[s]}](#{re.sub(r'[^a-z0-9 -]', '', dev_names[s].lower()).replace(' ', '-')})"
                      for s in dev_order if any(s in p["devices"] for p in real)) + "\n"]
-mods.append(f"\n## New in the last 14 days\n\nFirst seen by us since {cut_new}, newest first.\n")
+mods.append(f"\n## New in the last 7 days\n\nAdded to the catalogue after {cut_new}, newest first.\n")
 if new:
     mods.append("| Mod | Device | What it does | Install via | Tested |\n|---|---|---|---|---|")
     mods += [f"| **{cut(p['name'], 90)}** ({cut(p.get('author', '?'), 30)}) | {devs(p)} | {short(p, 120)} | {via(p)} | {tested(p)} |"
@@ -242,6 +248,10 @@ mods.append("| Loader / platform | Devices | How it works | Mods listed here | S
 mods += [f"| **{cut(p['name'], 90)}** <br>{cut(p.get('author', '?'), 40)} | {devs(p)} | {short(p, 150)} | {cnt[p['id']] or '-'} | "
          f"{p['status']} | {tested(p)} | {updated(p)} | {links2(p)} |"
          for p in sorted(inst, key=lambda q: (-cnt[q["id"]], q["name"].lower()))]
+mods.append("\n## What is inside the collections\n\nSome entries bundle many mods or modules. These are the "
+            "names their repos list; each collection still appears once in its device sections.\n")
+mods.append("| Collection | Devices | Contents |\n|---|---|---|")
+mods += [f"| **{cut(p['name'], 90)}** | {devs(p)} | {cut(p['contains'], 1500)} |" for p in sorted(colls, key=lambda q: q["name"].lower())]
 GROUPS = [("Ran on a real unit", lambda p: p["status"] not in ("unreachable", "unverified") and p.get("tested") in ("unit", "partly")),
           ("Not yet confirmed on a unit", lambda p: p["status"] not in ("unreachable", "unverified") and p.get("tested") not in ("unit", "partly")),
           ("Unverified leads", lambda p: p["status"] == "unverified"),

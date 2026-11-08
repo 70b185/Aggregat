@@ -9,6 +9,7 @@ Data last verified: 2026-11-08
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **STEP VIEW (Octatrack MIDI step editor)** (Slingdinger) | mod | wip | Octatrack MKI/MKII OS 1.40C | - | 2026-11-08 | [repo](https://github.com/Slingdinger/octatrack-step-view) |
+| **octabam2elemod (octabam modules as elekloader mods)** (irpina) | mod | active | v1.0 (octabam 363861e); Octatrack MKI/MKII OS 1.40C | - | 2026-11-08 | [repo](https://github.com/irpina/octabam2elemod) |
 | **octabam** (Sam Banks, Contributors credited per module) | firmware | active | v0.3 (tags v0.2/v0.3, 2026-11-02): v0.2 adds VARISPEED and drops FX2 LOCK; v0.3 names the LOAD/SAVE KIT lists. Unreleased: USB IN/OUT moved to on-chip SRAM (USB share of the frame interrupt ~34 -> 24 us on an MKII); 1.40C | v0.4 | 2026-11-03 | [repo](https://github.com/sambanks/octabam) · [homepage](https://modwerk.app/) |
 | **OT Kyoti FW** (Zac Kyoti) | firmware | active | KYOTI V1.7 + MUTE_MODES KEYHOLD (final 2026-11-02, flashed by the user, all tests pass); 1.40C | ref/sp12-midside-vem7 | 2026-11-02 | [repo](https://github.com/Zac-Kyoti/octatrack-kyoti-fw) |
 | **Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)** (radiohagen) | mod | active | Octatrack OS 1.40C via octabam | - | 2026-10-31 | [repo](https://github.com/radiohagen/octatrack-modules) |
@@ -222,6 +223,14 @@ A step editor and piano-roll pitch view for the eight MIDI tracks (MIXER + MIDI)
 _Related: mod for `octabam` (README: a module for octabam) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-08, README_
+
+### octabam2elemod (octabam modules as elekloader mods)
+
+octabam's Octatrack modules repackaged as elekloader mods, so they can be picked in the elekloader mod shop. Found in the elekloader mod shop catalogue 2026-11-08.
+
+_Related: mod for `elekloader` (elekloader web/catalog.json lists its .elemod files); vendors `octabam` (file names: octabam-<module>-363861e.elemod) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: elekloader mod shop catalog 2026-11-08_
 
 ### Octacloudz
 

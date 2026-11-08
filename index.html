@@ -20,7 +20,7 @@
   nav button.on { background:var(--fg); color:var(--bg); border-color:var(--fg); }
   .bar { display:flex; gap:8px; flex-wrap:wrap; padding:12px 24px; position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--line); z-index:1; }
   .bar input, .bar select { font:inherit; padding:7px 10px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--fg); }
-  .bar input { flex:1 1 280px; }
+  .bar input { flex:1 1 280px; } .bar select:disabled { display:none; }
   .count { color:var(--mute); font-size:13px; align-self:center; }
   main { padding:8px 24px 40px; max-width:1100px; }
   .item { padding:12px 0; border-bottom:1px solid var(--line); }
@@ -65,6 +65,34 @@
   .lbl { fill:var(--mute); text-anchor:middle; pointer-events:none; paint-order:stroke; stroke:var(--bg); display:none; }
   .lbl-big, .zoomed .lbl, .lbl.show { display:block; } .lbl.dim { display:none; }
   .lbl-o { fill:var(--fg); font-weight:600; } .lbl-d { fill:var(--fg); font-weight:600; stroke:none; }
+  /* mods */
+  .md-lead { color:var(--mute); font-size:14px; max-width:760px; margin:12px 0 10px; }
+  .md-ctl { display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; margin-bottom:6px; font-size:13px; }
+  .md-seg { display:flex; flex-wrap:wrap; gap:4px; }
+  .md-seg button { font:inherit; font-size:13px; border:1px solid var(--line); border-radius:999px; background:transparent; color:var(--fg); padding:4px 11px; cursor:pointer; display:inline-flex; align-items:center; gap:5px; }
+  .md-seg button span { color:var(--mute); } .md-seg button.on { background:var(--fg); color:var(--bg); border-color:var(--fg); } .md-seg button.on span { color:var(--bg); opacity:.7; }
+  .md-ctl select { font:inherit; font-size:13px; padding:5px 8px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--fg); }
+  .md-chk { color:var(--mute); cursor:pointer; } .md-chk input { accent-color:var(--fg); vertical-align:-2px; }
+  .md-h { font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; margin:22px 0 10px; display:flex; gap:10px; align-items:baseline; }
+  .md-h span { color:var(--mute); font-weight:400; text-transform:none; letter-spacing:0; }
+  .md-x { font:inherit; font-size:12px; border:1px solid var(--line); background:transparent; color:var(--fg); border-radius:999px; padding:1px 8px; cursor:pointer; text-transform:none; letter-spacing:0; }
+  .md-loaders { display:grid; grid-template-columns:repeat(auto-fill, minmax(165px, 1fr)); gap:8px; }
+  .md-ld { font:inherit; text-align:left; border:1px solid var(--line); background:transparent; color:var(--fg); border-radius:8px; padding:8px 10px; cursor:pointer; display:flex; flex-direction:column; gap:2px; }
+  .md-ld span { color:var(--mute); font-size:12px; } .md-ld:hover { border-color:var(--mute); } .md-ld.on { border-color:var(--fg); box-shadow:inset 0 0 0 1px var(--fg); }
+  .md-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); gap:12px; }
+  .md-card { border:1px solid var(--line); border-radius:10px; padding:12px 14px; display:flex; flex-direction:column; gap:6px; min-width:0; }
+  .md-card:hover { border-color:var(--mute); } .md-dim { opacity:.6; }
+  .md-card h3 { margin:0; font-size:15px; line-height:1.3; overflow-wrap:anywhere; } .md-card h3 a { color:var(--fg); text-decoration:none; } .md-card h3 a:hover { color:var(--acc); }
+  .md-card p { margin:0; font-size:13.5px; line-height:1.45; }
+  .md-by, .md-os, .md-note { color:var(--mute); font-size:12px; } .md-os { margin-top:-2px; }
+  .md-top { display:flex; gap:6px; align-items:center; font-size:12px; } .md-date { margin-left:auto; color:var(--mute); font-variant-numeric:tabular-nums; }
+  .md-t { font-weight:600; display:inline-flex; align-items:center; gap:5px; } .md-t::before, .md-dot { content:""; width:7px; height:7px; border-radius:50%; background:currentColor; display:inline-block; }
+  .md-t-unit { color:var(--hw); } .md-t-partly { color:var(--doc); } .md-t-emulator { color:var(--emu); } .md-t-not-stated { color:var(--mute); }
+  .md-new { font-size:11px; font-weight:600; color:var(--acc); border:1px solid var(--acc); border-radius:999px; padding:0 6px; }
+  .md-st { font-size:11px; color:var(--mute); border:1px solid var(--line); border-radius:999px; padding:0 6px; }
+  .md-foot { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin-top:auto; padding-top:4px; }
+  .md-tag { background:var(--chip); color:var(--fg); border-radius:4px; padding:1px 6px; font-size:12px; } .md-via { color:var(--mute); font-size:12px; margin-left:2px; }
+  .md-card details { font-size:12.5px; color:var(--mute); } .md-card summary { cursor:pointer; color:var(--fg); } .md-card details div { margin-top:4px; }
   /* community */
   .cm-kpis { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:10px; margin:10px 0 16px; }
   .cm-kpis div { border:1px solid var(--line); border-radius:8px; padding:10px 12px; } .cm-kpis b { display:block; font-size:26px; line-height:1.1; } .cm-kpis span { color:var(--mute); font-size:13px; }
@@ -100,10 +128,11 @@
   <a href="https://github.com/70b185/aggregat">github.com/70b185/aggregat</a></footer>
 <script src="assets/network.js"></script>
 <script src="assets/community.js"></script>
+<script src="assets/mods.js"></script>
 <script>
 const REPO = "https://github.com/70b185/aggregat/blob/master/";
-const TABS = [["network","Network map"],["community","Community"],["facts","Hardware facts"],["projects","Projects"],["rules","Agent rules"],["incidents","Incidents"],["stock_bugs","Stock bugs"],["hypotheses","Tests to run"],["tasks","Tasks"],["goals","Goals"],["conflicts","Conflicts"],["sources","Sources"]];
-let D = null, tab = "network", srcUrl = {}, devName = {};
+const TABS = [["mods","Mods"],["network","Network map"],["community","Community"],["facts","Hardware facts"],["projects","Projects"],["rules","Agent rules"],["incidents","Incidents"],["stock_bugs","Stock bugs"],["hypotheses","Tests to run"],["tasks","Tasks"],["goals","Goals"],["conflicts","Conflicts"],["sources","Sources"]];
+let D = null, tab = "mods", srcUrl = {}, devName = {};
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const list = s => String(s || "").split(",").filter(Boolean);
@@ -137,6 +166,11 @@ const VIEWS = {
     custom: true, rows: () => D.projects, dev: p => p.devices, hay: () => "",
     draw: (words, dev) => AggNetwork.draw($("out"), D, {words, dev, devName}),
     count: () => `${D.relations.length} relations`
+  },
+  mods: {
+    custom: true, rows: () => D.projects, dev: p => p.devices, hay: () => "",
+    draw: (words, dev) => AggMods.draw($("out"), D, {words, dev, devName}),
+    count: () => ""
   },
   community: {
     custom: true, rows: () => D.projects, dev: p => p.devices, hay: () => "",
@@ -277,7 +311,7 @@ function init() {
   const p = new URLSearchParams(location.search);
   if (VIEWS[p.get("t")]) tab = p.get("t");
   $("q").value = p.get("q") || "";
-  $("tabs").innerHTML = TABS.map(([k, l]) => `<button data-t="${k}" class="${k === tab ? "on" : ""}">${l} <span class="meta">${k === "network" ? "" : k === "community" ? "" : (D[k] || []).length}</span></button>`).join("");
+  $("tabs").innerHTML = TABS.map(([k, l]) => `<button data-t="${k}" class="${k === tab ? "on" : ""}">${l} <span class="meta">${k === "network" || k === "community" ? "" : (k === "mods" ? D.projects.filter(p => String(p.list || "").split(",").includes("mods") && !["loader","tool"].includes(p.kind)).length : (D[k] || []).length)}</span></button>`).join("");
   $("tabs").onclick = e => { const b = e.target.closest("button"); if (!b) return; tab = b.dataset.t;
     [...$("tabs").children].forEach(x => x.classList.toggle("on", x === b)); render(); };
   D.devices.forEach(d => { devName[d.slug] = d.name; $("dev").insertAdjacentHTML("beforeend", `<option value="${esc(d.slug)}">${esc(d.name)}</option>`); });

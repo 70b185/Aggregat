@@ -128,6 +128,54 @@
   .md-h { background:var(--g2); padding:6px 10px; }
   .item { padding:12px 10px; } .item:nth-child(even) { background:var(--g1); }
   .md-card:hover, .md-ld:hover { border-color:var(--fg); }
+
+  /* ===== Studio design (variant C): sans text, mono labels, orange accent, a colour per device ===== */
+
+  :root { --sans:-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, sans-serif; }
+  body { font:14px/1.6 var(--sans); }
+  .text, .md-card p, .md-lead, .cm-card, .net-panel, .item, .bar input { font-family:var(--sans); font-size:14px; }
+  .md-card h3 { font-family:var(--sans); font-size:15.5px; font-weight:650; }
+  h1 { font-family:var(--sans); text-transform:none; letter-spacing:-.01em; font-size:20px; }
+  nav button, .devbar button, .md-h, .meta, .chip, .md-tag, .md-date, .md-new, .md-st, .md-by, .md-via, .md-os, .dv-label, code, .count { font-family:var(--font); }
+  .md-top { color:var(--fg); }
+  .md-k-mod .md-top { background:var(--k1); } .md-k-firmware .md-top { background:var(--k2); }
+  .md-k-research .md-top, .md-k-emulator .md-top, .md-k-tool .md-top, .md-k-library .md-top { background:var(--k3); }
+  .md-kind { font-family:var(--font); font-size:11px; text-transform:uppercase; letter-spacing:.06em; }
+  .md-new { background:var(--accent); color:var(--on-accent) !important; border-color:var(--accent) !important; }
+  .item:nth-child(even) { background:transparent; } .item { border-bottom:1px solid var(--line); }
+  .item { padding:14px 16px; margin:8px 0; border:1px solid var(--line); background:var(--g1); }
+  .ev-hw { color:var(--ok); } .ev-emu { color:var(--info); } .ev-doc { color:var(--warn); }
+
+  :root { --bg:#fafafa; --g1:#ffffff; --g2:#f0f0f0; --fg:#141414; --mute:#6a6a6a; --line:#e3e3e3; --chip:#f0f0f0;
+          --accent:#ff5a1f; --on-accent:#ffffff; --k1:#ffffff; --k2:#ffffff; --k3:#ffffff; --ok:#1a8a4a; --info:#2563eb; --warn:#c2410c;
+          --st1:#ff5a1f; --st2:#2563eb; --st3:#9a9a9a; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0b0b0c; --g1:#151517; --g2:#1e1e21; --fg:#ececee; --mute:#9b9ba3; --line:#26262a; --chip:#222226;
+          --accent:#ff6a33; --on-accent:#111; --k1:#151517; --k2:#151517; --k3:#151517; --ok:#4fd08a; --info:#7aa7ff; --warn:#ff9a5c;
+          --st1:#ff6a33; --st2:#7aa7ff; --st3:#5c5c63; } }
+  * { border-radius:4px; } header, .bar, .devbar { border-radius:0; }
+  header, .bar, .devbar { background:var(--bg); }
+  nav button { border:0; margin:0 2px 0 0; background:transparent; }
+  nav button.on { background:transparent; color:var(--fg); box-shadow:inset 0 -2px 0 var(--accent); } nav button.on .meta { color:var(--accent); opacity:1; }
+  .devbar button { margin:0 4px 4px 0; border:1px solid var(--line); background:var(--g1); }
+  .devbar button.on { background:var(--fg); color:var(--bg); border-color:var(--fg); }
+  .md-card { border-left:4px solid var(--st3); } .md-k-mod { border-left-color:var(--st1); } .md-k-firmware { border-left-color:var(--st2); }
+  .md-top { background:transparent !important; border-bottom:1px solid var(--line); }
+  .md-card, .md-ld { background:var(--g1); }
+  .md-h { background:transparent; padding:0; color:var(--accent); }
+  .md-ld.on { background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
+  /* chart and map colours back in colour */
+  :root { --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s5:#e87ba4; --s0:#b9b4aa; --person:#3d3a35; }
+  @media (prefers-color-scheme: dark) { :root { --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s5:#d55181; --s0:#5d5a54; --person:#d8d3c8; } }
+  /* device colours, taken from each unit's panel print and lights */
+  :root { --c-digitakt:#f07a1f; --c-digitakt-2:#e4522b; --c-digitone:#19b3bf; --c-digitone-2:#3b8fe0; --c-syntakt:#a8c234;
+          --c-analog-heat:#d93a32; --c-octatrack:#e2b929; --c-analog-rytm:#d6336c; --c-analog-four-keys:#8a6be0; --c-model-cycles:#f2a007;
+          --c-model-samples:#ff7aa8; --c-machinedrum:#7a95b3; --c-monomachine:#41a68f; }
+  .devbar button::before { content:""; width:9px; height:9px; border-radius:50%; background:var(--dc, var(--mute)); align-self:center; }
+  .devbar button.on { background:var(--dc, var(--fg)); border-color:var(--dc, var(--fg)); color:#111; } .devbar button.on .dv-c { color:#111; }
+  .md-card, .md-k-mod, .md-k-firmware { border-left:4px solid var(--dc, var(--st3)); }
+  .md-tag { box-shadow:inset 3px 0 0 var(--dc, transparent); padding-left:8px; }
+  .item { border-left:4px solid var(--dc, var(--line)); }
+  .devbar button[data-v=""].on { background:var(--fg); border-color:var(--fg); color:var(--bg); } .devbar button[data-v=""].on .dv-c { color:var(--bg); }
 </style>
 </head>
 <body>
@@ -319,7 +367,7 @@ function render() {
   if (v.ev) rows.sort((a, b) => (list(v.ev(b)).includes("hw") ? 1 : 0) - (list(v.ev(a)).includes("hw") ? 1 : 0));
   $("count").textContent = `${rows.length} of ${v.rows().length}`;
   const shown = rows.slice(0, 300);
-  $("out").innerHTML = shown.length ? shown.map(r => `<div class="item">${v.html(r, words)}</div>`).join("")
+  $("out").innerHTML = shown.length ? shown.map(r => `<div class="item" style="--dc:var(--c-${esc(v.dev ? list(v.dev(r))[0] || "" : "")})">${v.html(r, words)}</div>`).join("")
     + (rows.length > 300 ? `<div class="empty">Showing the first 300. Narrow the search.</div>` : "")
     : `<div class="empty">Nothing matches.</div>`;
   const p = new URLSearchParams(); p.set("t", tab); if ($("q").value) p.set("q", $("q").value); if (dev) p.set("d", dev);
@@ -336,7 +384,7 @@ function devCounts() {
   $("devbar").querySelectorAll("button").forEach(b => { b.querySelector(".dv-c").textContent = n(b.dataset.v); b.classList.toggle("on", b.dataset.v === $("dev").value); });
 }
 function devBar() {
-  const btn = (v, l) => `<button data-v="${esc(v)}"><span>${esc(l)}</span><span class="dv-c"></span></button>`;
+  const btn = (v, l) => `<button data-v="${esc(v)}" style="--dc:var(--c-${esc(v)})"><span>${esc(l)}</span><span class="dv-c"></span></button>`;
   $("devbar").innerHTML = `<div class="dv-label">Device</div><div class="dv-list">${btn("", "All")}${D.devices.map(d => btn(d.slug, DEV_SHORT(d.name))).join("")}</div>`;
   $("devbar").onclick = e => { const b = e.target.closest("button"); if (!b) return; $("dev").value = b.dataset.v; render(); };
 }

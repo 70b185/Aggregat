@@ -50,13 +50,13 @@
     const ls = loaders.filter(l => !ctx.dev || list(l.devices).includes(ctx.dev))
       .sort((a, b) => loaderCount(b.id) - loaderCount(a.id) || a.name.localeCompare(b.name));
 
-    const devs = p => list(p.devices).map(d => `<span class="md-tag">${esc((ctx.devName[d] || d).replace(/ \(.*\)$/, ""))}</span>`).join("");
+    const devs = p => list(p.devices).map(d => `<span class="md-tag" style="--dc:var(--c-${esc(d)})">${esc((ctx.devName[d] || d).replace(/ \(.*\)$/, ""))}</span>`).join("");
     const card = p => {
       const isNew = p.status !== "unverified" && found(p) > cutNew;
       const st = ["active", "unverified"].includes(p.status) ? "" : `<span class="md-st">${esc(p.status)}</span>`;
       const os = p.base_os ? short(p.base_os, 70) : "";
-      return `<article class="md-card${["unreachable", "unverified"].includes(p.status) ? " md-dim" : ""}">
-        <div class="md-top">${isNew ? `<span class="md-new">new</span>` : ""}${p.status === "unverified" ? `<span class="md-st">unverified lead</span>` : st}
+      return `<article style="--dc:var(--c-${esc(list(p.devices)[0] || "")})" class="md-card md-k-${esc(p.kind)}${["unreachable", "unverified"].includes(p.status) ? " md-dim" : ""}">
+        <div class="md-top"><span class="md-kind">${esc(p.kind === "firmware" ? "custom OS" : p.kind)}</span>${isNew ? `<span class="md-new">new</span>` : ""}${p.status === "unverified" ? `<span class="md-st">unverified lead</span>` : st}
           <span class="md-date">${esc(updated(p) || "")}</span></div>
         <h3>${p.repo ? `<a href="${esc(p.repo)}">${esc(p.name)}</a>` : esc(p.name)}</h3>
         <div class="md-by">${esc(short(p.author, 60))}</div>

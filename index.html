@@ -24,12 +24,12 @@
   nav button.on, .devbar button.on { background:var(--fg); color:var(--bg); border-color:var(--fg); position:relative; }
   nav button .meta, .devbar .dv-c { color:var(--mute); font-variant-numeric:tabular-nums; } nav button.on .meta, .devbar button.on .dv-c { color:var(--bg); opacity:.7; }
   .devbar { display:flex; gap:14px; align-items:center; padding:12px 24px; border-bottom:1px solid var(--line); }
-  .dv-label { color:var(--mute); font-size:var(--fs-s); text-transform:uppercase; }
+  .dv-label { color:var(--mute); font-size:var(--fs-s); text-transform:uppercase; } .dv-label span { text-transform:none; font-size:11px; }
   .dv-list { display:flex; flex-wrap:wrap; padding:0 1px 1px 0; }
   @media (max-width:760px) { .devbar { flex-direction:column; align-items:flex-start; gap:6px; } }
   .bar { display:flex; gap:8px; flex-wrap:wrap; padding:12px 24px; position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--line); z-index:1; }
   .bar input, .bar select { font:inherit; padding:7px 10px; border:1px solid var(--line); border-radius:0; background:var(--bg); color:var(--fg); }
-  .bar input { flex:1 1 280px; } .bar select:disabled, #dev { display:none; }
+  .bar input { flex:1 1 280px; } .bar select:disabled { display:none; }
   .bar input:focus, .bar select:focus { outline:1px solid var(--fg); outline-offset:-1px; }
   .count { color:var(--mute); font-size:var(--fs-s); align-self:center; }
   main { padding:8px 24px 40px; max-width:1100px; }
@@ -186,7 +186,6 @@
 </header>
 <div class="bar">
   <input id="q" type="search" placeholder="Search (all words must match; an address like 0x40000400 works too)" autofocus>
-  <select id="dev"><option value="">All devices</option></select>
   <span class="count" id="count"></span>
 </div>
 <div id="devbar" class="devbar" role="group" aria-label="Device"></div>
@@ -231,17 +230,17 @@ const INC_GROUP = {stock: "stock firmware", mod: "mod on a unit", "emulator-or-t
 const VIEWS = {
   network: {
     custom: true, rows: () => D.projects, dev: p => p.devices, hay: () => "",
-    draw: (words, dev) => AggNetwork.draw($("out"), D, {words, dev, devName}),
+    draw: (words, dev) => AggNetwork.draw($("out"), D, {words, dev, devs: dev, devOk, devName}),
     count: () => `${D.relations.length} relations`
   },
   mods: {
     custom: true, rows: () => D.projects, dev: p => p.devices, hay: () => "",
-    draw: (words, dev) => AggMods.draw($("out"), D, {words, dev, devName}),
+    draw: (words, dev) => AggMods.draw($("out"), D, {words, dev, devs: dev, devOk, devName}),
     count: () => ""
   },
   community: {
     custom: true, rows: () => D.projects, dev: p => p.devices, hay: () => "",
-    draw: (words, dev) => AggCommunity.draw($("out"), D, {words, dev, devName}),
+    draw: (words, dev) => AggCommunity.draw($("out"), D, {words, dev, devs: dev, devOk, devName}),
     count: () => ""
   },
   facts: {
@@ -346,11 +345,10 @@ const VIEWS = {
 function render() {
   const v = VIEWS[tab];
   const words = $("q").value.trim().toLowerCase().split(/\s+/).filter(Boolean);
-  const dev = $("dev").value;
-  $("dev").disabled = !v.dev;
+  const dev = DEVS.slice();
   devCounts();
   const rows = v.custom ? [] : v.rows().filter(r => {
-    if (dev && v.dev && !list(v.dev(r)).includes(dev)) return false;
+    if (v.dev && !devOk(list(v.dev(r)))) return false;
     if (!words.length) return true;
     const h = v.hay(r).toLowerCase();
     return words.every(w => h.includes(w));
@@ -360,20 +358,23 @@ function render() {
   if (v.custom) {
     $("count").textContent = v.count();
     v.draw(words, dev);
-    const q = new URLSearchParams(); q.set("t", tab); if ($("q").value) q.set("q", $("q").value); if (dev) q.set("d", dev);
+    const q = new URLSearchParams(); q.set("t", tab); if ($("q").value) q.set("q", $("q").value); if (dev.length) q.set("d", dev.join(","));
     history.replaceState(null, "", "?" + q);
     return;
   }
   if (v.ev) rows.sort((a, b) => (list(v.ev(b)).includes("hw") ? 1 : 0) - (list(v.ev(a)).includes("hw") ? 1 : 0));
   $("count").textContent = `${rows.length} of ${v.rows().length}`;
   const shown = rows.slice(0, 300);
-  $("out").innerHTML = shown.length ? shown.map(r => `<div class="item" style="--dc:var(--c-${esc(v.dev ? list(v.dev(r))[0] || "" : "")})">${v.html(r, words)}</div>`).join("")
+  $("out").innerHTML = shown.length ? shown.map(r => `<div class="item" style="--dc:var(--c-${esc(v.dev ? stripeDev(list(v.dev(r))) : "")})">${v.html(r, words)}</div>`).join("")
     + (rows.length > 300 ? `<div class="empty">Showing the first 300. Narrow the search.</div>` : "")
     : `<div class="empty">Nothing matches.</div>`;
-  const p = new URLSearchParams(); p.set("t", tab); if ($("q").value) p.set("q", $("q").value); if (dev) p.set("d", dev);
+  const p = new URLSearchParams(); p.set("t", tab); if ($("q").value) p.set("q", $("q").value); if (dev.length) p.set("d", dev.join(","));
   history.replaceState(null, "", "?" + p);
 }
 
+let DEVS = [];   // selected device slugs; empty = all
+const devOk = ds => !DEVS.length || ds.some(d => DEVS.includes(d));
+const stripeDev = ds => ds.find(d => DEVS.includes(d)) || ds[0] || "";
 const DEV_SHORT = n => n.replace(/ \(.*?\)/g, "").replace("Digitone / Digitone Keys", "Digitone / Keys").replace("Analog Four / Analog Keys", "Analog Four / Keys");
 function devCounts() {
   // the number on each device button: mods on the Mods tab, otherwise the rows of the open tab
@@ -381,12 +382,14 @@ function devCounts() {
   const rows = tab === "mods" ? D.projects.filter(isMod) : v.dev ? v.rows() : [];
   const n = s => rows.filter(r => !s || list(v.dev(r)).includes(s)).length;
   $("devbar").style.display = v.dev ? "" : "none";
-  $("devbar").querySelectorAll("button").forEach(b => { b.querySelector(".dv-c").textContent = n(b.dataset.v); b.classList.toggle("on", b.dataset.v === $("dev").value); });
+  $("devbar").querySelectorAll("button").forEach(b => { b.querySelector(".dv-c").textContent = n(b.dataset.v); b.classList.toggle("on", b.dataset.v ? DEVS.includes(b.dataset.v) : !DEVS.length); });
 }
 function devBar() {
   const btn = (v, l) => `<button data-v="${esc(v)}" style="--dc:var(--c-${esc(v)})"><span>${esc(l)}</span><span class="dv-c"></span></button>`;
-  $("devbar").innerHTML = `<div class="dv-label">Device</div><div class="dv-list">${btn("", "All")}${D.devices.map(d => btn(d.slug, DEV_SHORT(d.name))).join("")}</div>`;
-  $("devbar").onclick = e => { const b = e.target.closest("button"); if (!b) return; $("dev").value = b.dataset.v; render(); };
+  $("devbar").innerHTML = `<div class="dv-label">Device<br><span>click several to combine</span></div><div class="dv-list">${btn("", "All")}${D.devices.map(d => btn(d.slug, DEV_SHORT(d.name))).join("")}</div>`;
+  // click toggles a device, so several can be combined; "All" clears the choice
+  $("devbar").onclick = e => { const b = e.target.closest("button"); if (!b) return; const v = b.dataset.v;
+    DEVS = !v ? [] : DEVS.includes(v) ? DEVS.filter(x => x !== v) : [...DEVS, v]; render(); };
 }
 
 function init() {
@@ -396,13 +399,13 @@ function init() {
   $("tabs").innerHTML = TABS.map(([k, l]) => `<button data-t="${k}" class="${k === tab ? "on" : ""}">${l} <span class="meta">${k === "network" || k === "community" ? "" : (k === "mods" ? D.projects.filter(p => String(p.list || "").split(",").includes("mods") && !["loader","tool"].includes(p.kind)).length : (D[k] || []).length)}</span></button>`).join("");
   $("tabs").onclick = e => { const b = e.target.closest("button"); if (!b) return; tab = b.dataset.t;
     [...$("tabs").children].forEach(x => x.classList.toggle("on", x === b)); render(); };
-  D.devices.forEach(d => { devName[d.slug] = d.name; $("dev").insertAdjacentHTML("beforeend", `<option value="${esc(d.slug)}">${esc(d.name)}</option>`); });
-  $("dev").value = p.get("d") || "";
+  D.devices.forEach(d => { devName[d.slug] = d.name; });
+  DEVS = (p.get("d") || "").split(",").filter(x => devName[x]);
   devBar();
   D.sources.forEach(s => srcUrl[s.key] = s.url);
   $("sub").textContent = `${D.projects.length} projects, ${D.facts.length} hardware facts, ${D.rules.length} rules, ${D.conflicts.length} conflicts - data checked ${D.meta.checked}`;
   let t; $("q").oninput = () => { clearTimeout(t); t = setTimeout(render, 120); };
-  $("dev").onchange = render;
+
   render();
 }
 

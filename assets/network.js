@@ -34,12 +34,12 @@
   const REL_LABEL = Object.fromEntries(Object.entries(REL).map(([k, v]) => [k, v[0]]));
 
   // ---------------------------------------------------------------- state kept between draws
-  const S = {opts: {rel: true, people: true, solo: false, devices: false, lonely: false, color: "kind", size: "stars"},
+  const S = {opts: {rel: true, people: true, solo: false, devices: false, lonely: false, color: "device", size: "stars"},
              off: new Set(["cites", "uses_tool"]), sel: null, hover: null, needFit: true, view: {x: 0, y: 0, k: 1}, pos: {}, built: null};
 
-  function build(D, dev) {
+  function build(D, devOk) {
     const famOf = {}; D.devices.forEach(d => famOf[d.slug] = d.family);
-    const projects = D.projects.filter(p => !dev || list(p.devices).includes(dev));
+    const projects = D.projects.filter(p => devOk(list(p.devices)));
     const byId = {}; projects.forEach(p => byId[p.id] = p);
     const nodes = [], edges = [], N = {};
     const add = (id, o) => { if (!N[id]) { N[id] = Object.assign({id, deg: 0}, o); nodes.push(N[id]); } return N[id]; };
@@ -68,9 +68,12 @@
     return {nodes: keep, edges: edges.filter(e => kept.has(e.a) && kept.has(e.b)), N, total: projects.length};
   }
 
+  let CTX = {devs: []};   // the last draw context (selected devices)
   function colour(n) {
     if (n.t === "o") return "var(--person)";
-    if (n.t === "d") return "var(--chip)";
+    if (n.t === "d") return S.opts.color === "device" ? `var(--c-${n.id.slice(2)}, var(--chip))` : "var(--chip)";
+    if (S.opts.color === "device") { const ds = list(n.p.devices); const d = ds.find(x => CTX.devs.includes(x)) || ds[0];
+      return d ? `var(--c-${d}, var(--s0))` : "var(--s0)"; }
     if (S.opts.color === "licence") return SLOT[licFamily(n.p)];
     if (S.opts.color === "age") return n.p.created ? ageColour(n.p.created) : "var(--s0)";
     return SLOT[KIND_GROUP[n.p.kind] || "other"];
@@ -137,7 +140,8 @@
   function draw(root, D, ctx) {
     if (sim) sim.stop();
     const words = ctx.words || [];
-    const G = build(D, ctx.dev);
+    CTX = ctx;
+    const G = build(D, ctx.devOk);
     root.innerHTML = `
       <div class="net-ctl">
         <span class="net-group"><b>Show</b>
@@ -146,7 +150,7 @@
           <label title="also people with a single project"><input type="checkbox" data-o="solo"> incl. one-project people</label>
           <label><input type="checkbox" data-o="devices"> device families</label>
           <label title="projects with no link to anything shown"><input type="checkbox" data-o="lonely"> unlinked projects</label></span>
-        <span class="net-group"><b>Colour</b> <select data-o="color"><option value="kind">by kind</option><option value="licence">by licence</option><option value="age">by repo age</option></select></span>
+        <span class="net-group"><b>Colour</b> <select data-o="color"><option value="device">by device</option><option value="kind">by kind</option><option value="licence">by licence</option><option value="age">by repo age</option></select></span>
         <span class="net-group"><b>Size</b> <select data-o="size"><option value="stars">by GitHub stars</option><option value="equal">equal</option></select></span>
         <button class="net-btn" data-a="fit">Fit</button> <button class="net-btn" data-a="relayout">Re-layout</button>
       </div>
@@ -343,12 +347,15 @@
     let items;
     if (S.opts.color === "licence") items = Object.keys(LIC_LABEL).map(k => [SLOT[k], LIC_LABEL[k]]);
     else if (S.opts.color === "age") items = [[AGE_STEPS[6], "repo under 1 month old"], [AGE_STEPS[4], "under 3 months"], [AGE_STEPS[2], "under a year"], [AGE_STEPS[0], "older"], ["var(--s0)", "no GitHub repo"]];
+    else if (S.opts.color === "device") items = D.devices.filter(d => !ctx.devs.length || ctx.devs.includes(d.slug))
+      .map(d => [`var(--c-${d.slug})`, d.name.replace(/ \(.*?\)/g, "")]).concat(ctx.devs.length ? [] : [])
+      .concat([["var(--s0)", "no device"]]).slice(0, 20);
     else items = ["mods", "tools", "research", "other"].map(k => [SLOT[k], KIND_LABEL[k]]);
     leg.innerHTML = items.map(([c, l]) => `<span><i style="background:${c}"></i>${esc(l)}</span>`).join("")
       + (S.opts.people ? `<span><i style="background:var(--person)"></i>person (GitHub owner)</span>` : "")
       + (S.opts.color === "licence" ? `<span><i class="i-dash"></i>dashed outline: licence not checked by us (GitHub's detection or none)</span>` : "")
       + `<span class="meta">${S.opts.size === "stars" ? "Size: GitHub stars. " : ""}Numbers from GitHub, refreshed daily.</span>`;
-    const counts = {}; D.relations.forEach(r => { if (!ctx.dev || (G.N["p:" + r.project] || S.off.has(r.type))) counts[r.type] = (counts[r.type] || 0) + 1; });
+    const counts = {}; D.relations.forEach(r => { if (!ctx.devs.length || (G.N["p:" + r.project] || S.off.has(r.type))) counts[r.type] = (counts[r.type] || 0) + 1; });
     const kinds = root.querySelector(".net-kinds");
     kinds.innerHTML = `<b>Link kinds</b> <span class="meta">click to hide or show</span>` + Object.keys(REL).filter(k => counts[k]).map(k =>
       `<button class="net-kind${S.off.has(k) ? " off" : ""}" data-k="${k}" aria-pressed="${!S.off.has(k)}"><svg width="30" height="10"><line x1="1" y1="5" x2="23" y2="5" stroke="var(${REL[k][2] ? "--fg" : "--mute"})" stroke-width="1.6" stroke-dasharray="${REL[k][1]}"/><path d="M22,1 L29,5 L22,9 z" fill="var(${REL[k][2] ? "--fg" : "--mute"})"/></svg>${esc(REL[k][0])} <span class="meta">${counts[k]}</span></button>`).join("");

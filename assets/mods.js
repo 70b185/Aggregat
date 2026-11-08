@@ -32,7 +32,7 @@
     let mods = all.filter(p => !isLoader(p));
     const words = ctx.words || [];
     // device and search filter first: the counts on the chips follow them
-    let base = mods.filter(p => !ctx.dev || list(p.devices).includes(ctx.dev));
+    let base = mods.filter(p => ctx.devOk(list(p.devices)));
     if (!S.all) base = base.filter(p => !["unreachable", "unverified"].includes(p.status));
     if (words.length) base = base.filter(p => words.every(w => [p.id, p.name, p.author, p.notes, p.contains, p.base_os, p.version, via(p)]
       .join(" ").toLowerCase().includes(w)));
@@ -47,7 +47,7 @@
     const nNew = mods.filter(p => p.status !== "unverified" && found(p) > cutNew).length;
 
     const loaderCount = id => mods.filter(p => (hosts[p.id] || []).includes(id)).length;
-    const ls = loaders.filter(l => !ctx.dev || list(l.devices).includes(ctx.dev))
+    const ls = loaders.filter(l => ctx.devOk(list(l.devices)))
       .sort((a, b) => loaderCount(b.id) - loaderCount(a.id) || a.name.localeCompare(b.name));
 
     const devs = p => list(p.devices).map(d => `<span class="md-tag" style="--dc:var(--c-${esc(d)})">${esc((ctx.devName[d] || d).replace(/ \(.*\)$/, ""))}</span>`).join("");

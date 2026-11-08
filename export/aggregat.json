@@ -3,9 +3,9 @@
   "checked": "2026-11-08",
   "generator": "scripts/export_db.py",
   "counts": {
-   "projects": 249,
+   "projects": 250,
    "devices": 13,
-   "relations": 374,
+   "relations": 377,
    "rules": 106,
    "sources": 282,
    "conflicts": 33,
@@ -7430,6 +7430,36 @@
    "gh_license": null
   },
   {
+   "id": "eucplus",
+   "name": "EUC+ (melodies for the Euclidean sequencer)",
+   "author": "joesciii",
+   "kind": "mod",
+   "list": "mods",
+   "devices": "digitakt-2",
+   "repo": "https://github.com/joesciii/eucplus",
+   "license": "GPL-2.0-or-later",
+   "status": "wip",
+   "base_os": "Digitakt II OS 1.17; elekloader core-dt2 1.0",
+   "version": "0.2.0 (mod.json; no prebuilt files yet)",
+   "last_activity": "2026-11-08",
+   "tested": "emulator",
+   "tested_note": "README: emulator only; the first hardware build (E201) not yet confirmed on a unit",
+   "install": null,
+   "contains": null,
+   "first_seen": "2026-11-08",
+   "notes": "Adds Torso T-1-style generated melodies to the stock Euclidean sequencer: each Euclid hit gets a note from a pool of scale degrees in the pattern's KB SCALE and ROOT NOTE, moved by a phrase shape and a seeded, lockable random sequence. Own NOTES and RANDOM pages opened from the stock Euclid page; off by default per track; works on audio tracks (repitched) and MIDI tracks; patterns stay stock; settings are lost at power-off for now. Hooks the end of the audio and MIDI step fire (0x400d6e10, 0x400d7234 on OS 1.17). Built from your own OS file with shell scripts for Linux; a research log and a design document come with it. Credits Aggregat's rules and device facts for its build checks and flash procedure. Found via the owner 2026-11-08.",
+   "links": "{}",
+   "sources": "[\"owner 2026-11-08\", \"README\", \"mods/eucplus-dt2/mod.json\"]",
+   "owner": "joesciii",
+   "created": null,
+   "pushed": null,
+   "stars": null,
+   "forks": null,
+   "language": null,
+   "gh_fork": null,
+   "gh_license": null
+  },
+  {
    "id": "model27-restored",
    "name": "model27 (restored copy)",
    "author": "nicolai-creates (restoration of durchgemacht's model27)",
@@ -9818,6 +9848,24 @@
    "type": "vendors",
    "target": "octabam",
    "evidence": "file names: octabam-<module>-363861e.elemod"
+  },
+  {
+   "project": "eucplus",
+   "type": "mod_for",
+   "target": "elekloader",
+   "evidence": "README: an Elekloader linkable mod (format 2), requires core-dt2 1.0"
+  },
+  {
+   "project": "eucplus",
+   "type": "uses_tool",
+   "target": "digikit",
+   "evidence": "README: every EUC+ test runs in digikit's Digitakt II emulator"
+  },
+  {
+   "project": "eucplus",
+   "type": "cites",
+   "target": "mezclando",
+   "evidence": "commit 2026-11-08: Mezclando as prior art in docs/EXTENDED-EUCLID.md"
   },
   {
    "project": "model27-restored",

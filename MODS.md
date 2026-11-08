@@ -40,6 +40,7 @@ Added to the catalogue after 2026-11-03, newest first.
 | **ESOTERIKA (four Digitone voices)** (DigiAlchemydsp) | Digitone (MKI) / Digitone Keys | Four extra Digitone mk1 voices - RUIN, XTAL, VOID and CREPUS - as separate elekloader mods plus a combined ESOTERIKA … | elekloader | yes, on a unit (shop: tested on hardware, stable) |
 | **Filter-FX (seven filter effects)** (DigiAlchemydsp) | Digitakt (MKI), Digitone (MKI) / Digitone Keys | Seven filter-based effect modes per track: VOWEL, BANK, FOLD, CRUSH, RING, PHASER and FLANGER. Found in the elekloader … | elekloader | yes, on a unit (shop: both builds tested on hardware, stable) |
 | **octabam2elemod (octabam modules as elekloader mods)** (irpina) | Octatrack (MKI, MKII) | octabam's Octatrack modules repackaged as elekloader mods, so they can be picked in the elekloader mod shop. | elekloader (core-ot 0.1+) | partly (each build boots on an Octatrack MKII (2026-10-03); most features not yet tested on a unit) |
+| **EUC+ (melodies for the Euclidean sequencer)** (joesciii) | Digitakt II | Adds Torso T-1-style generated melodies to the stock Euclidean sequencer: each Euclid hit gets a note from a pool of … | elekloader | emulator only (README: emulator only; the first hardware build (E201) not yet confirmed on a unit) |
 | **MUTINY (modular sequencers for Digitone mk1)** (mbaumannn) | Digitone (MKI) / Digitone Keys | Three generative sequencers on the synth tracks: a Euclidean rhythm, a Turing Machine and a TB-303-style acid line, … | elekloader | yes, on a unit (about an hour on one Digitone mk1) |
 | **DBX-DR (dark drone for MDX)** (MonCalamari) | Machinedrum (incl. UW) | Single-voice drone USR machine: three detuned saws and a square sub into saturation and a 4-pole ladder lowpass, with … | MDX | yes, on a unit (played on a MKII; MKI not played) |
 | **Model:Samples battery base** (malthelm) | Model:Samples | Open-hardware battery base using the original side mounting points and the left battery input: editable CAD, STEP/STL, … | hardware (3D-printed base) | not stated (no physical prototype validated yet) |
@@ -62,7 +63,7 @@ These do not change the sound themselves: they take your stock OS file and the m
 
 | Loader / platform | Devices | How it works | Mods listed here | Status | Tested | Updated | Links |
 |---|---|---|---|---|---|---|---|
-| **elekloader** <br>pina (irpina) | Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II | Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. | 67 | active | yes, on a unit (machine-pages 1.2, fxkit and the cores ran on units (shop notes)) | 2026-11-08 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) |
+| **elekloader** <br>pina (irpina) | Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II | Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. | 68 | active | yes, on a unit (machine-pages 1.2, fxkit and the cores ran on units (shop notes)) | 2026-11-08 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) |
 | **Cycles Engines** <br>100demons | Model:Cycles | Web flasher that composes any set of relocatable engine packages into the user's own OS file in the browser and sends it over USB (also a … | 4 | wip | not stated | 2026-11-07 | [repo](https://github.com/100demons/cycles-engines) |
 | **Modwerk (formerly Octamod)** <br>not named in sources (SDK repo owner … | Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II | Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 … | 3 | active | partly (some library modules confirmed on units, newer packages not yet) | 2026-11-08 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **digimod (Digitakt II mod builder)** <br>endlea | Digitakt II | A local web service (Docker, or native on macOS) that packs a Digitakt II .syx from ticked mods, checks it before download and, on a Mac, boots it … | - | active | partly (per mod: each mod README says what ran on hardware) | 2026-11-07 | [repo](https://github.com/endlea/digimod) |
@@ -148,7 +149,7 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 ## Digitakt II
 
-8 entries, 3 reported running on a unit.
+9 entries, 3 reported running on a unit.
 
 
 ### Ran on a real unit
@@ -163,6 +164,7 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
+| **EUC+ (melodies for the Euclidean sequencer)** <br>joesciii <br>_wip_ | Adds Torso T-1-style generated melodies to the stock Euclidean sequencer: each Euclid hit gets a note from a pool of scale degrees in the pattern's … | elekloader | Digitakt II OS 1.17; elekloader core-dt2 1.0 | emulator only (README: emulator only; the first hardware build (E201) not yet confirmed on a unit) | 2026-11-08 | [repo](https://github.com/joesciii/eucplus) |
 | **Mezclando (transition mode for Digitakt II)** <br>Lucioic (Oicul) | A DJ-style mix mode on the SONG key: pick a reference pattern and bring its tracks, with their sequences and sounds, into the playing pattern one by … | elekloader | Digitakt II OS 1.17 only | not stated | 2026-11-04 | [repo](https://github.com/Lucioic/mezclando) · [web patcher](https://lucioic.github.io/mezclando/) |
 | **Digitakt II splash screens** <br>octplane | A 16-byte patch that lets the DT2 pick among all five boot animations instead of one, plus scripts to apply it. | see repo | Digitakt II | not stated | 2026-09-25 | [repo](https://github.com/octplane/digitakt-ii-splash-screens) |
 | **Digi Battery** <br>JGuzak | Hardware battery mod for Digitone, Digitone II, Digitakt and Digitakt II (soldering; at your own risk). | hardware mod (soldering) | - | not stated | 2026-08-21 | [repo](https://github.com/JGuzak/digi_battery) |

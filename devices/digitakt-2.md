@@ -7,6 +7,7 @@ Data last verified: 2026-11-08
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **dt2-capicola (Capicola time stretch for STRETCH/REPITCH/SLICE/GRID)** (hy3na-k1ng) | mod | unreachable | Digitakt II (version in the vendored README) | - | unknown | [repo](https://github.com/hy3na-k1ng/dt2-capicola) |
+| **EUC+ (melodies for the Euclidean sequencer)** (joesciii) | mod | wip | 0.2.0 (mod.json; no prebuilt files yet); Digitakt II OS 1.17; elekloader core-dt2 1.0 | - | 2026-11-08 | [repo](https://github.com/joesciii/eucplus) |
 | **digitakt-digitone-mcp** (jamiew) | tool | active | v0.5.2 | v0.5.2 | 2026-11-07 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **digimod (Digitakt II mod builder)** (endlea) | loader | active | 0.2.0 (tag, 2026-11-07; Polyphony mod revised); Digitakt II OS 1.16 | 0.2.0 | 2026-11-07 | [repo](https://github.com/endlea/digimod) |
 | **Elektron Project Companion** (Claptom-music) | tool | active | - | - | 2026-11-07 | [repo](https://github.com/Claptom-music/elektron-project-companion) |
@@ -346,6 +347,14 @@ Organises a sample library (through Fourier Samples), exports it per device prof
 _Related: uses tool `elektroid` (README: Elektron devices through elektroid-cli) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-07, README_
+
+### EUC+ (melodies for the Euclidean sequencer)
+
+Adds Torso T-1-style generated melodies to the stock Euclidean sequencer: each Euclid hit gets a note from a pool of scale degrees in the pattern's KB SCALE and ROOT NOTE, moved by a phrase shape and a seeded, lockable random sequence. Own NOTES and RANDOM pages opened from the stock Euclid page; off by default per track; works on audio tracks (repitched) and MIDI tracks; patterns stay stock; settings are lost at power-off for now. Hooks the end of the audio and MIDI step fire (0x400d6e10, 0x400d7234 on OS 1.17). Built from your own OS file with shell scripts for Linux; a research log and a design document come with it. Credits Aggregat's rules and device facts for its build checks and flash procedure. Found via the owner 2026-11-08.
+
+_Related: mod for `elekloader` (README: an Elekloader linkable mod (format 2), requires core-dt2 1.0); uses tool `digikit` (README: every EUC+ test runs in digikit's Digitakt II emulator); cites `mezclando` (commit 2026-11-08: Mezclando as prior art in docs/EXTENDED-EUCLID.md) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: owner 2026-11-08, README, mods/eucplus-dt2/mod.json_
 
 ### selache (SHARC+ toolchain)
 

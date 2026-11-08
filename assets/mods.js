@@ -4,11 +4,9 @@
   "use strict";
   const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
   const list = s => String(s || "").split(",").filter(Boolean);
-  const TESTED = [["unit", "On a unit"], ["partly", "Partly"], ["emulator", "Emulator only"], ["not-stated", "Not stated"]];
-  const T_LABEL = Object.fromEntries(TESTED);
   const DAY = 864e5;
   // what the user picked, kept while the page is open
-  const S = {tested: "", via: "", sort: "updated", all: false, open: {}};
+  const S = {via: "", sort: "updated", all: false};
 
   const updated = p => [p.last_activity || "", p.pushed || ""].sort().pop();
   const found = p => p.first_seen || "";
@@ -39,18 +37,14 @@
     if (words.length) base = base.filter(p => words.every(w => [p.id, p.name, p.author, p.notes, p.contains, p.base_os, p.version, via(p)]
       .join(" ").toLowerCase().includes(w)));
     if (S.via) base = base.filter(p => (hosts[p.id] || []).includes(S.via));
-    const tcount = Object.fromEntries(TESTED.map(([k]) => [k, base.filter(p => (p.tested || "not-stated") === k).length]));
-    let rows = S.tested ? base.filter(p => (p.tested || "not-stated") === S.tested) : base;
+    let rows = base;
     const SORT = {
       updated: (a, b) => updated(b).localeCompare(updated(a)),
-      tested: (a, b) => TESTED.findIndex(t => t[0] === (a.tested || "not-stated")) - TESTED.findIndex(t => t[0] === (b.tested || "not-stated"))
-        || updated(b).localeCompare(updated(a)),
       found: (a, b) => found(b).localeCompare(found(a)),
       name: (a, b) => a.name.localeCompare(b.name, "en", {sensitivity: "base"})
     };
     rows = rows.slice().sort(SORT[S.sort]);
     const nNew = mods.filter(p => p.status !== "unverified" && found(p) > cutNew).length;
-    const nUnit = mods.filter(p => p.tested === "unit").length;
 
     const loaderCount = id => mods.filter(p => (hosts[p.id] || []).includes(id)).length;
     const ls = loaders.filter(l => !ctx.dev || list(l.devices).includes(ctx.dev))
@@ -74,16 +68,11 @@
     };
 
     root.innerHTML = `
-      <p class="md-lead">${mods.length} mods and custom OS builds, ${nUnit} of them reported running on a real unit, ${nNew} new in the last 7 days.
-        Mods are unofficial: <a href="https://github.com/70b185/aggregat/blob/master/hardware/common/recovery.md">read the recovery notes</a> before you flash anything.
-        &ldquo;Tested&rdquo; is what the authors say, not our own test.</p>
+      <p class="md-lead">${mods.length} mods and custom OS builds, ${nNew} new in the last 7 days.
+        Mods are unofficial: <a href="https://github.com/70b185/aggregat/blob/master/hardware/common/recovery.md">read the recovery notes</a> before you flash anything.</p>
       <div class="md-ctl">
-        <div class="md-seg" role="group" aria-label="Tested">
-          <button data-t="" class="${S.tested ? "" : "on"}">All <span>${base.length}</span></button>
-          ${TESTED.map(([k, l]) => `<button data-t="${k}" class="${S.tested === k ? "on" : ""}"><i class="md-dot md-t-${k}"></i>${l} <span>${tcount[k]}</span></button>`).join("")}
-        </div>
         <select id="md-sort" aria-label="Sort">
-          ${[["updated", "Recently updated"], ["tested", "Tested first"], ["found", "Newest first"], ["name", "Name"]]
+          ${[["updated", "Recently updated"], ["found", "Newest first"], ["name", "Name"]]
             .map(([k, l]) => `<option value="${k}"${S.sort === k ? " selected" : ""}>${l}</option>`).join("")}
         </select>
         <label class="md-chk"><input type="checkbox" id="md-all"${S.all ? " checked" : ""}> unreachable and unverified too</label>
@@ -98,7 +87,6 @@
 
     const c = document.getElementById("count"); if (c) c.textContent = `${rows.length} of ${mods.length} mods`;
     const redraw = () => draw(root, D, ctx);
-    root.querySelector(".md-seg").onclick = e => { const b = e.target.closest("button"); if (!b) return; S.tested = b.dataset.t; redraw(); };
     root.querySelector("#md-sort").onchange = e => { S.sort = e.target.value; redraw(); };
     root.querySelector("#md-all").onchange = e => { S.all = e.target.checked; redraw(); };
     root.querySelector(".md-loaders").onclick = e => { const b = e.target.closest("button"); if (!b) return; S.via = S.via === b.dataset.v ? "" : b.dataset.v; redraw(); };

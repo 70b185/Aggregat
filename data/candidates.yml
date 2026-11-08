@@ -16,6 +16,28 @@ projects:
 
   # ------------------------------------------------------------- Syntakt
 
+  # ------------------------------------------------------------- Model:Cycles
+  - id: model27-restored
+    name: model27 (restored copy)
+    author: nicolai-creates (restoration of durchgemacht's model27)
+    kind: firmware
+    devices: [model-cycles]
+    repo: https://github.com/nicolai-creates/model27
+    status: unverified
+    tested: not-stated
+    tested_note: "README: untested restoration; nothing built, flashed or tested since"
+    base_os: "Model:Cycles OS 1.13"
+    license: MIT
+    notes: >
+      A third party's restoration of durchgemacht/model27 after its author took it offline on 2026-11-06/07: the
+      original history up to commit 574cf73 (after release 0.51), recovered through the GitHub fork network, plus a
+      warning in the README and LOST_CHANGES.md. Not maintained by the original author; the web flasher links in it
+      no longer work. Found by GitHub search 2026-11-08. Kept as a lead, not listed as a project, because the
+      original author withdrew the work.
+    sources: [GitHub search 2026-11-08, README, LOST_CHANGES.md]
+    relations:
+    - {type: copy_of, id: model27, evidence: 'README: restoration of durchgemacht/model27 up to 574cf73'}
+
   # ------------------------------------------------------------- Octatrack
   - id: octacloudz
     name: Octacloudz
@@ -25,7 +47,7 @@ projects:
     repo: https://github.com/davidecaldarola1-ship-it/Octacloudz
     status: unverified
     notes: >
-      Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds.
+      Repo no longer reachable on 2026-11-08 (check_updates). Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds.
       No README yet, so OS, loader, licence and tests are unknown. Found by GitHub search 2026-11-08.
     sources: [GitHub search 2026-11-08]
 

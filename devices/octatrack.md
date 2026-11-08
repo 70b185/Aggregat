@@ -234,6 +234,6 @@ _Sources: elekloader mod shop catalog 2026-11-08_
 
 ### Octacloudz
 
-Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds. No README yet, so OS, loader, licence and tests are unknown. Found by GitHub search 2026-11-08.
+Repo no longer reachable on 2026-11-08 (check_updates). Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds. No README yet, so OS, loader, licence and tests are unknown. Found by GitHub search 2026-11-08.
 
 _Sources: GitHub search 2026-11-08_

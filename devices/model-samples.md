@@ -11,7 +11,7 @@ Data last verified: 2026-11-08
 | **Model:Samples battery base** (malthelm) | research | wip | v0.6.0 experimental CAD release | v0.6.0 | 2026-11-06 | [repo](https://github.com/malthelm/model-samples-battery-base) |
 | **model909** (DMDaudio) | mod | wip | v1.0 (909 only, stable); main branch adds 808/606 voices (experimental); Model:Cycles OS 1.13 (also Model:Samples running the Cycles OS) | v1.0 | 2026-10-28 | [repo](https://github.com/DMDaudio/model909) |
 | **Modded Cycles** (18nelli18, Modded-Cycles contributors) | firmware | active | Release 2.0 (2026-10-19); 1.13 | etude-optimisation-os-2026-10-18 | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
-| **1-Bit Editor** (durchgemacht) | tool | active | v0.1 (2026-10-17) | v0.1 | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |
+| **1-Bit Editor** (durchgemacht) | tool | unreachable | v0.1 (2026-10-17) | v0.1 | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |
 | **elektron-model-tweaks** (drumkilla) | mod | active | v2.1.0 (2026-10-11); 1.13 | v2.1.0 | 2026-10-11 | [repo](https://github.com/drumkilla/elektron-model-tweaks) · [homepage](https://drumkilla.github.io/elektron-model-tweaks/flasher/) |
 | **ElekPrep (elektron-sample-prep)** (luizvarela) | tool | inactive | main @ 9f85fc8 (2026-02-27) | - | 2026-02-27 | [repo](https://github.com/luizvarela/elektron-sample-prep) · [web app](https://luizvarela.github.io/elektron-sample-prep/) |
 | **plaits-on-models** (DMDaudio) | mod | active | 1.13 | - | - | [repo](https://github.com/DMDaudio/plaits-on-models) |
@@ -22,7 +22,7 @@ Data last verified: 2026-11-08
 
 ### 1-Bit Editor
 
-Browser pixel editor for 1-bit icons and sprites in the column-wise layout the Model OS uses. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
+Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). Browser pixel editor for 1-bit icons and sprites in the column-wise layout the Model OS uses. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
 
 _Sources: altstrument (2026-11-01)_
 

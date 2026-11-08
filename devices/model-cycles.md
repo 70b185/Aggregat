@@ -12,21 +12,21 @@ Data last verified: 2026-11-08
 | **BLAST (OPL2-style FM)** (100demons) | mod | active | Model:Cycles OS 1.13 | v3.0 | 2026-11-07 | [repo](https://github.com/100demons/blast) · [flasher](https://100demons.github.io/cycles-engines/flasher/) |
 | **PUNCH (OPL2-style FM percussion)** (100demons) | mod | active | Model:Cycles OS 1.13 | v1.0 | 2026-11-07 | [repo](https://github.com/100demons/punch) · [flasher](https://100demons.github.io/cycles-engines/flasher/) |
 | **Modded Cycles Techno Edition** (mbreilly (m_reilly)) | firmware | active | Model:Cycles OS 1.13 | v1.0-beta | 2026-11-05 | [repo](https://github.com/mbreilly/Modded_f-king_cycles) |
-| **model27** (durchgemacht, 18nelli18) | firmware | active | release 0.41 (2026-11-04 per README): thirteen cards in the web flasher (EQ 0.6, Reso 0.4 with block and coefficients in EMAC assembly); POTS 0.2 flashed from the page and tested on a Model:Cycles 2026-11-04; 1.13 | - | 2026-11-04 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
+| **model27** (durchgemacht, 18nelli18) | firmware | unreachable | release 0.41 (2026-11-04 per README): thirteen cards in the web flasher (EQ 0.6, Reso 0.4 with block and coefficients in EMAC assembly); POTS 0.2 flashed from the page and tested on a Model:Cycles 2026-11-04; 1.13 | - | 2026-11-04 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
 | **Motor:Cycles (rhythmic-noise firmware)** (nzimas) | firmware | wip | v1.0.0-rc18 (tag); Model:Cycles OS 1.13 | v1.0.0-rc18 | 2026-11-03 | [repo](https://github.com/nzimas/motorcycles) · [web patcher](https://nzimas.github.io/motorcycles/install.html) |
 | **Supermodel Edition** (A.V., 18nelli18) | firmware | active | 3.02 (docs dated 2026-11-03; Optional edition 3.02 experimental); 1.13 | wavetable-pack | 2026-11-03 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |
 | **BIAS (six-oscillator percussion machine)** (100demons) | mod | active | Model:Cycles OS 1.13 | - | 2026-11-03 | [repo](https://github.com/100demons/bias) · [web patcher](https://100demons.github.io/cycles-engines/flasher/) |
 | **Elek View (screen viewer in the browser)** (BlueSGL) | tool | active | main @ 29fc485 (2026-11-02) | - | 2026-11-02 | [repo](https://github.com/BlueSGL/Elek_View) · [web app](https://bluesgl.github.io/Elek_View/) · [forum](https://elektronmods.com/thread-93-elek-view-see-your-devices-screens-in-a-browser-via-webmidi) |
-| **Cycles One-Shot** (durchgemacht) | mod | active | machine 0.13 (2026-11-02, on main; newest tag v0.12): Start and Length act on the note that plays; tested in a model27 build, in digiemu and on a Model:Cycles; 1.13 | v0.15 | 2026-11-02 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
+| **Cycles One-Shot** (durchgemacht) | mod | unreachable | machine 0.13 (2026-11-02, on main; newest tag v0.12): Start and Length act on the note that plays; tested in a model27 build, in digiemu and on a Model:Cycles; 1.13 | v0.15 | 2026-11-02 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
 | **SPOKES** (A.V.) | tool | active | main @ 1604cbf (2026-10-31); 1.13 | - | 2026-10-31 | [repo](https://github.com/AveyCole/SPOKES) · [homepage](https://aveycole.github.io/SPOKES/) |
 | **Vladiktron Spoke** (imaf6971) | emulator | active | v0.1.0 (2026-10-30); 1.13 | v0.1.0 | 2026-10-30 | [repo](https://github.com/imaf6971/vladiktron-spoke) |
 | **Cycles Engines** (100demons) | loader | wip | Model:Cycles OS 1.13 only | phase-5 | 2026-10-30 | [repo](https://github.com/100demons/cycles-engines) |
-| **Cycles Mod Standard** (durchgemacht) | research | wip | draft 0.7; Model:Cycles OS 1.13 | - | 2026-10-30 | [repo](https://github.com/durchgemacht/cycles-mod-standard) |
+| **Cycles Mod Standard** (durchgemacht) | research | unreachable | draft 0.7; Model:Cycles OS 1.13 | - | 2026-10-30 | [repo](https://github.com/durchgemacht/cycles-mod-standard) |
 | **model909** (DMDaudio) | mod | wip | v1.0 (909 only, stable); main branch adds 808/606 voices (experimental); Model:Cycles OS 1.13 (also Model:Samples running the Cycles OS) | v1.0 | 2026-10-28 | [repo](https://github.com/DMDaudio/model909) |
 | **Cycles Mods** (100demons) | mod | active | Model:Cycles | v0.5.0 | 2026-10-22 | [repo](https://github.com/100demons/cycles-mods) |
 | **Modded Cycles** (18nelli18, Modded-Cycles contributors) | firmware | active | Release 2.0 (2026-10-19); 1.13 | etude-optimisation-os-2026-10-18 | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
-| **1-Bit Editor** (durchgemacht) | tool | active | v0.1 (2026-10-17) | v0.1 | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |
-| **Control All Config** (durchgemacht) | mod | active | v1.0 (2026-10-17); 1.13 | v1.0 | 2026-10-17 | [repo](https://github.com/durchgemacht/cycles-control-all-config) |
+| **1-Bit Editor** (durchgemacht) | tool | unreachable | v0.1 (2026-10-17) | v0.1 | 2026-10-17 | [repo](https://github.com/durchgemacht/1-Bit-Editor) · [homepage](https://durchgemacht.github.io/1-Bit-Editor/) |
+| **Control All Config** (durchgemacht) | mod | unreachable | v1.0 (2026-10-17); 1.13 | v1.0 | 2026-10-17 | [repo](https://github.com/durchgemacht/cycles-control-all-config) |
 | **Elektron-Model-Machinedrum** (Talachan12) | mod | wip | Model:Cycles | - | 2026-10-12 | [repo](https://github.com/Talachan12/Elektron-Model-Machinedrum) |
 | **elektron-model-tweaks** (drumkilla) | mod | active | v2.1.0 (2026-10-11); 1.13 | v2.1.0 | 2026-10-11 | [repo](https://github.com/drumkilla/elektron-model-tweaks) · [homepage](https://drumkilla.github.io/elektron-model-tweaks/flasher/) |
 | **Chord Keys** (Nico Heuser) | mod | active | Second version (harmony pads, MIDI chords) (2026-10-07); 1.13 | - | 2026-10-07 | [repo](https://github.com/byNicoHeuser/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
@@ -36,6 +36,7 @@ Data last verified: 2026-11-08
 | **Model:Cycles .mcpst format notes** (kg4zow) | research | inactive | - | - | 2022-04-12 | [repo](https://github.com/kg4zow/model-cycles) |
 | **plaits-on-models** (DMDaudio) | mod | active | 1.13 | - | - | [repo](https://github.com/DMDaudio/plaits-on-models) |
 | **ms-multi-output** (Scott Metoyer) | mod | active | 1.13 | - | - | [repo](https://github.com/scottmetoyer/ms-multi-output) |
+| **model27 (restored copy)** (nicolai-creates (restoration of durchgemacht's model27)) | firmware | unverified | Model:Cycles OS 1.13 | v0.51 | - | [repo](https://github.com/nicolai-creates/model27) |
 
 ## Details
 
@@ -57,7 +58,7 @@ _Sources: elektronmods.com thread 93, README, index.html_
 
 ### 1-Bit Editor
 
-Browser pixel editor for 1-bit icons and sprites in the column-wise layout the Model OS uses. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
+Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). Browser pixel editor for 1-bit icons and sprites in the column-wise layout the Model OS uses. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
 
 _Sources: altstrument (2026-11-01)_
 
@@ -71,7 +72,7 @@ _Sources: altstrument (2026-11-01)_
 
 ### Control All Config
 
-Choose which of the six tracks follow Control All (Model:Cycles 1.13). Licence: MIT; distribution: patch-your-own. Old projects migrate their Parts to the first 64 kits; going back to stock may lose kit data. The kits cost ~3.6 % of the flex pool. README read 2026-11-02.
+Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). Choose which of the six tracks follow Control All (Model:Cycles 1.13). Licence: MIT; distribution: patch-your-own. Old projects migrate their Parts to the first 64 kits; going back to stock may lose kit data. The kits cost ~3.6 % of the flex pool. README read 2026-11-02.
 
 _Related: uses tool `elektron-firmware-tool` (README: the build needs elektron-firmware-tool); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
@@ -79,7 +80,7 @@ _Sources: altstrument (2026-11-01)_
 
 ### Cycles One-Shot
 
-SAMPLE as a seventh Model:Cycles machine playing one-shots from the +Drive, with a browser uploader. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
+Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). SAMPLE as a seventh Model:Cycles machine playing one-shots from the +Drive, with a browser uploader. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
 _Related: uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu); mod for `modded-cycles` (README: registered through Modded-Cycles' registrar for added machines) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
@@ -109,7 +110,7 @@ _Sources: altstrument (2026-11-01)_
 
 ### model27
 
-Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: a web Manager keeps one Model:Cycles project per firmware: it backs up the current project, flashes the other firmware over USB and restores that firmware's project (notes/77).
+Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: a web Manager keeps one Model:Cycles project per firmware: it backs up the current project, flashes the other firmware over USB and restores that firmware's project (notes/77).
 
 _Related: fork of `modded-cycles` (own README: beta fork of Modded Cycles 1.55); cites `digiemu` (README credits digiemu); cites `elektroid` (README credits: the Elektron Transfer update protocol behind fast USB flashing); bundles `elektron-model-tweaks` (README: includes drumkilla's tweaks (latching mute, trig preview)); cites `octamax` (README credits: reverse-engineering method); cites `octa-bt-pt` (README credits: reverse-engineering and patching); cites `model-tg` (README: its CPU page built as Model-TG's System page); cites `ms-multi-output` (README credits: the original 6-channel USB mod); bundles `cycles-control-all-config` (README: Modded-Cycles 1.55 plus the Control All Config mod); bundles `cycles-one-shot` (README: the SAMPLE machine of Cycles One-Shot) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
@@ -185,7 +186,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 ### Cycles Mod Standard
 
-Draft standard for Model:Cycles mods (machine contract, extension points, per-mod manifests, clash checks over saved slots, key combos and display). Implemented in model27, tested on a unit for machines and one delay effect. Useful reading for anyone designing a mod format. MIT.
+Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). Draft standard for Model:Cycles mods (machine contract, extension points, per-mod manifests, clash checks over saved slots, key combos and display). Implemented in model27, tested on a unit for machines and one delay effect. Useful reading for anyone designing a mod format. MIT.
 
 _Related: describes `model27` (README: implemented in model27); cites `modded-cycles` (README: everything here was read in the code of Modded-Cycles) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
@@ -250,3 +251,11 @@ One added machine with twelve two-operator FM percussion engines with extended r
 _Related: mod for `cycles-engines` (README: tick PUNCH in the Cycles Engines flasher) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-07, README_
+
+### model27 (restored copy)
+
+A third party's restoration of durchgemacht/model27 after its author took it offline on 2026-11-06/07: the original history up to commit 574cf73 (after release 0.51), recovered through the GitHub fork network, plus a warning in the README and LOST_CHANGES.md. Not maintained by the original author; the web flasher links in it no longer work. Found by GitHub search 2026-11-08. Kept as a lead, not listed as a project, because the original author withdrew the work.
+
+_Related: copy of `model27` (README: restoration of durchgemacht/model27 up to 574cf73) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-08, README, LOST_CHANGES.md_

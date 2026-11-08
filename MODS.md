@@ -184,9 +184,9 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
 | **dn2_firmware_explore** <br>angellinares | Tools to inspect, modify and rebuild Digitone firmware (dnfw, CLI and browser), plus 17 mods for Digitone II 1.11 (Waverider wavetable machine, … | dnfw (CLI or browser) | Digitone II OS 1.11 (mods); README also … | partly (14 of 16 mods confirmed on hardware per README; degreetranspose untested by the owner) | 2026-11-08 | [repo](https://github.com/angellinares/dn2_firmware_explore) |
+| **MUTINY (modular sequencers for Digitone mk1)** <br>mbaumannn | Three generative sequencers on the synth tracks: a Euclidean rhythm, a Turing Machine and a TB-303-style acid line, played from the encoders; YES … | elekloader | Digitone mk1 OS 1.44 | yes, on a unit (about an hour on one Digitone mk1) | 2026-11-08 | [repo](https://github.com/mbaumannn/mutiny) |
 | **ESOTERIKA (four Digitone voices)** <br>DigiAlchemydsp | Four extra Digitone mk1 voices - RUIN, XTAL, VOID and CREPUS - as separate elekloader mods plus a combined ESOTERIKA file. | elekloader | Digitone mk1 / Keys OS 1.44 | yes, on a unit (shop: tested on hardware, stable) | 2026-11-08 | [repo](https://github.com/DigiAlchemydsp/ESOTERIKA) |
 | **Filter-FX (seven filter effects)** <br>DigiAlchemydsp | Seven filter-based effect modes per track: VOWEL, BANK, FOLD, CRUSH, RING, PHASER and FLANGER. Found in the elekloader mod shop catalogue 2026-11-08. | elekloader | Digitakt mk1; Digitone mk1 / Keys | yes, on a unit (shop: both builds tested on hardware, stable) | 2026-11-08 | [repo](https://github.com/DigiAlchemydsp/Filter-FX) |
-| **MUTINY (modular sequencers for Digitone mk1)** <br>mbaumannn | Three generative sequencers on the synth tracks: a Euclidean rhythm, a Turing Machine and a TB-303-style acid line, played from the encoders; YES … | elekloader | Digitone mk1 OS 1.44 | yes, on a unit (about an hour on one Digitone mk1) | 2026-11-07 | [repo](https://github.com/mbaumannn/mutiny) |
 | **Flex+ (FlexBus machine)** <br>DigiAlchemydsp | Routes the audio inputs or internal tracks into a track, with a low-CPU pitch shifter and an oscilloscope on the machine page. | elekloader | Digitone mk1 / Keys OS 1.44 (core-dn1 4.0 + … | yes, on a unit (shop: both builds tested on hardware (README had the Digitakt build bench-tested only)) | 2026-11-07 | [repo](https://github.com/DigiAlchemydsp/Flex-Plus) |
 | **DigiArp MIDI (DA27)** <br>aleks-karachevtsev <br>_beta_ | MIDI arpeggiator for the Digitone mk1's MIDI tracks A-D, each with its own settings, controlled from the stock ARP page and step editor: tempo sync, … | elekloader | Digitone mk1 OS 1.44; elekloader core 4.1.1 … | yes, on a unit (the exact DA27 module was installed and tested on hardware by the author) | 2026-11-07 | [repo](https://github.com/aleks-karachevtsev/Digitone-MIDI-Arpeggiator) |
 | **CTRL+ / USER CFG (Digitone mk1)** <br>DigiAlchemydsp <br>_wip_ | Adds the Digitone Keys' User Mode page (stock page 24) to the regular Digitone's TRIG page rotation, plus a USER CFG page that assigns the eight … | elekloader | Digitone mk1 / Keys OS 1.44; core-dn1 4.0 | yes, on a unit (shop: tested on hardware, stable) | 2026-11-04 | [repo](https://github.com/DigiAlchemydsp/CTRL-PLUS) |
@@ -332,7 +332,7 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
-| **Octacloudz** <br>davidecaldarola1-ship-it | Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds. | see repo | - | unverified lead | - | [repo](https://github.com/davidecaldarola1-ship-it/Octacloudz) |
+| **Octacloudz** <br>davidecaldarola1-ship-it | Repo no longer reachable on 2026-11-08 (check_updates). | see repo | - | unverified lead | - | [repo](https://github.com/davidecaldarola1-ship-it/Octacloudz) |
 
 ## Analog Rytm (MKI, MKII)
 
@@ -376,7 +376,7 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 ## Model:Cycles
 
-19 entries, 6 reported running on a unit.
+20 entries, 4 reported running on a unit.
 
 
 ### Ran on a real unit
@@ -384,8 +384,6 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
 | **FERAL (nine noisy models)** <br>100demons | One added machine with nine noisy, unpredictable synthesis models, light on the processor; COLOR and SWEEP as macros. | Cycles Engines | Model:Cycles OS 1.13 | yes, on a unit (played on a real Model:Cycles 2026-10-22 (standalone); the composed package build is new) | 2026-11-07 | [repo](https://github.com/100demons/feral) · [flasher](https://100demons.github.io/cycles-engines/flasher/) |
-| **Cycles One-Shot** <br>durchgemacht | SAMPLE as a seventh Model:Cycles machine playing one-shots from the +Drive, with a browser uploader. | Modded Cycles | 1.13 | yes, on a unit | 2026-11-06 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
-| **model27** <br>durchgemacht, 18nelli18 | Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. | own patcher / builder | 1.13 | yes, on a unit | 2026-11-06 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
 | **Modded Cycles Techno Edition** <br>mbreilly (m_reilly) | 25 machines (Elektron's six plus 19: 909/808/606 voices, rumble kick, modal metal, additive drum, acid and growl basses, Braids, VA, cross-mod, 6-op … | own patcher / builder | Model:Cycles OS 1.13 | yes, on a unit | 2026-11-05 | [repo](https://github.com/mbreilly/Modded_f-king_cycles) |
 | **BIAS (six-oscillator percussion machine)** <br>100demons | Source package for a percussion machine with six oscillators, each with its own envelope, summed, wavefolded and given a second envelope, on a clock … | Modded Cycles, Cycles Engines | Model:Cycles OS 1.13 | yes, on a unit | 2026-11-04 | [repo](https://github.com/100demons/bias) · [web patcher](https://100demons.github.io/cycles-engines/flasher/) |
 | **Motor:Cycles (rhythmic-noise firmware)** <br>nzimas <br>_wip_ | Firmware for rhythmic noise and power noise: four generators (Patch, Kit, Phrase, Pattern) entered with PAGE + pad, steps 1-15 set the complexity, … | own patcher / builder | Model:Cycles OS 1.13 | yes, on a unit | 2026-11-03 | [repo](https://github.com/nzimas/motorcycles) · [web patcher](https://nzimas.github.io/motorcycles/install.html) |
@@ -400,13 +398,26 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 | **model909** <br>DMDaudio <br>_wip_ | Replaces the six stock machines with circuit-modelled TR-909 voices (integer models fitted to recordings); the experimental branch adds 808 and 606 … | see repo | Model:Cycles OS 1.13 (also Model:Samples … | not stated | 2026-10-28 | [repo](https://github.com/DMDaudio/model909) |
 | **Cycles Mods** <br>100demons | Open-source Model:Cycles mods, one folder per mod with its own README and a download zip for use in any flasher. | see repo | Model:Cycles | not stated | 2026-10-23 | [repo](https://github.com/100demons/cycles-mods) |
 | **Modded Cycles** <br>18nelli18, Modded-Cycles contributors | One community OS for Model:Cycles 1.13, built in a browser from your own files (needs a Syntakt 1.41/1.42 file for its engines): sampler, Syntakt … | own patcher / builder | 1.13 | not stated | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
-| **Control All Config** <br>durchgemacht | Choose which of the six tracks follow Control All (Model:Cycles 1.13). | see repo | 1.13 | not stated | 2026-10-18 | [repo](https://github.com/durchgemacht/cycles-control-all-config) |
 | **elektron-model-tweaks** <br>drumkilla | Web flasher and CLI tweaks for Model:Samples and Model:Cycles 1.13 (16-ch USB audio, latching mute, trig preview, stereo samples on M:S). | own patcher / builder | 1.13 | not stated | 2026-10-15 | [repo](https://github.com/drumkilla/elektron-model-tweaks) · [homepage](https://drumkilla.github.io/elektron-model-tweaks/flasher/) |
 | **Elektron-Model-Machinedrum** <br>Talachan12 <br>_wip_ | Fork adding Machinedrum machines (TRX-B2, TRX-SD, TRX-CH, ported sample for sample) to the Model:Cycles, patched in the browser from official files. | see repo | Model:Cycles | not stated | 2026-10-12 | [repo](https://github.com/Talachan12/Elektron-Model-Machinedrum) |
 | **Chord Keys** <br>Nico Heuser | Turns the trig keys into a scale-locked chord keyboard on a CHORD track (Model:Cycles 1.13); later versions add harmony pads and MIDI chord out. | own patcher / builder | 1.13 | not stated | 2026-10-07 | [repo](https://github.com/byNicoHeuser/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
 | **Model-TG** <br>TinyGregAudio | Sampler as a seventh Model:Cycles machine (one-shot, loop, slice, granular, stretch, wavetable), resampling, master FX. Licence: MIT; distribution: … | see repo | 1.13 | not stated | 2026-10-02 | [repo](https://github.com/TinyGregAudio/Model-TG) |
 | **ms-multi-output** <br>Scott Metoyer | Six channels of per-track USB audio for Model:Samples and Model:Cycles; patch sources and build script only. | see repo | 1.13 | not stated | 2026-09-19 | [repo](https://github.com/scottmetoyer/ms-multi-output) |
 | **plaits-on-models** <br>DMDaudio | Plaits engines in fixed point as a Model:Cycles machine; emulator only so far. | see repo | 1.13 | emulator only | - | [repo](https://github.com/DMDaudio/plaits-on-models) |
+
+### Unverified leads
+
+| Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
+|---|---|---|---|---|---|---|
+| **model27 (restored copy)** <br>nicolai-creates (restoration of … | A third party's restoration of durchgemacht/model27 after its author took it offline on 2026-11-06/07: the original history up to commit 574cf73 … | own patcher / builder | Model:Cycles OS 1.13 | unverified lead | - | [repo](https://github.com/nicolai-creates/model27) |
+
+### Unreachable (repo gone or private)
+
+| Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
+|---|---|---|---|---|---|---|
+| **Cycles One-Shot** <br>durchgemacht | Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). | Modded Cycles | 1.13 | yes, on a unit | 2026-11-06 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
+| **model27** <br>durchgemacht, 18nelli18 | Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). | own patcher / builder | 1.13 | yes, on a unit | 2026-11-06 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
+| **Control All Config** <br>durchgemacht | Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). | see repo | 1.13 | not stated | 2026-10-18 | [repo](https://github.com/durchgemacht/cycles-control-all-config) |
 
 ## Model:Samples
 

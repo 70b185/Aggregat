@@ -2078,10 +2078,10 @@ projects:
     - model-cycles
     - model-samples
     repo: https://github.com/durchgemacht/1-Bit-Editor
-    status: active
+    status: unreachable
     version: v0.1 (2026-10-17)
     last_activity: '2026-10-17'
-    notes: 'Browser pixel editor for 1-bit icons and sprites in the column-wise layout the Model OS uses. Licence:
+    notes: 'Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). Browser pixel editor for 1-bit icons and sprites in the column-wise layout the Model OS uses. Licence:
       MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
@@ -2116,12 +2116,12 @@ projects:
     devices:
     - model-cycles
     repo: https://github.com/durchgemacht/cycles-control-all-config
-    status: active
+    status: unreachable
     tested: not-stated
     base_os: '1.13'
     version: v1.0 (2026-10-17)
     last_activity: '2026-10-17'
-    notes: 'Choose which of the six tracks follow Control All (Model:Cycles 1.13). Licence: MIT; distribution: patch-your-own.
+    notes: 'Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). Choose which of the six tracks follow Control All (Model:Cycles 1.13). Licence: MIT; distribution: patch-your-own.
       Old projects migrate their Parts to the first 64 kits; going back to stock may lose kit data. The kits cost
       ~3.6 % of the flex pool. README read 2026-11-02.'
     sources:
@@ -2137,12 +2137,12 @@ projects:
     devices:
     - model-cycles
     repo: https://github.com/durchgemacht/cycles-one-shot
-    status: active
+    status: unreachable
     tested: unit
     base_os: '1.13'
     version: "machine 0.13 (2026-11-02, on main; newest tag v0.12): Start and Length act on the note that plays; tested in a model27 build, in digiemu and on a Model:Cycles"
     last_activity: "2026-11-02"
-    notes: 'SAMPLE as a seventh Model:Cycles machine playing one-shots from the +Drive, with a browser uploader. Licence:
+    notes: 'Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). SAMPLE as a seventh Model:Cycles machine playing one-shots from the +Drive, with a browser uploader. Licence:
       MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
     sources:
     - altstrument (2026-11-01)
@@ -2224,16 +2224,16 @@ projects:
     - model-cycles
     repo: https://github.com/durchgemacht/model27
     license: "MIT"
-    status: active
+    status: unreachable
     tested: unit
     base_os: '1.13'
     version: "release 0.41 (2026-11-04 per README): thirteen cards in the web flasher (EQ 0.6, Reso 0.4 with block and coefficients in EMAC assembly); POTS 0.2 flashed from the page and tested on a Model:Cycles 2026-11-04"
     last_activity: "2026-11-04"
-    notes: "Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: a web Manager keeps one Model:Cycles project per firmware: it backs up the current project, flashes the other firmware over USB and restores that firmware's project (notes/77)."
+    notes: "Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: a web Manager keeps one Model:Cycles project per firmware: it backs up the current project, flashes the other firmware over USB and restores that firmware's project (notes/77)."
     sources:
     - altstrument (2026-11-01)
     links:
-      homepage: https://durchgemacht.github.io/model27/flasher/
+      homepage: https://durchgemacht.github.io/model27/flasher/   # offline since 2026-11-07
     relations:
     - {type: fork_of, id: modded-cycles, evidence: 'own README: beta fork of Modded Cycles 1.55'}
     - {type: cites, id: digiemu, evidence: 'README credits digiemu'}
@@ -3835,11 +3835,11 @@ projects:
     - model-cycles
     repo: https://github.com/durchgemacht/cycles-mod-standard
     license: "MIT"
-    status: wip
+    status: unreachable
     base_os: Model:Cycles OS 1.13
     version: draft 0.7
     last_activity: '2026-10-30'
-    notes: Draft standard for Model:Cycles mods (machine contract, extension points, per-mod manifests, clash checks
+    notes: Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). Draft standard for Model:Cycles mods (machine contract, extension points, per-mod manifests, clash checks
       over saved slots, key combos and display). Implemented in model27, tested on a unit for machines and one delay
       effect. Useful reading for anyone designing a mod format. MIT.
     sources:
@@ -4942,7 +4942,8 @@ projects:
     tested_note: "about an hour on one Digitone mk1"
     base_os: "Digitone mk1 OS 1.44"
     license: GPL-2.0
-    last_activity: '2026-11-07'
+    version: "v0.2.1 (tag, 2026-11-08; mutiny-0.2.1.elemod)"
+    last_activity: '2026-11-08'
     notes: >
       Three generative sequencers on the synth tracks: a Euclidean rhythm, a Turing Machine and a TB-303-style acid line,
       played from the encoders; YES writes what you hear into the pattern as ordinary trigs. The author tested it for about

@@ -6,11 +6,11 @@
 <title>Aggregat - Elektron mods and hardware knowledge</title>
 <style>
   /* Mono: one monospaced face, three sizes, black on white / white on black, square corners. */
-  :root { --bg:#ffffff; --fg:#0a0a0a; --mute:#707070; --line:#d4d4d4; --acc:#0a0a0a; --chip:#efefef; --hw:#0a0a0a; --emu:#707070; --doc:#707070;
+  :root { --bg:#ffffff; --fg:#0a0a0a; --mute:#707070; --line:#d4d4d4; --acc:#0a0a0a; --chip:#e6e6e6; --g1:#f4f4f4; --g2:#e6e6e6; --hw:#0a0a0a; --emu:#707070; --doc:#707070;
           --s1:#3a3a3a; --s2:#8c8c8c; --s3:#bdbdbd; --s5:#5e5e5e; --s0:#e0e0e0; --person:#0a0a0a;
           --font:ui-monospace, "SF Mono", "Cascadia Mono", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
           --fs:13px; --fs-s:12px; --fs-l:16px; color-scheme:light dark; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#0a0a0a; --fg:#ededed; --mute:#8a8a8a; --line:#2e2e2e; --acc:#ededed; --chip:#171717; --hw:#ededed; --emu:#8a8a8a; --doc:#8a8a8a;
+  @media (prefers-color-scheme: dark) { :root { --bg:#0a0a0a; --fg:#ededed; --mute:#8a8a8a; --line:#2e2e2e; --acc:#ededed; --chip:#242424; --g1:#141414; --g2:#242424; --hw:#ededed; --emu:#8a8a8a; --doc:#8a8a8a;
           --s1:#bdbdbd; --s2:#808080; --s3:#555555; --s5:#9e9e9e; --s0:#383838; --person:#ffffff; } }
   * { box-sizing: border-box; } input[type=checkbox], input[type=radio] { accent-color:var(--fg); }
   body { margin:0; background:var(--bg); color:var(--fg); font:var(--fs)/1.55 var(--font); }
@@ -115,6 +115,19 @@
   .cm-table { border-collapse:collapse; width:100%; font-size:var(--fs); } .cm-table th { text-align:left; color:var(--mute); font-weight:500; border-bottom:1px solid var(--line); padding:4px 8px 4px 0; }
   .cm-table td { padding:4px 8px 4px 0; border-bottom:1px solid var(--line); } .cm-num { white-space:nowrap; } .cm-inl { display:inline-block; height:8px; background:var(--s1); border-radius:0; vertical-align:0; }
   @media (max-width:760px) { .net-wrap { flex-direction:column; height:auto; } .net-svg { height:70vh; } .net-panel { width:auto; border-left:0; border-top:1px solid var(--line); } .cm-row { grid-template-columns:110px 1fr 30px; } }
+  /* grey shading: the control area (header, search, device bar) on a grey band, content on the page colour,
+     cards and panels one step grey, their top row and section heads one step darker */
+  header, .bar, .devbar { background:var(--g1); }
+  nav button, .devbar button, .bar input, .bar select { background:var(--bg); }
+  nav button:hover, .devbar button:hover { background:var(--g2); }
+  nav button.on, .devbar button.on { background:var(--fg); }
+  .md-card, .md-ld, .cm-card, .cm-kpis div, .net-panel { background:var(--g1); }
+  .md-card { padding-top:0; } .md-top { background:var(--g2); margin:0 -14px; padding:5px 14px; }
+  .md-tag { background:var(--bg); }
+  .md-ld.on { background:var(--fg); }
+  .md-h { background:var(--g2); padding:6px 10px; }
+  .item { padding:12px 10px; } .item:nth-child(even) { background:var(--g1); }
+  .md-card:hover, .md-ld:hover { border-color:var(--fg); }
 </style>
 </head>
 <body>

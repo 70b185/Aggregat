@@ -156,7 +156,7 @@
       </div>
       <div class="net-legend"></div><div class="net-kinds"></div>
       <div class="net-wrap"><svg class="net-svg" role="img" aria-label="Network of projects, people and relations"></svg>
-        <div class="net-tip" hidden></div><aside class="net-panel"></aside></div>`;
+        <div class="net-tip" hidden></div><button class="net-pt" type="button"></button><aside class="net-panel"></aside></div>`;
     root.querySelectorAll("[data-o]").forEach(el => {
       const k = el.dataset.o;
       if (el.type === "checkbox") el.checked = S.opts[k]; else el.value = S.opts[k];
@@ -256,8 +256,19 @@
       return ps.slice().sort((a, b) => (b.stars || 0) - (a.stars || 0)).map(p =>
         `<li><a href="#" data-go="p:${esc(p.id)}">${esc(p.name)}</a> <span class="meta">${esc(p.kind)}${p.stars ? " · ★" + p.stars : ""}</span></li>`).join("");
     }
+    // the side panel can be closed; the choice is remembered, clicking a dot opens it again
+    const wrap = root.querySelector(".net-wrap"), pBtn = root.querySelector(".net-pt");
+    function setPanel(open) {
+      S.panel = open; try { localStorage.setItem("agg-net-panel", open ? "1" : "0"); } catch (e) { /* storage may be off */ }
+      wrap.classList.toggle("net-closed", !open);
+      pBtn.textContent = open ? "×" : "‹ Info"; pBtn.title = open ? "Hide this panel" : "Show the panel";
+    }
+    if (S.panel === undefined) { let v = null; try { v = localStorage.getItem("agg-net-panel"); } catch (e) { /* ignore */ } S.panel = v !== "0"; }
+    setPanel(S.panel);
+    pBtn.onclick = () => setPanel(!S.panel);
     function showPanel() {
       const n = S.sel && G.N[S.sel];
+      if (n && !S.panel) setPanel(true);
       if (!n) {
         const people = G.nodes.filter(x => x.t === "o").length, projs = G.nodes.filter(x => x.t === "p").length;
         panel.innerHTML = `<h3>How to read this</h3>

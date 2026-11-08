@@ -148,7 +148,7 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 ## Digitakt II
 
-9 entries, 3 reported running on a unit.
+8 entries, 3 reported running on a unit.
 
 
 ### Ran on a real unit
@@ -163,7 +163,6 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
-| **DN2 DT2 firmware research** <br>armio <br>_stable_ | Source-only recipes for Digitone II firmware with six Digitakt II sample machines (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE), stereo samples, … | own patcher / builder | Digitone II OS 1.11 (target) + Digitakt II … | not stated | 2026-11-07 | [repo](https://github.com/armio/dn2-dt2-firmware-research) · [web app](https://armio.github.io/dn2-dt2-firmware-research/) · [recorder](https://github.com/armio/dn2-dt2-firmware-research/blob/main/docs/recorder.md) |
 | **Mezclando (transition mode for Digitakt II)** <br>Lucioic (Oicul) | A DJ-style mix mode on the SONG key: pick a reference pattern and bring its tracks, with their sequences and sounds, into the playing pattern one by … | elekloader | Digitakt II OS 1.17 only | not stated | 2026-11-04 | [repo](https://github.com/Lucioic/mezclando) · [web patcher](https://lucioic.github.io/mezclando/) |
 | **Digitakt II splash screens** <br>octplane | A 16-byte patch that lets the DT2 pick among all five boot animations instead of one, plus scripts to apply it. | see repo | Digitakt II | not stated | 2026-09-25 | [repo](https://github.com/octplane/digitakt-ii-splash-screens) |
 | **Digi Battery** <br>JGuzak | Hardware battery mod for Digitone, Digitone II, Digitakt and Digitakt II (soldering; at your own risk). | hardware mod (soldering) | - | not stated | 2026-08-21 | [repo](https://github.com/JGuzak/digi_battery) |

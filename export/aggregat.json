@@ -565,7 +565,7 @@
    "author": "armio",
    "kind": "firmware",
    "list": "mods",
-   "devices": "digitone-2,digitakt-2",
+   "devices": "digitone-2",
    "repo": "https://github.com/armio/dn2-dt2-firmware-research",
    "license": null,
    "status": "stable",

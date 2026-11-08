@@ -245,6 +245,7 @@ flowchart LR
     n_digisnake_digitone["DIGISNAKE (Digitone)<br/>GPL"]:::copyleft
     n_elektron_mods_rumorismo["Digitone MK1 Modding Project<br/>not recorded"]:::none
     n_directjump_digitone["DIRECT JUMP (Digitone)<br/>GPL"]:::copyleft
+    n_dn2_dt2_firmware_research["DN2 DT2 firmware research<br/>not recorded"]:::none
     n_dn2mk2["DN2 mk2 Mod (dn2mk2-firmware)<br/>AGPL-3.0-or-later"]:::copyleft
     n_dn2_cfw["dn2-cfw<br/>not recorded"]:::none
     n_dn2_firmware_explore["dn2_firmware_explore<br/>AGPL-3.0-or-later"]:::copyleft
@@ -326,7 +327,6 @@ flowchart LR
     n_digihealth["digihealth<br/>not recorded"]:::none
     n_digikit["digikit<br/>AGPL-3.0-or-later with extra terms"]:::copyleft
     n_digitakt_digitone_mcp["digitakt-digitone-mcp<br/>not recorded"]:::none
-    n_dn2_dt2_firmware_research["DN2 DT2 firmware research<br/>not recorded"]:::none
     n_elek_view["Elek View<br/>GPL-3.0"]:::copyleft
     n_elekloader["elekloader<br/>GPL-2.0-or-later"]:::copyleft
     n_elekloader_simonjohansson["elekloader<br/>GPL-2.0-or-later"]:::copyleft

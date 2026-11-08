@@ -449,7 +449,7 @@ projects:
     name: DN2 DT2 firmware research
     author: armio
     kind: firmware
-    devices: [digitone-2, digitakt-2]
+    devices: [digitone-2]   # the Digitakt II OS is only a donor file
     repo: https://github.com/armio/dn2-dt2-firmware-research
     links:
       web_app: https://armio.github.io/dn2-dt2-firmware-research/

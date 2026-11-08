@@ -139,7 +139,6 @@
 <div class="bar">
   <input id="q" type="search" placeholder="Search (all words must match; an address like 0x40000400 works too)" autofocus>
   <select id="dev"><option value="">All devices</option></select>
-  <select id="ev" title="Evidence"><option value="">Any evidence</option><option value="hw">[hw] seen on a unit</option><option value="emu">[emu] emulator</option><option value="doc">[doc] documented</option><option value="?">[?] unsure</option></select>
   <span class="count" id="count"></span>
 </div>
 <div id="devbar" class="devbar" role="group" aria-label="Device"></div>
@@ -299,12 +298,11 @@ const VIEWS = {
 function render() {
   const v = VIEWS[tab];
   const words = $("q").value.trim().toLowerCase().split(/\s+/).filter(Boolean);
-  const dev = $("dev").value, ev = $("ev").value;
-  $("dev").disabled = !v.dev; $("ev").disabled = !v.ev;
+  const dev = $("dev").value;
+  $("dev").disabled = !v.dev;
   devCounts();
   const rows = v.custom ? [] : v.rows().filter(r => {
     if (dev && v.dev && !list(v.dev(r)).includes(dev)) return false;
-    if (ev && v.ev && !list(v.ev(r)).includes(ev)) return false;
     if (!words.length) return true;
     const h = v.hay(r).toLowerCase();
     return words.every(w => h.includes(w));
@@ -318,13 +316,13 @@ function render() {
     history.replaceState(null, "", "?" + q);
     return;
   }
-  if (v.ev && !ev) rows.sort((a, b) => (list(v.ev(b)).includes("hw") ? 1 : 0) - (list(v.ev(a)).includes("hw") ? 1 : 0));
+  if (v.ev) rows.sort((a, b) => (list(v.ev(b)).includes("hw") ? 1 : 0) - (list(v.ev(a)).includes("hw") ? 1 : 0));
   $("count").textContent = `${rows.length} of ${v.rows().length}`;
   const shown = rows.slice(0, 300);
   $("out").innerHTML = shown.length ? shown.map(r => `<div class="item">${v.html(r, words)}</div>`).join("")
     + (rows.length > 300 ? `<div class="empty">Showing the first 300. Narrow the search.</div>` : "")
     : `<div class="empty">Nothing matches.</div>`;
-  const p = new URLSearchParams(); p.set("t", tab); if ($("q").value) p.set("q", $("q").value); if (dev) p.set("d", dev); if (ev) p.set("e", ev);
+  const p = new URLSearchParams(); p.set("t", tab); if ($("q").value) p.set("q", $("q").value); if (dev) p.set("d", dev);
   history.replaceState(null, "", "?" + p);
 }
 
@@ -351,12 +349,12 @@ function init() {
   $("tabs").onclick = e => { const b = e.target.closest("button"); if (!b) return; tab = b.dataset.t;
     [...$("tabs").children].forEach(x => x.classList.toggle("on", x === b)); render(); };
   D.devices.forEach(d => { devName[d.slug] = d.name; $("dev").insertAdjacentHTML("beforeend", `<option value="${esc(d.slug)}">${esc(d.name)}</option>`); });
-  $("dev").value = p.get("d") || ""; $("ev").value = p.get("e") || "";
+  $("dev").value = p.get("d") || "";
   devBar();
   D.sources.forEach(s => srcUrl[s.key] = s.url);
   $("sub").textContent = `${D.projects.length} projects, ${D.facts.length} hardware facts, ${D.rules.length} rules, ${D.conflicts.length} conflicts - data checked ${D.meta.checked}`;
   let t; $("q").oninput = () => { clearTimeout(t); t = setTimeout(render, 120); };
-  $("dev").onchange = render; $("ev").onchange = render;
+  $("dev").onchange = render;
   render();
 }
 

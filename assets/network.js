@@ -75,7 +75,7 @@
     if (S.opts.color === "age") return n.p.created ? ageColour(n.p.created) : "var(--s0)";
     return SLOT[KIND_GROUP[n.p.kind] || "other"];
   }
-  const AGE_STEPS = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b"];
+  const AGE_STEPS = ["#d9d9d9", "#bfbfbf", "#a3a3a3", "#878787", "#6b6b6b", "#525252", "#3d3d3d"];
   function ageColour(d) {
     // months before today, newest darkest: <1, <2, <3, <6, <12, <36, older
     const m = (Date.now() - Date.parse(d)) / 2.63e9;

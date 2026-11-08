@@ -89,7 +89,7 @@
     const recHtml = recent.map(p => `<li><a href="${esc(p.repo)}">${esc(p.name)}</a> <span class="meta">${esc(p.pushed)} · ${esc(p.owner || "")}</span></li>`).join("");
 
     root.innerHTML = `
-      ${words.length || ctx.dev ? `<p class="meta">Filtered by the search box and device menu: ${P.length} projects.</p>` : ""}
+      ${words.length || ctx.dev ? `<p class="meta">Filtered by the search box and device bar: ${P.length} projects.</p>` : ""}
       <div class="cm-kpis">
         <div><b>${P.length}</b><span>projects catalogued</span></div>
         <div><b>${Object.keys(owners).length}</b><span>people and groups on GitHub</span></div>

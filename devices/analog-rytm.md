@@ -12,6 +12,7 @@ Data last verified: 2026-11-08
 | **Elektron Project Companion** (Claptom-music) | tool | active | - | - | 2026-11-07 | [repo](https://github.com/Claptom-music/elektron-project-companion) |
 | **rytm2_mods** (Iced-Cream) | mod | wip | Rytm MKII 1.73, 1.74 | v1.4 | 2026-11-06 | [repo](https://github.com/Iced-Cream/rytm2_mods) |
 | **Sidecar | Expander** (trigcondition) | tool | wip | Sidecar 0.4.1 (Pi only: Overbridge passthrough on the Pi 4, USB-C mode switch, USB dropout fixes, MODEL E) with the unchanged Rytm firmware 0.4.0 for OS 1.74/1.73; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | v0.2.0 | 2026-11-06 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
+| **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-05 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
 | **analoghealth** (Iced-Cream) | mod | wip | Rytm MKII 1.74, A4 MKII 1.56 | v1.3 | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
 | **Analog Rytm MK1 OS 1.74 mods** (hugz202) | mod | wip | Analog Rytm MK1, OS 1.74 | - | 2026-10-28 | [repo](https://github.com/hugz202/AE-analog-rytm-mods) |
@@ -32,6 +33,14 @@ Data last verified: 2026-11-08
 | **ElekPrep Transfer** (unknown) | tool | unknown | ElekPrep v0.1 (page label) | - | - | [web app](https://elekprep-transfer.vercel.app/) |
 
 ## Details
+
+### Modwerk (formerly Octamod)
+
+Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still early prototypes. last_activity = date of the Dubspot article, not a forum post. 2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI. 2026-11-03: the site now lets you download a built Analog Rytm MKII .syx (after confirming you know how to get back to stock); new Rytm module quick-velocity-aftertouch-assign with a verification note. Zoom pedals: an effect whose group+ID clashes with one already on the pedal is moved to a free local Delay ID 958-1023 (ID only in the ZDL header at 0x40-0x41, no checksum); two effects with the same group and ID froze an MS-70CDR at boot until its ROM was reprogrammed. 2026-11-04/05: Rytm MKII downloads on (records); npp1993's Control In Actions (footswitch or 0-5 V gate on EXP/CV IN as ACTION for MUTE and more) and Quick Velocity+Aftertouch Assign join the library, Silent Pad+Trig Settings 0.7.0; euclidean 1.1.6 for Digitakt I 1.53/1.54 reported working on a unit by sumedho (all cases, save/reload, power cycle).
+
+_Related: cites `elekloader` (README mentions elekloader (porting from it / hosted loader)); cites `octabam` (README: porting from octabam is part of the module guide) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: gearnews, dubspot, forum thread 36_
 
 ### analog-rytm-mkii-research
 

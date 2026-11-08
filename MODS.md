@@ -44,6 +44,7 @@ Added to the catalogue after 2026-11-03, newest first.
 | **MUTINY (modular sequencers for Digitone mk1)** (mbaumannn) | Digitone (MKI) / Digitone Keys | Three generative sequencers on the synth tracks: a Euclidean rhythm, a Turing Machine and a TB-303-style acid line, … | elekloader | yes, on a unit (about an hour on one Digitone mk1) |
 | **DBX-DR (dark drone for MDX)** (MonCalamari) | Machinedrum (incl. UW) | Single-voice drone USR machine: three detuned saws and a square sub into saturation and a 4-pole ladder lowpass, with … | MDX | yes, on a unit (played on a MKII; MKI not played) |
 | **Model:Samples battery base** (malthelm) | Model:Samples | Open-hardware battery base using the original side mounting points and the left battery input: editable CAD, STEP/STL, … | hardware (3D-printed base) | not stated (no physical prototype validated yet) |
+| **digimod (Digitakt II mod builder)** (endlea) | Digitakt II | A local web service (Docker, or native on macOS) that packs a Digitakt II .syx from ticked mods, checks it before … | own patcher / builder | partly (per mod: each mod README says what ran on hardware) |
 | **Digitakt LED colours** (ceredmeat) | Digitakt (MKI) | LED theme editor and standby light show: six themes plus CUSTOM, eleven colour families with RGB 0-31, trig-key … | elekloader | emulator only |
 | **MIDI Expression for the Digitakt (Digi-Expression)** (tekomelu) | Digitakt (MKI) | Pitch bend, mod wheel, aftertouch and breath controller from an external keyboard: modulation of audio tracks 1-8, … | Modwerk (formerly Octamod) | emulator only |
 | **Modded Cycles Techno Edition** (mbreilly (m_reilly)) | Model:Cycles | 25 machines (Elektron's six plus 19: 909/808/606 voices, rumble kick, modal metal, additive drum, acid and growl … | own patcher / builder | yes, on a unit |
@@ -63,9 +64,9 @@ These do not change the sound themselves: they take your stock OS file and the m
 
 | Loader / platform | Devices | How it works | Mods listed here | Status | Tested | Updated | Links |
 |---|---|---|---|---|---|---|---|
-| **elekloader** <br>pina (irpina) | Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II | Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. | 68 | active | yes, on a unit (machine-pages 1.2, fxkit and the cores ran on units (shop notes)) | 2026-11-08 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) |
+| **elekloader** <br>pina (irpina) | Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II | Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. | 69 | active | yes, on a unit (machine-pages 1.2, fxkit and the cores ran on units (shop notes)) | 2026-11-08 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) |
 | **Cycles Engines** <br>100demons | Model:Cycles | Web flasher that composes any set of relocatable engine packages into the user's own OS file in the browser and sends it over USB (also a … | 4 | wip | not stated | 2026-11-07 | [repo](https://github.com/100demons/cycles-engines) |
-| **Modwerk (formerly Octamod)** <br>not named in sources (SDK repo owner … | Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II | Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 … | 3 | active | partly (some library modules confirmed on units, newer packages not yet) | 2026-11-08 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
+| **Modwerk (formerly Octamod)** <br>not named in sources (SDK repo owner … | Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II, Analog Rytm (MKI, MKII), Octatrack (MKI, MKII) | Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 … | 3 | active | partly (some library modules confirmed on units, newer packages not yet) | 2026-11-08 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **digimod (Digitakt II mod builder)** <br>endlea | Digitakt II | A local web service (Docker, or native on macOS) that packs a Digitakt II .syx from ticked mods, checks it before download and, on a Mac, boots it … | - | active | partly (per mod: each mod README says what ran on hardware) | 2026-11-07 | [repo](https://github.com/endlea/digimod) |
 | **digitakt-mods** <br>hillzeealex | Digitakt (MKI), Digitakt II | French-language collection of open-source .elemod mods for Digitakt mk1 and II, checked together and offered as ready packs with a step-by-step guide. | - | active | not stated | 2026-10-29 | [repo](https://github.com/hillzeealex/digitakt-mods) |
 | **elekloader (simonjohansson fork - Digitakt II / Digitone II support)** <br>simonjohansson | Digitakt II, Digitone II, Digitakt (MKI), Digitone (MKI) / Digitone Keys | GitHub says forked from elekloader/elekloader (not irpina's repo); 173 commits, GPL-2.0-or-later, NOTICE covers digikit code. | - | wip | partly (a key-swap mod works on a unit; cores emulator-checked) | 2026-10-30 | [repo](https://github.com/simonjohansson/elekloader) · [plan digitone ii](https://github.com/simonjohansson/elekloader/issues/13) · [devices doc](https://github.com/simonjohansson/elekloader/blob/main/docs/DEVICES.md) |
@@ -82,24 +83,27 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 |---|---|---|
 | **Cycles Engines** | Model:Cycles | engines/ (2026-11-08): BIAS, BLAST, FERAL, LiXR (drum voice with a decimator), PUNCH, SAM (36-word speech), plus the REF reference machine and a silent placeholder |
 | **digi1_mods** | Digitakt (MKI) | digi101 (SH-101-style mono), digieq, digimacro, digimatrix, digimono, digipoly, digiutils, tonefx 3.2 (shop files, 2026-11-08) |
+| **digikit** | Digitakt II, Digitone II | modules (README table, 2026-11-09): PLUCK (plucked-string machine), Frequency shifter (FX), bootscreen (loadable boot screens, .dkbs); plus the digikit runtime they load through |
 | **digimod (Digitakt II mod builder)** | Digitakt II | musical-wave (Deja Vu), oneshot-zoom, plaits, polyphony, sysload |
 | **DigiSplash** | Digitakt (MKI), Digitone (MKI) / Digitone Keys | about 40 boot splash and animation files for Digitakt mk1 and Digitone mk1 in the elekloader shop |
 | **dn2_firmware_explore** | Digitone II, Digitone (MKI) / Digitone Keys | 16 mods for Digitone II 1.11 (README table, 2026-11-08): lfo4, arpmodes, fxmod, moddest, lfowaves, midiarp, layermidi, arpplocks, bootscreen, reloadconfirm, arpscale, degreetranspose, transients, songguard, lfolength, waverider (alpha) |
 | **elekloader** | Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II | the mod shop (web/catalog.json, 2026-11-08): 173 mod files from 32 repos, each repo listed here as its own entry; base mods machine-pages (Digitakt), machines and fxkit (Digitone) |
-| **Modwerk (formerly Octamod)** | Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II | sdk modules (2026-11-08) - Rytm MKII: audio-in-fx, chorus, chromatic-aftertouch-fix, control-in-actions, ctrl-all, env-reset-amp, euclid-accents, filter-hz, flanger, live-rec-retrig-fix, loop-sync, main-rms, midi-feedback, phaser, pipo-loop, qperf, quick-fill-trig-condition, quick-velocity-aftertouch-assign, sample-rate, silent-pad-trig, slice-loop, temp-save, velocity-humanise, wavefolder; Digitakt mk1: cc-names, cc-recall, digichain, digieq, digihealth, digimatrix, digimono, digineighbor, digiperform, digipoly, digislicer, digisophie, digistring, digiutils, euclidean, fx-track, input-prefader, midi-expression, midi-retrig, note-accumulator, ram-machines, sample-tools; Digitone mk1: digihealth, digitables; Octatrack (octabam): airwindows-chorus, apply-scene, arp-key-locks, beat-slicer, dejavu, everb, output-matrix, playmodes, poly8, previewvol, ring-sc, stem-rec, tapehead, tiempos, vector and others |
+| **Modwerk (formerly Octamod)** | Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II, Analog Rytm (MKI, MKII), Octatrack (MKI, MKII) | sdk modules (2026-11-08) - Rytm MKII: audio-in-fx, chorus, chromatic-aftertouch-fix, control-in-actions, ctrl-all, env-reset-amp, euclid-accents, filter-hz, flanger, live-rec-retrig-fix, loop-sync, main-rms, midi-feedback, phaser, pipo-loop, qperf, quick-fill-trig-condition, quick-velocity-aftertouch-assign, sample-rate, silent-pad-trig, slice-loop, temp-save, velocity-humanise, wavefolder; Digitakt mk1: cc-names, cc-recall, digichain, digieq, digihealth, digimatrix, digimono, digineighbor, digiperform, digipoly, digislicer, digisophie, digistring, digiutils, euclidean, fx-track, input-prefader, midi-expression, midi-retrig, note-accumulator, ram-machines, sample-tools; Digitone mk1: digihealth, digitables; Octatrack (octabam): airwindows-chorus, apply-scene, arp-key-locks, beat-slicer, dejavu, everb, output-matrix, playmodes, poly8, previewvol, ring-sc, stem-rec, tapehead, tiempos, vector and others |
 | **octabam** | Octatrack (MKI, MKII) | modules/ (100, 2026-11-08), among them: analog-bassdrum, bbd, blackpyramids-303, busdelay, busverb, cc-map, chords, direct-jump, distorx, euclid, fx2-lock, lofi-amf-fix, lofi2, midi-follow, midi-loopback, midi-scales, midi-scenes, miniverb, morph, mute-modes, octa303, quantizer, rec-trig-mute, resonator, scenes-p2, scope, shatter, sidechain-compressor, slow-lfo, spectrum, stuttr, synth, tapeecho, trackpatterns, tuner, usb, varispeed, verberation, vibrato, vocoder (others are probes and infrastructure) |
 | **octabam2elemod (octabam modules as elekloader mods)** | Octatrack (MKI, MKII) | 33 files (shop, 2026-11-08): tuner, quantizer, repitch, direct-jump, rlen-plen, midi-scenes, scenes-p2, cc-map, cc-feedback, recorder-hold, recorder-spacing, flex-seekbind, lofi-amf-fix, USB MIDI, USB audio out (main, cue, master, tracks) and USB in/out crossbar variants |
 | **rytm2_mods** | Analog Rytm (MKI, MKII) | FILTER Hz, CTRL ALL, ENV RESET AMP, SLICE LOOP, euclid accents, velocity humanise, LFO RND, compressor preview, main RMS light, kit A/B, voice DAC (11 mods, release v1.4) |
 
 ## Digitakt (MKI)
 
-36 entries, 12 reported running on a unit.
+39 entries, 14 reported running on a unit.
 
 
 ### Ran on a real unit
 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
+| **elekloader** <br>pina (irpina) | Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. | own patcher / builder | Digitakt mk1 1.53/1.54; Digitone mk1 + Keys … | yes, on a unit (machine-pages 1.2, fxkit and the cores ran on units (shop notes)) | 2026-11-08 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) |
+| **Modwerk (formerly Octamod)** <br>not named in sources (SDK repo owner … | Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 … | own patcher / builder | Digitakt 1.53/1.54; Digitone 1.43/1.44; … | partly (some library modules confirmed on units, newer packages not yet) | 2026-11-08 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **Filter-FX (seven filter effects)** <br>DigiAlchemydsp | Seven filter-based effect modes per track: VOWEL, BANK, FOLD, CRUSH, RING, PHASER and FLANGER. Found in the elekloader mod shop catalogue 2026-11-08. | elekloader | Digitakt mk1; Digitone mk1 / Keys | yes, on a unit (shop: both builds tested on hardware, stable) | 2026-11-08 | [repo](https://github.com/DigiAlchemydsp/Filter-FX) |
 | **Flex+ (FlexBus machine)** <br>DigiAlchemydsp | Routes the audio inputs or internal tracks into a track, with a low-CPU pitch shifter and an oscilloscope on the machine page. | elekloader | Digitone mk1 / Keys OS 1.44 (core-dn1 4.0 + … | yes, on a unit (shop: both builds tested on hardware (README had the Digitakt build bench-tested only)) | 2026-11-07 | [repo](https://github.com/DigiAlchemydsp/Flex-Plus) |
 | **Filter+ (13 filter types)** <br>DigiAlchemydsp <br>_released_ | elekloader format-2 mods adding 13 per-track filter types (BP, BP2, COMB, TRASH, LP1, HP1, LP4-, HP4-, LP2, HP2, NOTCH, COMB-, TRASH-) as Digitakt … | elekloader | Digitakt mk1 OS 1.54; Digitone mk1 / Keys … | yes, on a unit (shop: both builds tested on hardware) | 2026-11-02 | [repo](https://github.com/DigiAlchemydsp/FILTER-PLUS) |
@@ -117,6 +121,7 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
+| **Sidecar / Expander** <br>trigcondition <br>_wip_ | A Raspberry Pi 4B/5 on the Rytm's USB port adds digital voices, effects and a sequencer; the Rytm runs a patched OS. 0.3.2 adds experimental, … | elekloader | Analog Rytm MKII OS 1.73 (Rytm side is an … | emulator only | 2026-11-08 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
 | **digihealth** <br>pina (irpina) <br>_wip_ | Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). | elekloader | Digitakt mk1 OS 1.53 (digihealth 1.0); … | not stated (Digitone build not yet on a unit) | 2026-11-07 | [repo](https://github.com/irpina/digihealth) |
 | **Digitakt LED colours** <br>ceredmeat <br>_wip_ | LED theme editor and standby light show: six themes plus CUSTOM, eleven colour families with RGB 0-31, trig-key previews, COMET / RAINBOW / BREATHE … | elekloader | Digitakt MKI OS 1.54; elekloader core 4.1 | emulator only | 2026-11-06 | [repo](https://github.com/ceredmeat/DIGITAKT-LED-COLORS) |
 | **MIDI Expression for the Digitakt (Digi-Expression)** <br>tekomelu <br>_wip_ | Pitch bend, mod wheel, aftertouch and breath controller from an external keyboard: modulation of audio tracks 1-8, pass-through to MIDI out on … | Modwerk (formerly Octamod) | Digitakt MKI OS 1.54 | emulator only | 2026-11-05 | [repo](https://github.com/tekomelu/Digi-Expression) |
@@ -149,13 +154,17 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 ## Digitakt II
 
-9 entries, 3 reported running on a unit.
+13 entries, 7 reported running on a unit.
 
 
 ### Ran on a real unit
 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
+| **elekloader** <br>pina (irpina) | Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. | own patcher / builder | Digitakt mk1 1.53/1.54; Digitone mk1 + Keys … | yes, on a unit (machine-pages 1.2, fxkit and the cores ran on units (shop notes)) | 2026-11-08 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) |
+| **Modwerk (formerly Octamod)** <br>not named in sources (SDK repo owner … | Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 … | own patcher / builder | Digitakt 1.53/1.54; Digitone 1.43/1.44; … | partly (some library modules confirmed on units, newer packages not yet) | 2026-11-08 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
+| **digikit** <br>Em D (GitHub m-dwyer); develops in the … <br>_wip_ | Native Rust emulator that runs the ColdFire and SHARC+ firmware together, with front panel, display and audio, plus a web panel (WASM core), a Tauri … | own patcher / builder | Digitakt II target 1.17 (emulator also runs … | partly (README table: runtime and PLUCK ran on a Digitakt II (OS 1.17), bootscreen too (finding 117); Frequency shifter emulator only; Digitone II emulator only) | 2026-11-08 | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
+| **digimod (Digitakt II mod builder)** <br>endlea | A local web service (Docker, or native on macOS) that packs a Digitakt II .syx from ticked mods, checks it before download and, on a Mac, boots it … | own patcher / builder | Digitakt II OS 1.16 | partly (per mod: each mod README says what ran on hardware) | 2026-11-07 | [repo](https://github.com/endlea/digimod) |
 | **digitakt-ii-research (Deja Vu LFOs, ONESHOT zoom)** <br>kariGardarsson <br>_beta_ | Windows standalone builder (portable, no Python/Git/WSL needed) that takes the user's own official OS file, identifies it by SHA-256, writes the … | own patcher / builder | Digitakt II OS 1.17 (recommended; Deja Vu + … | yes, on a unit (DV-F/DV-T run in 70b185's Digitakt II builds) | 2026-11-06 | [repo](https://github.com/karigardarsson/digitakt-ii-research) · [releases](https://github.com/karigardarsson/digitakt-ii-research/releases) · [release latest](https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.2.0-beta) |
 | **macro-mode (digi_macro)** <br>toonst <br>_wip_ | Eight performance macros (PAGE+MOD), each moving up to four parameters on chosen tracks. | elekloader | Digitakt II OS 1.17 or Digitone II OS 1.12, … | partly (older build on a unit; current build and DN2 version emulator only) | 2026-11-05 | [repo](https://github.com/toonst/digi_macro) |
 | **digitakt2-perform** <br>toonst <br>_wip_ | PERFORM KIT mods: [PRESET] toggles directly, track levels survive leaving the mode. | elekloader | Digitakt II OS 1.17 (1.18+ would need … | partly (each part works on a unit; the combination only built) | 2026-10-04 | [repo](https://github.com/toonst/digitakt2-perform) |
@@ -178,13 +187,15 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 ## Digitone (MKI) / Digitone Keys
 
-47 entries, 24 reported running on a unit.
+49 entries, 26 reported running on a unit.
 
 
 ### Ran on a real unit
 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
+| **elekloader** <br>pina (irpina) | Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. | own patcher / builder | Digitakt mk1 1.53/1.54; Digitone mk1 + Keys … | yes, on a unit (machine-pages 1.2, fxkit and the cores ran on units (shop notes)) | 2026-11-08 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) |
+| **Modwerk (formerly Octamod)** <br>not named in sources (SDK repo owner … | Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 … | own patcher / builder | Digitakt 1.53/1.54; Digitone 1.43/1.44; … | partly (some library modules confirmed on units, newer packages not yet) | 2026-11-08 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **dn2_firmware_explore** <br>angellinares | Tools to inspect, modify and rebuild Digitone firmware (dnfw, CLI and browser), plus 17 mods for Digitone II 1.11 (Waverider wavetable machine, … | dnfw (CLI or browser) | Digitone II OS 1.11 (mods); README also … | partly (14 of 16 mods confirmed on hardware per README; degreetranspose untested by the owner) | 2026-11-08 | [repo](https://github.com/angellinares/dn2_firmware_explore) |
 | **MUTINY (modular sequencers for Digitone mk1)** <br>mbaumannn | Three generative sequencers on the synth tracks: a Euclidean rhythm, a Turing Machine and a TB-303-style acid line, played from the encoders; YES … | elekloader | Digitone mk1 OS 1.44 | yes, on a unit (about an hour on one Digitone mk1) | 2026-11-08 | [repo](https://github.com/mbaumannn/mutiny) |
 | **ESOTERIKA (four Digitone voices)** <br>DigiAlchemydsp | Four extra Digitone mk1 voices - RUIN, XTAL, VOID and CREPUS - as separate elekloader mods plus a combined ESOTERIKA file. | elekloader | Digitone mk1 / Keys OS 1.44 | yes, on a unit (shop: tested on hardware, stable) | 2026-11-08 | [repo](https://github.com/DigiAlchemydsp/ESOTERIKA) |
@@ -245,13 +256,14 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 ## Digitone II
 
-10 entries, 4 reported running on a unit.
+11 entries, 5 reported running on a unit.
 
 
 ### Ran on a real unit
 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
+| **digikit** <br>Em D (GitHub m-dwyer); develops in the … <br>_wip_ | Native Rust emulator that runs the ColdFire and SHARC+ firmware together, with front panel, display and audio, plus a web panel (WASM core), a Tauri … | own patcher / builder | Digitakt II target 1.17 (emulator also runs … | partly (README table: runtime and PLUCK ran on a Digitakt II (OS 1.17), bootscreen too (finding 117); Frequency shifter emulator only; Digitone II emulator only) | 2026-11-08 | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
 | **dn2_firmware_explore** <br>angellinares | Tools to inspect, modify and rebuild Digitone firmware (dnfw, CLI and browser), plus 17 mods for Digitone II 1.11 (Waverider wavetable machine, … | dnfw (CLI or browser) | Digitone II OS 1.11 (mods); README also … | partly (14 of 16 mods confirmed on hardware per README; degreetranspose untested by the owner) | 2026-11-08 | [repo](https://github.com/angellinares/dn2_firmware_explore) |
 | **Overtone** <br>complex-ping <br>_released_ | Python 3.11+ patcher (patcher/patch.py) that builds Overtone from the user's own OS 1.12 and only saves the result if it matches the tested build … | own patcher / builder | Digitone II OS 1.12 only (patcher refuses … | yes, on a unit | 2026-11-07 | [repo](https://github.com/complex-ping/overtone) · [forum](https://elektronmods.com/thread-90-overtone-custom-digitone-2-firmware) · [releases](https://github.com/complex-ping/overtone/releases) |
 | **macro-mode (digi_macro)** <br>toonst <br>_wip_ | Eight performance macros (PAGE+MOD), each moving up to four parameters on chosen tracks. | elekloader | Digitakt II OS 1.17 or Digitone II OS 1.12, … | partly (older build on a unit; current build and DN2 version emulator only) | 2026-11-05 | [repo](https://github.com/toonst/digi_macro) |
@@ -302,13 +314,14 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 ## Octatrack (MKI, MKII)
 
-16 entries, 5 reported running on a unit.
+18 entries, 6 reported running on a unit.
 
 
 ### Ran on a real unit
 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
+| **Modwerk (formerly Octamod)** <br>not named in sources (SDK repo owner … | Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 … | own patcher / builder | Digitakt 1.53/1.54; Digitone 1.43/1.44; … | partly (some library modules confirmed on units, newer packages not yet) | 2026-11-08 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **STEP VIEW (Octatrack MIDI step editor)** <br>Slingdinger <br>_wip_ | A step editor and piano-roll pitch view for the eight MIDI tracks (MIXER + MIDI): all tracks at 32 steps a row, one track's 64 steps, notes with VEL … | octabam | Octatrack MKI/MKII OS 1.40C | partly (built and tested in octabam's emulator; parts have run on the author's MKI) | 2026-11-08 | [repo](https://github.com/Slingdinger/octatrack-step-view) |
 | **octabam2elemod (octabam modules as elekloader mods)** <br>irpina | octabam's Octatrack modules repackaged as elekloader mods, so they can be picked in the elekloader mod shop. | elekloader (core-ot 0.1+) | Octatrack MKI/MKII OS 1.40C | partly (each build boots on an Octatrack MKII (2026-10-03); most features not yet tested on a unit) | 2026-11-08 | [repo](https://github.com/irpina/octabam2elemod) |
 | **OT Kyoti FW** <br>Zac Kyoti | Feature and fix builds keeping the stock feel: mute modes, pattern jump, sidechain compressor, varispeed, repitch. | own patcher / builder | 1.40C | yes, on a unit | 2026-11-02 | [repo](https://github.com/Zac-Kyoti/octatrack-kyoti-fw) |
@@ -328,6 +341,7 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 | **midisc** <br>bkkbrls-del | MIDI scene locks for Octatrack OS 1.40C. Licence: MIT; distribution: patch-your-own. | octabam | 1.40C | not stated | 2026-10-15 | [repo](https://github.com/bkkbrls-del/midisc) |
 | **PassOS** <br>theremoteviewer | Octatrack MK1 mod: 36 Digitone II scales on MIDI tracks and a STOP guard; nothing on the DSP. Licence: MIT; distribution: patch-your-own. | see repo | 1.40C | not stated | 2026-10-09 | [repo](https://github.com/theremoteviewer/octa-passos) |
 | **midisc (1.40MSC)** <br>sambanks <br>_wip_ | MIDI scene locks for the Octatrack (scene hold edits, crossfader morph, part save/reload, scene copy/paste). | see repo | Octatrack MK1/MK2 OS 1.40C | not stated | 2026-09-12 | [repo](https://github.com/sambanks/midisc) |
+| **octa-bt-pt** <br>bryantysinger | Web UI that patches parameter values (effect defaults, FX1/FX2 default assignment, an AMF multiply fix) into the user's own 1.40C file - values, not … | see repo | Octatrack OS 1.40C only (hash-checked) | not stated | 2026-08-23 | [repo](https://github.com/bryantysinger/octa-bt-pt) |
 | **Octaplay** <br>devilfish707 | Octabam module with playhead modes (reverse, ping-pong, random, shuffle) per track or shared. | octabam | 1.40C | not stated | - | [repo](https://github.com/devilfish707/Octaplay) |
 
 ### Unverified leads
@@ -338,13 +352,14 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 ## Analog Rytm (MKI, MKII)
 
-7 entries, 4 reported running on a unit.
+9 entries, 5 reported running on a unit.
 
 
 ### Ran on a real unit
 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
+| **Modwerk (formerly Octamod)** <br>not named in sources (SDK repo owner … | Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 … | own patcher / builder | Digitakt 1.53/1.54; Digitone 1.43/1.44; … | partly (some library modules confirmed on units, newer packages not yet) | 2026-11-08 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **rytm-mods-src** <br>MrScruff (published with permission by … | Public copy of MrScruff's Rytm MKII OS 1.73 mods (euclid accents, velocity humanise, random LFO, kit A/B, slice loop, control-all and more). | own patcher / builder | 1.73 | partly (README status table: 0002-0008, 0010 and 0012-0015 hardware-verified; 0009's display checked on the device; 0017 and 0018 built and emulator-checked only) | 2026-11-08 | [repo](https://github.com/Iced-Cream/rytm-mods-src) · [alias](https://github.com/connorway32/rytm-mods-src) |
 | **rytm2_mods** <br>Iced-Cream <br>_wip_ | MrScruff's Rytm MKII mods (published with permission) ported to the elemod format for elekloader core-ar2. | elekloader | Rytm MKII 1.73, 1.74 | yes, on a unit | 2026-11-06 | [repo](https://github.com/Iced-Cream/rytm2_mods) |
 | **analoghealth** <br>Iced-Cream <br>_wip_ | digihealth's SYSTEM INFO and REMOTE KEYS ported to the analog machines. | elekloader | Rytm MKII 1.74, A4 MKII 1.56 | yes, on a unit (1.3 on a Rytm MKII, OS 1.74, in test builds since 2026-10-26) | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
@@ -354,6 +369,7 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
+| **Sidecar / Expander** <br>trigcondition <br>_wip_ | A Raspberry Pi 4B/5 on the Rytm's USB port adds digital voices, effects and a sequencer; the Rytm runs a patched OS. 0.3.2 adds experimental, … | elekloader | Analog Rytm MKII OS 1.73 (Rytm side is an … | emulator only | 2026-11-08 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
 | **Analog Rytm MK1 OS 1.74 mods** <br>hugz202 <br>_wip_ | Sister project of the A4 MK1 mods (same registry/verify method). | see repo | Analog Rytm MK1, OS 1.74 | not stated | 2026-10-28 | [repo](https://github.com/hugz202/AE-analog-rytm-mods) |
 | **Chopshop** <br>Jesus Triana (bandersong) | Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog Keys OS 1.56 (chord memory, joystick … | own patcher / builder | 1.73 (Rytm), 1.56 (Keys); not 1.74 | not stated | 2026-10-13 | [repo](https://github.com/bandersong/chopshop) · [homepage](https://chopshop-synth.pages.dev/) |
 | **rytm1_mods** <br>gdeo607 | Port of the rytm-mods to Rytm MK1 OS 1.73 (per-track cuts, random LFO, euclid accents, humanise); also emits elekloader .elemod files. | elekloader | 1.73 | not stated | 2026-09-28 | [repo](https://github.com/gdeo607/rytm1_mods) |
@@ -378,7 +394,7 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 ## Model:Cycles
 
-20 entries, 4 reported running on a unit.
+21 entries, 4 reported running on a unit.
 
 
 ### Ran on a real unit
@@ -394,6 +410,7 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
+| **Cycles Engines** <br>100demons <br>_wip_ | Web flasher that composes any set of relocatable engine packages into the user's own OS file in the browser and sends it over USB (also a … | own patcher / builder | Model:Cycles OS 1.13 only | not stated | 2026-11-07 | [repo](https://github.com/100demons/cycles-engines) |
 | **BLAST (OPL2-style FM)** <br>100demons | One added machine with fourteen melodic two-operator FM models in the manner of the Yamaha OPL2 ('90s SoundBlaster). | Cycles Engines | Model:Cycles OS 1.13 | not stated (README: not yet tested on a real Model:Cycles) | 2026-11-07 | [repo](https://github.com/100demons/blast) · [flasher](https://100demons.github.io/cycles-engines/flasher/) |
 | **PUNCH (OPL2-style FM percussion)** <br>100demons | One added machine with twelve two-operator FM percussion engines with extended ratios. | Cycles Engines | Model:Cycles OS 1.13 | not stated (README: not yet tested on a real Model:Cycles) | 2026-11-07 | [repo](https://github.com/100demons/punch) · [flasher](https://100demons.github.io/cycles-engines/flasher/) |
 | **Supermodel Edition** <br>A.V., 18nelli18 | Fork of Modded Cycles with a 909-style kit flasher, ACID machine, sequence generator, second LFO. Licence: unspecified; distribution: … | own patcher / builder | 1.13 | not stated | 2026-11-03 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |

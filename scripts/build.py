@@ -203,7 +203,8 @@ def mrow(p, show_dev=False):
 
 MHEAD = "| Mod | What it does | Install via | Needs OS | Tested | Updated | Links |\n|---|---|---|---|---|---|---|"
 inst = [p for p in bylist["mods"] if p["kind"] == "loader" or p.get("list") == "mods" and p["kind"] == "tool"]
-real = [p for p in bylist["mods"] if p not in inst]
+# also_mod: a loader or platform that ships mods of its own (without entries of their own) is listed both ways
+real = [p for p in bylist["mods"] if p not in inst or p.get("also_mod")]
 colls = [p for p in bylist["mods"] if p.get("contains")]
 by_upd = lambda rows: sorted(rows, key=updated, reverse=True)
 # "new": added in the last 7 days, but not during the catalogue's first bulk imports (until BULK_UNTIL)

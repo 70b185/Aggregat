@@ -382,7 +382,7 @@ const stripeDev = ds => ds.find(d => DEVS.includes(d)) || ds[0] || "";
 const DEV_SHORT = n => n.replace(/ \(.*?\)/g, "").replace("Digitone / Digitone Keys", "Digitone / Keys").replace("Analog Four / Analog Keys", "Analog Four / Keys");
 function devCounts() {
   // the number on each device button: mods on the Mods tab, otherwise the rows of the open tab
-  const v = VIEWS[tab], isMod = p => list(p.list).includes("mods") && !["loader", "tool"].includes(p.kind) && !["unreachable", "unverified"].includes(p.status);
+  const v = VIEWS[tab], isMod = p => list(p.list).includes("mods") && (p.also_mod || !["loader", "tool"].includes(p.kind)) &&!["unreachable", "unverified"].includes(p.status);
   const rows = tab === "mods" ? D.projects.filter(isMod) : v.dev ? v.rows() : [];
   const n = s => rows.filter(r => !s || list(v.dev(r)).includes(s)).length;
   $("devbar").style.display = v.dev ? "" : "none";

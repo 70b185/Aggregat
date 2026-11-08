@@ -18,6 +18,9 @@
 #   license        optional: the licence the project states, as we read it (e.g. MIT, GPL-2.0-or-later,
 #                  "not stated" when the repo shows none); leave it out when we have not read it
 #   also_lists     optional: further topic lists the entry appears in (e.g. [mods] for a research repo that ships mods)
+#   also_mod       optional, true: a loader or platform (kind loader, or a tool with list: mods) that also ships mods of
+#                  its own without entries of their own; it then appears under "Loaders and platforms" AND in its
+#                  devices' mod sections and on the website's Mods tab
 #   install        optional: how a user installs it, when no mod_for relation says so
 #   contains       optional: the named mods/modules inside a collection, as its repo lists them (with the date read)
 #   tested         mods, firmware and loaders: what the author (or a report we cite) says about tests -
@@ -42,6 +45,7 @@ projects:
     name: elekloader
     author: pina (irpina)
     kind: loader
+    also_mod: true
     devices: [digitakt, digitone, digitakt-2]
     repo: https://github.com/elekloader/elekloader
     license: "GPL-2.0-or-later"
@@ -73,7 +77,8 @@ projects:
     name: Modwerk (formerly Octamod)
     author: "not named in sources (SDK repo owner repeat98)"
     kind: loader
-    devices: [digitakt, digitone, digitakt-2]
+    also_mod: true
+    devices: [digitakt, digitone, digitakt-2, analog-rytm, octatrack]
     repo: https://github.com/repeat98/modwerk
     links:
       web_app: https://modwerk.app/
@@ -1009,21 +1014,20 @@ projects:
     name: digikit
     author: "Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo"
     kind: emulator
+    also_lists: [mods]
     devices: [digitakt-2, digitone-2]
     repo: https://github.com/ElekLabs/digikit
     license: "AGPL-3.0-or-later with extra terms"
     links:
       earlier_repo: https://github.com/m-dwyer/digikit
     status: wip
+    contains: "modules (README table, 2026-11-09): PLUCK (plucked-string machine), Frequency shifter (FX), bootscreen (loadable boot screens, .dkbs); plus the digikit runtime they load through"
+    tested: partly
+    tested_note: "README table: runtime and PLUCK ran on a Digitakt II (OS 1.17), bootscreen too (finding 117); Frequency shifter emulator only; Digitone II emulator only"
     base_os: "Digitakt II target 1.17 (emulator also runs 1.16 as default file; 1.15C kept for old analysis); Digitone II target 1.12 (also runs 1.11 as default file; 1.10E kept for old analysis)"
     version: null
     last_activity: "2026-11-08"
     notes: >
-      2026-11-08 (PR #321, finding 117): loadable boot screens. A `.dkbs` file (1-bit 128x64 frames at 30 ticks/s,
-      at most 10 s and 64 KiB, authored as a Canvas 2D script) replaces the stock intro through the module
-      `bootscreen`; an optional patch set `device-introblank` blanks the stock intro. Holding REC at power-on starts a
-      safe mode that loads no modules. Finding 117 reports both on one Digitakt II 1.17 with a branch image; the
-      Digitone II is emulator-only so far.
       Native Rust emulator that runs the ColdFire and SHARC+ firmware together, with front panel, display and audio,
       plus a web panel (WASM core), a Tauri desktop app, the patch toolchain "patchkit" (applies modules to the
       user's own .syx), a headless scenario runner with pinned PCM hashes, a control socket for patch injection and
@@ -1043,6 +1047,14 @@ projects:
       Mod READMEs that say "digikit's emulator" mean this project.
     latest_seen: >
       altstrument (2026-10-31): main @ 283bb90, untagged, described as patch toolchain AND run-time module system plus emulator; AGPL-3.0-or-later. Its device-side tools (dkupload, dklog) belong to that module system.
+      2026-11-08 (PR #321, finding 117): loadable boot screens. A `.dkbs` file (1-bit 128x64 frames at 30 ticks/s,
+      at most 10 s and 64 KiB, authored as a Canvas 2D script) replaces the stock intro through the module
+      `bootscreen`; an optional patch set `device-introblank` blanks the stock intro. Holding REC at power-on starts a
+      safe mode that loads no modules. Finding 117 reports both on one Digitakt II 1.17 with a branch image; the
+      Digitone II is emulator-only so far.
+      2026-11-09: the README's module table now lists the runtime and PLUCK as run on a Digitakt II (OS 1.17), so
+      the earlier caveat that no patched firmware had been installed on a device no longer stands; listed under
+      mods as well (also_lists).
     sources: [GitHub README ElekLabs/digikit, GitHub README m-dwyer/digikit, lapin-list]
     relations:
     - {type: cites, id: elektron-firmware-tool, evidence: 'README: container-format knowledge comes from elektron-firmware-tool'}
@@ -3819,6 +3831,7 @@ projects:
     name: Cycles Engines
     author: 100demons
     kind: loader
+    also_mod: true
     devices:
     - model-cycles
     repo: https://github.com/100demons/cycles-engines
@@ -3955,6 +3968,7 @@ projects:
     author: trigcondition
     kind: tool
     list: mods
+    also_mod: true
     devices:
     - analog-rytm
     - digitakt
@@ -4233,6 +4247,7 @@ projects:
     author: bryantysinger
     kind: tool
     list: mods
+    also_mod: true
     devices:
     - octatrack
     repo: https://github.com/bryantysinger/octa-bt-pt
@@ -4806,6 +4821,7 @@ projects:
     name: digimod (Digitakt II mod builder)
     author: endlea
     kind: loader
+    also_mod: true
     devices: [digitakt-2]
     repo: https://github.com/endlea/digimod
     status: active

@@ -12,8 +12,8 @@ Data last verified: 2026-11-08. Repo fingerprints: see state/CHANGES.md
 | [Digitone II](devices/digitone-2.md) | 30 | 1 | 2 |
 | [Syntakt](devices/syntakt.md) | 16 | 0 | 1 |
 | [Analog Heat (MKI, MKII, +FX)](devices/analog-heat.md) | 4 | 1 | 1 |
-| [Octatrack (MKI, MKII)](devices/octatrack.md) | 26 | 1 | 0 |
-| [Analog Rytm (MKI, MKII)](devices/analog-rytm.md) | 22 | 0 | 0 |
+| [Octatrack (MKI, MKII)](devices/octatrack.md) | 27 | 1 | 0 |
+| [Analog Rytm (MKI, MKII)](devices/analog-rytm.md) | 23 | 0 | 0 |
 | [Analog Four / Analog Keys](devices/analog-four-keys.md) | 7 | 0 | 0 |
 | [Model:Cycles](devices/model-cycles.md) | 28 | 1 | 0 |
 | [Model:Samples](devices/model-samples.md) | 9 | 0 | 0 |

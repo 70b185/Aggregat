@@ -10,6 +10,7 @@ Data last verified: 2026-11-08
 |---|---|---|---|---|---|---|
 | **STEP VIEW (Octatrack MIDI step editor)** (Slingdinger) | mod | wip | Octatrack MKI/MKII OS 1.40C | - | 2026-11-08 | [repo](https://github.com/Slingdinger/octatrack-step-view) |
 | **octabam2elemod (octabam modules as elekloader mods)** (irpina) | mod | active | v1.0 (octabam 363861e); Octatrack MKI/MKII OS 1.40C | v1.0 | 2026-11-08 | [repo](https://github.com/irpina/octabam2elemod) |
+| **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-05 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **octabam** (Sam Banks, Contributors credited per module) | firmware | active | v0.3 (tags v0.2/v0.3, 2026-11-02): v0.2 adds VARISPEED and drops FX2 LOCK; v0.3 names the LOAD/SAVE KIT lists. Unreleased: USB IN/OUT moved to on-chip SRAM (USB share of the frame interrupt ~34 -> 24 us on an MKII); 1.40C | v0.4 | 2026-11-03 | [repo](https://github.com/sambanks/octabam) · [homepage](https://modwerk.app/) |
 | **OT Kyoti FW** (Zac Kyoti) | firmware | active | KYOTI V1.7 + MUTE_MODES KEYHOLD (final 2026-11-02, flashed by the user, all tests pass); 1.40C | ref/sp12-midside-vem7 | 2026-11-02 | [repo](https://github.com/Zac-Kyoti/octatrack-kyoti-fw) |
 | **Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)** (radiohagen) | mod | active | Octatrack OS 1.40C via octabam | - | 2026-10-31 | [repo](https://github.com/radiohagen/octatrack-modules) |
@@ -37,6 +38,14 @@ Data last verified: 2026-11-08
 | **Octacloudz** (davidecaldarola1-ship-it) | mod | unverified | - | - | - | [repo](https://github.com/davidecaldarola1-ship-it/Octacloudz) |
 
 ## Details
+
+### Modwerk (formerly Octamod)
+
+Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still early prototypes. last_activity = date of the Dubspot article, not a forum post. 2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI. 2026-11-03: the site now lets you download a built Analog Rytm MKII .syx (after confirming you know how to get back to stock); new Rytm module quick-velocity-aftertouch-assign with a verification note. Zoom pedals: an effect whose group+ID clashes with one already on the pedal is moved to a free local Delay ID 958-1023 (ID only in the ZDL header at 0x40-0x41, no checksum); two effects with the same group and ID froze an MS-70CDR at boot until its ROM was reprogrammed. 2026-11-04/05: Rytm MKII downloads on (records); npp1993's Control In Actions (footswitch or 0-5 V gate on EXP/CV IN as ACTION for MUTE and more) and Quick Velocity+Aftertouch Assign join the library, Silent Pad+Trig Settings 0.7.0; euclidean 1.1.6 for Digitakt I 1.53/1.54 reported working on a unit by sumedho (all cases, save/reload, power cycle).
+
+_Related: cites `elekloader` (README mentions elekloader (porting from it / hosted loader)); cites `octabam` (README: porting from octabam is part of the module guide) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: gearnews, dubspot, forum thread 36_
 
 ### ems-octakit
 

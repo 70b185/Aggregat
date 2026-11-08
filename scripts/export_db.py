@@ -211,7 +211,7 @@ for p in plist:
     owner, gm = gh_meta(p.get("repo"))
     prow.append({
         "id": p["id"], "name": p["name"], "author": p.get("author"), "kind": p["kind"],
-        "list": ",".join(dict.fromkeys([p.get("list") or KIND_LIST.get(p["kind"]) or ""] + list(p.get("also_lists") or []))).strip(","), "devices": ",".join(p.get("devices") or []),
+        "list": ",".join(dict.fromkeys([p.get("list") or KIND_LIST.get(p["kind"]) or ""] + list(p.get("also_lists") or []))).strip(","), "also_mod": 1 if p.get("also_mod") else 0, "devices": ",".join(p.get("devices") or []),
         "repo": p.get("repo"), "license": p.get("license"), "status": p.get("status"), "base_os": p.get("base_os"),
         "version": p.get("version"), "last_activity": str(p.get("last_activity") or ""),
         "tested": p.get("tested"), "tested_note": p.get("tested_note"), "install": p.get("install"),
@@ -337,7 +337,7 @@ con = sqlite3.connect(db)
 SCHEMA = {
     "meta": "key TEXT PRIMARY KEY, value TEXT",
     "devices": "slug TEXT PRIMARY KEY, name TEXT, family TEXT, phase INTEGER",
-    "projects": "id TEXT PRIMARY KEY, name TEXT, author TEXT, kind TEXT, list TEXT, devices TEXT, repo TEXT, "
+    "projects": "id TEXT PRIMARY KEY, name TEXT, author TEXT, kind TEXT, list TEXT, also_mod INTEGER, devices TEXT, repo TEXT, "
                 "license TEXT, status TEXT, base_os TEXT, version TEXT, last_activity TEXT, tested TEXT, tested_note TEXT, install TEXT, contains TEXT, first_seen TEXT, notes TEXT, links TEXT, "
                 "sources TEXT, owner TEXT, created TEXT, pushed TEXT, stars INTEGER, forks INTEGER, language TEXT, gh_fork INTEGER, gh_license TEXT",
     "relations": "project TEXT, type TEXT, target TEXT, evidence TEXT",

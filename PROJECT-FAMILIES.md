@@ -185,7 +185,7 @@ Devices: Machinedrum (incl. UW). [repo](https://github.com/jmamma/MDS)
 
 ## Modwerk (formerly Octamod) (not named in sources (SDK repo owner repeat98))
 
-Devices: Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II. [repo](https://github.com/repeat98/modwerk)
+Devices: Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II, Analog Rytm (MKI, MKII), Octatrack (MKI, MKII). [repo](https://github.com/repeat98/modwerk)
 
 - **Mezclando (transition mode for Digitakt II)** (Lucioic (Oicul)) - builds on **Modwerk (formerly Octamod)** (README: build needs a Modwerk checkout with core-dt2 1.0). [repo](https://github.com/Lucioic/mezclando)
 

@@ -68,7 +68,10 @@ procedure, including finding new projects and merging research results, is in [`
   knowledge base in [`hardware/`](hardware/).
 - **Phase 2, catalogue:** Octatrack, Analog Rytm, Analog Four/Keys, Model:Cycles/Samples, Machinedrum, Monomachine,
   with device profiles in `hardware/devices/` where projects have published research.
-- Not covered: Tonverk and other brands ([`docs/BACKLOG.md`](docs/BACKLOG.md)).
+- **Every Elektron device that custom firmware or mods are written for belongs in the catalogue.** A device gets an
+  entry in [`data/devices.yml`](data/devices.yml) as soon as the first such project appears, and a loader lists every
+  device it supports. Tonverk is not listed yet: so far there are research notes and requests, no mod.
+- Not covered: other brands ([`docs/BACKLOG.md`](docs/BACKLOG.md)).
 
 Related directories: [Awesome Music Gear Firmware](https://github.com/Lapin/awesome-music-gear-firmware) (19 brands),
 [altstrument](https://altstrument.org) (structured directory of alternative firmware),

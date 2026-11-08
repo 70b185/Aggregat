@@ -101,9 +101,9 @@ Devices: Digitakt (MKI). [repo](https://github.com/soejrd/digisophie)
 
 ## elekloader (pina (irpina))
 
-Devices: Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II. [repo](https://github.com/elekloader/elekloader)
+Devices: Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II, Digitone II, Octatrack (MKI, MKII), Model:Cycles, Model:Samples, Analog Rytm (MKI, MKII), Analog Four / Analog Keys. [repo](https://github.com/elekloader/elekloader)
 
-- **elekloader (simonjohansson fork - Digitakt II / Digitone II support)** (simonjohansson) - fork of **elekloader** (GitHub fork flag). [repo](https://github.com/simonjohansson/elekloader)
+- **elekloader (simonjohansson fork)** (simonjohansson) - fork of **elekloader** (GitHub fork flag). [repo](https://github.com/simonjohansson/elekloader)
 - **Synfact** (GSM1980) - builds on **elekloader** (README of synfact-dev: built on elekloader, its engine, file format and checks). [repo](https://github.com/GSM1980/synfact-dev)
 
 ## elk-herd (mzero)
@@ -331,7 +331,7 @@ flowchart LR
     n_digitakt_digitone_mcp["digitakt-digitone-mcp<br/>not recorded"]:::none
     n_elek_view["Elek View<br/>GPL-3.0"]:::copyleft
     n_elekloader["elekloader<br/>GPL-2.0-or-later"]:::copyleft
-    n_elekloader_simonjohansson["elekloader<br/>GPL-2.0-or-later"]:::copyleft
+    n_elekloader_simonjohansson["elekloader (simonjohansson fork)<br/>GPL-2.0-or-later"]:::copyleft
     n_elektron_firmware_tool["elektron-firmware-tool<br/>not recorded"]:::none
     n_elektron_screen_tool["Elektron-Screen-Tool<br/>MIT"]:::permissive
     n_filter_plus["Filter+ (13 filter types)<br/>GPL-2.0-or-later"]:::copyleft

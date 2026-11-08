@@ -8,8 +8,10 @@ Data last verified: 2026-11-08
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0. main since: a mod shop (submit a released mod through an issue form, a check opens the PR, later releases follow automatically; docs/SHOP.md), core-ar2 0.9 (lockable mod fields as velocity/aftertouch destinations; kit fields lockable), core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-11-03 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
 | **analoghealth** (Iced-Cream) | mod | wip | Rytm MKII 1.74, A4 MKII 1.56 | v1.3 | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
+| **elekloader (simonjohansson fork)** (simonjohansson) | loader | wip | Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept) | v0.4.0 | 2026-10-29 | [repo](https://github.com/simonjohansson/elekloader) · [plan digitone ii](https://github.com/simonjohansson/elekloader/issues/13) · [devices doc](https://github.com/simonjohansson/elekloader/blob/main/docs/DEVICES.md) |
 | **Analog Four / Keys MK1 OS 1.56 mods** (hugz202) | mod | wip | Analog Four / Analog Keys MK1, OS 1.56 only (not MKII) | - | 2026-10-28 | [repo](https://github.com/hugz202/AE-analog-four-mods) |
 | **RytmRandomizer** (buzzijose-hub) | tool | active | main @ 892aaff (2026-09-28); Analog Rytm MK2 and Analog Four MK2 | - | 2026-09-28 | [repo](https://github.com/buzzijose-hub/rytmrandomizer) |
 | **TurboMIDI (C++)** (DatanoiseTV) | library | unknown | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
@@ -17,6 +19,24 @@ Data last verified: 2026-11-08
 | **Chopshop** (Jesus Triana (bandersong)) | mod | active | 1.73 (Rytm), 1.56 (Keys); not 1.74 | - | - | [repo](https://github.com/bandersong/chopshop) · [homepage](https://chopshop-synth.pages.dev/) |
 
 ## Details
+
+### elekloader
+
+Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. Device table in the README (3016dca, 2026-11-08): Digitakt mk1 and Digitone mk1/Keys supported; Digitakt II 1.17 and Digitone II 1.12 experimental; Octatrack 1.40C supported (linkable core boots on an MKII); Model:Cycles and Model:Samples 1.13 supported (builds work on both units); Analog Rytm MKII 1.74 supported; Analog Four MKII 1.56 experimental proof of concept (hook bus, mod storage, unused DDR and recovery checked on a unit). Canonical repo is unclear: the forum post also embeds github.com/elekloader/elekloader (web app at elekloader.github.io/elekloader); forks exist (AvroraPolnareff, naturarum, toonst, simonjohansson; see elekloader-simonjohansson). Forum: builder issue reported 2026-10-19. Licence GPL-2.0-or-later.
+
+_Latest seen (2026-10-31, secondary directories): altstrument.org and the repo (read 2026-10-31): canonical repo is github.com/elekloader/elekloader (183 commits, 103 stars, GPL-2.0-or-later); web app moved to elekloader.github.io/elekloader; the Mac app was absent from v0.9.0 because signing secrets need renewing. v0.9.0 cores: core-4.1 and core-4.1-os1.54 (Digitakt mk1), core-dn1-4.1.1 and -os1.44 (Digitone mk1), core-ar2-0.8 (Analog Rytm MKII 1.74), core-ot-0.8 (Octatrack 1.40C), core-mc-0.3 (Model:Cycles), core-ms-0.1 (Model:Samples), core-a4 0.1-0.4 (Analog Four MKII 1.56). Kit 0.7.0 catalog: 19 cores, 88 mods. machine-pages 1.2/1.3/1.5 need core 3.0+ on Digitakt mk1 and refuse NEIGHBOR 0.6, SOPHIE 1.1.13 and digichain-based machine mods beside them; fxkit 0.1 gives Digitone effect mods a shared mixer, two LFOs, pattern p-locks and a CPU guard; core-dn1 4.1 adds ev_note_queue; kit 0.6.0 gives 4.0 cores larger RAM areas (256 KB Digitakt, 1.25 MB Digitone). docs/ includes AGENTS.md, DEVICES.md, MACHINES-DN2, SHARC-DN2, CORES, FORMAT, BUILDING, ADAPTING (not all read yet - see hardware/MINING.md). The earlier irpina/elekloader repo is where the author's older releases lived._
+
+_Related: uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
+
+### elekloader (simonjohansson fork)
+
+2026-11-09 check: no mods of its own. Its 33 mod folders all exist upstream, and its README device table is upstream's; the fork is behind upstream (fork dc6ac1f of 2026-10-29, upstream 3016dca of 2026-11-08). The Digitakt II / Digitone II work it was first listed for has been upstream's since. Kept as a loader, not as a mod. GitHub says forked from elekloader/elekloader (not irpina's repo); 173 commits, GPL-2.0-or-later, NOTICE covers digikit code. Per README: Digitakt II 1.17 experimental - whole builds and linkable mods with their own core work, core checked in digikit's emulator, a key-swap mod works on a unit. Digitone II 1.12 experimental - whole builds, linkable mods, SHARC (DSP) mods and selectable synth/filter mods work; UI events and remote input checked on a unit, sine variants ran ten-minute note sweeps plus limited project/effects checks. Analog Rytm MKII 1.74 linkable mods with own core, builds with the core work on a unit; Analog Four MKII 1.56 hook bus, mod storage, unused DDR and recovery checked on a unit. Issue #13 plans Digitone II control-side support modelled on the Digitakt II implementation (hash-based stock-file recognition, devices/digitakt_mk2.py profile). 22 open issues.
+
+_Related: fork of `elekloader` (GitHub fork flag); vendors `digikit` (catalogue notes: NOTICE covers digikit code) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub README, GitHub issue 13, search 2026-10-31_
 
 ### Chopshop
 

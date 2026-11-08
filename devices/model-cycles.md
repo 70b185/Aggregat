@@ -13,6 +13,7 @@ Data last verified: 2026-11-08
 | **PUNCH (OPL2-style FM percussion)** (100demons) | mod | active | Model:Cycles OS 1.13 | v1.0 | 2026-11-07 | [repo](https://github.com/100demons/punch) · [flasher](https://100demons.github.io/cycles-engines/flasher/) |
 | **Modded Cycles Techno Edition** (mbreilly (m_reilly)) | firmware | active | Model:Cycles OS 1.13 | v1.0-beta | 2026-11-05 | [repo](https://github.com/mbreilly/Modded_f-king_cycles) |
 | **model27** (durchgemacht, 18nelli18) | firmware | unreachable | release 0.41 (2026-11-04 per README): thirteen cards in the web flasher (EQ 0.6, Reso 0.4 with block and coefficients in EMAC assembly); POTS 0.2 flashed from the page and tested on a Model:Cycles 2026-11-04; 1.13 | - | 2026-11-04 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
+| **elekloader** (pina (irpina)) | loader | active | v0.9.0 (2026-10-30), first full release since 0.4.0. main since: a mod shop (submit a released mod through an issue form, a check opens the PR, later releases follow automatically; docs/SHOP.md), core-ar2 0.9 (lockable mod fields as velocity/aftertouch destinations; kit fields lockable), core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.9.0 | 2026-11-03 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/irpina/elekloader/releases) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **Motor:Cycles (rhythmic-noise firmware)** (nzimas) | firmware | wip | v1.0.0-rc18 (tag); Model:Cycles OS 1.13 | v1.0.0-rc18 | 2026-11-03 | [repo](https://github.com/nzimas/motorcycles) · [web patcher](https://nzimas.github.io/motorcycles/install.html) |
 | **Supermodel Edition** (A.V., 18nelli18) | firmware | active | 3.02 (docs dated 2026-11-03; Optional edition 3.02 experimental); 1.13 | wavetable-pack | 2026-11-03 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |
 | **BIAS (six-oscillator percussion machine)** (100demons) | mod | active | Model:Cycles OS 1.13 | - | 2026-11-03 | [repo](https://github.com/100demons/bias) · [web patcher](https://100demons.github.io/cycles-engines/flasher/) |
@@ -22,6 +23,7 @@ Data last verified: 2026-11-08
 | **Vladiktron Spoke** (imaf6971) | emulator | active | v0.1.0 (2026-10-30); 1.13 | v0.1.0 | 2026-10-30 | [repo](https://github.com/imaf6971/vladiktron-spoke) |
 | **Cycles Engines** (100demons) | loader | wip | Model:Cycles OS 1.13 only | phase-5 | 2026-10-30 | [repo](https://github.com/100demons/cycles-engines) |
 | **Cycles Mod Standard** (durchgemacht) | research | unreachable | draft 0.7; Model:Cycles OS 1.13 | - | 2026-10-30 | [repo](https://github.com/durchgemacht/cycles-mod-standard) |
+| **elekloader (simonjohansson fork)** (simonjohansson) | loader | wip | Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept) | v0.4.0 | 2026-10-29 | [repo](https://github.com/simonjohansson/elekloader) · [plan digitone ii](https://github.com/simonjohansson/elekloader/issues/13) · [devices doc](https://github.com/simonjohansson/elekloader/blob/main/docs/DEVICES.md) |
 | **model909** (DMDaudio) | mod | wip | v1.0 (909 only, stable); main branch adds 808/606 voices (experimental); Model:Cycles OS 1.13 (also Model:Samples running the Cycles OS) | v1.0 | 2026-10-28 | [repo](https://github.com/DMDaudio/model909) |
 | **Cycles Mods** (100demons) | mod | active | Model:Cycles | v0.5.0 | 2026-10-22 | [repo](https://github.com/100demons/cycles-mods) |
 | **Modded Cycles** (18nelli18, Modded-Cycles contributors) | firmware | active | Release 2.0 (2026-10-19); 1.13 | etude-optimisation-os-2026-10-18 | 2026-10-19 | [repo](https://github.com/18nelli18/Modded-Cycles) · [homepage](https://18nelli18.github.io/Modded-Cycles/) |
@@ -40,6 +42,16 @@ Data last verified: 2026-11-08
 
 ## Details
 
+### elekloader
+
+Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. Device table in the README (3016dca, 2026-11-08): Digitakt mk1 and Digitone mk1/Keys supported; Digitakt II 1.17 and Digitone II 1.12 experimental; Octatrack 1.40C supported (linkable core boots on an MKII); Model:Cycles and Model:Samples 1.13 supported (builds work on both units); Analog Rytm MKII 1.74 supported; Analog Four MKII 1.56 experimental proof of concept (hook bus, mod storage, unused DDR and recovery checked on a unit). Canonical repo is unclear: the forum post also embeds github.com/elekloader/elekloader (web app at elekloader.github.io/elekloader); forks exist (AvroraPolnareff, naturarum, toonst, simonjohansson; see elekloader-simonjohansson). Forum: builder issue reported 2026-10-19. Licence GPL-2.0-or-later.
+
+_Latest seen (2026-10-31, secondary directories): altstrument.org and the repo (read 2026-10-31): canonical repo is github.com/elekloader/elekloader (183 commits, 103 stars, GPL-2.0-or-later); web app moved to elekloader.github.io/elekloader; the Mac app was absent from v0.9.0 because signing secrets need renewing. v0.9.0 cores: core-4.1 and core-4.1-os1.54 (Digitakt mk1), core-dn1-4.1.1 and -os1.44 (Digitone mk1), core-ar2-0.8 (Analog Rytm MKII 1.74), core-ot-0.8 (Octatrack 1.40C), core-mc-0.3 (Model:Cycles), core-ms-0.1 (Model:Samples), core-a4 0.1-0.4 (Analog Four MKII 1.56). Kit 0.7.0 catalog: 19 cores, 88 mods. machine-pages 1.2/1.3/1.5 need core 3.0+ on Digitakt mk1 and refuse NEIGHBOR 0.6, SOPHIE 1.1.13 and digichain-based machine mods beside them; fxkit 0.1 gives Digitone effect mods a shared mixer, two LFOs, pattern p-locks and a CPU guard; core-dn1 4.1 adds ev_note_queue; kit 0.6.0 gives 4.0 cores larger RAM areas (256 KB Digitakt, 1.25 MB Digitone). docs/ includes AGENTS.md, DEVICES.md, MACHINES-DN2, SHARC-DN2, CORES, FORMAT, BUILDING, ADAPTING (not all read yet - see hardware/MINING.md). The earlier irpina/elekloader repo is where the author's older releases lived._
+
+_Related: uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
+
 ### Motor:Cycles (rhythmic-noise firmware)
 
 Firmware for rhythmic noise and power noise: four generators (Patch, Kit, Phrase, Pattern) entered with PAGE + pad, steps 1-15 set the complexity, step 16 held generates; plus its own sound engines. Ships as a browser patcher that converts the user's own OS 1.13 file; the result is byte for byte the file the author tested on a real Model:Cycles. MIT. Same author and the same generator idea as DigiRust (Digitone II). Found by GitHub code search 2026-11-03.
@@ -55,6 +67,14 @@ Shows a device's screen in the browser over Web MIDI, using the stock RPC screen
 _Related: port of `screendump` (README: a .html implementation of jakobbak/screendump) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: elektronmods.com thread 93, README, index.html_
+
+### elekloader (simonjohansson fork)
+
+2026-11-09 check: no mods of its own. Its 33 mod folders all exist upstream, and its README device table is upstream's; the fork is behind upstream (fork dc6ac1f of 2026-10-29, upstream 3016dca of 2026-11-08). The Digitakt II / Digitone II work it was first listed for has been upstream's since. Kept as a loader, not as a mod. GitHub says forked from elekloader/elekloader (not irpina's repo); 173 commits, GPL-2.0-or-later, NOTICE covers digikit code. Per README: Digitakt II 1.17 experimental - whole builds and linkable mods with their own core work, core checked in digikit's emulator, a key-swap mod works on a unit. Digitone II 1.12 experimental - whole builds, linkable mods, SHARC (DSP) mods and selectable synth/filter mods work; UI events and remote input checked on a unit, sine variants ran ten-minute note sweeps plus limited project/effects checks. Analog Rytm MKII 1.74 linkable mods with own core, builds with the core work on a unit; Analog Four MKII 1.56 hook bus, mod storage, unused DDR and recovery checked on a unit. Issue #13 plans Digitone II control-side support modelled on the Digitakt II implementation (hash-based stock-file recognition, devices/digitakt_mk2.py profile). 22 open issues.
+
+_Related: fork of `elekloader` (GitHub fork flag); vendors `digikit` (catalogue notes: NOTICE covers digikit code) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub README, GitHub issue 13, search 2026-10-31_
 
 ### 1-Bit Editor
 

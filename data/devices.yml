@@ -1,6 +1,8 @@
 # Device catalogue. Focus phase 1: the small boxes (Digitakt, Digitone, Syntakt, Analog Heat),
 # including their MKII / second-generation versions.
-# phase 2 (later): Octatrack, Analog Four/Rytm/Keys, Model:Cycles/Samples, Tonverk, Machinedrum, ...
+# phase 2 (catalogue): Octatrack, Analog Four/Rytm/Keys, Model:Cycles/Samples, Machinedrum, Monomachine.
+# Scope: every Elektron device that custom firmware or mods are written for. Add a device here as soon as the
+# first such project appears (Tonverk: none yet, only research notes and requests).
 
 devices:
   - slug: digitakt

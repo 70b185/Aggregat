@@ -58,17 +58,15 @@
 
     const devs = p => list(p.devices).map(d => `<span class="md-tag">${esc((ctx.devName[d] || d).replace(/ \(.*\)$/, ""))}</span>`).join("");
     const card = p => {
-      const t = p.tested || "not-stated", isNew = p.status !== "unverified" && found(p) > cutNew;
+      const isNew = p.status !== "unverified" && found(p) > cutNew;
       const st = ["active", "unverified"].includes(p.status) ? "" : `<span class="md-st">${esc(p.status)}</span>`;
       const os = p.base_os ? short(p.base_os, 70) : "";
       return `<article class="md-card${["unreachable", "unverified"].includes(p.status) ? " md-dim" : ""}">
-        <div class="md-top"><span class="md-t md-t-${t}" title="${esc(p.tested_note || "")}">${T_LABEL[t]}</span>
-          ${isNew ? `<span class="md-new">new</span>` : ""}${p.status === "unverified" ? `<span class="md-st">unverified lead</span>` : st}
+        <div class="md-top">${isNew ? `<span class="md-new">new</span>` : ""}${p.status === "unverified" ? `<span class="md-st">unverified lead</span>` : st}
           <span class="md-date">${esc(updated(p) || "")}</span></div>
         <h3>${p.repo ? `<a href="${esc(p.repo)}">${esc(p.name)}</a>` : esc(p.name)}</h3>
         <div class="md-by">${esc(short(p.author, 60))}</div>
         <p>${esc(short(p.notes, 190))}</p>
-        ${p.tested_note ? `<div class="md-note">Tested: ${esc(p.tested_note)}</div>` : ""}
         ${p.contains ? `<details><summary>What is inside</summary><div>${esc(p.contains)}</div></details>` : ""}
         <div class="md-foot">${devs(p)}<span class="md-via">via ${esc(via(p))}</span></div>
         ${os ? `<div class="md-os">${esc(os)}</div>` : ""}

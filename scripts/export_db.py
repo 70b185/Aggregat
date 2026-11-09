@@ -211,7 +211,7 @@ for p in plist:
     owner, gm = gh_meta(p.get("repo"))
     prow.append({
         "id": p["id"], "name": p["name"], "author": p.get("author"), "kind": p["kind"],
-        "list": ",".join(dict.fromkeys([p.get("list") or KIND_LIST.get(p["kind"]) or ""] + list(p.get("also_lists") or []))).strip(","), "also_mod": 1 if p.get("also_mod") else 0, "devices": ",".join(p.get("devices") or []),
+        "list": ",".join(dict.fromkeys([p.get("list") or KIND_LIST.get(p["kind"]) or ""] + list(p.get("also_lists") or []))).strip(","), "own_mods": json.dumps(p.get("own_mods") or []), "devices": ",".join(p.get("devices") or []),
         "repo": p.get("repo"), "license": p.get("license"), "status": p.get("status"), "base_os": p.get("base_os"),
         "version": p.get("version"), "last_activity": str(p.get("last_activity") or ""),
         "tested": p.get("tested"), "tested_note": p.get("tested_note"), "install": p.get("install"),
@@ -337,7 +337,7 @@ con = sqlite3.connect(db)
 SCHEMA = {
     "meta": "key TEXT PRIMARY KEY, value TEXT",
     "devices": "slug TEXT PRIMARY KEY, name TEXT, family TEXT, phase INTEGER",
-    "projects": "id TEXT PRIMARY KEY, name TEXT, author TEXT, kind TEXT, list TEXT, also_mod INTEGER, devices TEXT, repo TEXT, "
+    "projects": "id TEXT PRIMARY KEY, name TEXT, author TEXT, kind TEXT, list TEXT, own_mods TEXT, devices TEXT, repo TEXT, "
                 "license TEXT, status TEXT, base_os TEXT, version TEXT, last_activity TEXT, tested TEXT, tested_note TEXT, install TEXT, contains TEXT, first_seen TEXT, notes TEXT, links TEXT, "
                 "sources TEXT, owner TEXT, created TEXT, pushed TEXT, stars INTEGER, forks INTEGER, language TEXT, gh_fork INTEGER, gh_license TEXT",
     "relations": "project TEXT, type TEXT, target TEXT, evidence TEXT",
@@ -355,6 +355,7 @@ SCHEMA = {
     "incidents": "id TEXT PRIMARY KEY, \"group\" TEXT, title TEXT, unit TEXT, seen TEXT, cause TEXT, cause_found_by TEXT, "
                  "fix TEXT, status TEXT, evidence TEXT, sources TEXT, rules TEXT, fact_file TEXT, devices TEXT",
     "incident_rules": "incident TEXT, rule TEXT",
+    "own_mods": "platform TEXT, name TEXT, author TEXT, devices TEXT, version TEXT, path TEXT, tested TEXT, note TEXT, origin TEXT, what TEXT",
     "stock_bugs": "id TEXT PRIMARY KEY, title TEXT, device_os TEXT, area TEXT, symptom TEXT, \"trigger\" TEXT, cause TEXT, "
                   "workaround TEXT, test_tip TEXT, found_by TEXT, status TEXT, evidence TEXT, sources TEXT, incidents TEXT, devices TEXT",
 }
@@ -374,6 +375,11 @@ ins("meta", [{"key": k, "value": json.dumps(v) if not isinstance(v, str) else v}
 ins("devices", [{"slug": d["slug"], "name": d["name"], "family": d.get("family"), "phase": d.get("phase")} for d in devices])
 ins("projects", prow)
 ins("relations", rrow)
+# mods a loader or platform ships itself (projects.yml own_mods); the JSON keeps them inside projects[].own_mods
+ins("own_mods", [{"platform": p["id"], "name": m["name"], "author": m.get("author") or p.get("author"),
+                  "devices": ",".join(m.get("devices") or p.get("devices") or []), "version": m.get("version"),
+                  "path": m.get("path"), "tested": m.get("tested"), "note": m.get("note"), "origin": m.get("origin"),
+                  "what": m.get("what")} for p in plist for m in p.get("own_mods") or []])
 ins("rules", rules)
 ins("sources", sources)
 ins("conflicts", conflicts)

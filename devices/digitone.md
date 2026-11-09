@@ -163,7 +163,7 @@ Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). 
 
 _Latest seen (2026-10-31, secondary directories): altstrument: FAST AUDIO runs hot code from SRAM to cut DSP load; v1.1.1 adds a Digitone build (targets 1.44)._
 
-_Related: mod for `elekloader` (README: an elekloader mod); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: mod for `modwerk` (modwerk sdk/digitakt and sdk/digitone modules: digihealth names this repo as source (2026-11-09)); mod for `elekloader` (README: an elekloader mod); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list, elekloader release v0.4.0_
 
@@ -181,7 +181,7 @@ M8-style pitch tables (TBL page, editor, up to 1500 steps/s). Features through 1
 
 _Latest seen (2026-10-31, secondary directories): altstrument: 1.4 lets both LFOs move table speed and uses one source for 1.43 and 1.44._
 
-_Related: mod for `elekloader` (README: an elekloader mod) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: mod for `modwerk` (modwerk sdk/digitone/modules/digitables names this repo as source (2026-11-09)); mod for `elekloader` (README: an elekloader mod) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list_
 

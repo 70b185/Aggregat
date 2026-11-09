@@ -9,7 +9,7 @@ Data last verified: 2026-11-08
 | **Filter-FX (seven filter effects)** (DigiAlchemydsp) | mod | active | 1.2; Digitakt mk1; Digitone mk1 / Keys | v1.2 | 2026-11-08 | [repo](https://github.com/DigiAlchemydsp/Filter-FX) |
 | **digitakt-digitone-mcp** (jamiew) | tool | active | v0.5.2 | v0.5.2 | 2026-11-07 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **Flex+ (FlexBus machine)** (DigiAlchemydsp) | mod | active | 1.0; Digitone mk1 / Keys OS 1.44 (core-dn1 4.0 + machines 0.2); Digitakt mk1 OS 1.54 (core 4.0 + machine-pages 1.1) | v1.0 | 2026-11-07 | [repo](https://github.com/DigiAlchemydsp/Flex-Plus) |
-| **Sidecar | Expander** (trigcondition) | tool | wip | Sidecar 0.4.1 (Pi only: Overbridge passthrough on the Pi 4, USB-C mode switch, USB dropout fixes, MODEL E) with the unchanged Rytm firmware 0.4.0 for OS 1.74/1.73; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | v0.2.0 | 2026-11-06 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
+| **Sidecar | Expander** (trigcondition) | mod | wip | Sidecar 0.4.1 (Pi only: Overbridge passthrough on the Pi 4, USB-C mode switch, USB dropout fixes, MODEL E) with the unchanged Rytm firmware 0.4.0 for OS 1.74/1.73; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | v0.2.0 | 2026-11-06 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
 | **Digitakt LED colours** (ceredmeat) | mod | wip | ledcolors 0.2; Digitakt MKI OS 1.54; elekloader core 4.1 | LEDCOLORS | 2026-11-06 | [repo](https://github.com/ceredmeat/DIGITAKT-LED-COLORS) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-05 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **MIDI Expression for the Digitakt (Digi-Expression)** (tekomelu) | mod | wip | 0.12.1-experimental; Digitakt MKI OS 1.54 | - | 2026-11-05 | [repo](https://github.com/tekomelu/Digi-Expression) |
@@ -109,7 +109,7 @@ Users ask for a Digitone version. Installed via elekloader.
 
 _Latest seen (2026-10-31, secondary directories): altstrument: 0.7 needs the core 3.0 machine pages; OS 1.53/1.54._
 
-_Related: mod for `elekloader` (catalogue notes: "installed via elekloader"); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: mod for `modwerk` (modwerk sdk/digitakt/modules/digineighbor names this repo as source (2026-11-09)); mod for `elekloader` (catalogue notes: "installed via elekloader"); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: forum thread 21, elekloader release v0.4.0_
 
@@ -119,7 +119,7 @@ Metallic percussion machine (FUSE, BOOM, PIPE, SHARD), fixed-point adaptation of
 
 _Latest seen (2026-10-31, secondary directories): altstrument: four models FUSE, BOOM, PIPE, SHARD, parameter-lockable; OS 1.53/1.54; MIT._
 
-_Related: mod for `elekloader` (catalogue notes: "needs elekloader"); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: mod for `modwerk` (modwerk sdk/digitakt/modules/digisophie names this repo as source (2026-11-09)); mod for `elekloader` (catalogue notes: "needs elekloader"); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: synthtopia, gearnews_
 
@@ -169,7 +169,7 @@ Karplus-Strong plucked-string machine, elekloader mod. MIT, 13 commits.
 
 _Latest seen (2026-10-31, secondary directories): altstrument: v0.8.0 adds OS 1.54 support; v0.7.0 adds STRING-fast._
 
-_Related: mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: mod for `modwerk` (modwerk sdk/digitakt/modules/digistring names this repo as source (2026-11-09)); mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list_
 
@@ -205,7 +205,7 @@ _Sources: GitHub README, lapin-list_
 
 Patch set with a POLY core, synth machines and utility pages. "Unofficial and unsupported". Hardware test state per README: v3r-all confirmed on a unit, v3p / v3q not yet tested, 2.0d build only checked in emulation. MIT for the author's code, 6 commits, 4 stars.
 
-_Related: mod for `elekloader` (README: an elekloader mod); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu); bundles `tone-fx` (README: Tone+FX, Digital Alchemy DSP's master effects suite, ported) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: mod for `modwerk` (modwerk sdk/digitakt/modules: digichain, digieq, digimatrix, digimono, digipoly, digiutils name this repo as source (2026-11-09)); mod for `elekloader` (README: an elekloader mod); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu); bundles `tone-fx` (README: Tone+FX, Digital Alchemy DSP's master effects suite, ported) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list_
 
@@ -215,7 +215,7 @@ Slicer for the Digitakt mk1. 1.2 notes say "not yet tried on a unit" (emulator o
 
 _Latest seen (2026-10-31, secondary directories): altstrument: 2.5 replaces GRID with a STRETCH control; needs core 3.0+ and the machine-pages mod; OS 1.53/1.54._
 
-_Related: mod for `elekloader` (catalogue notes: a curated mod in the elekloader shop); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: mod for `modwerk` (modwerk sdk/digitakt/modules/digislicer names this repo as source (2026-11-09)); mod for `elekloader` (catalogue notes: a curated mod in the elekloader shop); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list, elekloader release v0.2.0_
 
@@ -251,7 +251,7 @@ Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). 
 
 _Latest seen (2026-10-31, secondary directories): altstrument: FAST AUDIO runs hot code from SRAM to cut DSP load; v1.1.1 adds a Digitone build (targets 1.44)._
 
-_Related: mod for `elekloader` (README: an elekloader mod); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: mod for `modwerk` (modwerk sdk/digitakt and sdk/digitone modules: digihealth names this repo as source (2026-11-09)); mod for `elekloader` (README: an elekloader mod); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list, elekloader release v0.4.0_
 

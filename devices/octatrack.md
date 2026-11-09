@@ -28,7 +28,7 @@ Data last verified: 2026-11-08
 | **Octatrick** (Tim Hastie) | mod | active | MKI hardware-tested builds (2026-09-26); 1.40C | - | 2026-09-26 | [repo](https://github.com/timhastie/octatrick) |
 | **midisc-patcher** (bkkbrls-del) | tool | active | main @ 1ce2245 (2026-09-18); 1.40C | - | 2026-09-18 | [repo](https://github.com/bkkbrls-del/midisc-patcher) |
 | **midisc (1.40MSC)** (sambanks) | mod | wip | Octatrack MK1/MK2 OS 1.40C | octabam-gas-1.40MSC | 2026-09-12 | [repo](https://github.com/sambanks/midisc) |
-| **octa-bt-pt** (bryantysinger) | tool | active | Octatrack OS 1.40C only (hash-checked) | - | 2026-08-23 | [repo](https://github.com/bryantysinger/octa-bt-pt) |
+| **octa-bt-pt** (bryantysinger) | mod | active | Octatrack OS 1.40C only (hash-checked) | - | 2026-08-23 | [repo](https://github.com/bryantysinger/octa-bt-pt) |
 | **OctaChainer 2** (Kai Drange) | tool | active | v2.0.0 (2026-08-05) | v2.0.0 | 2026-08-05 | [repo](https://github.com/KaiDrange/OctaChainer2) · [homepage](https://ticticelectro.com/2017/08/26/octachainer-v1-3/) |
 | **ot-tools-io** (jhw) | library | active | - | - | 2026-08-03 | [repo](https://github.com/jhw/ot-tools-io) · [python lib](https://github.com/jhw/octapy) |
 | **TurboMIDI (C++)** (DatanoiseTV) | library | unknown | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |

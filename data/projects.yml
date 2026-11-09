@@ -18,9 +18,12 @@
 #   license        optional: the licence the project states, as we read it (e.g. MIT, GPL-2.0-or-later,
 #                  "not stated" when the repo shows none); leave it out when we have not read it
 #   also_lists     optional: further topic lists the entry appears in (e.g. [mods] for a research repo that ships mods)
-#   also_mod       optional, true: a loader or platform (kind loader, or a tool with list: mods) that also ships mods of
-#                  its own without entries of their own; it then appears under "Loaders and platforms" AND in its
-#                  devices' mod sections and on the website's Mods tab
+#   own_mods       optional: the mods a loader or platform ships itself that have no entry of their own, one per line:
+#                  {name, what (our words), tested (unit|partly|emulator|not-stated), and optional author, devices
+#                  (default: the entry's), version, path (in the entry's repo), note, origin (catalogue id it was
+#                  ported from)}. The entry is then listed under "Loaders and platforms", and each own mod as a mod of
+#                  its devices, installed via the entry (MODS.md, the website's Mods tab when the loader is picked).
+#                  A mod that lives in a repo of its own gets an entry with `mod_for` instead.
 #   install        optional: how a user installs it, when no mod_for relation says so
 #   contains       optional: the named mods/modules inside a collection, as its repo lists them (with the date read)
 #   tested         mods, firmware and loaders: what the author (or a report we cite) says about tests -
@@ -45,7 +48,6 @@ projects:
     name: elekloader
     author: pina (irpina)
     kind: loader
-    also_mod: true
     devices: [digitakt, digitone, digitakt-2, digitone-2, octatrack, model-cycles, model-samples, analog-rytm, analog-four-keys]
     repo: https://github.com/elekloader/elekloader
     license: "GPL-2.0-or-later"
@@ -60,6 +62,16 @@ projects:
     base_os: "Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed"
     version: "v0.9.0 (2026-10-30), first full release since 0.4.0. main since: a mod shop (submit a released mod through an issue form, a check opens the PR, later releases follow automatically; docs/SHOP.md), core-ar2 0.9 (lockable mod fields as velocity/aftertouch destinations; kit fields lockable), core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs"
     last_activity: 2026-11-03
+    own_mods:
+    - {name: "machine-pages", devices: [digitakt], path: "mods/machine-pages", tested: "unit", note: "the owner's Digitakt", what: "Shared SRC and LFO pages that machine mods describe themselves to (core 3.0+), so several machine mods fit in one build"}
+    - {name: "fxkit", devices: [digitone], path: "mods/fxkit-dn1", tested: "unit", note: "per elekloader's shop notes", what: "What the Digitone's input-effect mods share: a mixer, two LFOs, pattern p-locks and a CPU guard"}
+    - {name: "machines (Digitone)", devices: [digitone], path: "mods/machines-dn1", tested: "emulator", note: "digikit's emulator; not yet on a unit", what: "MACHINES in the Mod Menu: machine mods play their voice in place of FM, through the Digitone's filter, mixer and effects"}
+    - {name: "machines (Octatrack)", devices: [octatrack], path: "mods/machines-ot", tested: "emulator", note: "not yet run on a unit", what: "Source machines from mods appear in SELECT MACHINE TYPE and SRC SETUP"}
+    - {name: "settings-ot", devices: [octatrack], path: "mods/settings-ot", tested: "emulator", note: "octabam's emulator", what: "A MODS category in the MAIN MENU that holds every mod's settings"}
+    - {name: "usb-midi-ot", devices: [octatrack], path: "mods/usb-midi-ot", tested: "emulator", note: "octabam's emulator with a USB host harness", what: "Class-compliant USB MIDI on the Octatrack's own USB port, mirroring the DIN ports"}
+    - {name: "usb-audio-ot", devices: [octatrack], path: "mods/usb-audio-ot", tested: "emulator", note: "octabam's emulator with a USB host harness", what: "The Octatrack as a USB audio device (UAC2, 44.1 kHz, 24-bit): a computer records its tracks, MAIN or CUE"}
+    - {name: "usb-audio-in-ot", devices: [octatrack], path: "mods/usb-audio-in-ot", tested: "emulator", note: "octabam's emulator with a USB host harness", what: "Audio from a computer over USB in place of the Octatrack's inputs"}
+    - {name: "dspbusy-dn2", devices: [digitone-2], path: "mods/dspbusy-dn2", tested: "not-stated", what: "Optional DSP load meter for core-dn2 0.3 on the Digitone II (OS 1.12)"}
     notes: >
       Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally.
       Device table in the README (3016dca, 2026-11-08): Digitakt mk1 and Digitone mk1/Keys supported; Digitakt II
@@ -80,7 +92,6 @@ projects:
     name: Modwerk (formerly Octamod)
     author: "not named in sources (SDK repo owner repeat98)"
     kind: loader
-    also_mod: true
     devices: [digitakt, digitone, digitakt-2, analog-rytm, octatrack]
     repo: https://github.com/repeat98/modwerk
     links:
@@ -93,6 +104,28 @@ projects:
     base_os: "Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing"
     version: null
     last_activity: "2026-11-05"
+    own_mods:
+    - {name: "Audio In FX", author: "npp1993", devices: [analog-rytm], version: "0.1.0", path: "sdk/analog-rytm-mkii/modules/audio-in-fx", tested: "not-stated", what: "Sends AUDIO IN into the master distortion and compressor and into delay and reverb, from two knobs on the FX track"}
+    - {name: "Chorus", author: "stigmagit", devices: [analog-rytm], version: "0.1.0", path: "sdk/analog-rytm-mkii/modules/chorus", tested: "unit", note: "author's hardware report in the module manifest", what: "Stereo chorus on the send bus, with feedback and high- and low-pass"}
+    - {name: "Chromatic Aftertouch Fix", author: "npp1993", devices: [analog-rytm], version: "0.2.0", path: "sdk/analog-rytm-mkii/modules/chromatic-aftertouch-fix", tested: "unit", note: "author's hardware report in the module manifest", what: "Pad pressure keeps reaching aftertouch and MIDI out during retrig rolls; CHROMATIC pads send aftertouch on their own note"}
+    - {name: "Control In Actions", author: "npp1993", devices: [analog-rytm], version: "0.1.2", path: "sdk/analog-rytm-mkii/modules/control-in-actions", tested: "not-stated", what: "EXP/CV IN as ACTION: a gate or footswitch holds or toggles MUTE, live recording or FILL"}
+    - {name: "Flanger", author: "stigmagit", devices: [analog-rytm], version: "0.1.0", path: "sdk/analog-rytm-mkii/modules/flanger", tested: "unit", note: "author's hardware report in the module manifest", what: "Endless (barber-pole) stereo flanger on the send bus"}
+    - {name: "Live Rec Retrig Fix", author: "npp1993", devices: [analog-rytm], version: "0.2.1", path: "sdk/analog-rytm-mkii/modules/live-rec-retrig-fix", tested: "not-stated", what: "Live recording keeps each pad retrig hit as its own trig, with the velocity and timing played"}
+    - {name: "Loop Sync", author: "stigmagit", devices: [analog-rytm], version: "0.3.2", path: "sdk/analog-rytm-mkii/modules/loop-sync", tested: "unit", note: "author's hardware report in the module manifest", what: "Repitches sample loops to follow the project tempo, reading each loop's tempo from its length"}
+    - {name: "MIDI Feedback", author: "claptom-music", devices: [analog-rytm], version: "0.1.0", path: "sdk/analog-rytm-mkii/modules/midi-feedback", tested: "unit", note: "author's hardware report in the module manifest", what: "Sends seven parameters per drum track back out over MIDI so controllers can pick them up"}
+    - {name: "Phaser", author: "stigmagit", devices: [analog-rytm], version: "0.1.0", path: "sdk/analog-rytm-mkii/modules/phaser", tested: "unit", note: "author's hardware report in the module manifest", what: "Stereo phaser on the send bus, 2 to 8 stages swept by an LFO"}
+    - {name: "Pipo Loop", author: "npp1993", devices: [analog-rytm], version: "0.1.2", path: "sdk/analog-rytm-mkii/modules/pipo-loop", tested: "unit", note: "author's hardware report in the module manifest", what: "Ping-pong sample loops (LOP = PIPO); FUNC + turn snaps start and end to zero crossings"}
+    - {name: "QPerf", author: "npp1993", devices: [analog-rytm], version: "0.2.0", path: "sdk/analog-rytm-mkii/modules/qperf", tested: "not-stated", what: "Performance locks set by holding QPER, applied to the kit, recorded in live recording"}
+    - {name: "Quick Fill Trig Condition", author: "npp1993", devices: [analog-rytm], version: "0.2.0", path: "sdk/analog-rytm-mkii/modules/quick-fill-trig-condition", tested: "not-stated", what: "While a trig is held in grid recording, FILL, UP and DOWN set FILL / NOT FILL and ratio conditions"}
+    - {name: "Quick Velocity+Aftertouch Assign", author: "npp1993", devices: [analog-rytm], version: "0.1.0", path: "sdk/analog-rytm-mkii/modules/quick-velocity-aftertouch-assign", tested: "not-stated", what: "Links a parameter to velocity or aftertouch: hold FIX or SAMPLER and turn its knob"}
+    - {name: "Sample RATE", author: "npp1993", devices: [analog-rytm], version: "0.1.1", path: "sdk/analog-rytm-mkii/modules/sample-rate", tested: "unit", note: "author's hardware report in the module manifest", what: "FIN becomes a per-sound RATE knob: sample speed down to a stop and into reverse"}
+    - {name: "Silent Pad+Trig Settings", author: "npp1993", devices: [analog-rytm], version: "0.7.0", path: "sdk/analog-rytm-mkii/modules/silent-pad-trig", tested: "unit", note: "author's hardware report in the module manifest", what: "Select pads and trig keys without sounding them, also in live recording; muted tracks stay muted under MUTE ALL SOUND"}
+    - {name: "Temp Save", author: "npp1993", devices: [analog-rytm], version: "0.1.0", path: "sdk/analog-rytm-mkii/modules/temp-save", tested: "not-stated", what: "FUNC + YES overwrites the pattern's and kit's reload copies; FUNC + NO brings both back"}
+    - {name: "Wavefolder", author: "stigmagit", devices: [analog-rytm], version: "0.1.0", path: "sdk/analog-rytm-mkii/modules/wavefolder", tested: "unit", note: "author's hardware report in the module manifest", what: "Wavefolder on the send bus that follows each hit's strength"}
+    - {name: "CC Recall", author: "draadpiraat", devices: [digitakt], version: "0.1.0", path: "sdk/digitakt/modules/cc-recall", tested: "unit", note: "author's hardware report in the module manifest", what: "MIDI tracks send their pattern's CC values at once after a reload, pattern change, project load or STOP"}
+    - {name: "DigiPerform", author: "ROMsets", devices: [digitakt], version: "0.1.2", path: "sdk/digitakt/modules/digiperform", tested: "not-stated", what: "Eight per-pattern performance macros on knobs A-H"}
+    - {name: "FX Track", author: "draadpiraat", devices: [digitakt], version: "0.1.0", path: "sdk/digitakt/modules/fx-track", tested: "not-stated", what: "A MIDI track becomes an effects track whose CCs play delay, reverb, compressor and the External Mixer, with p-locks"}
+    - {name: "Input Prefader", author: "draadpiraat", devices: [digitakt], version: "0.2.0", path: "sdk/digitakt/modules/input-prefader", tested: "unit", note: "author's hardware report in the module manifest", what: "The external inputs' delay and reverb sends taken before LEV; the effects can stay awake with no track playing"}
     notes: >
       Browser-based hub, builds locally from the user's own stock OS. Browse mods by device,
       forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still
@@ -171,6 +204,7 @@ projects:
       altstrument: 0.7 needs the core 3.0 machine pages; OS 1.53/1.54.
     sources: [forum thread 21, elekloader release v0.4.0]
     relations:
+    - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/digitakt/modules/digineighbor names this repo as source (2026-11-09)'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "installed via elekloader"'}
     - {type: uses_tool, id: digikit, evidence: 'README: checks or gates run in digikit''s emulator (not shipped)'}
 
@@ -197,6 +231,7 @@ projects:
       altstrument: four models FUSE, BOOM, PIPE, SHARD, parameter-lockable; OS 1.53/1.54; MIT.
     sources: [synthtopia, gearnews]
     relations:
+    - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/digitakt/modules/digisophie names this repo as source (2026-11-09)'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "needs elekloader"'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
 
@@ -605,6 +640,7 @@ projects:
       altstrument: v0.8.0 adds OS 1.54 support; v0.7.0 adds STRING-fast.
     sources: [GitHub README, lapin-list]
     relations:
+    - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/digitakt/modules/digistring names this repo as source (2026-11-09)'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
 
 
@@ -725,6 +761,7 @@ projects:
       only checked in emulation. MIT for the author's code, 6 commits, 4 stars.
     sources: [GitHub README, lapin-list]
     relations:
+    - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/digitakt/modules: digichain, digieq, digimatrix, digimono, digipoly, digiutils name this repo as source (2026-11-09)'}
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
     - {type: bundles, id: tone-fx, evidence: 'README: Tone+FX, Digital Alchemy DSP''s master effects suite, ported'}
@@ -749,6 +786,7 @@ projects:
       altstrument: 2.5 replaces GRID with a STRETCH control; needs core 3.0+ and the machine-pages mod; OS 1.53/1.54.
     sources: [GitHub README, lapin-list, elekloader release v0.2.0]
     relations:
+    - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/digitakt/modules/digislicer names this repo as source (2026-11-09)'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: a curated mod in the elekloader shop'}
     - {type: uses_tool, id: digikit, evidence: 'README: checks or gates run in digikit''s emulator (not shipped)'}
 
@@ -837,6 +875,7 @@ projects:
       altstrument: FAST AUDIO runs hot code from SRAM to cut DSP load; v1.1.1 adds a Digitone build (targets 1.44).
     sources: [GitHub README, lapin-list, elekloader release v0.4.0]
     relations:
+    - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/digitakt and sdk/digitone modules: digihealth names this repo as source (2026-11-09)'}
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
     - {type: uses_tool, id: digikit, evidence: 'README: checks or gates run in digikit''s emulator (not shipped)'}
 
@@ -939,6 +978,7 @@ projects:
       altstrument: 1.4 lets both LFOs move table speed and uses one source for 1.43 and 1.44.
     sources: [GitHub README, lapin-list]
     relations:
+    - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/digitone/modules/digitables names this repo as source (2026-11-09)'}
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
 
 
@@ -1017,7 +1057,6 @@ projects:
     name: digikit
     author: "Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo"
     kind: emulator
-    also_lists: [mods]
     devices: [digitakt-2, digitone-2]
     repo: https://github.com/ElekLabs/digikit
     license: "AGPL-3.0-or-later with extra terms"
@@ -1030,6 +1069,10 @@ projects:
     base_os: "Digitakt II target 1.17 (emulator also runs 1.16 as default file; 1.15C kept for old analysis); Digitone II target 1.12 (also runs 1.11 as default file; 1.10E kept for old analysis)"
     version: null
     last_activity: "2026-11-08"
+    own_mods:
+    - {name: "PLUCK", path: "modules/machines/pluck", tested: "unit", note: "Digitakt II, OS 1.17; Digitone II emulator only", what: "Plucked-string synth machine (decay, pick position, brightness, colour), loaded at run time"}
+    - {name: "Frequency shifter", path: "modules/fx/freqshift", tested: "emulator", what: "Shifts every frequency by the same number of Hz, as a send effect or master insert"}
+    - {name: "bootscreen", tested: "unit", note: "one Digitakt II 1.17 (finding 117); Digitone II emulator only", what: "Loadable boot screens (.dkbs files) in place of the stock intro"}
     notes: >
       Native Rust emulator that runs the ColdFire and SHARC+ firmware together, with front panel, display and audio,
       plus a web panel (WASM core), a Tauri desktop app, the patch toolchain "patchkit" (applies modules to the
@@ -3698,6 +3741,7 @@ projects:
     - GitHub search 2026-11-02
     - README
     relations:
+    - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/analog-rytm-mkii/modules: ctrl-all, env-reset-amp, euclid-accents, filter-hz, main-rms, slice-loop, velocity-humanise name this repo as source (2026-11-09)'}
     - {type: port_of, id: rytm-mods-src, evidence: 'README: ported to elemod'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: ported to the elemod format for elekloader core-ar2'}
   - id: cycles-mods-100demons
@@ -3843,7 +3887,6 @@ projects:
     name: Cycles Engines
     author: 100demons
     kind: loader
-    also_mod: true
     devices:
     - model-cycles
     repo: https://github.com/100demons/cycles-engines
@@ -3852,6 +3895,9 @@ projects:
     tested: not-stated
     base_os: Model:Cycles OS 1.13 only
     last_activity: '2026-10-30'
+    own_mods:
+    - {name: "LiXR", tested: "not-stated", what: "Drum voice with a decimator"}
+    - {name: "SAM", tested: "not-stated", what: "Speech engine with 36 words"}
     notes: Web flasher that composes any set of relocatable engine packages into the user's own OS file in the browser
       and sends it over USB (also a python-only command line). Built on the Modded-Cycles toolchain, model27 and
       drumkilla's mtlib (all MIT).
@@ -3978,9 +4024,7 @@ projects:
   - id: sidecar-expander
     name: Sidecar | Expander
     author: trigcondition
-    kind: tool
-    list: mods
-    also_mod: true
+    kind: mod
     devices:
     - analog-rytm
     - digitakt
@@ -4257,9 +4301,7 @@ projects:
   - id: octa-bt-pt
     name: octa-bt-pt
     author: bryantysinger
-    kind: tool
-    list: mods
-    also_mod: true
+    kind: mod
     devices:
     - octatrack
     repo: https://github.com/bryantysinger/octa-bt-pt
@@ -4833,7 +4875,6 @@ projects:
     name: digimod (Digitakt II mod builder)
     author: endlea
     kind: loader
-    also_mod: true
     devices: [digitakt-2]
     repo: https://github.com/endlea/digimod
     status: active
@@ -4844,6 +4885,12 @@ projects:
     version: "0.2.0 (tag, 2026-11-07; Polyphony mod revised)"
     license: "MIT (own code); mods derived from digikit and the All-in-One AGPL-3.0-or-later"
     last_activity: '2026-11-07'
+    own_mods:
+    - {name: "Polyphony", version: "0.2.0", path: "mods/polyphony", tested: "partly", note: "v0.1 and the 0.2.0 voice fixes on hardware; the chord editor emulator only", what: "VOICES 1-8 per track, borrowing the DSP channels of idle tracks; chords recorded per trig, a chord editor on the TRIG page"}
+    - {name: "Plaits", version: "0.2", path: "mods/plaits", tested: "emulator", note: "not on hardware", origin: "digikit", what: "Mutable Instruments Plaits as a PLAITS machine on the DSP: 25 models, four DX7 banks (port of digikit's Plaits as pinned by the Digitakt II All-in-One)"}
+    - {name: "Musical WAVE / Deja Vu", version: "0.1", path: "mods/musical-wave", tested: "emulator", note: "not on hardware in this form; Deja Vu V5.1 alone is hardware-tested on 1.16", origin: "digitakt-ii-research", what: "LFO WAVE values 7-15: Deja Vu random loops (fixed or new per trig) and seven scale quantizers for SAMPLE TUNE"}
+    - {name: "One-Shot Zoom", version: "0.1", path: "mods/oneshot-zoom", tested: "emulator", note: "not on hardware in this form; V11 on 1.17 has hardware reports", origin: "digitakt-ii-research", what: "Zoom (1x, 2x, 3.75x) and pan the waveform on the ONESHOT SRC page with encoder C; display only"}
+    - {name: "System Load", version: "0.3", path: "mods/sysload", tested: "partly", note: "v0.1 page and DSP load on hardware; the v0.3 voice count emulator only", what: "SETTINGS > SYSTEM > SYSTEM LOAD: DSP load (now, average, peak) and the voices in use"}
     notes: >
       A local web service (Docker, or native on macOS) that packs a Digitakt II .syx from ticked mods, checks it before
       download and, on a Mac, boots it in a built-in DT2 emulator. Mods: Polyphony (VOICES 1-8 per track, borrowing idle

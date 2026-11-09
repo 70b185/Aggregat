@@ -158,7 +158,19 @@ def updated(p):
 
 
 def found(p):
-    return _first.get(p["id"], str(checked))
+    return p.get("_found") or _first.get(p["id"], str(checked))
+
+
+def own_rows(p):
+    """The mods a loader or platform ships itself (own_mods), as rows installed via that entry."""
+    base = str(p.get("repo") or "").rstrip("/")
+    return [{"id": f"{p['id']}--{re.sub(r'[^a-z0-9]+', '-', m['name'].lower()).strip('-')}", "name": m["name"],
+             "author": m.get("author") or p.get("author"), "kind": "mod", "devices": m.get("devices") or p.get("devices") or [],
+             "status": p["status"], "notes": m["what"], "tested": m.get("tested", "not-stated"), "tested_note": m.get("note"),
+             "version": m.get("version"), "base_os": None, "last_activity": p.get("last_activity"),
+             "repo": f"{base}/tree/HEAD/{m['path']}" if m.get("path") and "github.com" in base else base or None,
+             "relations": [{"type": "mod_for", "id": p["id"]}], "_found": _first.get(p["id"], str(checked)), "_owner": p["id"]}
+            for m in p.get("own_mods") or []]
 
 
 TESTED = {"unit": "yes, on a unit", "partly": "partly", "emulator": "emulator only", "not-stated": "not stated"}
@@ -203,8 +215,9 @@ def mrow(p, show_dev=False):
 
 MHEAD = "| Mod | What it does | Install via | Needs OS | Tested | Updated | Links |\n|---|---|---|---|---|---|---|"
 inst = [p for p in bylist["mods"] if p["kind"] == "loader" or p.get("list") == "mods" and p["kind"] == "tool"]
-# also_mod: a loader or platform that ships mods of its own (without entries of their own) is listed both ways
-real = [p for p in bylist["mods"] if p not in inst or p.get("also_mod")]
+inst += [p for p in projects if p.get("own_mods") and p not in inst]   # platforms with mods of their own, from any list
+# a platform's own mods (own_mods) are listed as mods of their devices, installed via the platform
+real = [p for p in bylist["mods"] if p not in inst] + [r for p in inst for r in own_rows(p)]
 colls = [p for p in bylist["mods"] if p.get("contains")]
 by_upd = lambda rows: sorted(rows, key=updated, reverse=True)
 # "new": added in the last 7 days, but not during the catalogue's first bulk imports (until BULK_UNTIL)

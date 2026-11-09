@@ -18,18 +18,35 @@
   }
   const isMod = p => list(p.list).includes("mods");
   const isLoader = p => p.kind === "loader" || (isMod(p) && p.kind === "tool");
+  // mods a loader or platform ships itself (projects.yml own_mods), stored as a JSON list
+  const own = p => { try { return JSON.parse(p.own_mods || "[]"); } catch (e) { return []; } };
+  const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  // each own mod becomes a mod card of its own, installed via its platform
+  function ownMods(D) {
+    const out = [];
+    D.projects.forEach(p => own(p).forEach(m => out.push({
+      id: `${p.id}--${slug(m.name)}`, name: m.name, author: m.author || p.author, kind: "mod", list: "mods",
+      devices: m.devices ? m.devices.join(",") : p.devices, status: p.status, notes: m.what, tested: m.tested,
+      tested_note: m.note, version: m.version, base_os: m.version ? `version ${m.version}` : "", last_activity: p.last_activity,
+      pushed: p.pushed, first_seen: p.first_seen, links: "{}", contains: "", platform: p.id,
+      repo: m.path && /github\.com/.test(p.repo || "") ? `${p.repo.replace(/\/$/, "")}/tree/HEAD/${m.path}` : p.repo})));
+    return out;
+  }
 
   function draw(root, D, ctx) {
-    const byId = Object.fromEntries(D.projects.map(p => [p.id, p]));
+    const extra = ownMods(D);
+    const byId = Object.fromEntries(D.projects.concat(extra).map(p => [p.id, p]));
     const hosts = {};  // mod id -> [loader ids]
     D.relations.forEach(r => { if (r.type === "mod_for") (hosts[r.project] = hosts[r.project] || []).push(r.target); });
+    extra.forEach(m => { hosts[m.id] = [m.platform]; });
     const via = p => p.install || (hosts[p.id] || []).map(h => byId[h] ? byId[h].name.replace(/\s*\(.*\)$/, "") : h).join(", ")
       || (["firmware", "loader"].includes(p.kind) || p.links && p.links !== "{}" ? "own patcher" : "see repo");
     const checked = D.meta.checked, cutNew = [new Date(Date.parse(checked) - 7 * DAY).toISOString().slice(0, 10), "2026-11-03"].sort().pop();  // BULK_UNTIL in build.py
 
-    const all = D.projects.filter(isMod);
-    const loaders = all.filter(isLoader);
-    let mods = all.filter(p => !isLoader(p));
+    const all = D.projects.filter(isMod).concat(extra);
+    // loaders: mod loaders and patchers, plus any platform that ships mods of its own (e.g. digikit)
+    const loaders = D.projects.filter(p => (isMod(p) && isLoader(p)) || own(p).length);
+    let mods = all.filter(p => !isLoader(p) && !own(p).length);
     const words = ctx.words || [];
     // device and search filter first: the counts on the chips follow them
     let base = mods.filter(p => ctx.devOk(list(p.devices)));
@@ -92,5 +109,5 @@
     root.querySelector(".md-loaders").onclick = e => { const b = e.target.closest("button"); if (!b) return; S.via = S.via === b.dataset.v ? "" : b.dataset.v; redraw(); };
     const x = root.querySelector("#md-clear"); if (x) x.onclick = () => { S.via = ""; redraw(); };
   }
-  window.AggMods = {draw};
+  window.AggMods = {draw, ownMods};
 })();

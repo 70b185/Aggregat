@@ -161,16 +161,35 @@ def found(p):
     return p.get("_found") or _first.get(p["id"], str(checked))
 
 
+T_ORDER = ["unit", "partly", "emulator", "not-stated"]
+
+
 def own_rows(p):
-    """The mods a loader or platform ships itself (own_mods), as rows installed via that entry."""
-    base = str(p.get("repo") or "").rstrip("/")
-    return [{"id": f"{p['id']}--{re.sub(r'[^a-z0-9]+', '-', m['name'].lower()).strip('-')}", "name": m["name"],
-             "author": m.get("author") or p.get("author"), "kind": "mod", "devices": m.get("devices") or p.get("devices") or [],
-             "status": p["status"], "notes": m["what"], "tested": m.get("tested", "not-stated"), "tested_note": m.get("note"),
-             "version": m.get("version"), "base_os": None, "last_activity": p.get("last_activity"),
-             "repo": f"{base}/tree/HEAD/{m['path']}" if m.get("path") and "github.com" in base else base or None,
-             "relations": [{"type": "mod_for", "id": p["id"]}], "_found": _first.get(p["id"], str(checked)), "_owner": p["id"]}
-            for m in p.get("own_mods") or []]
+    """The mods a loader or platform ships itself (own_mods), as ONE mod entry "<platform> mods" installed via it
+    (one entry per repo, like every other collection); each mod is listed in its contents. assets/mods.js does the same."""
+    ms = p.get("own_mods") or []
+    if not ms:
+        return []
+    pdev = p.get("devices") or []
+    mdev = lambda m: m.get("devices") or pdev
+    devs = [d for d in dev_order if any(d in mdev(m) for m in ms)] or pdev
+    label = lambda m: m["name"] + (f" ({m['author']})" if m.get("author") and m["author"] != p.get("author") else "")
+    if len(devs) > 1 and any(m.get("devices") for m in ms):
+        body = "; ".join(f"{dev_names.get(d, d)}: " + ", ".join(label(m) for m in ms if d in mdev(m)) for d in devs)
+    else:
+        body = ", ".join(label(m) for m in ms)
+    ts = {t: [m["name"] for m in ms if m.get("tested", "not-stated") == t] for t in T_ORDER}
+    used = [t for t in T_ORDER if ts[t]]
+    agg = used[0] if len(used) == 1 else ("partly" if ts["unit"] or ts["partly"] else
+                                          "emulator" if ts["emulator"] else "not-stated")
+    return [{"id": f"{p['id']}--own", "name": re.sub(r"\s*\(.*\)$", "", p["name"]) + " mods",
+             "author": p.get("author"), "kind": "mod", "devices": devs, "status": p["status"],
+             "notes": f"{len(ms)} mods of its own: {body}", "tested": agg,
+             "tested_note": None if len(used) == 1 else "; ".join(f"{TESTED[t]}: {', '.join(ts[t])}" for t in used),
+             "contains": "; ".join(f"{m['name']}{' ' + m['version'] if m.get('version') else ''}: {m['what']} "
+                                   f"[{TESTED.get(m.get('tested'), 'not stated')}]" for m in ms),
+             "base_os": None, "last_activity": p.get("last_activity"), "repo": p.get("repo"),
+             "relations": [{"type": "mod_for", "id": p["id"]}], "_found": _first.get(p["id"], str(checked)), "_owner": p["id"]}]
 
 
 TESTED = {"unit": "yes, on a unit", "partly": "partly", "emulator": "emulator only", "not-stated": "not stated"}
@@ -218,7 +237,8 @@ inst = [p for p in bylist["mods"] if p["kind"] == "loader" or p.get("list") == "
 inst += [p for p in projects if p.get("own_mods") and p not in inst]   # platforms with mods of their own, from any list
 # a platform's own mods (own_mods) are listed as mods of their devices, installed via the platform
 real = [p for p in bylist["mods"] if p not in inst] + [r for p in inst for r in own_rows(p)]
-colls = [p for p in bylist["mods"] if p.get("contains")]
+# a platform with own mods is shown there by its "<platform> mods" entry, which lists them
+colls = [p for p in bylist["mods"] if p.get("contains") and not p.get("own_mods")] + [r for r in real if r.get("_owner")]
 by_upd = lambda rows: sorted(rows, key=updated, reverse=True)
 # "new": added in the last 7 days, but not during the catalogue's first bulk imports (until BULK_UNTIL)
 BULK_UNTIL = "2026-11-03"

@@ -21,8 +21,9 @@
 #   own_mods       optional: the mods a loader or platform ships itself that have no entry of their own, one per line:
 #                  {name, what (our words), tested (unit|partly|emulator|not-stated), and optional author, devices
 #                  (default: the entry's), version, path (in the entry's repo), note, origin (catalogue id it was
-#                  ported from)}. The entry is then listed under "Loaders and platforms", and each own mod as a mod of
-#                  its devices, installed via the entry (MODS.md, the website's Mods tab when the loader is picked).
+#                  ported from)}. The entry is then listed under "Loaders and platforms", and its own mods together
+#                  as ONE mod entry "<name> mods" (one entry per repo, like any collection), installed via it; picking
+#                  the loader on the website shows that entry, and its contents list each mod.
 #                  A mod that lives in a repo of its own gets an entry with `mod_for` instead.
 #   install        optional: how a user installs it, when no mod_for relation says so
 #   contains       optional: the named mods/modules inside a collection, as its repo lists them (with the date read)

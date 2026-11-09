@@ -20,17 +20,29 @@
   const isLoader = p => p.kind === "loader" || (isMod(p) && p.kind === "tool");
   // mods a loader or platform ships itself (projects.yml own_mods), stored as a JSON list
   const own = p => { try { return JSON.parse(p.own_mods || "[]"); } catch (e) { return []; } };
-  const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-  // each own mod becomes a mod card of its own, installed via its platform
+  const TESTED = {"unit": "yes, on a unit", "partly": "partly", "emulator": "emulator only", "not-stated": "not stated"};
+  const T_ORDER = ["unit", "partly", "emulator", "not-stated"];
+  // a platform's own mods become ONE mod card "<platform> mods" installed via it (one entry per repo, like every
+  // other collection); each mod is listed under "What is inside". scripts/build.py builds MODS.md the same way.
   function ownMods(D) {
-    const out = [];
-    D.projects.forEach(p => own(p).forEach(m => out.push({
-      id: `${p.id}--${slug(m.name)}`, name: m.name, author: m.author || p.author, kind: "mod", list: "mods",
-      devices: m.devices ? m.devices.join(",") : p.devices, status: p.status, notes: m.what, tested: m.tested,
-      tested_note: m.note, version: m.version, base_os: m.version ? `version ${m.version}` : "", last_activity: p.last_activity,
-      pushed: p.pushed, first_seen: p.first_seen, links: "{}", contains: "", platform: p.id,
-      repo: m.path && /github\.com/.test(p.repo || "") ? `${p.repo.replace(/\/$/, "")}/tree/HEAD/${m.path}` : p.repo})));
-    return out;
+    const order = (D.devices || []).map(d => d.slug), dn = Object.fromEntries((D.devices || []).map(d => [d.slug, d.name.replace(/ \(.*\)$/, "")]));
+    return D.projects.filter(p => own(p).length).map(p => {
+      const ms = own(p), pdev = list(p.devices), mdev = m => m.devices || pdev;
+      let devs = order.filter(d => ms.some(m => mdev(m).includes(d))); if (!devs.length) devs = pdev;
+      const label = m => m.name + (m.author && m.author !== p.author ? ` (${m.author})` : "");
+      const body = devs.length > 1 && ms.some(m => m.devices)
+        ? devs.map(d => `${dn[d] || d}: ${ms.filter(m => mdev(m).includes(d)).map(label).join(", ")}`).join("; ")
+        : ms.map(label).join(", ");
+      const ts = Object.fromEntries(T_ORDER.map(t => [t, ms.filter(m => (m.tested || "not-stated") === t).map(m => m.name)]));
+      const used = T_ORDER.filter(t => ts[t].length);
+      const tested = used.length === 1 ? used[0] : ts.unit.length || ts.partly.length ? "partly" : ts.emulator.length ? "emulator" : "not-stated";
+      return {id: `${p.id}--own`, name: p.name.replace(/\s*\(.*\)$/, "") + " mods", author: p.author, kind: "mod", list: "mods",
+        devices: devs.join(","), status: p.status, notes: `${ms.length} mods of its own: ${body}`, tested,
+        tested_note: used.length === 1 ? "" : used.map(t => `${TESTED[t]}: ${ts[t].join(", ")}`).join("; "),
+        contains: ms.map(m => `${m.name}${m.version ? " " + m.version : ""}: ${m.what} [${TESTED[m.tested] || "not stated"}]`).join("; "),
+        base_os: "", last_activity: p.last_activity, pushed: p.pushed, first_seen: p.first_seen, links: "{}",
+        repo: p.repo, platform: p.id};
+    });
   }
 
   function draw(root, D, ctx) {
@@ -97,7 +109,7 @@
       <h2 class="md-h">Loaders and platforms <span>pick one to see its mods</span></h2>
       <div class="md-loaders">
         ${ls.map(l => `<button class="md-ld${S.via === l.id ? " on" : ""}" data-v="${esc(l.id)}" title="${esc(short(l.notes, 220))}">
-          <b>${esc(short(l.name, 48))}</b><span>${loaderCount(l.id) || "–"} mods · ${esc(list(l.devices).map(d => (ctx.devName[d] || d).replace(/ \(.*\)$/, "")).join(", "))}</span></button>`).join("")}
+          <b>${esc(short(l.name, 48))}</b><span>${loaderCount(l.id) || "–"} ${loaderCount(l.id) === 1 ? "mod" : "mods"} · ${esc(list(l.devices).map(d => (ctx.devName[d] || d).replace(/ \(.*\)$/, "")).join(", "))}</span></button>`).join("")}
       </div>
       <h2 class="md-h">${S.via ? `Mods for ${esc(byId[S.via].name)} <button class="md-x" id="md-clear">show all</button>` : "Mods"} <span>${rows.length} shown</span></h2>
       <div class="md-grid">${rows.map(card).join("") || `<div class="empty">Nothing matches.</div>`}</div>`;

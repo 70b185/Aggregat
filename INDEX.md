@@ -6,16 +6,16 @@ Data last verified: 2026-11-08. Repo fingerprints: see state/CHANGES.md
 
 | Device | Verified | Unverified candidates | Requests / resources |
 |---|---|---|---|
-| [Digitakt (MKI)](devices/digitakt.md) | 57 | 0 | 3 |
-| [Digitakt II](devices/digitakt-2.md) | 39 | 1 | 1 |
-| [Digitone (MKI) / Digitone Keys](devices/digitone.md) | 60 | 0 | 2 |
-| [Digitone II](devices/digitone-2.md) | 31 | 1 | 2 |
+| [Digitakt (MKI)](devices/digitakt.md) | 56 | 0 | 3 |
+| [Digitakt II](devices/digitakt-2.md) | 38 | 1 | 1 |
+| [Digitone (MKI) / Digitone Keys](devices/digitone.md) | 59 | 0 | 2 |
+| [Digitone II](devices/digitone-2.md) | 30 | 1 | 2 |
 | [Syntakt](devices/syntakt.md) | 16 | 0 | 1 |
 | [Analog Heat (MKI, MKII, +FX)](devices/analog-heat.md) | 4 | 1 | 1 |
-| [Octatrack (MKI, MKII)](devices/octatrack.md) | 29 | 1 | 0 |
-| [Analog Rytm (MKI, MKII)](devices/analog-rytm.md) | 25 | 0 | 0 |
-| [Analog Four / Analog Keys](devices/analog-four-keys.md) | 9 | 0 | 0 |
-| [Model:Cycles](devices/model-cycles.md) | 30 | 0 | 0 |
-| [Model:Samples](devices/model-samples.md) | 11 | 0 | 0 |
+| [Octatrack (MKI, MKII)](devices/octatrack.md) | 28 | 1 | 0 |
+| [Analog Rytm (MKI, MKII)](devices/analog-rytm.md) | 24 | 0 | 0 |
+| [Analog Four / Analog Keys](devices/analog-four-keys.md) | 8 | 0 | 0 |
+| [Model:Cycles](devices/model-cycles.md) | 29 | 0 | 0 |
+| [Model:Samples](devices/model-samples.md) | 10 | 0 | 0 |
 | [Machinedrum (incl. UW)](devices/machinedrum.md) | 27 | 0 | 0 |
 | [Monomachine](devices/monomachine.md) | 11 | 0 | 0 |

@@ -103,7 +103,7 @@ Recovery steps in this repo's `RECOVERY.md` are summarised in [`../common/recove
 Core support: elekloader lists core-dt2-1.0 as unreleased (build from source) with SETTINGS and PERSONALIZE rows and `.fast` code in SRAM; **no render events** because audio renders on the DSP. `[doc]` {elekloader-cores}
 
 ## Control from outside
-SysEx/MIDI facts, NRPN groups and the safe-write ceremony are in [`../common/sysex-and-midi.md`](../common/sysex-and-midi.md). elekloader's simonjohansson fork supports Digitakt II 1.17 as experimental (core checked in digikit; a key-swap mod works on a unit). {elekloader-simonjohansson}
+SysEx/MIDI facts, NRPN groups and the safe-write ceremony are in [`../common/sysex-and-midi.md`](../common/sysex-and-midi.md). elekloader supports Digitakt II 1.17 as experimental (core checked in digikit; a key-swap mod works on a unit; README 3016dca, 2026-11-08). {elekloader-main}
 
 ## Architecture map from static analysis and simulation (lalzart, OS 1.15C) {lalzart-dt2-arch}
 lalzart's public research grades each claim. Everything below is **static or simulator** work; the author explicitly claims nothing about hardware behaviour, safety or recovery. `[doc]`

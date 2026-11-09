@@ -126,7 +126,7 @@ Newest **1.12** (adds routing of the Main outputs through Outbox 8 and FUNC+UP/D
 Digitone II reached Overbridge streaming with OS 1.10 (plugin followed later). `[doc]` {gearnews-dn2-overbridge}
 
 ## Control from outside
-SysEx/MIDI facts, the SYXGRID format map (45 mappings, confidence levels) and digitone-syx-toolkit are in [`../common/sysex-and-midi.md`](../common/sysex-and-midi.md). elekloader's simonjohansson fork supports Digitone II 1.12 as experimental (whole builds, linkable mods, SHARC mods, selectable synth/filter mods; UI events and remote input checked on a unit). {elekloader-simonjohansson}
+SysEx/MIDI facts, the SYXGRID format map (45 mappings, confidence levels) and digitone-syx-toolkit are in [`../common/sysex-and-midi.md`](../common/sysex-and-midi.md). elekloader supports Digitone II 1.12 as experimental (whole builds, linkable mods, SHARC mods, selectable synth/filter mods; UI events and remote input checked on a unit; README 3016dca, 2026-11-08). {elekloader-main}
 
 ## Gaps
 `docs/flashing.md`, `docs/mainos-image.md`, `docs/parameter-table-growth.md`, dn2mk2 `docs/SAFETY.md`, and the skill's "hardware rules the emulators cannot check" are the next reads (see `../MINING.md`).

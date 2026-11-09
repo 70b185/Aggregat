@@ -3,11 +3,11 @@
   "checked": "2026-11-08",
   "generator": "scripts/export_db.py",
   "counts": {
-   "projects": 249,
+   "projects": 248,
    "devices": 13,
-   "relations": 384,
+   "relations": 382,
    "rules": 106,
-   "sources": 286,
+   "sources": 285,
    "conflicts": 34,
    "facts": 1020,
    "goals": 8,
@@ -128,7 +128,7 @@
    "install": null,
    "contains": "the mod shop (web/catalog.json, 2026-11-08): 173 mod files from 32 repos, each repo listed here as its own entry; base mods machine-pages (Digitakt), machines and fxkit (Digitone)",
    "first_seen": "2026-10-31",
-   "notes": "Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. Device table in the README (3016dca, 2026-11-08): Digitakt mk1 and Digitone mk1/Keys supported; Digitakt II 1.17 and Digitone II 1.12 experimental; Octatrack 1.40C supported (linkable core boots on an MKII); Model:Cycles and Model:Samples 1.13 supported (builds work on both units); Analog Rytm MKII 1.74 supported; Analog Four MKII 1.56 experimental proof of concept (hook bus, mod storage, unused DDR and recovery checked on a unit). Canonical repo is unclear: the forum post also embeds github.com/elekloader/elekloader (web app at elekloader.github.io/elekloader); forks exist (AvroraPolnareff, naturarum, toonst, simonjohansson; see elekloader-simonjohansson). Forum: builder issue reported 2026-10-19. Licence GPL-2.0-or-later.",
+   "notes": "Mod loader: user supplies the stock OS file, the tool builds the custom .syx locally. Device table in the README (3016dca, 2026-11-08): Digitakt mk1 and Digitone mk1/Keys supported; Digitakt II 1.17 and Digitone II 1.12 experimental; Octatrack 1.40C supported (linkable core boots on an MKII); Model:Cycles and Model:Samples 1.13 supported (builds work on both units); Analog Rytm MKII 1.74 supported; Analog Four MKII 1.56 experimental proof of concept (hook bus, mod storage, unused DDR and recovery checked on a unit). Canonical repo is unclear: the forum post also embeds github.com/elekloader/elekloader (web app at elekloader.github.io/elekloader); forks exist (AvroraPolnareff, naturarum, toonst, simonjohansson); none is listed, as none has changes of its own. Forum: builder issue reported 2026-10-19. Licence GPL-2.0-or-later.",
    "links": "{\"web_app\": \"https://irpina.github.io/elekloader/\", \"releases\": \"https://github.com/irpina/elekloader/releases\", \"forum\": \"https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices\"}",
    "sources": "[\"forum thread 30\", \"GitHub release v0.4.0\", \"gearnews\", \"dubspot\"]",
    "owner": "elekloader",
@@ -1844,37 +1844,6 @@
    "language": "Rust",
    "gh_fork": false,
    "gh_license": "Apache-2.0"
-  },
-  {
-   "id": "elekloader-simonjohansson",
-   "name": "elekloader (simonjohansson fork)",
-   "author": "simonjohansson",
-   "kind": "loader",
-   "list": "mods",
-   "own_mods": "[]",
-   "devices": "digitakt-2,digitone-2,digitakt,digitone,octatrack,model-cycles,model-samples,analog-rytm,analog-four-keys",
-   "repo": "https://github.com/simonjohansson/elekloader",
-   "license": "GPL-2.0-or-later",
-   "status": "wip",
-   "base_os": "Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept)",
-   "version": null,
-   "last_activity": "2026-10-29",
-   "tested": "partly",
-   "tested_note": "a key-swap mod works on a unit; cores emulator-checked",
-   "install": null,
-   "contains": null,
-   "first_seen": "2026-10-31",
-   "notes": "2026-11-09 check: no mods of its own. Its 33 mod folders all exist upstream, and its README device table is upstream's; the fork is behind upstream (fork dc6ac1f of 2026-10-29, upstream 3016dca of 2026-11-08). The Digitakt II / Digitone II work it was first listed for has been upstream's since. Kept as a loader, not as a mod. GitHub says forked from elekloader/elekloader (not irpina's repo); 173 commits, GPL-2.0-or-later, NOTICE covers digikit code. Per README: Digitakt II 1.17 experimental - whole builds and linkable mods with their own core work, core checked in digikit's emulator, a key-swap mod works on a unit. Digitone II 1.12 experimental - whole builds, linkable mods, SHARC (DSP) mods and selectable synth/filter mods work; UI events and remote input checked on a unit, sine variants ran ten-minute note sweeps plus limited project/effects checks. Analog Rytm MKII 1.74 linkable mods with own core, builds with the core work on a unit; Analog Four MKII 1.56 hook bus, mod storage, unused DDR and recovery checked on a unit. Issue #13 plans Digitone II control-side support modelled on the Digitakt II implementation (hash-based stock-file recognition, devices/digitakt_mk2.py profile). 22 open issues.",
-   "links": "{\"plan_digitone_ii\": \"https://github.com/simonjohansson/elekloader/issues/13\", \"devices_doc\": \"https://github.com/simonjohansson/elekloader/blob/main/docs/DEVICES.md\"}",
-   "sources": "[\"GitHub README\", \"GitHub issue 13\", \"search 2026-10-31\"]",
-   "owner": "simonjohansson",
-   "created": "2026-10-14",
-   "pushed": "2026-10-30",
-   "stars": 0,
-   "forks": 0,
-   "language": "Python",
-   "gh_fork": true,
-   "gh_license": "GPL-2.0"
   },
   {
    "id": "digi-roll-studio",
@@ -8485,18 +8454,6 @@
    "evidence": "README: prerequisite dnfw (container, signing, C builds)"
   },
   {
-   "project": "elekloader-simonjohansson",
-   "type": "fork_of",
-   "target": "elekloader",
-   "evidence": "GitHub fork flag"
-  },
-  {
-   "project": "elekloader-simonjohansson",
-   "type": "vendors",
-   "target": "digikit",
-   "evidence": "catalogue notes: NOTICE covers digikit code"
-  },
-  {
    "project": "digi-roll-studio",
    "type": "vendors",
    "target": "elk-herd",
@@ -11321,11 +11278,6 @@
    "key": "elk-herd",
    "what": "mzero/elk-herd stub README (moved off GitHub)",
    "url": "https://github.com/mzero/elk-herd"
-  },
-  {
-   "key": "elekloader-simonjohansson",
-   "what": "simonjohansson/elekloader README (fork with Digitakt II / Digitone II support)",
-   "url": "https://github.com/simonjohansson/elekloader"
   },
   {
    "key": "gearnews-heatfx",

@@ -52,7 +52,6 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | libanalogrytm | bsp2/libanalogrytm README (Analog Rytm only) | https://github.com/bsp2/libanalogrytm |
 | libanalogrytm-sysex | bsp2/libanalogrytm `sysex.h` and `sysex.c` (Analog Rytm dump framing, 7-bit packing, checksum; MIT, 2014) | https://github.com/bsp2/libanalogrytm/blob/master/sysex.c |
 | elk-herd | mzero/elk-herd stub README (moved off GitHub) | https://github.com/mzero/elk-herd |
-| elekloader-simonjohansson | simonjohansson/elekloader README (fork with Digitakt II / Digitone II support) | https://github.com/simonjohansson/elekloader |
 | gearnews-heatfx | Gearnews: Analog Heat +FX OS 1.01 upgrade (exclusive to +FX) | https://www.gearnews.com/elektron-turns-up-with-the-analog-heat-fx/ |
 | synthtopia-heatfx | Synthtopia: Elektron launches Analog Heat +FX | https://synthtopia.com/?p=136578 |
 | sos-heatfx | Sound On Sound: Elektron launch Analog Heat +FX | https://www.soundonsound.com/node/4930446 |

@@ -240,3 +240,6 @@ ignore:
   # restoration notice, LOST_CHANGES.md and repo links on its pages pointing to the copy - no change to code or mods.
   # Dropped by the maintainer's decision (2026-11-09): a copy without changes of its own is not listed.
   - nicolai-creates/model27
+  # fork of elekloader/elekloader without changes of its own: its 33 mod folders all exist upstream, its README is
+  # upstream's, and it is behind upstream (dc6ac1f, 2026-10-29). Removed by the maintainer's decision (2026-11-09).
+  - simonjohansson/elekloader

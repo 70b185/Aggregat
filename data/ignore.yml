@@ -236,3 +236,7 @@ ignore:
   - konradb3/elektron_firmware
   # binary-only Octatrack OS image (.bin) built on Modwerk, no source and no account of what changed; ships Elektron firmware (2026-11-02)
   - devaduta/mocktatrack
+  # copy of durchgemacht/model27 (catalogued as model27, withdrawn by its author) up to 574cf73; beyond that only a
+  # restoration notice, LOST_CHANGES.md and repo links on its pages pointing to the copy - no change to code or mods.
+  # Dropped by the maintainer's decision (2026-11-09): a copy without changes of its own is not listed.
+  - nicolai-creates/model27

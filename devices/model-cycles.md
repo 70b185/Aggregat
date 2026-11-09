@@ -38,7 +38,6 @@ Data last verified: 2026-11-08
 | **Model:Cycles .mcpst format notes** (kg4zow) | research | inactive | - | - | 2022-04-12 | [repo](https://github.com/kg4zow/model-cycles) |
 | **plaits-on-models** (DMDaudio) | mod | active | 1.13 | - | - | [repo](https://github.com/DMDaudio/plaits-on-models) |
 | **ms-multi-output** (Scott Metoyer) | mod | active | 1.13 | - | - | [repo](https://github.com/scottmetoyer/ms-multi-output) |
-| **model27 (restored copy)** (nicolai-creates (restoration of durchgemacht's model27)) | firmware | unverified | Model:Cycles OS 1.13 | v0.51 | - | [repo](https://github.com/nicolai-creates/model27) |
 
 ## Details
 
@@ -271,11 +270,3 @@ One added machine with twelve two-operator FM percussion engines with extended r
 _Related: mod for `cycles-engines` (README: tick PUNCH in the Cycles Engines flasher) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-07, README_
-
-### model27 (restored copy)
-
-A third party's restoration of durchgemacht/model27 after its author took it offline on 2026-11-06/07: the original history up to commit 574cf73 (after release 0.51), recovered through the GitHub fork network, plus a warning in the README and LOST_CHANGES.md. Not maintained by the original author. Found by GitHub search 2026-11-08. Kept as a lead, not listed as a project, because the original author withdrew the work. Update 2026-11-08 (later the same day): the README now says "unofficial" instead of "untested" restoration. The copy serves the author's web flasher again from its own GitHub Pages, with a notice and the repository links pointing to the copy. LOST_CHANGES.md reports the project's own checks (229) passing against the official OS 1.13 file, and a browser build of all fourteen cards matching the MAIN OS hash that the author had confirmed on a unit on 2026-11-06. Nothing has been flashed since.
-
-_Related: copy of `model27` (README: restoration of durchgemacht/model27 up to 574cf73) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
-
-_Sources: GitHub search 2026-11-08, README, LOST_CHANGES.md_

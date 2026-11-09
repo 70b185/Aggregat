@@ -15,7 +15,7 @@ Data last verified: 2026-11-08. Repo fingerprints: see state/CHANGES.md
 | [Octatrack (MKI, MKII)](devices/octatrack.md) | 29 | 1 | 0 |
 | [Analog Rytm (MKI, MKII)](devices/analog-rytm.md) | 25 | 0 | 0 |
 | [Analog Four / Analog Keys](devices/analog-four-keys.md) | 9 | 0 | 0 |
-| [Model:Cycles](devices/model-cycles.md) | 30 | 1 | 0 |
+| [Model:Cycles](devices/model-cycles.md) | 30 | 0 | 0 |
 | [Model:Samples](devices/model-samples.md) | 11 | 0 | 0 |
 | [Machinedrum (incl. UW)](devices/machinedrum.md) | 27 | 0 | 0 |
 | [Monomachine](devices/monomachine.md) | 11 | 0 | 0 |

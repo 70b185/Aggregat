@@ -393,7 +393,7 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 ## Model:Cycles
 
-21 entries, 4 reported running on a unit.
+20 entries, 4 reported running on a unit.
 
 
 ### Ran on a real unit
@@ -422,12 +422,6 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 | **Model-TG** <br>TinyGregAudio | Sampler as a seventh Model:Cycles machine (one-shot, loop, slice, granular, stretch, wavetable), resampling, master FX. Licence: MIT; distribution: … | see repo | 1.13 | not stated | 2026-10-02 | [repo](https://github.com/TinyGregAudio/Model-TG) |
 | **ms-multi-output** <br>Scott Metoyer | Six channels of per-track USB audio for Model:Samples and Model:Cycles; patch sources and build script only. | see repo | 1.13 | not stated | 2026-09-19 | [repo](https://github.com/scottmetoyer/ms-multi-output) |
 | **plaits-on-models** <br>DMDaudio | Plaits engines in fixed point as a Model:Cycles machine; emulator only so far. | see repo | 1.13 | emulator only | - | [repo](https://github.com/DMDaudio/plaits-on-models) |
-
-### Unverified leads
-
-| Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
-|---|---|---|---|---|---|---|
-| **model27 (restored copy)** <br>nicolai-creates (restoration of … | A third party's restoration of durchgemacht/model27 after its author took it offline on 2026-11-06/07: the original history up to commit 574cf73 … | own patcher / builder | Model:Cycles OS 1.13 | unverified lead | - | [repo](https://github.com/nicolai-creates/model27) |
 
 ### Unreachable (repo gone or private)
 

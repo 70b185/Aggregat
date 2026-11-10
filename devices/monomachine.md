@@ -8,12 +8,12 @@ Data last verified: 2026-11-08
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **ems-monomachine-firmware** (June Kiff (emuyia)) | firmware | active | 26B09-beta (2026-11-09): ARP p-locks, trig conditions to 8:8 plus PRE/NEI, microtiming, multi-trig edit, page transpose, BBOX sample manager (SDS and a compressed format shared with compatible Machinedrum firmware), DPRO>SBOX machine; 1.32B | 26910-release | 2026-11-09 | [repo](https://github.com/emuyia/ems-monomachine-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-06 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
 | **OP-XY MNMD** (mmockett) | emulator | active | - | v1.3.1 | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **BSP Machinedrum** (ABarracu87) | tool | active | - | v0.3.5 | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
 | **Monomachine Lab** (Jick238) | emulator | wip | Monomachine OS 1.32B (user-supplied) | v0.1.4 | 2026-10-21 | [repo](https://github.com/Jick238/monomachine-lab) |
 | **C7** (sata1000000) | editor | active | - | v0.1.0 | 2026-10-10 | [repo](https://github.com/sata1000000/C7) |
-| **ems-monomachine-firmware** (June Kiff (emuyia)) | firmware | active | 26A09-beta (2026-10-09); 1.32B | 26910-release | 2026-10-09 | [repo](https://github.com/emuyia/ems-monomachine-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
 | **Monomodule for Schwung** (legsmechanical) | emulator | active | - | v0.1.0-test.5 | 2026-09-28 | [repo](https://github.com/legsmechanical/schwung-monomodule) |
 | **Maschine MD-MM** (sid366) | emulator | active | - | v0.1.1-combined.1 | 2026-09-28 | [repo](https://github.com/sid366/maschine-md-mm-combined) |
 | **Monomodule** (shnolk) | emulator | active | 1.0.0 (2026-09-24); Monomachine OS 1.32B (supplied by you) | release | 2026-09-24 | [repo](https://github.com/shnolk/monomodule) |
@@ -38,7 +38,7 @@ _Sources: altstrument (2026-11-01)_
 
 ### ems-monomachine-firmware
 
-Custom Monomachine OS 1.32B (per-track lengths/speeds, trig conditions, song/pattern workflow, bug fixes), patched in the browser. Patcher only. Licence: unspecified; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
+Custom Monomachine OS 1.32B (per-track lengths/speeds, trig conditions, song/pattern workflow, bug fixes), patched in the browser. Patcher only. Licence: unspecified; distribution: patch-your-own. Listed by altstrument; CHANGELOG read 2026-11-10. Upgrade hazards (26B09): old whole-bank BBOX .syx backups are no longer accepted (convert on 26A09 first), P2/P7 conditions become 25 %/75 %, the firmware is compressed so boot is slower.
 
 _Sources: altstrument (2026-11-01)_
 

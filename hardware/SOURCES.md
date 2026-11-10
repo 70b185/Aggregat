@@ -291,3 +291,38 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dt2-perform | toonst/digitakt2-perform README (two elekloader mods, OS 1.17) | https://github.com/toonst/digitakt2-perform |
 | mmodule-research | c0remusic/MModule `.scratch/user-machines/research/04-voice-dsp-memory.md` (Machinedrum OS 1.63 voice DSP room and time, emulator) | https://github.com/c0remusic/MModule |
 | analog-emu-syntakt | trigcondition/analog-emu `docs/SYNTAKT-PORT.md` (Syntakt OS 1.42, static and emulator) | https://github.com/trigcondition/analog-emu/blob/main/docs/SYNTAKT-PORT.md |
+| digikit-f119 | ElekLabs/digikit finding 119 (reading a track's Sound parameter words on DT2 1.17 / DN2 1.12; read 2026-11-10) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/119-param-change-observer.md |
+| digikit-overdrive | ElekLabs/digikit `modules/core/adapters/overdrive/README.md` (stock track overdrive internals, DT2 1.17; read 2026-11-10) | https://github.com/ElekLabs/digikit/blob/main/modules/core/adapters/overdrive/README.md |
+| digikit-tb303 | ElekLabs/digikit `modules/machines/tb303/README.md` and `docs/MODULE-AUTHORING.md` (run-time machine knob slots, cost; read 2026-11-10) | https://github.com/ElekLabs/digikit/blob/main/modules/machines/tb303/README.md |
+| modwerk-rytm-modtests | repeat98/modwerk Rytm MKII module manifests and `TESTING.md` files (unit runs on OS 1.74, 2026-11-08/09; read 2026-11-10) | https://github.com/repeat98/modwerk/tree/main/sdk/analog-rytm-mkii/modules |
+| modwerk-ot-keybus | repeat98/modwerk sidechain-compressor `TESTING.md` and ring-sc `evidence/hardware.md` (key bus move, ducking on MKI and MKII; read 2026-11-10) | https://github.com/repeat98/modwerk/blob/main/sdk/octabam/modules/sidechain-compressor/TESTING.md |
+| modwerk-ot-options | repeat98/modwerk `docs/verification/2026-11-09-octatrack-base-options.md` (survey of module costs on the Octatrack; read 2026-11-10) | https://github.com/repeat98/modwerk/blob/main/docs/verification/2026-11-09-octatrack-base-options.md |
+| modwerk-dt2-base | repeat98/modwerk `sdk/machines/digitakt-ii/elekloader/modwerk/README.md` (DT2 base, audio scheduler proposal; read 2026-11-10) | https://github.com/repeat98/modwerk/blob/main/sdk/machines/digitakt-ii/elekloader/modwerk/README.md |
+| octabam-wavecf | sambanks/octabam `modules/wavecf/README.md` and CHANGELOG (WAVE as a ColdFire machine, AMP envelope laws; read 2026-11-10) | https://github.com/sambanks/octabam/blob/main/modules/wavecf/README.md |
+| octabam-xfcurve | sambanks/octabam `modules/xfcurve/README.md` (crossfader table; read 2026-11-10) | https://github.com/sambanks/octabam/blob/main/modules/xfcurve/README.md |
+| octabam-dl | sambanks/octabam `docs/contributing/DEMAND_LOADER.md` (read 2026-11-10) | https://github.com/sambanks/octabam/blob/main/docs/contributing/DEMAND_LOADER.md |
+| octabam-stemrec | sambanks/octabam `docs/firmware/STEM_REC.md` (CF write throughput on an MKII; read 2026-11-10) | https://github.com/sambanks/octabam/blob/main/docs/firmware/STEM_REC.md |
+| octabam-hwtest | sambanks/octabam `docs/contributing/HARDWARE_TESTING.md` (test host on Linux and WSL2; read 2026-11-10) | https://github.com/sambanks/octabam/blob/main/docs/contributing/HARDWARE_TESTING.md |
+| octabam-failures | sambanks/octabam `docs/contributing/FAILURE_MODES.md` (demand-loader soak 2026-11-08/09; read 2026-11-10) | https://github.com/sambanks/octabam/blob/main/docs/contributing/FAILURE_MODES.md |
+| octamax-notes | mxldyn/octamax `NOTES.md` and README (2f-2h, RAM clash, sequencer addresses; read 2026-11-10) | https://github.com/mxldyn/octamax/blob/main/NOTES.md |
+| kyoti-reload | Zac-Kyoti/octatrack-kyoti-fw `octabam-modules/reload-from-project/README.md` and `NOTES.md` (read 2026-11-10) | https://github.com/Zac-Kyoti/octatrack-kyoti-fw/blob/main/octabam-modules/reload-from-project/README.md |
+| kyoti-build | Zac-Kyoti/octatrack-kyoti-fw `BUILD_KYOTI.md` (pool pages; read 2026-11-10) | https://github.com/Zac-Kyoti/octatrack-kyoti-fw/blob/main/BUILD_KYOTI.md |
+| elekloader-core-dt1 | elekloader `mods/core/README.md` (DT1 core 4.2/4.3 events; read 2026-11-10) | https://github.com/elekloader/elekloader/blob/main/mods/core/README.md |
+| elekloader-core-ar2 | elekloader `mods/core-ar2/README.md` (core-ar2 0.12 spare entries; read 2026-11-10) | https://github.com/elekloader/elekloader/blob/main/mods/core-ar2/README.md |
+| elekloader-oddjump | elekloader commit 4115937 (#329, 2026-11-08: odd-jump check after a DT2 froze at boot) | https://github.com/elekloader/elekloader/commit/4115937 |
+| tonefx-dt-port | DigiAlchemydsp/Tone-FX Digitakt port README (read 2026-11-10) | https://github.com/DigiAlchemydsp/Tone-FX/blob/master/DIGITAKT%20PORT/digi1_mods-main/mods/tonefx/README.md |
+| tonefx-pattern-storage | DigiAlchemydsp/Tone-FX `docs/PATTERN-STORAGE.md` (read 2026-11-10) | https://github.com/DigiAlchemydsp/Tone-FX/blob/master/docs/PATTERN-STORAGE.md |
+| synfact-safeboot | GSM1980/synfact-dev `docs/SAFE-BOOT-SMZ4-07-16.md` (read 2026-11-10) | https://github.com/GSM1980/synfact-dev/blob/main/docs/SAFE-BOOT-SMZ4-07-16.md |
+| synfact-core | GSM1980/synfact-dev `mods/core-st/README.md`, `SMZ4.md` and CHANGELOG (read 2026-11-10) | https://github.com/GSM1980/synfact-dev/blob/main/mods/core-st/README.md |
+| synfact-chorus | GSM1980/synfact-dev `mods/chorus-st/README.md` (read 2026-11-10) | https://github.com/GSM1980/synfact-dev/blob/main/mods/chorus-st/README.md |
+| synfact-machine-ref | GSM1980/synfact-dev `docs/MACHINE-REFERENCE.md` (read 2026-11-10) | https://github.com/GSM1980/synfact-dev/blob/main/docs/MACHINE-REFERENCE.md |
+| dn2mk2-v045 | De-Pattern/dn2mk2-firmware `releases/v0.45.md` (BOUNCE freeze, wild-read trap) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/releases/v0.45.md |
+| dn2mk2-v046 | De-Pattern/dn2mk2-firmware `releases/v0.46.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/releases/v0.46.md |
+| dn2mk2-v047 | De-Pattern/dn2mk2-firmware `releases/v0.47.md` and FIRMWARE.md known issues | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/releases/v0.47.md |
+| dn2mk2-leds | De-Pattern/dn2mk2-firmware `docs/leds.md` (DN2 1.11 LED driver and palette, read from disassembly) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/leds.md |
+| dn2mk2-fascia-plan | De-Pattern/dn2mk2-firmware `docs/fascia-integration-plan.md` (parameter records and free L2) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/fascia-integration-plan.md |
+| dn2mk2-ping | De-Pattern/dn2mk2-firmware `docs/ping.md` (unknown filter types on stock) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/ping.md |
+| dnfw-references | angellinares/dn2_firmware_explore `docs/references.md` (screen request answered on a DN2, 2026-11-05) | https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/references.md |
+| dnx-known-issues | NoiseAndMatter/DNX `docs/KNOWN-ISSUES.md` (table-store listing cut at ~4 KB) | https://github.com/NoiseAndMatter/DNX/blob/main/docs/KNOWN-ISSUES.md |
+| sidecar-rn | trigcondition/sidecar-expander `RELEASE-NOTES.md` (0.4.3) | https://github.com/trigcondition/sidecar-expander/blob/main/RELEASE-NOTES.md |
+| ems-mnm-changelog | emuyia/ems-monomachine-firmware CHANGELOG (26B09-beta) | https://github.com/emuyia/ems-monomachine-firmware/blob/main/CHANGELOG.md |

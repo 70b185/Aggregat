@@ -243,3 +243,5 @@ ignore:
   # fork of elekloader/elekloader without changes of its own: its 33 mod folders all exist upstream, its README is
   # upstream's, and it is behind upstream (dc6ac1f, 2026-10-29). Removed by the maintainer's decision (2026-11-09).
   - simonjohansson/elekloader
+  # dead link, removed from the Lapin list on 2026-11-09; not reachable, nothing to catalogue.
+  - repeat98/octamachine

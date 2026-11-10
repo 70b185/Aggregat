@@ -128,7 +128,7 @@ Devices: Digitakt (MKI). [repo](https://github.com/jakobbak/screendump)
 
 ## Sidecar | Expander (trigcondition)
 
-Devices: Analog Rytm (MKI, MKII), Digitakt (MKI). [repo](https://github.com/trigcondition/sidecar-expander)
+Devices: Analog Rytm (MKI, MKII), Digitakt (MKI), Analog Four / Analog Keys. [repo](https://github.com/trigcondition/sidecar-expander)
 
 - **Digitakt integrated sidecar** (soejrd) - builds on **Sidecar | Expander** (README: based on Sidecar by Trig Condition). [repo](https://github.com/soejrd/digitakt-sidecar)
 - **Sidecar (Digitakt mod)** (trigcondition) - variant of **Sidecar | Expander** (same author, Digitakt side of Sidecar). [repo](https://github.com/trigcondition/sidecar-digitakt)
@@ -252,10 +252,9 @@ flowchart LR
     n_pump_digitone["PUMP (Digitone)<br/>GPL"]:::copyleft
     n_ringtone["RingTone<br/>not recorded"]:::none
     n_syxgrid["SYXGRID v2<br/>not recorded"]:::none
-    n_tone_fx["Tone+FX<br/>GPL-2.0"]:::copyleft
   end
   subgraph n_group_Syntakt["Syntakt"]
-    n_synfact["Synfact<br/>GPL-2.0 (old release repo MIT)"]:::copyleft
+    n_synfact["Synfact<br/>GPL-2.0-or-later (old release repo MIT)"]:::copyleft
     n_synthack_os_upstream["SyntHack OS (upstream)<br/>MIT"]:::permissive
     n_synthack_os["Synthack-OS<br/>not recorded"]:::none
   end
@@ -338,6 +337,7 @@ flowchart LR
     n_overwitch["Overwitch<br/>not recorded"]:::none
     n_sidecar_expander["Sidecar | Expander<br/>GPL-2.0"]:::copyleft
     n_taktone["taktone<br/>not recorded"]:::none
+    n_tone_fx["Tone+FX<br/>GPL-2.0"]:::copyleft
   end
   n_digiemu -- "builds on" --> n_digikit
   %% evidence: README: digiemu is derived from m-dwyer/digikit at an upstream commit

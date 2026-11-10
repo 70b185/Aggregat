@@ -176,7 +176,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Status:** fixed.
 - **Evidence:** `[hw]` {digikit-f91}
 - **Rule:** A45, A28, A41
-- **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md)
+- **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md#sound-parameters-overdrive-and-run-time-machines-digikit-dt2-117--dn2-112-2026-11-10-digikit-f119)
 
 ### I16. A decoded section 7 over 1 MiB crashed the unit
 - **Unit:** Digitakt II, OS 1.16 (dt2-machine-lab)
@@ -186,7 +186,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Status:** rule.
 - **Evidence:** `[hw]` {dt2-lab-capicola}
 - **Rule:** A46
-- **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md)
+- **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md#sound-parameters-overdrive-and-run-time-machines-digikit-dt2-117--dn2-112-2026-11-10-digikit-f119)
 
 ### I17. Per-sample stores to the DDR output buffer crashed the unit
 - **Unit:** Digitakt II, OS 1.17 (70b185's STRETCH replacement)
@@ -428,6 +428,96 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** E5
 - **Fact:** [devices/digitone-2.md](devices/digitone-2.md#sampler-port-lifecycle-findings-dn2-os-111-2026-11-06)
 
+### I55. A knob's own push-button byte was read as FUNC
+- **Unit:** Analog Rytm MKII, OS 1.74 (Modwerk, Improved Machine Browser build MBC2), 2026-11-08
+- **Seen:** FUNC + knob turn in the machine list behaved like a plain turn.
+- **Cause (found from the tester's unit report, then the code):** the module took byte +20 of the encoder event as FUNC; that byte is set while the knob's own push-button is held.
+- **Fix:** build MBC3 reads FUNC from the stock key table.
+- **Status:** fixed; MBC3 passed on the unit.
+- **Evidence:** `[hw]` {modwerk-rytm-modtests}
+- **Rule:** C10
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md#modwerk-rytm-modules-and-stock-behaviour-os-174-2026-11-10-modwerk-rytm-modtests)
+
+### I57. A demand-loader soak froze an Octatrack MKII
+- **Unit:** Octatrack MKII, OS 1.40C (octabam images OCTABAMS4 and OCTABAMS5, both with STEM REC), 2026-11-08/09
+- **Seen:** 8 Nov: the DSP frame count stopped in 3 of 19 effect switches during play; panel and MIDI still answered, a power cycle was needed. 9 Nov: OCTABAMS5 froze once in 118 switches with panel, audio and USB all stopped.
+- **Cause (open; found by a scripted program-change soak with the load meter and loader diagnostics polled over USB):** the demand loader's BASE/MODULATION transition is the larger factor (only the loader changed between the two images, and the rate fell from about 1 in 6 to 1 in 118); STEM REC and its 18 MiB reserve are not cleared. Candidate for the total freeze: two waits in the frame interrupt with no time limit (the loader's wait before each host word, and stock's spin until the DSP takes the frame's host command).
+- **Fix:** partial (one copy per load). Time limits on the waits and copying a slice per frame are proposed, not made.
+- **Status:** open (HYPOTHESES H22).
+- **Evidence:** `[hw]` {octabam-failures} {octabam-dl}
+- **Rule:** A51, A29 (the soak script appends each reading as it reads it, so a freeze still leaves the record)
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#octabam-and-octamax-findings-2026-11-10)
+
+### I58. A wavetable machine clicked on every note
+- **Unit:** Octatrack MKII, OS 1.40C (octabam WAVE as a ColdFire machine, builds W1-W5), 2026-11-07
+- **Seen:** a click on every note.
+- **Cause (heard on the unit, then traced under the port):** the DSP's AMP envelope restarts from zero at every trig START; with any ATK above 0 a sound that keeps playing across trigs drops to silence and fades back in.
+- **Fix:** hold the DSP at ATK 0 / HOLD INF / REL INF and shape AMP in the machine, as SYNTH MACHINE does (W5).
+- **Status:** fixed from W5. The module README still says "not flashed" (CONFLICTS O22).
+- **Evidence:** `[hw]` {octabam-wavecf}
+- **Rule:** C4
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#octabam-and-octamax-findings-2026-11-10)
+
+### I59. Patch state inside a stock task's buffer silenced tracks
+- **Unit:** Octatrack MKII, OS 1.40C (OCTAMAX up to 2g), fixed 2026-11-09
+- **Seen:** tracks went silent or sounded wrong, scene A showed nothing selected after a pattern change, once `EXCEPTION VEC:03` at the stock key dispatcher's return. Not reproducible on demand.
+- **Cause (read from the code):** patch state at `0x80006a00-0x80007000` lay inside the work buffer of the stock audio-analysis task (`0x80006964-0x80007574`). The crash is not proven to come from this.
+- **Fix:** OCTAMAX_2h keeps all patch state in DDR; the build refuses any operand that points into the buffer.
+- **Status:** fixed, confirmed on the unit 2026-11-09; the crash cause stays open.
+- **Evidence:** `[hw]` {octamax-notes}
+- **Rule:** A43 (data scratch as well as code), A50
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#octabam-and-octamax-findings-2026-11-10)
+
+### I60. A long copy with interrupts masked clicked on every reload
+- **Unit:** Octatrack MKI (KYOTI V1.7 work build, RELOAD_FROM_PROJECT), 2026-11-09
+- **Seen:** a click on every [PTN] + [BANK] + trig reload.
+- **Cause (found from the user's report):** a 43 KB pattern copy ran with interrupts masked and held off the audio frame.
+- **Fix:** copy with interrupts on and publish only the slices that changed. Also fixed in the same round: reloading the current pattern while another was cued let the cued one land anyway.
+- **Status:** fixed, confirmed on the unit.
+- **Evidence:** `[hw]` {kyoti-reload}
+- **Rule:** A34
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#octabam-and-octamax-findings-2026-11-10)
+
+### I62. A safe-boot trial crashed every boot
+- **Unit:** Syntakt, OS 1.41 (Synfact core-st 1.7), 2026-11-09
+- **Seen:** after the first bank was written and the unit restarted, `EXCEPTION DK0094 V03` (address error) at every startup.
+- **Cause (from the exception screen's words, then the code):** the boot's eMMC accessor table had no write function, so marking the bank TRYING called address 0; the record never changed, so every boot retried the same bank. The unit tests had replaced exactly this piece with doubles.
+- **Fix:** core 1.7.1 adds the write function, storage fails closed on a table without one, and an end-to-end test through the production loader reproduces the crash.
+- **Status:** fixed in code; the physical rollback test is pending, and the recovery steps used are not stated.
+- **Evidence:** `[hw]` {synfact-safeboot}
+- **Rule:** C8
+- **Fact:** [devices/syntakt.md](devices/syntakt.md#synfact-core-and-smz4-banks-os-141-2026-11-10-synfact-core-synfact-safeboot)
+
+### I63. A mod's memory window broke the BASE/WDTH filter
+- **Unit:** Syntakt, OS 1.41 (Synfact core up to 1.7.1)
+- **Seen:** moving BASE gave artifacts and some tracks went silent.
+- **Cause (shown in the emulator):** the stock base-width filter reads Q31 poles from a 508-entry table with a zero tail and indexes up to 1023; Synfact's companion window sat in that tail, so BASE+WDTH of 128 or more read code as poles.
+- **Fix:** core 1.7.2 bounds the index to 508.
+- **Status:** fixed, confirmed on the unit.
+- **Evidence:** `[hw]` {synfact-core}
+- **Rule:** A43 (zero bytes in an image can be data stock reads)
+- **Fact:** [devices/syntakt.md](devices/syntakt.md#synfact-core-and-smz4-banks-os-141-2026-11-10-synfact-core-synfact-safeboot)
+
+### I64. A chorus running from DDR overloaded the Syntakt's MAIN CPU
+- **Unit:** Syntakt, OS 1.41 (Synfact chorus 0.1)
+- **Seen:** MAIN at 100 % and the sound broke up.
+- **Cause (measured on the unit):** all chorus code ran from DDR; about 5.4 KB of code was fetched per block.
+- **Fix:** 0.2 moved the hot code and kernels into MAIN SRAM (0.2 KB fetched per block).
+- **Status:** fixed.
+- **Evidence:** `[hw]` {synfact-chorus}
+- **Rule:** A34
+- **Fact:** [devices/syntakt.md](devices/syntakt.md#synfact-core-and-smz4-banks-os-141-2026-11-10-synfact-core-synfact-safeboot)
+
+### I65. A machine kind past the end of a label table froze Digitone II units
+- **Unit:** Digitone II, OS 1.11 (dn2mk2 v0.44), 2026-11-07/08
+- **Seen:** the unit froze on MACHINE SEL > BOUNCE, and at every power-on of a project holding a BOUNCE track.
+- **Cause (from a user's freeze report, then traced):** the label lookup picked the Monomachine label table by range; BOUNCE (kind 13) read past its end and walked address `0xEE` as a list. The emulator reads low memory as zeros, which hid it (I66 has the gate side).
+- **Fix:** one explicit test per machine kind, a `machines` gate step, and a trap on any non-stock read below `0x40000000` in every emulator step (v0.45). Recovery used: FUNC at power-on, TRIG 2 (EMPTY RESET; the +Drive is kept), then flash v0.45.
+- **Status:** fixed; v0.44 withdrawn.
+- **Evidence:** `[hw]` {dn2mk2-v045}
+- **Rule:** A53
+- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md#dn2mk2-findings-v045-v047-os-111-2026-11-10)
+
 ## E. Emulator or toolchain disagreed with the unit
 
 ### I36. The emulator undercounted DSP time by 2x to 12x
@@ -509,6 +599,36 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` {digikit-f117}
 - **Rule:** C10, D13
 - **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md#the-stock-intro-and-boot-screens-digikit-finding-117-dt2-117-and-dn2-111112-digikit-f117)
+
+### I56. A test plan pressed the wrong key, and the emulator reference did not match the unit
+- **Unit:** Analog Rytm MKII, OS 1.74 (Modwerk, Kit A/B runs KBH7 and KBH8), 2026-11-08/09
+- **Seen:** two runs tested only the KIT-menu path; another run stopped because the unit's kit list draws markers after kits 02-16 that the emulator's reference image lacks.
+- **Cause (caught in review):** rytm2_mods' documentation gives the reload key as NO + PLAY, so the remote-key plan pressed transport PLAY; the OS 1.74 manual says NO + PLAY MODE.
+- **Fix:** rerun with NO + PLAY MODE and narrow the screen check to the cursor row.
+- **Status:** passed in KBH8 (CONFLICTS S18).
+- **Evidence:** `[hw]` {modwerk-rytm-modtests}
+- **Rule:** C8, C10
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md#modwerk-rytm-modules-and-stock-behaviour-os-174-2026-11-10-modwerk-rytm-modtests)
+
+### I61. Odd jump targets froze a Digitakt II at boot; the emulator kept running
+- **Unit:** Digitakt II, OS 1.17 (elekloader core-dt2 2.0), fixed 2026-11-08
+- **Seen:** the unit froze at boot.
+- **Cause (per the fix's commit message):** byte-aligned code sections put routines at odd addresses; a jsr/jmp to an odd address stops the ColdFire with an address error (vector 3), while the emulator keeps running.
+- **Fix:** the linker refuses an odd-target absolute jsr/jmp into mod RAM; each code section starts with a 2-byte alignment.
+- **Status:** guarded in the builder.
+- **Evidence:** `[hw]` (commit message only) {elekloader-oddjump}
+- **Rule:** A42
+- **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md#sound-parameters-overdrive-and-run-time-machines-digikit-dt2-117--dn2-112-2026-11-10-digikit-f119)
+
+### I66. A feature that crosses ColdFire and DSP passed the gate and failed on units
+- **Unit:** Digitone II, OS 1.11 (dn2mk2 v0.45/v0.46, BOUNCE), 2026-11-08/09
+- **Seen:** on testers' units BOUNCE recorded nothing, or recorded and never played back.
+- **Cause:** unknown. The gate never ran the ColdFire and the DSP together.
+- **Fix:** BOUNCE removed from the menu in v0.47; a rebuild with both processors emulated together is planned (FLEX).
+- **Status:** open.
+- **Evidence:** `[hw]` {dn2mk2-v046} {dn2mk2-v047}
+- **Rule:** C4, C2
+- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md#dn2mk2-findings-v045-v047-os-111-2026-11-10)
 
 ## R. Recovery and transfer links
 

@@ -91,6 +91,24 @@ Read statically and checked in rytm-emu; the voice figures were measured on a un
 
   Each of these would have been a silent bug. `[doc]`
 
+## Modwerk Rytm modules and stock behaviour (OS 1.74, 2026-11-10) {modwerk-rytm-modtests}
+Read 2026-11-10 from Modwerk's Rytm guide, module manifests and test files. Unit runs are the module authors'.
+- **Encoder events:** byte +20 of an encoder event is set while that knob's own push-button is held. It is not FUNC; read FUNC from the key table. `[hw]` (I55)
+- **Machine list:** stock loads each machine as the list scrolls (UP, DOWN or any knob, with or without FUNC); YES only confirms, NO restores the machine the list opened with, and there is no undo for a machine change. rytm-emu does not pass emulated knob turns through stock's knob accumulator, so knob behaviour cannot be tested there. `[emu]` {modwerk-rytm-machines}
+- **FX edit save:** stock maps live FX words 38-41 to stored slot 0, so a setter edit of those hidden words overwrites the delay's saved TIME (SB18). Modwerk's base redirects them to its own kit storage. `[emu]` {modwerk-rytm-machines}
+- **Lock saves** keep bits 14-1 of a lock word, so bit 0 is lost; test with odd values. `[doc]` {modwerk-rytm-machines}
+- **Shared voices:** the amp-envelope record is at `0x40109c24`, 18 bytes per voice per block. A trig still takes a shared voice (CH/OH, RS/CP, MT/HT, CY/CB) even when its amp is held silent, so the partner is cut; dropping the trig in the audio-block trig loop (command byte `0x8000e508[track]`) keeps a track silent without that. A pad's light is a running mean of its own voice's level, so a dropped trig leaves the pad dark. `[doc]`, the silencing route `[hw]` (Silent Pad+Trig 0.8.0, run AT04)
+- **CV input:** EXP/CV IN 1 in CV mode read raw `0x3fcc` at 0 V, `0x6048` at about 2.5 V and `0x7fff` at 5 V; with nothing plugged in it reads below CV ZERO. `[hw]` (run T221, driven from an A4 MKII CV out)
+- **Stock mutes and MIDI:** on stock 1.74 a muted or soloed-out track still plays incoming MIDI notes (AUTO and its own channel, USB and DIN), and a held note keeps ringing after a CC 94 mute. By design, not a bug. `[hw]` (MIDI Mute's stock baseline)
+- **Kit list:** on a unit the kit list draws a marker after kits 02-16 that rytm-emu's screen lacks (I56). `[hw]`
+- **Load on Modwerk's base** (core-ar2 0.7 plus its health meter): about 74-75 % idle; 85 % with Compressor Preview open while playing; 92.9 % (DSP 86 %) with four Voice DAC voices beside LFO RND. `[hw]`
+- **Stuck pad:** on one unit stock's key table once reported pad 1 held with no pad down; cause unknown. `[hw]`
+
+## Room for +Drive mods (elekloader core-ar2 0.12, main after v0.10.0) {elekloader-core-ar2}
+core-ar2 0.12 adds spare entries that a "Drive Loader" fills at boot: 256 per event table, 10 machines (hidden slots 34-43), 149 pages (the limit is 10 views x 16 pages), 256 parameters and 8 step owners in total, for about 20 KB of RAM. +Drive mods get no lock codes; codes 42-127 come from the flashed build. `[doc]`
+
+Sidecar 0.4.3: every remote redraw the Sidecar's patched Rytm firmware receives redraws the whole Rytm screen; at 20-40 a second users saw screen and keys respond late, so redraws are now capped at 5/s (10/s for animations). `[hw]` (user reports) {sidecar-rn}
+
 ## Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) {rytm-mods-src}
 - **Stored records are read only by their load serializers.** In a cold boot watched over the whole stored project image (`0x405c8f20`, 0x1f9f32 B), the only readers were each record's loader, the project-load code, and whole-image copies. Dumps are serialised from live objects. `[emu]`
 - **37 stored kit bytes stock never reads or writes:** kit `+0x832..+0x841` (16 B) and `+0x902..+0x916` (21 B), on either side of the performance block (whose loader and saver start at `+0x842`). Mod 0018 keeps its scene mute masks there, behind a tag byte `0x53` at `+0x90c`. Whole-image copies carry them; kit copy/paste and SysEx kit transfer go through a live buffer and drop them. `[emu]`

@@ -73,8 +73,15 @@ Coverage: **good** (almost entirely through the elekloader family). Projects: [.
 | core-dn1 3.0 | digitables | newer core |
 | core-dn1 3.2 | digicosm, digichroma | newer core |
 | core-dn1 3.3 | digichroma source option | **not yet released** |
+| core-dn1 4.1 / 4.1.1 | elekloader v0.9.0 | Tone+FX 4.1a is built against 4.1 |
+| core-dn1 5.2.1 | elekloader v0.10.0 (2026-11-09) | 5.0, 5.0.1 and 5.2 were never released |
+| core-dn1 5.3 | elekloader main | live-note event; note-on/off entries `0x400eae5c`/`0x400eabb4` (1.44), `0x400eabe8`/`0x400ea940` (1.43) {elekloader-core-dn1} |
 
 `[doc]` {elekloader-readme} {digitables} {digicosm} {digichroma}. Later READMEs say 1.43/1.44 were checked in digikit; the v0.4.0 note says the 1.44 emulator boot was not working - newer state wins, but re-check. `[?]`
+
+Mono machines (SDK, core 5.x) collapse a track to one voice and hand its envelope over on retrigger. `[doc]` {elekloader-core-dn1}
+
+Tone+FX stores per-pattern data in MIDI track 4's 64-byte block (pattern + `0x1BB0`, track stride `0x3D0`, block at track + `0x100`), reserved on channel 16 with a magic word. The blocks of MIDI tracks 1-3 look zero only while those tracks are unconfigured; a configured track writes its channel and page there, so stock data and mod values corrupted each other. `[emu]` {tonefx-pattern-storage}
 
 ## Core-owned hook sites (1.43)
 `0x40000538, 0x4001900c, 0x40019072, 0x40019d9c, 0x40019de4, 0x40072a34, 0x4009d108, 0x4009e51c`. `[doc]` {elekloader-adapting}

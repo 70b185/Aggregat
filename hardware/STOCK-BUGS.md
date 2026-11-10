@@ -209,6 +209,32 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Status:** unconfirmed
 - **Evidence:** `[emu]` {kyoti-ot303}
 
+### SB17. The AUDIO EDITOR key opens the sample the track had before
+- **Device and OS:** Octatrack MKII, OS 1.40C
+- **Area:** UI, audio editor
+- **Symptom:** after a track copy/paste or a Part reload, the [AUDIO EDITOR] key shows the old sample's name, waveform and slices.
+- **Trigger:** change a track's sample by copy/paste or Part reload, then press [AUDIO EDITOR] without reselecting the track.
+- **Cause:** stock reuses the sample the track had when it was last selected.
+- **Workaround:** reselect the track first; fixed by OCTAMAX 2f.
+- **Test tip:** when a mod changes a track's sample, reselect the track before you judge the editor.
+- **Found by:** OCTAMAX (seen on a unit; fix confirmed on an MKII 2026-11-07)
+- **Status:** open in stock; fixed by a mod
+- **Evidence:** `[hw]` {octamax-notes}
+
+## Analog Rytm
+
+### SB18. Edits to hidden FX words overwrite the delay's saved TIME (latent)
+- **Device and OS:** Analog Rytm MKII, OS 1.74
+- **Area:** kit storage, FX
+- **Symptom:** after an edit of live FX words 38-41 and a power cycle, the delay TIME comes back wrong (2 instead of 23 in the test).
+- **Trigger:** a parameter setter writes FX words 38-41. The stock UI never edits them, so only mods reach this.
+- **Cause:** the FX edit save maps words 38-41 to stored slot 0, which holds the delay's TIME.
+- **Workaround:** keep mod values for those words in your own storage (Modwerk's base redirects them to its kit storage).
+- **Test tip:** after any mod that touches FX words, save, power-cycle and check the delay TIME.
+- **Found by:** Modwerk (rytm-emu, from the code)
+- **Status:** stock behaviour
+- **Evidence:** `[emu]` {modwerk-rytm-machines}
+
 ## Model:Cycles
 
 ### SB15. A random exception while browsing (filesystem block cache)
@@ -247,5 +273,7 @@ These trip tests but are hardware or design, not defects:
   ([I9](INCIDENTS.md#i9-a-second-application-on-the-port-corrupts-sysex-replies)).
 - **A soft reset leaves the Octatrack's USB controller running**
   ([I7](INCIDENTS.md#i7-a-soft-reset-leaves-the-usb-controller-running)).
+- **Analog Rytm MKII 1.74: a muted track still plays incoming MIDI notes**, and the machine list loads each machine as you scroll with no undo; both are design ([analog-rytm.md](devices/analog-rytm.md#modwerk-rytm-modules-and-stock-behaviour-os-174-2026-11-10-modwerk-rytm-modtests)).
+- **Octatrack PART RELOAD restores the whole Part** from its SAVE PART copy, so every track on it reverts, and it needs a SAVE PART first (KYOTI's per-track reload works around this).
 - **Projects saved by a mod** may stall stock or a newer build if their values no longer fit
   ([I28](INCIDENTS.md#i28-a-select-value-outside-its-count-stalled-the-sequencer)); that is the mod's data, not a stock bug.

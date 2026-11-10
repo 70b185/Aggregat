@@ -104,7 +104,7 @@ Normal case: Drop page in Transfer. If the OS does not boot: DIN MIDI, FUNC at p
 - SynCrackd replaces Twinshot (and CY ALLOY) with a 64-slot stereo sampler, loops, slices, time stretch and transient triggers. It is OS 1.42 only, alpha, tested in emulation and on one unit, MIT.
 - Synfact (OS 1.41) adds DT mk1 sample machines, a per-project pool, polyphony across tracks and a third LFO.
   - It ships its firmware change as a **zlib-compressed XOR mask** against the official file, pinned by hash.
-  - It needs a second mods file (515,808 B) sent with its own transfer tool after the flash. Boot and hardware validation are still pending. `[doc]` {synfact}
+  - It needs a second mods file (515,808 B) sent with its own transfer tool after the flash. Boot is confirmed on a unit (core 1.4 and 1.7.2, 2026-11-09); the safe-boot rollback is not yet tested on hardware. `[hw]` {synfact} {synfact-core}
 
 ## How mods are built on the Syntakt (SyntHack modding guide, worth copying) {synthack-guide} `[doc]`
 - **Each change is stored with the SHA-256 of the original bytes**, so a different OS version fails the build instead of crashing. Every mod runs in a Unicorn emulator next to the original code before flashing.
@@ -159,6 +159,13 @@ Normal case: Drop page in Transfer. If the OS does not boot: DIN MIDI, FUNC at p
   - So Rytm voice research applies here and back. `[doc]` (inferred from the shared formats)
 - **Digital tracks:** rendered on CPU #2, then handed over by mailbox and eDMA channel 47 to CPU #1, which mixes them and sends them to the SSI1 codec. This agrees with SyntHack's audio path above. `[emu]`
 - **An emulator now boots 1.42 with both CPUs** (analog-emu: stage 1 the main screen with a stand-in for CPU #2, stage 2 CPU #2 running for real). It is the only Syntakt 1.42 emulator in the catalogue; SyntHack's Unicorn harness targets 1.41. `[emu]`
+
+## Synfact core and SMZ4 banks (OS 1.41, 2026-11-10) {synfact-core} {synfact-safeboot}
+- **Bank store:** two 8 MiB slots inside the old 16 MiB `/mods` reservation, metadata sectors at eMMC `0x02bffe00` and `0x033ffe00`; the legacy record at `0x03400000` is still read. `[doc]`
+- **Safe boot:** a bank moves CANDIDATE -> TRYING (written before any bank code runs) -> GOOD, set once AUDIO and the sample pool are ready and 150 UI ticks (about 5 s) have passed; a crash or power-off before that boots the previous GOOD bank or stock machines. Each bank names an exact core contract, and the core checks the stock bytes that LFO3 and MODULATION SKIP patch before any initializer runs. `[doc]`, rollback `[?]` (not yet tested on hardware). The first trial crashed every boot (I62).
+- **Filter table:** the stock base-width filter reads Q31 poles from `0x40040060` (508 poles, then a zero tail; indices up to 1023 are read). A mod window in that tail made BASE+WDTH of 128 or more read code as poles; core 1.7.2 bounds the index. `[hw]` (I63)
+- **Load:** MAIN is about 88 % with a plain pattern and 91-92 % with three POLY voices; code fetched from DDR costs far more than its instruction count (I64). `[hw]` {synfact-chorus}
+- **Build and voices:** builds use `-mcpu=54415` (an MCF5441x part), SMZ bank code `-fno-jump-tables`. Each track has one stock voice block at `0x80000000 + t*0x708`; the stock voice reset rewrites +`0x570`-`0x708` and zeroes 48 bytes at the pointer in +`0x56c`. `[doc]` {synfact-machine-ref}
 
 ## Gaps
 - **Signing:** the HMAC presence in 1.41 versus 1.42 is a conflict, see above.

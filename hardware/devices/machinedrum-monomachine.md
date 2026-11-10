@@ -101,6 +101,8 @@ Each item failed on a unit and passed in the emulator. `[hw]`
 - **Custom OS saved-data hazard:** em's firmware reclaims song slots for extended data (MnM: slots 13-24; MD: 13-32). Songs left in those slots are **corrupted on boot**, so back them up first. The same can happen with any mod that changes saved-data layouts (compare section E of AGENT-RULES). `[doc]` {ems-fw}
 - em's firmware carries features from jmamma's MDX (new machines, tunings, LFO shapes, MIDI fixes) with credit. `[doc]` {ems-fw}
 
+- **Screen dump (ems-monomachine-firmware 26B09):** the request `F0 00 20 3C 03 00 64 F7` returns 16 SysEx chunks of 7-bit-packed data, 64 bytes each once decoded: the native LCD bitmap, 128x64, 1 bit, column-major, bottom to top, MSB first. Whether stock 1.32B answers it is not stated. The firmware is now compressed, so boot is slower. `[doc]` {ems-mnm-changelog}
+
 ## Open
 - The Monomachine's clocks and DSP budgets on a unit (only the emulator's board model exists).
 - The Machinedrum's hardware wait states per area (only two areas measured).

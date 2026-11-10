@@ -22,7 +22,7 @@ results by hand, with credit to this project. Taking part is voluntary and can s
 
 | | |
 |---|---|
-| Aggregat state | research map reviewed 2026-11-03, snapshot `a9f2d0677fff` |
+| Aggregat state | research map reviewed 2026-11-03, snapshot `650a407e7803` |
 | Copied on | <date you copied it> |
 
 ## What we work on
@@ -49,7 +49,7 @@ emulator, `doc` = read in code or documents.
 
 ---
 
-# Copied state: Aggregat research, snapshot `a9f2d0677fff` (research map reviewed 2026-11-03)
+# Copied state: Aggregat research, snapshot `650a407e7803` (research map reviewed 2026-11-03)
 
 ## Goals (copied from Aggregat)
 
@@ -97,6 +97,7 @@ emulator, `doc` = read in code or documents.
 | H5 | G8 | Overbridge rejects a modified OS whose container version field differs from stock (shown on the DN2, Digiwerk OB01). | DT2, Heat +FX | No new flash needed if you already have builds: does Overbridge connect to a build whose version field was changed, and to one where it was kept? |
 | H18 | G7 | The Heat +FX answers the screen request (RPC framing `F0 00 20 3C 10 00`), as the Heat MKII does, so its screen can be mirrored and read without a mod. | Heat +FX, DT1, DN2 | Open Elek View (bluesgl.github.io/Elek_View) with nothing else on the MIDI port, select the unit, Start. |
 | H19 | G4 | The stock start-up animation runs at 30 frames per second, so it lasts about 5.8 s (175 frames), not about 11.7 s at 15 fps (O20). | DT2, DN2 | Film a cold start with your phone, three times, and time the animation from its first frame to its last; also say whether it looked the same each time (one of five animations is picked at random, the first about 99.9 % of the time). |
+| H23 | G7 | The ~4 KB cut in long MidiRpc LIST replies is in the stock reply router, not in a mod: an unpaged listing of a 256-entry table store on a modded DN2 came back as 3,997 bytes, correct up to entry 125 and garbage after; pages of 64 were clean. | DN2 | On stock, list a +Drive folder with more than 130 entries in one unpaged request (DNX or Elektroid) and compare the reply length and the tail with a paged listing. Until settled, page listings at 64 entries or fewer. |
 | H6 | G8 | The DT2's SHARC DDR above the sample pool window (`0x9d22b9c8` up to `0xa0000000`, about 46 MB) is never written by stock, as the DN2's tail `0x80531000-0xa0000000` is not. | DT2 | dnfw's method: fill the range with a pattern at boot, then scan it during heavy playback, pattern and kit changes, FX extremes, sample loads and a save. Expect a reserved top part for Capicola builds only. |
 | H7 | G3 | The DT2's ColdFire runs the same FreeRTOS layout as the DN2: higher priority numbers run first, prio 0 never runs, prio 1 is the idle loop; the main task's stack is barely used. | DT2 | With the USB probe: find the ready table and the running-task pointer, sample them 60 times. |
 | H8 | G8 | The DN2's digikit flash cave `0x402fb7a8` (2,136 B on 1.11) keeps its bytes through a cold boot, as the DT2's `0x403117c4` does. | DN2 | A canary in the cave, read back after a cold boot and after playback. Combine with H9. |
@@ -109,12 +110,18 @@ emulator, `doc` = read in code or documents.
 | H15 | G2, G3 | On the DN2, a single late DSP block is a one-block dropout that recovers, as on the DT2; the "silence until power cycle" reports came from sustained overload. | DN2 | Provoke single late blocks (a burn loop on a key press) and count them on the DSP side; then hold an overload for seconds. |
 | H16 | G1 | Heat +FX builds need a cold-start test like other ColdFire units: a startup change can pass quick restarts and fail after minutes off (A40). | Heat +FX | For the next startup-touching build: power off for 10 minutes before judging. |
 | H17 | G2, G3 | Code costs on the Heat +FX follow the DT1's ColdFire lessons (EMAC mode switches, D16 hot-path hooks), since both run audio on an MCF5441x ColdFire. | Heat +FX | Measure an audio-ISR hook with and without a MACSR switch per block. |
+| H20 | G8 | DT2 OS 1.17 saves only the kits the user changed, so a module's own kit data that changes by itself is lost unless a stock parameter of that kit changes too. | DT2 | Modwerk publishes a unit procedure: change only module data, save, power-cycle, reload. |
+| H21 | G8 | The Octatrack stall after a PROJECT > SYSTEM walk on Modwerk builds is Modwerk's DSP stall watchdog firing while stock itself holds the frames (USB DISK MODE), not a stock fault. | Octatrack | Make the same walk on a unit with nothing installed, then with the watchdog off. |
+| H22 | G1, G8 | The total freeze in octabam's demand-loader soak (I57) is the ColdFire spinning in one of the frame interrupt's waits that have no time limit, after the DSP stopped taking host words. | Octatrack | Add time limits (with a counter) to both waits and repeat the 118-switch soak. |
 
 ## Open conflicts between projects
 
 | # | Topic |
 |---|---|
 | O20 | DT2/DN2 stock intro frame rate |
+| O21 | Latest Digitakt mk1 core for Tone+FX |
+| O22 | Has octabam's WAVE (wavecf) run on an Octatrack? |
+| O23 | Octatrack boot fill of internal SRAM; meaning of `0x80000003` |
 | O1 | Syntakt OS signing |
 | O3 | Syntakt CPU #1 load |
 | O19 | DN2 SHARC L2 between `0x200918c0` and `0x200c2000` |

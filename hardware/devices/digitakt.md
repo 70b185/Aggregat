@@ -71,3 +71,8 @@ Distribution is uniform: every mod is an elekloader mod patching the user's own 
 - Digitakt II is explicitly out of scope for the mk1 mods (e.g. DigiFilter). {digifilter}
 - digihealth's FAST AUDIO gives a lower DSP load with the same audio (elekloader v0.2.0 notes; checked alone in digikit's emulator with cold boot). {elekloader-readme}
 - Test state varies per build: see the project pages; several are emulator-only.
+
+## elekloader core 4.1-4.3 and compatibility (2026-11-10) {elekloader-core-dt1}
+- Core 4.2 adds a live-note event (live notes before the voice; a handler can take them). Stock NOTE_ON/NOTE_OFF are at `0x400d53dc`/`0x400d575e` on 1.53 and `0x400d5604`/`0x400d5986` on 1.54; digipoly, digislicer and OB-1 hook these routines themselves. Core 4.3 adds a MIDI CC event at `0x400158ec` in the CC router `0x400158d2` (same on 1.53 and 1.54). `[doc]`
+- Core 4.1 patches the master-output sites itself, so Digi EQ 1.0c and Tone+FX's Digitakt files (3.2a3, 4.0c), which patch the same places, refuse to link with it; the builder falls back to core 4.0 for them. Tone+FX and Digi EQ also cannot go together: both take the master view's draw, the render site `0x400721e6` and kind-0 pages. `[doc]` {elekloader-cores} {tonefx-dt-port}
+- There is no spare per-pattern MIDI block on the DT1; the kit spare at kit + `0x530` and the pattern spare bytes are already used by Digi Matrix, Digi Poly and Digi EQ, so Tone+FX keeps its Digitakt data in RAM, lost on power cycle or project load. `[doc]` {tonefx-pattern-storage}

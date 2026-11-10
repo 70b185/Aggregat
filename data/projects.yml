@@ -54,15 +54,17 @@ projects:
     license: "GPL-2.0-or-later"
     links:
       web_app: https://irpina.github.io/elekloader/
-      releases: https://github.com/irpina/elekloader/releases
+      releases: https://github.com/elekloader/elekloader/releases
+      shop: https://elekloader.github.io/shop/
+      shop_repo: https://github.com/elekloader/shop
       forum: https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices
     status: active
-    contains: "the mod shop (web/catalog.json, 2026-11-08): 173 mod files from 32 repos, each repo listed here as its own entry; base mods machine-pages (Digitakt), machines and fxkit (Digitone)"
+    contains: "the mod shop (catalog.json in elekloader/shop, b3d687d, 2026-11-09; moved out of the main repo on 2026-11-08): 170 mod files from 38 repos, each repo listed here as its own entry; base mods machine-pages (Digitakt), machines and fxkit (Digitone)"
     tested: unit
     tested_note: "machine-pages 1.2, fxkit and the cores ran on units (shop notes)"
     base_os: "Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed"
-    version: "v0.9.0 (2026-10-30), first full release since 0.4.0. main since: a mod shop (submit a released mod through an issue form, a check opens the PR, later releases follow automatically; docs/SHOP.md), core-ar2 0.9 (lockable mod fields as velocity/aftertouch destinations; kit fields lockable), core-dn2 0.3 (experimental) with a DSP memory peek, the optional dspbusy-dn2 load meter, 64 KiB L2 and guarded stacks per DN2 machine, SDK alpha pages/glyphs"
-    last_activity: 2026-11-03
+    version: "v0.10.0 (tag 2026-11-09): ships each device's newest core (DT1 4.1, DN1 5.2.1, DT2 1.0, DN2 0.3, AR2 0.11, A4 0.5, OT 0.8, MC 0.3, MS 0.1). main since: DT1 core 4.2/4.3 and DN1 5.3 (live-note and MIDI CC events), core-dn2 0.4 (MIDI CC event, DSP post words), core-ar2 0.12 (spare table entries for +Drive mods), SDK mono machines and MIDI CCs, DT2 sharc_raw (raw section-7 loads and relocatable DSP objects)"
+    last_activity: 2026-11-10
     own_mods:
     - {name: "machine-pages", devices: [digitakt], path: "mods/machine-pages", tested: "unit", note: "the owner's Digitakt", what: "Shared SRC and LFO pages that machine mods describe themselves to (core 3.0+), so several machine mods fit in one build"}
     - {name: "fxkit", devices: [digitone], path: "mods/fxkit-dn1", tested: "unit", note: "per elekloader's shop notes", what: "What the Digitone's input-effect mods share: a mixer, two LFOs, pattern p-locks and a CPU guard"}
@@ -82,6 +84,7 @@ projects:
       Canonical repo is unclear: the forum post also embeds github.com/elekloader/elekloader
       (web app at elekloader.github.io/elekloader); forks exist (AvroraPolnareff, naturarum, toonst, simonjohansson); none is listed, as none has changes of its own.
       Forum: builder issue reported 2026-10-19. Licence GPL-2.0-or-later.
+      2026-11-10 (8daa2ea): the shop's list, forms and bots moved to elekloader/shop (#338); mods are submitted there. machine-pages 1.8-1.10, machines-dn1 0.5/0.6 and machines-dn2 0.5 add mono machines and MIDI CCs (emulator-tested per TESTS.md). The linker now refuses odd jump targets into mod RAM after a Digitakt II froze at boot (I61). The README offers a Windows .exe; not every release carries the macOS .dmg.
     latest_seen: >
       altstrument.org and the repo (read 2026-10-31): canonical repo is github.com/elekloader/elekloader (183 commits, 103 stars, GPL-2.0-or-later); web app moved to elekloader.github.io/elekloader; the Mac app was absent from v0.9.0 because signing secrets need renewing. v0.9.0 cores: core-4.1 and core-4.1-os1.54 (Digitakt mk1), core-dn1-4.1.1 and -os1.44 (Digitone mk1), core-ar2-0.8 (Analog Rytm MKII 1.74), core-ot-0.8 (Octatrack 1.40C), core-mc-0.3 (Model:Cycles), core-ms-0.1 (Model:Samples), core-a4 0.1-0.4 (Analog Four MKII 1.56). Kit 0.7.0 catalog: 19 cores, 88 mods. machine-pages 1.2/1.3/1.5 need core 3.0+ on Digitakt mk1 and refuse NEIGHBOR 0.6, SOPHIE 1.1.13 and digichain-based machine mods beside them; fxkit 0.1 gives Digitone effect mods a shared mixer, two LFOs, pattern p-locks and a CPU guard; core-dn1 4.1 adds ev_note_queue; kit 0.6.0 gives 4.0 cores larger RAM areas (256 KB Digitakt, 1.25 MB Digitone). docs/ includes AGENTS.md, DEVICES.md, MACHINES-DN2, SHARC-DN2, CORES, FORMAT, BUILDING, ADAPTING (not all read yet - see hardware/MINING.md). The earlier irpina/elekloader repo is where the author's older releases lived.
     sources: [forum thread 30, GitHub release v0.4.0, gearnews, dubspot]
@@ -101,15 +104,15 @@ projects:
     status: active
     contains: "sdk modules (2026-11-08) - Rytm MKII: audio-in-fx, chorus, chromatic-aftertouch-fix, control-in-actions, ctrl-all, env-reset-amp, euclid-accents, filter-hz, flanger, live-rec-retrig-fix, loop-sync, main-rms, midi-feedback, phaser, pipo-loop, qperf, quick-fill-trig-condition, quick-velocity-aftertouch-assign, sample-rate, silent-pad-trig, slice-loop, temp-save, velocity-humanise, wavefolder; Digitakt mk1: cc-names, cc-recall, digichain, digieq, digihealth, digimatrix, digimono, digineighbor, digiperform, digipoly, digislicer, digisophie, digistring, digiutils, euclidean, fx-track, input-prefader, midi-expression, midi-retrig, note-accumulator, ram-machines, sample-tools; Digitone mk1: digihealth, digitables; Octatrack (octabam): airwindows-chorus, apply-scene, arp-key-locks, beat-slicer, dejavu, everb, output-matrix, playmodes, poly8, previewvol, ring-sc, stem-rec, tapehead, tiempos, vector and others"
     tested: partly
-    tested_note: "some library modules confirmed on units, newer packages not yet"
+    tested_note: "most Rytm MKII library modules carry the authors' unit runs on OS 1.74 (Modwerk base, core-ar2 0.7); the Octatrack key-bus move ran on an MKI and an MKII; the Digitakt II audio scheduler is not on a unit yet"
     base_os: "Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing"
     version: null
-    last_activity: "2026-11-05"
+    last_activity: "2026-11-10"
     own_mods:
     - {name: "Audio In FX", author: "npp1993", devices: [analog-rytm], version: "0.1.0", path: "sdk/analog-rytm-mkii/modules/audio-in-fx", tested: "not-stated", what: "Sends AUDIO IN into the master distortion and compressor and into delay and reverb, from two knobs on the FX track"}
     - {name: "Chorus", author: "stigmagit", devices: [analog-rytm], version: "0.1.0", path: "sdk/analog-rytm-mkii/modules/chorus", tested: "unit", note: "author's hardware report in the module manifest", what: "Stereo chorus on the send bus, with feedback and high- and low-pass"}
     - {name: "Chromatic Aftertouch Fix", author: "npp1993", devices: [analog-rytm], version: "0.2.0", path: "sdk/analog-rytm-mkii/modules/chromatic-aftertouch-fix", tested: "unit", note: "author's hardware report in the module manifest", what: "Pad pressure keeps reaching aftertouch and MIDI out during retrig rolls; CHROMATIC pads send aftertouch on their own note"}
-    - {name: "Control In Actions", author: "npp1993", devices: [analog-rytm], version: "0.1.2", path: "sdk/analog-rytm-mkii/modules/control-in-actions", tested: "not-stated", what: "EXP/CV IN as ACTION: a gate or footswitch holds or toggles MUTE, live recording or FILL"}
+    - {name: "Control In Actions", author: "npp1993", devices: [analog-rytm], version: "0.1.3", path: "sdk/analog-rytm-mkii/modules/control-in-actions", tested: "unit", note: "run RC36 in a combined set: ending live recording returns to grid or step recording", what: "EXP/CV IN as ACTION: a gate or footswitch holds or toggles MUTE, live recording or FILL"}
     - {name: "Flanger", author: "stigmagit", devices: [analog-rytm], version: "0.1.0", path: "sdk/analog-rytm-mkii/modules/flanger", tested: "unit", note: "author's hardware report in the module manifest", what: "Endless (barber-pole) stereo flanger on the send bus"}
     - {name: "Live Rec Retrig Fix", author: "npp1993", devices: [analog-rytm], version: "0.2.1", path: "sdk/analog-rytm-mkii/modules/live-rec-retrig-fix", tested: "not-stated", what: "Live recording keeps each pad retrig hit as its own trig, with the velocity and timing played"}
     - {name: "Loop Sync", author: "stigmagit", devices: [analog-rytm], version: "0.3.2", path: "sdk/analog-rytm-mkii/modules/loop-sync", tested: "unit", note: "author's hardware report in the module manifest", what: "Repitches sample loops to follow the project tempo, reading each loop's tempo from its length"}
@@ -120,9 +123,11 @@ projects:
     - {name: "Quick Fill Trig Condition", author: "npp1993", devices: [analog-rytm], version: "0.2.0", path: "sdk/analog-rytm-mkii/modules/quick-fill-trig-condition", tested: "not-stated", what: "While a trig is held in grid recording, FILL, UP and DOWN set FILL / NOT FILL and ratio conditions"}
     - {name: "Quick Velocity+Aftertouch Assign", author: "npp1993", devices: [analog-rytm], version: "0.1.0", path: "sdk/analog-rytm-mkii/modules/quick-velocity-aftertouch-assign", tested: "not-stated", what: "Links a parameter to velocity or aftertouch: hold FIX or SAMPLER and turn its knob"}
     - {name: "Sample RATE", author: "npp1993", devices: [analog-rytm], version: "0.1.1", path: "sdk/analog-rytm-mkii/modules/sample-rate", tested: "unit", note: "author's hardware report in the module manifest", what: "FIN becomes a per-sound RATE knob: sample speed down to a stop and into reverse"}
-    - {name: "Silent Pad+Trig Settings", author: "npp1993", devices: [analog-rytm], version: "0.7.0", path: "sdk/analog-rytm-mkii/modules/silent-pad-trig", tested: "unit", note: "author's hardware report in the module manifest", what: "Select pads and trig keys without sounding them, also in live recording; muted tracks stay muted under MUTE ALL SOUND"}
+    - {name: "Silent Pad+Trig Settings", author: "npp1993", devices: [analog-rytm], version: "0.8.0", path: "sdk/analog-rytm-mkii/modules/silent-pad-trig", tested: "unit", note: "0.8.0 run AT04: RTRG on a muted pad records the whole roll without stealing the shared voice", what: "Select pads and trig keys without sounding them, also in live recording; muted tracks stay muted under MUTE ALL SOUND"}
     - {name: "Temp Save", author: "npp1993", devices: [analog-rytm], version: "0.1.0", path: "sdk/analog-rytm-mkii/modules/temp-save", tested: "not-stated", what: "FUNC + YES overwrites the pattern's and kit's reload copies; FUNC + NO brings both back"}
     - {name: "Wavefolder", author: "stigmagit", devices: [analog-rytm], version: "0.1.0", path: "sdk/analog-rytm-mkii/modules/wavefolder", tested: "unit", note: "author's hardware report in the module manifest", what: "Wavefolder on the send bus that follows each hit's strength"}
+    - {name: "Improved Machine Browser", author: "npp1993", devices: [analog-rytm], version: "0.1.0-experimental", path: "sdk/analog-rytm-mkii/modules/improved-machine-browser", tested: "unit", note: "unit runs MBC2/MBC3, OS 1.74", what: "The machine list no longer loads machines while you scroll: arrows and knobs move the outline, YES loads, NO cancels, FUNC + arrow or knob jumps between sections"}
+    - {name: "MIDI Mute", author: "michaelkollmann", devices: [analog-rytm], version: "0.1.0-experimental", path: "sdk/analog-rytm-mkii/modules/midi-mute", tested: "unit", note: "builds MM03/MM04 with a stock baseline on the same unit, OS 1.74", what: "Optional MUTE MIDI IN: muted or soloed-out tracks also ignore incoming MIDI notes (USB and DIN), and held notes are released when a track is muted"}
     - {name: "CC Recall", author: "draadpiraat", devices: [digitakt], version: "0.1.0", path: "sdk/digitakt/modules/cc-recall", tested: "unit", note: "author's hardware report in the module manifest", what: "MIDI tracks send their pattern's CC values at once after a reload, pattern change, project load or STOP"}
     - {name: "DigiPerform", author: "ROMsets", devices: [digitakt], version: "0.1.2", path: "sdk/digitakt/modules/digiperform", tested: "not-stated", what: "Eight per-pattern performance macros on knobs A-H"}
     - {name: "FX Track", author: "draadpiraat", devices: [digitakt], version: "0.1.0", path: "sdk/digitakt/modules/fx-track", tested: "not-stated", what: "A MIDI track becomes an effects track whose CCs play delay, reverb, compressor and the External Mixer, with p-locks"}
@@ -134,6 +139,7 @@ projects:
       2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI.
       2026-11-03: the site now lets you download a built Analog Rytm MKII .syx (after confirming you know how to get back to stock); new Rytm module quick-velocity-aftertouch-assign with a verification note. Zoom pedals: an effect whose group+ID clashes with one already on the pedal is moved to a free local Delay ID 958-1023 (ID only in the ZDL header at 0x40-0x41, no checksum); two effects with the same group and ID froze an MS-70CDR at boot until its ROM was reprogrammed.
       2026-11-04/05: Rytm MKII downloads on (records); npp1993's Control In Actions (footswitch or 0-5 V gate on EXP/CV IN as ACTION for MUTE and more) and Quick Velocity+Aftertouch Assign join the library, Silent Pad+Trig Settings 0.7.0; euclidean 1.1.6 for Digitakt I 1.53/1.54 reported working on a unit by sumedho (all cases, save/reload, power cycle).
+      2026-11-08 to 11-10 (74c9eb2): Rytm library gains comp-preview, kit-ab, lfo-rnd and voice-dac (from rytm2_mods, unit runs on the Modwerk base), ctrl-in-perf and scene-mutes (from rytm-mods-src 0017/0018, unit runs T208/T210/T221), Improved Machine Browser and MIDI Mute; the Octatrack key bus moved to the tail of the first FX2 slot (checked on an MKI and an MKII); a Digitakt II audio scheduler is proposed (emulator only); Zoom MS-70CDR pedal work (out of scope here).
     sources: [gearnews, dubspot, forum thread 36]
     relations:
     - {type: cites, id: elekloader, evidence: 'README mentions elekloader (porting from it / hosted loader)'}
@@ -344,11 +350,12 @@ projects:
     tested: unit
     base_os: "Digitone mk1 / Digitone Keys OS 1.43"
     version: 2.0o (2026-09-30)
-    last_activity: 2026-09-30
+    last_activity: 2026-11-09
     notes: >
       Master effects with a DIGI FX page. Tested on hardware and in digiemu. Open items per
       author: encoder acceleration, saving state at pattern level. Built with elekloader.
       The newer Tone+FX repo of the same author calls this "the older RingTone repo" (successor, see tone-fx).
+      2026-11-09: mods/tonefx/mod.json bumped to Tone+FX 4.1a built against core-dn1 4.1, so this repo is where Tone+FX is developed.
     sources: [GitHub release 2.0o]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "built with elekloader"'}
@@ -987,15 +994,15 @@ projects:
     name: Tone+FX
     author: DigiAlchemydsp
     kind: mod
-    devices: [digitone]
+    devices: [digitone, digitakt]
     repo: https://github.com/DigiAlchemydsp/Tone-FX
     license: "GPL-2.0"
     status: wip
     tested: unit
-    tested_note: "shop: 4.0c tested on hardware, Digitone and Digitakt"
+    tested_note: "shop: 4.0c tested on hardware, Digitone and Digitakt; 4.1a emulator only (digiemu), audio path unchanged from 4.0c"
     base_os: "Digitone mk1 + Keys OS 1.43"
-    version: "v3.2b (2026-10-12)"
-    last_activity: 2026-10-12
+    version: "v4.1a (2026-11-09): compatibility release built against core-dn1 4.1; no audio or UI change from 4.0c; four files incl. Digitakt mk1 1.53/1.54 from gdeo607's port (link with core 4.0)"
+    last_activity: 2026-11-09
     notes: >
       Master effect suite (ring mod, EQ, lo-fi, wavefolder, meter). "Work in progress, emulator-tested".
       Release-only repo, source lives in a separate dev repo. Its README calls RingTone "the older
@@ -1064,16 +1071,18 @@ projects:
     links:
       earlier_repo: https://github.com/m-dwyer/digikit
     status: wip
-    contains: "modules (README table, 2026-11-09): PLUCK (plucked-string machine), Frequency shifter (FX), bootscreen (loadable boot screens, .dkbs); plus the digikit runtime they load through"
+    contains: "modules (README table, 2026-11-09): PLUCK (plucked-string machine), Frequency shifter (FX), bootscreen (loadable boot screens, .dkbs); 2026-11-10 also Overdrive curves (core adapter) and TB303 (run-time machine, DT2); plus the digikit runtime they load through"
     tested: partly
-    tested_note: "README table: runtime and PLUCK ran on a Digitakt II (OS 1.17), bootscreen too (finding 117); Frequency shifter emulator only; Digitone II emulator only"
+    tested_note: "README (2026-11-10): digikit has run on a real Digitakt II (OS 1.17: runtime, PLUCK, bootscreen per finding 117); the Digitone II only in the emulator; Frequency shifter, Overdrive curves and TB303 emulator only"
     base_os: "Digitakt II target 1.17 (emulator also runs 1.16 as default file; 1.15C kept for old analysis); Digitone II target 1.12 (also runs 1.11 as default file; 1.10E kept for old analysis)"
     version: null
-    last_activity: "2026-11-08"
+    last_activity: "2026-11-10"
     own_mods:
     - {name: "PLUCK", path: "modules/machines/pluck", tested: "unit", note: "Digitakt II, OS 1.17; Digitone II emulator only", what: "Plucked-string synth machine (decay, pick position, brightness, colour), loaded at run time"}
     - {name: "Frequency shifter", path: "modules/fx/freqshift", tested: "emulator", what: "Shifts every frequency by the same number of Hz, as a send effect or master insert"}
     - {name: "bootscreen", tested: "unit", note: "one Digitakt II 1.17 (finding 117); Digitone II emulator only", what: "Loadable boot screens (.dkbs files) in place of the stock intro"}
+    - {name: "Overdrive curves", path: "modules/core/adapters/overdrive", tested: "emulator", note: "Digitakt II 1.17, patched into the image; SHARC emulator only", what: "OVR ROUTING becomes OVR TYPE: pre or post times eight curves (stock, TNH4, HARD, SOFT, TUBE, FOLD, FUZZ, SQR), and the top of the OVERDRIVE range drives harder"}
+    - {name: "TB303", path: "modules/machines/tb303", devices: [digitakt-2], tested: "emulator", note: "checked against a Python model on the emulated SHARC; about 8,000 SHARC instructions per 32-sample block", what: "Run-time machine porting the Open303 bass-line synth (MIT)"}
     notes: >
       Native Rust emulator that runs the ColdFire and SHARC+ firmware together, with front panel, display and audio,
       plus a web panel (WASM core), a Tauri desktop app, the patch toolchain "patchkit" (applies modules to the
@@ -1102,6 +1111,7 @@ projects:
       2026-11-09: the README's module table now lists the runtime and PLUCK as run on a Digitakt II (OS 1.17), so
       the earlier caveat that no patched firmware had been installed on a device no longer stands; listed under
       mods as well (also_lists).
+      2026-11-10 (findings 118-119, 56fbc11): finding 119 reads a track's Sound parameter words through anchored functions (folded into devices/digitakt-2.md); new modules Overdrive curves and TB303; a public site (https://eleklabs.github.io/digikit/) patches the stock .syx in the browser, flashes over USB and installs modules; the README still does not call the bootstrap-menu recovery tested.
     sources: [GitHub README ElekLabs/digikit, GitHub README m-dwyer/digikit, lapin-list]
     relations:
     - {type: cites, id: elektron-firmware-tool, evidence: 'README: container-format knowledge comes from elektron-firmware-tool'}
@@ -1231,8 +1241,8 @@ projects:
     install: "dnfw (CLI or browser)"
     tested_note: "14 of 16 mods confirmed on hardware per README; degreetranspose untested by the owner"
     base_os: "Digitone II OS 1.11 (mods); README also covers Digitone / Keys"
-    version: null
-    last_activity: null
+    version: "lfo4 1.0.6, waverider 0.5.1, usbprobe 0.1.1 (2026-11-09/10)"
+    last_activity: 2026-11-10
     notes: >
       Tools to inspect, modify and rebuild Digitone firmware (dnfw, CLI and browser), plus 17 mods for
       Digitone II 1.11 (Waverider wavetable machine, LFO4, arp modes, LFO waves, FX destinations and others),
@@ -1403,10 +1413,10 @@ projects:
       safety_doc: https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/SAFETY.md
     status: wip
     tested: emulator
-    tested_note: "most versions emulator-checked, not seen on hardware yet (FIRMWARE.md)"
+    tested_note: "gated in the emulator; units ran v0.44-v0.46: v0.44 froze (I65), BOUNCE recorded nothing or never played back (I66); the RECORDED copy and LED colours are unproven on hardware (FIRMWARE.md)"
     base_os: "Digitone II stock OS 1.11 ONLY (1.10 must update to 1.11 first; 1.12+ must go back to 1.11). Also needs the user's own Digitakt II OS 1.17 (or 1.16), Machinedrum UW OS 1.63 and Monomachine SFX-6 OS 1.32B files"
-    version: "v0.40 NEST (2026-11-06): folders inside folders on the +Drive (six levels), SLICE reads fixed, ERASE MOD DATA survives a busy card (TRIM ERROR on a unit traced to a stock eMMC driver race); gate CLEARED TO FLASH. Earlier: v0.39 SLIDE (2026-11-03): parameter slides (SLD/SLEN, lock ids 200/201), recordings kept whole again, THRES 0 learns its floor over 48 blocks, +DRIVE look-alike samples matched by identity, +DRIVE key repeat, ERASE MOD DATA; DN2 OS 1.11; gate CLEARED TO FLASH (42 gates)"
-    last_activity: "2026-11-06"
+    version: "v0.47 TUNED (2026-11-09): Monomachine TUNE reads -64..+63 and FUNC+turn steps a semitone; TRIM preview 6 dB quieter; BOUNCE taken out of MACHINE SEL (old BOUNCE tracks still load). v0.46 KEEPER (11-09): recordings also copied to +DRIVE > RECORDED, names up to 35 characters. v0.45 ROOMIER (11-08): BOUNCE freeze fixed, +Drive library 16,384 samples, SELECT UNUSED, PING filter removed. v0.44 (11-07) withdrawn after it froze units (I65). Gate: CLEARED TO FLASH."
+    last_activity: "2026-11-09"
     notes: >
       Adds Digitakt II sample machines (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE) with sample browser and
       recorder, PERC (34 Machinedrum machines incl. TRX, EFM, GND, P-I), Monomachine voices (SID 6581, DPRO WAVE/DDRW/DENS,
@@ -1433,6 +1443,7 @@ projects:
       slides on the sample and Machinedrum machines' own continuous controls, Octatrack-style rec trigs, then a
       comparison with heavylight's Capicola time-stretch. The roadmap also plans to read Aggregat (export DB, research map)
       before new DN2 work.
+      2026-11-09: FASCIA (modal percussion) was built and pulled for size, planned for v0.48; FLEX is to replace BOUNCE; Capicola is on hold at its author's request.
     sources: [GitHub README, FIRMWARE.md, patcher web page, docs/ROADMAP.md]
     relations:
     - {type: builds_on, id: dn2-firmware-explore, evidence: 'docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698'}
@@ -1665,7 +1676,7 @@ projects:
     status: beta
     base_os: "no OS versions stated; Digitone II product id 0x15"
     version: 0.9.0-beta.8
-    last_activity: 2026-10-30
+    last_activity: 2026-11-10
     notes: >
       Browser tools (Web MIDI, Chromium only, nothing uploaded) for Digitone and Digitone II projects: Expander (each sound-locked Digitone 1 sound gets its own
       track on the Digitone II), Manager (move/copy/swap/clear/rename patterns across banks with undo; Insights: polymeter, PATTERN RESET cost, voice use),
@@ -1675,6 +1686,7 @@ projects:
       checked against a fresh listing, never writes the loaded project, never converts a DN2 preset to DN1; close Transfer and Overbridge first (shared MIDI ports). Formats:
       .dnprj (DN1) and .dn2prj (DN2) projects, sound banks .syx; payloads LZ4-compressed inside a ZIP; SysEx uses 8-in-7 MSB-first. Author discloses LLM use; AGPL-3.0-or-later,
       TypeScript, 15 stars, created 2026-09-07. Not firmware modding. Report button opens a prefilled GitHub issue.
+      2026-11-10 (docs/KNOWN-ISSUES): an unpaged LIST of a 256-entry table store came back cut at about 4 KB with garbage after entry 125; listings are now paged in 64s (HYPOTHESES H23).
     sources: [elektronmods id 39, SYXGRID README]
     relations:
     - {type: cites, id: libanalogrytm, evidence: 'README: reference for Elektron structures'}
@@ -1856,7 +1868,7 @@ projects:
       alias: https://github.com/connorway32/rytm-mods-src
     status: active
     tested: partly
-    tested_note: "README status table: 0002-0008, 0010 and 0012-0015 hardware-verified; 0009's display checked on the device; 0017 and 0018 built and emulator-checked only"
+    tested_note: "README status table: 0002-0008, 0010 and 0012-0015 hardware-verified; 0009's display checked on the device; 0017 and 0018, ported to OS 1.74 in Modwerk, ran on a unit 2026-11-08/09 (Modwerk runs T208, T210, T221)"
     base_os: '1.73'
     version: Mods 0000-0018 (2026-11-08; 0017 CTRL IN to performance macro, 0018 scene mutes)
     last_activity: '2026-11-08'
@@ -1871,6 +1883,7 @@ projects:
     - altstrument (2026-11-01)
     relations:
     - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: fetched and built into vendor/ by setup, not shipped'}
+    - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/analog-rytm-mkii/modules ctrl-in-perf and scene-mutes name mods/0017-ctrl-in-perf and mods/0018-scene-mutes of this repo as source'}
 
   - id: rytm1-mods
     name: rytm1_mods
@@ -2262,16 +2275,16 @@ projects:
     - model-cycles
     repo: https://github.com/durchgemacht/model27
     license: "MIT"
-    status: unreachable
+    status: active
     tested: unit
     base_os: '1.13'
-    version: "release 0.41 (2026-11-04 per README): thirteen cards in the web flasher (EQ 0.6, Reso 0.4 with block and coefficients in EMAC assembly); POTS 0.2 flashed from the page and tested on a Model:Cycles 2026-11-04"
-    last_activity: "2026-11-04"
-    notes: "Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: a web Manager keeps one Model:Cycles project per firmware: it backs up the current project, flashes the other firmware over USB and restores that firmware's project (notes/77)."
+    version: "release 0.56 (2026-11-09): fifteen cards in the web flasher, all tested on a Model:Cycles as the page builds them; new CHORD Tables (the CHORD machine plays the user's own wavetables from the +Drive, one per pattern) and a Wavetables page"
+    last_activity: "2026-11-09"
+    notes: "Repo was offline 2026-11-07 to 11-09 (check_updates 2026-11-08); public again on 2026-11-09 (altstrument and SPOKES change reports; README read 2026-11-10). Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: a web Manager keeps one Model:Cycles project per firmware: it backs up the current project, flashes the other firmware over USB and restores that firmware's project (notes/77)."
     sources:
     - altstrument (2026-11-01)
     links:
-      homepage: https://durchgemacht.github.io/model27/flasher/   # offline since 2026-11-07
+      homepage: https://durchgemacht.github.io/model27/flasher/
     relations:
     - {type: fork_of, id: modded-cycles, evidence: 'own README: beta fork of Modded Cycles 1.55'}
     - {type: cites, id: digiemu, evidence: 'README credits digiemu'}
@@ -2314,8 +2327,8 @@ projects:
     status: active
     tested: not-stated
     base_os: '1.13'
-    version: main @ 1604cbf (2026-10-31)
-    last_activity: '2026-10-31'
+    version: "main @ f712595 (2026-11-09)"
+    last_activity: "2026-11-09"
     notes: 'Browser hub that builds a chosen Model:Cycles community firmware from your OS 1.13 file and sends it over
       Web MIDI. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.'
     sources:
@@ -2343,8 +2356,8 @@ projects:
     status: active
     tested: not-stated
     base_os: '1.13'
-    version: "3.02 (docs dated 2026-11-03; Optional edition 3.02 experimental)"
-    last_activity: "2026-11-03"
+    version: "3.06 (2026-11-06; 2026-11-08 fixes to the Optional edition's machine exclusions)"
+    last_activity: "2026-11-08"
     notes: "Fork of Modded Cycles with a 909-style kit flasher, ACID machine, sequence generator, second LFO. Licence: unspecified; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: more screenshots of the running firmware added to docs/assets/screens. 2026-11-03: release 3.02 documented (shortcut guide, printable manual, English and French); playback modes One-Shot, Loop, Slice, Granular, Stretch, Pluck, Wavetable."
     sources:
     - altstrument (2026-11-01)
@@ -2426,11 +2439,11 @@ projects:
     status: active
     tested: not-stated
     base_os: 1.32B
-    version: 26A09-beta (2026-10-09)
-    last_activity: '2026-10-09'
+    version: "26B09-beta (2026-11-09): ARP p-locks, trig conditions to 8:8 plus PRE/NEI, microtiming, multi-trig edit, page transpose, BBOX sample manager (SDS and a compressed format shared with compatible Machinedrum firmware), DPRO>SBOX machine"
+    last_activity: "2026-11-09"
     notes: 'Custom Monomachine OS 1.32B (per-track lengths/speeds, trig conditions, song/pattern workflow, bug fixes),
       patched in the browser. Patcher only. Licence: unspecified; distribution: patch-your-own. Listed by altstrument;
-      repo not read by us yet.'
+      CHANGELOG read 2026-11-10. Upgrade hazards (26B09): old whole-bank BBOX .syx backups are no longer accepted (convert on 26A09 first), P2/P7 conditions become 25 %/75 %, the firmware is compressed so boot is slower.'
     sources:
     - altstrument (2026-11-01)
     links:
@@ -2542,15 +2555,15 @@ projects:
     repo: https://github.com/sambanks/octabam
     license: "MIT"
     status: active
-    contains: "modules/ (100, 2026-11-08), among them: analog-bassdrum, bbd, blackpyramids-303, busdelay, busverb, cc-map, chords, direct-jump, distorx, euclid, fx2-lock, lofi-amf-fix, lofi2, midi-follow, midi-loopback, midi-scales, midi-scenes, miniverb, morph, mute-modes, octa303, quantizer, rec-trig-mute, resonator, scenes-p2, scope, shatter, sidechain-compressor, slow-lfo, spectrum, stuttr, synth, tapeecho, trackpatterns, tuner, usb, varispeed, verberation, vibrato, vocoder (others are probes and infrastructure)"
-    tested: not-stated
+    contains: "modules/ (103, 2026-11-10; new wavecf, xfcurve, keybus, sc-keybus-bridge, dlcopy; DSP wave removed), among them: analog-bassdrum, bbd, blackpyramids-303, busdelay, busverb, cc-map, chords, direct-jump, distorx, euclid, fx2-lock, lofi-amf-fix, lofi2, midi-follow, midi-loopback, midi-scales, midi-scenes, miniverb, morph, mute-modes, octa303, quantizer, rec-trig-mute, resonator, scenes-p2, scope, shatter, sidechain-compressor, slow-lfo, spectrum, stuttr, synth, tapeecho, trackpatterns, tuner, usb, varispeed, verberation, vibrato, vocoder (others are probes and infrastructure)"
+    tested: partly
+    tested_note: "v0.4 as the web builder publishes it ran a 32-transition loader soak on a contributor's MKII (2026-11-08, 32/32 applied, no stall); modules carry their own unit proofs; the CHANGELOG still calls the whole composition unproven on a unit"
     base_os: 1.40C
-    version: 'v0.3 (tags v0.2/v0.3, 2026-11-02): v0.2 adds VARISPEED and drops FX2 LOCK; v0.3 names the LOAD/SAVE KIT lists. Unreleased: USB IN/OUT moved to on-chip SRAM (USB share of the frame interrupt ~34 -> 24 us on an MKII)'
-    last_activity: '2026-11-03'
+    version: "v0.4 (tag 2026-11-04, the web builder's patch; adds SHATTER and SIDECHAIN_COMPRESSOR). Unreleased (2026-11-10): WAVE moved from a DSP effect to a ColdFire machine (wavecf), new XF CURVE, KEYBUS and SC KEYBUS BRIDGE, a leaner demand-loader copier"
+    last_activity: "2026-11-10"
     notes: 'Modular Octatrack OS 1.40C "remixer": bus and track effects, FM synth machine, 255 kits, USB audio/MIDI,
-      stock bug fixes. Base of Modwerk. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not
-      read by us yet. 2026-11-03: new midi-follow module (docs/site/usage/midi-follow.md, a test remix); not read
-      further.'
+      stock bug fixes. Base of Modwerk. Licence: MIT; distribution: patch-your-own. Listed by altstrument; README, CHANGELOG and contributing docs read 2026-11-10. 2026-11-03: new midi-follow module (docs/site/usage/midi-follow.md, a test remix); not read
+      further. 2026-11-10: WAVE (wavecf) is a 4-voice wavetable machine on the ColdFire, reduced from CHOMPI WAVE, heard on an MKII in builds W1-W6 (I58); XF CURVE offers 13 crossfader curves, run on a contributor''s MKII on 2026-11-06; KEYBUS publishes each track''s block peak for side-chain keys (make check only); a demand-loader soak with STEM REC froze an MKII (I57, open).'
     sources:
     - altstrument (2026-11-01)
     links:
@@ -2589,12 +2602,13 @@ projects:
     - octatrack
     repo: https://github.com/mxldyn/octamax
     status: active
-    tested: not-stated
+    tested: unit
+    tested_note: "2f, 2g and 2h each flashed from CF and confirmed on an MKII, 2026-11-07 and 2026-11-09"
     base_os: 1.40C
-    version: 2.0 BETA
+    version: "OCTAMAX_2h (2.0 beta patch; 2h moves all patch state out of internal SRAM)"
+    last_activity: "2026-11-09"
     notes: 'RE toolkit for Octatrack MKII OS 1.40C plus opt-in behaviour patches (lazy part transitions, arp scales,
-      slice playhead, 256 static slots). Licence: unspecified; distribution: patch-your-own. Listed by altstrument;
-      repo not read by us yet.'
+      slice playhead, 256 static slots). Licence: unspecified; distribution: patch-your-own. Listed by altstrument. 2026-11-09 (README, NOTES): 2g adds PTN restart ([PTN] + the playing pattern''s trig restarts it at the next CHAIN BEHAVIOR window); 2f fixes the AUDIO EDITOR key (SB17); 2h moves patch state into DDR after state in a stock task''s buffer silenced tracks (I59); lazy transitions also cover Part changes within a bank.'
     sources:
     - altstrument (2026-11-01)
     relations:
@@ -2627,14 +2641,15 @@ projects:
     status: active
     tested: unit
     base_os: 1.40C
-    version: "KYOTI V1.7 + MUTE_MODES KEYHOLD (final 2026-11-02, flashed by the user, all tests pass)"
-    last_activity: "2026-11-02"
-    notes: "Feature and fix builds keeping the stock feel: mute modes, pattern jump, sidechain compressor, varispeed, repitch. Tested on an MKI. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet. 2026-11-02: MUTE_MODES KEYHOLD fixes octabam#934: with SIDECHAIN_COMPRESSOR a muted track that had been the KEY played again once KEY moved away; held tracks now keep the post-FX cut until unmuted. Confirmed on an Octatrack MKI."
+    version: "KYOTI V1.7 + RELOAD_FROM_PROJECT (final 2026-11-09, flashed on the author's MKI)"
+    last_activity: "2026-11-09"
+    notes: "Feature and fix builds keeping the stock feel: mute modes, pattern jump, sidechain compressor, varispeed, repitch. Tested on an MKI. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet. 2026-11-02: MUTE_MODES KEYHOLD fixes octabam#934: with SIDECHAIN_COMPRESSOR a muted track that had been the KEY played again once KEY moved away; held tracks now keep the post-FX cut until unmuted. Confirmed on an Octatrack MKI. 2026-11-09: RELOAD_FROM_PROJECT reloads one track's slice of the Part from the card ([BANK] + [TRACK n]) or a whole pattern ([PTN] + [BANK] + trig), landing on the next step while playing; a click from a copy with interrupts masked was fixed on the unit (I60); the REC_TRIG_MUTE fix was confirmed on hardware."
     sources:
     - altstrument (2026-11-01)
     relations:
     - {type: cites, id: octamax, evidence: 'README: builds on or credits octamax''s reverse engineering (passos: facts only, nothing copied)'}
     - {type: cites, id: octabam, evidence: 'README: credits octabam'}
+    - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/octabam/modules/sidechain-compressor manifest names Zac-Kyoti/octatrack-kyoti-fw as source'}
 
   - id: octatrack-manager
     name: Octatrack Manager
@@ -2746,17 +2761,31 @@ projects:
     devices:
     - syntakt
     repo: "https://github.com/GSM1980/synfact-dev"
-    license: "GPL-2.0 (old release repo MIT)"
+    license: "GPL-2.0-or-later (old release repo MIT)"
     status: "active"
-    tested: emulator
-    version: "main @ 1a6d0c7 (2026-11-03), untagged"
+    tested: partly
+    tested_note: "the owner's Syntakt confirmed core 1.4 and 1.7.2 (BASE/WDTH fix), ARP TEST03, the POLY bank and its 0.2.1 fix, and the samplers 0.9 sample list; safe-boot rollback and update-order tests are still pending on hardware"
+    version: "main @ 30e2707 (2026-11-09), untagged; core-st 1.7.2"
     base_os: "Syntakt OS 1.41"
     links:
       homepage: https://synfact.app
       old_release_repo: https://github.com/GSM1980/Synfact-release
       release_copy: https://github.com/nrdsrfr/synfact-release
-    last_activity: "2026-11-03"
-    notes: "Mod system for the Syntakt bringing Digitakt mk1 sample machines (ONE SHOT, WERP, REPITCH, SLICE), a per-project sample pool with long samples in slots 65-128 and a basic sample manager. Experimental. MIT. 18 stars at first sight. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read. 2026-11-03: the Lapin list links it as an external web app, https://synfact.app (builds custom Syntakt firmware from the user's stock OS file). 2026-11-03: the project moved to GSM1980/synfact-dev and was rebuilt on elekloader (GPL-2.0; the old release repo was MIT): a core (mods/core-st) with hook bus, UI and SETTINGS events, SMZ4 banks of machines and modules that can change without reinstalling, long-sample storage (HZFS) and a project sample pool. Mods: SP sample machines, SY FM DTONE, audio recorder, third LFO, arpeggiator, POLY, system info, sample manager. Builds change MAIN and a bounded part of AUDIO only; a recovery core that never loads the bank can replace a bank that stops the unit from starting. Also builds in the browser (synfact.app). A snapshot of the old release repo survives as nrdsrfr/synfact-release (2026-10-17). 2026-11-06: project lifecycle audit after a user report of slow project load and save; arp-st leaves default carriers absent (81 % fewer emulated instructions); RANDOMIZE pages documented."
+    last_activity: "2026-11-09"
+    own_mods:
+    - {name: "core-st", version: "1.7.2", path: "mods/core-st", tested: "unit", what: "Hook bus, SMZ4 machine banks with a safe-boot trial, long samples (HZFS)"}
+    - {name: "machines-st", version: "1.0", path: "mods/machines-st", tested: "not-stated", what: "Turns on the SMZ4 machine banks"}
+    - {name: "samplers-st", version: "1.2", path: "mods/samplers-st", tested: "partly", note: "0.9 sample list confirmed on the unit", what: "Digitakt-style sample machines: ONE SHOT, WERP, REPITCH, SLICE"}
+    - {name: "fm-tone-st", version: "1.1", path: "mods/fm-tone-st", tested: "emulator", what: "SY FM DTONE: Digitone FM built from the user's own Digitone OS"}
+    - {name: "arp-st", version: "1.8", path: "mods/arp-st", tested: "unit", note: "TEST03", what: "Digitone-style arpeggiator on two native TRIG pages, with SCALE"}
+    - {name: "poly-st", version: "1.4", path: "mods/poly-st", tested: "unit", what: "Polyphony across tracks"}
+    - {name: "chorus-st", version: "1.1", path: "mods/chorus-st", tested: "unit", note: "0.1 overloaded MAIN on the unit; 0.2 moved its hot code to SRAM", what: "Mono-send chorus on the MAIN mixer"}
+    - {name: "lfo3-st", version: "1.2", path: "mods/lfo3-st", tested: "not-stated", what: "A third LFO"}
+    - {name: "modulation-skip-st", version: "1.2.3", path: "mods/modulation-skip-st", tested: "emulator", what: "Skips stock modulation for unchanged tracks (the full stock body costs about 5.7 MAIN CPU points)"}
+    - {name: "recorder-st", version: "1.0", path: "mods/recorder-st", tested: "not-stated", what: "Audio recorder"}
+    - {name: "sample-manager-st", version: "1.0", path: "mods/sample-manager-st", tested: "not-stated", what: "Sample manager"}
+    - {name: "system-info-st", version: "1.1", path: "mods/system-info-st", tested: "not-stated", what: "CPU and RAM readout for MAIN and AUDIO (also an SMZ variant)"}
+    notes: "Mod system for the Syntakt bringing Digitakt mk1 sample machines (ONE SHOT, WERP, REPITCH, SLICE), a per-project sample pool with long samples in slots 65-128 and a basic sample manager. Experimental. MIT. 18 stars at first sight. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read. 2026-11-03: the Lapin list links it as an external web app, https://synfact.app (builds custom Syntakt firmware from the user's stock OS file). 2026-11-03: the project moved to GSM1980/synfact-dev and was rebuilt on elekloader (GPL-2.0; the old release repo was MIT): a core (mods/core-st) with hook bus, UI and SETTINGS events, SMZ4 banks of machines and modules that can change without reinstalling, long-sample storage (HZFS) and a project sample pool. Mods: SP sample machines, SY FM DTONE, audio recorder, third LFO, arpeggiator, POLY, system info, sample manager. Builds change MAIN and a bounded part of AUDIO only; a recovery core that never loads the bank can replace a bank that stops the unit from starting. Also builds in the browser (synfact.app). A snapshot of the old release repo survives as nrdsrfr/synfact-release (2026-10-17). 2026-11-06: project lifecycle audit after a user report of slow project load and save; arp-st leaves default carriers absent (81 % fewer emulated instructions); RANDOMIZE pages documented. 2026-11-09: new docs SETUP, MACHINES (writing a machine), MACHINE-REFERENCE and SAFE-BOOT-SMZ4-07-16; a safe-boot trial crashed every boot until core 1.7.1 (I62); a companion window broke BASE/WDTH until 1.7.2 (I63)."
     sources:
     - synfact-dev README (2026-11-03)
     - GitHub search 2026-11-02
@@ -3704,12 +3733,12 @@ projects:
     notes: "MrScruff's Rytm MKII mods (published with permission) ported to the elemod format for elekloader core-ar2.
       2026-11-06: lfo-rnd 1.3 and voice-dac 1.5 (and a 1.5-nodep variant without DAC FILTER's DEP knob) confirmed on a
       unit on OS 1.74 with core-ar2 0.10 (CCs, offsets, p-locks, kept over kit save and power cycle).
-      GPL. Found by GitHub search 2026-11-02; README start read."
+      GPL. Found by GitHub search 2026-11-02; README start read. 2026-11-08/09 (Modwerk TESTING files): comp-preview 1.1.0, kit-ab 1.0.0, lfo-rnd 1.2.0 and voice-dac 1.4.0 ran on a unit on Modwerk's base (core-ar2 0.7; each package byte-identical to the release object); the reload key in kit-ab's docs is NO + PLAY MODE, not NO + PLAY (CONFLICTS S18)."
     sources:
     - GitHub search 2026-11-02
     - README
     relations:
-    - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/analog-rytm-mkii/modules: ctrl-all, env-reset-amp, euclid-accents, filter-hz, main-rms, slice-loop, velocity-humanise name this repo as source (2026-11-09)'}
+    - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/analog-rytm-mkii/modules: ctrl-all, env-reset-amp, euclid-accents, filter-hz, main-rms, slice-loop, velocity-humanise, and since 2026-11-08 comp-preview, kit-ab, lfo-rnd and voice-dac, name this repo as source (2026-11-09)'}
     - {type: port_of, id: rytm-mods-src, evidence: 'README: ported to elemod'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: ported to the elemod format for elekloader core-ar2'}
   - id: cycles-mods-100demons
@@ -3996,6 +4025,7 @@ projects:
     devices:
     - analog-rytm
     - digitakt
+    - analog-four-keys
     repo: https://github.com/trigcondition/sidecar-expander
     license: "GPL-2.0"
     links:
@@ -4003,10 +4033,10 @@ projects:
     status: wip
     tested: emulator
     base_os: Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module)
-    version: "Sidecar 0.4.1 (Pi only: Overbridge passthrough on the Pi 4, USB-C mode switch, USB dropout fixes, MODEL E) with the unchanged Rytm firmware 0.4.0 for OS 1.74/1.73"
-    last_activity: '2026-11-06'
+    version: "Sidecar 0.4.3 (2026-11-09, Pi only: CHRO pads play poly tracks from the first hit; Rytm screen redraws capped at 5/s, 10/s for animations); 0.4.2 Overbridge passthrough on the Pi 5; Rytm firmware 0.4.0 unchanged (OS 1.74/1.73); A4 MKII mod 0.12 (OS 1.56); Sidecar Mini frozen at 0.1.0"
+    last_activity: "2026-11-09"
     notes: A Raspberry Pi 4B/5 on the Rytm's USB port adds digital voices, effects and a sequencer; the Rytm runs a
-      patched OS. 0.3.2 adds experimental, emulator-only Digitakt support. The Teensy variant is frozen. GPL-2.0.
+      patched OS. 0.3.2 adds experimental, emulator-only Digitakt support. The Teensy variant is frozen. GPL-2.0. On 2026-11-09, Analog Four MKII support since 0.4.0 (A4 firmware a4-v0.12, OS 1.56); 0.4.3 caps the Rytm screen redraws after users saw a sluggish Rytm at 20-40 redraws a second.
     sources:
     - GitHub search 2026-11-02
     - README
@@ -4950,8 +4980,9 @@ projects:
     devices: [digitakt-2]
     repo: https://github.com/hejijunhao/whiplash
     status: active
+    version: "v0.2.0 (2026-11-06)"
     license: MIT
-    last_activity: '2026-11-05'
+    last_activity: "2026-11-10"
     notes: >
       A Hermes Agent plugin that jams on a Digitakt II over USB MIDI: starts patterns by genre or mood, changes sounds
       live by CC/NRPN, mutes tracks (optionally the unit's own mute, CC 94); nothing is saved to the unit. Falls back to a
@@ -5050,7 +5081,7 @@ projects:
     devices: [digitakt-2]
     repo: https://github.com/julesyoungberg/sample-shepherd
     status: active
-    last_activity: '2026-11-07'
+    last_activity: "2026-11-08"
     notes: >
       Organises a sample library (through Fourier Samples), exports it per device profile and syncs it to a sampler without
       breaking the projects on it: backs up projects, works out which samples they use, plans uploads and deletions and
@@ -5152,7 +5183,7 @@ projects:
     base_os: "Octatrack MKI/MKII OS 1.40C"
     tested: partly
     tested_note: "built and tested in octabam's emulator; parts have run on the author's MKI"
-    last_activity: '2026-11-08'
+    last_activity: "2026-11-10"
     notes: >
       A step editor and piano-roll pitch view for the eight MIDI tracks (MIXER + MIDI): all tracks at 32 steps a row, one
       track's 64 steps, notes with VEL and LEN per step. Found by GitHub search 2026-11-08.

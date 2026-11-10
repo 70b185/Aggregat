@@ -11,6 +11,7 @@ Data last verified: 2026-11-08
 | **dn2_firmware_explore** (angellinares) | research | active | lfo4 1.0.6, waverider 0.5.1, usbprobe 0.1.1 (2026-11-09/10); Digitone II OS 1.11 (mods); README also covers Digitone / Keys | pre-rebase/waverider-warp-fm | 2026-11-10 | [repo](https://github.com/angellinares/dn2_firmware_explore) |
 | **DNX** (NoiseAndMatter) | tool | beta | 0.9.0-beta.8; no OS versions stated; Digitone II product id 0x15 | stable/pre-analysis | 2026-11-10 | [repo](https://github.com/NoiseAndMatter/DNX) · [web app](https://noiseandmatter.github.io/DNX/) · [forum](https://elektronmods.com/mods.php?id=39) |
 | **Flex+ (FlexBus machine)** (DigiAlchemydsp) | mod | active | 1.1 (2026-11-10; elemod files keep the machine revision 1.0); Digitone mk1 / Keys OS 1.44 (core-dn1 4.0 + machines 0.2); Digitakt mk1 OS 1.54 (core 4.0 + machine-pages 1.1) | v1.1 | 2026-11-10 | [repo](https://github.com/DigiAlchemydsp/Flex-Plus) |
+| **elkbench (hardware tests as an MCP server)** (Iced-Cream) | tool | active | - | - | 2026-11-10 | [repo](https://github.com/Iced-Cream/elkbench) |
 | **RingTone (master ring mod / wavefold / EQ)** (DigiAlchemydsp) | mod | wip | 2.0o (2026-09-30); Digitone mk1 / Digitone Keys OS 1.43 | v2.0o | 2026-11-09 | [repo](https://github.com/DigiAlchemydsp/RingTone) · [releases](https://github.com/DigiAlchemydsp/RingTone/releases) |
 | **Tone+FX** (DigiAlchemydsp) | mod | wip | v4.1a (2026-11-09): compatibility release built against core-dn1 4.1; no audio or UI change from 4.0c; four files incl. Digitakt mk1 1.53/1.54 from gdeo607's port (link with core 4.0); Digitone mk1 + Keys OS 1.43 | v4.1a | 2026-11-09 | [repo](https://github.com/DigiAlchemydsp/Tone-FX) |
 | **MUTINY (modular sequencers for Digitone mk1)** (mbaumannn) | mod | active | v0.2.1 (tag, 2026-11-08; mutiny-0.2.1.elemod); Digitone mk1 OS 1.44 | v0.2.1 | 2026-11-08 | [repo](https://github.com/mbaumannn/mutiny) |
@@ -53,10 +54,11 @@ Data last verified: 2026-11-08
 | **taktone** (water-feature) | firmware | wip | Digitakt 1.53/1.54 on Digitone mk1 hardware | - | 2026-10-18 | [repo](https://github.com/water-feature/taktone) |
 | **DigiPrism** (irpina) | mod | wip | 0.2 beta; Digitone mk1 (elekloader, fxkit on core-dn1 4.1) | v0.2 | 2026-10-18 | [repo](https://github.com/irpina/digiprism) |
 | **DigiSwarm** (irpina) | mod | wip | 0.2 beta; Digitone mk1 OS 1.43/1.44 (elekloader, fxkit on core-dn1 4.1) | v0.2 | 2026-10-18 | [repo](https://github.com/irpina/digiswarm) |
-| **digihealth** (pina (irpina)) | mod | wip | v1.1.1 (2026-10-14); Digitakt mk1 OS 1.53 (digihealth 1.0); Digitone mk1 + Keys OS 1.43 (1.1, SYSTEM INFO only) | v1.1.1 | 2026-10-14 | [repo](https://github.com/irpina/digihealth) |
+| **digihealth** (pina (irpina)) | mod | wip | v1.1.1 (2026-10-14); Digitakt mk1 OS 1.53 (digihealth 1.0); Digitone mk1 + Keys OS 1.43 (1.1, SYSTEM INFO only) | v1.1.1 | 2026-10-14 | [repo](https://github.com/elekloader/digihealth) |
 | **DigiAlchemy GamePack Vol.1** (DigiAlchemydsp) | mod | wip | Digitone mk1 / Keys OS 1.43 | v0.21 | 2026-10-14 | [repo](https://github.com/DigiAlchemydsp/DigiAlchemy-GamePack-1) |
+| **Digisophie-DN (SOPHIE for the Digitone)** (x2k77m1 (port); soejrd (Digisophie)) | mod | active | 0.1h (2026-10-14); Digitone mk1 / Keys OS 1.43 and 1.44 | 0.1h | 2026-10-14 | [repo](https://github.com/x2k77m1/digisophie-dn) |
 | **digitables** (pina (irpina)) | mod | released | 1.4 (commit 2026-10-07; no GitHub release yet); Digitone mk1 OS 1.43 and 1.44 (needs core-dn1 3.0); Keys same OS file, untried | v1.3 | 2026-10-07 | [repo](https://github.com/irpina/digitables) |
-| **digiemu** (pina (irpina)) | emulator | stable | v0.4.1 (2026-10-09); firmware from the forum's firmware list; one user reports it needs 1.43 | v0.4.1 | 2026-10-05 | [repo](https://github.com/irpina/digiemu) · [forum](https://elektronmods.com/thread-20-digiemu-a-digitakt-and-digitone-emulator) |
+| **digiemu** (pina (irpina)) | emulator | stable | v0.4.1 (2026-10-09); firmware from the forum's firmware list; one user reports it needs 1.43 | v0.4.1 | 2026-10-05 | [repo](https://github.com/elekloader/digiemu) · [forum](https://elektronmods.com/thread-20-digiemu-a-digitakt-and-digitone-emulator) |
 | **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | - | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **DigiSplash** (DigiAlchemydsp) | mod | unlabeled | v1.1 (2026-09-30); Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | v1.2 | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/DigiSplash) |
 | **DigiCandy** (DigiAlchemydsp) | mod | wip | v1.0 (2026-09-30); Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43 | v1.0 | 2026-09-30 | [repo](https://github.com/DigiAlchemydsp/DigiCandy) |
@@ -96,7 +98,7 @@ _Sources: forum mod list (mods.php?id=7), forum thread 8_
 
 ### digiemu
 
-Emulator for testing mods without hardware. GitHub description also lists Model:Cycles and Model:Samples. A Mac release is mentioned in the thread but no link was given. A user reported an audio issue.
+2026-11-10: moved from irpina/digiemu to the elekloader organisation (same history; the old URL redirects). Emulator for testing mods without hardware. GitHub description also lists Model:Cycles and Model:Samples. A Mac release is mentioned in the thread but no link was given. A user reported an audio issue.
 
 _Latest seen (2026-10-31, secondary directories): altstrument: v0.4.1 (2026-10-09); elektronmods: Windows and Apple silicon; covers Digitakt, Digitone (mk1), Model:Cycles, Model:Samples._
 
@@ -158,7 +160,7 @@ _Sources: GitHub README, lapin-list_
 
 ### digihealth
 
-Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). On Digitone: FAST AUDIO not ported, not yet on a unit. GPL-2.0, 3 commits. 2026-11-06: a Digitone II variant in dn2/: an elekloader core that measures the master DSP's L2 load and reports it over SysEx frames (declared limits, not observed peaks).
+2026-11-10: moved from irpina/digihealth to the elekloader organisation (same history; the old URL redirects). Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). On Digitone: FAST AUDIO not ported, not yet on a unit. GPL-2.0, 3 commits. 2026-11-06: a Digitone II variant in dn2/: an elekloader core that measures the master DSP's L2 load and reports it over SysEx frames (declared limits, not observed peaks).
 
 _Latest seen (2026-10-31, secondary directories): altstrument: FAST AUDIO runs hot code from SRAM to cut DSP load; v1.1.1 adds a Digitone build (targets 1.44)._
 
@@ -557,3 +559,19 @@ Seven filter-based effect modes per track: VOWEL, BANK, FOLD, CRUSH, RING, PHASE
 _Related: mod for `elekloader` (elekloader web/catalog.json lists its .elemod files) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: elekloader mod shop catalog 2026-11-08_
+
+### Digisophie-DN (SOPHIE for the Digitone)
+
+soejrd's Digisophie ported from the Digitakt mk1 to the Digitone mk1 / Keys: SOPHIE metallic percussion as machine 11 (SOPH) with four models - FUSE, BOOM, PIPE, SHARD - through the Digitone's own filter, mixer, effects and AMP envelope; knobs borrow stock SYN ranges. Shares the fixed-point DSP core with the Digitakt mod; one build per OS version. GitHub marks it a fork of digisophie; it adds its own Digitone machine adapter.
+
+_Related: port of `digisophie` (README: a port of the Digitakt 1 mod Digisophie to the Digitone 1); fork of `digisophie` (GitHub fork flag; 3 own commits); mod for `elekloader` (README: build the OS in elekloader) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: state/NEW.md 2026-11-10, README_
+
+### elkbench (hardware tests as an MCP server)
+
+One local MCP server per PC that gives AI agent sessions the same tools for testing Elektron units (Analog Rytm MKII, Analog Four MKII, Digitone; Digitakt untested on hardware) and their emulators: claim a unit, run a test plan, flash an OS, take screenshots, record and check USB audio, take or restore an Overbridge Total Recall image. It enforces one owner per unit, emulator first, and a hardware run only after the person says go. Python stdlib; Windows and Linux.
+
+_Related: uses tool `analog-emu` (README: emulator first; sidecar-emu reaches analog-emu through it) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: state/NEW.md 2026-11-10, README_

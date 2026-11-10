@@ -115,3 +115,8 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | elekloader `mods/core-ar2/README.md`, `docs/FORMAT.md`, `docs/CORES.md`, examples (ar2) | diff | devices/analog-rytm, D6c, projects.yml |
 | DigiAlchemydsp/Flex-Plus README, RELEASE-NOTES 1.1 | diff | projects.yml |
 | repeat98/modwerk changelogs 9-10 Nov, `docs/verification/2026-11-10-*`, Zoom docs (skimmed: not Elektron) | diff | devices/octatrack, INCIDENTS I69, C12, projects.yml |
+
+## Pass 2026-11-10 (state/NEW.md triage, 40 repos)
+| Source | Depth | Folded into |
+|---|---|---|
+| READMEs of 40 repos; forks compared commit by commit with their originals | README start, history | projects.yml (9 new entries, digiemu and digihealth moved to the elekloader organisation), ignore.yml (28 with reasons), candidates.yml (1) |

@@ -245,3 +245,40 @@ ignore:
   - simonjohansson/elekloader
   # dead link, removed from the Lapin list on 2026-11-09; not reachable, nothing to catalogue.
   - repeat98/octamachine
+  # --- triage of state/NEW.md, 2026-11-10 -----------------------------------------------------------------------
+  # forks with no commit of their own (compared with the original: ahead 0)
+  - simonjohansson/digiemu          # = elekloader/digiemu
+  - Iced-Cream/digiemu              # behind elekloader/digiemu, nothing own
+  - Rxuting/digiemu                 # behind elekloader/digiemu, nothing own
+  - Iced-Cream/digihealth           # behind elekloader/digihealth, nothing own
+  - simonjohansson/digihealth       # behind elekloader/digihealth, nothing own
+  - complex-ping/elekloader         # behind elekloader/elekloader, nothing own
+  - naturarum/elekloader            # behind elekloader/elekloader, nothing own
+  - drumkilla/elekloader            # behind elekloader/elekloader, nothing own
+  - Iced-Cream/elekloader           # behind elekloader/elekloader; its Rytm MKII work is upstream
+  - naturarum/digikit               # behind ElekLabs/digikit, nothing own
+  - Iced-Cream/modwerk              # behind repeat98/modwerk, nothing own
+  - Iced-Cream/sidecar-mods         # behind trigcondition/sidecar-mods (0.3.1), nothing own
+  - angellinares/dn2-dt2-firmware-research  # behind armio/dn2-dt2-firmware-research, nothing own
+  - armio/dn2_firmware_explore      # behind angellinares/dn2_firmware_explore, nothing own
+  - angellinares/screendump         # = jakobbak/screendump
+  - sambanks/octatrack-kyoti-fw     # behind zac-kyoti/octatrack-kyoti-fw, nothing own
+  - Horhik/DT-FM                    # behind mtalikka/dt-fm, nothing own
+  - AveyCole/Elek_View-FullScreen-  # behind BlueSGL/Elek_View, nothing own
+  - DigiAlchemydsp/WT-Plus          # behind x2k77m1/VAWT, nothing own
+  - x2k77m1/elektrob-1              # fork of simonjohansson/elektrob-1 with a README change only
+  - 100demons/model-cycles          # identical to 18nelli18/Modded-Cycles (ahead 0, behind 0)
+  # copies of this catalogue
+  - armio/Aggregat
+  - angellinares/Aggregat
+  # another restoration copy of durchgemacht/model27 (catalogued; public again), notices only
+  - mthenault/model27
+  # superseded: its page redirects to 100demons/cycles-engines (catalogued)
+  - 100demons/cycles-flasher
+  # not an Elektron device (out of scope)
+  - nostoi-labs/livecli             # Ableton Live command line
+  - nzimas/steamroller              # Novation Circuit Rhythm firmware
+  - byNicoHeuser/TP2-TD2-Tetris     # a course project, "Tecnologia Digital II"
+  # a copy of durchgemacht/cycles-one-shot (catalogued as cycles-one-shot, offline since 2026-11-07): all 28 commits are
+  # the original author's, up to machine 0.12 (the original had reached 0.13); nothing of its own
+  - clarkreiz/cycles-one-shot

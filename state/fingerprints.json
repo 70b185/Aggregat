@@ -682,6 +682,27 @@
    "COPYING*"
   ]
  },
+ "cyclesemu": {
+  "checked": "2026-11-10 17:22 UTC",
+  "files": {
+   "NOTES.md": "a12068f90cac",
+   "README.md": "176b8c857f4b",
+   "plugin/ThirdParty/README.md": "16c2ccf3a6c3"
+  },
+  "head": "250b6bc82bd917ecb1e7cb58665d85727fdf925b",
+  "repo": "https://github.com/Jackherz/model-cycles-plugin",
+  "seen": "2026-11-10 17:22 UTC",
+  "tags": [
+   "v1.0"
+  ],
+  "watch": [
+   "*.md",
+   "*/mod.json",
+   "*.toml",
+   "LICENSE*",
+   "COPYING*"
+  ]
+ },
  "dbx-dr": {
   "checked": "2026-11-07 15:54 UTC",
   "files": {
@@ -1290,8 +1311,8 @@
    "tools/sharcspec/README.md": "62709f53ae15"
   },
   "head": "6f2d619fd1bc9579a62868688fc6bdd1dcf844db",
-  "repo": "https://github.com/irpina/digiemu",
-  "seen": "2026-11-10 13:29 UTC",
+  "repo": "https://github.com/elekloader/digiemu",
+  "seen": "2026-11-10 17:22 UTC",
   "tags": [
    "v0.1.0",
    "v0.2.0",
@@ -1421,8 +1442,8 @@
    "tests/fixtures/remote-keys-probe/mod.json": "58d95a97f4b9"
   },
   "head": "252b52821d92c6f799d0195ef806e268b18aaedb",
-  "repo": "https://github.com/irpina/digihealth",
-  "seen": "2026-11-10 13:29 UTC",
+  "repo": "https://github.com/elekloader/digihealth",
+  "seen": "2026-11-10 17:22 UTC",
   "tags": [
    "v1.0",
    "v1.1",
@@ -2311,6 +2332,30 @@
   "tags": [
    "v1.1.13",
    "v1.2.0"
+  ],
+  "watch": [
+   "*.md",
+   "*/mod.json",
+   "*.toml",
+   "LICENSE*",
+   "COPYING*"
+  ]
+ },
+ "digisophie-dn": {
+  "checked": "2026-11-10 17:22 UTC",
+  "files": {
+   "LICENSE": "ab4704b1d550",
+   "README.md": "1ec0d9101cea",
+   "THIRD_PARTY.md": "6520961bfcbd",
+   "digisophie-dn/README.md": "62bb30c49436",
+   "digisophie-dn/mod.json": "2f87b29f2a7c"
+  },
+  "head": "fe39413fa6a98aafaad99bf1e8716e7fd5cac893",
+  "repo": "https://github.com/x2k77m1/digisophie-dn",
+  "seen": "2026-11-10 17:22 UTC",
+  "tags": [
+   "0.1g",
+   "0.1h"
   ],
   "watch": [
    "*.md",
@@ -3784,6 +3829,23 @@
    "COPYING*"
   ]
  },
+ "dn2-tools-depattern": {
+  "checked": "2026-11-10 17:22 UTC",
+  "files": {
+   "README.md": "2deabb734c36"
+  },
+  "head": "97f7970f7c036769858da6523e09426d68b48e55",
+  "repo": "https://github.com/De-Pattern/dn2mk2",
+  "seen": "2026-11-10 17:22 UTC",
+  "tags": [],
+  "watch": [
+   "*.md",
+   "*/mod.json",
+   "*.toml",
+   "LICENSE*",
+   "COPYING*"
+  ]
+ },
  "dn2mk2": {
   "checked": "2026-11-10 10:43 UTC",
   "files": {
@@ -4887,6 +4949,33 @@
   "head": "515eba0993239884be0bf9a8b8c10e5af19d535a",
   "repo": "https://github.com/mzero/elk-herd",
   "seen": "2026-11-10 13:29 UTC",
+  "tags": [],
+  "watch": [
+   "*.md",
+   "*/mod.json",
+   "*.toml",
+   "LICENSE*",
+   "COPYING*"
+  ]
+ },
+ "elkbench": {
+  "checked": "2026-11-10 17:22 UTC",
+  "files": {
+   "LICENSE": "9efa6fbc9628",
+   "README.md": "64963054d026",
+   "agents/elkbench-runner.md": "03e3772048c4",
+   "audio/README.md": "47b725bcbb73",
+   "config.example.toml": "447c6e7e5658",
+   "docs/testing-practices.md": "1c116dbd883e",
+   "elklock/README.md": "ce799d99720d",
+   "starts/README.md": "bc3b5f877cdf",
+   "templates/README.md": "356f3fbf803c",
+   "templates/digitone/README.md": "a621aa622fc7",
+   "tests/README.md": "bdfb2271a6f5"
+  },
+  "head": "b2c9621605006b1a09d9182b3830fd39dc8a4e43",
+  "repo": "https://github.com/Iced-Cream/elkbench",
+  "seen": "2026-11-10 17:22 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -6912,6 +7001,35 @@
    "COPYING*"
   ]
  },
+ "modeldigi": {
+  "checked": "2026-11-10 17:22 UTC",
+  "files": {
+   "AGENTS.md": "ab432699668e",
+   "LICENSE": "9efa6fbc9628",
+   "README.md": "3bcd18ef0dcf",
+   "docs/analog.md": "dd9f86c512d9",
+   "docs/architecture.md": "69989ec59055",
+   "docs/development.md": "5cf2032b27b7",
+   "docs/model-d-oscillators.md": "945c82d5fb03",
+   "docs/oscillator-calibration.md": "e14bef4a5298",
+   "machines/digitakt/mod.json": "e8a3a3c3a3b5",
+   "machines/digitone/README.md": "de01f748f700",
+   "mise.toml": "74c0cb06a456"
+  },
+  "head": "c412bdf2ab3b0b5b62484e8195c2f880d1964c67",
+  "repo": "https://github.com/simonjohansson/ModelDigi",
+  "seen": "2026-11-10 17:22 UTC",
+  "tags": [
+   "modeldigi-v0.1"
+  ],
+  "watch": [
+   "*.md",
+   "*/mod.json",
+   "*.toml",
+   "LICENSE*",
+   "COPYING*"
+  ]
+ },
  "moduledrum": {
   "checked": "2026-11-02 22:12 UTC",
   "files": {
@@ -8009,6 +8127,25 @@
   "head": "243df9f9a1de98f72694dc00a258aef08b7271b2",
   "repo": "https://github.com/repeat98/modwerk",
   "seen": "2026-11-10 17:17 UTC",
+  "tags": [],
+  "watch": [
+   "*.md",
+   "*/mod.json",
+   "*.toml",
+   "LICENSE*",
+   "COPYING*"
+  ]
+ },
+ "mono-chorus-clap": {
+  "checked": "2026-11-10 17:22 UTC",
+  "files": {
+   "Comparison/README.md": "238ec638b95d",
+   "README.md": "df0cf0e59fab",
+   "tests/README.md": "b0b9266e30a2"
+  },
+  "head": "b5d166afc08430cce334ce7cc9ef7bdce66d2277",
+  "repo": "https://github.com/nerazin/mono-chorus-clap",
+  "seen": "2026-11-10 17:22 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -10783,6 +10920,27 @@
    "COPYING*"
   ]
  },
+ "sidecar-emu": {
+  "checked": "2026-11-10 17:22 UTC",
+  "files": {
+   "COPYING": "8095135d50d9",
+   "COPYING.LIB": "99f47575b5b0",
+   "LICENSE": "f19b018486a6",
+   "README.md": "7d5b1121adc2",
+   "pythondeps.toml": "d2f62e7aaf53"
+  },
+  "head": "7d28d870e23c11ec5a1125305838dda9a6742bc4",
+  "repo": "https://github.com/Iced-Cream/sidecar-emu",
+  "seen": "2026-11-10 17:22 UTC",
+  "tags": [],
+  "watch": [
+   "*.md",
+   "*/mod.json",
+   "*.toml",
+   "LICENSE*",
+   "COPYING*"
+  ]
+ },
  "sidecar-expander": {
   "checked": "2026-11-10 10:43 UTC",
   "files": {
@@ -10935,6 +11093,91 @@
   "tags": [
    "v0.1.0",
    "v0.2.0"
+  ],
+  "watch": [
+   "*.md",
+   "*/mod.json",
+   "*.toml",
+   "LICENSE*",
+   "COPYING*"
+  ]
+ },
+ "sidecar-mods": {
+  "checked": "2026-11-10 17:22 UTC",
+  "files": {
+   ".github/PULL_REQUEST_TEMPLATE.md": "8a29258b7f9f",
+   "CONTRIBUTING.md": "643a6ae8f9a0",
+   "LICENSE": "9efa6fbc9628",
+   "README.md": "8a300f4eedf6",
+   "a4/README.md": "17c67b6fae68",
+   "a4/RELEASE.md": "c822c388d0a0",
+   "a4/mod/mod.json": "98aee10df151",
+   "docs/ELEKLOADER.md": "344ecf0b0f40",
+   "docs/FLASHING.md": "c6116a40a9e1",
+   "docs/HAZARDS.md": "13aa809aa050",
+   "docs/MANUAL.md": "72496a41e957",
+   "mods/0000-shared/mod.toml": "6243e3729a31",
+   "mods/0004-lfo-rnd/design.md": "6c3e37ff88f4",
+   "mods/0004-lfo-rnd/mod.toml": "8f2200dc7208",
+   "mods/0006-comp-preview/calibration.toml": "c903fdd352c1",
+   "mods/0006-comp-preview/calibration_project.toml": "b6312103296b",
+   "mods/0006-comp-preview/calibration_report.md": "f219c9cc9ed3",
+   "mods/0006-comp-preview/mod.toml": "0b8eaaf8c995",
+   "mods/0008-filter-hz/mod.toml": "f97678775f2b",
+   "mods/0009-main-rms/mod.toml": "d6453982ab70",
+   "mods/0010-kit-ab/design.md": "4c4f07567b35",
+   "mods/0010-kit-ab/mod.toml": "a5391ebfd16f",
+   "mods/0012-slice-loop/design.md": "7e5880e41d7d",
+   "mods/0012-slice-loop/mod.toml": "ac388de825d3",
+   "mods/0013-voice-dac/mod.toml": "c08027ef7678",
+   "mods/0014-hidden-machines/mod.toml": "4b9a64c39b5a",
+   "mods/0020-dmach/design.md": "5f66123a2778",
+   "mods/0020-dmach/mod.toml": "888a1897f845",
+   "mods/0021-ext/design.md": "762071d3f29c",
+   "mods/0021-ext/mod.toml": "d263f1bb172d",
+   "mods/0021-ext/sound-tag-research.md": "b14bfc36974e",
+   "mods/0021-ext/user-slots-research.md": "e009595c9ce2",
+   "mods/0022-looper/design.md": "5bcd30b92ca6",
+   "mods/0022-looper/mod.toml": "95a57d1bde9f",
+   "mods/0023-teensy-drive/design.md": "97588c62a1ac",
+   "mods/0023-teensy-drive/mod.toml": "b561f8d2af80",
+   "mods/0025-sendfx-report/design.md": "03fcc03829db",
+   "mods/0025-sendfx-report/mod.toml": "5bfa35810a4b",
+   "mods/0026-remote-ui/design.md": "f0f206413e40",
+   "mods/0026-remote-ui/mod.toml": "e4042c2faf2d",
+   "mods/0027-elekloader/design.md": "4e3f10312ae3",
+   "mods/0027-elekloader/mod.toml": "c343710f1904",
+   "mods/0028-elek-hello/mod.toml": "a6fdeffdc5cb",
+   "mods/0029-sendfx-ui/design.md": "a2d3279d9fad",
+   "mods/0029-sendfx-ui/mod.toml": "31ff38828ab3",
+   "mods/0030-fx-in/design.md": "bf3c5e4c6bde",
+   "mods/0030-fx-in/mod.toml": "916da01c3fc2",
+   "re/os/1.73.toml": "644d41f877d0",
+   "re/os/1.74.toml": "52e2128593a2",
+   "re/subsystems/README.md": "7c0f17fa382e",
+   "re/subsystems/audio-engine.md": "abce076ba92b",
+   "re/subsystems/compressor-calibration.md": "9ad0a7d6e410",
+   "re/subsystems/compressor-hardware.md": "1bc15da186fe",
+   "re/subsystems/compressor-model.md": "b93518fe83a9",
+   "re/subsystems/lfo.md": "cd46f1807443",
+   "re/subsystems/machines.md": "a2867af00c68",
+   "re/subsystems/midi-cc.md": "ebdf8cd4d7de",
+   "re/subsystems/os-upgrade.md": "7c2953d6f7dc",
+   "re/subsystems/sound-storage.md": "0bfb5d26039d",
+   "re/subsystems/tempo.md": "287020998733",
+   "re/symbols.toml": "60e7620e12a5",
+   "registry/allocations.toml": "038365bb2738",
+   "tools/emu/README.md": "829d8201b22f"
+  },
+  "head": "d59556cbb9f564abfd3f4c588a709f358ed6820e",
+  "repo": "https://github.com/trigcondition/sidecar-mods",
+  "seen": "2026-11-10 17:22 UTC",
+  "tags": [
+   "a4-v0.12",
+   "v0.3.0",
+   "v0.3.1",
+   "v0.4.0",
+   "v0.4.4"
   ],
   "watch": [
    "*.md",

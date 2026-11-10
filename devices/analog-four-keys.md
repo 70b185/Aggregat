@@ -9,6 +9,8 @@ Data last verified: 2026-11-08
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **elekloader** (pina (irpina)) | loader | active | v0.10.0 (tag 2026-11-09): ships each device's newest core (DT1 4.1, DN1 5.2.1, DT2 1.0, DN2 0.3, AR2 0.11, A4 0.5, OT 0.8, MC 0.3, MS 0.1). main since: DT1 core 4.2/4.3 and DN1 5.3 (live-note and MIDI CC events), core-dn2 0.4 (MIDI CC event, DSP post words), core-ar2 0.12 (spare table entries for +Drive mods), SDK mono machines and MIDI CCs, DT2 sharc_raw (raw section-7 loads and relocatable DSP objects); Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.10.0 | 2026-11-10 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/elekloader/elekloader/releases) · [shop](https://elekloader.github.io/shop/) · [shop repo](https://github.com/elekloader/shop) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
+| **Sidecar | Expander: Rytm mods** (trigcondition) | mod | active | Rytm firmware 0.4.0 (with Sidecar 0.4.0, 2026-11-10); Analog Rytm MKII OS 1.74 and 1.73; Analog Four MKII (a4/) | v0.4.4 | 2026-11-10 | [repo](https://github.com/trigcondition/sidecar-mods) |
+| **elkbench (hardware tests as an MCP server)** (Iced-Cream) | tool | active | - | - | 2026-11-10 | [repo](https://github.com/Iced-Cream/elkbench) |
 | **Sidecar | Expander** (trigcondition) | mod | wip | Sidecar 0.4.3 (2026-11-09, Pi only: CHRO pads play poly tracks from the first hit; Rytm screen redraws capped at 5/s, 10/s for animations); 0.4.2 Overbridge passthrough on the Pi 5; Rytm firmware 0.4.0 unchanged (OS 1.74/1.73); A4 MKII mod 0.12 (OS 1.56); Sidecar Mini frozen at 0.1.0; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | v0.2.0 | 2026-11-09 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | wip | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
 | **analoghealth** (Iced-Cream) | mod | wip | Rytm MKII 1.74, A4 MKII 1.56 | v1.3 | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
@@ -85,3 +87,19 @@ _Sources: GitHub search 2026-11-02, README_
 Tables of the A4 sound SysEx bytes, from reverse engineering.
 
 _Sources: GitHub search 2026-11-02, README_
+
+### Sidecar | Expander: Rytm mods
+
+The source of the Analog Rytm MKII OS mods that Sidecar | Expander needs: patch sources, symbol map, allocation registry and the build that turns the user's own stock .syx into a modded one, as one elekloader module per OS; the Analog Four MKII's mod in a4/. 0.4.0 reports each track's pan and route (stereo through mode), adds MD's own page, preset browsers for JUNO and 6-OP FM, DSP SAMPLE's sample picker, list knobs of up to 36 names, a MIDI machine (machine 50) and arpeggiator settings in the sound. Sidecar Mini (Teensy) is frozen at 0.1.0.
+
+_Related: same project `sidecar-expander` (README: the Rytm mods that Sidecar | Expander uses); mod for `elekloader` (README: one elekloader module per OS) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: state/NEW.md 2026-11-10, README_
+
+### elkbench (hardware tests as an MCP server)
+
+One local MCP server per PC that gives AI agent sessions the same tools for testing Elektron units (Analog Rytm MKII, Analog Four MKII, Digitone; Digitakt untested on hardware) and their emulators: claim a unit, run a test plan, flash an OS, take screenshots, record and check USB audio, take or restore an Overbridge Total Recall image. It enforces one owner per unit, emulator first, and a hardware run only after the person says go. Python stdlib; Windows and Linux.
+
+_Related: uses tool `analog-emu` (README: emulator first; sidecar-emu reaches analog-emu through it) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: state/NEW.md 2026-11-10, README_

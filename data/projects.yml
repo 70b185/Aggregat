@@ -182,7 +182,7 @@ projects:
     author: pina (irpina)
     kind: emulator
     devices: [digitakt, digitone]
-    repo: https://github.com/irpina/digiemu
+    repo: https://github.com/elekloader/digiemu
     links:
       forum: https://elektronmods.com/thread-20-digiemu-a-digitakt-and-digitone-emulator
     status: stable
@@ -190,6 +190,7 @@ projects:
     version: "v0.4.1 (2026-10-09)"
     last_activity: 2026-10-05
     notes: >
+      2026-11-10: moved from irpina/digiemu to the elekloader organisation (same history; the old URL redirects).
       Emulator for testing mods without hardware. GitHub description also lists Model:Cycles and
       Model:Samples. A Mac release is mentioned in the thread but no link was given. A user
       reported an audio issue.
@@ -876,7 +877,7 @@ projects:
     author: pina (irpina)
     kind: mod
     devices: [digitakt, digitone]
-    repo: https://github.com/irpina/digihealth
+    repo: https://github.com/elekloader/digihealth
     status: wip
     tested: not-stated
     tested_note: "Digitone build not yet on a unit"
@@ -884,6 +885,7 @@ projects:
     version: "v1.1.1 (2026-10-14)"
     last_activity: 2026-10-14
     notes: >
+      2026-11-10: moved from irpina/digihealth to the elekloader organisation (same history; the old URL redirects).
       Performance and diagnostic mod (FAST AUDIO = lower DSP load, SYSTEM INFO page). On Digitone:
       FAST AUDIO not ported, not yet on a unit. GPL-2.0, 3 commits.
       2026-11-06: a Digitone II variant in dn2/: an elekloader core that measures the master DSP's L2 load and
@@ -5507,3 +5509,165 @@ projects:
     - {type: uses_tool, id: digikit, evidence: 'README: every EUC+ test runs in digikit''s Digitakt II emulator'}
     - {type: cites, id: mezclando, evidence: 'commit 2026-11-08: Mezclando as prior art in docs/EXTENDED-EUCLID.md'}
 
+  # ---------------------------------------------------------------- added 2026-11-10 from the state/NEW.md triage
+  - id: digisophie-dn
+    name: Digisophie-DN (SOPHIE for the Digitone)
+    author: x2k77m1 (port); soejrd (Digisophie)
+    kind: mod
+    devices: [digitone]
+    repo: https://github.com/x2k77m1/digisophie-dn
+    status: active
+    tested: unit
+    tested_note: "README: performance guidance is hardware-tested (one SOPHIE track safe), hardware photos of both pages"
+    base_os: "Digitone mk1 / Keys OS 1.43 and 1.44"
+    version: "0.1h (2026-10-14)"
+    last_activity: "2026-10-14"
+    license: "MIT"
+    notes: >
+      soejrd's Digisophie ported from the Digitakt mk1 to the Digitone mk1 / Keys: SOPHIE metallic percussion as
+      machine 11 (SOPH) with four models - FUSE, BOOM, PIPE, SHARD - through the Digitone's own filter, mixer,
+      effects and AMP envelope; knobs borrow stock SYN ranges. Shares the fixed-point DSP core with the Digitakt mod;
+      one build per OS version. GitHub marks it a fork of digisophie; it adds its own Digitone machine adapter.
+    sources: [state/NEW.md 2026-11-10, README]
+    relations:
+    - {type: port_of, id: digisophie, evidence: 'README: a port of the Digitakt 1 mod Digisophie to the Digitone 1'}
+    - {type: fork_of, id: digisophie, evidence: 'GitHub fork flag; 3 own commits'}
+    - {type: mod_for, id: elekloader, evidence: 'README: build the OS in elekloader'}
+
+  - id: modeldigi
+    name: ModelDigi (Model D oscillators)
+    author: simonjohansson
+    kind: mod
+    devices: [digitakt]
+    repo: https://github.com/simonjohansson/ModelDigi
+    status: active
+    tested: not-stated
+    tested_note: "README describes behaviour on the Digitakt and measurements against an original Model D; no explicit statement of a unit run"
+    base_os: "Digitakt mk1 OS 1.54 (FAST AUDIO on)"
+    last_activity: "2026-10-23"
+    license: "GPL-2.0-or-later"
+    notes: >
+      A Minimoog Model D-style oscillator section for the Digitakt mk1: three oscillators with their ranges, waveforms,
+      tuning and levels, oscillator 3 as a pitch modulator of the others, slight pitch drift and mixer saturation (a
+      switch per sound turns them off). Waveforms and modulation follow measurements of an original Model D. No
+      filter, envelopes or amplifier of the Model D (the Digitakt's own are used). CPU-heavy: needs SETTINGS > FAST
+      AUDIO on. Digitone support planned.
+    sources: [state/NEW.md 2026-11-10, README]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: included in a custom OS composed with Elekloader'}
+
+  - id: sidecar-mods
+    name: "Sidecar | Expander: Rytm mods"
+    author: trigcondition
+    kind: mod
+    devices: [analog-rytm, analog-four-keys]
+    repo: https://github.com/trigcondition/sidecar-mods
+    status: active
+    tested: not-stated
+    base_os: "Analog Rytm MKII OS 1.74 and 1.73; Analog Four MKII (a4/)"
+    version: "Rytm firmware 0.4.0 (with Sidecar 0.4.0, 2026-11-10)"
+    last_activity: "2026-11-10"
+    license: "GPL"
+    notes: >
+      The source of the Analog Rytm MKII OS mods that Sidecar | Expander needs: patch sources, symbol map, allocation
+      registry and the build that turns the user's own stock .syx into a modded one, as one elekloader module per OS;
+      the Analog Four MKII's mod in a4/. 0.4.0 reports each track's pan and route (stereo through mode), adds MD's
+      own page, preset browsers for JUNO and 6-OP FM, DSP SAMPLE's sample picker, list knobs of up to 36 names, a MIDI
+      machine (machine 50) and arpeggiator settings in the sound. Sidecar Mini (Teensy) is frozen at 0.1.0.
+    sources: [state/NEW.md 2026-11-10, README]
+    relations:
+    - {type: same_project, id: sidecar-expander, evidence: 'README: the Rytm mods that Sidecar | Expander uses'}
+    - {type: mod_for, id: elekloader, evidence: 'README: one elekloader module per OS'}
+
+  - id: cyclesemu
+    name: CyclesEmu (Model:Cycles engine as plug-ins)
+    author: Jackherz
+    kind: tool
+    list: musician
+    devices: [model-cycles]
+    repo: https://github.com/Jackherz/model-cycles-plugin
+    status: wip
+    last_activity: "2026-11-10"
+    license: "not stated (JUCE under AGPLv3; bundled effects MIT)"
+    notes: >
+      Unofficial macOS plug-ins (AU, VST3, standalone) that run the Model:Cycles' own sound engine: the parts of the
+      firmware that render audio are translated ahead of time from ColdFire code to C, from the user's own firmware
+      (nothing included or derived in the repo). CyclesEmu (eight tracks with machines, LFOs, filter, mixer, delay and
+      reverb), CyclesVoice (one sound, up to eight voices) and CyclesFX (the delay and reverb). The translated render
+      matches the digiemu emulator bit for bit on captured blocks; eight tracks take about 11 % of one M1 Pro core.
+      A personal research project.
+    sources: [state/NEW.md 2026-11-10, README]
+    relations:
+    - {type: uses_tool, id: digiemu, evidence: 'README: the translated render is checked against digiemu'}
+
+  - id: mono-chorus-clap
+    name: Mono Chorus CLAP
+    author: nerazin
+    kind: tool
+    list: musician
+    devices: [monomachine]
+    repo: https://github.com/nerazin/mono-chorus-clap
+    status: active
+    version: "0.3.0 (2026-11-10)"
+    last_activity: "2026-11-10"
+    license: "not stated"
+    notes: >
+      A small stereo CLAP chorus plug-in (macOS) after the Monomachine's FX-CHORS: a floating-point reconstruction
+      with eight automatable parameters (DEL, DEP, SPD, MIX, FB, WID, LP, INP), one C file, no firmware and no emulator.
+    sources: [state/NEW.md 2026-11-10, README]
+
+  - id: dn2-tools-depattern
+    name: DN2 Tools (dn2mk2 browser tools)
+    author: De-Pattern
+    kind: tool
+    list: musician
+    devices: [digitone-2]
+    repo: https://github.com/De-Pattern/dn2mk2
+    status: active
+    last_activity: "2026-11-09"
+    license: "not stated"
+    notes: >
+      Browser tools (Chrome or Edge, Web MIDI) for the dn2mk2 Digitone II mod: DN2 Sample Import sends WAV files and
+      folders to the mod's sampler over USB (replace all, choose slots, or add), plus tools for its recorder and the
+      Machinedrum PERC machine. Hosted on GitHub Pages; the firmware itself is in De-Pattern/dn2mk2-firmware.
+    sources: [state/NEW.md 2026-11-10, README]
+    relations:
+    - {type: same_project, id: dn2mk2, evidence: 'README: browser tools for the Digitone II mod; same author'}
+
+  - id: elkbench
+    name: elkbench (hardware tests as an MCP server)
+    author: Iced-Cream
+    kind: tool
+    devices: [analog-rytm, analog-four-keys, digitone, digitakt]
+    repo: https://github.com/Iced-Cream/elkbench
+    status: active
+    last_activity: "2026-11-10"
+    license: "GPL"
+    notes: >
+      One local MCP server per PC that gives AI agent sessions the same tools for testing Elektron units (Analog Rytm
+      MKII, Analog Four MKII, Digitone; Digitakt untested on hardware) and their emulators: claim a unit, run a test
+      plan, flash an OS, take screenshots, record and check USB audio, take or restore an Overbridge Total Recall
+      image. It enforces one owner per unit, emulator first, and a hardware run only after the person says go.
+      Python stdlib; Windows and Linux.
+    sources: [state/NEW.md 2026-11-10, README]
+    relations:
+    - {type: uses_tool, id: analog-emu, evidence: 'README: emulator first; sidecar-emu reaches analog-emu through it'}
+
+  - id: sidecar-emu
+    name: sidecar-emu (Sidecar emulator)
+    author: Iced-Cream
+    kind: emulator
+    devices: [analog-rytm]
+    repo: https://github.com/Iced-Cream/sidecar-emu
+    status: wip
+    last_activity: "2026-11-05"
+    license: "QEMU's licences (see repo)"
+    notes: >
+      QEMU cut down to the Raspberry Pi 4B and the devices Sidecar's engine needs: boots the Sidecar engine image,
+      answers over Ethernet, puts an Analog Rytm MKII stand-in on its USB-A side and gives its USB-C gadget a raw MIDI
+      TCP port, so an OS upgrade or an elkbench run can go through the emulated Pi into analog-emu. A local experiment,
+      not meant for QEMU upstream.
+    sources: [state/NEW.md 2026-11-10, README]
+    relations:
+    - {type: uses_tool, id: analog-emu, evidence: 'README: through the emulated Pi into analog-emu'}
+    - {type: cites, id: sidecar-expander, evidence: 'README: emulates the Sidecar engine'}

@@ -12,6 +12,7 @@ Data last verified: 2026-11-08
 | **dn2-cfw** (naturarum) | research | active | Digiwerk v0.3.0 (2026-11-04): multitrack USB audio (USB MULTI/MIDI, 42 inputs, UAC 2.0) in every build and a web patcher; eight non-spring builds released, six spring-reverb builds remain withdrawn; 0.2.0 download withdrawn; Digitone II OS 1.12 (macOS Apple silicon; Linux likely) | v0.3.0 | 2026-11-10 | [repo](https://github.com/naturarum/dn2-cfw) |
 | **DNX** (NoiseAndMatter) | tool | beta | 0.9.0-beta.8; no OS versions stated; Digitone II product id 0x15 | stable/pre-analysis | 2026-11-10 | [repo](https://github.com/NoiseAndMatter/DNX) · [web app](https://noiseandmatter.github.io/DNX/) · [forum](https://elektronmods.com/mods.php?id=39) |
 | **DN2 mk2 Mod (dn2mk2-firmware)** (De-Pattern (README says it builds on the upstream project dn2_firmware_explore / xrcstrecords - not verified by us)) | mod | wip | v0.47 TUNED (2026-11-09): Monomachine TUNE reads -64..+63 and FUNC+turn steps a semitone; TRIM preview 6 dB quieter; BOUNCE taken out of MACHINE SEL (old BOUNCE tracks still load). v0.46 KEEPER (11-09): recordings also copied to +DRIVE > RECORDED, names up to 35 characters. v0.45 ROOMIER (11-08): BOUNCE freeze fixed, +Drive library 16,384 samples, SELECT UNUSED, PING filter removed. v0.44 (11-07) withdrawn after it froze units (I65). Gate: CLEARED TO FLASH.; Digitone II stock OS 1.11 ONLY (1.10 must update to 1.11 first; 1.12+ must go back to 1.11). Also needs the user's own Digitakt II OS 1.17 (or 1.16), Machinedrum UW OS 1.63 and Monomachine SFX-6 OS 1.32B files | v0.47 | 2026-11-09 | [repo](https://github.com/De-Pattern/dn2mk2-firmware) · [patcher web](https://de-pattern.github.io/dn2mk2/patcher.html) · [import tool web](https://de-pattern.github.io/dn2mk2/) · [version history](https://github.com/De-Pattern/dn2mk2-firmware/blob/main/FIRMWARE.md) · [safety doc](https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/SAFETY.md) |
+| **DN2 Tools (dn2mk2 browser tools)** (De-Pattern) | tool | active | - | - | 2026-11-09 | [repo](https://github.com/De-Pattern/dn2mk2) |
 | **DN2 DT2 firmware research** (armio) | firmware | stable | R022 candidate (2026-11-06): working-project sample autosave and sampler SYN-page routing fixes; native replay passed, hardware confirmation pending; includes R020 cold-start guard and R013 FORMAT SAMPLES; an iPhone USB freeze is unresolved; R012 remains the stable target; Digitone II OS 1.11 (target) + Digitakt II OS 1.16 (donor); both official files supplied locally | - | 2026-11-07 | [repo](https://github.com/armio/dn2-dt2-firmware-research) · [web app](https://armio.github.io/dn2-dt2-firmware-research/) · [recorder](https://github.com/armio/dn2-dt2-firmware-research/blob/main/docs/recorder.md) · [release](https://github.com/armio/dn2-dt2-firmware-research/blob/main/releases/r012.json) · [candidate](https://github.com/armio/dn2-dt2-firmware-research/blob/main/releases/r022.json) |
 | **digitakt-digitone-mcp** (jamiew) | tool | active | v0.5.2 | v0.5.2 | 2026-11-07 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **macro-mode (digi_macro)** (toonst) | mod | wip | Digitakt II OS 1.17 or Digitone II OS 1.12, exactly (the build checks the file's checksum) | - | 2026-11-05 | [repo](https://github.com/toonst/digi_macro) |
@@ -283,6 +284,14 @@ _Sources: GitHub search 2026-11-02, README_
 Closed-source browser app: requests Pattern+Kit dumps from a Digitone II slot over Web MIDI, keeps them in a local library and sends them back to a chosen slot; also imports project capture .syx files and replays a captured project stream. Proprietary. Shows that DN2 pattern/kit dump requests per slot work over SysEx (claim, not checked by us).
 
 _Sources: altstrument (2026-11-03)_
+
+### DN2 Tools (dn2mk2 browser tools)
+
+Browser tools (Chrome or Edge, Web MIDI) for the dn2mk2 Digitone II mod: DN2 Sample Import sends WAV files and folders to the mod's sampler over USB (replace all, choose slots, or add), plus tools for its recorder and the Machinedrum PERC machine. Hosted on GitHub Pages; the firmware itself is in De-Pattern/dn2mk2-firmware.
+
+_Related: same project `dn2mk2` (README: browser tools for the Digitone II mod; same author) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: state/NEW.md 2026-11-10, README_
 
 ### selache (SHARC+ toolchain)
 

@@ -24,11 +24,12 @@ Devices: Model:Cycles, Model:Samples. [repo](https://github.com/18nelli18/Modded
 - **Cycles Mod Standard** (durchgemacht) - describes **model27** (README: implemented in model27). [repo](https://github.com/durchgemacht/cycles-mod-standard)
 - **Cycles One-Shot** (durchgemacht) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/durchgemacht/cycles-one-shot)
 - **digi1_mods** (gdeo607) - bundles **Tone+FX** (README: Tone+FX, Digital Alchemy DSP's master effects suite, ported). [repo](https://github.com/gdeo607/digi1_mods)
-- **digiemu** (pina (irpina)) - builds on **digikit** (README: digiemu is derived from m-dwyer/digikit at an upstream commit). [repo](https://github.com/irpina/digiemu)
+- **digiemu** (pina (irpina)) - builds on **digikit** (README: digiemu is derived from m-dwyer/digikit at an upstream commit). [repo](https://github.com/elekloader/digiemu)
 - **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/ElekLabs/digikit)
 - **digitakt-ii-research (Deja Vu LFOs, ONESHOT zoom)** (kariGardarsson) - builds on **digikit** (all-in-one/README.md: modified firmware derived from digikit; uses its patchkit). [repo](https://github.com/karigardarsson/digitakt-ii-research)
 - **DN2 DT2 firmware research** (armio) - builds on **dn2_firmware_explore** (catalogue notes: builds on dnfw (pinned commit)); builds on **digikit** (catalogue notes: builds on digikit (pinned commit)); builds on **elektron-firmware-tool** (catalogue notes: builds on elektron-firmware-tool (pinned commit)). [repo](https://github.com/armio/dn2-dt2-firmware-research)
 - **DN2 mk2 Mod (dn2mk2-firmware)** (De-Pattern (README says it builds on the upstream project dn2_firmware_explore / xrcstrecords - not verified by us)) - builds on **dn2_firmware_explore** (docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698). [repo](https://github.com/De-Pattern/dn2mk2-firmware)
+- **DN2 Tools (dn2mk2 browser tools)** (De-Pattern) - same project as **DN2 mk2 Mod (dn2mk2-firmware)** (README: browser tools for the Digitone II mod; same author). [repo](https://github.com/De-Pattern/dn2mk2)
 - **dn2_firmware_explore** (angellinares) - builds on **elektron-firmware-tool** (README credit: container, transport, codec and integrity work stands on it). [repo](https://github.com/angellinares/dn2_firmware_explore)
 - **elektron-firmware-tool** (mischa85) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/mischa85/elektron-firmware-tool)
 - **elektron-model-tweaks** (drumkilla) - builds on **elektron-firmware-tool** (README: building scripts are based on elektron-firmware-tool); builds on **ms-multi-output** (README: based on ms-multi-output by Scott Metoyer). [repo](https://github.com/drumkilla/elektron-model-tweaks)
@@ -59,6 +60,7 @@ Devices: Digitakt II. [repo](https://github.com/gdeo607/Digi2Core)
 - **DIGISNAKE (Digitakt)** (ClaidArremer) - linked to **Digi2Core (core-dt2 2.6.1)** through another member of this family. [repo](https://github.com/ClaidArremer/digitakt-digisnake)
 - **DIGISNAKE (Digitone)** (ClaidArremer) - variant of **DIGISNAKE (Digitakt)** (same author, Digitone build). [repo](https://github.com/ClaidArremer/digitone-digisnake)
 - **Digisophie / Sophie for Digitakt** (Soejrd) - linked to **Digi2Core (core-dt2 2.6.1)** through another member of this family. [repo](https://github.com/soejrd/digisophie)
+- **Digisophie-DN (SOPHIE for the Digitone)** (x2k77m1 (port); soejrd (Digisophie)) - port of **Digisophie / Sophie for Digitakt** (README: a port of the Digitakt 1 mod Digisophie to the Digitone 1); fork of **Digisophie / Sophie for Digitakt** (GitHub fork flag; 3 own commits). [repo](https://github.com/x2k77m1/digisophie-dn)
 - **digistring** (Alez22) - linked to **Digi2Core (core-dt2 2.6.1)** through another member of this family. [repo](https://github.com/Alez22/digistring)
 - **DT-FM** (mtalikka) - builds on **Digisophie / Sophie for Digitakt** (notes). [repo](https://github.com/mtalikka/DT-FM)
 - **elekloader** (pina (irpina)) - linked to **Digi2Core (core-dt2 2.6.1)** through another member of this family. [repo](https://github.com/elekloader/elekloader)
@@ -103,6 +105,14 @@ Devices: Analog Rytm (MKI, MKII). [repo](https://github.com/gdeo607/rytm1_mods)
 - **rytm-mods-src** (MrScruff (published with permission by Iced-Cream)) - linked to **rytm1_mods** through another member of this family. [repo](https://github.com/Iced-Cream/rytm-mods-src)
 - **rytm2_mods** (Iced-Cream) - port of **rytm-mods-src** (README: ported to elemod). [repo](https://github.com/Iced-Cream/rytm2_mods)
 
+## Sidecar | Expander (trigcondition)
+
+Devices: Analog Rytm (MKI, MKII), Digitakt (MKI), Analog Four / Analog Keys. [repo](https://github.com/trigcondition/sidecar-expander)
+
+- **Digitakt integrated sidecar** (soejrd) - builds on **Sidecar | Expander** (README: based on Sidecar by Trig Condition). [repo](https://github.com/soejrd/digitakt-sidecar)
+- **Sidecar (Digitakt mod)** (trigcondition) - variant of **Sidecar | Expander** (same author, Digitakt side of Sidecar). [repo](https://github.com/trigcondition/sidecar-digitakt)
+- **Sidecar | Expander: Rytm mods** (trigcondition) - same project as **Sidecar | Expander** (README: the Rytm mods that Sidecar | Expander uses). [repo](https://github.com/trigcondition/sidecar-mods)
+
 ## elk-herd (mzero)
 
 Devices: Digitakt (MKI), Digitakt II. [repo](https://github.com/mzero/elk-herd)
@@ -131,13 +141,6 @@ Devices: Digitakt (MKI). [repo](https://github.com/jakobbak/screendump)
 - **Elek View (screen viewer in the browser)** (BlueSGL) - port of **screendump** (README: a .html implementation of jakobbak/screendump). [repo](https://github.com/BlueSGL/Elek_View)
 - **Elektron-Screen-Tool** (Fadedlimes) - fork of **screendump** (README). [repo](https://github.com/Fadedlimes/elektron-screen-tool)
 
-## Sidecar | Expander (trigcondition)
-
-Devices: Analog Rytm (MKI, MKII), Digitakt (MKI), Analog Four / Analog Keys. [repo](https://github.com/trigcondition/sidecar-expander)
-
-- **Digitakt integrated sidecar** (soejrd) - builds on **Sidecar | Expander** (README: based on Sidecar by Trig Condition). [repo](https://github.com/soejrd/digitakt-sidecar)
-- **Sidecar (Digitakt mod)** (trigcondition) - variant of **Sidecar | Expander** (same author, Digitakt side of Sidecar). [repo](https://github.com/trigcondition/sidecar-digitakt)
-
 ## DigiFilter (DigiAlchemydsp)
 
 Devices: Digitakt (MKI). [repo](https://github.com/DigiAlchemydsp/DigiFilter)
@@ -146,7 +149,7 @@ Devices: Digitakt (MKI). [repo](https://github.com/DigiAlchemydsp/DigiFilter)
 
 ## digihealth (pina (irpina))
 
-Devices: Digitakt (MKI), Digitone (MKI) / Digitone Keys. [repo](https://github.com/irpina/digihealth)
+Devices: Digitakt (MKI), Digitone (MKI) / Digitone Keys. [repo](https://github.com/elekloader/digihealth)
 
 - **analoghealth** (Iced-Cream) - port of **digihealth** (README: irpina's digihealth for the Digitakt mk1, ported to the Rytm MKII and Analog Four MKII). [repo](https://github.com/Iced-Cream/analoghealth)
 
@@ -210,7 +213,7 @@ Drawn by GitHub from the lineage relations (fork, copy, port, variant, builds on
 
 <!-- relation-graph:start - generated by scripts/build.py from data/projects.yml, do not edit by hand -->
 
-113 entries with 123 relations. Colour: licence family (green permissive, blue copyleft, yellow public domain, grey none stated or not recorded).
+116 entries with 127 relations. Colour: licence family (green permissive, blue copyleft, yellow public domain, grey none stated or not recorded).
 
 ```mermaid
 flowchart LR
@@ -248,10 +251,12 @@ flowchart LR
   subgraph n_group_Digitone["Digitone"]
     n_digiseq_digitone["DIGISEQ (Digitone)<br/>GPL"]:::copyleft
     n_digisnake_digitone["DIGISNAKE (Digitone)<br/>GPL"]:::copyleft
+    n_digisophie_dn["Digisophie-DN<br/>MIT"]:::permissive
     n_elektron_mods_rumorismo["Digitone MK1 Modding Project<br/>not recorded"]:::none
     n_directjump_digitone["DIRECT JUMP (Digitone)<br/>GPL"]:::copyleft
     n_dn2_dt2_firmware_research["DN2 DT2 firmware research<br/>not recorded"]:::none
     n_dn2mk2["DN2 mk2 Mod (dn2mk2-firmware)<br/>AGPL-3.0-or-later"]:::copyleft
+    n_dn2_tools_depattern["DN2 Tools (dn2mk2 browser tools)<br/>not stated"]:::none
     n_dn2_cfw["dn2-cfw<br/>not recorded"]:::none
     n_dn2_firmware_explore["dn2_firmware_explore<br/>AGPL-3.0-or-later"]:::copyleft
     n_overtone["Overtone<br/>not recorded"]:::none
@@ -342,6 +347,7 @@ flowchart LR
     n_modwerk["Modwerk (formerly Octamod)<br/>not recorded"]:::none
     n_overwitch["Overwitch<br/>not recorded"]:::none
     n_sidecar_expander["Sidecar | Expander<br/>GPL-2.0"]:::copyleft
+    n_sidecar_mods["Sidecar | Expander: Rytm mods<br/>GPL"]:::copyleft
     n_taktone["taktone<br/>not recorded"]:::none
     n_tone_fx["Tone+FX<br/>GPL-2.0"]:::copyleft
   end
@@ -591,6 +597,14 @@ flowchart LR
   %% evidence: README credits: the original 6-channel USB audio mod
   n_octabam2elemod -- "vendors code from" --> n_octabam
   %% evidence: file names: octabam-<module>-363861e.elemod
+  n_digisophie_dn -- "port of" --> n_digisophie
+  %% evidence: README: a port of the Digitakt 1 mod Digisophie to the Digitone 1
+  n_digisophie_dn -- "fork of" --> n_digisophie
+  %% evidence: GitHub fork flag; 3 own commits
+  n_sidecar_mods -- "same project as" --> n_sidecar_expander
+  %% evidence: README: the Rytm mods that Sidecar | Expander uses
+  n_dn2_tools_depattern -- "same project as" --> n_dn2mk2
+  %% evidence: README: browser tools for the Digitone II mod; same author
   classDef permissive fill:#d9f2e3,stroke:#2b7a4b,color:#10301e
   classDef copyleft fill:#dde7fb,stroke:#3460b0,color:#13254a
   classDef public-domain fill:#f9ecc8,stroke:#a07410,color:#3d2c05

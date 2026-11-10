@@ -8,6 +8,7 @@ Data last verified: 2026-11-08
 
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **Mono Chorus CLAP** (nerazin) | tool | active | 0.3.0 (2026-11-10) | - | 2026-11-10 | [repo](https://github.com/nerazin/mono-chorus-clap) |
 | **ems-monomachine-firmware** (June Kiff (emuyia)) | firmware | active | 26B09-beta (2026-11-09): ARP p-locks, trig conditions to 8:8 plus PRE/NEI, microtiming, multi-trig edit, page transpose, BBOX sample manager (SDS and a compressed format shared with compatible Machinedrum firmware), DPRO>SBOX machine; 1.32B | 26910-release | 2026-11-09 | [repo](https://github.com/emuyia/ems-monomachine-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-06 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
 | **OP-XY MNMD** (mmockett) | emulator | active | - | v1.3.1 | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
@@ -99,3 +100,9 @@ _Sources: GitHub search 2026-11-02, README_
 Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). On 2026-11-04 the repo no longer answered anonymously (git asked for credentials, so private or removed); not chased.
 
 _Sources: GitHub search 2026-11-02, README_
+
+### Mono Chorus CLAP
+
+A small stereo CLAP chorus plug-in (macOS) after the Monomachine's FX-CHORS: a floating-point reconstruction with eight automatable parameters (DEL, DEP, SPD, MIX, FB, WID, LP, INP), one C file, no firmware and no emulator.
+
+_Sources: state/NEW.md 2026-11-10, README_

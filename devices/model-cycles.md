@@ -9,6 +9,7 @@ Data last verified: 2026-11-08
 | Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **elekloader** (pina (irpina)) | loader | active | v0.10.0 (tag 2026-11-09): ships each device's newest core (DT1 4.1, DN1 5.2.1, DT2 1.0, DN2 0.3, AR2 0.11, A4 0.5, OT 0.8, MC 0.3, MS 0.1). main since: DT1 core 4.2/4.3 and DN1 5.3 (live-note and MIDI CC events), core-dn2 0.4 (MIDI CC event, DSP post words), core-ar2 0.12 (spare table entries for +Drive mods), SDK mono machines and MIDI CCs, DT2 sharc_raw (raw section-7 loads and relocatable DSP objects); Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.10.0 | 2026-11-10 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/elekloader/elekloader/releases) · [shop](https://elekloader.github.io/shop/) · [shop repo](https://github.com/elekloader/shop) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
+| **CyclesEmu (Model:Cycles engine as plug-ins)** (Jackherz) | tool | wip | - | v1.0 | 2026-11-10 | [repo](https://github.com/Jackherz/model-cycles-plugin) |
 | **model27** (durchgemacht, 18nelli18) | firmware | active | release 0.56 (2026-11-09): fifteen cards in the web flasher, all tested on a Model:Cycles as the page builds them; new CHORD Tables (the CHORD machine plays the user's own wavetables from the +Drive, one per pattern) and a Wavetables page; 1.13 | - | 2026-11-09 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
 | **SPOKES** (A.V.) | tool | active | main @ f712595 (2026-11-09); 1.13 | - | 2026-11-09 | [repo](https://github.com/AveyCole/SPOKES) · [homepage](https://aveycole.github.io/SPOKES/) |
 | **Supermodel Edition** (A.V., 18nelli18) | firmware | active | 3.06 (2026-11-06; 2026-11-08 fixes to the Optional edition's machine exclusions); 1.13 | wavetable-pack | 2026-11-08 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |
@@ -37,6 +38,7 @@ Data last verified: 2026-11-08
 | **Model:Cycles .mcpst format notes** (kg4zow) | research | inactive | - | - | 2022-04-12 | [repo](https://github.com/kg4zow/model-cycles) |
 | **plaits-on-models** (DMDaudio) | mod | active | 1.13 | - | - | [repo](https://github.com/DMDaudio/plaits-on-models) |
 | **ms-multi-output** (Scott Metoyer) | mod | active | 1.13 | - | - | [repo](https://github.com/scottmetoyer/ms-multi-output) |
+| **model-cycles-mods (100demons)** (100demons) | mod | unverified | - | - | - | [repo](https://github.com/100demons/model-cycles-mods) |
 
 ## Details
 
@@ -261,3 +263,17 @@ One added machine with twelve two-operator FM percussion engines with extended r
 _Related: mod for `cycles-engines` (README: tick PUNCH in the Cycles Engines flasher) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-07, README_
+
+### CyclesEmu (Model:Cycles engine as plug-ins)
+
+Unofficial macOS plug-ins (AU, VST3, standalone) that run the Model:Cycles' own sound engine: the parts of the firmware that render audio are translated ahead of time from ColdFire code to C, from the user's own firmware (nothing included or derived in the repo). CyclesEmu (eight tracks with machines, LFOs, filter, mixer, delay and reverb), CyclesVoice (one sound, up to eight voices) and CyclesFX (the delay and reverb). The translated render matches the digiemu emulator bit for bit on captured blocks; eight tracks take about 11 % of one M1 Pro core. A personal research project.
+
+_Related: uses tool `digiemu` (README: the translated render is checked against digiemu) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: state/NEW.md 2026-11-10, README_
+
+### model-cycles-mods (100demons)
+
+2026-11-10 (NEW.md triage): two commits, a one-line README ('Individual mods') and three zip packages (blast-addon, tear-addon, tiny2-component); BLAST is in cycles-engines, 'tear' and 'tiny2' are not described anywhere. Not unpacked. List once a README says what they are.
+
+_Sources: _

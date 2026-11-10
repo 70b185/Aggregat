@@ -120,3 +120,13 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | Source | Depth | Folded into |
 |---|---|---|
 | READMEs of 40 repos; forks compared commit by commit with their originals | README start, history | projects.yml (9 new entries, digiemu and digihealth moved to the elekloader organisation), ignore.yml (28 with reasons), candidates.yml (1) |
+
+## Pass 2026-11-10 evening (check_updates after the triage)
+| Source | Depth | Folded into |
+|---|---|---|
+| model27 README and AGENTS (uploader 0.57/0.58) | diff | projects.yml, devices/model-cycles-samples |
+| modwerk changelog 2026-11-10 (macOS check workers) | diff | nothing (development only) |
+| sidecar-digitakt README and mod.json (0.3) | diff | projects.yml |
+| sidecar-expander README, RELEASE-NOTES, INSTALL-PI, KNOWN-ISSUES (0.4.4) | diff | projects.yml (sidecar-expander, sidecar-mods) |
+| synfact-dev docs/ADAPTING, MACHINE-REFERENCE, core-st, recorder, probes (core 1.8.0) | diff | projects.yml, devices/syntakt |
+| altstrument directory (CyclesEmu, Sidecar, dn2mk2, DNX entries) | diff | nothing new (CyclesEmu catalogued today) |

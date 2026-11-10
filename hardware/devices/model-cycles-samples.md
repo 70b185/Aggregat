@@ -80,3 +80,7 @@ Supermodel's Syntakt-engine bridge measures the audio function every block and f
   - One block is 90,112 timer ticks.
   - The same method as digihealth (Digitakt mk1) and dnfw's loadmap (DN2): measure before optimising. `[doc]`
 
+
+## The +Drive sample store (model27's sample uploader, OS 1.13) {model27-uploader}
+- **A sample in use is locked.** Once a track uses a sample, the Model:Cycles refuses to delete it; a restart unlocks it only if no track uses it anymore (tried on a Model:Cycles with one SAMPLE track, 2026-11-10). An uploader should delete what it can and name the locked files rather than stop. `[hw]`
+- Uploads become 48 kHz mono samples; Chromium decodes neither AIFF nor 64-bit float WAV, so model27's page converts those itself before handing them on. `[doc]`

@@ -166,6 +166,7 @@ Normal case: Drop page in Transfer. If the OS does not boot: DIN MIDI, FUNC at p
 - **Filter table:** the stock base-width filter reads Q31 poles from `0x40040060` (508 poles, then a zero tail; indices up to 1023 are read). A mod window in that tail made BASE+WDTH of 128 or more read code as poles; core 1.7.2 bounds the index. `[hw]` (I63)
 - **Load:** MAIN is about 88 % with a plain pattern and 91-92 % with three POLY voices; code fetched from DDR costs far more than its instruction count (I64). `[hw]` {synfact-chorus}
 - **Build and voices:** builds use `-mcpu=54415` (an MCF5441x part), SMZ bank code `-fno-jump-tables`. Each track has one stock voice block at `0x80000000 + t*0x708`; the stock voice reset rewrites +`0x570`-`0x708` and zeroes 48 bytes at the pointer in +`0x56c`. `[doc]` {synfact-machine-ref}
+- **Free memory, checked on a unit (2026-11-10):** a probe machine (type 70, MEM PROBE) filled the shared-window gap `0x5b0..0x7df` (AUDIO `0x5b0`, MAIN `0x100005b0`) and the AUDIO SRAM tail `0x8000f398..0x8000ffff` (after FM TONE's scratch; the stock boot leaves it zero) with a pattern and checked it every block: nothing else wrote either area over several minutes. Synfact core 1.8 uses both for stereo tracks. `[hw]` {synfact-memprobe}
 
 ## Gaps
 - **Signing:** the HMAC presence in 1.41 versus 1.42 is a conflict, see above.

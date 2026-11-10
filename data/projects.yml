@@ -2443,7 +2443,7 @@ projects:
     tested: unit
     base_os: '1.13'
     version: "release 0.56 (2026-11-09): fifteen cards in the web flasher, all tested on a Model:Cycles as the page builds them; new CHORD Tables (the CHORD machine plays the user's own wavetables from the +Drive, one per pattern) and a Wavetables page"
-    last_activity: "2026-11-09"
+    last_activity: "2026-11-10"
     notes: "Repo was offline 2026-11-07 to 11-09 (check_updates 2026-11-08); public again on 2026-11-09 (altstrument and SPOKES change reports; README read 2026-11-10). Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: a web Manager keeps one Model:Cycles project per firmware: it backs up the current project, flashes the other firmware over USB and restores that firmware's project (notes/77)."
     sources:
     - altstrument (2026-11-01)
@@ -2929,13 +2929,13 @@ projects:
     status: "active"
     tested: partly
     tested_note: "the owner's Syntakt confirmed core 1.4 and 1.7.2 (BASE/WDTH fix), ARP TEST03, the POLY bank and its 0.2.1 fix, and the samplers 0.9 sample list; safe-boot rollback and update-order tests are still pending on hardware"
-    version: "main @ 30e2707 (2026-11-09), untagged; core-st 1.7.2"
+    version: "main (2026-11-10), untagged; core-st 1.8.0 (stereo tracks and stereo samples), sample-manager-st 1.2, samplers-st 1.3"
     base_os: "Syntakt OS 1.41"
     links:
       homepage: https://synfact.app
       old_release_repo: https://github.com/GSM1980/Synfact-release
       release_copy: https://github.com/nrdsrfr/synfact-release
-    last_activity: "2026-11-09"
+    last_activity: "2026-11-10"
     own_mods:
     - {name: "core-st", version: "1.7.2", path: "mods/core-st", tested: "unit", what: "Hook bus, SMZ4 machine banks with a safe-boot trial, long samples (HZFS)"}
     - {name: "machines-st", version: "1.0", path: "mods/machines-st", tested: "not-stated", what: "Turns on the SMZ4 machine banks"}
@@ -3375,9 +3375,10 @@ projects:
     repo: https://github.com/trigcondition/sidecar-digitakt
     license: "GPL"
     status: wip
+    version: "mod 0.3 (2026-11-10)"
     tested: emulator
     base_os: Digitakt mk1
-    last_activity: '2026-10-31'
+    last_activity: "2026-11-10"
     notes: 'Plays a Sidecar expander from the Digitakt mk1. README: experimental, emulator only, never run on a unit.
       GPL. Found by GitHub search 2026-11-02; README start read.'
     sources:
@@ -4197,8 +4198,8 @@ projects:
     status: wip
     tested: emulator
     base_os: Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module)
-    version: "Sidecar 0.4.3 (2026-11-09, Pi only: CHRO pads play poly tracks from the first hit; Rytm screen redraws capped at 5/s, 10/s for animations); 0.4.2 Overbridge passthrough on the Pi 5; Rytm firmware 0.4.0 unchanged (OS 1.74/1.73); A4 MKII mod 0.12 (OS 1.56); Sidecar Mini frozen at 0.1.0"
-    last_activity: "2026-11-09"
+    version: "Sidecar 0.4.4 with Rytm firmware 0.4.4 (2026-11-10): a held step's locks on the SRC view, the pads' octave keys on the SEQ and ARP pages, one NO leaves a page, the CONNECTED screen when the Rytm boots after the Sidecar; the A4 mod stays 0.12, Sidecar Mini 0.1.0"
+    last_activity: "2026-11-10"
     notes: A Raspberry Pi 4B/5 on the Rytm's USB port adds digital voices, effects and a sequencer; the Rytm runs a
       patched OS. 0.3.2 adds experimental, emulator-only Digitakt support. The Teensy variant is frozen. GPL-2.0. On 2026-11-09, Analog Four MKII support since 0.4.0 (A4 firmware a4-v0.12, OS 1.56); 0.4.3 caps the Rytm screen redraws after users saw a sluggish Rytm at 20-40 redraws a second.
     sources:
@@ -5565,7 +5566,7 @@ projects:
     status: active
     tested: not-stated
     base_os: "Analog Rytm MKII OS 1.74 and 1.73; Analog Four MKII (a4/)"
-    version: "Rytm firmware 0.4.0 (with Sidecar 0.4.0, 2026-11-10)"
+    version: "Rytm firmware 0.4.4 (with Sidecar 0.4.4, 2026-11-10)"
     last_activity: "2026-11-10"
     license: "GPL"
     notes: >

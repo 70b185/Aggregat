@@ -321,6 +321,8 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | synfact-core | GSM1980/synfact-dev `mods/core-st/README.md`, `SMZ4.md` and CHANGELOG (read 2026-11-10) | https://github.com/GSM1980/synfact-dev/blob/main/mods/core-st/README.md |
 | synfact-chorus | GSM1980/synfact-dev `mods/chorus-st/README.md` (read 2026-11-10) | https://github.com/GSM1980/synfact-dev/blob/main/mods/chorus-st/README.md |
 | synfact-machine-ref | GSM1980/synfact-dev `docs/MACHINE-REFERENCE.md` (read 2026-11-10) | https://github.com/GSM1980/synfact-dev/blob/main/docs/MACHINE-REFERENCE.md |
+| synfact-memprobe | GSM1980/synfact-dev `tools/probes/memory-probe-st/README.md` and `docs/MACHINE-REFERENCE.md` "The shared window between the two CPUs" (read 2026-11-10) | https://github.com/GSM1980/synfact-dev/tree/main/tools/probes/memory-probe-st |
+| model27-uploader | durchgemacht/model27 README, sample uploader (releases 0.57/0.58; read 2026-11-10) | https://github.com/durchgemacht/model27 |
 | dn2mk2-v045 | De-Pattern/dn2mk2-firmware `releases/v0.45.md` (BOUNCE freeze, wild-read trap) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/releases/v0.45.md |
 | dn2mk2-v046 | De-Pattern/dn2mk2-firmware `releases/v0.46.md` | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/releases/v0.46.md |
 | dn2mk2-v047 | De-Pattern/dn2mk2-firmware `releases/v0.47.md` and FIRMWARE.md known issues | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/releases/v0.47.md |

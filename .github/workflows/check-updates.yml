@@ -3,13 +3,24 @@ name: check-updates
 # Fingerprints every watched repo (git ls-remote + blobless tree listing, no API token needed)
 # and commits state/CHANGES.md (changes since the last processed baselines) when something moved; also lists repos not in the
 # catalogue yet in state/NEW.md (scripts/find_new.py), which the update run triages.
+#
+# How it fits the daily update run (a scheduled agent session at 07:00 Vienna, about 06:00 UTC, docs/UPDATING.md): that run
+# checks and searches for itself and is the only one that moves baselines or edits data/. This workflow is the second,
+# unattended look that keeps state/CHANGES.md, state/NEW.md, the GitHub numbers and the pages fresh during the day.
+# GitHub starts scheduled workflows late (here about 8 hours: 05:17 UTC ran at 13:29 and 13:55 UTC), so the two times
+# below land around 13:30 and 01:30 UTC, away from the update run.
 on:
   schedule:
-    - cron: "17 5 * * *"   # daily 05:17 UTC
+    - cron: "17 5 * * *"    # 05:17 UTC, observed start about 13:30 UTC
+    - cron: "17 17 * * *"   # 17:17 UTC, expected start about 01:30 UTC
   workflow_dispatch: {}
 
 permissions:
   contents: write
+
+concurrency:          # never two runs at once (late starts can bunch up)
+  group: check-updates
+  cancel-in-progress: false
 
 jobs:
   check:
@@ -22,33 +33,36 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pyyaml
-      - name: Check watched repos
-        # --report, not --update: baselines move only when an update run has read a change (docs/UPDATING.md), so
-        # state/CHANGES.md keeps every change since then, not just the last day's
-        run: python3 scripts/check_updates.py --report
-      - name: Refresh public GitHub numbers (creation date, stars, licence)
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python3 scripts/repo_meta.py || echo "repo_meta failed; keeping the old file"
-      - name: Look for new repos (keyword and code search, new repos of catalogued authors) -> state/NEW.md
+      - name: Check, search and rebuild; commit and push (again on a fresh master if the update run pushed meanwhile)
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          python3 scripts/find_new.py --since "$(date -u -d '-30 days' +%F)" --authors --code --report state/NEW.md \
-            || echo "find_new failed; keeping the old report"
-      - name: Rebuild pages (latest-tag column)
-        run: python3 scripts/first_seen.py && python3 scripts/build.py
-      - name: Export database and duplicate report
-        run: |
-          python3 scripts/research_snapshot.py   # before export_db, which records the snapshot hash
-          python3 scripts/export_db.py
-          python3 scripts/find_duplicates.py
-      - name: Commit if anything changed
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            git config user.name "aggregat-bot"
-            git config user.email "aggregat-bot@users.noreply.github.com"
+          gen() {
+            # --report, not --update: baselines move only when an update run has read a change (docs/UPDATING.md),
+            # so state/CHANGES.md keeps every change since then, not just the last day's
+            python3 scripts/check_updates.py --report
+            # public GitHub numbers (creation date, stars, licence)
+            python3 scripts/repo_meta.py || echo "repo_meta failed; keeping the old file"
+            # keyword and code search, new repos of catalogued authors -> state/NEW.md
+            python3 scripts/find_new.py --since "$(date -u -d '-30 days' +%F)" --authors --code --report state/NEW.md \
+              || echo "find_new failed; keeping the old report"
+            python3 scripts/first_seen.py && python3 scripts/build.py
+            python3 scripts/research_snapshot.py   # before export_db, which records the snapshot hash
+            python3 scripts/export_db.py
+            python3 scripts/find_duplicates.py
+          }
+          git config user.name "aggregat-bot"
+          git config user.email "aggregat-bot@users.noreply.github.com"
+          gen
+          for attempt in 1 2 3; do
+            [ -z "$(git status --porcelain)" ] && { echo "nothing changed"; exit 0; }
             git add state README.md INDEX.md devices MODS.md DEV-TOOLS.md MUSICIAN-TOOLS.md PROJECT-FAMILIES.md export hardware/DUPLICATES.md research
-            git commit -m "check-updates: $(head -3 state/CHANGES.md | tail -1)"
-            git push
-          fi
+            git commit -q -m "check-updates: $(head -3 state/CHANGES.md | tail -1)"
+            git push && exit 0
+            # master moved (usually the update run): start from it and generate again, so nothing of its work is undone
+            echo "push rejected; regenerating on the current master (attempt $attempt)"
+            git fetch -q origin
+            git reset -q --hard "origin/${GITHUB_REF_NAME}"
+            gen
+          done
+          echo "could not push after 3 attempts"; exit 1

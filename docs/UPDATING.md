@@ -9,7 +9,7 @@ Goal: find out **what changed** without reading every repo again. Most runs shou
 - **Stage 2** (only if HEAD moved): blobless depth-1 clone, `git ls-tree`, compare hashes -> lists added `+`, changed `~`, removed `-` watched files and new tags.
 - `--diff` additionally prints the text diff of exactly those files (old HEAD fetched blobless).
 - Directories (altstrument data folder, Lapin list) are watched the same way to **discover new projects**.
-- A daily GitHub Action (`.github/workflows/check-updates.yml`) runs the check with `--report` and commits `state/CHANGES.md`. It does **not** move the baselines, so the report lists every change since the last update run read it, however many days ago; and lists repos not in the catalogue yet in `state/NEW.md` (see "Finding new projects").
+- A GitHub Action (`.github/workflows/check-updates.yml`, twice a day; GitHub starts it hours late) runs the check with `--report` and commits `state/CHANGES.md`. It does **not** move the baselines, so the report lists every change since the last update run read it, however many days ago; and lists repos not in the catalogue yet in `state/NEW.md` (see "Finding new projects").
 
 ## Agent procedure (token-cheap)
 1. `git pull`, then read **only** `state/CHANGES.md` and `state/NEW.md` (a few lines each). Do not open `state/fingerprints.json` - it is for the script.
@@ -29,7 +29,7 @@ Forum threads, vendor pages (elektron.se release notes), PDFs and non-git sites.
 Add the project to `data/projects.yml` with a `repo:` URL - it is watched automatically. For a narrower or wider watch list add an entry under `overrides` in `data/watch.yml`.
 
 ## Finding new projects (daily, automatic)
-The daily Action runs `python3 scripts/find_new.py --since <30 days ago> --authors --code --report state/NEW.md`. The
+The daily update run (a scheduled agent session at 07:00 Vienna) runs the search itself and triages the result; the Action also runs `python3 scripts/find_new.py --since <30 days ago> --authors --code --report state/NEW.md`. The
 report lists only repos that are in neither `data/projects.yml` / `data/candidates.yml` nor `data/ignore.yml`, from
 three sources:
 - **keyword search** of repo names, descriptions and topics (digitakt, elekloader, octatrack, ...);

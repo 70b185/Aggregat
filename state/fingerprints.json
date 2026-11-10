@@ -937,6 +937,127 @@
    "COPYING*"
   ]
  },
+ "digi2core": {
+  "checked": "2026-11-10 10:52 UTC",
+  "files": {
+   "LICENSE": "be3f7b28e564",
+   "README.md": "0baf0996b352",
+   "core/mod.json": "1d879907b2ac",
+   "docs/PATTERN.md": "2d755d0afad7"
+  },
+  "head": "5ef6c10f082273be909a28ece4fa8dccffca471f",
+  "repo": "https://github.com/gdeo607/Digi2Core",
+  "seen": "2026-11-10 10:52 UTC",
+  "tags": [],
+  "watch": [
+   "*.md",
+   "*/mod.json",
+   "*.toml",
+   "LICENSE*",
+   "COPYING*"
+  ]
+ },
+ "digi2digiseq": {
+  "checked": "2026-11-10 10:52 UTC",
+  "files": {
+   "LICENSE": "9efa6fbc9628",
+   "README.md": "2a6d91ec9280",
+   "mod/mod.json": "7cc98415e4f7"
+  },
+  "head": "4431c6a84ece340db9afa25d3743afcb5d93a7fa",
+  "repo": "https://github.com/gdeo607/Digi2Digiseq",
+  "seen": "2026-11-10 10:52 UTC",
+  "tags": [],
+  "watch": [
+   "*.md",
+   "*/mod.json",
+   "*.toml",
+   "LICENSE*",
+   "COPYING*"
+  ]
+ },
+ "digi2elixir": {
+  "checked": "2026-11-10 10:52 UTC",
+  "files": {
+   "LICENSE": "f288702d2fa1",
+   "README.md": "bb780c54bd07",
+   "docs/PARAMETERS.md": "e654fce011cb",
+   "dsp/machines/lxr/module.toml": "7ccbf6b1752f",
+   "mod/mod.json": "e7da2c1d1c02"
+  },
+  "head": "a1dd5a3e881339f1017787ab28d281d01fe2b607",
+  "repo": "https://github.com/gdeo607/Digi2ElixirPotionsDRUM",
+  "seen": "2026-11-10 10:52 UTC",
+  "tags": [],
+  "watch": [
+   "*.md",
+   "*/mod.json",
+   "*.toml",
+   "LICENSE*",
+   "COPYING*"
+  ]
+ },
+ "digi2macroosc": {
+  "checked": "2026-11-10 10:52 UTC",
+  "files": {
+   "LICENSE": "be3f7b28e564",
+   "README.md": "a673a75020a6",
+   "mod/mod.json": "24ce0a84494a"
+  },
+  "head": "519a5f70e28c5c46a40daee7cc8faff1e512fec2",
+  "repo": "https://github.com/gdeo607/Digi2MacroOSC",
+  "seen": "2026-11-10 10:52 UTC",
+  "tags": [],
+  "watch": [
+   "*.md",
+   "*/mod.json",
+   "*.toml",
+   "LICENSE*",
+   "COPYING*"
+  ]
+ },
+ "digi2sophie": {
+  "checked": "2026-11-10 10:52 UTC",
+  "files": {
+   "LICENSE": "576fa1600aa5",
+   "README.md": "7776d2b96361",
+   "docs/PARAMETERS.md": "2631f2848f59",
+   "dsp/machines/sophie/module.toml": "fa9a223c867e",
+   "mod/mod.json": "dc23d7c05f53"
+  },
+  "head": "a7577600ed16cd01d626794876546818e0560b88",
+  "repo": "https://github.com/gdeo607/Digi2Sophie",
+  "seen": "2026-11-10 10:52 UTC",
+  "tags": [],
+  "watch": [
+   "*.md",
+   "*/mod.json",
+   "*.toml",
+   "LICENSE*",
+   "COPYING*"
+  ]
+ },
+ "digi2string": {
+  "checked": "2026-11-10 10:52 UTC",
+  "files": {
+   "LICENSE": "ad71fb7d898d",
+   "README.md": "680d718d2936",
+   "docs/PARAMETERS.md": "2829d11e10dd",
+   "dsp/machines/string/module.toml": "6fda6b72b895",
+   "mod/mod.json": "e14a2c07081d"
+  },
+  "head": "2950ab63c9605ceadeffc7bd13bd35e8adc4bf61",
+  "repo": "https://github.com/gdeo607/Digi2String",
+  "seen": "2026-11-10 10:52 UTC",
+  "tags": [],
+  "watch": [
+   "*.md",
+   "*/mod.json",
+   "*.toml",
+   "LICENSE*",
+   "COPYING*"
+  ]
+ },
  "digialchemy-gamepack-1": {
   "checked": "2026-11-01 23:12 UTC",
   "files": {

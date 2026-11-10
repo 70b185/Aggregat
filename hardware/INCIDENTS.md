@@ -620,6 +620,16 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** A42
 - **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md#sound-parameters-overdrive-and-run-time-machines-digikit-dt2-117--dn2-112-2026-11-10-digikit-f119)
 
+### I67. Code built into .bss crashed a Digitakt II at boot; the emulator ran the zeros
+- **Unit:** Digitakt II, OS 1.17 (gdeo607's Digi2Core, core-dt2 2.4-2.6), fixed in 2.6.1 on 2026-11-09
+- **Seen:** right after boot the unit stopped with an illegal-instruction exception.
+- **Cause (per the 2.6.1 note):** two new routines were placed in `.bss` instead of the code section, so the unit jumped into zero-filled memory. The emulator executed the zeros as no-ops and booted.
+- **Fix:** the routines are code again in 2.6.1. The README says not to flash a 2.4, 2.5 or 2.6 build; Digi2MacroOSC and Digi2ElixirPotionsDRUM still name core 2.4.
+- **Status:** fixed in 2.6.1.
+- **Evidence:** `[hw]` {digi2core}
+- **Rule:** A42, C10
+- **Fact:** [AGENT-RULES.md](AGENT-RULES.md)
+
 ### I66. A feature that crosses ColdFire and DSP passed the gate and failed on units
 - **Unit:** Digitone II, OS 1.11 (dn2mk2 v0.45/v0.46, BOUNCE), 2026-11-08/09
 - **Seen:** on testers' units BOUNCE recorded nothing, or recorded and never played back.

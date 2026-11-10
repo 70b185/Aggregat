@@ -101,3 +101,8 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | dn2_firmware_explore README, CONTRIBUTING, docs/references (ef8948e); DNX KNOWN-ISSUES, samples (dba9069) | key sections | devices/digitone-2-internals, H23, projects.yml |
 | sidecar-expander RELEASE-NOTES 0.4.3, KNOWN-ISSUES, what-works-now (7f717fe); ems-monomachine-firmware CHANGELOG 26B09 (d3dc702) | key sections / full | devices/analog-rytm, machinedrum-monomachine, projects.yml |
 | sample-shepherd roadmap and CLI docs (094c59d); SPOKES, Supermodel and whiplash commit logs; Lapin README diff (39936b2); altstrument firmwares diff (dee0272); model27 README and log (eda85fc, public again) | scan | projects.yml, ignore.yml (repeat98/octamachine) |
+
+## Pass 2026-11-10 (user's tip: gdeo607's Digi2 family)
+| Source | Depth | Folded into |
+|---|---|---|
+| gdeo607 Digi2Core, Digi2MacroOSC, Digi2ElixirPotionsDRUM, Digi2String, Digi2Sophie, Digi2Digiseq: READMEs, LICENSE, file lists | full | projects.yml (six entries), INCIDENTS I67, A42 |

@@ -11,6 +11,12 @@ Data last verified: 2026-11-08
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | active | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-10 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
 | **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo) | emulator | wip | Digitakt II target 1.17 (emulator also runs 1.16 as default file; 1.15C kept for old analysis); Digitone II target 1.12 (also runs 1.11 as default file; 1.10E kept for old analysis) | - | 2026-11-10 | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
 | **Whiplash (agent plays a Digitakt II)** (hejijunhao) | tool | active | v0.2.0 (2026-11-06) | - | 2026-11-10 | [repo](https://github.com/hejijunhao/whiplash) |
+| **Digi2Core (core-dt2 2.6.1)** (gdeo607) | mod | wip | core-dt2 2.6.1 (2026-11-09); Digitakt II OS 1.17 | - | 2026-11-09 | [repo](https://github.com/gdeo607/Digi2Core) |
+| **Digi2String (STRING)** (gdeo607 (port); Alez22 (STRING)) | mod | wip | string 0.2.0 (2026-11-09); Digitakt II OS 1.17 | - | 2026-11-09 | [repo](https://github.com/gdeo607/Digi2String) |
+| **Digi2Sophie (SOPHIE)** (gdeo607 (port); Matt Estela, soejrd (SOPHIE)) | mod | wip | sophie 0.1.0 (2026-11-09); Digitakt II OS 1.17 | - | 2026-11-09 | [repo](https://github.com/gdeo607/Digi2Sophie) |
+| **Digi2Digiseq (DIGISEQ)** (gdeo607 (port); Robbie / ClaidArremer (DIGISEQ)) | mod | wip | digiseq-dt2 0.5 (2026-11-09); Digitakt II OS 1.17 | - | 2026-11-09 | [repo](https://github.com/gdeo607/Digi2Digiseq) |
+| **Digi2MacroOSC (MACRO)** (gdeo607) | mod | wip | macro 0.4.0 (2026-11-08); Digitakt II OS 1.17 | - | 2026-11-08 | [repo](https://github.com/gdeo607/Digi2MacroOSC) |
+| **Digi2ElixirPotionsDRUM (ELIXIR)** (gdeo607) | mod | wip | elixir 0.2.0 (2026-11-08); Digitakt II OS 1.17 | - | 2026-11-08 | [repo](https://github.com/gdeo607/Digi2ElixirPotionsDRUM) |
 | **sample-shepherd** (julesyoungberg) | tool | active | - | - | 2026-11-08 | [repo](https://github.com/julesyoungberg/sample-shepherd) |
 | **EUC+ (melodies for the Euclidean sequencer)** (joesciii) | mod | wip | 0.2.0 (mod.json; no prebuilt files yet); Digitakt II OS 1.17; elekloader core-dt2 1.0 | - | 2026-11-08 | [repo](https://github.com/joesciii/eucplus) |
 | **digitakt-digitone-mcp** (jamiew) | tool | active | v0.5.2 | v0.5.2 | 2026-11-07 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
@@ -154,6 +160,54 @@ _Latest seen (2026-10-31, secondary directories): altstrument: converts an image
 _Related: uses tool `elektron-firmware-tool` (README: the build needs elektron-firmware-tool); cites `digitakt-ii-splash-screens` (README credits: the original splash research) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list_
+
+### Digi2Core (core-dt2 2.6.1)
+
+Base mod for gdeo607's Digitakt II machine mods; on its own it changes nothing. It keeps irpina's core 1.0 hook bus and adds digikit's machine, parameter and DSP-inline frameworks as core services: added machine types 7-23 and parameter codes 275-338, DSP voices as relocatable objects placed in free DSP L2, a second SRC page with four saved, p-lockable controls (stored in the sound record's spare slots 77 and 78; such projects still load on the stock OS), and since 2.6 a pattern service that reads and edits trigs and locks through the firmware's own editors. Building needs an elekloader with `sharc_raw` support for the Digitakt II (a branch of gdeo607's elekloader fork, proposed upstream). Do not flash 2.4, 2.5 or 2.6: they crash the unit at boot (I67).
+
+_Related: mod for `elekloader` (README: an elekloader mod (core 2.6.1)); builds on `elekloader` (README: starts from core 1.0 (irpina's boot copier and hook bus, unchanged)); vendors `digikit` (README: adds the frameworks DigiKit's All-in-One builds its machines on); uses tool `digikit` (README: checked in the emulator) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub README 2026-11-10_
+
+### Digi2MacroOSC (MACRO)
+
+MACRO, a macro-oscillator machine (type 11): 25 synthesis models and four DX7 patch banks after Emilie Gillet's Plaits, with a graphical model selector and HARM, TIMBRE, MORPH and MIX. Its DSP object is built from digikit's Plaits module. The README still names core-dt2 2.4, which crashes a unit at boot; use Digi2Core 2.6.1.
+
+_Related: mod for `elekloader` (README: an elekloader mod); builds on `digi2core` (README: on core-dt2 2.4); vendors `digikit` (README: DSP object built from DigiKit's machines/plaits module) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub README 2026-11-10_
+
+### Digi2ElixirPotionsDRUM (ELIXIR)
+
+ELIXIR, a drum-synthesis machine (type 12) with four models picked by MODEL - DRUM, SNARE, CYMBAL, HIHAT - each with a pitch sweep and a transient; the voices follow the open-source LXR drum machine firmware (Sonic Potions / Erica Synths). Two SRC pages; host tests render sounds and fuzz the voice. Not together with older LXR test builds (same machine type). The README still names core-dt2 2.4, which crashes a unit at boot; use 2.6.1.
+
+_Related: mod for `elekloader` (README: an elekloader mod); builds on `digi2core` (README: core-dt2 2.4 (Digi2Core)); vendors `digikit` (README: lxm_entry.s derived from digikit's Plaits entry shim) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub README 2026-11-10_
+
+### Digi2String (STRING)
+
+Alez22's Karplus-Strong STRING machine from the Digitakt mk1, ported to the Digitakt II: bowed, struck, noise-excited or plucked, with stiffness, excitation position, softness and a note-tracking tone filter. 0.2.0 makes STIFF and POS clearly audible, departing from the mk1 there. Needs Digi2Core 2.6.1 or later.
+
+_Related: port of `digistring` (README: a floating-point port of Alez22's karplus.c); mod for `elekloader` (README: an elekloader mod); builds on `digi2core` (README: core-dt2 2.6.1 or later); vendors `digikit` (README: strg_entry.s derived from digikit's Plaits entry shim) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub README 2026-11-10_
+
+### Digi2Sophie (SOPHIE)
+
+SOPHIE metallic percussion for the Digitakt II: Matt Estela's Sophie for Schwung, with PIPE and BOOM from soejrd's Sophie for Digitakt; FM and phase modulation with oscillator feedback, pitch sweep, bit crusher, drive and a resonant ring. Needs Digi2Core 2.6.1 or later. Overtone runs SOPHIE on the Digitone II.
+
+_Related: port of `digisophie` (README: PIPE and BOOM from Sophie for Digitakt by soejrd); mod for `elekloader` (README: an elekloader mod); builds on `digi2core` (README: core-dt2 2.6.1 or later); vendors `digikit` (README: sphe_entry.s derived from digikit's Plaits entry shim); cites `overtone` (README: Overtone runs SOPHIE on the Digitone II) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub README 2026-11-10_
+
+### Digi2Digiseq (DIGISEQ)
+
+Robbie's DIGISEQ sequencers for the Digitakt II: every track, audio or MIDI, picks a TYPE whose sequencer plays instead of its trigs - SNAKE (a path through a 4 x 2 grid), 185 (stage sequencer after ML-185), ARP (played by the track's own note trigs) and PRINT (writes the result as real trigs, with undo). Uses Digi2Core's pattern service; needs core 2.6.1 or later.
+
+_Related: port of `digiseq-digitakt` (README: DIGISEQ for Digitakt by Robbie (ClaidArremer), adapted); mod for `elekloader` (README: built with elekloader); builds on `digi2core` (README: core-dt2 2.6.1 or later, its pattern service) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+
+_Sources: GitHub README 2026-11-10_
 
 ### Elektroid
 

@@ -17,7 +17,7 @@ Data last verified: 2026-11-08
 | **Filter-FX (seven filter effects)** (DigiAlchemydsp) | mod | active | 1.2; Digitakt mk1; Digitone mk1 / Keys | v1.2 | 2026-11-08 | [repo](https://github.com/DigiAlchemydsp/Filter-FX) |
 | **digitakt-digitone-mcp** (jamiew) | tool | active | v0.5.2 | v0.5.2 | 2026-11-07 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **SEND FX (Digitone mk1)** (irpina) | mod | wip | Digitone mk1 / Keys OS 1.43 and 1.44 | v0.2 | 2026-11-07 | [repo](https://github.com/irpina/digisendfx) |
-| **Flex+ (FlexBus machine)** (DigiAlchemydsp) | mod | active | 1.0; Digitone mk1 / Keys OS 1.44 (core-dn1 4.0 + machines 0.2); Digitakt mk1 OS 1.54 (core 4.0 + machine-pages 1.1) | v1.0 | 2026-11-07 | [repo](https://github.com/DigiAlchemydsp/Flex-Plus) |
+| **Flex+ (FlexBus machine)** (DigiAlchemydsp) | mod | active | 1.0; Digitone mk1 / Keys OS 1.44 (core-dn1 4.0 + machines 0.2); Digitakt mk1 OS 1.54 (core 4.0 + machine-pages 1.1) | v1.1 | 2026-11-07 | [repo](https://github.com/DigiAlchemydsp/Flex-Plus) |
 | **DigiArp MIDI (DA27)** (aleks-karachevtsev) | mod | beta | DA27 0.9-dev11 (experimental beta); Digitone mk1 OS 1.44; elekloader core 4.1.1 + seq-events 0.1 | v0.9.0-beta | 2026-11-07 | [repo](https://github.com/aleks-karachevtsev/Digitone-MIDI-Arpeggiator) |
 | **CHOKE GROUPS (Digitone mk1)** (irpina) | mod | wip | choke 0.1, no release yet; Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 3.1 or later | v0.2 | 2026-11-05 | [repo](https://github.com/irpina/digichoke) |
 | **PROGRAM CHANGE -> SOUND (Digitone mk1)** (irpina) | mod | wip | 0.1, no release yet; Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased) | v0.2 | 2026-11-05 | [repo](https://github.com/irpina/digipcsound) |

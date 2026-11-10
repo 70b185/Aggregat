@@ -2,12 +2,13 @@
 
 Found by `scripts/find_new.py --since 2026-10-11 --code --authors`. Only repos that are in neither `data/projects.yml`, `data/candidates.yml` nor `data/ignore.yml`; an entry disappears once it is added or ignored. Triage: docs/UPDATING.md, "Finding new projects".
 
-7 from the keyword search, 32 new repos of catalogued authors, 0 from the code search.
+8 from the keyword search, 32 new repos of catalogued authors, 0 from the code search.
 
 ## Keyword search
 
 | pushed | created | repo | description |
 |---|---|---|---|
+| 2026-11-10 | 2026-11-10 | [nerazin/mono-chorus-clap](https://github.com/nerazin/mono-chorus-clap) | Chorus modelled after monomachine fx-chorus |
 | 2026-11-10 | 2026-11-09 | [nostoi-labs/livecli](https://github.com/nostoi-labs/livecli) | Command line for Ableton Live built for AI agents: full control via a Remote Script, plus the Live Probe Proto |
 | 2026-11-09 | 2026-10-24 | [Jackherz/model-cycles-plugin](https://github.com/Jackherz/model-cycles-plugin) | Unofficial plug-ins running the Model:Cycles sound engine, compiled from firmware you supply (none included) |
 | 2026-11-09 | 2026-09-24 | [elekloader/digiemu](https://github.com/elekloader/digiemu) | Elektron Digitakt, Digitone (mk1), Model:Cycles and Model:Samples emulator: runs their own firmware behind a c |
@@ -52,3 +53,16 @@ Found by `scripts/find_new.py --since 2026-10-11 --code --authors`. Only repos t
 | 2026-10-11 | [drumkilla/elekloader](https://github.com/drumkilla/elekloader) | yes | A mod loader for Elektron firmware. You pick mods and supply the stock OS file Elektron publishes for your dev |
 | 2026-10-11 | [Iced-Cream/modwerk](https://github.com/Iced-Cream/modwerk) | yes | Contains research for the Analog Rytm MkII |
 | 2026-10-11 | [Rxuting/digiemu](https://github.com/Rxuting/digiemu) | yes | Elektron Digitakt, Digitone (mk1), Model:Cycles and Model:Samples emulator: runs their own firmware behind a c |
+
+## Problems
+
+- code search failed: `Digitakt_II_OS1`: HTTP 429: try again in 39.621740767s (https://api.github.com/search/code?page=1&per_page=60&q=Digitakt_II_OS1)
+- code search failed: `Digitone_II_OS1`: HTTP 429: try again in 32.283262917s (https://api.github.com/search/code?page=1&per_page=60&q=Digitone_II_OS1)
+- code search failed: `Syntakt_OS1`: HTTP 429: try again in 24.92506189s (https://api.github.com/search/code?page=1&per_page=60&q=Syntakt_OS1)
+- code search failed: `Digitakt_OS1`: HTTP 429: try again in 17.613505789s (https://api.github.com/search/code?page=1&per_page=60&q=Digitakt_OS1)
+- code search failed: `Digitone_OS1`: HTTP 429: try again in 10.304936835s (https://api.github.com/search/code?page=1&per_page=60&q=Digitone_OS1)
+- code search failed: `Model_Cycles_OS`: HTTP 429: try again in 2.978581855s (https://api.github.com/search/code?page=1&per_page=60&q=Model_Cycles_OS)
+- code search failed: `Analog_Heat_OS`: HTTP 429: try again in 12.25785776s (https://api.github.com/search/code?page=1&per_page=60&q=Analog_Heat_OS)
+- code search failed: `Octatrack_OS`: HTTP 429: try again in 4.943399628s (https://api.github.com/search/code?page=1&per_page=60&q=Octatrack_OS)
+- code search failed: `0x403117c4`: HTTP 429: try again in 4.373088298s (https://api.github.com/search/code?page=1&per_page=60&q=0x403117c4)
+- code search failed: `elemod`: HTTP 429: try again in 733.920869831s (https://api.github.com/search/code?page=1&per_page=60&q=elemod)

@@ -558,19 +558,6 @@
   "archived": false,
   "seen": "2026-11-10"
  },
- "clarkreiz/cycles-one-shot": {
-  "full_name": "clarkreiz/cycles-one-shot",
-  "created": "2026-11-01",
-  "pushed": "2026-11-05",
-  "stars": 0,
-  "forks": 0,
-  "language": null,
-  "fork": false,
-  "license": "MIT",
-  "owner_type": "User",
-  "archived": false,
-  "seen": "2026-11-10"
- },
  "complex-ping/digitone-2-modding-skill": {
   "full_name": "complex-ping/digitone-2-modding-skill",
   "created": "2026-10-28",
@@ -900,7 +887,7 @@
   "full_name": "drumkilla/elektron-model-tweaks",
   "created": "2026-09-19",
   "pushed": "2026-10-15",
-  "stars": 26,
+  "stars": 27,
   "forks": 1,
   "language": "Python",
   "fork": false,

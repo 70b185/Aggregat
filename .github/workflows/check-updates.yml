@@ -1,7 +1,8 @@
 name: check-updates
 
 # Fingerprints every watched repo (git ls-remote + blobless tree listing, no API token needed)
-# and commits state/fingerprints.json + state/CHANGES.md when something moved.
+# and commits state/fingerprints.json + state/CHANGES.md when something moved; also lists repos not in the
+# catalogue yet in state/NEW.md (scripts/find_new.py), which the update run triages.
 on:
   schedule:
     - cron: "17 5 * * *"   # daily 05:17 UTC
@@ -27,6 +28,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 scripts/repo_meta.py || echo "repo_meta failed; keeping the old file"
+      - name: Look for new repos (keyword and code search, new repos of catalogued authors) -> state/NEW.md
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/find_new.py --since "$(date -u -d '-30 days' +%F)" --authors --code --report state/NEW.md \
+            || echo "find_new failed; keeping the old report"
       - name: Rebuild pages (latest-tag column)
         run: python3 scripts/first_seen.py && python3 scripts/build.py
       - name: Export database and duplicate report

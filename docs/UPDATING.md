@@ -9,10 +9,10 @@ Goal: find out **what changed** without reading every repo again. Most runs shou
 - **Stage 2** (only if HEAD moved): blobless depth-1 clone, `git ls-tree`, compare hashes -> lists added `+`, changed `~`, removed `-` watched files and new tags.
 - `--diff` additionally prints the text diff of exactly those files (old HEAD fetched blobless).
 - Directories (altstrument data folder, Lapin list) are watched the same way to **discover new projects**.
-- A daily GitHub Action (`.github/workflows/check-updates.yml`) runs the check and commits `state/CHANGES.md`. A full run over ~60 repos takes about 15 s.
+- A daily GitHub Action (`.github/workflows/check-updates.yml`) runs the check and commits `state/CHANGES.md`, and lists repos not in the catalogue yet in `state/NEW.md` (see "Finding new projects").
 
 ## Agent procedure (token-cheap)
-1. `git pull`, then read **only** `state/CHANGES.md` (a few lines). Do not open `state/fingerprints.json` - it is for the script.
+1. `git pull`, then read **only** `state/CHANGES.md` and `state/NEW.md` (a few lines each). Do not open `state/fingerprints.json` - it is for the script.
 2. If it says "Nothing to do" -> stop.
 3. For each `changed` entry: `python3 scripts/check_updates.py --only <id> --diff` and read just that diff.
    - new tag -> update `version` / `last_activity` in `data/projects.yml`
@@ -28,14 +28,25 @@ Forum threads, vendor pages (elektron.se release notes), PDFs and non-git sites.
 ## Adding a repo
 Add the project to `data/projects.yml` with a `repo:` URL - it is watched automatically. For a narrower or wider watch list add an entry under `overrides` in `data/watch.yml`.
 
-## Finding new projects (cheap, run weekly or when asked)
-`python3 scripts/find_new.py --since <last run date>` searches GitHub for Elektron terms and prints only repos that are
-neither in `data/projects.yml` / `data/candidates.yml` nor in `data/ignore.yml`. Read each README start (a blobless
-`git clone --depth 1 --filter=blob:none --no-checkout` plus `git show HEAD:README.md` costs almost nothing), then either add
-an entry (own words, facts only) or add the repo to `data/ignore.yml` so it is not shown again. New entries get a
-fingerprint baseline on the next `check_updates.py --update`.
+## Finding new projects (daily, automatic)
+The daily Action runs `python3 scripts/find_new.py --since <30 days ago> --authors --code --report state/NEW.md`. The
+report lists only repos that are in neither `data/projects.yml` / `data/candidates.yml` nor `data/ignore.yml`, from
+three sources:
+- **keyword search** of repo names, descriptions and topics (digitakt, elekloader, octatrack, ...);
+- **new repos of catalogued authors** whose name or description points at Elektron gear, even when it names no
+  device (e.g. "Digi2Core"); forks only when their description differs from every catalogued repo's;
+- **code search** for stock OS file names, the DT2 flash-cave address and `elemod`, which finds projects whose name and
+  description never mention Elektron (generic hits: read before adding).
 
-Add `--code` once a month: it searches file contents (stock OS file names, the DT2 flash-cave address, `elemod`) and finds projects whose repo name and description never mention Elektron. On 2026-11-03 it found x0x, Motor:Cycles, RytmRandomizer and Synfact's new repo, none of which the keyword search had listed. Its generic hits include unrelated repos, so read each README before adding.
+Triage every entry of `state/NEW.md` in each update run: read the README start (a blobless
+`git clone --depth 1 --filter=blob:none --no-checkout` plus `git show HEAD:README.md` costs almost nothing), then
+- add an entry (own words, facts only) when it is firmware, a mod, a loader or a tool for an Elektron device in scope,
+  or a fork with changes of its own;
+- add it to `data/ignore.yml` with a one-line reason when it is out of scope, or a copy or fork without changes of its
+  own (compare with the original: only notices, links or a mirror do not count);
+- put it in `data/candidates.yml` when the README does not settle it.
+An entry leaves the report once it is in one of the three files. New entries get a fingerprint baseline on the next
+`check_updates.py --only <ids> --update`. Without `--report` the script prints the same lists for a manual run.
 
 ## Research results from other projects (manual, maintainer only)
 Results come in two ways: **Test result** issues in this repo, and the results tables of `AGGREGAT_RESEARCH.md` files

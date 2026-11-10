@@ -117,6 +117,8 @@ Notes in the repo mark each claim `[verified]` or `[inferred]` - copy that conve
 - Overtone 1.0.1: played on a Digitone II, Transfer installs tested on the unit. `[hw]` {overtone}
 - dn2mk2: v0.21-v0.33 mostly emulator-only, hardware checks outstanding; user reports of p-lock clicks and silence were the reason for the DSP guard (v0.27) and AMD fix (v0.30.1). `[emu]` {dn2mk2-firmware-md}
 - Emulators do not model the two chips' timing, so overruns show only on a unit ([`../common/toolchain-and-emulators.md`](../common/toolchain-and-emulators.md)). `[doc]` {dn2mk2-firmware-md}
+- Digiwerk's spring-reverb builds lost their sound on the unit (locks on USB MULTI/MIDI; a stop one or two minutes after a pattern stop); the cause is open and the spring is shelved ([I68](../INCIDENTS.md#i68-spring-reverb-builds-lost-their-sound-on-a-digitone-ii-no-cause-found-offline)). `[hw]` {dn2-cfw-sp02}
+- **Stock DSP fault parks (OS 1.12):** on a fault the stock DSP code idles at `0x1c07c7` or `0x1c1431`. Digiwerk's EEEM build jumps from there to a routine that fills the codec buffers with a square wave whose pitch names the fault, so a fault on the unit is heard rather than silent. `[doc]` {dn2-cfw-mr03}
 
 ## Stock intro (OS 1.11 and 1.12)
 The intro works as on the Digitakt II: its own task at priority 7 above the main OS, scene tables, one current-entry pointer (1.12 `0x42c4cacc`, 1.11 `0x42c4bacc`). All addresses and the swap point are in [`digitakt-2.md`](digitakt-2.md#the-stock-intro-and-boot-screens-digikit-finding-117-dt2-117-and-dn2-111112-digikit-f117). digikit's boot screens and REC safe mode are emulator-only on the DN2 so far. `[doc]` {digikit-f117}

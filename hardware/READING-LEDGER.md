@@ -106,3 +106,12 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | Source | Depth | Folded into |
 |---|---|---|
 | gdeo607 Digi2Core, Digi2MacroOSC, Digi2ElixirPotionsDRUM, Digi2String, Digi2Sophie, Digi2Digiseq: READMEs, LICENSE, file lists | full | projects.yml (six entries), INCIDENTS I67, A42 |
+
+## Pass 2026-11-10 afternoon (change report 13:29 UTC, diffs against the 10 Nov morning baselines)
+| Source | Depth | Folded into |
+|---|---|---|
+| digikit `docs/TESTING.md` | diff | nothing (test infrastructure only) |
+| naturarum/dn2-cfw HANDOFF, ROADMAP, notes MR01-MR03, SP02 sections 7-8, R1.17 | diff, full new notes | INCIDENTS I68, A16, devices/digitone-2, projects.yml (personal paths in HANDOFF not taken) |
+| elekloader `mods/core-ar2/README.md`, `docs/FORMAT.md`, `docs/CORES.md`, examples (ar2) | diff | devices/analog-rytm, D6c, projects.yml |
+| DigiAlchemydsp/Flex-Plus README, RELEASE-NOTES 1.1 | diff | projects.yml |
+| repeat98/modwerk changelogs 9-10 Nov, `docs/verification/2026-11-10-*`, Zoom docs (skimmed: not Elektron) | diff | devices/octatrack, INCIDENTS I69, C12, projects.yml |

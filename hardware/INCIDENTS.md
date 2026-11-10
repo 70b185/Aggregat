@@ -518,6 +518,26 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** A53
 - **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md#dn2mk2-findings-v045-v047-os-111-2026-11-10)
 
+### I69. A mod took stock's USB DISK MODE pause for a DSP stall and kept the audio off
+- **Unit:** Octatrack MKI and MKII, OS 1.40C (Modwerk beta base; finding 72, several testers' units), late Oct to 2026-11-10
+- **Seen:** after walking PROJECT > SYSTEM into USB DISK MODE (or OS UPGRADE) and backing out, the unit stayed silent until a power cycle; the base's records said the DSPs had stopped.
+- **Cause:** stock pauses the DSP while USB DISK MODE is open. The base's stall watch read that pause as a stalled DSP, and its recovery held the audio stopped. It was never reproduced on a stock unit.
+- **Fix:** the base tells that pause from a stall (2026-11-10); on the owner's MKII the walk, about 10 s in the mode, NO and PLAY now plays.
+- **Status:** fixed on the live base; a flashed base, file copies in the mode and an OS upgrade from the card not yet tested.
+- **Evidence:** `[hw]` {modwerk-ot-unit-1110}
+- **Rule:** C12
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I68. Spring-reverb builds lost their sound on a Digitone II; no cause found offline
+- **Unit:** Digitone II, OS 1.12 (naturarum's Digiwerk / dn2-cfw, spring builds EFES and EEES), 2026-11-04 to 11-08
+- **Seen:** EFES locked three times on Digiwerk 0.4 (twice in a short session, once after about 50 minutes; no sound on PLAY, the synths silent), always on USB MULTI/MIDI. EEES, the spring alone, stopped the sound for good one or two minutes after a pattern stop and in OS UPGRADE. A build with a -240 dB floor in the spring was silent from power-on. CFTE without the spring ran an hour and 30 minutes on the same USB mode without a lock.
+- **Cause:** not found. An offline search ruled out illegal instructions and accesses, parity, FP exceptions, the stack, Elektron's code, timing in digikit's coupled emulator, and digikit's SHARC+ silicon rules (checked on every build, no hit). The one lead: the spring's output is exactly 0 from 1.4 s into FX kill and 78 s after a stop, as at both unit stops [inferred].
+- **Fix:** the spring is shelved; its six builds stay withdrawn. The author stopped blind device tests. The next test build (EEEM, a light morphing reverb in the reverb slot) sends the stock DSP's idle parks to a fault tone whose pitch names the fault (1500 Hz illegal instruction, 3000 Hz parity, 6000 Hz emulation or default handler, 1500 + 6000 Hz abort or stack check; a ~750 Hz buzz or silence is a hang).
+- **Status:** open; EEEM not yet on the unit (2026-11-10).
+- **Evidence:** `[hw]` {dn2-cfw-sp02} {dn2-cfw-mr03}
+- **Rule:** A16
+- **Fact:** [devices/digitone-2.md](devices/digitone-2.md)
+
 ## E. Emulator or toolchain disagreed with the unit
 
 ### I36. The emulator undercounted DSP time by 2x to 12x

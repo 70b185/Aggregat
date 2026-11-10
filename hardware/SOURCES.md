@@ -115,7 +115,7 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | em-dx2-scripts | elektronmods.com thread 25, project file extraction/compaction scripts by blueSGL (2026-10-01) | https://elektronmods.com/thread-25-elektron-project-file-extraction-compaction-scripts-tested-w |
 | elekloader-agents | elekloader `AGENTS.md` (repo root) | https://github.com/elekloader/elekloader/blob/main/AGENTS.md |
 | elekloader-cores | elekloader `docs/CORES.md` | https://github.com/elekloader/elekloader/blob/main/docs/CORES.md |
-| elekloader-format | elekloader `docs/FORMAT.md` | https://github.com/elekloader/elekloader/blob/main/docs/FORMAT.md |
+| elekloader-format | elekloader `docs/FORMAT.md` (knob ids, core-ar2 0.13; read 2026-11-10) | https://github.com/elekloader/elekloader/blob/main/docs/FORMAT.md |
 | elekloader-building | elekloader `docs/BUILDING.md` | https://github.com/elekloader/elekloader/blob/main/docs/BUILDING.md |
 | dt2-recovery | karigardarsson/digitakt-ii-research `docs/RECOVERY.md` | https://github.com/karigardarsson/digitakt-ii-research/blob/main/docs/RECOVERY.md |
 | dt2-install | karigardarsson/digitakt-ii-research `docs/INSTALLATION.md` (All-in-One v0.3.0) | https://github.com/karigardarsson/digitakt-ii-research/blob/main/docs/INSTALLATION.md |
@@ -247,6 +247,8 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | synfact-lifecycle | GSM1980/synfact-dev `docs/PROJECT-LIFECYCLE-AUDIT.md` (slow project load and save traced to ARP carriers written for default settings) | https://github.com/GSM1980/synfact-dev/blob/main/docs/PROJECT-LIFECYCLE-AUDIT.md |
 | modwerk-rytm-machines | repeat98/modwerk `sdk/machines/analog-rytm-mkii/README.md` sections "Mod machines (core 0.5)" and the machine-list paragraph (Analog Rytm MKII OS 1.74; read 2026-11-08 at 93270f5) | https://github.com/repeat98/modwerk/blob/main/sdk/machines/analog-rytm-mkii/README.md |
 | modwerk-ot-beta | repeat98/modwerk `docs/verification/2026-11-08-beta-diagnostics.md` (Octatrack beta field diagnostics, 7-8 Nov 2026: finding 72's stall record, frame gaps) | https://github.com/repeat98/modwerk/blob/main/docs/verification/2026-11-08-beta-diagnostics.md |
+| modwerk-ot-beta-1110 | repeat98/modwerk `docs/verification/2026-11-10-beta-diagnostics.md` (Octatrack beta field diagnostics, 8-10 Nov 2026) | https://github.com/repeat98/modwerk/blob/main/docs/verification/2026-11-10-beta-diagnostics.md |
+| modwerk-ot-unit-1110 | repeat98/modwerk `docs/verification/2026-11-10-octatrack-unit-session.md` and changelog 2026-11-10-usb-disk-mode-stall (finding 72 settled, self-test stalls, masked span) | https://github.com/repeat98/modwerk/blob/main/docs/verification/2026-11-10-octatrack-unit-session.md |
 | digikit-f116 | ElekLabs/digikit finding 116, test and gate speed; a retry loop that swung with the memory layout (read 2026-11-08) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/116-test-speed.md |
 | digikit-f117 | ElekLabs/digikit finding 117, the stock intro, boot screens, REC safe mode and the intro frame layout on a DT2 (read 2026-11-08 at af0ef08) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/117-boot-screens-stock-intro.md |
 | digi2core | gdeo607/Digi2Core README, "Versions" (core-dt2 2.4-2.6.1, Digitakt II OS 1.17; read 2026-11-10 at 5ef6c10) | https://github.com/gdeo607/Digi2Core |
@@ -255,6 +257,8 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | dn2-cfw-t65 | Digiwerk note T6.5, the parameter table grown to 0x180 rows (GT00/GT01, emulator and unit) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T6.5-table-growth.md |
 | dn2-cfw-pb01 | Digiwerk note PB01, DSP memory candidates before the probe build | https://github.com/naturarum/dn2-cfw/blob/main/notes/PB01-findings.md |
 | dn2-cfw-t53 | Digiwerk note T5.3, the tape echo on the unit (SE01) | https://github.com/naturarum/dn2-cfw/blob/main/notes/T5.3-tape-echo-on-the-unit.md |
+| dn2-cfw-sp02 | Digiwerk note SP02, the spring pack: sections 7 (digikit's silicon rules on every build) and 8 (EFES on the unit, 6 Nov) (read 2026-11-10) | https://github.com/naturarum/dn2-cfw/blob/main/notes/SP02-spring-pack.md |
+| dn2-cfw-mr03 | Digiwerk notes MR01-MR03: the morph reverb port, MRB and the EEEM test build with fault tones (DN2 1.12; read 2026-11-10) | https://github.com/naturarum/dn2-cfw/blob/main/notes/MR03-eeem.md |
 | dn2mk2-dsptime | dn2mk2-firmware `docs/dsp-time.md` (v0.32 guard, L2 state, load meter) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/dsp-time.md |
 | dn2mk2-dspcost | dn2mk2-firmware `docs/dsp-cost.md` (per-machine cost, v0.33) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/dsp-cost.md |
 | lalzart-dt2-arch | lalzart/digitakt-ii-firmware-research-public README and `docs/architecture/` (boot-update, publication-and-transport, sample-resource-lifecycle, output-and-dma, dsp-processing, modification-gates), DT2 OS 1.15C | https://github.com/lalzart/digitakt-ii-firmware-research-public |
@@ -309,7 +313,7 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | kyoti-reload | Zac-Kyoti/octatrack-kyoti-fw `octabam-modules/reload-from-project/README.md` and `NOTES.md` (read 2026-11-10) | https://github.com/Zac-Kyoti/octatrack-kyoti-fw/blob/main/octabam-modules/reload-from-project/README.md |
 | kyoti-build | Zac-Kyoti/octatrack-kyoti-fw `BUILD_KYOTI.md` (pool pages; read 2026-11-10) | https://github.com/Zac-Kyoti/octatrack-kyoti-fw/blob/main/BUILD_KYOTI.md |
 | elekloader-core-dt1 | elekloader `mods/core/README.md` (DT1 core 4.2/4.3 events; read 2026-11-10) | https://github.com/elekloader/elekloader/blob/main/mods/core/README.md |
-| elekloader-core-ar2 | elekloader `mods/core-ar2/README.md` (core-ar2 0.12 spare entries; read 2026-11-10) | https://github.com/elekloader/elekloader/blob/main/mods/core-ar2/README.md |
+| elekloader-core-ar2 | elekloader `mods/core-ar2/README.md` (core-ar2 0.12 spare entries; 0.13 slots 44-52, trig getters, screen calls; read 2026-11-10) | https://github.com/elekloader/elekloader/blob/main/mods/core-ar2/README.md |
 | elekloader-oddjump | elekloader commit 4115937 (#329, 2026-11-08: odd-jump check after a DT2 froze at boot) | https://github.com/elekloader/elekloader/commit/4115937 |
 | tonefx-dt-port | DigiAlchemydsp/Tone-FX Digitakt port README (read 2026-11-10) | https://github.com/DigiAlchemydsp/Tone-FX/blob/master/DIGITAKT%20PORT/digi1_mods-main/mods/tonefx/README.md |
 | tonefx-pattern-storage | DigiAlchemydsp/Tone-FX `docs/PATTERN-STORAGE.md` (read 2026-11-10) | https://github.com/DigiAlchemydsp/Tone-FX/blob/master/docs/PATTERN-STORAGE.md |

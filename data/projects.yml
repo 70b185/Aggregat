@@ -85,6 +85,11 @@ projects:
       (web app at elekloader.github.io/elekloader); forks exist (AvroraPolnareff, naturarum, toonst, simonjohansson); none is listed, as none has changes of its own.
       Forum: builder issue reported 2026-10-19. Licence GPL-2.0-or-later.
       2026-11-10 (8daa2ea): the shop's list, forms and bots moved to elekloader/shop (#338); mods are submitted there. machine-pages 1.8-1.10, machines-dn1 0.5/0.6 and machines-dn2 0.5 add mono machines and MIDI CCs (emulator-tested per TESTS.md). The linker now refuses odd jump targets into mod RAM after a Digitakt II froze at boot (I61). The README offers a Windows .exe; not every release carries the macOS .dmg.
+      2026-11-10 (main): core-ar2 0.13 opens the Rytm MKII's TEST slots 44-52 to mod machines, adds per-voice trig and
+      velocity getters, screen calls through stock's routines and per-mod knob ids; machine-pages 1.7 tagged. Builds pick
+      older core or helper versions by themselves when a mod patches a place a newer one took (Tone+FX's Digitakt files
+      and Digi EQ 1.0c link with DT1 core 4.0 only; OB-1 0.6 with machine-pages 1.2), and released versions stay
+      available while a listed mod needs them.
     latest_seen: >
       altstrument.org and the repo (read 2026-10-31): canonical repo is github.com/elekloader/elekloader (183 commits, 103 stars, GPL-2.0-or-later); web app moved to elekloader.github.io/elekloader; the Mac app was absent from v0.9.0 because signing secrets need renewing. v0.9.0 cores: core-4.1 and core-4.1-os1.54 (Digitakt mk1), core-dn1-4.1.1 and -os1.44 (Digitone mk1), core-ar2-0.8 (Analog Rytm MKII 1.74), core-ot-0.8 (Octatrack 1.40C), core-mc-0.3 (Model:Cycles), core-ms-0.1 (Model:Samples), core-a4 0.1-0.4 (Analog Four MKII 1.56). Kit 0.7.0 catalog: 19 cores, 88 mods. machine-pages 1.2/1.3/1.5 need core 3.0+ on Digitakt mk1 and refuse NEIGHBOR 0.6, SOPHIE 1.1.13 and digichain-based machine mods beside them; fxkit 0.1 gives Digitone effect mods a shared mixer, two LFOs, pattern p-locks and a CPU guard; core-dn1 4.1 adds ev_note_queue; kit 0.6.0 gives 4.0 cores larger RAM areas (256 KB Digitakt, 1.25 MB Digitone). docs/ includes AGENTS.md, DEVICES.md, MACHINES-DN2, SHARC-DN2, CORES, FORMAT, BUILDING, ADAPTING (not all read yet - see hardware/MINING.md). The earlier irpina/elekloader repo is where the author's older releases lived.
     sources: [forum thread 30, GitHub release v0.4.0, gearnews, dubspot]
@@ -133,6 +138,10 @@ projects:
     - {name: "FX Track", author: "draadpiraat", devices: [digitakt], version: "0.1.0", path: "sdk/digitakt/modules/fx-track", tested: "not-stated", what: "A MIDI track becomes an effects track whose CCs play delay, reverb, compressor and the External Mixer, with p-locks"}
     - {name: "Input Prefader", author: "draadpiraat", devices: [digitakt], version: "0.2.0", path: "sdk/digitakt/modules/input-prefader", tested: "unit", note: "author's hardware report in the module manifest", what: "The external inputs' delay and reverb sends taken before LEV; the effects can stay awake with no track playing"}
     notes: >
+      2026-11-09/10: Octatrack beta: the silence after USB DISK MODE (finding 72) was the base mistaking stock's DSP
+      pause for a stall, fixed (I69); FM Synth with many FLEX tracks no longer loses the audio on PLAY; the Octatrack
+      page asks for a power cycle when the DSP has stopped; Temp Save 0.1.0 withdrawn from USB installs (card build
+      stays). Modwerk also loads effects onto Zoom MultiStomp pedals now (ZDL files over USB; not an Elektron device).
       Browser-based hub, builds locally from the user's own stock OS. Browse mods by device,
       forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still
       early prototypes. last_activity = date of the Dubspot article, not a forum post.
@@ -1273,7 +1282,7 @@ projects:
     tested_note: "seven builds ran on real hardware; the spring-reverb builds are withdrawn"
     base_os: "Digitone II OS 1.12 (macOS Apple silicon; Linux likely)"
     version: "Digiwerk v0.3.0 (2026-11-04): multitrack USB audio (USB MULTI/MIDI, 42 inputs, UAC 2.0) in every build and a web patcher; eight non-spring builds released, six spring-reverb builds remain withdrawn; 0.2.0 download withdrawn"
-    last_activity: 2026-11-04
+    last_activity: 2026-11-10
     notes: >
       Public lab notebook: notes, tools and new effects, no Elektron firmware included. Seven builds run
       on real hardware per README (EF01 renamed stock, FLG1 flanger replacing the chorus, FTD1 + one-head tape delay, DH01 core/hook
@@ -1289,6 +1298,10 @@ projects:
       28 commits, GPL-2.0(-or-later).
     latest_seen: >
       Renamed Digiwerk (altstrument; stock OS 1.12, GPL-2.0-or-later, notarized Mac patcher app). v0.1.0 (2026-10-26): Deja vu LFO waves and the Compressor + Flanger pack (build DJ01). v0.2.0 (2026-10-29): key-following LFO wave, one-cycle and half-cycle LFO modes, SHUF/RAND/TM arp modes (also on MIDI tracks), a tape echo, per-slot effect choice. v0.2.1 (2026-10-30): withdraws the six spring-reverb builds - the page says the CFES and EFTS builds stop the sound on a Digitone II - and removes the spring tile from the patcher; the other eight builds are unchanged.
+      2026-11-10 (R1.18, in progress): MRB, a light morphing reverb for the reverb slot, after a port of the author's
+      Beads morph reverb that cost 87k-158k DSP instructions a block; MRB takes 19k-21k (stock reverb 14.6k). The test
+      build EEEM (stock compressor, chorus and delay + MRB) also turns DSP faults into tones whose pitch names the
+      fault; it waits for the author's unit. The spring reverb stays shelved after it lost the sound on the unit (I68).
     sources: [GitHub README, lapin-list, 'https://github.com/naturarum/dn2-cfw/blob/466e28c5de2fc00d67c51d4a129a286f5be4a520/docs/release/digiwerk-0.3.0.md']
     relations:
     - {type: vendors, id: digikit, evidence: 'catalogue notes: upstream cloned into vendor/ (author''s fork, branch dn2-1.12)'}
@@ -5290,14 +5303,18 @@ projects:
     repo: https://github.com/DigiAlchemydsp/Flex-Plus
     status: active
     base_os: "Digitone mk1 / Keys OS 1.44 (core-dn1 4.0 + machines 0.2); Digitakt mk1 OS 1.54 (core 4.0 + machine-pages 1.1)"
-    version: "1.0"
-    tested: unit
-    tested_note: "shop: both builds tested on hardware (README had the Digitakt build bench-tested only)"
-    last_activity: '2026-11-07'
+    version: "1.1 (2026-11-10; elemod files keep the machine revision 1.0)"
+    tested: partly
+    tested_note: "1.0: shop says both builds ran on hardware (the README had the Digitone build only); 1.1 linted and bench-tested, the new scope revision not yet on hardware"
+    last_activity: '2026-11-10'
     notes: >
       Routes the audio inputs or internal tracks into a track, with a low-CPU pitch shifter and an oscilloscope on the
       machine page. Found by GitHub search 2026-11-07.
-    sources: [GitHub search 2026-11-07, README]
+      1.1: internal tracks are now tapped after the source track's filter and AMP (a track picking itself is silent),
+      taller scope bars mirrored around zero that keep scrolling when audio stops, lower DSP and UI cost (about 4,246
+      instructions per block for one shifted bus), and an optional Digitakt build for FAST AUDIO that needs
+      digihealth 1.0 (install it or the regular build, not both). Four playable parameters: TUNE, GAIN, MIX, INPUT.
+    sources: [GitHub search 2026-11-07, README, RELEASE-NOTES.md 1.1]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: build a custom OS with elekloader'}
 

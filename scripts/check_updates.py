@@ -129,7 +129,10 @@ def check(tid, t, prev, want_diff):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--update", action="store_true", help="store new fingerprints")
+    ap.add_argument("--update", action="store_true", help="store new fingerprints (and write state/CHANGES.md)")
+    ap.add_argument("--report", action="store_true",
+                    help="write state/CHANGES.md without storing fingerprints: the report then lists every change since "
+                         "the last processed baseline (the daily Action; the update run stores baselines for what it read)")
     ap.add_argument("--diff", action="store_true", help="print diffs of changed watched files")
     ap.add_argument("--only", nargs="*", help="limit to these ids")
     ap.add_argument("--workers", type=int, default=8)
@@ -166,7 +169,7 @@ def main():
     print(report)
     for r in by["changed"]:
         if r.get("diff"):
-            print(f"\n===== diff {r['id']} =====\n{r['diff'][:20000]}")
+            print(f"\n===== diff {r['id']} =====\n{r['diff']}")
 
     if a.update:
         for r in results:
@@ -178,6 +181,7 @@ def main():
                               "seen": now}
         STATE.parent.mkdir(exist_ok=True)
         STATE.write_text(json.dumps(state, indent=1, sort_keys=True) + "\n")
+    if (a.update and not a.only) or a.report:
         REPORT.write_text(report)
 
 

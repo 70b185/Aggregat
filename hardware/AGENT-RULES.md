@@ -54,7 +54,7 @@ runs in the emulator can fail on silicon with DSP silence until power cycle. Use
 
 **A15. Leave the panel-MCU blob, its updater and section 8 (Outbox 8 firmware) stock**, together with the bootstrap and updater. `[doc]` {dn2-cfw-handoff} {dn2-ele3}
 
-**A16. Withdraw builds that lose sound.** Digiwerk withdrew its six spring-reverb builds after finding that two of them stop the sound on a Digitone II; dn2mk2 withdrew v0.4-v0.7 for oversized images. Keep a visible list of withdrawn builds with the reason. `[hw]` {alt-digitone-ii} {dn2mk2-firmware-md}
+**A16. Withdraw builds that lose sound.** Digiwerk withdrew its six spring-reverb builds after finding that two of them stop the sound on a Digitone II; dn2mk2 withdrew v0.4-v0.7 for oversized images. Keep a visible list of withdrawn builds with the reason. When a build goes silent and the cause stays open, make the next test build audible about faults: Digiwerk sends the stock DSP's idle parks to a tone whose pitch names the fault ([I68](INCIDENTS.md#i68-spring-reverb-builds-lost-their-sound-on-a-digitone-ii-no-cause-found-offline)). `[hw]` {alt-digitone-ii} {dn2mk2-firmware-md} {dn2-cfw-mr03}
 
 **A17. In the startup menu never press TRIG 2 or TRIG 3 by habit** (Syntakt: empty reset and factory reset erase data); only TRIG 4 (OS UPGRADE) belongs to recovery. State this in every recovery instruction you generate. `[doc]` {synthack-recovery}
 
@@ -214,7 +214,7 @@ For UI lifecycle tests, replay the actual edit and its notifications without man
 
 **C11. Every failure or test on a unit becomes an incident, and every incident that teaches something general becomes a rule.** Record it in [INCIDENTS.md](INCIDENTS.md) with the next free I-number: unit and OS, what was seen, the cause and how it was found (measured, read from code, emulator, unknown), the fix, the status and the evidence level. Then either add a rule here or add the incident to the rule it confirms, and mark the fact in the device page with `(I<n>)`. Rules grow from tests, not from opinion.
 
-**C12. Before you blame your mod, check [STOCK-BUGS.md](STOCK-BUGS.md) and reproduce the misbehaviour on the unmodified OS with the same steps; a stock bug you find goes into that list.** Mods reach stock paths, and stock paths have bugs: a Part change by a mod shows the Octatrack's carry-over bug exactly as a stock pattern change does, and a damaged project halts stock and modded Digitone II builds alike. Record a new stock bug with the device and OS, the trigger, the cause if known and how it was found, and your workaround. Incidents: [I2](INCIDENTS.md#i2-stock-song-load-trusts-a-stored-row-count). `[hw]` {dn2-oldproject} {kyoti-bugfixes}
+**C12. Before you blame your mod, check [STOCK-BUGS.md](STOCK-BUGS.md) and reproduce the misbehaviour on the unmodified OS with the same steps; a stock bug you find goes into that list.** The reverse holds too: before you call it a stock fault, check that your own watchdog does not mistake one of stock's deliberate pauses for a fault - Modwerk's Octatrack base read the DSP pause of USB DISK MODE as a stall ([I69](INCIDENTS.md#i69-a-mod-took-stocks-usb-disk-mode-pause-for-a-dsp-stall-and-kept-the-audio-off)). Mods reach stock paths, and stock paths have bugs: a Part change by a mod shows the Octatrack's carry-over bug exactly as a stock pattern change does, and a damaged project halts stock and modded Digitone II builds alike. Record a new stock bug with the device and OS, the trigger, the cause if known and how it was found, and your workaround. Incidents: [I2](INCIDENTS.md#i2-stock-song-load-trusts-a-stored-row-count). `[hw]` {dn2-oldproject} {kyoti-bugfixes}
 ## D. Writing mods (format-2 / linkable, Digitakt mk1 and Digitone mk1)
 
 **D1. Prefer events over raw patch sites.** The core mod owns the shared hook sites; subscribe via its event
@@ -236,7 +236,7 @@ resources (`sysex:`, `settings:`, `drive:`, `ui:`, `machine:` names; other memor
 
 **D6b. Digitone II machine IDs:** synths 5-31 and filters 6-31 are separate namespaces, permanent, and there is no allocator - agree IDs with other authors before shipping; saved sounds of an absent mod keep their ID and show as MISSING. `[doc]` {elekloader-machines-dn2}
 
-**D6c. Analog Rytm MKII mod machines take the hidden slots 34-43, claimed as `machine:<slot>`.** Kits store the slot; on a build without the mod the kit loads it as DISABLE. elekloader refuses two mods with the same slot, and Modwerk also records claims on its agent board. Each slot has fixed knob positions, so give meaning to a sound index, not to a knob letter. `[doc]` {modwerk-rytm-machines}
+**D6c. Analog Rytm MKII mod machines take the hidden slots 34-43 (from elekloader core-ar2 0.13 also the TEST slots 44-52), claimed as `machine:<slot>`.** Kits store the slot; on a build without the mod the kit loads it as DISABLE. elekloader refuses two mods with the same slot, and Modwerk also records claims on its agent board. Each slot has fixed knob positions, so give meaning to a sound index, not to a knob letter. `[doc]` {modwerk-rytm-machines}
 
 **D7. Do not mix format 1 (whole build) with format 2 (linkable) mods** - whole builds cannot be combined. `[doc]` {elekloader-adapting}
 

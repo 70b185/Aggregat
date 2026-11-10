@@ -1,7 +1,7 @@
 name: check-updates
 
 # Fingerprints every watched repo (git ls-remote + blobless tree listing, no API token needed)
-# and commits state/fingerprints.json + state/CHANGES.md when something moved; also lists repos not in the
+# and commits state/CHANGES.md (changes since the last processed baselines) when something moved; also lists repos not in the
 # catalogue yet in state/NEW.md (scripts/find_new.py), which the update run triages.
 on:
   schedule:
@@ -23,7 +23,9 @@ jobs:
           python-version: "3.12"
       - run: pip install pyyaml
       - name: Check watched repos
-        run: python3 scripts/check_updates.py --update
+        # --report, not --update: baselines move only when an update run has read a change (docs/UPDATING.md), so
+        # state/CHANGES.md keeps every change since then, not just the last day's
+        run: python3 scripts/check_updates.py --report
       - name: Refresh public GitHub numbers (creation date, stars, licence)
         env:
           GH_TOKEN: ${{ github.token }}

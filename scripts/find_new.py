@@ -69,11 +69,17 @@ def catalogue_owners():
     return owners
 
 
-def gh_json(args):
-    r = subprocess.run(["gh"] + args, capture_output=True, text=True)
-    if r.returncode:
-        return None, r.stderr.strip()[:120]
-    return json.loads(r.stdout or "[]"), ""
+def gh_json(args, tries=3):
+    """Run gh and parse its JSON; on a rate limit (HTTP 429/403 "try again in N s") wait as told and retry."""
+    for _ in range(tries):
+        r = subprocess.run(["gh"] + args, capture_output=True, text=True)
+        if not r.returncode:
+            return json.loads(r.stdout or "[]"), ""
+        m = re.search(r"try again in ([0-9.]+)s|rate limit", r.stderr, re.I)
+        if not m:
+            break
+        time.sleep(min(70.0, float(m.group(1) or 60) + 2))
+    return None, r.stderr.strip()[:120]
 
 
 def main():

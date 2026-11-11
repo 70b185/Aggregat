@@ -1,6 +1,14 @@
-# Change report 2026-11-11 06:13 UTC
+# Change report 2026-11-11 12:45 UTC
 
-changed 0 | code-only 0 | new 0 | errors 2 | unchanged 244
+changed 6 | code-only 2 | new 0 | errors 2 | unchanged 236
 
+- **digikit** (project) https://github.com/ElekLabs/digikit: +docs/findings/121-project-kit-storage-dt2-1-17.md +docs/findings/122-ui-surfaces-for-mods-dt2-1-17.md ~docs/ARCHITECTURE.md ~docs/FINDINGS.md ~docs/TESTING.md ~docs/findings/70-syntakt-1-42.md
+- **dn2-dt2-firmware-research** (project) https://github.com/armio/dn2-dt2-firmware-research: +docs/sem-filter.md +port/sem-filter/README.md +port/sem-filter/tree/src/sem_filter/LICENSE-STK-4.3.md +port/sem-filter/tree/src/sem_filter/README.md ~README.md ~THIRD_PARTY.md ~docs/browser.md ~docs/publication.md ~docs/recorder.md ~docs/samples.md
+- **machinemodule-mpc** (project) https://github.com/sd88me/mpc-vst-machinedrum: tags +v1.0.4
+- **modwerk** (project) https://github.com/repeat98/modwerk: +changelog/2026-11-10-release-scope-test-usb-only.md +changelog/2026-11-11-loader-refusals-and-instruction-set.md +changelog/2026-11-11-octabam-docs-tools-f7d72906.md +changelog/2026-11-11-page-control-widgets.md ~docs/OCTABAM_INFRASTRUCTURE.md ~docs/OCTATRACK_HARDWARE_TRAPS.md ~docs/module-guides/machines.md ~docs/module-guides/scenes.md ~sdk/octabam/docs/FAILURE_MODES.md ~sdk/octabam/docs/TRAPS.md ~sdk/octabam/modules/analog-bassdrum/CPU.md ~sdk/octabam/modules/analog-bassdrum/DSP909.md ~sdk/octabam/modules/analog-bassdrum/README.md ~sdk/octabam/modules/analog-bassdrum/TESTING.md
+- **synfact** (project) https://github.com/GSM1980/synfact-dev: ~docs/ADAPTING.md ~docs/MACHINE-REFERENCE.md ~docs/SETUP.md ~docs/SYNTAKT-BUILD.md ~mods/arp-st/CHANGELOG.md ~mods/arp-st/README.md ~mods/arp-st/mod.json ~mods/chorus-st/CHANGELOG.md ~mods/core-st/CHANGELOG.md ~mods/fm-tone-st/CHANGELOG.md ~mods/lfo3-st/CHANGELOG.md ~mods/machines-st/CHANGELOG.md ~mods/modulation-skip-st/CHANGELOG.md ~mods/poly-st/CHANGELOG.md ~mods/poly-st/README.md ~mods/poly-st/mod.json ~mods/recorder-st/CHANGELOG.md ~mods/sample-manager-st/CHANGELOG.md ~mods/samplers-st/CHANGELOG.md ~mods/samplers-st/README.md ~mods/samplers-st/mod.json ~mods/system-info-smz-st/CHANGELOG.md ~mods/system-info-st/CHANGELOG.md
+- **whiplash** (project) https://github.com/hejijunhao/whiplash: +CLAUDE.md +docs/catalog-pr.md +docs/demo/hackathon-demo.md +docs/digitakt-ii/README.md +docs/digitakt-ii/reference.md +docs/executing/roadmap.md +docs/executing/v05-build-plan.md +docs/executing/v06-build-plan.md +docs/executing/viz-style-brief.md +docs/testing/hardware-checklist.md +docs/visualiser-design.md +skills/digitakt/SKILL.md ~CHANGELOG.md ~README.md ~pyproject.toml
+- code-only (HEAD moved, no watched file or tag changed): dnx, octatrack-step-view
 - ERROR octacloudz https://github.com/davidecaldarola1-ship-it/Octacloudz: 
-- ERROR turbomidi-cpp https://github.com/DatanoiseTV/TurboMidi: fatal: could not read Username for 'https://github.com': terminal prompts disabled
+- ERROR turbomidi-cpp https://github.com/DatanoiseTV/TurboMidi: remote: Repository not found.
+fatal: repository 'https://github.com/DatanoiseTV/TurboMidi/' not found

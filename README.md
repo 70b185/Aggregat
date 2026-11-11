@@ -4,12 +4,12 @@
 Digitakt MKI/II, Digitone MKI/Keys/II, Syntakt and Analog Heat MKI/MKII/+FX; as a catalogue for Octatrack, Analog
 Rytm/Four/Keys, Model:Cycles/Samples, Machinedrum and Monomachine.
 
-**[Website](https://70b185.github.io/Aggregat/)** (search everything) ·
-[Mod finder](https://70b185.github.io/Aggregat/?t=finder) (what fits your unit, and how far it was tested) ·
-[New](https://70b185.github.io/Aggregat/?t=news) ([feed](https://70b185.github.io/Aggregat/feed.xml)) ·
-[Test your unit](https://70b185.github.io/Aggregat/?t=stock_tests) (five-minute tests, no flashing) ·
-[Network map](https://70b185.github.io/Aggregat/?t=network) (how the projects relate) ·
+**[Website](https://70b185.github.io/Aggregat/)**:
+[Mods](https://70b185.github.io/Aggregat/?t=mods) (browse, or [find what fits your unit](https://70b185.github.io/Aggregat/?t=finder) and how far it was tested) ·
+[What's new](https://70b185.github.io/Aggregat/?t=news) ([feed](https://70b185.github.io/Aggregat/feed.xml)) ·
+[Help out](https://70b185.github.io/Aggregat/?t=stock_tests) (five-minute tests, no flashing) ·
 [Community](https://70b185.github.io/Aggregat/?t=community) ·
+[For developers](https://70b185.github.io/Aggregat/?t=facts) ·
 [Stock bugs](hardware/STOCK-BUGS.md) ·
 [Incidents](hardware/INCIDENTS.md) ·
 [Research map](research/RESEARCH-MAP.md)

@@ -6,7 +6,7 @@ Thank you. Aggregat gets better with every result, correction and source, and mo
 
 | Time | What | How |
 |---|---|---|
-| 5 minutes | **Run a stock test on your unit**: no flashing, just the stock OS and a computer or a phone. | Pick one on the website's [Test your unit](https://70b185.github.io/Aggregat/?t=stock_tests) tab or in [HYPOTHESES.md](../hardware/HYPOTHESES.md) section 1, then report with the [Test result form](https://github.com/70b185/Aggregat/issues/new?template=test-result.yml). A result that contradicts the expectation is just as useful. |
+| 5 minutes | **Run a stock test on your unit**: no flashing, just the stock OS and a computer or a phone. | Pick one on the website's [Help out](https://70b185.github.io/Aggregat/?t=stock_tests) tab or in [HYPOTHESES.md](../hardware/HYPOTHESES.md) section 1, then report with the [Test result form](https://github.com/70b185/Aggregat/issues/new?template=test-result.yml). A result that contradicts the expectation is just as useful. |
 | 10 minutes | **Report a bug in Elektron's own OS** that you can reproduce on the stock OS. | [Stock bug form](https://github.com/70b185/Aggregat/issues/new?template=stock-bug.yml) |
 | 15 minutes | **Firm up a weak fact**: find the source for an untagged or `[?]` fact and add its evidence tag. | Pick one from [WEAK-EVIDENCE.md](../hardware/WEAK-EVIDENCE.md), edit the line in the file it links to, open a pull request. |
 | 30 minutes | **Correct or add a project**: your own or one you know. | Edit [data/projects.yml](../data/projects.yml) (fields documented at its top), run the checks below, open a pull request. |

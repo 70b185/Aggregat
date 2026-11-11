@@ -266,7 +266,7 @@ def main():
              f"- [Feature overlap]({raw}research/FEATURE-OVERLAP.md): the same feature built on several devices",
              f"- [Address map]({raw}hardware/ADDRESS-MAP.md): every address named in a fact, per device",
              f"- [RAM tenancy]({raw}hardware/RAM-TENANCY.md): which mod platform uses which RAM range",
-             f"- [Website]({site}): search, mod finder, network map", ""]
+             f"- [Website]({site}): search, mods by device, network map", ""]
     write(ROOT / "llms.txt", "\n".join(llms))
     print(f"agent_packs: {len(devices)} devices, {len(weak)} weak facts, {len(rows)} address rows")
 

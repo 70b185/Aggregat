@@ -5,7 +5,7 @@ A short list to run before you publish a build for an Elektron device, distilled
 ([AGENT-RULES.md](../hardware/AGENT-RULES.md)). Each line names the rule, which says why and gives the evidence.
 
 **Copy the block below into your README** (it is CC0, no credit needed) and fill in the parts in angle brackets; the recovery path per device is in [recovery.md](../hardware/common/recovery.md). It tells your users what you checked, and it
-lets Aggregat's [mod finder](https://70b185.github.io/Aggregat/?t=finder) show your mod with the right test status.
+lets Aggregat show your mod with the right test status on its [mods page](https://70b185.github.io/Aggregat/?t=mods).
 
 ```markdown
 ## Safety and test status

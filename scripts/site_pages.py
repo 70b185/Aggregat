@@ -22,7 +22,7 @@ KIND = {"mod": "Mod", "firmware": "Custom OS", "loader": "Mod loader", "emulator
         "request": "Request"}
 TESTED = {"unit": "tested on a unit", "partly": "partly tested on a unit", "emulator": "emulator only",
           "not-stated": "tests not stated"}
-TABS = ["mods", "finder", "news", "stock_tests", "network", "community", "facts", "addresses", "projects", "rules",
+TABS = ["mods", "news", "stock_tests", "network", "community", "facts", "addresses", "projects", "rules",
         "incidents", "stock_bugs"]
 
 

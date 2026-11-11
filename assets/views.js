@@ -1,5 +1,4 @@
 // Aggregat: the newer website views, each drawn into the main area.
-//   AggViews.finder   "Mod finder": device -> OS -> mods with a risk light (tested? recovery proven?)
 //   AggViews.news     "New": catalogue entries and knowledge-base changes, newest first (export/web/news.json)
 //   AggViews.tests    "Test your unit": stock tests anyone can run, with a prefilled report form
 //   AggViews.addresses "Addresses": the RAM tenancy register as lanes, and every address the facts name
@@ -28,105 +27,6 @@
     [/Machinedrum/, "machinedrum"], [/Monomachine/, "monomachine"]];
   const devsIn = t => /\ball four\b/i.test(t || "") ? ["digitakt-2", "digitakt", "digitone-2", "analog-heat"]
     : TXT_DEV.filter(([rx]) => rx.test(t || "")).map(([, s]) => s);
-
-  // ---------------------------------------------------------------- mod finder
-  const F = {dev: "", os: "", showAll: false};
-  const OS_RX = /\b(\d\.\d{2}[A-Z]?)\b/g;   // Elektron OS numbers have two decimals (1.12, 1.10E); "1.0" is a mod's own version
-  // device names as they appear in base_os texts ("Digitakt mk1 1.54; Digitone II 1.12", "1.73 (Rytm), 1.56 (Keys)")
-  const OS_DEV = {"digitakt-2": /Digitakt ?(II|2)\b|\bDT2\b/g, "digitone-2": /Digitone ?(II|2)\b|\bDN2\b/g, "digitakt": /Digitakt(?! ?(II|2)\b)/g,
-    "digitone": /Digitone(?! ?(II|2)\b)/g, "syntakt": /Syntakt/g, "analog-heat": /Heat/g, "octatrack": /Octatrack/g, "analog-rytm": /Rytm/g,
-    "analog-four-keys": /Analog Four|\bA4\b|Keys/g, "model-cycles": /Cycles/g, "model-samples": /Samples/g, "machinedrum": /Machinedrum/g, "monomachine": /Monomachine/g};
-  // the OS versions a mod names for one device: each version goes to the nearest device name in the text
-  // (the one before it, or one right after it in brackets); a text without device names applies to every device
-  function osFor(p, slug) {
-    const t = String(p.base_os || ""), vers = [...t.matchAll(OS_RX)].filter(m => !/\bnot $/.test(t.slice(0, m.index))).map(m => ({v: m[1], i: m.index}));
-    const names = list(p.devices).flatMap(d => OS_DEV[d] ? [...t.matchAll(OS_DEV[d])].map(m => ({d, i: m.index, e: m.index + m[0].length})) : []);
-    if (!names.length) return vers.map(x => x.v);
-    return vers.filter(x => {
-      const after = names.filter(n => t.slice(x.i + x.v.length, n.i) === " (")[0];
-      const before = names.filter(n => n.i < x.i).sort((a, b) => b.i - a.i)[0];
-      const near = after || before || names[0];
-      // "Digitakt mk1, Digitone mk1 / Keys OS 1.44": names in a row share the version that follows them
-      const row = before ? names.filter(n => n.i <= before.i && !vers.some(y => y.i > n.i && y.i < before.i)) : [];
-      return near.d === slug || (!after && row.some(n => n.d === slug));
-    }).map(x => x.v);
-  }
-  function risk(p, dev) {
-    const t = p.tested || "not-stated", rec = dev.recovery || "unknown";
-    const recOk = rec === "proven" || rec === "reported";
-    if (t === "unit" && recOk) return 0;
-    if (t === "unit" || (t === "partly" && recOk)) return 1;
-    return 2;
-  }
-  const RISK = [["low", "Lower risk", "the author reports it running on a unit, and stock recovery has been used on this device"],
-                ["mid", "Some risk", "tested on a unit only in part, or recovery on this device has not been reported used"],
-                ["high", "Higher risk", "emulator only or no test stated: you would be among the first on real hardware"]];
-
-  function finder(root, D, ctx) {
-    const mods = AggMods.catalogue(D, F.showAll);
-    const hosts = {};
-    D.relations.forEach(r => { if (r.type === "mod_for") (hosts[r.project] = hosts[r.project] || []).push(r.target); });
-    const byId = Object.fromEntries(D.projects.map(p => [p.id, p]));
-    const via = p => p.platform ? (byId[p.platform] || {}).name : p.install || (hosts[p.id] || []).map(h => (byId[h] || {name: h}).name.replace(/\s*\(.*\)$/, "")).join(", ")
-      || (["firmware"].includes(p.kind) ? "its own patcher" : "see its repo");
-    const count = s => mods.filter(p => list(p.devices).includes(s)).length;
-    const devCards = D.devices.map(d => `<button class="fd-dev${F.dev === d.slug ? " on" : ""}" data-d="${esc(d.slug)}" style="--dc:var(--c-${esc(d.slug)})">
-        <b>${esc(devShort(ctx, d.slug))}</b><span>${count(d.slug)} mods</span><span class="fd-rec fd-rec-${esc(d.recovery)}">${esc(RECOVERY[d.recovery] || "")}</span></button>`).join("");
-    let body = "";
-    if (F.dev) {
-      const dev = D.devices.find(d => d.slug === F.dev);
-      const dm = mods.filter(p => list(p.devices).includes(F.dev));
-      const versions = [...new Set(dm.flatMap(p => osFor(p, F.dev)))].sort((a, b) => b.localeCompare(a, "en", {numeric: true}));
-      const fits = p => !F.os || osFor(p, F.dev).includes(F.os);
-      const shown = dm.filter(fits);
-      const noOs = F.os ? dm.filter(p => !osFor(p, F.dev).length) : [];
-      const groups = [0, 1, 2].map(r => shown.filter(p => risk(p, dev) === r));
-      const nBugs = (D.stock_bugs || []).filter(b => list(b.devices).includes(F.dev)).length;
-      const nInc = (D.incidents || []).filter(i => list(i.devices).includes(F.dev)).length;
-      const card = p => {
-        const r = risk(p, dev);
-        return `<article class="md-card fd-card fd-r${r}" style="--dc:var(--c-${esc(F.dev)})">
-          <div class="md-top"><span class="fd-light fd-l${r}" title="${esc(RISK[r][1])}"></span><span class="md-kind">${esc(p.kind === "firmware" ? "custom OS" : p.kind)}</span>
-            ${p.status && p.status !== "active" ? `<span class="md-st">${esc(p.status)}</span>` : ""}<a class="md-date" href="?p=${esc(p.platform || p.id)}">details</a></div>
-          <h3>${p.repo ? `<a href="${esc(p.repo)}">${esc(p.name)}</a>` : esc(p.name)}</h3>
-          <div class="md-by">${esc(short(p.author, 60))}</div>
-          <p>${esc(short(p.notes, 180))}</p>
-          <div class="fd-why"><span class="fd-t fd-t-${esc(p.tested || "not-stated")}">${esc(TESTED[p.tested || "not-stated"])}</span>
-            ${p.tested_note ? `<span class="md-note">${esc(short(p.tested_note, 120))}</span>` : ""}</div>
-          <div class="md-foot"><span class="md-via">via ${esc(via(p))}</span></div>
-          ${p.base_os ? `<div class="md-os">needs ${esc(short(p.base_os, 90))}</div>` : `<div class="md-os">OS version not stated</div>`}
-        </article>`;
-      };
-      body = `
-        <div class="fd-step"><span class="fd-n">2</span> Which OS is on your ${esc(devShort(ctx, F.dev))}? <span class="meta">(SETTINGS &gt; SYSTEM &gt; OS INFO or similar)</span></div>
-        <div class="fd-os">${["", ...versions].map(v => `<button class="${F.os === v ? "on" : ""}" data-os="${esc(v)}">${v ? "OS " + esc(v) : "show all"}</button>`).join("")}</div>
-        <div class="fd-step"><span class="fd-n">3</span> Before you flash anything</div>
-        <div class="cm-card fd-check">
-          <p><b>Recovery on this device:</b> <span class="fd-rec fd-rec-${esc(dev.recovery)}">${esc(RECOVERY[dev.recovery])}</span> ${esc(dev.recovery_note || "")}</p>
-          <ol>
-            <li>Back up projects, sounds and the +Drive with Elektron Transfer.</li>
-            <li>Keep the stock OS file for exactly your version, and a DIN MIDI interface: the startup-menu recovery listens to DIN MIDI only.</li>
-            <li>Never cut the power during an update, including the restart right after it. First start of a new audio build: volume down.</li>
-            <li>Read the mod's own install notes; they win over anything here.</li>
-          </ol>
-          <p class="meta"><a href="${BLOB}hardware/common/recovery.md">Recovery notes</a> · <a href="?t=stock_bugs&d=${esc(F.dev)}">${nBugs} known bugs in Elektron's own OS</a> (check before you blame a mod)
-            · <a href="?t=incidents&d=${esc(F.dev)}">${nInc} things that went wrong on real units</a> · <a href="${BLOB}export/context/${esc(F.dev)}-brief.md">everything for agents</a></p>
-        </div>
-        <div class="fd-step"><span class="fd-n">4</span> ${shown.length} ${shown.length === 1 ? "mod" : "mods"}${F.os ? ` for OS ${esc(F.os)}` : ""}, by risk
-          <label class="md-chk"><input type="checkbox" id="fd-all"${F.showAll ? " checked" : ""}> unreachable and unverified too</label></div>
-        <p class="md-lead">The light is our reading of what the authors say, not a test of ours: green when a mod is reported running on a real unit and stock recovery has been used on this device. Mods are unofficial and can brick a unit.</p>
-        ${groups.map((g, r) => g.length ? `<h2 class="md-h"><span class="fd-light fd-l${r}"></span>${RISK[r][1]} <span>${g.length} · ${RISK[r][2]}</span></h2><div class="md-grid">${g.map(card).join("")}</div>` : "").join("")}
-        ${noOs.length ? `<h2 class="md-h">OS not stated <span>${noOs.length} mods for this device that name no OS version for it: check their repo</span></h2><div class="md-grid">${noOs.map(card).join("")}</div>` : ""}
-        ${!shown.length && !noOs.length ? `<div class="empty">No mod for this OS version. Pick "show all" to see what exists for other versions.</div>` : ""}`;
-    }
-    root.innerHTML = `<p class="md-lead">Find mods that fit your unit and see how far each has been tested. Three steps; nothing to install.</p>
-      <div class="fd-step"><span class="fd-n">1</span> Which device do you have?</div>
-      <div class="fd-devs">${devCards}</div>${body}`;
-    root.querySelector(".fd-devs").onclick = e => { const b = e.target.closest("button"); if (!b) return; F.dev = F.dev === b.dataset.d ? "" : b.dataset.d; F.os = ""; finder(root, D, ctx); };
-    const os = root.querySelector(".fd-os"); if (os) os.onclick = e => { const b = e.target.closest("button"); if (!b) return; F.os = b.dataset.os; finder(root, D, ctx); };
-    const all = root.querySelector("#fd-all"); if (all) all.onchange = e => { F.showAll = e.target.checked; finder(root, D, ctx); };
-    const c = document.getElementById("count"); if (c) c.textContent = F.dev ? "" : `${mods.length} mods`;
-  }
 
   // ---------------------------------------------------------------- what's new
   const N = {kind: "all"};
@@ -279,7 +179,7 @@
       ${rel.length ? `<h3>Related entries</h3><ul>${rel.join("")}</ul>` : ""}
       ${["mod", "firmware", "loader"].includes(p.kind) ? `<div class="cm-card"><h3>Before you flash</h3>
         <ul>${devs.map(d => `<li>${esc(devShort(ctx, d.slug))}: <span class="fd-rec fd-rec-${esc(d.recovery)}">${esc(RECOVERY[d.recovery] || "")}</span>
-          · <a href="?t=finder">mod finder</a> · <a href="?t=stock_bugs&d=${esc(d.slug)}">stock bugs</a> · <a href="${BLOB}export/context/${esc(d.slug)}-brief.md">agent pack</a></li>`).join("")}</ul>
+          · <a href="?t=mods&d=${esc(d.slug)}">all mods</a> · <a href="?t=stock_bugs&d=${esc(d.slug)}">stock bugs</a> · <a href="${BLOB}export/context/${esc(d.slug)}-brief.md">agent pack</a></li>`).join("")}</ul>
         <p class="meta">Mods are unofficial and can brick a unit. Back up first, keep the stock OS file and a DIN MIDI interface at hand. <a href="${BLOB}hardware/common/recovery.md">Recovery notes</a>.</p></div>` : ""}
       ${srcs.length ? `<p class="meta">Sources: ${srcs.map(s => md(String(s), "data/projects.yml")).join(" · ")}</p>` : ""}
       <p class="meta">Something wrong or missing? <a href="${BLOB}data/projects.yml">Edit data/projects.yml</a> (search for <code>id: ${esc(p.platform || p.id)}</code>) or open an issue.</p>
@@ -291,5 +191,5 @@
     const c = document.getElementById("count"); if (c) c.textContent = "";
   }
 
-  window.AggViews = {finder, news, tests, addresses, project, devsIn};
+  window.AggViews = {news, tests, addresses, project, devsIn};
 })();

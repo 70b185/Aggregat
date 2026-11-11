@@ -10,6 +10,7 @@ Thank you. Aggregat gets better with every result, correction and source, and mo
 | 10 minutes | **Report a bug in Elektron's own OS** that you can reproduce on the stock OS. | [Stock bug form](https://github.com/70b185/Aggregat/issues/new?template=stock-bug.yml) |
 | 15 minutes | **Firm up a weak fact**: find the source for an untagged or `[?]` fact and add its evidence tag. | Pick one from [WEAK-EVIDENCE.md](hardware/WEAK-EVIDENCE.md), edit the line in the file it links to, open a pull request. |
 | 30 minutes | **Correct or add a project**: your own or one you know. | Edit [data/projects.yml](data/projects.yml) (fields documented at its top), run the checks below, open a pull request. |
+| 10 minutes | **You write mods?** Paste the status block of the [mod-author checklist](docs/MOD-AUTHOR-CHECKLIST.md) into your README and declare your RAM in [RAM-TENANCY.md](hardware/RAM-TENANCY.md). | Your own repo, then a pull request here for the RAM rows. |
 | ongoing | **Take part with your project**: keep a results table in your repo. | Copy [research/AGGREGAT_RESEARCH.md](research/AGGREGAT_RESEARCH.md) to your repo's root; see [research/PARTICIPANTS.md](research/PARTICIPANTS.md). |
 
 Issues labelled [`good first test`](https://github.com/70b185/Aggregat/labels/good%20first%20test) are stock tests and

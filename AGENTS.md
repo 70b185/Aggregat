@@ -34,6 +34,13 @@ cited source (`{key}` resolves in [`hardware/SOURCES.md`](hardware/SOURCES.md)).
 **Cite facts by their stable id** (`digitone-2#3f9a01bc`, column `fid`), not by line number; ids survive edits
 elsewhere in the file.
 
+**Moving to another OS version?** `scripts/anchor_translate.py OLD.bin NEW.bin --base 0x40000400 <addresses>`
+translates addresses between two images you supply, by byte-pattern anchors, and says how sure it is per address
+(goal G5). Never commit the images.
+
+**Before you release**, run the [mod-author checklist](docs/MOD-AUTHOR-CHECKLIST.md) and paste its status block into
+your README.
+
 **Give back.** Copy [`research/AGGREGAT_RESEARCH.md`](research/AGGREGAT_RESEARCH.md) into your project's root and keep
 its results table, or report a result with the
 [test-result form](https://github.com/70b185/Aggregat/issues/new?template=test-result.yml). A failure on a real unit

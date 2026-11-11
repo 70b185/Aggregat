@@ -238,3 +238,35 @@ def test_feed_and_share_pages(repo):
 def test_every_device_has_a_recovery_status(repo):
     core = json.loads((repo / "export" / "web" / "core.json").read_text(encoding="utf-8"))
     assert all(d["recovery"] in ("proven", "reported", "documented", "unknown") for d in core["devices"])
+
+
+# ------------------------------------------------------------------ anchor_translate (synthetic images, no firmware)
+def test_anchor_translate(tmp_path):
+    import random
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import anchor_translate as at
+    rnd = random.Random(7)
+    blob = lambda n: bytes(rnd.randrange(256) for _ in range(n))
+    a, b, c = blob(6000), blob(5000), blob(7000)
+    changed_old, changed_new = blob(300), blob(420)          # a function that was rewritten and grew by 120 bytes
+    old = a + changed_old + b + bytes(512) + c               # zero padding in the middle
+    new = a + changed_new + b + bytes(512) + blob(64) + c    # and 64 new bytes before the last part
+    anchors = at.build_map(old, new)
+    segs = at.segments(anchors)
+    assert [s[2] for s in segs] == [0, 120, 184]
+    # inside the unchanged first part: exact, no shift
+    assert at.translate(1000, old, new, anchors) == (1000, "exact")
+    # inside the second part: moved by 120
+    assert at.translate(6000 + 300 + 2000, old, new, anchors)[0] == 6000 + 300 + 2000 + 120
+    # in the zero padding between two parts that moved differently: must not guess
+    j, how = at.translate(6000 + 300 + 5000 + 256, old, new, anchors)
+    assert j is None and how.startswith("ambiguous")
+    # in the rewritten function: the bytes are gone; anchors on both sides disagree
+    j, how = at.translate(6000 + 150, old, new, anchors)
+    assert j is None and how.startswith("ambiguous")
+    # command line, with a base address
+    (tmp_path / "old.bin").write_bytes(old)
+    (tmp_path / "new.bin").write_bytes(new)
+    r = subprocess.run([PY, str(ROOT / "scripts" / "anchor_translate.py"), str(tmp_path / "old.bin"), str(tmp_path / "new.bin"),
+                        "--base", "0x40000400", hex(0x40000400 + 8000)], capture_output=True, text=True)
+    assert r.returncode == 0 and f"0x{0x40000400 + 8000 + 120:08x}" in r.stdout

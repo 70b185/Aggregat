@@ -3,7 +3,7 @@
 
 Every address that a fact names, per device, in address order. One line per address; the facts that name it follow, best evidence first. Two facts at the same address with different claims are worth a look: they may be a conflict (add it to [CONFLICTS.md](CONFLICTS.md)) or a RAM range two projects both use (rule area G8 in the [research map](../RESEARCH-MAP.md)). Addresses differ between OS versions; the fact text says which.
 
-Data checked 2026-11-08, research snapshot `46e43489ee13`.
+Data checked 2026-11-08, research snapshot `2945a822544d`.
 
 ## Digitakt (MKI) (43 addresses)
 

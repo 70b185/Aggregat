@@ -36,6 +36,13 @@
     <category term="update"/>
   </entry>
   <entry>
+    <title>Website: mod finder, New tab + feed, Test your unit, address explorer, project pages, lazy data, one set of design tokens</title>
+    <link href="https://github.com/70b185/Aggregat/commit/0b5adcd4097701d7ea19e4554678471371a0ba61"/>
+    <id>https://70b185.github.io/Aggregat/#commit-0b5adcd40977</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>New in the catalogue: Sidecar | Expander: Rytm mods (Mod, Analog Rytm, Analog Four / Analog Keys)</title>
     <link href="https://70b185.github.io/Aggregat/?p=sidecar-mods"/>
     <id>https://70b185.github.io/Aggregat/#project-sidecar-mods</id>
@@ -455,12 +462,5 @@
     <updated>2026-11-06T00:00:00Z</updated>
     <category term="project"/>
     <summary>A DSP56300 user machine sent as SysEx into a USR slot: each trigger strikes a tuned resonator whose pitch falls from a higher start; knobs for base pitch, sweep depth and time, decay, attack pulse, hold, saturation and a low-pass tone. The release page lists cycle counts for …</summary>
-  </entry>
-  <entry>
-    <title>Document R022 working-state and SYN-view fixes</title>
-    <link href="https://github.com/70b185/Aggregat/commit/f46b54eef0061b50a0b76ccdad789f1ac1a1e25b"/>
-    <id>https://70b185.github.io/Aggregat/#commit-f46b54eef006</id>
-    <updated>2026-11-06T00:00:00Z</updated>
-    <category term="update"/>
   </entry>
 </feed>

@@ -15,6 +15,20 @@
     <category term="update"/>
   </entry>
   <entry>
+    <title>UPDATING: an entry in the mods list names only the devices it ships mods for</title>
+    <link href="https://github.com/70b185/Aggregat/commit/b4b156a489cb8441d623c0e9e09dd3685ce78417"/>
+    <id>https://70b185.github.io/Aggregat/#commit-b4b156a489cb</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Mods: no mod / custom OS / research labels, no maturity words; dn2_firmware_explore is a Digitone II project</title>
+    <link href="https://github.com/70b185/Aggregat/commit/a94b1e3b13c0664b3798c785c9a5b8f5a8824235"/>
+    <id>https://70b185.github.io/Aggregat/#commit-a94b1e3b13c0</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>Research: official MIDI tables (T13), test status from 43 READMEs, mod-author checklist, anchor_translate (G5)</title>
     <link href="https://github.com/70b185/Aggregat/commit/a65404f1da338fb59e0bd62a21c043acf5d58f7d"/>
     <id>https://70b185.github.io/Aggregat/#commit-a65404f1da33</id>
@@ -443,21 +457,5 @@
     <updated>2026-11-06T00:00:00Z</updated>
     <category term="project"/>
     <summary>A Hermes Agent plugin that jams on a Digitakt II over USB MIDI: starts patterns by genre or mood, changes sounds live by CC/NRPN, mutes tracks (optionally the unit's own mute, CC 94); nothing is saved to the unit. Falls back to a virtual MIDI port without hardware. Found by …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: Modded Cycles Techno Edition (Mod, Model:Cycles)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=modded-cycles-techno"/>
-    <id>https://70b185.github.io/Aggregat/#project-modded-cycles-techno</id>
-    <updated>2026-11-06T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>25 machines (Elektron's six plus 19: 909/808/606 voices, rumble kick, modal metal, additive drum, acid and growl basses, Braids, VA, cross-mod, 6-op FM, pad, and a sampler / granular / wavetable engine), a filter and insert effect per track, sidechain, master DJ EQ, 6-channel …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: Digitakt LED colours (Mod, Digitakt)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=digitakt-led-colors"/>
-    <id>https://70b185.github.io/Aggregat/#project-digitakt-led-colors</id>
-    <updated>2026-11-06T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>LED theme editor and standby light show: six themes plus CUSTOM, eleven colour families with RGB 0-31, trig-key previews, COMET / RAINBOW / BREATHE idle animations, settings restored at start-up. Tested only in digiemu (README: not on a physical Digitakt). Found by GitHub …</summary>
   </entry>
 </feed>

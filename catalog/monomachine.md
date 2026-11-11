@@ -41,7 +41,7 @@ _Sources: altstrument (2026-11-01)_
 
 Custom Monomachine OS 1.32B (per-track lengths/speeds, trig conditions, song/pattern workflow, bug fixes), patched in the browser. Patcher only. Licence: unspecified; distribution: patch-your-own. Listed by altstrument; CHANGELOG read 2026-11-10. Upgrade hazards (26B09): old whole-bank BBOX .syx backups are no longer accepted (convert on 26A09 first), P2/P7 conditions become 25 %/75 %, the firmware is compressed so boot is slower.
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### Monomodule
 

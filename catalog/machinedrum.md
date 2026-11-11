@@ -40,9 +40,9 @@ Data last verified: 2026-11-08
 
 ### ems-machinedrum-firmware
 
-Custom Machinedrum OS (independent track lengths/speeds, trig conditions, microtiming, 128 kits, many MDX-derived fixes), patched in the browser from your OS file. Patcher only, no source. Licence: unspecified; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
+Custom Machinedrum OS (independent track lengths/speeds, trig conditions, microtiming, 128 kits, many MDX-derived fixes), patched in the browser from your OS file. Patcher only, no source. Licence: unspecified; distribution: patch-your-own. Listed by altstrument.
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### fsdsp56k
 
@@ -60,9 +60,9 @@ _Sources: altstrument (2026-11-01)_
 
 ### Kitbasher
 
-Browser tool adding extra sound models next to the stock machines of a Machinedrum OS you load (1.63, X.14, 26A09 beta, MDX X.20 B). Licence: GPL-3.0-or-later; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
+Browser tool adding extra sound models next to the stock machines of a Machinedrum OS you load (1.63, X.14, 26A09 beta, MDX X.20 B). Licence: GPL-3.0-or-later; distribution: browser-installer. Listed by altstrument; README read 2026-11-11.
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### machinedrum-kit
 
@@ -70,7 +70,7 @@ RE docs for Machinedrum OS 1.63 with a Python toolkit, headless emulator and exa
 
 _Related: uses tool `gearmulator-md-mm` (README: checks out joelanders/gearmulator-md-mm at a pinned commit) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### MDMM (Machinedrum and Monomachine Editors)
 
@@ -82,9 +82,9 @@ _Sources: altstrument (2026-11-01)_
 
 ### MDS (Machine Dump Standard)
 
-Machine Dump Standard: spec, example DSP machines and Python packers for custom machines in the USR slots of MDX 2.0. Licence: unspecified; distribution: source-only. Listed by altstrument; repo not read by us yet.
+Machine Dump Standard: spec, example DSP machines and Python packers for custom machines in the USR slots of MDX 2.0. Licence: unspecified; distribution: source-only. Listed by altstrument.
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### mds-tools (MDS packer and certifier)
 
@@ -102,9 +102,9 @@ _Sources: altstrument (2026-11-01)_
 
 ### murdenihcam USR machines
 
-Four user-machine families for MDX X.20 B: slicer, time stretcher, granulator, modulation effect. Licence: unspecified; distribution: download. Listed by altstrument; repo not read by us yet.
+Four user-machine families for MDX X.20 B: slicer, time stretcher, granulator, modulation effect. Licence: unspecified; distribution: download. Listed by altstrument.
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### MoDule (MD Drums)
 
@@ -168,7 +168,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Custom USR machines, each a single SysEx file sent to MDX's machine manager. MIT.
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### Maschine MD-MM
 
@@ -214,7 +214,7 @@ A DSP56300 user machine sent as SysEx into a USR slot: each trigger strikes a tu
 
 _Related: mod for `mdx` (altstrument: needs a Machinedrum running MDX X.20); uses tool `mds` (altstrument: the repository uses the MDS tooling as submodules) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-06)_
+_Sources: altstrument (2026-11-06), README (2026-11-11)_
 
 ### DBX-DR (dark drone for MDX)
 
@@ -222,4 +222,4 @@ Single-voice drone USR machine: three detuned saws and a square sub into saturat
 
 _Related: mod for `mdx` (README: a USR machine for the Machinedrum running MDX X.20) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-07, README_
+_Sources: GitHub search 2026-11-07, README, README (2026-11-11)_

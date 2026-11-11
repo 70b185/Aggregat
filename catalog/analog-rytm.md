@@ -64,11 +64,11 @@ _Sources: altstrument (2026-11-01)_
 
 ### Chopshop
 
-Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog Keys OS 1.56 (chord memory, joystick random). Not OS 1.74, not Analog Four. Licence: GPL-3.0-or-later; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
+Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog Keys OS 1.56 (chord memory, joystick random). Not OS 1.74, not Analog Four. Licence: GPL-3.0-or-later; distribution: browser-installer. Listed by altstrument.
 
 _Related: vendors `elektron-firmware-tool` (README: built on elektron-firmware-tool compiled to WebAssembly); builds on `rytm1-mods` (README: built on gdeo607's rytm1_mods) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### libanalogrytm
 
@@ -84,11 +84,11 @@ _Sources: altstrument (2026-11-01)_
 
 ### rytm-fw-re
 
-RE notes for Rytm MKII OS 1.74 (container, boot, display) and a tiny from-source replacement OS that boots on a unit, plus same-size splash and LED-palette patches. Recovery only over DIN MIDI. Licence: unspecified; distribution: source-only. Listed by altstrument; repo not read by us yet.
+RE notes for Rytm MKII OS 1.74 (container, boot, display) and a tiny from-source replacement OS that boots on a unit, plus same-size splash and LED-palette patches. Recovery only over DIN MIDI. Licence: unspecified; distribution: source-only. Listed by altstrument.
 
 _Related: uses tool `elektron-firmware-tool` (README: it unpacks and repacks the OS) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### rytm-mods-src
 
@@ -96,7 +96,7 @@ Public copy of MrScruff's Rytm MKII OS 1.73 mods (euclid accents, velocity human
 
 _Related: uses tool `elektron-firmware-tool` (README: fetched and built into vendor/ by setup, not shipped); mod for `modwerk` (modwerk sdk/analog-rytm-mkii/modules ctrl-in-perf and scene-mutes name mods/0017-ctrl-in-perf and mods/0018-scene-mutes of this repo as source) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### rytm1_mods
 
@@ -104,7 +104,7 @@ Port of the rytm-mods to Rytm MK1 OS 1.73 (per-track cuts, random LFO, euclid ac
 
 _Related: port of `rytm-mods-src` (README: port of the MKII project to the MK1); mod for `elekloader` (catalogue notes: emits elekloader .elemod files); uses tool `elektron-firmware-tool` (README: fetched and built into vendor/ by setup, not shipped) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### RytmRandomizer
 
@@ -124,7 +124,7 @@ digihealth's SYSTEM INFO and REMOTE KEYS ported to the analog machines. GPL. Fou
 
 _Related: mod for `elekloader` (README: an elekloader mod); port of `digihealth` (README: irpina's digihealth for the Digitakt mk1, ported to the Rytm MKII and Analog Four MKII); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### rytm2_mods
 
@@ -132,7 +132,7 @@ MrScruff's Rytm MKII mods (published with permission) ported to the elemod forma
 
 _Related: mod for `modwerk` (modwerk sdk/analog-rytm-mkii/modules: ctrl-all, env-reset-amp, euclid-accents, filter-hz, main-rms, slice-loop, velocity-humanise, and since 2026-11-08 comp-preview, kit-ab, lfo-rnd and voice-dac, name this repo as source (2026-11-09)); port of `rytm-mods-src` (README: ported to elemod); mod for `elekloader` (catalogue notes: ported to the elemod format for elekloader core-ar2) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### analog-rytm-agent-bridge
 
@@ -154,7 +154,7 @@ A Raspberry Pi 4B/5 on the Rytm's USB port adds digital voices, effects and a se
 
 _Related: mod for `elekloader` (README: the Rytm firmware part is an elekloader module); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### Analog Rytm MK1 OS 1.74 mods
 
@@ -162,7 +162,7 @@ Sister project of the A4 MK1 mods (same registry/verify method). Adds Machinedru
 
 _Related: uses tool `elektron-firmware-tool` (README: it unpacks and repacks the OS); builds on `rytm1-mods` (README: based on rytm1_mods and keeps its pipeline) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### rytm-mods boot report
 
@@ -218,7 +218,7 @@ The source of the Analog Rytm MKII OS mods that Sidecar | Expander needs: patch 
 
 _Related: same project `sidecar-expander` (README: the Rytm mods that Sidecar | Expander uses); mod for `elekloader` (README: one elekloader module per OS) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: state/NEW.md 2026-11-10, README_
+_Sources: state/NEW.md 2026-11-10, README, README (2026-11-11)_
 
 ### elkbench (hardware tests as an MCP server)
 

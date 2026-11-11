@@ -245,7 +245,9 @@ def links2(p):
 def mrow(p, show_dev=False):
     st = f" <br>_{shown_status(p)}_" if shown_status(p) and p["status"] not in ("unverified", "unreachable") else ""
     dv = f" | {devs(p)}" if show_dev else ""
-    return (f"| **{cut(p['name'], 90)}** <br>{cut(p.get('author', '?'), 40)}{st}{dv} | {short(p, 150)} | {via(p)} | "
+    # the feature list (read from the README) says what a mod does better than the first sentence of our notes
+    what = cut("; ".join(p["features"]), 320) if p.get("features") else short(p, 150)
+    return (f"| **{cut(p['name'], 90)}** <br>{cut(p.get('author', '?'), 40)}{st}{dv} | {what} | {via(p)} | "
             f"{cut(p.get('base_os'), 45)} | {tested(p)} | {updated(p)} | {links2(p)} |")
 
 

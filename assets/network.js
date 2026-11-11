@@ -8,9 +8,9 @@
   const list = s => String(s || "").split(",").filter(Boolean);
 
   // ---------------------------------------------------------------- colour encodings (max three hues + neutral)
-  const KIND_GROUP = {mod: "mods", firmware: "mods", loader: "mods", tool: "tools", editor: "tools", library: "tools",
-                      "agent-skill": "tools", research: "research", emulator: "research", resource: "research"};
-  const KIND_LABEL = {mods: "Mods, firmware, loaders", tools: "Tools, editors, libraries", research: "Research, emulators", other: "Other"};
+  // groups follow the list a project is in, as on the community page
+  const groupOf = p => { const l = String(p.list || "").split(","); return l.includes("mods") ? "mods" : l.includes("musician") ? "tools" : l.includes("dev") ? "research" : "other"; };
+  const KIND_LABEL = {mods: "Mods and loaders", research: "Developer tools", tools: "Tools for musicians", other: "Other"};
   function licFamily(p) {
     const l = (p.license || p.gh_license || "").toLowerCase();
     if (/proprietary|all rights reserved|elastic|-nc\b|non-?commercial|see rule/.test(l)) return "restricted";
@@ -76,7 +76,7 @@
       return d ? `var(--c-${d}, var(--s0))` : "var(--s0)"; }
     if (S.opts.color === "licence") return SLOT[licFamily(n.p)];
     if (S.opts.color === "age") return n.p.created ? ageColour(n.p.created) : "var(--s0)";
-    return SLOT[KIND_GROUP[n.p.kind] || "other"];
+    return SLOT[groupOf(n.p)];
   }
   const AGE_STEPS = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b"];
   function ageColour(d) {

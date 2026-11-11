@@ -4,10 +4,11 @@
   "use strict";
   const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
   const list = s => String(s || "").split(",").filter(Boolean);
-  const GROUP = {mod: "mods", firmware: "mods", loader: "mods", tool: "tools", editor: "tools", library: "tools",
-                 "agent-skill": "tools", research: "research", emulator: "research", resource: "research"};
-  const GROUPS = [["mods", "Mods, firmware, loaders", "var(--s1)"], ["tools", "Tools, editors, libraries", "var(--s2)"],
-                  ["research", "Research, emulators", "var(--s3)"], ["other", "Other", "var(--s0)"]];
+  // groups follow the list a project is in (data/projects.yml list / also_lists): a research repo that ships mods
+  // counts as mods, whatever its repo calls itself
+  const groupOf = p => list(p.list).includes("mods") ? "mods" : list(p.list).includes("musician") ? "tools" : list(p.list).includes("dev") ? "research" : "other";
+  const GROUPS = [["mods", "Mods and loaders", "var(--s1)"], ["research", "Developer tools", "var(--s3)"],
+                  ["tools", "Tools for musicians", "var(--s2)"], ["other", "Other", "var(--s0)"]];
   function licFamily(p) {
     const l = (p.license || p.gh_license || "").toLowerCase();
     if (!l || /not stated|unspecified|none|unknown|noassertion/.test(l)) return "None stated";
@@ -56,7 +57,7 @@
     // ---------------------------------------------------------------- per device, stacked by kind group
     const devRows = D.devices.map(d => {
       const ps = P.filter(p => list(p.devices).includes(d.slug));
-      const by = {}; ps.forEach(p => { const g = GROUP[p.kind] || "other"; by[g] = (by[g] || 0) + 1; });
+      const by = {}; ps.forEach(p => { const g = groupOf(p); by[g] = (by[g] || 0) + 1; });
       return {d, n: ps.length, by};
     }).filter(r => r.n).sort((a, b) => b.n - a.n);
     const maxD = Math.max(1, ...devRows.map(r => r.n));

@@ -34,7 +34,7 @@ projects:
   - id: heatfx-multimode
     name: Analog Heat FX+ MultiMode (beta 0.1)
     author: sapfir365karat (elektronmods.com)
-    kind: firmware
+    kind: mod
     devices: [analog-heat]
     status: unverified
     links:

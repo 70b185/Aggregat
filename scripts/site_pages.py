@@ -17,7 +17,9 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://70b185.github.io/Aggregat/"
 OUT = ROOT / "p"
-KIND = {"mod": "Mod", "firmware": "Custom OS", "loader": "Mod loader", "emulator": "Emulator", "editor": "Editor",
+# a project in the mods list is a mod, whatever its repo calls itself (research notebook, custom OS, ...)
+IN_MODS = lambda p: (p.get("list") or {"mod": "mods", "loader": "mods"}.get(p["kind"], "")) == "mods" or "mods" in (p.get("also_lists") or [])
+KIND = {"mod": "Mod", "loader": "Mod loader", "emulator": "Emulator", "editor": "Editor",
         "tool": "Tool", "research": "Research", "library": "Library", "agent-skill": "Agent skill", "resource": "Resource",
         "request": "Request"}
 TESTED = {"unit": "tested on a unit", "partly": "partly tested on a unit", "emulator": "emulator only",
@@ -39,7 +41,7 @@ def main():
     for p in projects:
         pid = p["id"]
         names = ", ".join(devs.get(s, s) for s in p.get("devices") or [])
-        title = f"{p['name']} - {KIND.get(p['kind'], p['kind'])}" + (f" for {names}" if names else "")
+        title = f"{p['name']} - {'Mod' if IN_MODS(p) and p['kind'] != 'loader' else KIND.get(p['kind'], p['kind'])}" + (f" for {names}" if names else "")
         bits = [TESTED.get(p.get("tested"), ""), f"needs {short(p['base_os'], 60)}" if p.get("base_os") else ""]
         desc = short(" · ".join(b for b in bits if b) + (". " if any(bits) else "") + str(p.get("notes") or ""), 260)
         url = f"{SITE}?p={pid}"

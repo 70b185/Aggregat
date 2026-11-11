@@ -160,7 +160,8 @@
     let srcs = []; try { srcs = JSON.parse(p.sources || "[]"); } catch (e) {}
     const md = window.AggMd || (s => esc(s));
     const devs = list(p.devices).map(s => D.devices.find(d => d.slug === s)).filter(Boolean);
-    const kv = [["Kind", p.kind === "firmware" ? "custom OS" : p.kind], ["Status", p.status], ["Tested", p.tested ? `${TESTED[p.tested] || p.tested}${p.tested_note ? ` (${p.tested_note})` : ""}` : ""],
+    const inMods = list(p.list).includes("mods") && p.kind !== "loader";
+    const kv = [["Kind", inMods ? "" : p.kind], ["Note", ({unreachable: "repo unreachable", archived: "repo archived", unverified: "not yet verified by us", request: "a request, no project yet"})[p.status] || ""], ["Tested", p.tested ? `${TESTED[p.tested] || p.tested}${p.tested_note ? ` (${p.tested_note})` : ""}` : ""],
       ["Base OS", p.base_os], ["Version", p.version], ["Licence", p.license || p.gh_license], ["Last activity", [p.last_activity, p.pushed && `pushed ${p.pushed.slice(0, 10)}`].filter(Boolean).join(" · ")],
       ["Created", p.created && p.created.slice(0, 10)], ["Stars", p.stars], ["In Aggregat since", p.first_seen], ["Install", p.install]].filter(([, v]) => v !== null && v !== undefined && v !== "");
     const ms = own(byId[p.platform] || p);
@@ -177,7 +178,7 @@
       ${ms.length ? `<h3>Mods it ships (${ms.length})</h3><ul>${ms.map(m => `<li><b>${esc(m.name)}</b>${m.version ? " " + esc(m.version) : ""}: ${esc(m.what)} <span class="meta">${esc(TESTED[m.tested] || "tests not stated")}</span></li>`).join("")}</ul>` : ""}
       <dl class="pj-kv">${kv.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
       ${rel.length ? `<h3>Related entries</h3><ul>${rel.join("")}</ul>` : ""}
-      ${["mod", "firmware", "loader"].includes(p.kind) ? `<div class="cm-card"><h3>Before you flash</h3>
+      ${inMods || p.kind === "loader" ? `<div class="cm-card"><h3>Before you flash</h3>
         <ul>${devs.map(d => `<li>${esc(devShort(ctx, d.slug))}: <span class="fd-rec fd-rec-${esc(d.recovery)}">${esc(RECOVERY[d.recovery] || "")}</span>
           · <a href="?t=mods&d=${esc(d.slug)}">all mods</a> · <a href="?t=stock_bugs&d=${esc(d.slug)}">stock bugs</a> · <a href="${BLOB}export/context/${esc(d.slug)}-brief.md">agent pack</a></li>`).join("")}</ul>
         <p class="meta">Mods are unofficial and can brick a unit. Back up first, keep the stock OS file and a DIN MIDI interface at hand. <a href="${BLOB}hardware/common/recovery.md">Recovery notes</a>.</p></div>` : ""}

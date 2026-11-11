@@ -97,7 +97,7 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 
 ## 8. Mods, firmware, loaders and emulators for this device
 
-- **Analog Heat FX+ MultiMode (beta 0.1)** (firmware, unverified, tested: not stated)
+- **Analog Heat FX+ MultiMode (beta 0.1)** (mod, unverified, tested: not stated)
 
 ## Fact files for this device
 

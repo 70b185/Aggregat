@@ -6,35 +6,35 @@ Data last verified: 2026-11-08
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
-| Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
+| Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **DBX-DR (dark drone for MDX)** (MonCalamari) | mod | active | Machinedrum MKI/MKII running MDX X.20 (MDS 1.1) | drone-v0.5 | 2026-11-07 | [repo](https://github.com/MonCalamari/DBX-DR) |
-| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-06 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
-| **DBX-K2 (resonator kick for MDX)** (MonCalamari) | mod | active | kick2-v0.9 (2026-11-06): HOLD replaces colour, pitch 38-160 Hz, saturation always on; v0.7 first release the same day; Machinedrum MKI/MKII running MDX X.20 | kick2-v0.9 | 2026-11-06 | [repo](https://github.com/MonCalamari/DBX-K2) |
-| **mds-tools (MDS packer and certifier)** (Justin Mammarella) | tool | active | main @ 983600a (2026-11-03); MDX 2.0 USR machines (Machinedrum MKI and MKII) | - | 2026-11-03 | [repo](https://github.com/jmamma/mds-tools) |
-| **Machinemodule for MPC OS** (sd88me) | emulator | active | v1.0.2 (tag, 2026-11-03) | v1.0.3 | 2026-11-03 | [repo](https://github.com/sd88me/mpc-vst-machinedrum) · [move port](https://github.com/sd88me/schwung-machinemodule) · [monomodule mpc](https://github.com/sd88me/mpc-vst-monomodule) |
-| **ModuleDrum** (K-X420) | emulator | active | - | v1.4.1 | 2026-11-01 | [repo](https://github.com/K-X420/ModuleDrum) |
-| **OP-XY MNMD** (mmockett) | emulator | active | - | v1.3.1 | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
-| **BSP Machinedrum** (ABarracu87) | tool | active | - | v0.3.5 | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
-| **MoDule (MD Drums)** (c0remusic) | emulator | active | - | module-v0.1.2 | 2026-10-29 | [repo](https://github.com/c0remusic/MModule) |
-| **fsdsp56k** (smoothdeveloper) | tool | active | main @ 2ac9d9b (2026-10-26); MDX X.20 for running packed machines on hardware | - | 2026-10-26 | [repo](https://github.com/smoothdeveloper/fsdsp56k) · [homepage](https://smoothdeveloper.github.io/fsdsp56k/) |
-| **mdkit** (soejrd) | library | active | - | v1.0 | 2026-10-22 | [repo](https://github.com/soejrd/mdkit) |
-| **Kitbasher** (etcetc000) | mod | active | main @ d965da3 (2026-10-19); 1.63 / X.14 / 26A09 beta / MDX X.20 B | - | 2026-10-19 | [repo](https://github.com/etcetc000/kitbasher) · [homepage](https://kitbasher.xyz) |
-| **machinedrum-kit** (Janne Heikkarainen) | research | active | main @ 4ea4729 (2026-10-19); Machinedrum SPS-1UW OS 1.63 (supplied by you) | - | 2026-10-19 | [repo](https://github.com/janne808/machinedrum-kit) |
-| **Machinedrum USR machines (RASP, KOOK, SMSH...)** (SamplesAndSnacks) | mod | active | Machinedrum with MDX X.20 | - | 2026-10-18 | [repo](https://github.com/SamplesAndSnacks/machinedrum-rasp) |
-| **MachineModule (desktop)** (AcidReff) | emulator | active | 0.4.6 (native Apple Silicon JIT) | v0.4.6 | 2026-10-16 | [repo](https://github.com/AcidReff/MachineModule) |
-| **murdenihcam USR machines** (murdenihcam) | mod | active | main @ ab92ccf (2026-10-15); MDX X.20 B | - | 2026-10-15 | [repo](https://github.com/murdenihcam/murdenihcam-usr-machines) |
-| **C7** (sata1000000) | editor | active | - | v0.1.0 | 2026-10-10 | [repo](https://github.com/sata1000000/C7) |
-| **ems-machinedrum-firmware** (June Kiff (emuyia)) | firmware | active | 26A09-beta (2026-10-09) | 26A09-beta | 2026-10-09 | [repo](https://github.com/emuyia/ems-machinedrum-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
-| **MDS (Machine Dump Standard)** (Justin Mammarella) | library | active | main @ c446179 (2026-10-09); MDX 2.0 (X.20 or later) | - | 2026-10-09 | [repo](https://github.com/jmamma/MDS) |
-| **MDX** (Justin Mammarella, Yatao Li) | firmware | active | X.20 B (2026-10-09) | - | 2026-10-09 | [homepage](https://github.com/jmamma/MDX) |
-| **Maschine MD-MM** (sid366) | emulator | active | - | v0.1.1-combined.1 | 2026-09-28 | [repo](https://github.com/sid366/maschine-md-mm-combined) |
-| **Gearmulator MD/MM** (Joe Landers) | emulator | active | mdmm-v0.1.0-alpha.14 (2026-09-21); Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-09-21 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
-| **Say A! (MCL chromatic A tool)** (BartBral) | tool | active | main @ c241980 (2026-05-21) per altstrument | - | 2026-05-21 | [repo](https://github.com/BartBral/MCL-Chromatic-A-tool) · [web app](https://bartbral.github.io/MCL-Chromatic-A-tool/md-transfer.html) |
-| **MDDT (Machinedrum Data Tool)** (waftlord) | editor | active | V2.0 | v1.0.0 | 2026-01-04 | [repo](https://github.com/waftlord/mddt) · [web](https://wftlrd.uk/mddt/) |
-| **TurboMIDI (C++)** (DatanoiseTV) | library | unknown | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
-| **MachineDrandom** (Kerem Ergener (per altstrument)) | tool | unknown | - | - | - | [web app](https://machinedrandom.keremergener.com/) |
-| **SM (Machinedrum sample manager)** (Fyris) | tool | unknown | - | - | - | [web app](https://sm.fyris.me/) |
+| **DBX-DR (dark drone for MDX)** (MonCalamari) | mod | - | Machinedrum MKI/MKII running MDX X.20 (MDS 1.1) | drone-v0.5 | 2026-11-07 | [repo](https://github.com/MonCalamari/DBX-DR) |
+| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-06 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
+| **DBX-K2 (resonator kick for MDX)** (MonCalamari) | mod | - | kick2-v0.9 (2026-11-06): HOLD replaces colour, pitch 38-160 Hz, saturation always on; v0.7 first release the same day; Machinedrum MKI/MKII running MDX X.20 | kick2-v0.9 | 2026-11-06 | [repo](https://github.com/MonCalamari/DBX-K2) |
+| **mds-tools (MDS packer and certifier)** (Justin Mammarella) | tool | - | main @ 983600a (2026-11-03); MDX 2.0 USR machines (Machinedrum MKI and MKII) | - | 2026-11-03 | [repo](https://github.com/jmamma/mds-tools) |
+| **Machinemodule for MPC OS** (sd88me) | emulator | - | v1.0.2 (tag, 2026-11-03) | v1.0.3 | 2026-11-03 | [repo](https://github.com/sd88me/mpc-vst-machinedrum) · [move port](https://github.com/sd88me/schwung-machinemodule) · [monomodule mpc](https://github.com/sd88me/mpc-vst-monomodule) |
+| **ModuleDrum** (K-X420) | emulator | - | - | v1.4.1 | 2026-11-01 | [repo](https://github.com/K-X420/ModuleDrum) |
+| **OP-XY MNMD** (mmockett) | emulator | - | - | v1.3.1 | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
+| **BSP Machinedrum** (ABarracu87) | tool | - | - | v0.3.5 | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
+| **MoDule (MD Drums)** (c0remusic) | emulator | - | - | module-v0.1.2 | 2026-10-29 | [repo](https://github.com/c0remusic/MModule) |
+| **fsdsp56k** (smoothdeveloper) | tool | - | main @ 2ac9d9b (2026-10-26); MDX X.20 for running packed machines on hardware | - | 2026-10-26 | [repo](https://github.com/smoothdeveloper/fsdsp56k) · [homepage](https://smoothdeveloper.github.io/fsdsp56k/) |
+| **mdkit** (soejrd) | library | - | - | v1.0 | 2026-10-22 | [repo](https://github.com/soejrd/mdkit) |
+| **Kitbasher** (etcetc000) | mod | - | main @ d965da3 (2026-10-19); 1.63 / X.14 / 26A09 beta / MDX X.20 B | - | 2026-10-19 | [repo](https://github.com/etcetc000/kitbasher) · [homepage](https://kitbasher.xyz) |
+| **machinedrum-kit** (Janne Heikkarainen) | research | - | main @ 4ea4729 (2026-10-19); Machinedrum SPS-1UW OS 1.63 (supplied by you) | - | 2026-10-19 | [repo](https://github.com/janne808/machinedrum-kit) |
+| **Machinedrum USR machines (RASP, KOOK, SMSH...)** (SamplesAndSnacks) | mod | - | Machinedrum with MDX X.20 | - | 2026-10-18 | [repo](https://github.com/SamplesAndSnacks/machinedrum-rasp) |
+| **MachineModule (desktop)** (AcidReff) | emulator | - | 0.4.6 (native Apple Silicon JIT) | v0.4.6 | 2026-10-16 | [repo](https://github.com/AcidReff/MachineModule) |
+| **murdenihcam USR machines** (murdenihcam) | mod | - | main @ ab92ccf (2026-10-15); MDX X.20 B | - | 2026-10-15 | [repo](https://github.com/murdenihcam/murdenihcam-usr-machines) |
+| **C7** (sata1000000) | editor | - | - | v0.1.0 | 2026-10-10 | [repo](https://github.com/sata1000000/C7) |
+| **ems-machinedrum-firmware** (June Kiff (emuyia)) | mod | - | 26A09-beta (2026-10-09) | 26A09-beta | 2026-10-09 | [repo](https://github.com/emuyia/ems-machinedrum-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
+| **MDS (Machine Dump Standard)** (Justin Mammarella) | library | - | main @ c446179 (2026-10-09); MDX 2.0 (X.20 or later) | - | 2026-10-09 | [repo](https://github.com/jmamma/MDS) |
+| **MDX** (Justin Mammarella, Yatao Li) | mod | - | X.20 B (2026-10-09) | - | 2026-10-09 | [homepage](https://github.com/jmamma/MDX) |
+| **Maschine MD-MM** (sid366) | emulator | - | - | v0.1.1-combined.1 | 2026-09-28 | [repo](https://github.com/sid366/maschine-md-mm-combined) |
+| **Gearmulator MD/MM** (Joe Landers) | emulator | - | mdmm-v0.1.0-alpha.14 (2026-09-21); Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-09-21 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
+| **Say A! (MCL chromatic A tool)** (BartBral) | tool | - | main @ c241980 (2026-05-21) per altstrument | - | 2026-05-21 | [repo](https://github.com/BartBral/MCL-Chromatic-A-tool) · [web app](https://bartbral.github.io/MCL-Chromatic-A-tool/md-transfer.html) |
+| **MDDT (Machinedrum Data Tool)** (waftlord) | editor | - | V2.0 | v1.0.0 | 2026-01-04 | [repo](https://github.com/waftlord/mddt) · [web](https://wftlrd.uk/mddt/) |
+| **TurboMIDI (C++)** (DatanoiseTV) | library | - | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
+| **MachineDrandom** (Kerem Ergener (per altstrument)) | tool | - | - | - | - | [web app](https://machinedrandom.keremergener.com/) |
+| **SM (Machinedrum sample manager)** (Fyris) | tool | - | - | - | - | [web app](https://sm.fyris.me/) |
 
 ## Details
 

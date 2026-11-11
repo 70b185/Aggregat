@@ -18,7 +18,9 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://70b185.github.io/Aggregat/"
 GH = "https://github.com/70b185/Aggregat"
-KIND = {"mod": "Mod", "firmware": "Custom firmware", "loader": "Loader", "emulator": "Emulator", "editor": "Editor",
+# a project in the mods list is a mod, whatever its repo calls itself (research notebook, custom OS, ...)
+IN_MODS = lambda p: (p.get("list") or {"mod": "mods", "loader": "mods"}.get(p["kind"], "")) == "mods" or "mods" in (p.get("also_lists") or [])
+KIND = {"mod": "Mod", "loader": "Loader", "emulator": "Emulator", "editor": "Editor",
         "tool": "Tool", "research": "Research", "library": "Library", "agent-skill": "Agent skill", "resource": "Resource",
         "request": "Request"}
 
@@ -39,7 +41,7 @@ def project_entries():
             continue
         names = ", ".join(devs.get(s, s).split(" (")[0] for s in p.get("devices") or [])
         out.append({"date": d, "type": "project", "id": f"project-{p['id']}",
-                    "title": f"New in the catalogue: {p['name']} ({KIND.get(p['kind'], p['kind'])}{', ' + names if names else ''})",
+                    "title": f"New in the catalogue: {p['name']} ({'Mod' if IN_MODS(p) and p['kind'] != 'loader' else KIND.get(p['kind'], p['kind'])}{', ' + names if names else ''})",
                     "link": f"{SITE}?p={p['id']}", "project": p["id"], "kind": p["kind"],
                     "devices": p.get("devices") or [], "tested": p.get("tested") or "", "text": short(p.get("notes"))})
     return out

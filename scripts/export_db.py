@@ -37,7 +37,7 @@ if cand.exists():
 devices = yaml.safe_load((ROOT / "data/devices.yml").read_text(encoding="utf-8"))["devices"]
 slugs = [d["slug"] for d in devices]
 
-KIND_LIST = {"mod": "mods", "firmware": "mods", "loader": "mods", "emulator": "dev", "research": "dev",
+KIND_LIST = {"mod": "mods", "loader": "mods", "emulator": "dev", "research": "dev",
              "library": "dev", "agent-skill": "dev", "tool": "dev", "editor": "musician"}
 
 # ---------------------------------------------------------------- devices named in a file or a text

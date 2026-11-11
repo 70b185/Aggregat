@@ -87,9 +87,9 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 
 ## 8. Mods, firmware, loaders and emulators for this device
 
-- **Modded Cycles** (firmware, active, tested: unit, base OS 1.13) https://github.com/18nelli18/Modded-Cycles
 - **elekloader** (loader, active, tested: unit, base OS Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed) https://github.com/elekloader/elekloader
 - **elektron-model-tweaks** (mod, active, tested: unit, base OS 1.13) https://github.com/drumkilla/elektron-model-tweaks
+- **Modded Cycles** (mod, active, tested: unit, base OS 1.13) https://github.com/18nelli18/Modded-Cycles
 - **model909** (mod, wip, tested: unit, base OS Model:Cycles OS 1.13 (also Model:Samples running the Cycles OS)) https://github.com/DMDaudio/model909
 - **ms-multi-output** (mod, active, tested: partly, base OS 1.13) https://github.com/scottmetoyer/ms-multi-output
 - **plaits-on-models** (mod, active, tested: emulator, base OS 1.13) https://github.com/DMDaudio/plaits-on-models

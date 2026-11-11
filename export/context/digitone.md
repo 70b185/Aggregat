@@ -94,8 +94,6 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 ## 8. Mods, firmware, loaders and emulators for this device
 
 - **digiemu** (emulator, stable, tested: not stated, base OS firmware from the forum's firmware list; one user reports it needs 1.43) https://github.com/elekloader/digiemu
-- **taktone** (firmware, wip, tested: not-stated, base OS Digitakt 1.53/1.54 on Digitone mk1 hardware) https://github.com/water-feature/taktone
-- **Vampire Manga OS** (firmware, beta, tested: not-stated) https://github.com/karlalex732-dotcom/VAMPIRE-MANGA-OS-for-Elektron-Digitakt-OG-and-Digitone-OG
 - **elekloader** (loader, active, tested: unit, base OS Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed) https://github.com/elekloader/elekloader
 - **Modwerk (formerly Octamod)** (loader, active, tested: partly, base OS Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing) https://github.com/repeat98/modwerk
 - **ARP MENU (Digitone mk1)** (mod, wip, tested: emulator, base OS Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased)) https://github.com/irpina/digiarpmenu
@@ -139,7 +137,9 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **SAY IT** (mod, wip, tested: emulator, base OS Digitone mk1, Digitakt mk1) https://github.com/x2k77m1/sayit
 - **SEND FX (Digitone mk1)** (mod, wip, tested: emulator, base OS Digitone mk1 / Keys OS 1.43 and 1.44) https://github.com/irpina/digisendfx
 - **SOLO & MUTE GROUPS (Digitone mk1)** (mod, wip, tested: emulator, base OS Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased)) https://github.com/irpina/digisolo
+- **taktone** (mod, wip, tested: not-stated, base OS Digitakt 1.53/1.54 on Digitone mk1 hardware) https://github.com/water-feature/taktone
 - **Tone+FX** (mod, wip, tested: unit, base OS Digitone mk1 + Keys OS 1.43) https://github.com/DigiAlchemydsp/Tone-FX
+- **Vampire Manga OS** (mod, beta, tested: not-stated) https://github.com/karlalex732-dotcom/VAMPIRE-MANGA-OS-for-Elektron-Digitakt-OG-and-Digitone-OG
 - **VAWT** (mod, wip, tested: unit, base OS Digitone mk1 / Keys OS 1.43, 1.44) https://github.com/x2k77m1/VAWT
 - **x0x (808/909 kick machines)** (mod, wip, tested: not-stated, base OS Digitakt mk1 1.54; Digitone mk1 1.44; Digitone II 1.12 (Digitakt II not supported)) https://github.com/simonjohansson/x0x
 

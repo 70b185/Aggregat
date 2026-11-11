@@ -886,3 +886,43 @@ Data checked 2026-11-08, research snapshot `2e69cfba110a`.
 | `0x01000000` | [emu] [machinedrum-monomachine.md:92](../hardware/devices/machinedrum-monomachine.md#L92) Monomachine (thin) |
 | `0x10000000` | [hw] [machinedrum-monomachine.md:44](../hardware/devices/machinedrum-monomachine.md#L44) Emulator vs unit (Gearmulator's Machinedrum board model)<br>[emu] [machinedrum-monomachine.md:92](../hardware/devices/machinedrum-monomachine.md#L92) Monomachine (thin) |
 | `0x10200000` | [emu] [machinedrum-monomachine.md:92](../hardware/devices/machinedrum-monomachine.md#L92) Monomachine (thin) |
+
+## RAM tenancy overlaps
+
+Pairs of ranges in [RAM-TENANCY.md](RAM-TENANCY.md) that overlap on the same OS. An overlap between two users means their builds cannot be combined without moving one; an overlap with stock means the mod uses memory stock uses too (a few, like a shared flash cave, are deliberate and documented).
+
+| Device | Memory | OS | Kind | Range | Range |
+|---|---|---|---|---|---|
+| Digitakt II | ColdFire RAM and flash | 1.16 | two users | digikit `0x47e8b000-0x47fe0000` | dt2-machine-lab `0x47e8b000-0x47e9b000` |
+| Digitakt II | ColdFire RAM and flash | 1.17 | two users | Deja Vu `0x403117c4-0x40311fb2` | All-in-One (digitakt-ii-research) `0x40311c92-?` |
+| Digitakt II | ColdFire RAM and flash | 1.17 | two users | digikit `0x47e8b000-0x47fe0000` | All-in-One (digitakt-ii-research) `0x47e8b000-?` |
+| Digitakt II | ColdFire RAM and flash | 1.17 | two users | digikit `0x47e8b000-0x47fe0000` | All-in-One (digitakt-ii-research) `0x47e91000-?` |
+| Digitakt II | ColdFire RAM and flash | 1.17 | two users | digikit `0x47e8b000-0x47fe0000` | elekloader `0x47f00000-0x47f40000` |
+| Digitakt II | ColdFire RAM and flash | 1.17 | two users | digikit patchkit `0x403117c4-0x40312000` | 70b185 (private) `0x40311fb4-0x40311fd0` |
+| Digitakt II | ColdFire RAM and flash | 1.17 | two users | digikit patchkit `0x403117c4-0x40312000` | All-in-One (digitakt-ii-research) `0x40311c92-?` |
+| Digitakt II | ColdFire RAM and flash | 1.17 | two users | digikit patchkit `0x403117c4-0x40312000` | Deja Vu `0x403117c4-0x40311fb2` |
+| Digitakt II | ColdFire RAM and flash | 1.17 | two users | digikit patchkit `0x403117c4-0x40312000` | Deja Vu `0x40311fe4-0x40311ff4` |
+| Digitakt II | SHARC L2 | 1.16 | two users | digikit `0x2001ab7c-0x200fa000` | dt2-machine-lab `0x20080000-?` |
+| Digitakt II | SHARC L2 | 1.16 | two users | digikit `0x2001ab7c-0x200fa000` | dt2-machine-lab `0x200a0000-?` |
+| Digitakt II | SHARC L2 | 1.16 | two users | digikit `0x2001ab7c-0x200fa000` | dt2-machine-lab `0x200e0000-0x200e8000` |
+| Digitakt II | SHARC L2 | 1.17 | two users | digikit `0x2001ab7c-0x200fa000` | 70b185 (private) `0x20020000-0x200fa000` |
+| Digitone II | ColdFire DDR | 1.11 | inside stock's own memory | stock `0x466b8000-0x46701340` | dn2mk2 `0x46700000-0x46702a00` |
+| Digitone II | ColdFire DDR | 1.11 | two users | cfmod / cfkit `0x46800000-?` | armio T1E2 / R012 / R022 `0x46800000-0x47ad0000` |
+| Digitone II | ColdFire DDR | 1.11 | two users | cfmod / cfkit `0x46a00000-?` | armio T1E2 / R012 / R022 `0x46800000-0x47ad0000` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dn2mk2 `0x46800000-?` | armio T1E2 / R012 / R022 `0x46800000-0x47ad0000` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dn2mk2 `0x46800000-?` | cfmod / cfkit `0x46800000-?` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dn2mk2 `0x46ac0000-0x46af0000` | armio T1E2 / R012 / R022 `0x46800000-0x47ad0000` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dn2mk2 `0x46af0000-0x46af8000` | armio T1E2 / R012 / R022 `0x46800000-0x47ad0000` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dn2mk2 `0x46b00000-0x47000000` | armio T1E2 / R012 / R022 `0x46800000-0x47ad0000` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dn2mk2 `0x47000000-?` | armio T1E2 / R012 / R022 `0x46800000-0x47ad0000` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dnfw `0x4670a000-0x4670f000` | dn2mk2 `0x4670c000-0x4670f000` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dnfw `0x46710000-0x46740000` | dn2mk2 `0x46710000-?` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dnfw `0x46800000-0x46900000` | armio T1E2 / R012 / R022 `0x46800000-0x47ad0000` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dnfw `0x46800000-0x46900000` | cfmod / cfkit `0x46800000-?` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dnfw `0x46800000-0x46900000` | dn2mk2 `0x46800000-?` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dnfw `0x46a00000-0x46a70000` | armio T1E2 / R012 / R022 `0x46800000-0x47ad0000` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dnfw `0x46a00000-0x46a70000` | cfmod / cfkit `0x46a00000-?` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dnfw `0x46e00000-?` | armio T1E2 / R012 / R022 `0x46800000-0x47ad0000` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dnfw `0x46e00000-?` | dn2mk2 `0x46b00000-0x47000000` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dnfw `0x46f00000-0x46f00900` | armio T1E2 / R012 / R022 `0x46800000-0x47ad0000` |
+| Digitone II | ColdFire DDR | 1.11 | two users | dnfw `0x46f00000-0x46f00900` | dn2mk2 `0x46b00000-0x47000000` |

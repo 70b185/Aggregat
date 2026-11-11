@@ -7,7 +7,7 @@
    "devices": 13,
    "relations": 417,
    "rules": 106,
-   "sources": 334,
+   "sources": 338,
    "conflicts": 38,
    "facts": 1096,
    "goals": 8,
@@ -17,7 +17,8 @@
    "participants": 0,
    "incidents": 72,
    "stock_bugs": 19,
-   "addresses": 889
+   "addresses": 889,
+   "ram_tenancy": 59
   },
   "research_snapshot": "2e69cfba110a"
  },
@@ -25,36 +26,48 @@
   {
    "slug": "digitakt",
    "name": "Digitakt (MKI)",
+   "recovery": "proven",
+   "recovery_note": "Startup-menu recovery used on a unit (RESEARCH-MAP G1, 2026-11-11).",
    "family": "Digitakt",
    "phase": 1
   },
   {
    "slug": "digitakt-2",
    "name": "Digitakt II",
+   "recovery": "reported",
+   "recovery_note": "One recovery report on a unit, OS 1.16; a second on 1.17 is still wanted (G1, task T1).",
    "family": "Digitakt",
    "phase": 1
   },
   {
    "slug": "digitone",
    "name": "Digitone (MKI) / Digitone Keys",
+   "recovery": "reported",
+   "recovery_note": "One recovery report on a unit, OS 1.44 (digitone-arp-mod; G1).",
    "family": "Digitone",
    "phase": 1
   },
   {
    "slug": "digitone-2",
    "name": "Digitone II",
+   "recovery": "proven",
+   "recovery_note": "Recovery over DIN MIDI used by several projects on units (dn2-cfw, Overtone, dn2mk2; G1).",
    "family": "Digitone",
    "phase": 1
   },
   {
    "slug": "syntakt",
    "name": "Syntakt",
+   "recovery": "documented",
+   "recovery_note": "Recovery documented by SyntHack; no report of it being used (G1).",
    "family": "Syntakt",
    "phase": 1
   },
   {
    "slug": "analog-heat",
    "name": "Analog Heat (MKI, MKII, +FX)",
+   "recovery": "documented",
+   "recovery_note": "Official recovery for the Heat +FX documented by Elektron; no community report (G1).",
    "family": "Analog Heat",
    "phase": 1,
    "note": "No community firmware mod found yet (2026-10-31). Generic tooling covers it: elektron-firmware-tool (firmware container), Elektroid (sample/SysEx manager) and Overwitch (Overbridge audio on Linux) list Analog Heat MKI/MKII/+FX. screendump names it as 'not implemented'. Neither the Lapin list nor altstrument.org has a firmware entry for it. Last official OS we saw on elektron.se: Analog Heat MKI/MKII OS 1.22 (2024-10-16); the +FX has its own OS (release notes last updated 2024-10-16) and MKII firmware is not interchangeable with +FX.\n"
@@ -62,6 +75,8 @@
   {
    "slug": "octatrack",
    "name": "Octatrack (MKI, MKII)",
+   "recovery": "proven",
+   "recovery_note": "Recovery used on a unit (G1).",
    "family": "Octatrack",
    "phase": 2,
    "note": "Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.\n"
@@ -69,6 +84,8 @@
   {
    "slug": "analog-rytm",
    "name": "Analog Rytm (MKI, MKII)",
+   "recovery": "proven",
+   "recovery_note": "Recovery used on an MK1 unit (G1); MKII per elekloader's profile.",
    "family": "Analog Rytm",
    "phase": 2,
    "note": "Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.\n"
@@ -76,6 +93,8 @@
   {
    "slug": "analog-four-keys",
    "name": "Analog Four / Analog Keys",
+   "recovery": "proven",
+   "recovery_note": "Recovery used on an MK1 unit (G1); MKII per elekloader's profile.",
    "family": "Analog Four",
    "phase": 2,
    "note": "Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.\n"
@@ -83,6 +102,8 @@
   {
    "slug": "model-cycles",
    "name": "Model:Cycles",
+   "recovery": "documented",
+   "recovery_note": "elekloader's profile names the startup menu (FUNC at power-on, TRIG 4, 5-pin MIDI); no recovery report.",
    "family": "Model",
    "phase": 2,
    "note": "Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.\n"
@@ -90,6 +111,8 @@
   {
    "slug": "model-samples",
    "name": "Model:Samples",
+   "recovery": "documented",
+   "recovery_note": "elekloader's profile names the startup menu (FUNC at power-on, TRIG 4, 5-pin MIDI); no recovery report.",
    "family": "Model",
    "phase": 2,
    "note": "Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.\n"
@@ -97,6 +120,8 @@
   {
    "slug": "machinedrum",
    "name": "Machinedrum (incl. UW)",
+   "recovery": "documented",
+   "recovery_note": "Boot-ROM upgrade mode with the stock .syx over DIN (hardware/common/recovery.md); no community report.",
    "family": "Machinedrum",
    "phase": 2,
    "note": "Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.\n"
@@ -104,6 +129,8 @@
   {
    "slug": "monomachine",
    "name": "Monomachine",
+   "recovery": "documented",
+   "recovery_note": "Boot-ROM upgrade mode documented (hardware/common/recovery.md); no community report.",
    "family": "Monomachine",
    "phase": 2,
    "note": "Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.\n"
@@ -13394,6 +13421,26 @@
    "key": "digikit-usbfast",
    "what": "ElekLabs/digikit `docs/plans/usb-fast-hardware.md` (DN2 and DT2 runs 2026-11-11), finding 42 section 4a and finding 43 \"On a real Digitone II\" (read 2026-11-11)",
    "url": "https://github.com/ElekLabs/digikit/blob/main/docs/plans/usb-fast-hardware.md"
+  },
+  {
+   "key": "dnfw-mem-regions",
+   "what": "angellinares/dn2_firmware_explore `docs/mod-memory-regions.md` (per-mod RAM declarations as of 2026-11-04, region A; read 2026-11-11)",
+   "url": "https://github.com/angellinares/dn2_firmware_explore/blob/main/docs/mod-memory-regions.md"
+  },
+  {
+   "key": "dn2mk2-ram",
+   "what": "De-Pattern/dn2mk2-firmware v0.48 source: `src/dnfw/sampler/machines.py` (MIRROR, TABLE_LOAD), `src/dnfw/waverider/pages.py` and `coldfire.py` (chunk addresses), `src/dnfw/patch/area.py`, `src/dnfw/mods/lfo4.py` (STATE_RAM); read 2026-11-11",
+   "url": "https://github.com/De-Pattern/dn2mk2-firmware/tree/main/src/dnfw"
+  },
+  {
+   "key": "armio-ram",
+   "what": "armio/dn2-dt2-firmware-research: build scripts (`port/*/scripts/build_dn2_recovery_tail.py`: graft base `0x46800000`, state `0x46816F8C-0x47A19CA0`) and research notes 2026-11-06 (startup status `0x47A9CD7C`, helper at `0x47ACEE98` \"in this exact build\"); read 2026-11-11",
+   "url": "https://github.com/armio/dn2-dt2-firmware-research/tree/main/docs/research"
+  },
+  {
+   "key": "elekloader-dn2-device",
+   "what": "elekloader `elekloader/devices/digitone_mk2.py` at 44fcafc (DDR `0x47F00000-0x47F40000`, OS 1.12; read 2026-11-11)",
+   "url": "https://github.com/elekloader/elekloader/blob/main/elekloader/devices/digitone_mk2.py"
   }
  ],
  "conflicts": [
@@ -24965,13 +25012,13 @@
    "file": "hardware/common/memory-maps.md",
    "line": 58,
    "section": "Memory maps and mod areas per device (from elekloader's `docs/DEVICES.md`, v0.9.0 era) / Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)",
-   "text": "The platforms collide. dnfw's lfo4 code, cfmod's default link address and the start of dn2-cfw's mod area are all `0x46800000`; cfkit's scratch at `0x46a00000` is Waverider's chunk. Only elekloader's `0x47f00000` and dn2-cfw's core `0x47e00000` are disjoint from the rest. A mod built for one platform cannot be dropped into another's image without moving its RAM (and its hooks: [`dt2-dn2-limits-and-audio-chain.md`](dt2-dn2-limits-and-audio-chain.md) section 6, [`agent-workflow.md`](agent-workflow.md)). Before picking an address, check this table and declare every range you use (task T23 in [RESEARCH-MAP](../../RESEARCH-MAP.md)).",
+   "text": "The platforms collide. dnfw's lfo4 code, cfmod's default link address and the start of dn2-cfw's mod area are all `0x46800000`; cfkit's scratch at `0x46a00000` is Waverider's chunk. Only elekloader's `0x47f00000` and dn2-cfw's core `0x47e00000` are disjoint from the rest. A mod built for one platform cannot be dropped into another's image without moving its RAM (and its hooks: [`dt2-dn2-limits-and-audio-chain.md`](dt2-dn2-limits-and-audio-chain.md) section 6, [`agent-workflow.md`](agent-workflow.md)). Before picking an address, check this table and declare every range you use. The full register, with every platform's ranges per OS and the overlaps, is [`../RAM-TENANCY.md`](../RAM-TENANCY.md) (task T23).",
    "evidence": "doc",
    "sources": "elekloader-devices,elekloader-main",
    "devices": "digitone-2",
    "addresses": "0x46800000,0x46a00000,0x47e00000,0x47f00000",
    "id": 936,
-   "fid": "memory-maps#ef32f1cd"
+   "fid": "memory-maps#c220a4cd"
   },
   {
    "file": "hardware/common/memory-maps.md",
@@ -27145,12 +27192,12 @@
   },
   {
    "id": "T23",
-   "task": "Keep a DN2 RAM tenancy table: every mod platform's and mod's ranges above the reset clear, per OS version (start: [memory-maps.md](hardware/common/memory-maps.md), five projects compared 2026-11-02); then a unit canary at `0x46700000` after a large +Drive sample load (confirms S17, which dnfw settled from LFO4 project corruption)",
+   "task": "~~Keep a DN2 RAM tenancy table~~ table done 2026-11-11: [RAM-TENANCY.md](hardware/RAM-TENANCY.md) lists eight users on DN2 and DT2 (dnfw, dn2mk2, cfmod, armio, dn2-cfw, elekloader, digikit and more) with overlaps computed in [ADDRESS-MAP.md](hardware/ADDRESS-MAP.md); open from it: whether dn2mk2 still ships LFO4 state at `0x46700000`. Remaining: a unit canary at `0x46700000` after a large +Drive sample load (confirms S17, which dnfw settled from LFO4 project corruption), and new platforms declaring their ranges",
    "devices": "Digitone II",
-   "needs": "reading, then unit",
+   "needs": "unit",
    "effort": "S",
-   "value": "dnfw, cfmod and dn2-cfw all start at `0x46800000`; without a table, mods from different platforms cannot be combined.",
-   "status": "open"
+   "value": "On 1.11 four platforms claim `0x46800000` (dnfw and its fork dn2mk2, cfmod, armio); on 1.12 dn2-cfw and elekloader are disjoint.",
+   "status": "done"
   },
   {
    "id": "T24",
@@ -29497,6 +29544,657 @@
    "sources": "ems-fw",
    "incidents": "",
    "devices": "monomachine"
+  }
+ ],
+ "ram_tenancy": [
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1076875264,
+   "end": 1181451472,
+   "user": "stock",
+   "use": "cleared at reset: data, BSS, the 32 MiB heap `0x4464abf0-0x4664abf0`",
+   "os": "1.12",
+   "evidence": "doc",
+   "sources": "dn2-cfw-t13,elekloader-dn2-device"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1181450240,
+   "end": 1181750080,
+   "user": "stock",
+   "use": "DMA section, including the MMC bounce buffer `0x466f1300-0x46701300` that carries every project save and load",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dn2-cfw-prior,dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1181483008,
+   "end": 1181782848,
+   "user": "stock",
+   "use": "DMA buffers, including a 64 KB MMC bounce buffer",
+   "os": "1.12",
+   "evidence": "doc",
+   "sources": "dn2-cfw-t13,elekloader-dn2-profile"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1207828480,
+   "end": 1207959552,
+   "user": "stock",
+   "use": "stack reserve, 128 KiB below the reset SP `0x48000000` (convention of dnfw and digikit; the stack's real depth is unmeasured)",
+   "os": "both",
+   "evidence": "doc",
+   "sources": "dn2-cfw-t19,dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1181777920,
+   "end": 1181778240,
+   "user": "dnfw",
+   "use": "bootscreen (320 B)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1181786112,
+   "end": 1181806592,
+   "user": "dnfw",
+   "use": "Waverider pages chunk",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dn2mk2-ram,dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1181810688,
+   "end": 1182007296,
+   "user": "dnfw",
+   "use": "the platform's data window (runtime of data chunks)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dn2-caves,dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1182007296,
+   "end": 1182400512,
+   "user": "dnfw",
+   "use": "lfowaves, envelope (chunks at `0x46740000`, `0x46750000`, `0x46780000`; 11,716 B)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1182400512,
+   "end": 1182402832,
+   "user": "dnfw",
+   "use": "arpmodes (2,320 B)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1182433280,
+   "end": 1182434952,
+   "user": "dnfw",
+   "use": "arpscale (1,672 B)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1182466048,
+   "end": 1182466308,
+   "user": "dnfw",
+   "use": "lfolength (260 B; at `0x467f8000` until 2026-10-15)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1182498816,
+   "end": 1182500484,
+   "user": "dnfw",
+   "use": "degreetranspose (1,668 B)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1182531584,
+   "end": 1182597120,
+   "user": "dnfw",
+   "use": "arpplocks, envelope (chunks at `0x467c0000`, `0x467c4900`, `0x467c8000`; 20,936 B)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1182597120,
+   "end": 1182597712,
+   "user": "dnfw",
+   "use": "midiarp (592 B)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1182629888,
+   "end": 1182630212,
+   "user": "dnfw",
+   "use": "layermidi (324 B)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1182662656,
+   "end": 1182663864,
+   "user": "dnfw",
+   "use": "reloadconfirm (1,208 B)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1182728192,
+   "end": null,
+   "user": "dnfw",
+   "use": "Waverider, second chunk",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1182793728,
+   "end": 1183842304,
+   "user": "dnfw",
+   "use": "LFO4 code and extension table, envelope (`0x46800000` to `0x468fffcc`; 30,724 B); the C code of every dnfw mod links here",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dn2-caves,dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1184890880,
+   "end": 1185349632,
+   "user": "dnfw",
+   "use": "Waverider, envelope (chunks at `0x46a00000`, `0x46a60000`; with the two chunks above 458,144 B)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1189085184,
+   "end": null,
+   "user": "dnfw",
+   "use": "the platform, second chunk",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1190133760,
+   "end": 1190136064,
+   "user": "dnfw",
+   "use": "usbprobe scratch: request, reply, packed reply (2,304 B)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1181745152,
+   "end": 1181755904,
+   "user": "dn2mk2",
+   "use": "LFO4 state LIVE, SECOND, BACKUP (3 x 2,560 B), as declared in its `lfo4.py`. dn2mk2 forked dnfw on 2026-10-06; dnfw moved this state into stock's heap on 2026-10-11 because the range is inside stock's bounce buffer and corrupted saved projects. dn2mk2's README lists no LFO4, so whether a shipped build contains it is not stated",
+   "os": "1.11",
+   "evidence": "?",
+   "sources": "dn2mk2-ram,dnfw-mem-regions"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1181794304,
+   "end": 1181806592,
+   "user": "dn2mk2",
+   "use": "Waverider pages assembly",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dn2mk2-ram"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1181808640,
+   "end": 1181810688,
+   "user": "dn2mk2",
+   "use": "Waverider ColdFire chunk",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dn2mk2-ram"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1181810688,
+   "end": null,
+   "user": "dn2mk2",
+   "use": "the platform runtime (data chunks run here, as in dnfw)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dn2mk2-ram"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1182793728,
+   "end": null,
+   "user": "dn2mk2",
+   "use": "compiled C (the `CODE` chunk the loader copies at boot)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dn2mk2-ram"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1185677312,
+   "end": 1185873920,
+   "user": "dn2mk2",
+   "use": "Waverider renderer C (span `0x30000` since v0.41)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dn2mk2-ram"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1185873920,
+   "end": 1185906688,
+   "user": "dn2mk2",
+   "use": "Machinedrum screen graphics (6.8 KB)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dn2mk2-ram"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1185939456,
+   "end": 1191182336,
+   "user": "dn2mk2",
+   "use": "sampler: the ColdFire's 5 MB mirror of the sample pool, fed to the DSP",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dn2mk2-ram"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1191182336,
+   "end": null,
+   "user": "dn2mk2",
+   "use": "sampler machine tables (a `CODE` chunk: magic, length, data)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dn2mk2-ram"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1182793728,
+   "end": null,
+   "user": "cfmod / cfkit",
+   "use": "code (default link address)",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dn2-skill-scripts"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1184890880,
+   "end": null,
+   "user": "cfmod / cfkit",
+   "use": "stacks, rings and scratch",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dn2-skill-scripts"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1182793728,
+   "end": 1202520064,
+   "user": "armio T1E2 / R012 / R022",
+   "use": "the transplanted Digitakt II runtime, envelope: graft base `0x46800000`, private state `0x46816f8c-0x47a19ca0` (BSS flag at `0x46b9608c`), extension `0x47a36000`, scratch `0x47a58000`, startup status `0x47a9cd7c`, R022's autosave helper at `0x47acee98`; the end moves with each build",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "armio-r012,armio-ram"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1182793728,
+   "end": 1205862400,
+   "user": "dn2-cfw (Digiwerk)",
+   "use": "mod area",
+   "os": "1.12",
+   "evidence": "doc",
+   "sources": "dn2-cfw-t13,dn2-cfw-t19"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1204813824,
+   "end": 1204836864,
+   "user": "dn2-cfw (Digiwerk)",
+   "use": "grown parameter table, 384 rows of 60 B (inside the mod area)",
+   "os": "1.12",
+   "evidence": "hw",
+   "sources": "dn2-cfw-param-table"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1205862400,
+   "end": 1206910976,
+   "user": "dn2-cfw (Digiwerk)",
+   "use": "core run image (the core's boot copies it here and zeroes `.bss`)",
+   "os": "1.12",
+   "evidence": "doc",
+   "sources": "dn2-cfw-t13"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II ColdFire DDR",
+   "start": 1206910976,
+   "end": 1207173120,
+   "user": "elekloader",
+   "use": "core-dn2 and every elekloader mod (256 KB, the same area as on the Digitakt II)",
+   "os": "1.12",
+   "evidence": "doc",
+   "sources": "elekloader-dn2-device,elekloader-dn2-profile"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II SHARC L2",
+   "start": 537460736,
+   "end": 537493504,
+   "user": "elekloader",
+   "use": "SHARC mod area (32 KiB)",
+   "os": "1.12",
+   "evidence": "doc",
+   "sources": "elekloader-dn2-profile"
+  },
+  {
+   "device": "digitone-2",
+   "space": "Digitone II SHARC L2",
+   "start": 537825280,
+   "end": 537894912,
+   "user": "dn2mk2",
+   "use": "unused in dn2mk2's image (68 KB), listed as room",
+   "os": "1.11",
+   "evidence": "doc",
+   "sources": "dn2mk2-fascia-plan"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM and flash",
+   "start": 1076961280,
+   "end": 1206027376,
+   "user": "stock",
+   "use": "cleared at reset",
+   "os": "1.17",
+   "evidence": "doc",
+   "sources": "elekloader-dt2-profile"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM and flash",
+   "start": 1206059008,
+   "end": 1206365824,
+   "user": "stock",
+   "use": "DSP buffers (reached through the uncached alias)",
+   "os": "1.17",
+   "evidence": "doc",
+   "sources": "elekloader-dt2-profile"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM and flash",
+   "start": 1076959172,
+   "end": 1076961280,
+   "user": "digikit patchkit",
+   "use": "`flash_cave`: the last 2,108 flashed bytes below the clear, home of its reset loader and shared by the rows below",
+   "os": "1.17",
+   "evidence": "hw",
+   "sources": "digikit-f01"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM and flash",
+   "start": 1076959172,
+   "end": 1076961202,
+   "user": "Deja Vu",
+   "use": "payload",
+   "os": "1.17",
+   "evidence": "hw",
+   "sources": "dt2-aio-src"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM and flash",
+   "start": 1076961204,
+   "end": 1076961232,
+   "user": "70b185 (private)",
+   "use": "28 bytes between Deja Vu's payload and its latches",
+   "os": "1.17",
+   "evidence": "hw",
+   "sources": "own-dt2-notes"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM and flash",
+   "start": 1076961252,
+   "end": 1076961268,
+   "user": "Deja Vu",
+   "use": "run-time latches",
+   "os": "1.17",
+   "evidence": "hw",
+   "sources": "dt2-aio-src"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM and flash",
+   "start": 1076960402,
+   "end": null,
+   "user": "All-in-One (digitakt-ii-research)",
+   "use": "its loader, copied within the cave",
+   "os": "1.17",
+   "evidence": "doc",
+   "sources": "dt2-aio-src"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM and flash",
+   "start": 1076959556,
+   "end": 1076959940,
+   "user": "dt2-machine-lab",
+   "use": "control tables",
+   "os": "1.16",
+   "evidence": "doc",
+   "sources": "dt2-lab-cpu"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM and flash",
+   "start": 1076960128,
+   "end": 1076961280,
+   "user": "dt2-machine-lab",
+   "use": "Plaits rows and code",
+   "os": "1.16",
+   "evidence": "doc",
+   "sources": "dt2-lab-cpu"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM and flash",
+   "start": 1206431744,
+   "end": 1207828480,
+   "user": "digikit",
+   "use": "`cf.expansion`: modules (1.33 MiB of unreferenced RAM above the DSP buffers)",
+   "os": "both",
+   "evidence": "doc",
+   "sources": "digikit-patching"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM and flash",
+   "start": 1206431744,
+   "end": null,
+   "user": "All-in-One (digitakt-ii-research)",
+   "use": "zoom and Musical WAVE code",
+   "os": "1.17",
+   "evidence": "doc",
+   "sources": "dt2-aio-src"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM and flash",
+   "start": 1206456320,
+   "end": null,
+   "user": "All-in-One (digitakt-ii-research)",
+   "use": "One-Shot Zoom V11 code",
+   "os": "1.17",
+   "evidence": "doc",
+   "sources": "dt2-aio-src"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM and flash",
+   "start": 1206431744,
+   "end": 1206497280,
+   "user": "dt2-machine-lab",
+   "use": "opt-in 64 KiB",
+   "os": "1.16",
+   "evidence": "doc",
+   "sources": "dt2-lab-cpu"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM and flash",
+   "start": 1206910976,
+   "end": 1207173120,
+   "user": "elekloader",
+   "use": "core-dt2 and every elekloader mod (digitakt2-perform's among them)",
+   "os": "1.17",
+   "evidence": "doc",
+   "sources": "dt2-perform,elekloader-dt2-profile"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM and flash",
+   "start": 1207828480,
+   "end": 1207832576,
+   "user": "digikit",
+   "use": "keep area: crash and hang records that survive a soft reset",
+   "os": "both",
+   "evidence": "doc",
+   "sources": "digikit-f46"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II SHARC L2",
+   "start": 536980348,
+   "end": 537894912,
+   "user": "digikit",
+   "use": "L2 offered to modules",
+   "os": "both",
+   "evidence": "doc",
+   "sources": "digikit-f100"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II SHARC L2",
+   "start": 537001984,
+   "end": 537894912,
+   "user": "70b185 (private)",
+   "use": "linked range; data kept at or below `0x200f5a74`, because going past it gave clicks and leaks into the delay on a unit",
+   "os": "1.17",
+   "evidence": "hw",
+   "sources": "own-dt2-notes"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II SHARC L2",
+   "start": 537395200,
+   "end": null,
+   "user": "dt2-machine-lab",
+   "use": "Plaits code",
+   "os": "1.16",
+   "evidence": "doc",
+   "sources": "dt2-lab-capicola"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II SHARC L2",
+   "start": 537526272,
+   "end": null,
+   "user": "dt2-machine-lab",
+   "use": "Capicola cold code",
+   "os": "1.16",
+   "evidence": "doc",
+   "sources": "dt2-lab-capicola"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II SHARC L2",
+   "start": 537788416,
+   "end": 537821184,
+   "user": "dt2-machine-lab",
+   "use": "voice state",
+   "os": "1.16",
+   "evidence": "doc",
+   "sources": "dt2-lab-capicola"
   }
  ]
 }

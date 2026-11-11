@@ -213,6 +213,25 @@ def main():
                                 f"{r['section'].split(' / ')[-1]}".replace("|", "\\|") for r in rs)
             out.append(f"| `0x{v:08x}` | {cells} |")
         out.append("")
+    # overlaps in the RAM tenancy table (hardware/RAM-TENANCY.md): same device, memory space and OS, different users
+    ten = q('SELECT device, space, start, "end", user, use, os FROM ram_tenancy')
+    span = lambda r: (r["start"], r["end"] if r["end"] is not None else r["start"] + 1)
+    fmt = lambda r: f"{r['user']} `0x{r['start']:08x}-" + (f"0x{r['end']:08x}`" if r["end"] is not None else "?`")
+    clash = []
+    for i, x in enumerate(ten):
+        for y in ten[i + 1:]:
+            (a0, a1), (b0, b1) = span(x), span(y)
+            if x["device"] == y["device"] and x["space"] == y["space"] and x["user"] != y["user"] and a0 < b1 and b0 < a1 \
+                    and (x["os"] == y["os"] or "both" in (x["os"], y["os"])):
+                kind = "inside stock's own memory" if "stock" in (x["user"], y["user"]) else "two users"
+                clash.append((x["device"], x["space"], x["os"] if x["os"] != "both" else y["os"], kind, fmt(x), fmt(y)))
+    out += ["## RAM tenancy overlaps", "",
+            "Pairs of ranges in [RAM-TENANCY.md](RAM-TENANCY.md) that overlap on the same OS. An overlap between two users "
+            "means their builds cannot be combined without moving one; an overlap with stock means the mod uses memory "
+            "stock uses too (a few, like a shared flash cave, are deliberate and documented).", "",
+            "| Device | Memory | OS | Kind | Range | Range |", "|---|---|---|---|---|---|"]
+    out += [f"| {dev_name[c[0]]} | {c[1].split(' ', 2)[-1]} | {c[2]} | {c[3]} | {c[4]} | {c[5]} |" for c in sorted(clash)]
+    out.append("")
     write(ROOT / "hardware" / "ADDRESS-MAP.md", "\n".join(out))
     # ------------------------------------------------------------ llms.txt (https://llmstxt.org) for the website
     site = "https://70b185.github.io/Aggregat/"

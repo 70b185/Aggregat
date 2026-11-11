@@ -147,23 +147,27 @@ def check_address(address: str, device: str = None, window: int = 0x100):
 
 
 def ram_tenancy():
-    """Rows of the tables in hardware/RAM-TENANCY.md: device, start, end, user, use, os, source."""
-    f = ROOT / "hardware" / "RAM-TENANCY.md"
-    if not f.exists():
-        return []
-    out, dev = [], None
-    for line in f.read_text(encoding="utf-8").splitlines():
-        m = re.match(r"^## .*\(`([a-z0-9-]+)`\)", line)
-        if m:
-            dev = m.group(1)
-        m = re.match(r"^\|\s*`(0x[0-9a-fA-F]+)`\s*\|\s*`(0x[0-9a-fA-F]+)`\s*\|(.*)\|\s*$", line)
-        if m and dev:
-            cells = [c.strip() for c in m.group(3).split("|")]
-            out.append({"device": dev, "start": int(m.group(1), 16), "end": int(m.group(2), 16),
-                        "range": f"{m.group(1)}-{m.group(2)}", "user": cells[0] if cells else "",
-                        "use": cells[1] if len(cells) > 1 else "", "os": cells[2] if len(cells) > 2 else "",
-                        "evidence": cells[3] if len(cells) > 3 else ""})
+    """Rows of hardware/RAM-TENANCY.md (table ram_tenancy): device, space, start, end (None = start only), user, use, os."""
+    out = []
+    for r in rows('SELECT device, space, start, "end", user, use, os, evidence, sources FROM ram_tenancy'):
+        r["end"] = r["end"] if r["end"] is not None else r["start"] + 1
+        r["range"] = f"0x{r['start']:08x}-" + (f"0x{r['end']:08x}" if r["end"] > r["start"] + 1 else "?")
+        out.append(r)
     return out
+
+
+def ram_users(device: str, os_version: str = None):
+    """The RAM tenancy table for a device: which platform or mod uses which range, and the overlaps between them."""
+    slug = dev_slug(device)
+    rs = [r for r in ram_tenancy() if r["device"] == slug and (not os_version or r["os"] in (os_version, "both"))]
+    clashes = []
+    for i, a in enumerate(rs):
+        for b in rs[i + 1:]:
+            if a["space"] == b["space"] and a["user"] != b["user"] and a["start"] < b["end"] and b["start"] < a["end"] \
+                    and (a["os"] == b["os"] or "both" in (a["os"], b["os"])):
+                clashes.append({"a": f"{a['user']} {a['range']}", "b": f"{b['user']} {b['range']}", "os": a["os"]})
+    return {"device": slug, "os_version": os_version, "ranges": rs, "overlaps": clashes,
+            "source": "hardware/RAM-TENANCY.md; add your ranges there"}
 
 
 def preflight(device: str, os_version: str = None):
@@ -196,7 +200,7 @@ def preflight(device: str, os_version: str = None):
         ],
         "key_rules": [r for r in safety if r["id"] in must],
         "recovery_facts": [{"id": r["fid"], "where": link(r["file"], r["line"]), "evidence": r["evidence"], "text": r["text"]} for r in recovery],
-        "recovery_proven": any("hw" in (r["evidence"] or "") for r in recovery),
+        "recovery_status": (rows("SELECT recovery, recovery_note FROM devices WHERE slug = ?", slug) or [{}])[0],
         "stock_bugs": bugs, "incidents": inc,
         "mods_for_this_os" if os_version else "mods": mods,
     }
@@ -306,6 +310,7 @@ TOOLS = {
                               "full_text": B}, []),
     "check_address": (check_address, {"address": {**S, "description": "hex address, e.g. 0x46800000"}, "device": DEV,
                                       "window": {**I, "description": "also list facts within +- this many bytes (default 256)"}}, ["address"]),
+    "ram_users": (ram_users, {"device": DEV, "os_version": {**S, "description": "e.g. 1.11"}}, ["device"]),
     "preflight": (preflight, {"device": DEV, "os_version": {**S, "description": "e.g. 1.12"}}, ["device"]),
     "find_projects": (find_projects, {"query": S, "device": DEV, "kind": S, "tested": S, "limit": I}, []),
     "list_stock_bugs": (list_stock_bugs, {"device": DEV}, []),

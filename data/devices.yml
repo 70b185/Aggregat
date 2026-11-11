@@ -4,29 +4,44 @@
 # Scope: every Elektron device that custom firmware or mods are written for. Add a device here as soon as the
 # first such project appears (Tonverk: none yet, only research notes and requests).
 
+# recovery: has the stock-OS recovery path been used on a real unit? proven (two or more reports, or one project
+# using it routinely) | reported (one report) | documented (described, never reported used) | unknown. Source: the
+# G1 row of RESEARCH-MAP.md; keep both in step. The website's mod finder shows it next to every mod.
 devices:
   - slug: digitakt
     name: Digitakt (MKI)
+    recovery: proven            # proven | reported | documented | unknown
+    recovery_note: Startup-menu recovery used on a unit (RESEARCH-MAP G1, 2026-11-11).
     family: Digitakt
     phase: 1
   - slug: digitakt-2
     name: Digitakt II
+    recovery: reported            # proven | reported | documented | unknown
+    recovery_note: One recovery report on a unit, OS 1.16; a second on 1.17 is still wanted (G1, task T1).
     family: Digitakt
     phase: 1
   - slug: digitone
     name: Digitone (MKI) / Digitone Keys
+    recovery: reported            # proven | reported | documented | unknown
+    recovery_note: One recovery report on a unit, OS 1.44 (digitone-arp-mod; G1).
     family: Digitone
     phase: 1
   - slug: digitone-2
     name: Digitone II
+    recovery: proven            # proven | reported | documented | unknown
+    recovery_note: Recovery over DIN MIDI used by several projects on units (dn2-cfw, Overtone, dn2mk2; G1).
     family: Digitone
     phase: 1
   - slug: syntakt
     name: Syntakt
+    recovery: documented            # proven | reported | documented | unknown
+    recovery_note: Recovery documented by SyntHack; no report of it being used (G1).
     family: Syntakt
     phase: 1
   - slug: analog-heat
     name: Analog Heat (MKI, MKII, +FX)
+    recovery: documented            # proven | reported | documented | unknown
+    recovery_note: Official recovery for the Heat +FX documented by Elektron; no community report (G1).
     family: Analog Heat
     phase: 1
     note: >
@@ -38,6 +53,8 @@ devices:
       is not interchangeable with +FX.
   - slug: octatrack
     name: Octatrack (MKI, MKII)
+    recovery: proven            # proven | reported | documented | unknown
+    recovery_note: Recovery used on a unit (G1).
     family: Octatrack
     phase: 2
     note: >
@@ -45,6 +62,8 @@ devices:
 
   - slug: analog-rytm
     name: Analog Rytm (MKI, MKII)
+    recovery: proven            # proven | reported | documented | unknown
+    recovery_note: Recovery used on an MK1 unit (G1); MKII per elekloader's profile.
     family: Analog Rytm
     phase: 2
     note: >
@@ -52,6 +71,8 @@ devices:
 
   - slug: analog-four-keys
     name: Analog Four / Analog Keys
+    recovery: proven            # proven | reported | documented | unknown
+    recovery_note: Recovery used on an MK1 unit (G1); MKII per elekloader's profile.
     family: Analog Four
     phase: 2
     note: >
@@ -59,6 +80,8 @@ devices:
 
   - slug: model-cycles
     name: Model:Cycles
+    recovery: documented            # proven | reported | documented | unknown
+    recovery_note: elekloader's profile names the startup menu (FUNC at power-on, TRIG 4, 5-pin MIDI); no recovery report.
     family: Model
     phase: 2
     note: >
@@ -66,6 +89,8 @@ devices:
 
   - slug: model-samples
     name: Model:Samples
+    recovery: documented            # proven | reported | documented | unknown
+    recovery_note: elekloader's profile names the startup menu (FUNC at power-on, TRIG 4, 5-pin MIDI); no recovery report.
     family: Model
     phase: 2
     note: >
@@ -73,6 +98,8 @@ devices:
 
   - slug: machinedrum
     name: Machinedrum (incl. UW)
+    recovery: documented            # proven | reported | documented | unknown
+    recovery_note: Boot-ROM upgrade mode with the stock .syx over DIN (hardware/common/recovery.md); no community report.
     family: Machinedrum
     phase: 2
     note: >
@@ -80,6 +107,8 @@ devices:
 
   - slug: monomachine
     name: Monomachine
+    recovery: documented            # proven | reported | documented | unknown
+    recovery_note: Boot-ROM upgrade mode documented (hardware/common/recovery.md); no community report.
     family: Monomachine
     phase: 2
     note: >

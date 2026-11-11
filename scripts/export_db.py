@@ -347,6 +347,28 @@ for block in re.split(r"^(?=### )", btext, flags=re.M):
                        "evidence": ",".join(sorted(set(EVID.findall(block)))), "sources": ",".join(sorted(set(KEYS.findall(block)))),
                        "incidents": ",".join(re.findall(r"\bI\d+\b", f.get("incident", ""))),
                        "devices": ",".join(devices_in(f.get("device and os", "")))})
+# ---------------------------------------------------------------- recovery status per device (data/devices.yml, from RESEARCH-MAP G1)
+for d in devices:
+    d.setdefault("recovery", "unknown")
+    d.setdefault("recovery_note", "")
+
+# ---------------------------------------------------------------- RAM tenancy (hardware/RAM-TENANCY.md)
+ram_tenancy = []
+rt = ROOT / "hardware" / "RAM-TENANCY.md"
+space, rdev = "", ""
+for line in (rt.read_text(encoding="utf-8").splitlines() if rt.exists() else []):
+    m = re.match(r"^## (.+?) \(`([a-z0-9-]+)`\)\s*$", line)
+    if m:
+        space, rdev = m.group(1), m.group(2)
+        continue
+    m = re.match(r"^\|\s*`(0x[0-9a-fA-F]+)`\s*\|\s*(?:`(0x[0-9a-fA-F]+)`|\?)\s*\|(.*)\|\s*$", line)
+    if m and rdev:
+        cells = [c.strip() for c in m.group(3).split("|")]
+        start = int(m.group(1), 16)
+        ram_tenancy.append({"device": rdev, "space": space, "start": start,
+                            "end": int(m.group(2), 16) if m.group(2) else None, "user": cells[0], "use": cells[1],
+                            "os": cells[2], "evidence": ",".join(sorted(set(EVID.findall(cells[3])))),
+                            "sources": ",".join(sorted(set(KEYS.findall(cells[3]))))})
 snap = ROOT / "research" / "AGGREGAT_RESEARCH.md"
 snapshot = re.search(r"snapshot `([0-9a-f]+)`", snap.read_text(encoding="utf-8")).group(1) if snap.exists() else ""
 
@@ -355,7 +377,7 @@ meta = {"checked": checked, "generator": "scripts/export_db.py",
                    "sources": len(sources), "conflicts": len(conflicts), "facts": len(facts),
                    "goals": len(goals), "tasks": len(tasks), "hypotheses": len(hyps), "research_links": len(links),
                    "participants": len(participants), "incidents": len(incidents), "stock_bugs": len(stock_bugs),
-                   "addresses": len(addresses)},
+                   "addresses": len(addresses), "ram_tenancy": len(ram_tenancy)},
         "research_snapshot": snapshot}
 
 # ---------------------------------------------------------------- write SQLite and JSON
@@ -365,7 +387,7 @@ if db.exists():
 con = sqlite3.connect(db)
 SCHEMA = {
     "meta": "key TEXT PRIMARY KEY, value TEXT",
-    "devices": "slug TEXT PRIMARY KEY, name TEXT, family TEXT, phase INTEGER",
+    "devices": "slug TEXT PRIMARY KEY, name TEXT, family TEXT, phase INTEGER, recovery TEXT, recovery_note TEXT",
     "projects": "id TEXT PRIMARY KEY, name TEXT, author TEXT, kind TEXT, list TEXT, own_mods TEXT, devices TEXT, repo TEXT, "
                 "license TEXT, status TEXT, base_os TEXT, version TEXT, last_activity TEXT, tested TEXT, tested_note TEXT, install TEXT, contains TEXT, first_seen TEXT, notes TEXT, links TEXT, "
                 "sources TEXT, owner TEXT, created TEXT, pushed TEXT, stars INTEGER, forks INTEGER, language TEXT, gh_fork INTEGER, gh_license TEXT",
@@ -375,6 +397,7 @@ SCHEMA = {
     "conflicts": "id TEXT PRIMARY KEY, status TEXT, topic TEXT, a TEXT, b TEXT, details TEXT, devices TEXT",
     "facts": "id INTEGER PRIMARY KEY, fid TEXT UNIQUE, file TEXT, line INTEGER, section TEXT, text TEXT, evidence TEXT, "
              "sources TEXT, devices TEXT, addresses TEXT",
+    "ram_tenancy": "device TEXT, space TEXT, start INTEGER, \"end\" INTEGER, user TEXT, use TEXT, os TEXT, evidence TEXT, sources TEXT",
     "addresses": "address TEXT, value INTEGER, fid TEXT, file TEXT, line INTEGER, section TEXT, devices TEXT, evidence TEXT",
     "goals": "id TEXT PRIMARY KEY, goal TEXT, status TEXT, moved_by TEXT",
     "tasks": "id TEXT PRIMARY KEY, task TEXT, devices TEXT, needs TEXT, effort TEXT, value TEXT, status TEXT",
@@ -402,7 +425,8 @@ def ins(table, rows):
 
 
 ins("meta", [{"key": k, "value": json.dumps(v) if not isinstance(v, str) else v} for k, v in meta.items()])
-ins("devices", [{"slug": d["slug"], "name": d["name"], "family": d.get("family"), "phase": d.get("phase")} for d in devices])
+ins("devices", [{"slug": d["slug"], "name": d["name"], "family": d.get("family"), "phase": d.get("phase"),
+                 "recovery": d["recovery"], "recovery_note": d["recovery_note"]} for d in devices])
 ins("projects", prow)
 ins("relations", rrow)
 # mods a loader or platform ships itself (projects.yml own_mods); the JSON keeps them inside projects[].own_mods
@@ -427,6 +451,7 @@ SB_COLS = ("id", "title", "device_os", "area", "symptom", "trigger", "cause", "w
 con.executemany('INSERT INTO stock_bugs VALUES (' + ','.join('?' * len(SB_COLS)) + ')', [[b[k] for k in SB_COLS] for b in stock_bugs])
 ins("facts", [{k: f[k] for k in ("id", "fid", "file", "line", "section", "text", "evidence", "sources", "devices", "addresses")} for f in facts])
 ins("addresses", addresses)
+ins("ram_tenancy", ram_tenancy)
 con.execute("CREATE INDEX addresses_value ON addresses(value)")
 # full-text search over facts and rules, if this SQLite has FTS5
 try:
@@ -442,7 +467,8 @@ con.close()
     "meta": meta, "devices": devices, "projects": prow, "relations": rrow, "rules": rules,
     "sources": sources, "conflicts": conflicts, "facts": facts,
     "goals": goals, "tasks": tasks, "hypotheses": hyps, "research_links": links, "participants": participants,
-    "incidents": incidents, "incident_rules": incident_rules, "stock_bugs": stock_bugs}, ensure_ascii=False, indent=1), encoding="utf-8")
+    "incidents": incidents, "incident_rules": incident_rules, "stock_bugs": stock_bugs, "ram_tenancy": ram_tenancy},
+    ensure_ascii=False, indent=1), encoding="utf-8")
 # the website loads these instead of aggregat.json: core.json (everything but the facts) at start, facts.json only when a
 # tab needs it. Compact separators; aggregat.json above stays the complete file for agents and scripts.
 WEB = OUT / "web"
@@ -452,6 +478,6 @@ compact = dict(ensure_ascii=False, separators=(",", ":"))
     "meta": meta, "devices": devices, "projects": prow, "relations": rrow, "rules": rules,
     "sources": sources, "conflicts": conflicts, "goals": goals, "tasks": tasks, "hypotheses": hyps,
     "research_links": links, "participants": participants, "incidents": incidents, "incident_rules": incident_rules,
-    "stock_bugs": stock_bugs}, **compact), encoding="utf-8")
+    "stock_bugs": stock_bugs, "ram_tenancy": ram_tenancy}, **compact), encoding="utf-8")
 (WEB / "facts.json").write_text(json.dumps(facts, **compact), encoding="utf-8")
 print("export:", meta["counts"])

@@ -352,7 +352,7 @@ const VIEWS = {
   },
   mods: {
     custom: true, rows: () => D.projects, dev: p => p.devices, hay: () => "",
-    draw: (words, dev) => AggMods.draw($("out"), D, {words, dev, devs: dev, devOk, devName}),
+    draw: (words, dev) => AggMods.draw($("out"), D, {words, dev, devs: dev, devOk, devName, rerender: () => render()}),
     count: () => ""
   },
   community: {
@@ -521,8 +521,8 @@ const stripeDev = ds => ds.find(d => DEVS.includes(d)) || ds[0] || "";
 const DEV_SHORT = n => n.replace(/ \(.*?\)/g, "").replace("Digitone / Digitone Keys", "Digitone / Keys").replace("Analog Four / Analog Keys", "Analog Four / Keys");
 function devCounts() {
   // the number on each device button: mods on the Mods tab, otherwise the rows of the open tab
-  const v = VIEWS[tab], isMod = p => list(p.list).includes("mods") && !["loader", "tool"].includes(p.kind) && (p.own_mods || "[]") === "[]" && !["unreachable", "unverified"].includes(p.status);
-  const rows = tab === "mods" ? D.projects.concat(AggMods.ownMods(D)).filter(isMod) : v.dev ? v.rows() : [];
+  const v = VIEWS[tab];
+  const rows = tab === "mods" ? AggMods.catalogue(D, AggMods.showsHidden()) : v.dev ? v.rows() : [];
   const n = s => rows.filter(r => !s || list(v.dev(r)).includes(s)).length;
   $("devbar").style.display = v.dev ? "" : "none";
   $("devbar").querySelectorAll("button").forEach(b => { b.querySelector(".dv-c").textContent = n(b.dataset.v); b.classList.toggle("on", b.dataset.v ? DEVS.includes(b.dataset.v) : !DEVS.length); });

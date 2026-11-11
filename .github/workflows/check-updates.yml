@@ -55,8 +55,8 @@ jobs:
           gen
           for attempt in 1 2 3; do
             [ -z "$(git status --porcelain)" ] && { echo "nothing changed"; exit 0; }
-            git add state README.md INDEX.md catalog MODS.md DEV-TOOLS.md MUSICIAN-TOOLS.md PROJECT-FAMILIES.md export research \
-              hardware/DUPLICATES.md hardware/WEAK-EVIDENCE.md hardware/ADDRESS-MAP.md llms.txt feed.xml sitemap.xml robots.txt p
+            git add state README.md catalog export research \
+              hardware/DUPLICATES.md hardware/WEAK-EVIDENCE.md hardware/ADDRESS-MAP.md llms.txt feed.xml sitemap.xml p
             git commit -q -m "check-updates: $(head -3 state/CHANGES.md | tail -1)"
             git push && exit 0
             # master moved (usually the update run): start from it and generate again, so nothing of its work is undone

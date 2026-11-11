@@ -4,19 +4,19 @@
 
 What you can put on an Elektron device today: mods, custom OS builds, and the loaders and patchers that build them from **your own** stock OS file. Nothing here is hosted by Aggregat; every link goes to the author.
 
-> **Before you flash anything:** read [hardware/common/recovery.md](hardware/common/recovery.md) and make sure you can get back to the stock OS. Mods are unofficial, Elektron does not support them, and the authors' own words about stability are summarised below, not checked by us.
+> **Before you flash anything:** read [hardware/common/recovery.md](../hardware/common/recovery.md) and make sure you can get back to the stock OS. Mods are unofficial, Elektron does not support them, and the authors' own words about stability are summarised below, not checked by us.
 
 ## How to read this list
 
 - **Install via** - the loader or platform that builds the mod into your OS file (see the next table), or the project's own patcher.
 - **Tested** - what the author or a cited report says: *yes, on a unit* (ran on a real device), *partly* (some builds or parts), *emulator only*, or *not stated* (the sources we read say nothing). It is a claim, not our own test.
 - **Updated** - the later of the last release or post we saw and the repo's last push.
-- Each device section lists mods that ran on a unit first, then the rest; unreachable projects come last. Full notes per project: [INDEX.md](INDEX.md) and the device pages.
+- Each device section lists mods that ran on a unit first, then the rest; unreachable projects come last. Full notes per project: [INDEX.md](README.md) and the device pages.
 
 Data last verified 2026-11-08; generated from `data/projects.yml`.
 
 
-The other lists: [DEV-TOOLS.md](DEV-TOOLS.md) (development tools), [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians). Hardware knowledge for writing mods: [hardware/](hardware/README.md).
+The other lists: [DEV-TOOLS.md](DEV-TOOLS.md) (development tools), [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians). Hardware knowledge for writing mods: [hardware/](../hardware/README.md).
 
 
 ## Contents

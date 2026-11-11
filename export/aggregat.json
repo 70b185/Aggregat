@@ -24105,13 +24105,13 @@
    "file": "hardware/common/dt2-dn2-sharc-crosscheck.md",
    "line": 44,
    "section": "Digitakt II and Digitone II SHARC: which findings hold on both (task T19, 2026-11-02) / What to do next",
-   "text": "Section 4: the late-block test on a DN2. These are listed as task T19's remainder in [RESEARCH-MAP](../../RESEARCH-MAP.md).",
+   "text": "Section 4: the late-block test on a DN2. These are listed as task T19's remainder in [RESEARCH-MAP](../../research/RESEARCH-MAP.md).",
    "evidence": "hw",
    "sources": "digikit-f102,digikit-f103",
    "devices": "digitakt-2,digitone-2",
    "addresses": "",
    "id": 860,
-   "fid": "dt2-dn2-sharc-crosscheck#77f9e248"
+   "fid": "dt2-dn2-sharc-crosscheck#04c5fbdd"
   },
   {
    "file": "hardware/common/ecosystem-lessons.md",
@@ -27572,7 +27572,7 @@
   },
   {
    "id": "T6",
-   "task": "Translate SyntHack/machine-45 anchors from 1.41 to 1.42 (byte patterns, not addresses) (tool: [`scripts/anchor_translate.py`](scripts/anchor_translate.py), 2026-11-11: you supply both images; it reports per address whether the translation is exact, bracketed, one-sided or ambiguous)",
+   "task": "Translate SyntHack/machine-45 anchors from 1.41 to 1.42 (byte patterns, not addresses) (tool: [`scripts/anchor_translate.py`](../scripts/anchor_translate.py), 2026-11-11: you supply both images; it reports per address whether the translation is exact, bracketed, one-sided or ambiguous)",
    "devices": "Syntakt",
    "needs": "files",
    "effort": "M",
@@ -27590,7 +27590,7 @@
   },
   {
    "id": "T8",
-   "task": "Build an address-translation table DN2 1.11 <-> 1.12 from shared anchors (tool: [`scripts/anchor_translate.py`](scripts/anchor_translate.py), 2026-11-11: you supply both images; it reports per address whether the translation is exact, bracketed, one-sided or ambiguous)",
+   "task": "Build an address-translation table DN2 1.11 <-> 1.12 from shared anchors (tool: [`scripts/anchor_translate.py`](../scripts/anchor_translate.py), 2026-11-11: you supply both images; it reports per address whether the translation is exact, bracketed, one-sided or ambiguous)",
    "devices": "Digitone II",
    "needs": "files",
    "effort": "M",
@@ -27635,7 +27635,7 @@
   },
   {
    "id": "T13",
-   "task": "~~Transcribe the official MIDI CC/NRPN tables from the manuals' appendices~~ done 2026-11-11 for DT2 (OS 1.17 manual), DN2 (OS 1.12 manual) and Heat +FX (manual DOC10069enB): [sysex-and-midi.md](hardware/common/sysex-and-midi.md#official-cc-and-nrpn-tables-transcribed-from-the-manuals-task-t13-2026-11-11). Remaining: a person comparing the transcription with the printed pages, and a unit test of the seven rows that look like misprints (duplicate numbers)",
+   "task": "~~Transcribe the official MIDI CC/NRPN tables from the manuals' appendices~~ done 2026-11-11 for DT2 (OS 1.17 manual), DN2 (OS 1.12 manual) and Heat +FX (manual DOC10069enB): [sysex-and-midi.md](../hardware/common/sysex-and-midi.md#official-cc-and-nrpn-tables-transcribed-from-the-manuals-task-t13-2026-11-11). Remaining: a person comparing the transcription with the printed pages, and a unit test of the seven rows that look like misprints (duplicate numbers)",
    "devices": "DT2, DN2, Heat +FX",
    "needs": "PDF, then unit",
    "effort": "S",
@@ -27689,7 +27689,7 @@
   },
   {
    "id": "T19",
-   "task": "~~Check which DN2 SHARC findings hold on the DT2 (and back)~~ done as a comparison (2026-11-02, [dt2-dn2-sharc-crosscheck.md](hardware/common/dt2-dn2-sharc-crosscheck.md)): silicon facts hold on both (digikit's probe on both units), firmware facts do not carry over. Remaining unit tests: SIMD L2 access on a DN2, reply-record arrivals on a DN2, single late blocks on a DN2",
+   "task": "~~Check which DN2 SHARC findings hold on the DT2 (and back)~~ done as a comparison (2026-11-02, [dt2-dn2-sharc-crosscheck.md](../hardware/common/dt2-dn2-sharc-crosscheck.md)): silicon facts hold on both (digikit's probe on both units), firmware facts do not carry over. Remaining unit tests: SIMD L2 access on a DN2, reply-record arrivals on a DN2, single late blocks on a DN2",
    "devices": "DT2, DN2",
    "needs": "unit",
    "effort": "S each",
@@ -27707,7 +27707,7 @@
   },
   {
    "id": "T21",
-   "task": "~~Cross-check the three Digitakt II mod routes~~ done (2026-11-02, six projects: [memory-maps.md](hardware/common/memory-maps.md)). Found: five users share the flash cave, elekloader's RAM lies inside digikit's `cf.expansion`, the listed UI sites are disjoint. Remaining: settle O18 (canary in the flash cave on a unit) and agree one RAM split between digikit and elekloader",
+   "task": "~~Cross-check the three Digitakt II mod routes~~ done (2026-11-02, six projects: [memory-maps.md](../hardware/common/memory-maps.md)). Found: five users share the flash cave, elekloader's RAM lies inside digikit's `cf.expansion`, the listed UI sites are disjoint. Remaining: settle O18 (canary in the flash cave on a unit) and agree one RAM split between digikit and elekloader",
    "devices": "Digitakt II",
    "needs": "files, then unit",
    "effort": "S",
@@ -27716,7 +27716,7 @@
   },
   {
    "id": "T22",
-   "task": "~~Compare libanalogrytm's Rytm SysEx container/encoding with Digitakt II and Digitone II~~ done (2026-11-02, [sysex-and-midi.md](hardware/common/sysex-and-midi.md)): same frame, packing, checksum and count on both generations; the type bytes differ; three device-id namespaces tabulated. Remaining: the Rytm MKII's dump byte, and what a Rytm does with the index byte on receive",
+   "task": "~~Compare libanalogrytm's Rytm SysEx container/encoding with Digitakt II and Digitone II~~ done (2026-11-02, [sysex-and-midi.md](../hardware/common/sysex-and-midi.md)): same frame, packing, checksum and count on both generations; the type bytes differ; three device-id namespaces tabulated. Remaining: the Rytm MKII's dump byte, and what a Rytm does with the index byte on receive",
    "devices": "Rytm, DT2, DN2",
    "needs": "files",
    "effort": "S",
@@ -27725,7 +27725,7 @@
   },
   {
    "id": "T23",
-   "task": "~~Keep a DN2 RAM tenancy table~~ table done 2026-11-11: [RAM-TENANCY.md](hardware/RAM-TENANCY.md) lists eight users on DN2 and DT2 (dnfw, dn2mk2, cfmod, armio, dn2-cfw, elekloader, digikit and more) with overlaps computed in [ADDRESS-MAP.md](hardware/ADDRESS-MAP.md); open from it: whether dn2mk2 still ships LFO4 state at `0x46700000`. Remaining: a unit canary at `0x46700000` after a large +Drive sample load (confirms S17, which dnfw settled from LFO4 project corruption), and new platforms declaring their ranges",
+   "task": "~~Keep a DN2 RAM tenancy table~~ table done 2026-11-11: [RAM-TENANCY.md](../hardware/RAM-TENANCY.md) lists eight users on DN2 and DT2 (dnfw, dn2mk2, cfmod, armio, dn2-cfw, elekloader, digikit and more) with overlaps computed in [ADDRESS-MAP.md](../hardware/ADDRESS-MAP.md); open from it: whether dn2mk2 still ships LFO4 state at `0x46700000`. Remaining: a unit canary at `0x46700000` after a large +Drive sample load (confirms S17, which dnfw settled from LFO4 project corruption), and new platforms declaring their ranges",
    "devices": "Digitone II",
    "needs": "unit",
    "effort": "S",

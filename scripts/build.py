@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""Generate catalog/<slug>.md and INDEX.md from data/projects.yml + data/devices.yml.
+"""Generate catalog/: <slug>.md per device, README.md (the index), MODS.md, DEV-TOOLS.md, MUSICIAN-TOOLS.md and
+PROJECT-FAMILIES.md, from data/projects.yml + data/devices.yml.
 
 Usage: python3 scripts/build.py   (run from anywhere)
 Needs PyYAML (pip install pyyaml).
 """
 from pathlib import Path
 import yaml
+
+from mdlinks import relink
 
 ROOT = Path(__file__).resolve().parent.parent
 projects_doc = yaml.safe_load((ROOT / "data" / "projects.yml").read_text(encoding="utf-8"))
@@ -82,11 +85,17 @@ for d in devices:
             md.append(f"_Sources: {', '.join(map(str, p.get('sources', [])))}_\n")
     else:
         md.append("No projects collected yet.\n")
-    (ROOT / "catalog" / f"{d['slug']}.md").write_text("\n".join(md), encoding="utf-8")
+    page = f"catalog/{d['slug']}.md"
+    (ROOT / page).write_text(relink("\n".join(md), page, page), encoding="utf-8")   # moved root pages -> catalog/
     unv = [p for p in real if p["status"] == "unverified"]
     index.append(f"| [{d['name']}](catalog/{d['slug']}.md) | {len(real) - len(unv)} | {len(unv)} | {len(rows) - len(real)} |")
 
-(ROOT / "INDEX.md").write_text("\n".join(index) + "\n", encoding="utf-8")
+def write_catalog(name, text):
+    """The lists are composed with links relative to the repository root; relink them for catalog/<name>."""
+    (ROOT / "catalog" / name).write_text(relink(text, "INDEX.md", f"catalog/{name}"), encoding="utf-8")
+
+
+write_catalog("README.md", "\n".join(index) + "\n")
 print(f"{len(projects)} projects, {len(devices)} devices")
 
 
@@ -303,7 +312,7 @@ for s in dev_order:
                 mods += [mrow(p) for p in by_upd(g)]
     elif next(d for d in devices if d["slug"] == s).get("phase") == 1:
         mods.append(f"\n## {dev_names[s]}\n\nNo public mod found yet (last search {checked}).")
-(ROOT / "MODS.md").write_text("\n".join(mods) + "\n", encoding="utf-8")
+write_catalog("MODS.md", "\n".join(mods) + "\n")
 
 # DEV-TOOLS.md: grouped by kind
 SECT = [("Toolchains, firmware tools and other developer utilities", ("tool", "editor")), ("Emulators", ("emulator",)),
@@ -319,7 +328,7 @@ for title, kinds in SECT:
         dev.append(f"\n## {title}\n")
         dev.append("| Project | Devices | What it is | Status | Version / OS | Links |\n|---|---|---|---|---|---|")
         dev += [lrow(p) for p in by_act(rows)]
-(ROOT / "DEV-TOOLS.md").write_text("\n".join(dev) + "\n", encoding="utf-8")
+write_catalog("DEV-TOOLS.md", "\n".join(dev) + "\n")
 
 # MUSICIAN-TOOLS.md: one table, kind shown
 mus = [GEN, "# Tools for musicians\n",
@@ -328,7 +337,7 @@ mus = [GEN, "# Tools for musicians\n",
        HEAD.format(c=checked), other.format(o=", ".join(v for k, v in names.items() if k != "musician")),
        "\n| Project | Kind | Devices | What it is | Status | Version / OS | Links |\n|---|---|---|---|---|---|---|"]
 mus += [lrow(p, True) for p in by_act(bylist["musician"])]
-(ROOT / "MUSICIAN-TOOLS.md").write_text("\n".join(mus) + "\n", encoding="utf-8")
+write_catalog("MUSICIAN-TOOLS.md", "\n".join(mus) + "\n")
 print("lists:", {k: len(v) for k, v in bylist.items()},
       "not listed:", sorted(p["id"] for p in projects if which_list(p) is None))
 
@@ -400,7 +409,7 @@ from relation_graph import readme_with_graph, START as G_START, END as G_END
 # the website; the interactive network map on the website shows every relation kind.
 fam_text = "\n".join(fam) + "\n\n## Lineage graph\n\nDrawn by GitHub from the lineage relations (fork, copy, port, variant, builds on, bundles, describes, vendors code from); the [network map](https://70b185.github.io/Aggregat/?t=network) shows all relation kinds and the people behind the projects.\n\n" + G_START + "\n" + G_END + "\n"
 fam_text, n_nodes, n_edges = readme_with_graph(fam_text, projects, devices)
-(ROOT / "PROJECT-FAMILIES.md").write_text(fam_text, encoding="utf-8")
+write_catalog("PROJECT-FAMILIES.md", fam_text)
 print("relation graph:", n_nodes, "entries,", n_edges, "relations (in PROJECT-FAMILIES.md)")
 print("families:", sum(1 for g in groups.values() if len(g) > 1))
 

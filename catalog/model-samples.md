@@ -27,7 +27,7 @@ Mod loader: user supplies the stock OS file, the tool builds the custom .syx loc
 
 _Latest seen (2026-10-31, secondary directories): altstrument.org and the repo (read 2026-10-31): canonical repo is github.com/elekloader/elekloader (183 commits, 103 stars, GPL-2.0-or-later); web app moved to elekloader.github.io/elekloader; the Mac app was absent from v0.9.0 because signing secrets need renewing. v0.9.0 cores: core-4.1 and core-4.1-os1.54 (Digitakt mk1), core-dn1-4.1.1 and -os1.44 (Digitone mk1), core-ar2-0.8 (Analog Rytm MKII 1.74), core-ot-0.8 (Octatrack 1.40C), core-mc-0.3 (Model:Cycles), core-ms-0.1 (Model:Samples), core-a4 0.1-0.4 (Analog Four MKII 1.56). Kit 0.7.0 catalog: 19 cores, 88 mods. machine-pages 1.2/1.3/1.5 need core 3.0+ on Digitakt mk1 and refuse NEIGHBOR 0.6, SOPHIE 1.1.13 and digichain-based machine mods beside them; fxkit 0.1 gives Digitone effect mods a shared mixer, two LFOs, pattern p-locks and a CPU guard; core-dn1 4.1 adds ev_note_queue; kit 0.6.0 gives 4.0 cores larger RAM areas (256 KB Digitakt, 1.25 MB Digitone). docs/ includes AGENTS.md, DEVICES.md, MACHINES-DN2, SHARC-DN2, CORES, FORMAT, BUILDING, ADAPTING (not all read yet - see hardware/MINING.md). The earlier irpina/elekloader repo is where the author's older releases lived._
 
-_Related: uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
 
@@ -41,7 +41,7 @@ _Sources: altstrument (2026-11-01)_
 
 One community OS for Model:Cycles 1.13, built in a browser from your own files (needs a Syntakt 1.41/1.42 file for its engines): sampler, Syntakt engines, Braids and Open303 machines, extra LFOs, arp, 6-ch USB audio. Experimental on Model:Samples. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
 
-_Related: cites `elektron-firmware-tool` (README credits); cites `elektroid` (README credits: the Elektron Transfer update protocol behind fast USB flashing); bundles `model-tg` (README: Model-TG's Sampler as the 7th machine); bundles `elektron-model-tweaks` (README: includes drumkilla's tweaks (latching mute, trig preview)); bundles `ms-multi-output` (README: 6-channel audio after scottmetoyer/ms-multi-output); cites `octamax` (README credits: reverse-engineering method); cites `octa-bt-pt` (README credits: reverse-engineering and patching) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: cites `elektron-firmware-tool` (README credits); cites `elektroid` (README credits: the Elektron Transfer update protocol behind fast USB flashing); bundles `model-tg` (README: Model-TG's Sampler as the 7th machine); bundles `elektron-model-tweaks` (README: includes drumkilla's tweaks (latching mute, trig preview)); bundles `ms-multi-output` (README: 6-channel audio after scottmetoyer/ms-multi-output); cites `octamax` (README credits: reverse-engineering method); cites `octa-bt-pt` (README credits: reverse-engineering and patching) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -49,7 +49,7 @@ _Sources: altstrument (2026-11-01)_
 
 Plaits engines in fixed point as a Model:Cycles machine; emulator only so far. Licence: MIT; distribution: source-only. Listed by altstrument; repo not read by us yet.
 
-_Related: builds on `digi1-mods` (README: the base is MACRO from gdeo607/digi1_mods); builds on `modded-cycles` (README: clone the Modded-Cycles fork with the PLAITS files) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `digi1-mods` (README: the base is MACRO from gdeo607/digi1_mods); builds on `modded-cycles` (README: clone the Modded-Cycles fork with the PLAITS files) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -57,7 +57,7 @@ _Sources: altstrument (2026-11-01)_
 
 Web flasher and CLI tweaks for Model:Samples and Model:Cycles 1.13 (16-ch USB audio, latching mute, trig preview, stereo samples on M:S). Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
 
-_Related: vendors `elekloader` (README: linked by elekloader's linker, an unchanged copy in elekloader/); builds on `elektron-firmware-tool` (README: building scripts are based on elektron-firmware-tool); cites `digihealth` (README: based on 18nelli's research and the FAST AUDIO of digihealth); builds on `ms-multi-output` (README: based on ms-multi-output by Scott Metoyer) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: vendors `elekloader` (README: linked by elekloader's linker, an unchanged copy in elekloader/); builds on `elektron-firmware-tool` (README: building scripts are based on elektron-firmware-tool); cites `digihealth` (README: based on 18nelli's research and the FAST AUDIO of digihealth); builds on `ms-multi-output` (README: based on ms-multi-output by Scott Metoyer) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -65,7 +65,7 @@ _Sources: altstrument (2026-11-01)_
 
 Six channels of per-track USB audio for Model:Samples and Model:Cycles; patch sources and build script only. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
-_Related: uses tool `elektron-firmware-tool` (README: it unpacks and repacks the OS); cites `octamax` (README credits: reverse-engineering method) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `elektron-firmware-tool` (README: it unpacks and repacks the OS); cites `octamax` (README credits: reverse-engineering method) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -73,7 +73,7 @@ _Sources: altstrument (2026-11-01)_
 
 Replaces the six stock machines with circuit-modelled TR-909 voices (integer models fitted to recordings); the experimental branch adds 808 and 606 voices on SHAPE. Hats/cymbals need user-supplied WAVs. MIT.
 
-_Related: builds on `modded-cycles` (README: built on Modded-Cycles and Model-TG); builds on `model-tg` (README: Model-TG is ticked with model909) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `modded-cycles` (README: built on Modded-Cycles and Model-TG); builds on `model-tg` (README: Model-TG is ticked with model909) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

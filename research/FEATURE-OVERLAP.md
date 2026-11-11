@@ -2,7 +2,7 @@
 
 Many features have been built independently on several Elektron boxes, often by people who never looked at each other's work. This page lines them up, so a new project can start from the closest existing solution instead of from zero, and so the community can see where a shared piece (a portable engine, a table, a measured rule) would serve everyone.
 
-Compiled 2026-11-02 from the catalogue notes and the documents read for [`hardware/`](hardware/README.md). It is not exhaustive. "Unit" means the project reports it running on a real device; "emulator" means it has only been shown in an emulator so far. Project details: [MODS.md](MODS.md); which entries are forks or copies of each other: [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md).
+Compiled 2026-11-02 from the catalogue notes and the documents read for [`hardware/`](../hardware/README.md). It is not exhaustive. "Unit" means the project reports it running on a real device; "emulator" means it has only been shown in an emulator so far. Project details: [MODS.md](../catalog/MODS.md); which entries are forks or copies of each other: [PROJECT-FAMILIES.md](../catalog/PROJECT-FAMILIES.md).
 
 ## Start here: shared building blocks
 
@@ -19,7 +19,7 @@ open it looks. Ask its author first.
 | [digigrain](https://github.com/lucykowal/digigrain) | A bounded granular engine and platform notes for the Digitakt mk1 | no licence file (2026-11-11): read it for the method, ask before reusing code | Digitakt mk1 |
 | [libanalogrytm](https://github.com/bsp2/libanalogrytm), [rytm-rs](https://70b185.github.io/Aggregat/p/rytm-rs/) | Rytm SysEx: kits, sounds, patterns, settings | MIT | editors and converters |
 | [elektron-firmware-tool](https://github.com/mischa85/elektron-firmware-tool) | Unpack and repack the OS container | see its repo | most patchers |
-| the rules in [hardware/AGENT-RULES.md](hardware/AGENT-RULES.md) | Lessons measured on real units (cache, ISA, load, USB timing) | CC0 | every box with the same chip |
+| the rules in [hardware/AGENT-RULES.md](../hardware/AGENT-RULES.md) | Lessons measured on real units (cache, ISA, load, USB timing) | CC0 | every box with the same chip |
 
 If you publish a reusable core, tell us (pull request or issue) and it goes in this table.
 
@@ -39,17 +39,17 @@ The most common pattern. The engines come from the source device's own code or f
 | | plug-ins and other hardware | MModule, Machinemodule, ModuleDrum, OP-XY MNMD | - | **mdkit**: EFM/TRX/P-I voices as standalone C99, **CC0** - the easiest legal starting point for any port |
 | **Monomachine** | Digitone II | dn2mk2 (Monomachine machines) | unit | |
 | | plug-ins | Monomodule and its ports, Monomachine Lab | - | |
-| **Digitakt II sample machines** (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE) | Digitone II | dn2mk2; armio's T1E2 (dn2-dt2-firmware-research) | unit | dnfw showed 85 % of DT2 SHARC functions have a twin in the DN2, so the port is a transplant, not a rewrite ([digitone-2-internals.md](hardware/devices/digitone-2-internals.md)) |
+| **Digitakt II sample machines** (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE) | Digitone II | dn2mk2; armio's T1E2 (dn2-dt2-firmware-research) | unit | dnfw showed 85 % of DT2 SHARC functions have a twin in the DN2, so the port is a transplant, not a rewrite ([digitone-2-internals.md](../hardware/devices/digitone-2-internals.md)) |
 | **Digitakt mk1 sample machines** | Syntakt | Synfact | experimental | |
 | **808/909 kick models** | Digitakt mk1, Digitone mk1, Digitone II | x0x (one source for three devices) | physical qualification in progress | |
 | | Digitone mk1 | taktone (runs the whole Digitakt application on Digitone hardware) | unit | |
 | **Sampler, other designs** | Syntakt | SynCrackd (replaces Twinshot) | - | |
 | | Model:Cycles | Cycles One-Shot, Model-TG, Modded Cycles' sampler | unit | |
 | | Digitone mk1 | Sampletone | - | |
-| **Syntakt engines** | Model:Cycles | Modded Cycles (needs the user's Syntakt OS file), Supermodel | unit | Supermodel measured that they cost about the same instructions as stock voices but more cache, which slows the unit ([model-cycles-samples.md](hardware/devices/model-cycles-samples.md)) |
+| **Syntakt engines** | Model:Cycles | Modded Cycles (needs the user's Syntakt OS file), Supermodel | unit | Supermodel measured that they cost about the same instructions as stock voices but more cache, which slows the unit ([model-cycles-samples.md](../hardware/devices/model-cycles-samples.md)) |
 | **Sophie** (Matt Estela's percussion algorithm) | Digitakt mk1 | digisophie | unit | **digisophie's fixed-point version** is reused by DT-FM (Digitakt) and taktone-extended (Digitone mk1 second CPU). radiohagen's Octatrack module and Overtone (Digitone II) also ship a Sophie voice; their READMEs don't say which code it came from |
 | **Plaits** (Mutable Instruments) | Model:Cycles | plaits-on-models (fixed point) | emulator | a fixed-point Plaits port for ColdFire boxes |
-| | Digitakt II | dt2-machine-lab, digitakt-ii-research (lessons in [digitakt-2-dsp-optimizing.md](hardware/devices/digitakt-2-dsp-optimizing.md)) | dt2-machine-lab: first unit trial crashed (a ColdFire-excluded instruction); the correction has not run on a unit yet | |
+| | Digitakt II | dt2-machine-lab, digitakt-ii-research (lessons in [digitakt-2-dsp-optimizing.md](../hardware/devices/digitakt-2-dsp-optimizing.md)) | dt2-machine-lab: first unit trial crashed (a ColdFire-excluded instruction); the correction has not run on a unit yet | |
 | **FM** | Syntakt | SY FM4 (in Synthack-OS) | unit | |
 | | Digitakt mk1 | DT-FM | - | |
 | | Octatrack | octabam FM synth machine, octatrick two-op FM | unit (octatrick on an MKI) | |
@@ -69,7 +69,7 @@ The most common pattern. The engines come from the source device's own code or f
 | **Direct pattern jump** | Digitakt mk1, Digitone mk1 | DIRECT JUMP (ClaidArremer, both devices) | - | |
 | | Digitone II | Overtone (instant pattern switch); dn2mk2 (announced "coming next") | Overtone unit | two DN2 implementations; compare before building a third |
 | | Octatrack | KYOTI, octatrick | unit (MKI) | KYOTI also keeps notes on Rytm direct jump (`reference/AR_DIRECT_JUMP.md`) |
-| **Scales / scale lock** | Analog Four MK1 | hugz202's A4 mods (35 scales, Digitone II style) | unit | the A4 MKII OS itself holds 36 scales with pitch-class tables (analog-emu, [analog-four-keys.md](hardware/devices/analog-four-keys.md)) |
+| **Scales / scale lock** | Analog Four MK1 | hugz202's A4 mods (35 scales, Digitone II style) | unit | the A4 MKII OS itself holds 36 scales with pitch-class tables (analog-emu, [analog-four-keys.md](../hardware/devices/analog-four-keys.md)) |
 | | Octatrack | PassOS (36 Digitone II scales), octatrick (quantizer), octamax (arp scales), radiohagen MIDI Scales | - | **four Octatrack scale implementations** |
 | | Model:Cycles | Chord Keys (scale-locked chord keyboard) | - | |
 | | Digitone mk1 | digitone-arp-mod (scale arp), DigiTriad (key detection) | arp: first unit trial failed and was recovered | |
@@ -90,7 +90,7 @@ The most common pattern. The engines come from the source device's own code or f
 
 | Feature | Device | Project | State | Note |
 |---|---|---|---|---|
-| **Master / bus compressor** | Syntakt | Synthack-OS master-comp (drives the **analog VCAs**) | unit | detects on ADC, applies through control voltages ([syntakt.md](hardware/devices/syntakt.md)) |
+| **Master / bus compressor** | Syntakt | Synthack-OS master-comp (drives the **analog VCAs**) | unit | detects on ADC, applies through control voltages ([syntakt.md](../hardware/devices/syntakt.md)) |
 | | Digitakt mk1, Digitone mk1 | PUMP (both devices) | - | |
 | | Digitone II | Digiwerk 3-band compressor (CMP3) | unit | needed the grown parameter table |
 | | Octatrack | KYOTI and octabam sidechain compressor, aCiDtRacK dbx-160-style | unit | |
@@ -140,12 +140,12 @@ The most common pattern. The engines come from the source device's own code or f
 | | Model:Cycles | Supermodel's counter and worst-block profiler | unit | |
 | | Machinedrum | Kitbasher CPU indicator | unit | |
 | **Boot splash** | Digitakt mk1, Digitone mk1 | DigiSplash, digisplash-ii | - | |
-| | Digitakt II | digitakt-ii-splash-screens; digikit `bootscreen` module (`.dkbs` files, 2026-11-08) | unit (digikit, one DT2 1.17) | digikit swaps the stock intro's scene table rather than patching the picture ([digitakt-2.md](hardware/devices/digitakt-2.md#the-stock-intro-and-boot-screens-digikit-finding-117-dt2-117-and-dn2-111112-digikit-f117)) |
+| | Digitakt II | digitakt-ii-splash-screens; digikit `bootscreen` module (`.dkbs` files, 2026-11-08) | unit (digikit, one DT2 1.17) | digikit swaps the stock intro's scene table rather than patching the picture ([digitakt-2.md](../hardware/devices/digitakt-2.md#the-stock-intro-and-boot-screens-digikit-finding-117-dt2-117-and-dn2-111112-digikit-f117)) |
 | | Digitone II | dn2mk2 start-up animation; dn2_firmware_explore `bootscreen`; digikit `bootscreen` | unit (dn2mk2); emulator (digikit) | |
 | | Syntakt | Synthack-OS splash | unit | |
 | **USB multichannel audio** | Model:Cycles, Model:Samples | ms-multi-output (6 ch), elektron-model-tweaks (16 ch), Modded Cycles | unit | Supermodel's fix: send at a fixed time, not right after a variable render |
 | | Octatrack | octatrick (20 ch), octemu's USB audio (used by PassOS) | MKI tested | octemu loads its USB-audio payload from the CF card |
-| **Patcher / loader platforms** | many | elekloader, Modwerk, octabam, Spokes, Cycles Engines, Kitbasher, Digiwerk Patcher | - | see the loader section of [MODS.md](MODS.md) |
+| **Patcher / loader platforms** | many | elekloader, Modwerk, octabam, Spokes, Cycles Engines, Kitbasher, Digiwerk Patcher | - | see the loader section of [MODS.md](../catalog/MODS.md) |
 
 ---
 
@@ -155,11 +155,11 @@ The most common pattern. The engines come from the source device's own code or f
 - **Digitone mk1 = Digitakt mk1 + six keys + a second ColdFire + an FPGA** (taktone runs the Digitakt application on it).
 - **Analog Four MKII = Analog Rytm MKII platform** (same CPU, memory map, RTOS, container and panel interface; analog-emu).
 - **Digitakt II and Digitone II share 85 % of their SHARC functions** and the same `0xabc`-byte ColdFire-to-SHARC frame (dnfw, lalzart).
-- **Section 8 is one ARM firmware image** shipped by many devices (see [firmware-container.md](hardware/common/firmware-container.md)).
+- **Section 8 is one ARM firmware image** shipped by many devices (see [firmware-container.md](../hardware/common/firmware-container.md)).
 - **Three FPGA bitstreams are exactly 54,664 bytes** (Heat +FX, A4 MKII, Digitone mk1) - same size, not yet compared by hash.
 
 ## What this suggests
 
 - **Portable engine cores already exist:** mdkit (Machinedrum voices, CC0), digisophie (Sophie, fixed point), plaits-on-models (Plaits, fixed point) and digigrain (bounded granular). A new port should start from one of these rather than from the original source; licences and links are in the table at the top of this page.
 - **Two or more parallel implementations** of the same feature on the same device: direct jump on the DN2, scale handling on the Octatrack (four), load meters on the DN2 (three, which disagree). Comparing these is cheap and likely to find bugs in one of them.
-- **Measured rules travel better than code:** a ColdFire or SHARC lesson found by one project (cache, ISA, load governor, USB timing) applies to all boxes with the same chip. Those are collected as rules A1-A46 in [hardware/AGENT-RULES.md](hardware/AGENT-RULES.md).
+- **Measured rules travel better than code:** a ColdFire or SHARC lesson found by one project (cache, ISA, load governor, USB timing) applies to all boxes with the same chip. Those are collected as rules A1-A46 in [hardware/AGENT-RULES.md](../hardware/AGENT-RULES.md).

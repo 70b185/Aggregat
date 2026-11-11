@@ -182,10 +182,10 @@
       <h2 class="md-h">Small tasks without a unit <span>${tasks.length} open · files, a PDF or reading</span></h2>
       <div class="md-grid">${tasks.map(t => `<article class="md-card tu-card" style="--dc:var(--c-${esc(t.devs[0] || "")})">
           <div class="md-top"><span class="md-kind">${esc(t.id)}</span><span class="md-st">needs ${esc(t.needs)}</span><span class="md-date">effort ${esc(t.effort)}</span></div>
-          <h3>${md(short(t.task, 200), "RESEARCH-MAP.md")}</h3>
-          <p class="meta">${md(t.value, "RESEARCH-MAP.md")}</p>
+          <h3>${md(short(t.task, 200), "research/RESEARCH-MAP.md")}</h3>
+          <p class="meta">${md(t.value, "research/RESEARCH-MAP.md")}</p>
           <div class="md-foot">${t.devs.map(d => devTag(ctx, d)).join("")}</div>
-          <div class="tu-act"><a class="tu-btn" href="${report(t.id)}">Share what you found</a> <a class="meta" href="${BLOB}CONTRIBUTING.md">how to contribute</a></div>
+          <div class="tu-act"><a class="tu-btn" href="${report(t.id)}">Share what you found</a> <a class="meta" href="${BLOB}.github/CONTRIBUTING.md">how to contribute</a></div>
         </article>`).join("") || `<div class="empty">Nothing open.</div>`}</div>`;
     const c = document.getElementById("count"); if (c) c.textContent = `${hyps.length + tasks.length} things to do`;
   }

@@ -1,6 +1,6 @@
 # RAM tenancy: who uses which memory (Digitone II, Digitakt II)
 
-Task T23 of the [research map](../RESEARCH-MAP.md), first full pass 2026-11-11. Every mod platform puts its code and
+Task T23 of the [research map](../research/RESEARCH-MAP.md), first full pass 2026-11-11. Every mod platform puts its code and
 data in RAM that stock leaves alone, and each picked its own addresses. This page lists every range we could find, so a
 new project can pick free space and two mods can be checked for a clash before anyone flashes them. Read with rule area
 G8 (mods that coexist) and [`common/memory-maps.md`](common/memory-maps.md), which explains how the ranges were found.

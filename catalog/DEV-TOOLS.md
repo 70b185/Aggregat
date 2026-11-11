@@ -2,12 +2,12 @@
 
 # Development tools
 
-For people (and agents) who build mods: toolchains, emulators, firmware unpackers, protocol libraries and research write-ups. Pair this with [hardware/](hardware/README.md), which collects the rules and device facts.
+For people (and agents) who build mods: toolchains, emulators, firmware unpackers, protocol libraries and research write-ups. Pair this with [hardware/](../hardware/README.md), which collects the rules and device facts.
 
-Data last verified: 2026-11-08. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Status words are the authors' own; newest activity first in each table. Device pages with full notes: [INDEX.md](INDEX.md).
+Data last verified: 2026-11-08. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Status words are the authors' own; newest activity first in each table. Device pages with full notes: [INDEX.md](README.md).
 
 
-The other lists: [MODS.md](MODS.md) (mods and custom firmware), [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians). Hardware knowledge for writing mods: [hardware/](hardware/README.md).
+The other lists: [MODS.md](MODS.md) (mods and custom firmware), [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians). Hardware knowledge for writing mods: [hardware/](../hardware/README.md).
 
 
 ## Toolchains, firmware tools and other developer utilities

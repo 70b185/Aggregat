@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://70b185.github.io/Aggregat/sitemap.xml

@@ -32,7 +32,7 @@
 #                  emulator (emulator or host tests only) | not-stated (the sources we read say nothing).
 #                  tested_note: optional one-line detail. This records claims, it is not our own test.
 #   relations      optional: links to other entries, each {type, id, evidence}; evidence names what proves it
-#                  (GitHub's fork flag, or a file of the project). Lineage types (grouped in PROJECT-FAMILIES.md):
+#                  (GitHub's fork flag, or a file of the project). Lineage types (grouped in catalog/PROJECT-FAMILIES.md):
 #                  fork_of | copy_of | port_of | variant_of | builds_on | same_project | bundles | describes |
 #                  unclear. Dependency types (network map only): mod_for (a mod or package for a loader or
 #                  platform) | uses_tool (runs it, e.g. an emulator, without shipping it) | vendors (ships or ports

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Share pages: p/<id>/index.html for every catalogue entry, plus sitemap.xml.
+"""Share pages: p/<id>/index.html for every catalogue entry, plus sitemap.xml (no robots.txt: crawlers read it only at a
+domain root, not under /Aggregat/; submit the sitemap in a search console instead).
 
 The website is one page that draws everything in the browser, so a link like ?p=overtone shows no preview when it is
 pasted into a forum or a chat: the crawler sees only the generic page. Each share page is a small static file with
@@ -68,7 +69,6 @@ def main():
     (ROOT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="utf-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "".join(f"  <url><loc>{escape(u)}</loc></url>\n" for u in urls) + "</urlset>\n", encoding="utf-8")
-    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE}sitemap.xml\n", encoding="utf-8")
     print(f"site_pages: {len(projects)} share pages, sitemap with {len(urls)} urls")
 
 

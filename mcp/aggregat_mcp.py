@@ -279,7 +279,7 @@ def what_changed(since: str = None):
             raise ValueError("since must be YYYY-MM-DD")
         try:
             log = subprocess.run(["git", "-C", str(ROOT), "log", f"--since={since}", "--format=%ad %s", "--date=short",
-                                  "--", "data", "hardware", "RESEARCH-MAP.md"], capture_output=True, text=True, timeout=20)
+                                  "--", "data", "hardware", "research/RESEARCH-MAP.md", "RESEARCH-MAP.md"], capture_output=True, text=True, timeout=20)
             out["commits"] = log.stdout.strip().splitlines()[:100]
         except (OSError, subprocess.SubprocessError) as e:
             out["commits_error"] = str(e)

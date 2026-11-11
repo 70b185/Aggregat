@@ -43,4 +43,4 @@ The core is the same (section 1), so these should hold on the other unit too. No
 - Section 3: the reply-record test (write a word from a hook vs. from the block tail, count arrivals) on a DN2 1.12.
 - Section 4: the late-block test on a DN2.
 
-These are listed as task T19's remainder in [RESEARCH-MAP](../../RESEARCH-MAP.md).
+These are listed as task T19's remainder in [RESEARCH-MAP](../../research/RESEARCH-MAP.md).

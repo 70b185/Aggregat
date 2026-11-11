@@ -282,7 +282,7 @@ def id_list(text):
     return list(dict.fromkeys(found))
 
 
-rmap = ROOT / "RESEARCH-MAP.md"
+rmap = ROOT / "research" / "RESEARCH-MAP.md"
 goals, tasks, hyps, links = [], [], [], []
 for _, c in md_rows(rmap, r"G\d+"):
     goals.append({"id": c[0], "goal": clean(c[1].replace("**", "")), "status": clean(c[2]), "moved_by": clean(c[3])})

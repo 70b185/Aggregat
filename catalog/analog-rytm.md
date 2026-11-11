@@ -44,7 +44,7 @@ Mod loader: user supplies the stock OS file, the tool builds the custom .syx loc
 
 _Latest seen (2026-10-31, secondary directories): altstrument.org and the repo (read 2026-10-31): canonical repo is github.com/elekloader/elekloader (183 commits, 103 stars, GPL-2.0-or-later); web app moved to elekloader.github.io/elekloader; the Mac app was absent from v0.9.0 because signing secrets need renewing. v0.9.0 cores: core-4.1 and core-4.1-os1.54 (Digitakt mk1), core-dn1-4.1.1 and -os1.44 (Digitone mk1), core-ar2-0.8 (Analog Rytm MKII 1.74), core-ot-0.8 (Octatrack 1.40C), core-mc-0.3 (Model:Cycles), core-ms-0.1 (Model:Samples), core-a4 0.1-0.4 (Analog Four MKII 1.56). Kit 0.7.0 catalog: 19 cores, 88 mods. machine-pages 1.2/1.3/1.5 need core 3.0+ on Digitakt mk1 and refuse NEIGHBOR 0.6, SOPHIE 1.1.13 and digichain-based machine mods beside them; fxkit 0.1 gives Digitone effect mods a shared mixer, two LFOs, pattern p-locks and a CPU guard; core-dn1 4.1 adds ev_note_queue; kit 0.6.0 gives 4.0 cores larger RAM areas (256 KB Digitakt, 1.25 MB Digitone). docs/ includes AGENTS.md, DEVICES.md, MACHINES-DN2, SHARC-DN2, CORES, FORMAT, BUILDING, ADAPTING (not all read yet - see hardware/MINING.md). The earlier irpina/elekloader repo is where the author's older releases lived._
 
-_Related: uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
 
@@ -52,7 +52,7 @@ _Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
 
 2026-11-09/10: Octatrack beta: the silence after USB DISK MODE (finding 72) was the base mistaking stock's DSP pause for a stall, fixed (I69); FM Synth with many FLEX tracks no longer loses the audio on PLAY; the Octatrack page asks for a power cycle when the DSP has stopped; Temp Save 0.1.0 withdrawn from USB installs (card build stays). Modwerk also loads effects onto Zoom MultiStomp pedals now (ZDL files over USB; not an Elektron device). Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still early prototypes. last_activity = date of the Dubspot article, not a forum post. 2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI. 2026-11-03: the site now lets you download a built Analog Rytm MKII .syx (after confirming you know how to get back to stock); new Rytm module quick-velocity-aftertouch-assign with a verification note. Zoom pedals: an effect whose group+ID clashes with one already on the pedal is moved to a free local Delay ID 958-1023 (ID only in the ZDL header at 0x40-0x41, no checksum); two effects with the same group and ID froze an MS-70CDR at boot until its ROM was reprogrammed. 2026-11-04/05: Rytm MKII downloads on (records); npp1993's Control In Actions (footswitch or 0-5 V gate on EXP/CV IN as ACTION for MUTE and more) and Quick Velocity+Aftertouch Assign join the library, Silent Pad+Trig Settings 0.7.0; euclidean 1.1.6 for Digitakt I 1.53/1.54 reported working on a unit by sumedho (all cases, save/reload, power cycle). 2026-11-08 to 11-10 (74c9eb2): Rytm library gains comp-preview, kit-ab, lfo-rnd and voice-dac (from rytm2_mods, unit runs on the Modwerk base), ctrl-in-perf and scene-mutes (from rytm-mods-src 0017/0018, unit runs T208/T210/T221), Improved Machine Browser and MIDI Mute; the Octatrack key bus moved to the tail of the first FX2 slot (checked on an MKI and an MKII); a Digitakt II audio scheduler is proposed (emulator only); Zoom MS-70CDR pedal work (out of scope here).
 
-_Related: cites `elekloader` (README mentions elekloader (porting from it / hosted loader)); cites `octabam` (README: porting from octabam is part of the module guide) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: cites `elekloader` (README mentions elekloader (porting from it / hosted loader)); cites `octabam` (README: porting from octabam is part of the module guide) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: gearnews, dubspot, forum thread 36_
 
@@ -66,7 +66,7 @@ _Sources: altstrument (2026-11-01)_
 
 Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog Keys OS 1.56 (chord memory, joystick random). Not OS 1.74, not Analog Four. Licence: GPL-3.0-or-later; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
 
-_Related: vendors `elektron-firmware-tool` (README: built on elektron-firmware-tool compiled to WebAssembly); builds on `rytm1-mods` (README: built on gdeo607's rytm1_mods) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: vendors `elektron-firmware-tool` (README: built on elektron-firmware-tool compiled to WebAssembly); builds on `rytm1-mods` (README: built on gdeo607's rytm1_mods) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -86,7 +86,7 @@ _Sources: altstrument (2026-11-01)_
 
 RE notes for Rytm MKII OS 1.74 (container, boot, display) and a tiny from-source replacement OS that boots on a unit, plus same-size splash and LED-palette patches. Recovery only over DIN MIDI. Licence: unspecified; distribution: source-only. Listed by altstrument; repo not read by us yet.
 
-_Related: uses tool `elektron-firmware-tool` (README: it unpacks and repacks the OS) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `elektron-firmware-tool` (README: it unpacks and repacks the OS) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -94,7 +94,7 @@ _Sources: altstrument (2026-11-01)_
 
 Public copy of MrScruff's Rytm MKII OS 1.73 mods (euclid accents, velocity humanise, random LFO, kit A/B, slice loop, control-all and more). Licence: GPL-2.0-only; distribution: patch-your-own. Listed by altstrument. Also reachable as connorway32/rytm-mods-src (same HEAD 3a98e23, 2026-11-03). 2026-11-08: 0017 lets a CTRL IN jack in CV or EXPR mode drive one of the performance macros PF1-PF12 (device-wide setting); 0018 lets a scene store track mutes (SCENE held, FUNC + trig), kept per kit in the project. Its re/subsystems notes (control inputs, scenes and mutes, the "loosened" kit and sound bytes) are folded into hardware/devices/analog-rytm.md.
 
-_Related: uses tool `elektron-firmware-tool` (README: fetched and built into vendor/ by setup, not shipped); mod for `modwerk` (modwerk sdk/analog-rytm-mkii/modules ctrl-in-perf and scene-mutes name mods/0017-ctrl-in-perf and mods/0018-scene-mutes of this repo as source) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `elektron-firmware-tool` (README: fetched and built into vendor/ by setup, not shipped); mod for `modwerk` (modwerk sdk/analog-rytm-mkii/modules ctrl-in-perf and scene-mutes name mods/0017-ctrl-in-perf and mods/0018-scene-mutes of this repo as source) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -102,7 +102,7 @@ _Sources: altstrument (2026-11-01)_
 
 Port of the rytm-mods to Rytm MK1 OS 1.73 (per-track cuts, random LFO, euclid accents, humanise); also emits elekloader .elemod files. Licence: unspecified; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
 
-_Related: port of `rytm-mods-src` (README: port of the MKII project to the MK1); mod for `elekloader` (catalogue notes: emits elekloader .elemod files); uses tool `elektron-firmware-tool` (README: fetched and built into vendor/ by setup, not shipped) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: port of `rytm-mods-src` (README: port of the MKII project to the MK1); mod for `elekloader` (catalogue notes: emits elekloader .elemod files); uses tool `elektron-firmware-tool` (README: fetched and built into vendor/ by setup, not shipped) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -122,7 +122,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 digihealth's SYSTEM INFO and REMOTE KEYS ported to the analog machines. GPL. Found by GitHub search 2026-11-02; README start read.
 
-_Related: mod for `elekloader` (README: an elekloader mod); port of `digihealth` (README: irpina's digihealth for the Digitakt mk1, ported to the Rytm MKII and Analog Four MKII); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: mod for `elekloader` (README: an elekloader mod); port of `digihealth` (README: irpina's digihealth for the Digitakt mk1, ported to the Rytm MKII and Analog Four MKII); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -130,7 +130,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 MrScruff's Rytm MKII mods (published with permission) ported to the elemod format for elekloader core-ar2. 2026-11-06: lfo-rnd 1.3 and voice-dac 1.5 (and a 1.5-nodep variant without DAC FILTER's DEP knob) confirmed on a unit on OS 1.74 with core-ar2 0.10 (CCs, offsets, p-locks, kept over kit save and power cycle). GPL. Found by GitHub search 2026-11-02; README start read. 2026-11-08/09 (Modwerk TESTING files): comp-preview 1.1.0, kit-ab 1.0.0, lfo-rnd 1.2.0 and voice-dac 1.4.0 ran on a unit on Modwerk's base (core-ar2 0.7; each package byte-identical to the release object); the reload key in kit-ab's docs is NO + PLAY MODE, not NO + PLAY (CONFLICTS S18).
 
-_Related: mod for `modwerk` (modwerk sdk/analog-rytm-mkii/modules: ctrl-all, env-reset-amp, euclid-accents, filter-hz, main-rms, slice-loop, velocity-humanise, and since 2026-11-08 comp-preview, kit-ab, lfo-rnd and voice-dac, name this repo as source (2026-11-09)); port of `rytm-mods-src` (README: ported to elemod); mod for `elekloader` (catalogue notes: ported to the elemod format for elekloader core-ar2) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: mod for `modwerk` (modwerk sdk/analog-rytm-mkii/modules: ctrl-all, env-reset-amp, euclid-accents, filter-hz, main-rms, slice-loop, velocity-humanise, and since 2026-11-08 comp-preview, kit-ab, lfo-rnd and voice-dac, name this repo as source (2026-11-09)); port of `rytm-mods-src` (README: ported to elemod); mod for `elekloader` (catalogue notes: ported to the elemod format for elekloader core-ar2) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -138,7 +138,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 MCP control plane with 32 tools so a coding agent can operate a Rytm MKII (patterns, kits, scenes, songs) with validated SysEx deltas. MIT. Found by GitHub search 2026-11-02; README start read.
 
-_Related: uses tool `elektroid` (README: a pinned Elektroid CLI fork for sample management) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `elektroid` (README: a pinned Elektroid CLI fork for sample management) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -152,7 +152,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 A Raspberry Pi 4B/5 on the Rytm's USB port adds digital voices, effects and a sequencer; the Rytm runs a patched OS. 0.3.2 adds experimental, emulator-only Digitakt support. The Teensy variant is frozen. GPL-2.0. On 2026-11-09, Analog Four MKII support since 0.4.0 (A4 firmware a4-v0.12, OS 1.56); 0.4.3 caps the Rytm screen redraws after users saw a sluggish Rytm at 20-40 redraws a second.
 
-_Related: mod for `elekloader` (README: the Rytm firmware part is an elekloader module); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: mod for `elekloader` (README: the Rytm firmware part is an elekloader module); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -160,7 +160,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Sister project of the A4 MK1 mods (same registry/verify method). Adds Machinedrum TX-8/TX-9 ports as new machines, a chorus as a third send, a sidechain-style duck at the voices' analog VCAs, and a CPU-load probe build. Has hazards and flashing docs. MIT.
 
-_Related: uses tool `elektron-firmware-tool` (README: it unpacks and repacks the OS); builds on `rytm1-mods` (README: based on rytm1_mods and keeps its pipeline) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `elektron-firmware-tool` (README: it unpacks and repacks the OS); builds on `rytm1-mods` (README: based on rytm1_mods and keeps its pipeline) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -168,7 +168,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Evidence for Modwerk's add-a-machine steps on the Rytm MKII - the stock file rebuilt byte for byte, a modified OS booted on a unit and recovered with stock, and elekloader's core-ar2 with every shared event observed on a unit. Hashes, addresses and photos only. GPL-2.0.
 
-_Related: uses tool `elekloader` (README: elekloader's core-ar2 with two test mods run on a unit); cites `modwerk` (README: written for Modwerk's Add a machine steps) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `elekloader` (README: elekloader's core-ar2 with two test mods run on a unit); cites `modwerk` (README: written for Modwerk's Add a machine steps) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -182,7 +182,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Rust abstractions over the Rytm's undocumented SysEx (bindings to a fork of bsp2's libanalogrytm). MIT.
 
-_Related: builds on `libanalogrytm` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `libanalogrytm` (README) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -190,7 +190,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Browser pattern editor for the Analog Rytm over Web MIDI: pulls the current pattern and kit by SysEx, edits trigs, parameter locks, retrigs, micro-timing and sound locks in a step grid and sends the result back; opens and saves .syx dumps and exports MIDI. The README credits earlier community work on the format. MIT per README (no licence file in the repo).
 
-_Related: cites `libanalogrytm` (README credits: byte layouts derived from libanalogrytm) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: cites `libanalogrytm` (README credits: byte layouts derived from libanalogrytm) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-03), README_
 
@@ -216,7 +216,7 @@ _Sources: GitHub search 2026-11-07, README_
 
 The source of the Analog Rytm MKII OS mods that Sidecar | Expander needs: patch sources, symbol map, allocation registry and the build that turns the user's own stock .syx into a modded one, as one elekloader module per OS; the Analog Four MKII's mod in a4/. 0.4.0 reports each track's pan and route (stereo through mode), adds MD's own page, preset browsers for JUNO and 6-OP FM, DSP SAMPLE's sample picker, list knobs of up to 36 names, a MIDI machine (machine 50) and arpeggiator settings in the sound. Sidecar Mini (Teensy) is frozen at 0.1.0.
 
-_Related: same project `sidecar-expander` (README: the Rytm mods that Sidecar | Expander uses); mod for `elekloader` (README: one elekloader module per OS) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: same project `sidecar-expander` (README: the Rytm mods that Sidecar | Expander uses); mod for `elekloader` (README: one elekloader module per OS) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: state/NEW.md 2026-11-10, README_
 
@@ -224,7 +224,7 @@ _Sources: state/NEW.md 2026-11-10, README_
 
 One local MCP server per PC that gives AI agent sessions the same tools for testing Elektron units (Analog Rytm MKII, Analog Four MKII, Digitone; Digitakt untested on hardware) and their emulators: claim a unit, run a test plan, flash an OS, take screenshots, record and check USB audio, take or restore an Overbridge Total Recall image. It enforces one owner per unit, emulator first, and a hardware run only after the person says go. Python stdlib; Windows and Linux. 2026-11-10: a flash between two fixed OS files of a unit can reuse an emulator pass of the same flash, recorded with the hashes of the emulator, the flash tool and the card, while all of them stay the same.
 
-_Related: uses tool `analog-emu` (README: emulator first; sidecar-emu reaches analog-emu through it) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `analog-emu` (README: emulator first; sidecar-emu reaches analog-emu through it) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: state/NEW.md 2026-11-10, README_
 
@@ -232,6 +232,6 @@ _Sources: state/NEW.md 2026-11-10, README_
 
 QEMU cut down to the Raspberry Pi 4B and the devices Sidecar's engine needs: boots the Sidecar engine image, answers over Ethernet, puts an Analog Rytm MKII stand-in on its USB-A side and gives its USB-C gadget a raw MIDI TCP port, so an OS upgrade or an elkbench run can go through the emulated Pi into analog-emu. A local experiment, not meant for QEMU upstream.
 
-_Related: uses tool `analog-emu` (README: through the emulated Pi into analog-emu); cites `sidecar-expander` (README: emulates the Sidecar engine) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `analog-emu` (README: through the emulated Pi into analog-emu); cites `sidecar-expander` (README: emulates the Sidecar engine) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: state/NEW.md 2026-11-10, README_

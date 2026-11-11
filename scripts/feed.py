@@ -3,7 +3,7 @@
 
 Two kinds of entry:
   - a catalogue entry appeared (date from state/first_seen.json, written by scripts/first_seen.py)
-  - the knowledge base changed (commits that touch hardware/, RESEARCH-MAP.md or data/, from git history; the
+  - the knowledge base changed (commits that touch hardware/, the research map or data/, from git history; the
     automatic check-updates commits are left out, they only move generated files)
 Deterministic for a given commit: no "now" timestamps. Usage: python3 scripts/feed.py
 """
@@ -48,7 +48,7 @@ def project_entries():
 def commit_entries(limit=150):
     try:
         log = subprocess.run(["git", "-C", str(ROOT), "log", f"-{limit * 3}", "--format=%H%x09%ad%x09%s", "--date=short",
-                              "--", "hardware", "RESEARCH-MAP.md", "data"], capture_output=True, text=True, timeout=30).stdout
+                              "--", "hardware", "research/RESEARCH-MAP.md", "RESEARCH-MAP.md", "data"], capture_output=True, text=True, timeout=30).stdout
     except (OSError, subprocess.SubprocessError):
         return []
     out = []

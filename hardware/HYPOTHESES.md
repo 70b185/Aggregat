@@ -1,6 +1,6 @@
 # Inferred, not yet shown: a test list for four units
 
-Part of the [research map](../RESEARCH-MAP.md): the **Goal** column names the shared goal (G1-G8) a result moves forward. **You can help.** If you own one of these devices, the stock tests in section 1 take minutes and need no flashing.
+Part of the [research map](../research/RESEARCH-MAP.md): the **Goal** column names the shared goal (G1-G8) a result moves forward. **You can help.** If you own one of these devices, the stock tests in section 1 take minutes and need no flashing.
 
 Each entry is a conclusion drawn by comparing projects. It follows from what is documented, but nobody has shown it on the device it is about. The units at hand for testing: **Digitakt II, Digitakt (mk1), Digitone II, Analog Heat +FX**.
 

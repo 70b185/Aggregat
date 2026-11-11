@@ -1,6 +1,6 @@
 # hardware/ - what we know about the boxes, written as rules for AI agents
 
-> What is settled, what is open and what nobody has looked at yet, per device: [../RESEARCH-MAP.md](../RESEARCH-MAP.md).
+> What is settled, what is open and what nobody has looked at yet, per device: [../RESEARCH-MAP.md](../research/RESEARCH-MAP.md).
 
 Purpose: an agent that develops mods/tools for Elektron's small boxes should read **this folder** instead of
 combing through dozens of repos. Everything here is distilled from public repos, READMEs and
@@ -17,7 +17,7 @@ published by the authors, and rules.
    [`../export/context/<device>-brief.md`](../export/context/README.md) has steps 1-3 for one device in one file.
    Before you place code or data in RAM, check [`RAM-TENANCY.md`](RAM-TENANCY.md) (who uses which range, per OS) and
    [`ADDRESS-MAP.md`](ADDRESS-MAP.md) (every address a fact names, and the overlaps); declare your own ranges there.
-4. Look up the project you build on in [`../INDEX.md`](../INDEX.md) (who maintains what, which OS, which state).
+4. Look up the project you build on in [`../catalog/`](../catalog/README.md) (who maintains what, which OS, which state).
 
 ## Evidence levels (every fact carries one)
 

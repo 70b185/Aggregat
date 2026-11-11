@@ -67,19 +67,19 @@ _Latest seen (2026-10-31, secondary directories): altstrument: v1.1 (2026-10-30)
 
 _Related: uses tool `digikit` (catalogue notes: checks run in digikit for the main OS); cites `digisophie` (README credits: Schwung Sophie for the SOPHIE machine); vendors `dn2-firmware-explore` (README: patcher/_dnfw is dnfw's code, unchanged); cites `dn2-cfw` (README: dn2-cfw showed how to ship Digitone II firmware); uses tool `digitone-2-modding-skill` (README: developed with the digitone-2-modding-skill) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: forum thread 90, GitHub README_
+_Sources: forum thread 90, GitHub README, README (2026-11-11)_
 
 ### x0x (808/909 kick machines)
 
 808 and 909 kick machines (MODEL 0 = 808, 127 = 909; TNTUN, DECAY, ATTK) that use the device's own sequencer, filters, AMP and effects, built from the user's stock OS for each device. On the Digitone II a new kick fades the previous one on the same track over about 2.7 ms. Physical qualification on Digitakt and Digitone is in progress (issue 94). docs/dn2-remote-control.md drives a DN2 1.12 remotely through a DigiHealth helper (remote keys, screen frames, ColdFire and DSP peek). Licence file not found in the clone. Found by GitHub code search 2026-11-03.
 
-_Sources: GitHub code search 2026-11-03, README, docs/dn2-remote-control.md_
+_Sources: GitHub code search 2026-11-03, README, docs/dn2-remote-control.md, README (2026-11-11)_
 
 ### DigiRust
 
 macOS patcher, "experimental Digitone II tools", use at own risk. Features include drone latch and Perform Kit restoration (see docs/FEATURES.md in the repo). Creates a verified copy locally, never talks to the instrument.
 
-_Sources: GitHub release v1.2.0_
+_Sources: GitHub release v1.2.0, README (2026-11-11)_
 
 ### SYXGRID v2
 
@@ -95,7 +95,7 @@ Source-only recipes for Digitone II firmware with six Digitakt II sample machine
 
 _Related: builds on `dn2-firmware-explore` (catalogue notes: builds on dnfw (pinned commit)); builds on `digikit` (catalogue notes: builds on digikit (pinned commit)); builds on `elektron-firmware-tool` (catalogue notes: builds on elektron-firmware-tool (pinned commit)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, releases/r012.json, releases/r022.json, docs/recorder.md, docs/browser.md, docs/research/2026-11-03.md, docs/research/2026-11-06-autosave.md, docs/samples.md_
+_Sources: GitHub README, releases/r012.json, releases/r022.json, docs/recorder.md, docs/browser.md, docs/research/2026-11-03.md, docs/research/2026-11-06-autosave.md, docs/samples.md, README (2026-11-11)_
 
 ### Request: D50-type PCM / sample machine
 
@@ -137,7 +137,7 @@ _Latest seen (2026-10-31, secondary directories): altstrument: OS 1.11 target; i
 
 _Related: builds on `elektron-firmware-tool` (README credit: container, transport, codec and integrity work stands on it); cites `digihealth` (README: the USB SysEx probe adapts the design of irpina/digihealth); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)); cites `dn2-cfw` (README: the frame-word census follows dn2-cfw's method (no code taken)); cites `octabam` (README: ColdFire disassembly findings / credits); cites `octa-bt-pt` (README: the patch model comes from octa-bt-pt) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list_
+_Sources: GitHub README, lapin-list, README (2026-11-11)_
 
 ### dn2-cfw
 
@@ -147,7 +147,7 @@ _Latest seen (2026-10-31, secondary directories): Renamed Digiwerk (altstrument;
 
 _Related: vendors `digikit` (catalogue notes: upstream cloned into vendor/ (author's fork, branch dn2-1.12)); vendors `elekloader` (catalogue notes: upstream cloned into vendor/ (author's fork, branch dn2-1.12)); cites `elektron-firmware-tool` (README credits); cites `syntakt-firmware-workbench` (README: the Syntakt Firmware Workbench as behavioural reference); cites `octabam` (README: ColdFire disassembly findings / credits); vendors `digitakt-ii-research` (README: Kari Gardarsson's Deja vu LFO from the Digitakt II, brought to the Digitone II) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list, https://github.com/naturarum/dn2-cfw/blob/466e28c5de2fc00d67c51d4a129a286f5be4a520/docs/release/digiwerk-0.3.0.md_
+_Sources: GitHub README, lapin-list, https://github.com/naturarum/dn2-cfw/blob/466e28c5de2fc00d67c51d4a129a286f5be4a520/docs/release/digiwerk-0.3.0.md, README (2026-11-11)_
 
 ### Elektroid
 
@@ -175,7 +175,7 @@ _Latest seen (2026-10-31, secondary directories): v0.34 TIMING: P-I voices that 
 
 _Related: builds on `dn2-firmware-explore` (docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698); cites `elektron-firmware-tool` (README credits); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, FIRMWARE.md, patcher web page, docs/ROADMAP.md_
+_Sources: GitHub README, FIRMWARE.md, patcher web page, docs/ROADMAP.md, README (2026-11-11)_
 
 ### digitone-2-modding-skill
 
@@ -243,7 +243,7 @@ Eight performance macros (PAGE+MOD), each moving up to four parameters on chosen
 
 _Related: mod for `elekloader` (README: built with elekloader); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### digitone-2-mod-hack
 
@@ -251,7 +251,7 @@ Selectable C synth (SINE, synth id 6) and LOWPASS filter mods for the Digitone I
 
 _Related: mod for `elekloader` (catalogue notes: mods "via elekloader / DigiHealth"); uses tool `digihealth` (README: build the C mods with DigiHealth); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### elkflash
 
@@ -271,7 +271,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Hardware battery mod for Digitone, Digitone II, Digitakt and Digitakt II (soldering; at your own risk). CC licence. Found by GitHub search 2026-11-02; README start read.
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### Tributary
 

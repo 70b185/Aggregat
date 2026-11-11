@@ -28,6 +28,8 @@
 #                  the loader on the website shows that entry, and its contents list each mod.
 #                  A mod that lives in a repo of its own gets an entry with `mod_for` instead.
 #   install        optional: how a user installs it, when no mod_for relation says so
+#   features       mods: the main things the mod does, a few short points in our own words, read from its README
+#                  (with "README (YYYY-MM-DD)" in sources); when the README changes, the daily update rereads it
 #   contains       optional: the named mods/modules inside a collection, as its repo lists them (with the date read)
 #   tested         mods and loaders: what the author (or a report we cite) says about tests -
 #                  unit (ran on a real device) | partly (some builds or parts on a unit, others not) |
@@ -223,7 +225,12 @@ projects:
     notes: Users ask for a Digitone version. Installed via elekloader.
     latest_seen: >
       altstrument: 0.7 needs the core 3.0 machine pages; OS 1.53/1.54.
-    sources: [forum thread 21, elekloader release v0.4.0]
+    features:
+      - "NEIGHBOR machine: a track plays another track's audio"
+      - "the borrowed audio runs through the track's own overdrive, filter, envelope and sends"
+      - "pitch shift of ±24 semitones that follows notes"
+      - "bit reduction and extra gain up to +31.5 dB"
+    sources: [forum thread 21, elekloader release v0.4.0, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/digitakt/modules/digineighbor names this repo as source (2026-11-09)'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "installed via elekloader"'}
@@ -250,7 +257,11 @@ projects:
       last_activity = Synthtopia article date.
     latest_seen: >
       altstrument: four models FUSE, BOOM, PIPE, SHARD, parameter-lockable; OS 1.53/1.54; MIT.
-    sources: [synthtopia, gearnews]
+    features:
+      - "SOPHIE metallic percussion machine"
+      - "models such as FUSE, BOOM, PIPE and SHARD"
+      - "wavefolder, metal, feedback, sweep and colour controls"
+    sources: [synthtopia, gearnews, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/digitakt/modules/digisophie names this repo as source (2026-11-09)'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "needs elekloader"'}
@@ -275,7 +286,12 @@ projects:
       Author says it is "done and as good as it's going to get" (2026-10-15). Uses a compile-time
       list of 64 preset words per knob. Earlier report: names did not survive a reboot (fix not
       confirmed). Users ask for a merge into Modwerk.
-    sources: [forum thread 66]
+    features:
+      - "your own 4-letter names for the CC knobs of MIDI tracks"
+      - "names on the FLTR and AMP pages, in pop-ups and as LFO destinations"
+      - "64-word list, editable when you build"
+      - "names saved with the kit"
+    sources: [forum thread 66, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: built as an elekloader linkable mod'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
@@ -297,7 +313,14 @@ projects:
     notes: >
       Module collection suggested in the CC-naming thread. Its cc-names module reportedly has
       memory/storage problems (per vegadw). Needs a closer look.
-    sources: [forum thread 66]
+    features:
+      - "MIDI retrig"
+      - "CC assignment names"
+      - "Euclidean sequencing"
+      - "RAM record and playback"
+      - "per-step note accumulator"
+      - "sample snap and crossfade"
+    sources: [forum thread 66, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: each mod is an Elekloader format-2 module'}
     - {type: mod_for, id: modwerk, evidence: 'README: each folder is laid out for Modwerk''s source builder'}
@@ -346,7 +369,13 @@ projects:
       is AGPL-3.0-or-later because it is modified firmware derived from digikit (its README and NOTICE say so). The All-in-One
       is built with digikit's patchkit: loader in the flash cave at `0x403117c4`, code in digikit's `cf.expansion` region
       `0x47e8b000-0x47fe0000` (see hardware/devices/digitakt-2.md, "Three Digitakt II mod routes").
-    sources: [forum threads 80 and 83, GitHub README, GitHub releases, all-in-one/README.md and NOTICE read 2026-11-02]
+    features:
+      - "waveform zoom up to 64x (Universal Zoom)"
+      - "automatic slice points (SmartSlice)"
+      - "record, chop, trim and save samples on the unit (SampleLAB)"
+      - "crossfade at the loop point in SLICE (CFADE)"
+      - "random-loop LFO waveforms (Déjà Vu, older editions)"
+    sources: [forum threads 80 and 83, GitHub README, GitHub releases, all-in-one/README.md and NOTICE read 2026-11-02, "README (2026-11-11)"]
     relations:
     - {type: builds_on, id: digikit, evidence: 'all-in-one/README.md: modified firmware derived from digikit; uses its patchkit'}
     - {type: vendors, id: elektron-firmware-tool, evidence: 'catalogue notes: elektron-firmware-tool (vendored)'}
@@ -371,7 +400,13 @@ projects:
       author: encoder acceleration, saving state at pattern level. Built with elekloader.
       The newer Tone+FX repo of the same author calls this "the older RingTone repo" (successor, see tone-fx).
       2026-11-09: mods/tonefx/mod.json bumped to Tone+FX 4.1a built against core-dn1 4.1, so this repo is where Tone+FX is developed.
-    sources: [GitHub release 2.0o]
+    features:
+      - "master effects: ring modulator, wavefolder, tilt EQ, bitcrusher"
+      - "pitch and stereo effects: wobble, shift, flanger, auto-pan, width"
+      - "delays (WRMZ, GRAINZ)"
+      - "one-knob macro pages: PERFORM, WASH, RADIO, DESTROY, SPACE"
+      - "level meter"
+    sources: [GitHub release 2.0o, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "built with elekloader"'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
@@ -405,7 +440,15 @@ projects:
       digitone-2-modding-skill used with Claude Code.
     latest_seen: >
       altstrument: v1.1 (2026-10-30) reworks GROOVE with presets, a random drift control, random weights and arrow-key editing, and restores FUNC + TEMPO as tap tempo; v1.0.1 (2026-10-29) fixes installing Elektron's OS or an Overtone update with Transfer while Overtone runs.
-    sources: [forum thread 90, GitHub README]
+    features:
+      - "SOPHIE, MACHINEDRUM, LOOP and THRU machines"
+      - "per-track insert effects"
+      - "envelope followers"
+      - "a second arpeggiator that works as a step modulator; an arpeggiator locked to the scale"
+      - "parameter slides; knobs show the value that is playing"
+      - "GROOVE: a step-by-step timing editor instead of swing"
+      - "instant pattern switching that keeps the place in the bar"
+    sources: [forum thread 90, GitHub README, "README (2026-11-11)"]
     relations:
     - {type: uses_tool, id: digikit, evidence: 'catalogue notes: checks run in digikit for the main OS'}
     - {type: cites, id: digisophie, evidence: 'README credits: Schwung Sophie for the SOPHIE machine'}
@@ -432,7 +475,11 @@ projects:
       previous one on the same track over about 2.7 ms. Physical qualification on Digitakt and Digitone is in progress
       (issue 94). docs/dn2-remote-control.md drives a DN2 1.12 remotely through a DigiHealth helper (remote keys, screen
       frames, ColdFire and DSP peek). Licence file not found in the clone. Found by GitHub code search 2026-11-03.
-    sources: [GitHub code search 2026-11-03, README, docs/dn2-remote-control.md]
+    features:
+      - "808 and 909 kick machine (MODEL 0 = 808, 127 = 909)"
+      - "tune, decay and attack controls"
+      - "plays through the device's own sequencer, filter, AMP and effects"
+    sources: [GitHub code search 2026-11-03, README, docs/dn2-remote-control.md, "README (2026-11-11)"]
 
   - id: motorcycles
     name: Motor:Cycles (rhythmic-noise firmware)
@@ -452,7 +499,13 @@ projects:
       steps 1-15 set the complexity, step 16 held generates; plus its own sound engines. Ships as a browser patcher that
       converts the user's own OS 1.13 file; the result is byte for byte the file the author tested on a real Model:Cycles.
       MIT. Same author and the same generator idea as DigiRust (Digitone II). Found by GitHub code search 2026-11-03.
-    sources: [GitHub code search 2026-11-03, README]
+    features:
+      - "generators for patches, kits, phrases and patterns"
+      - "complexity set with steps 1-15, generate by holding step 16"
+      - "scale and root for generated material"
+      - "about thirty sound recipes and seven kick types"
+      - "live breaks: beat repeat, half and double time, reverse, chops, rolls"
+    sources: [GitHub code search 2026-11-03, README, "README (2026-11-11)"]
     relations:
     - {type: bundles, id: modded-cycles, evidence: 'README: mods included from Modded-Cycles are part of Motor:Cycles'}
     - {type: cites, id: elektron-model-tweaks, evidence: 'README thanks: drumkilla''s mtlib firmware toolkit'}
@@ -476,7 +529,13 @@ projects:
       macOS patcher, "experimental Digitone II tools", use at own risk. Features include drone
       latch and Perform Kit restoration (see docs/FEATURES.md in the repo). Creates a verified
       copy locally, never talks to the instrument.
-    sources: [GitHub release v1.2.0]
+    features:
+      - "patch, kit, pattern and phrase generators (abstract, IDM, rhythmic noise, melodic)"
+      - "density and Brutality controls"
+      - "Control All macros: one knob gesture moves a parameter on every page"
+      - "drone latch"
+      - "Perform Kit restore"
+    sources: [GitHub release v1.2.0, "README (2026-11-11)"]
 
   - id: syxgrid
     name: SYXGRID v2
@@ -553,7 +612,14 @@ projects:
       Owner testing of R012 had used storage prepared during development. An earlier track-2 saved-project reload
       report was an unsaved checkpoint; R022 addresses a separate, reproduced failure to refresh the sample table
       in the unsaved working-state backup. This does not establish recovery from an interrupted write or USB freeze.
-    sources: [GitHub README, releases/r012.json, releases/r022.json, docs/recorder.md, docs/browser.md, docs/research/2026-11-03.md, docs/research/2026-11-06-autosave.md, docs/samples.md]
+    features:
+      - "six Digitakt II sample machines: ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE"
+      - "mono and stereo samples with waveform views"
+      - "slice editing and slice grids"
+      - "recorder: record and resample, normalise, trim, save"
+      - "sample manager for the +Drive"
+      - "class-compliant multichannel USB audio"
+    sources: [GitHub README, releases/r012.json, releases/r022.json, docs/recorder.md, docs/browser.md, docs/research/2026-11-03.md, docs/research/2026-11-06-autosave.md, docs/samples.md, "README (2026-11-11)"]
     relations:
     - {type: builds_on, id: dn2-firmware-explore, evidence: 'catalogue notes: builds on dnfw (pinned commit)'}
     - {type: builds_on, id: digikit, evidence: 'catalogue notes: builds on digikit (pinned commit)'}
@@ -583,7 +649,14 @@ projects:
       for a web version). Needs the user's own OS 1.41.
     latest_seen: >
       Upstream is Angelo-politek/Synthack-OS ("SyntHack OS", MIT, v0.9.0 on 2026-10-19: performance FX on all tracks replace beat repeat, quantized retrig, separate IN R page; v0.8.1 fixes boot crashes with sample projects; v0.8.0 adds the third send). This entry is the fork by karigardarsson, branded "Syntakt MAX": Modular Builder RC2 (2026-10-20) restores native MIDI parameter ownership for the third send, compressor and beat repeat; RC1 (2026-10-19) adds SY FM4 and per-feature selection; MAX 1.0 (2026-10-17) was a fixed seven-feature bundle. Brick-risk flag set on altstrument.
-    sources: ["forum threads 81 and 85"]
+    features:
+      - "master compressor"
+      - "dual mono input"
+      - "readable parameter values (Hz, dB, ms, %)"
+      - "beat repeat"
+      - "third send effect"
+      - "custom boot splash"
+    sources: ["forum threads 81 and 85", "README (2026-11-11)"]
     relations:
     - {type: fork_of, id: synthack-os-upstream, evidence: 'GitHub fork flag'}
     - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: tools/unpack wraps elektron-firmware-tool'}
@@ -663,7 +736,11 @@ projects:
     notes: Karplus-Strong plucked-string machine, elekloader mod. MIT, 13 commits.
     latest_seen: >
       altstrument: v0.8.0 adds OS 1.54 support; v0.7.0 adds STRING-fast.
-    sources: [GitHub README, lapin-list]
+    features:
+      - "STRING: Karplus-Strong plucked string machine"
+      - "exciter (pluck or bow), stiffness, position, tone and decay"
+      - "STRING-fast variant for more tracks with FAST AUDIO"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/digitakt/modules/digistring names this repo as source (2026-11-09)'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
@@ -688,7 +765,10 @@ projects:
       Note: the Tone+FX package list also names a digifilter-1.0 package.
     latest_seen: >
       altstrument: v1.3 adds a Digitone mk1/Keys build (six filter modes) and splits Filter+FX into its own project; v1.2 caps Digitakt OB resonance at 75 %; v1.1b lowers per-voice cost. Stock OS: Digitakt 1.54, Digitone 1.44. GPL-2.0-or-later.
-    sources: [GitHub README, lapin-list]
+    features:
+      - "extra filter modes: BP, BP2, COMB, TRASH, OB4, OB2"
+      - "harmonics and damping for COMB and TRASH"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: build needs elekloader 0.5+ and its cores'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
@@ -714,7 +794,11 @@ projects:
       author's emulator bench (2,603 cycles per voice and block; LP1 606, COMB 2,037). The FLTR page draws curves and
       icons for the new modes. Credits x2k_77-m1 for the original Digitone port. Source, host tests and digiemu tests
       published; GPL-2.0-or-later. Found by GitHub search 2026-11-02; README and CHANGELOG read.
-    sources: [GitHub README, CHANGELOG.md]
+    features:
+      - "13 extra filter types per track: band-pass, comb, notch, 1- and 4-pole low/high-pass and more"
+      - "all cheaper on the CPU than the stock filter"
+      - "uses each voice's own frequency, resonance and filter envelope"
+    sources: [GitHub README, CHANGELOG.md, "README (2026-11-11)"]
     relations:
     - {type: builds_on, id: digifilter, evidence: 'same author; BP/BP2/COMB/TRASH are DigiFilter modes; LICENSE names the DigiFilter authors'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader format-2 mods"'}
@@ -738,7 +822,12 @@ projects:
       knobs keep the stock FM slots, so p-locks, LFOs, MIDI CC and presets reach it. The repo ships only the compiled
       .elemod and its SHA-256, no source, although the README states GPL-2.0-or-later for its own code. Found by GitHub
       search 2026-11-02; README read.
-    sources: [GitHub README]
+    features:
+      - "DRUM+ one-shot percussion machine on the FM voice"
+      - "eight models: kick, snare, hat, bonk, tom, clap, metal, zap"
+      - "thump with pitch drop, noise and click, ring modulator"
+      - "sample-rate and bit reduction, wavefolder"
+    sources: [GitHub README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader machine mod'}
 
@@ -761,7 +850,11 @@ projects:
       releases/ folder of the repo (no tagged release). GPL-2.0, 13 commits.
     latest_seen: >
       altstrument: animated splashes, the stock rare animation, PNG/GIF generator; v1.0 was 2026-09-29.
-    sources: [GitHub README, lapin-list]
+    features:
+      - "custom boot splashes, also animated"
+      - "the rarely seen alternate stock boot animation"
+      - "make your own splash from a PNG or GIF"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
@@ -784,7 +877,15 @@ projects:
       Patch set with a POLY core, synth machines and utility pages. "Unofficial and unsupported".
       Hardware test state per README: v3r-all confirmed on a unit, v3p / v3q not yet tested, 2.0d build
       only checked in emulation. MIT for the author's code, 6 commits, 4 stars.
-    sources: [GitHub README, lapin-list]
+    features:
+      - "Digi Poly: chords on any audio track"
+      - "Digi Mono: seven synth machines"
+      - "Digi Macro: eight Plaits-style engines"
+      - "Digi Matrix: any track's LFO to any parameter, eight slots"
+      - "Digi Utilities: scope, spectrum, tuner"
+      - "Digi EQ: four-band master EQ"
+      - "Tone+FX master effects"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/digitakt/modules: digichain, digieq, digimatrix, digimono, digipoly, digiutils name this repo as source (2026-11-09)'}
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
@@ -809,7 +910,12 @@ projects:
       GPL-2.0-or-later, 5 commits. Also a "curated mod" in the elekloader shop.
     latest_seen: >
       altstrument: 2.5 replaces GRID with a STRETCH control; needs core 3.0+ and the machine-pages mod; OS 1.53/1.54.
-    sources: [GitHub README, lapin-list, elekloader release v0.2.0]
+    features:
+      - "DIGISLICER machine: SLICE with a slice editor"
+      - "slice by hand, on transients or on a grid"
+      - "slices are kept with the sample"
+      - "STRETCH: change a slice's length without changing its pitch"
+    sources: [GitHub README, lapin-list, elekloader release v0.2.0, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/digitakt/modules/digislicer names this repo as source (2026-11-09)'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: a curated mod in the elekloader shop'}
@@ -834,7 +940,11 @@ projects:
       not proofread. MIT (digihealth part GPL-2.0-or-later), 35 commits.
     latest_seen: >
       altstrument: eight algorithms, based on digisophie; v1.2.1 adds parameter locks on the SRC page; OS 1.53/1.54; MIT.
-    sources: [GitHub README, lapin-list]
+    features:
+      - "four-operator FM synth machine"
+      - "algorithm, ratio, level, attack, decay and character per operator"
+      - "parameter locks on the SRC page"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: builds_on, id: digisophie, evidence: 'notes'}
     - {type: mod_for, id: elekloader, evidence: 'README changelog: compatibility with other Elekloader mods'}
@@ -857,6 +967,8 @@ projects:
       2026-10-31: the repo no longer answers git requests (deleted or made private).
     latest_seen: >
       altstrument: recreates Machinedrum machines as playable engines, starting with TRX and PI; build from source; licence unspecified.
+    features:
+      - "Machinedrum-style drum sounds (early alpha)"
     sources: [GitHub README, lapin-list]
 
   - id: digigrain
@@ -873,7 +985,10 @@ projects:
     notes: >
       Granular playback engine. "Verified in the emulator on the real firmware", hardware tests still
       open (8 open issues, 1 open PR). 22 commits. License not stated.
-    sources: [GitHub README, lapin-list]
+    features:
+      - "granular playback machine"
+      - "grain rate, spread, position, length and envelope controls"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: built with elekloader'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
@@ -899,7 +1014,11 @@ projects:
       reports it over SysEx frames (declared limits, not observed peaks).
     latest_seen: >
       altstrument: FAST AUDIO runs hot code from SRAM to cut DSP load; v1.1.1 adds a Digitone build (targets 1.44).
-    sources: [GitHub README, lapin-list, elekloader release v0.4.0]
+    features:
+      - "FAST AUDIO: lower DSP load by running the audio code from on-chip memory"
+      - "SYSTEM INFO: CPU, DSP, RAM and free sample memory in the top bar"
+      - "remote key presses over USB, for testing"
+    sources: [GitHub README, lapin-list, elekloader release v0.4.0, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/digitakt and sdk/digitone modules: digihealth names this repo as source (2026-11-09)'}
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
@@ -918,7 +1037,11 @@ projects:
     version: "0.3.0 (build file name, no published release)"
     last_activity: null
     notes: Octave-band real-time analyzer. MIT, 1 commit.
-    sources: [GitHub README, lapin-list]
+    features:
+      - "real-time analyser: ten octave bands, 31 Hz to 16 kHz"
+      - "shows the main outputs or the inputs"
+      - "peak hold"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
 
@@ -937,7 +1060,9 @@ projects:
     notes: >
       Full-panel 128x64 image overlay on command. README: work in progress, "tested on real hardware -
       expect the occasional rough edge". GPL-2.0-or-later, 7 commits.
-    sources: [GitHub README, lapin-list]
+    features:
+      - "full-screen images and animations on a key combo"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: built for elekloader, needs its core mod'}
 
@@ -1002,7 +1127,12 @@ projects:
       Digitone; the 1.44 build (1.4) only in an emulator. GPL-2.0-or-later, 5 commits.
     latest_seen: >
       altstrument: 1.4 lets both LFOs move table speed and uses one source for 1.43 and 1.44.
-    sources: [GitHub README, lapin-list]
+    features:
+      - "M8-style pitch tables: 16 steps of semitone offsets with loop point"
+      - "16 tables per project"
+      - "table speed in clock ticks, with an LFO on the speed"
+      - "table editor on the trig keys"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/digitone/modules/digitables names this repo as source (2026-11-09)'}
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
@@ -1028,7 +1158,13 @@ projects:
       GPL-2.0, 4 commits.
     latest_seen: >
       altstrument: v3.2b separates WAVE pitch and stereo depths and splits fold from crush; v3.2a adds the PERFORM page.
-    sources: [GitHub README, lapin-list]
+    features:
+      - "master effects suite: ring modulator, wavefolder, tilt EQ, bitcrusher"
+      - "pitch and stereo effects"
+      - "DELAYS module (WRMZ, GRAINZ)"
+      - "one-knob macro pages"
+      - "level meter"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: unclear, id: ringtone, evidence: 'Tone+FX README calls RingTone "the older RingTone repo" (same author); successor or same project not stated. Was same_project until 2026-11-04 (raised in PR #3)'}
     - {type: mod_for, id: elekloader, evidence: 'README: a set of elekloader mods released as one suite'}
@@ -1051,7 +1187,13 @@ projects:
       program changes, expression pedal. GPL-2.0-or-later, 2 commits, 3 stars.
     latest_seen: >
       Renamed DigiSwarm (altstrument: v0.1.2, 2026-10-18; grain/micro-loop effects and looper). v0.2 (2026-10-18) adds a mixer, two LFOs and pattern-stored p-locks and drops presets. Repo now github.com/irpina/digiswarm (elektronmods lists it as "Digicosm - a Hologram Microcosm Inspired Effects Processor").
-    sources: [GitHub README, lapin-list]
+    features:
+      - "DigiSwarm: effects engine for the two audio inputs"
+      - "eleven engines with four variations each"
+      - "60-second looper with hold and reverse"
+      - "resonant filter, pitch modulation, reverb"
+      - "parameter locks and LFOs on the effect"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on fxkit (core-dn1 4.1)'}
     - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
@@ -1073,7 +1215,11 @@ projects:
       Emulator only, not on hardware. GPL-2.0-or-later, 1 commit.
     latest_seen: >
       Renamed DigiPrism (altstrument: v0.1.1, 2026-10-18; Digitone audio-input effects pedal, pre-release). v0.2 (2026-10-18) adds a mixer, two LFOs and pattern-stored p-locks and drops presets. Repo now github.com/irpina/digiprism.
-    sources: [GitHub README, lapin-list]
+    features:
+      - "DigiPrism: effects pedal for the audio inputs"
+      - "four reorderable modules (colour, motion, ambience, ...), five effects each"
+      - "parameter locks and LFOs on the effect"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on fxkit (core-dn1 4.1)'}
     - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
@@ -1198,7 +1344,10 @@ projects:
       built. Stock behaviour tested in digikit's emulator. GPL-2.0-or-later, 1 commit.
     latest_seen: >
       altstrument: v1.0 (2026-10-04), stock OS 1.17, GPL-2.0-or-later; contains perform-direct and perform-levels.
-    sources: [GitHub README, lapin-list]
+    features:
+      - "perform-direct: the PRESET key alone toggles PERFORM KIT"
+      - "perform-levels: track levels stay when you leave PERFORM KIT"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: uses_tool, id: digikit, evidence: 'catalogue notes: stock behaviour tested in digikit''s emulator'}
     - {type: mod_for, id: elekloader, evidence: 'README: elekloader mods for PERFORM KIT mode'}
@@ -1242,7 +1391,10 @@ projects:
     notes: Injects static logos or animated boot sequences into the user's own firmware. 6 commits, licence not stated.
     latest_seen: >
       altstrument: converts an image or animated GIF to the Digitakt II OLED format and injects it as a boot logo/animation into the user's OS 1.17 file.
-    sources: [GitHub README, lapin-list]
+    features:
+      - "custom boot logo or animation from a PNG, JPG, BMP or GIF"
+      - "builds a flashable OS file from your own"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: the build needs elektron-firmware-tool'}
     - {type: cites, id: digitakt-ii-splash-screens, evidence: 'README credits: the original splash research'}
@@ -1274,7 +1426,14 @@ projects:
       source read 2026-11-11).
     latest_seen: >
       altstrument: OS 1.11 target; includes the dnfw inspect/modify/rebuild tool, which also runs in the browser. Hardware-confirmed mods: lfo4, arpmodes, lfowaves, midiarp, layermidi, fxmod and the lfolength fix (2026-10-09, audio track). No GitHub releases - tags are work snapshots.
-    sources: [GitHub README, lapin-list]
+    features:
+      - "LFO4: a fourth LFO"
+      - "SHUF and RAND arpeggiator modes; arpeggiator on MIDI tracks"
+      - "LFOs on chorus, delay and reverb parameters; 13 more LFO destinations"
+      - "seven new LFO waveforms, three of them your own wavetables"
+      - "Waverider wavetable machine"
+      - "scale-degree transpose, transients, song guard and more"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: builds_on, id: elektron-firmware-tool, evidence: 'README credit: container, transport, codec and integrity work stands on it'}
     - {type: cites, id: digihealth, evidence: 'README: the USB SysEx probe adapts the design of irpina/digihealth'}
@@ -1317,7 +1476,14 @@ projects:
       Beads morph reverb that cost 87k-158k DSP instructions a block; MRB takes 19k-21k (stock reverb 14.6k). The test
       build EEEM (stock compressor, chorus and delay + MRB) also turns DSP faults into tones whose pitch names the
       fault; it waits for the author's unit. The spring reverb stays shelved after it lost the sound on the unit (I68).
-    sources: [GitHub README, lapin-list, 'https://github.com/naturarum/dn2-cfw/blob/466e28c5de2fc00d67c51d4a129a286f5be4a520/docs/release/digiwerk-0.3.0.md']
+    features:
+      - "3-band master compressor"
+      - "flanger, from phaser-like sweep to chorus"
+      - "tape echo with three heads"
+      - "spring reverb"
+      - "new LFO waves"
+      - "multichannel USB audio"
+    sources: [GitHub README, lapin-list, 'https://github.com/naturarum/dn2-cfw/blob/466e28c5de2fc00d67c51d4a129a286f5be4a520/docs/release/digiwerk-0.3.0.md', "README (2026-11-11)"]
     relations:
     - {type: vendors, id: digikit, evidence: 'catalogue notes: upstream cloned into vendor/ (author''s fork, branch dn2-1.12)'}
     - {type: vendors, id: elekloader, evidence: 'catalogue notes: upstream cloned into vendor/ (author''s fork, branch dn2-1.12)'}
@@ -1349,7 +1515,10 @@ projects:
       stock OS), and since 2.6 a pattern service that reads and edits trigs and locks through the firmware's own
       editors. Building needs an elekloader with `sharc_raw` support for the Digitakt II (a branch of gdeo607's
       elekloader fork, proposed upstream). Do not flash 2.4, 2.5 or 2.6: they crash the unit at boot (I67).
-    sources: [GitHub README 2026-11-10]
+    features:
+      - "shared base that the Digi2 machine mods need"
+      - "adds room for new machines, parameters and DSP voices; changes nothing on its own"
+    sources: [GitHub README 2026-11-10, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod (core 2.6.1)'}
     - {type: builds_on, id: elekloader, evidence: 'README: starts from core 1.0 (irpina''s boot copier and hook bus, unchanged)'}
@@ -1372,7 +1541,12 @@ projects:
       MACRO, a macro-oscillator machine (type 11): 25 synthesis models and four DX7 patch banks after Emilie Gillet's
       Plaits, with a graphical model selector and HARM, TIMBRE, MORPH and MIX. Its DSP object is built from digikit's
       Plaits module. The README still names core-dt2 2.4, which crashes a unit at boot; use Digi2Core 2.6.1.
-    sources: [GitHub README 2026-11-10]
+    features:
+      - "MACRO machine: 25 synthesis models after Plaits"
+      - "four DX7 patch banks"
+      - "HARM, TIMBRE, MORPH and MIX"
+      - "graphical model selector"
+    sources: [GitHub README 2026-11-10, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
     - {type: builds_on, id: digi2core, evidence: 'README: on core-dt2 2.4'}
@@ -1396,7 +1570,11 @@ projects:
       with a pitch sweep and a transient; the voices follow the open-source LXR drum machine firmware (Sonic Potions /
       Erica Synths). Two SRC pages; host tests render sounds and fuzz the voice. Not together with older LXR test
       builds (same machine type). The README still names core-dt2 2.4, which crashes a unit at boot; use 2.6.1.
-    sources: [GitHub README 2026-11-10]
+    features:
+      - "ELIXIR drum-synthesis machine after the LXR drum machine"
+      - "models: drum, snare, cymbal, hi-hat"
+      - "pitch sweep and transient (snap, click or noise) on every model"
+    sources: [GitHub README 2026-11-10, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
     - {type: builds_on, id: digi2core, evidence: 'README: core-dt2 2.4 (Digi2Core)'}
@@ -1419,7 +1597,11 @@ projects:
       Alez22's Karplus-Strong STRING machine from the Digitakt mk1, ported to the Digitakt II: bowed, struck,
       noise-excited or plucked, with stiffness, excitation position, softness and a note-tracking tone filter. 0.2.0
       makes STIFF and POS clearly audible, departing from the mk1 there. Needs Digi2Core 2.6.1 or later.
-    sources: [GitHub README 2026-11-10]
+    features:
+      - "STRING: Karplus-Strong string machine"
+      - "bowed, struck, noise-excited or plucked"
+      - "stiffness, position, softness, tone filter, decay time"
+    sources: [GitHub README 2026-11-10, "README (2026-11-11)"]
     relations:
     - {type: port_of, id: digistring, evidence: 'README: a floating-point port of Alez22''s karplus.c'}
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
@@ -1443,7 +1625,11 @@ projects:
       SOPHIE metallic percussion for the Digitakt II: Matt Estela's Sophie for Schwung, with PIPE and BOOM from soejrd's
       Sophie for Digitakt; FM and phase modulation with oscillator feedback, pitch sweep, bit crusher, drive and a
       resonant ring. Needs Digi2Core 2.6.1 or later. Overtone runs SOPHIE on the Digitone II.
-    sources: [GitHub README 2026-11-10]
+    features:
+      - "SOPHIE metallic percussion machine"
+      - "seven models: FUSE, STACK, SPLIT, SHARD, PIPE, BOOM, KICK"
+      - "FM with feedback, pitch sweep, bit crusher, drive, resonant ring"
+    sources: [GitHub README 2026-11-10, "README (2026-11-11)"]
     relations:
     - {type: port_of, id: digisophie, evidence: 'README: PIPE and BOOM from Sophie for Digitakt by soejrd'}
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
@@ -1469,7 +1655,13 @@ projects:
       instead of its trigs - SNAKE (a path through a 4 x 2 grid), 185 (stage sequencer after ML-185), ARP (played by
       the track's own note trigs) and PRINT (writes the result as real trigs, with undo). Uses Digi2Core's pattern
       service; needs core 2.6.1 or later.
-    sources: [GitHub README 2026-11-10]
+    features:
+      - "per-track sequencer types that play instead of the trigs, on all 16 tracks"
+      - "SNAKE: a path through a 4 x 2 grid"
+      - "185: stage sequencer after the ML-185"
+      - "ARP: arpeggiator played by the track's note trigs"
+      - "PRINT: writes the result as real trigs"
+    sources: [GitHub README 2026-11-10, "README (2026-11-11)"]
     relations:
     - {type: port_of, id: digiseq-digitakt, evidence: 'README: DIGISEQ for Digitakt by Robbie (ClaidArremer), adapted'}
     - {type: mod_for, id: elekloader, evidence: 'README: built with elekloader'}
@@ -1491,7 +1683,11 @@ projects:
     notes: >
       Browser workbench, use your own official file; put your own waves into SY CHORD. In progress:
       safer test loop that runs program-code changes in an emulator before hardware. MIT, 8 commits.
-    sources: [GitHub README, lapin-list]
+    features:
+      - "replace the waves of SY CHORD with your own single-cycle WAV files"
+      - "make chord waves"
+      - "works in the browser on your own OS file"
+    sources: [GitHub README, lapin-list, "README (2026-11-11)"]
     relations:
     - {type: cites, id: elektron-firmware-tool, evidence: 'README credits'}
     - {type: uses_tool, id: digikit, evidence: 'README: checks or gates run in digikit''s emulator (not shipped)'}
@@ -1621,7 +1817,13 @@ projects:
       comparison with heavylight's Capicola time-stretch. The roadmap also plans to read Aggregat (export DB, research map)
       before new DN2 work.
       2026-11-09: FASCIA (modal percussion) was built and pulled for size, planned for v0.48; FLEX is to replace BOUNCE; Capicola is on hold at its author's request.
-    sources: [GitHub README, FIRMWARE.md, patcher web page, docs/ROADMAP.md]
+    features:
+      - "Digitakt II sample machines: ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE"
+      - "sample browser and recorder"
+      - "PERC: 34 Machinedrum machines (TRX, EFM, GND, P-I)"
+      - "Monomachine voices, polyphonic: SID 6581, DPRO WAVE, DDRW, DENS, VO-6"
+      - "CPU guard that keeps the unit responsive"
+    sources: [GitHub README, FIRMWARE.md, patcher web page, docs/ROADMAP.md, "README (2026-11-11)"]
     relations:
     - {type: builds_on, id: dn2-firmware-explore, evidence: 'docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698'}
     - {type: cites, id: elektron-firmware-tool, evidence: 'README credits'}
@@ -1789,7 +1991,14 @@ projects:
       A git hook (tools/hooks) blocks firmware files from commits - a practice worth copying. README: seven mods running on real hardware (v0.8.0);
       RECOVERY.md exists. Planned: PIN lock, new LFO shapes, 3rd LFO/mod matrix, arpeggiator, resampling, new machines (RISER/DOWNFILTER, SY SWARM+),
       web builder. MIT, 66 commits, 9 stars. Brick-risk flag set on altstrument. Fork "Syntakt MAX" is the synthack-os entry.
-    sources: [GitHub README, altstrument Syntakt page]
+    features:
+      - "bus compressor with meter"
+      - "dual mono input"
+      - "readable parameter values (Hz, dB, ms, %)"
+      - "performance effects incl. beat repeat"
+      - "third send effect: chorus, flanger, phaser or crusher"
+      - "custom boot splash"
+    sources: [GitHub README, altstrument Syntakt page, "README (2026-11-11)"]
     relations:
     - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: tools/unpack wraps elektron-firmware-tool'}
 
@@ -1809,7 +2018,11 @@ projects:
     notes: >
       Four-operator FM machine that replaces SY TONE in place; eleven operator algorithms and a second parameter page. Build from source.
       MIT. Brick-risk flag set on altstrument. Syntakt MAX integrates an SY FM4 engine for 1.41 (see synthack-os).
-    sources: [altstrument Syntakt page]
+    features:
+      - "SY FM4: four-operator FM in place of SY TONE"
+      - "eleven FM algorithms; ALGO 0 is the stock SY TONE"
+      - "second SYN page with per-operator ratio, level and decay"
+    sources: [altstrument Syntakt page, "README (2026-11-11)"]
     relations:
     - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: the build needs elektron-firmware-tool'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
@@ -1919,7 +2132,11 @@ projects:
     version: null
     last_activity: 2026-10-24
     notes: SRC machine for Digitakt mk1 built on elekloader, played from the Chromatic keyboard; listed on elektronmods 2026-10-24. POOL machine (version string DPLS) over the project's RAM sample slots 1..127 played from the Chromatic keyboard; recorded trigs get a SAMP lock; digipools-1.0.elemod; C; 2 stars.
-    sources: [elektronmods list]
+    features:
+      - "POOL machine: play the project's samples from the chromatic keyboard"
+      - "each key plays another sample slot"
+      - "recorded trigs keep their sample as a lock"
+    sources: [elektronmods list, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "built on elekloader"'}
 
@@ -1938,6 +2155,8 @@ projects:
     version: null
     last_activity: null
     notes: Turns one step's parameter locks into a saveable sound; Digitone mk1 and Keys; listed as not on GitHub. AvroraPolnareff also has an elekloader fork with Analog Four MKII proof-of-concept work.
+    features:
+      - "turns one step's parameter locks into a sound you can save"
     sources: [elektronmods list]
 
   # ---------------------------------------------------------------- Phase 2 devices (imported 2026-11-01 from altstrument, facts only, notes our own)
@@ -1971,9 +2190,14 @@ projects:
     base_os: 1.73 (Rytm), 1.56 (Keys); not 1.74
     notes: 'Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog
       Keys OS 1.56 (chord memory, joystick random). Not OS 1.74, not Analog Four. Licence: GPL-3.0-or-later; distribution:
-      browser-installer. Listed by altstrument; repo not read by us yet.'
+      browser-installer. Listed by altstrument.'
+    features:
+      - "Rytm: CHOP with step locks"
+      - "Rytm: sample focus and per-track low and high cuts"
+      - "Analog Keys: chord memory and joystick random"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     links:
       homepage: https://chopshop-synth.pages.dev/
     relations:
@@ -2029,9 +2253,13 @@ projects:
     last_activity: '2026-10-13'
     notes: 'RE notes for Rytm MKII OS 1.74 (container, boot, display) and a tiny from-source replacement OS that boots
       on a unit, plus same-size splash and LED-palette patches. Recovery only over DIN MIDI. Licence: unspecified;
-      distribution: source-only. Listed by altstrument; repo not read by us yet.'
+      distribution: source-only. Listed by altstrument.'
+    features:
+      - "replacement OS built from source that boots on a Rytm MKII"
+      - "same-size boot splash and LED colour patches"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     relations:
     - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: it unpacks and repacks the OS'}
 
@@ -2058,8 +2286,16 @@ projects:
       (device-wide setting); 0018 lets a scene store track mutes (SCENE held, FUNC + trig), kept per kit in the
       project. Its re/subsystems notes (control inputs, scenes and mutes, the "loosened" kit and sound bytes) are
       folded into hardware/devices/analog-rytm.md.'
+    features:
+      - "Euclidean generator places accents instead of trigs"
+      - "per-track random velocity"
+      - "random LFO modifiers on a second LFO page"
+      - "compressor gain-reduction display and output meter"
+      - "filter frequency in Hz"
+      - "kit A/B toggle, slice loop, control-all and more"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     relations:
     - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: fetched and built into vendor/ by setup, not shipped'}
     - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/analog-rytm-mkii/modules ctrl-in-perf and scene-mutes name mods/0017-ctrl-in-perf and mods/0018-scene-mutes of this repo as source'}
@@ -2078,8 +2314,15 @@ projects:
     notes: 'Port of the rytm-mods to Rytm MK1 OS 1.73 (per-track cuts, random LFO, euclid accents, humanise); also
       emits elekloader .elemod files. Licence: unspecified; distribution: patch-your-own. Listed by altstrument; repo
       not read by us yet.'
+    features:
+      - "Euclidean accents"
+      - "velocity humanise"
+      - "random LFO modifiers"
+      - "per-track low and high cut (SMP CUT)"
+      - "compressor gain-reduction preview"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     relations:
     - {type: port_of, id: rytm-mods-src, evidence: 'README: port of the MKII project to the MK1'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: emits elekloader .elemod files'}
@@ -2097,9 +2340,16 @@ projects:
     last_activity: '2026-10-09'
     notes: 'Custom Machinedrum OS (independent track lengths/speeds, trig conditions, microtiming, 128 kits, many
       MDX-derived fixes), patched in the browser from your OS file. Patcher only, no source. Licence: unspecified;
-      distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
+      distribution: patch-your-own. Listed by altstrument.'
+    features:
+      - "independent track lengths and speeds"
+      - "trig conditions"
+      - "microtiming"
+      - "128 kits"
+      - "many fixes taken from MDX"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     links:
       homepage: https://www.junes.website/goodies/fw-patcher
   - id: fsdsp56k
@@ -2159,9 +2409,14 @@ projects:
     last_activity: '2026-10-19'
     notes: 'Browser tool adding extra sound models next to the stock machines of a Machinedrum OS you load (1.63,
       X.14, 26A09 beta, MDX X.20 B). Licence: GPL-3.0-or-later; distribution: browser-installer. Listed by altstrument;
-      repo not read by us yet.'
+      README read 2026-11-11.'
+    features:
+      - "adds new sound models next to every stock Machinedrum machine"
+      - "pick machines by category and arrange the machine menu"
+      - "builds and sends the OS update from the browser"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     links:
       homepage: https://kitbasher.xyz
   - id: machinedrum-kit
@@ -2181,8 +2436,13 @@ projects:
     notes: 'RE docs for Machinedrum OS 1.63 with a Python toolkit, headless emulator and example DSP machines to build
       into your own image. Licence: GPL-3.0-only; distribution: source-only. Listed by altstrument; repo not read
       by us yet.'
+    features:
+      - "documentation and toolkit for building your own Machinedrum machines"
+      - "example DSP machines"
+      - "emulator to try them without a unit"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     relations:
     - {type: uses_tool, id: gearmulator-md-mm, evidence: 'README: checks out joelanders/gearmulator-md-mm at a pinned commit'}
 
@@ -2225,9 +2485,13 @@ projects:
     version: main @ c446179 (2026-10-09)
     last_activity: '2026-10-09'
     notes: 'Machine Dump Standard: spec, example DSP machines and Python packers for custom machines in the USR slots
-      of MDX 2.0. Licence: unspecified; distribution: source-only. Listed by altstrument; repo not read by us yet.'
+      of MDX 2.0. Licence: unspecified; distribution: source-only. Listed by altstrument.'
+    features:
+      - "Machine Dump Standard: install new DSP machines into the USR slots of MDX X.20"
+      - "example machines and packers"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
   - id: rytmrandomizer
     name: RytmRandomizer
     author: buzzijose-hub
@@ -2280,6 +2544,10 @@ projects:
     last_activity: '2026-10-09'
     notes: 'Extended Machinedrum OS (bigger sequencer, new machines, MIDI additions), shipped as ready-made SysEx.
       Binary only. Licence: unspecified; distribution: download. Listed by altstrument; repo not read by us yet.'
+    features:
+      - "extended Machinedrum OS: bigger sequencer"
+      - "new machines"
+      - "MIDI additions"
     sources:
     - altstrument (2026-11-01)
     links:
@@ -2297,9 +2565,15 @@ projects:
     version: main @ ab92ccf (2026-10-15)
     last_activity: '2026-10-15'
     notes: 'Four user-machine families for MDX X.20 B: slicer, time stretcher, granulator, modulation effect. Licence:
-      unspecified; distribution: download. Listed by altstrument; repo not read by us yet.'
+      unspecified; distribution: download. Listed by altstrument.'
+    features:
+      - "user machines for MDX X.20: slicer"
+      - "time stretcher"
+      - "granulator"
+      - "modulation effect"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
   - id: 1-bit-editor
     name: 1-Bit Editor
     author: durchgemacht
@@ -2334,9 +2608,17 @@ projects:
     last_activity: '2026-10-07'
     notes: 'Turns the trig keys into a scale-locked chord keyboard on a CHORD track (Model:Cycles 1.13); later versions
       add harmony pads and MIDI chord out. Licence: unspecified; distribution: source-only. Listed by altstrument;
-      repo not read by us yet.'
+      README read 2026-11-11.'
+    features:
+      - "6-channel USB audio, one channel per track"
+      - "Syntakt engines as extra machines"
+      - "Model-TG sampler machine"
+      - "arpeggiator"
+      - "tempo up to 546 BPM"
+      - "chord keyboard on the trig keys"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     links:
       homepage: https://18nelli18.github.io/Modded-Cycles/
     relations:
@@ -2356,6 +2638,8 @@ projects:
     notes: 'Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). Choose which of the six tracks follow Control All (Model:Cycles 1.13). Licence: MIT; distribution: patch-your-own.
       Old projects migrate their Parts to the first 64 kits; going back to stock may lose kit data. The kits cost
       ~3.6 % of the flex pool. README read 2026-11-02.'
+    features:
+      - "choose which tracks follow Control All"
     sources:
     - altstrument (2026-11-01)
     relations:
@@ -2376,6 +2660,9 @@ projects:
     last_activity: "2026-11-02"
     notes: 'Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). SAMPLE as a seventh Model:Cycles machine playing one-shots from the +Drive, with a browser uploader. Licence:
       MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
+    features:
+      - "SAMPLE machine that plays one-shots from the internal storage"
+      - "browser uploader for the samples"
     sources:
     - altstrument (2026-11-01)
     relations:
@@ -2416,8 +2703,16 @@ projects:
       file for its engines): sampler, Syntakt engines, Braids and Open303 machines, extra LFOs, arp, 6-ch USB audio.
       Experimental on Model:Samples. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not
       read by us yet.'
+    features:
+      - "Sampler machine with seven playback modes"
+      - "five Syntakt engines as extra machines"
+      - "MACRO (Braids) and ACID (303-style) machines"
+      - "four LFOs per track"
+      - "arpeggiator and step record"
+      - "tempo up to 546 BPM; 6-channel USB audio"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     links:
       homepage: https://18nelli18.github.io/Modded-Cycles/
     relations:
@@ -2442,9 +2737,17 @@ projects:
     version: v1.1.0 (2026-10-02)
     last_activity: '2026-10-02'
     notes: 'Sampler as a seventh Model:Cycles machine (one-shot, loop, slice, granular, stretch, wavetable), resampling,
-      master FX. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
+      master FX. Licence: MIT; distribution: patch-your-own. Listed by altstrument.'
+    features:
+      - "Sampler machine: one shot, loop, slice, granular, stretch, wavetable"
+      - "slicing by grid, transients or your own markers"
+      - "resampling of a track, the output or USB audio"
+      - "stereo samples"
+      - "beat repeat with twelve master effects"
+      - "attack, filter and resonance on all machines"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     relations:
     - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: it unpacks and repacks the OS'}
     - {type: bundles, id: elektron-model-tweaks, evidence: 'README: includes drumkilla''s tweaks (latching mute, trig preview)'}
@@ -2462,9 +2765,13 @@ projects:
     base_os: '1.13'
     version: "release 0.56 (2026-11-09): fifteen cards in the web flasher, all tested on a Model:Cycles as the page builds them; new CHORD Tables (the CHORD machine plays the user's own wavetables from the +Drive, one per pattern) and a Wavetables page"
     last_activity: "2026-11-10"
-    notes: "Repo was offline 2026-11-07 to 11-09 (check_updates 2026-11-08); public again on 2026-11-09 (altstrument and SPOKES change reports; README read 2026-11-10). Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: a web Manager keeps one Model:Cycles project per firmware: it backs up the current project, flashes the other firmware over USB and restores that firmware's project (notes/77)."
+    notes: "Repo was offline 2026-11-07 to 11-09 (check_updates 2026-11-08); public again on 2026-11-09 (altstrument and SPOKES change reports; README read 2026-11-10). Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument. 2026-11-02: a web Manager keeps one Model:Cycles project per firmware: it backs up the current project, flashes the other firmware over USB and restores that firmware's project (notes/77)."
+    features:
+      - "added machines you can combine freely in the browser builder"
+      - "the builder checks that the chosen mods fit together"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     links:
       homepage: https://durchgemacht.github.io/model27/flasher/
     relations:
@@ -2490,9 +2797,13 @@ projects:
     tested: emulator
     base_os: '1.13'
     notes: 'Plaits engines in fixed point as a Model:Cycles machine; emulator only so far. Licence: MIT; distribution:
-      source-only. Listed by altstrument; repo not read by us yet.'
+      source-only. Listed by altstrument.'
+    features:
+      - "PLAITS machine: eleven Plaits engines (FM, VA, chords, swarm, modal, string, 6-op, ...)"
+      - "engine choice can be locked per step"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     relations:
     - {type: builds_on, id: digi1-mods, evidence: 'README: the base is MACRO from gdeo607/digi1_mods'}
     - {type: builds_on, id: modded-cycles, evidence: 'README: clone the Modded-Cycles fork with the PLAITS files'}
@@ -2512,9 +2823,14 @@ projects:
     version: "main @ f712595 (2026-11-09)"
     last_activity: "2026-11-09"
     notes: 'Browser hub that builds a chosen Model:Cycles community firmware from your OS 1.13 file and sends it over
-      Web MIDI. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.'
+      Web MIDI. Licence: MIT; distribution: browser-installer. Listed by altstrument.'
+    features:
+      - "browser flasher that picks one Model:Cycles community firmware"
+      - "builds it from your own OS 1.13 file"
+      - "saves or installs it over Web MIDI"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     links:
       homepage: https://aveycole.github.io/SPOKES/
     relations:
@@ -2541,9 +2857,17 @@ projects:
     base_os: '1.13'
     version: "3.06 (2026-11-06; 2026-11-08 fixes to the Optional edition's machine exclusions)"
     last_activity: "2026-11-08"
-    notes: "Fork of Modded Cycles with a 909-style kit flasher, ACID machine, sequence generator, second LFO. Licence: unspecified; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: more screenshots of the running firmware added to docs/assets/screens. 2026-11-03: release 3.02 documented (shortcut guide, printable manual, English and French); playback modes One-Shot, Loop, Slice, Granular, Stretch, Pluck, Wavetable."
+    notes: "Fork of Modded Cycles with a 909-style kit flasher, ACID machine, sequence generator, second LFO. Licence: unspecified; distribution: browser-installer. Listed by altstrument. 2026-11-02: more screenshots of the running firmware added to docs/assets/screens. 2026-11-03: release 3.02 documented (shortcut guide, printable manual, English and French); playback modes One-Shot, Loop, Slice, Granular, Stretch, Pluck, Wavetable."
+    features:
+      - "Sample Wizard sampler machine with sample preview"
+      - "Syntakt engines, MACRO and ACID machines"
+      - "per-track filter"
+      - "sequence generator"
+      - "extra LFOs, arpeggiator, tempo up to 546 BPM"
+      - "6-channel USB audio; silent track selection"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     links:
       homepage: https://aveycole.github.io/Supermodel/flasher-supermodel-909/
     relations:
@@ -2584,8 +2908,15 @@ projects:
     notes: 'Web flasher and CLI tweaks for Model:Samples and Model:Cycles 1.13 (16-ch USB audio, latching mute, trig
       preview, stereo samples on M:S). Licence: MIT; distribution: browser-installer. Listed by altstrument; repo
       not read by us yet.'
+    features:
+      - "latching mute"
+      - "trig preview while stopped"
+      - "scrolling sound names"
+      - "16-channel USB audio"
+      - "stereo samples on the Model:Samples"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     links:
       homepage: https://drumkilla.github.io/elektron-model-tweaks/flasher/
     relations:
@@ -2607,9 +2938,12 @@ projects:
     tested_note: "README: the Model:Samples and cross-flash targets verified on hardware; the Model:Cycles target never flashed (read 2026-11-11)"
     base_os: '1.13'
     notes: 'Six channels of per-track USB audio for Model:Samples and Model:Cycles; patch sources and build script
-      only. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
+      only. Licence: MIT; distribution: patch-your-own. Listed by altstrument.'
+    features:
+      - "six USB audio channels, one per track (instead of the stereo mix)"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     relations:
     - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: it unpacks and repacks the OS'}
     - {type: cites, id: octamax, evidence: 'README credits: reverse-engineering method'}
@@ -2629,8 +2963,14 @@ projects:
     notes: 'Custom Monomachine OS 1.32B (per-track lengths/speeds, trig conditions, song/pattern workflow, bug fixes),
       patched in the browser. Patcher only. Licence: unspecified; distribution: patch-your-own. Listed by altstrument;
       CHANGELOG read 2026-11-10. Upgrade hazards (26B09): old whole-bank BBOX .syx backups are no longer accepted (convert on 26A09 first), P2/P7 conditions become 25 %/75 %, the firmware is compressed so boot is slower.'
+    features:
+      - "independent track lengths and speeds"
+      - "trig conditions"
+      - "reworked song and pattern workflow"
+      - "bug fixes"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     links:
       homepage: https://www.junes.website/goodies/fw-patcher
   - id: monomodule
@@ -2665,9 +3005,13 @@ projects:
     tested: not-stated
     base_os: 1.40C
     notes: 'Replaces four Parts per bank with 256 kits per project (OS 1.40C). Licence: MIT; distribution: patch-your-own.
-      Listed by altstrument; repo not read by us yet.'
+      Listed by altstrument.'
+    features:
+      - "256 kits per project instead of 4 parts per bank"
+      - "old projects' parts move to the first kits"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
   - id: midisc-patcher
     name: midisc-patcher
     author: bkkbrls-del
@@ -2683,9 +3027,13 @@ projects:
     version: main @ 1ce2245 (2026-09-18)
     last_activity: '2026-09-18'
     notes: 'Browser patcher for the frozen 1.40MIDISC8.1 Octatrack OS (MIDI scene locks) from your OS 1.40C file.
-      Licence: unspecified; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
+      Licence: unspecified; distribution: patch-your-own. Listed by altstrument.'
+    features:
+      - "builds the 1.40MIDISC8.1 OS (MIDI scene locks) from your own OS 1.40C"
+      - "runs entirely in the browser"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     relations:
     - {type: builds_on, id: midisc, evidence: 'README: patcher for the 1.40MIDISC build'}
   - id: midisc
@@ -2702,9 +3050,12 @@ projects:
     version: MIDISC2.1 (2026-10-08)
     last_activity: '2026-10-08'
     notes: 'MIDI scene locks for Octatrack OS 1.40C. Licence: MIT; distribution: patch-your-own. Listed by altstrument;
-      repo not read by us yet.'
+      README read 2026-11-11.'
+    features:
+      - "MIDI scene locks"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: octabam, evidence: 'README: built as octabam modules / with the octabam remixer'}
 
@@ -2749,8 +3100,16 @@ projects:
     notes: 'Modular Octatrack OS 1.40C "remixer": bus and track effects, FM synth machine, 255 kits, USB audio/MIDI,
       stock bug fixes. Base of Modwerk. Licence: MIT; distribution: patch-your-own. Listed by altstrument; README, CHANGELOG and contributing docs read 2026-11-10. 2026-11-03: new midi-follow module (docs/site/usage/midi-follow.md, a test remix); not read
       further. 2026-11-10: WAVE (wavecf) is a 4-voice wavetable machine on the ColdFire, reduced from CHOMPI WAVE, heard on an MKII in builds W1-W6 (I58); XF CURVE offers 13 crossfader curves, run on a contributor''s MKII on 2026-11-06; KEYBUS publishes each track''s block peak for side-chain keys (make check only); a demand-loader soak with STEM REC froze an MKII (I57, open).'
+    features:
+      - "choose from a library of modules and build your own Octatrack OS"
+      - "bus and track effects (delays, compressors, filters, ...)"
+      - "synth and drum machines (FM, 303, analog-style bass drum, ...)"
+      - "255 kits"
+      - "USB audio and MIDI"
+      - "fixes for stock bugs"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     links:
       homepage: https://modwerk.app/
     relations:
@@ -2794,8 +3153,15 @@ projects:
     last_activity: "2026-11-09"
     notes: 'RE toolkit for Octatrack MKII OS 1.40C plus opt-in behaviour patches (lazy part transitions, arp scales,
       slice playhead, 256 static slots). Licence: unspecified; distribution: patch-your-own. Listed by altstrument. 2026-11-09 (README, NOTES): 2g adds PTN restart ([PTN] + the playing pattern''s trig restarts it at the next CHAIN BEHAVIOR window); 2f fixes the AUDIO EDITOR key (SB17); 2h moves patch state into DDR after state in a stock task''s buffer silenced tracks (I59); lazy transitions also cover Part changes within a bank.'
+    features:
+      - "lazy part transitions: sounding tracks keep playing"
+      - "no countdown on bank and pattern select"
+      - "ten more arpeggiator scales"
+      - "slice playhead"
+      - "256 static sample slots"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     relations:
     - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: fetched and built into vendor/ by setup, not shipped'}
 
@@ -2811,9 +3177,13 @@ projects:
     tested_note: "README: played on an MKII in test images; not stress-tested (read 2026-11-11)"
     base_os: 1.40C
     notes: 'Octabam module with playhead modes (reverse, ping-pong, random, shuffle) per track or shared. Licence:
-      MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
+      MIT; distribution: patch-your-own. Listed by altstrument.'
+    features:
+      - "playhead modes: normal, reversed, two ping-pong kinds, random, shuffle"
+      - "one mode for all tracks or one per track, audio and MIDI"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: octabam, evidence: 'README: built as octabam modules / with the octabam remixer'}
 
@@ -2829,9 +3199,15 @@ projects:
     base_os: 1.40C
     version: "KYOTI V1.7 + RELOAD_FROM_PROJECT (final 2026-11-09, flashed on the author's MKI)"
     last_activity: "2026-11-10"
-    notes: "Feature and fix builds keeping the stock feel: mute modes, pattern jump, sidechain compressor, varispeed, repitch. Tested on an MKI. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet. 2026-11-02: MUTE_MODES KEYHOLD fixes octabam#934: with SIDECHAIN_COMPRESSOR a muted track that had been the KEY played again once KEY moved away; held tracks now keep the post-FX cut until unmuted. Confirmed on an Octatrack MKI. 2026-11-09: RELOAD_FROM_PROJECT reloads one track's slice of the Part from the card ([BANK] + [TRACK n]) or a whole pattern ([PTN] + [BANK] + trig), landing on the next step while playing; a click from a copy with interrupts masked was fixed on the unit (I60); the REC_TRIG_MUTE fix was confirmed on hardware. 2026-11-10: octabam's HOOKS chain lets RELOAD_FROM_PROJECT and FREE LOOP share their UI-tick site in one image (emulator-checked, not flashed)."
+    notes: "Feature and fix builds keeping the stock feel: mute modes, pattern jump, sidechain compressor, varispeed, repitch. Tested on an MKI. Licence: MIT; distribution: patch-your-own. Listed by altstrument. 2026-11-02: MUTE_MODES KEYHOLD fixes octabam#934: with SIDECHAIN_COMPRESSOR a muted track that had been the KEY played again once KEY moved away; held tracks now keep the post-FX cut until unmuted. Confirmed on an Octatrack MKI. 2026-11-09: RELOAD_FROM_PROJECT reloads one track's slice of the Part from the card ([BANK] + [TRACK n]) or a whole pattern ([PTN] + [BANK] + trig), landing on the next step while playing; a click from a copy with interrupts masked was fixed on the unit (I60); the REC_TRIG_MUTE fix was confirmed on hardware. 2026-11-10: octabam's HOOKS chain lets RELOAD_FROM_PROJECT and FREE LOOP share their UI-tick site in one image (emulator-checked, not flashed)."
+    features:
+      - "mute modes, incl. Digitakt-style with ringing tails"
+      - "direct pattern jump"
+      - "sidechain compressor with key listen"
+      - "varispeed and repitch"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     relations:
     - {type: cites, id: octamax, evidence: 'README: builds on or credits octamax''s reverse engineering (passos: facts only, nothing copied)'}
     - {type: cites, id: octabam, evidence: 'README: credits octabam'}
@@ -2872,9 +3248,17 @@ projects:
     last_activity: '2026-09-26'
     notes: 'Four octabam additions for OS 1.40C (two-op FM machine, scale quantizer, pattern jump, tuner) plus USB
       MIDI and 20-ch USB audio; MKI hardware-tested builds. Licence: MIT; distribution: patch-your-own. Listed by
-      altstrument; repo not read by us yet.'
+      altstrument.'
+    features:
+      - "FM SYNTH: two-operator FM machine"
+      - "scale quantiser with glide"
+      - "direct pattern jump"
+      - "tuner"
+      - "SY DRUM drum machine"
+      - "processor load display; USB MIDI and 20-channel USB audio"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: octabam, evidence: 'README: built as octabam modules / with the octabam remixer'}
     - {type: cites, id: octamax, evidence: 'README: builds on or credits octamax''s reverse engineering (passos: facts only, nothing copied)'}
@@ -2913,9 +3297,14 @@ projects:
     version: v1.0 (2026-09-28)
     last_activity: '2026-09-28'
     notes: 'Octatrack MK1 mod: 36 Digitone II scales on MIDI tracks and a STOP guard; nothing on the DSP. Licence:
-      MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.'
+      MIT; distribution: patch-your-own. Listed by altstrument.'
+    features:
+      - "the 36 Digitone II scales on MIDI tracks"
+      - "scale lock on the note page"
+      - "STOP guard against stopping by accident"
     sources:
     - altstrument (2026-11-01)
+    - "README (2026-11-11)"
     relations:
     - {type: builds_on, id: octabam, evidence: 'README'}
     - {type: cites, id: octamax, evidence: 'README: builds on or credits octamax''s reverse engineering (passos: facts only, nothing copied)'}
@@ -2938,9 +3327,16 @@ projects:
       VA and GRAIN on Digitone), a tagged sound library, 34 insert effects in three serial slots per track. README:
       public-testing build, not qualified on hardware, CPU target not reached. No licence file seen. Found by GitHub
       search 2026-11-02; README start read.'
+    features:
+      - "Digitakt: eight DigiMono machines and MACRO engines"
+      - "Digitone: VA and GRAIN engines next to FM"
+      - "34 insert effects, three serial slots per track"
+      - "512 tagged sounds"
+      - "optional drum sample pack"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
   - id: synfact
     name: Synfact
     author: GSM1980
@@ -2993,9 +3389,16 @@ projects:
     base_os: Syntakt OS 1.42
     last_activity: "2026-11-03"
     notes: "Sampler for the Syntakt as a patch to OS 1.42: replaces the Twinshot machine with a sample player (64 slots, 16-bit 48 kHz, 64 MB pool), loops, slices across the keys, tempo-following time stretch, a sampling page. MIT. Created 2026-10-30. Found by GitHub search 2026-11-02; README start read. 2026-11-03: README links a walkthrough video."
+    features:
+      - "sample machine on the digital tracks: 64 slots, stereo, 64 MB pool"
+      - "loops with crossfaded seam"
+      - "slices across the keys"
+      - "time stretch that follows the tempo"
+      - "sampling page"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: cites, id: elektron-firmware-tool, evidence: 'README credits'}
     - {type: cites, id: model-tg, evidence: 'README: built on what others worked out first'}
@@ -3015,9 +3418,14 @@ projects:
     last_activity: '2026-10-18'
     notes: 'Two-channel pedal for the Digitone mk1 audio inputs: a wet channel (reverb, delay, grab, freeze) and an
       always-listening micro-looper. elekloader mod. GPL-2.0. Found by GitHub search 2026-11-02; README start read.'
+    features:
+      - "two-channel pedal for the audio inputs"
+      - "wet channel: reverb, delay, grab, freeze"
+      - "always-listening micro-looper with overdub"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
     - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
@@ -3036,9 +3444,14 @@ projects:
     last_activity: '2026-10-18'
     notes: Three-voice rhythmic pitch shifter for the Digitone mk1 inputs, chromatic or in a detected key, with microtune
       and glide. elekloader mod. GPL-2.0. Found by GitHub search 2026-11-02; README start read.
+    features:
+      - "three-voice pitch shifter for the audio inputs"
+      - "chromatic or in a detected key and scale"
+      - "microtune and glide"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
     - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
@@ -3057,9 +3470,13 @@ projects:
     last_activity: '2026-10-18'
     notes: 'Time-warp pedal for the Digitone mk1 inputs: an always-listening tape played at -2x to +2x in tempo windows.
       elekloader mod. GPL-2.0. Found by GitHub search 2026-11-02; README start read.'
+    features:
+      - "time-warp pedal for the audio inputs"
+      - "an always-listening tape played at -2x to +2x, backwards included, in time"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
     - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
@@ -3078,9 +3495,14 @@ projects:
     last_activity: '2026-10-18'
     notes: 'Echo collector for the Digitone mk1 inputs: a delay that plays from a 3-minute memory with scan and spread.
       elekloader mod. GPL-2.0. Found by GitHub search 2026-11-02; README start read.'
+    features:
+      - "echo collector for the audio inputs"
+      - "a delay that plays from a three-minute memory"
+      - "scan and spread through the memory"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
     - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
@@ -3099,9 +3521,13 @@ projects:
     last_activity: '2026-10-18'
     notes: Reverb pedal for the Digitone mk1 inputs with twelve reverb machines. elekloader mod. GPL-2.0. Found by
       GitHub search 2026-11-02; README start read.
+    features:
+      - "reverb pedal for the audio inputs"
+      - "twelve reverb machines: room, hall, plate, spring, shimmer, tape, nonlinear and more"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
     - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
@@ -3142,9 +3568,13 @@ projects:
     version: v1.0b (tag, 2026-11-02; v1.0a before)
     last_activity: '2026-11-02'
     notes: "A third LFO for the Digitone mk1 with its own page and all stock LFO controls (the LFO key cycles LFO1, LFO2, LFOX). GPL. Created 2026-11-01. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read."
+    features:
+      - "a third LFO with its own page"
+      - "all stock LFO controls; the LFO key cycles LFO1, LFO2, LFOX"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
   - id: sayit
     name: SAY IT
     author: x2k77m1
@@ -3160,9 +3590,14 @@ projects:
     last_activity: '2026-10-31'
     notes: 'S.A.M. (1982 speech synthesiser) as a machine: type a phrase on the naming screen and play its words.
       GPL. Found by GitHub search 2026-11-02; README start read.'
+    features:
+      - "SAY IT: the S.A.M. speech synthesiser as a machine"
+      - "type a phrase, play its words or characters"
+      - "pitch, speed, throat and mouth controls"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: built with elekloader from the stock OS file'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
@@ -3180,9 +3615,15 @@ projects:
     last_activity: '2026-10-27'
     notes: 'Sample-playback machine for the Digitone mk1: one mono one-shot per voice with start/end, reverse, loop,
       pitch tracking, bit/rate reduction. GPL. Found by GitHub search 2026-11-02; README start read.'
+    features:
+      - "sample playback machine, one mono one-shot per voice"
+      - "start, end, reverse, loop"
+      - "pitch follows the notes; bit and rate reduction"
+      - "bake your own samples into the build"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: built with elekloader from the stock OS file'}
 
@@ -3200,9 +3641,15 @@ projects:
     last_activity: '2026-10-26'
     notes: 'Monophonic acid machine for the Digitone mk1: band-limited saw/square into a four-pole ladder filter with
       accent and slide. GPL. Found by GitHub search 2026-11-02; README start read.'
+    features:
+      - "PHREAKOID monophonic acid machine"
+      - "saw or square into a four-pole ladder filter"
+      - "accent, slide, drive"
+      - "several filter modes"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: built with elekloader from the stock OS file'}
 
@@ -3220,9 +3667,14 @@ projects:
     last_activity: '2026-10-19'
     notes: Virtual-analogue and wavetable machine for the Digitone mk1 (VA oscillators, 24 replaceable wavetable banks,
       sub, noise, wavefold). GPL. Found by GitHub search 2026-11-02; README start read.
+    features:
+      - "virtual-analogue and wavetable machine"
+      - "24 wavetable banks you can replace"
+      - "unison twin oscillator, sub, noise, wavefolder"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: uses_tool, id: elekloader, evidence: 'README: host tests need an elekloader checkout for headers'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
@@ -3242,9 +3694,15 @@ projects:
     last_activity: '2026-10-31'
     notes: Per-track choice of sequencer on the TRIG page's second page (e.g. SNAKE walking a grid). elekloader mod;
       a separate Digitone build exists. GPL. Found by GitHub search 2026-11-02; README start read.
+    features:
+      - "per-track sequencer types instead of the trigs"
+      - "SNAKE: a path through a grid"
+      - "185: stage sequencer"
+      - "ARP: arpeggiator from held keys"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
     - {type: bundles, id: digisnake-digitakt, evidence: 'README: DIGISNAKE for Digitakt, unchanged, as its SNAKE type'}
@@ -3265,9 +3723,15 @@ projects:
     last_activity: "2026-11-02"
     notes: Digitone mk1 version of DIGISEQ (per-track sequencer choice). elekloader mod. GPL. Found by GitHub search
       2026-11-02; README start read.
+    features:
+      - "per-track sequencer types instead of the trigs"
+      - "SNAKE: a path through a grid"
+      - "185: stage sequencer"
+      - "ARP: arpeggiator"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: variant_of, id: digiseq-digitakt, evidence: 'same author, Digitone build'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
@@ -3287,9 +3751,13 @@ projects:
     last_activity: '2026-10-24'
     notes: SP-303 Vinyl-Sim-style levelling master compressor in place of the stock compressor. elekloader mod (id
       pump-dt). GPL. Found by GitHub search 2026-11-02; README start read.
+    features:
+      - "PUMP: SP-303 Vinyl Sim-style levelling master compressor"
+      - "replaces the stock compressor page"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
 
@@ -3309,9 +3777,12 @@ projects:
     last_activity: "2026-11-02"
     notes: Digitone version of the PUMP master compressor. elekloader mod (id pump). GPL. Found by GitHub search 2026-11-02;
       README start read.
+    features:
+      - "PUMP: SP-303 Vinyl Sim-style levelling master compressor"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: variant_of, id: pump-digitakt, evidence: 'same author, Digitone build'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
@@ -3331,9 +3802,13 @@ projects:
     last_activity: '2026-10-24'
     notes: Direct pattern jump and start-on-bar settings for the Digitakt mk1. elekloader mod. GPL. Found by GitHub
       search 2026-11-02; README start read.
+    features:
+      - "DIRECT JUMP: the next pattern takes over on the next step, in time"
+      - "START ON BAR: the next pattern starts on the next bar line"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
 
@@ -3352,9 +3827,14 @@ projects:
     last_activity: '2026-10-24'
     notes: Direct pattern jump and start-on-bar for the Digitone mk1. elekloader mod. GPL. Found by GitHub search
       2026-11-02; README start read.
+    features:
+      - "DIRECT JUMP: a new pattern takes over on the next step"
+      - "START ON BAR: a new pattern starts on the next bar line"
+      - "relaunch the playing pattern on the next beat"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: variant_of, id: directjump-digitakt, evidence: 'same author, Digitone build'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
@@ -3374,9 +3854,14 @@ projects:
     last_activity: '2026-10-27'
     notes: Cartesian sequencer after MDD Snake / Make Noise René. elekloader mod. GPL. Found by GitHub search 2026-11-02;
       README start read.
+    features:
+      - "Cartesian sequencer after MDD Snake and Make Noise René"
+      - "grid of notes and gates per cell"
+      - "notes quantised to the scale"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
@@ -3395,9 +3880,14 @@ projects:
     base_os: Digitone mk1 / Keys
     last_activity: '2026-10-25'
     notes: Digitone version of DIGISNAKE. elekloader mod. GPL. Found by GitHub search 2026-11-02; README start read.
+    features:
+      - "Cartesian sequencer after MDD Snake and Make Noise René"
+      - "grid of notes and gates per cell"
+      - "notes quantised to the scale"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: variant_of, id: digisnake-digitakt, evidence: 'same author, Digitone build'}
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
@@ -3416,9 +3906,13 @@ projects:
     last_activity: "2026-11-10"
     notes: 'Plays a Sidecar expander from the Digitakt mk1. README: experimental, emulator only, never run on a unit.
       GPL. Found by GitHub search 2026-11-02; README start read.'
+    features:
+      - "each audio track can play a Sidecar machine on a Raspberry Pi"
+      - "trigs and parameters go to the Pi over USB MIDI"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: variant_of, id: sidecar-expander, evidence: 'same author, Digitakt side of Sidecar'}
     - {type: uses_tool, id: elekloader, evidence: 'README: elekloader builds the OS candidates'}
@@ -3441,9 +3935,13 @@ projects:
     last_activity: '2026-10-30'
     notes: Runs a TRX-B2 engine on a Raspberry Pi 4B, controlled from a Digitakt mk1 audio track with the audio returned
       through it. Early prototype. No licence file seen. Found by GitHub search 2026-11-02; README start read.
+    features:
+      - "a Machinedrum TRX-B2 engine on a Raspberry Pi, played from a Digitakt audio track"
+      - "the audio comes back through the track's own processing"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: builds_on, id: sidecar-expander, evidence: 'README: based on Sidecar by Trig Condition'}
     - {type: uses_tool, id: elekloader, evidence: 'README: elekloader builds the OS candidates'}
@@ -3502,9 +4000,13 @@ projects:
     last_activity: '2026-10-19'
     notes: Gives the SLICE knob beat divisions (1/1 to 1/16T) at the project tempo and a randomised slice order. GPL.
       Found by GitHub search 2026-11-02; README start read.
+    features:
+      - "RESLICER machine: slices in beat divisions (1/1 to 1/16T) at the project tempo"
+      - "shuffle play mode: random slice order"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
 
@@ -3543,6 +4045,10 @@ projects:
       from a user-supplied zip, SHA-256 87bb2b07...), which builds its own overlay from it. A comment in its build script says
       digikit's flash cave 0x403117c4 froze the unit at the logo for that build; other projects use the cave on units
       (CONFLICTS O18).
+    features:
+      - "new time-stretch and repitch engine (Capicola) for STRETCH, REPITCH, SLICE and GRID"
+      - "switch each track between the new engine and Elektron's"
+      - "SLICE and GRID follow the tempo"
     sources: [dt2-machine-lab machines/capicola-reddit (README and upstream/README.md), read 2026-11-02]
     relations:
     - {type: builds_on, id: keyframer-lab, evidence: 'same Capicola keyframe engine by Heavylight Industries'}
@@ -3566,9 +4072,14 @@ projects:
       by GitHub search 2026-11-02; README start read. 2026-11-05: macro setups are kept per kit and in the project
       (autosave across a restart not yet checked on a unit); older setups are not read after the format change;
       MM_KITS=0 builds one setup for the unit.'
+    features:
+      - "eight performance macros (PAGE + MOD)"
+      - "each macro moves up to four parameters on the tracks you choose"
+      - "macros ride on top of the sound, the kit stays unchanged"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: built with elekloader'}
     - {type: uses_tool, id: digikit, evidence: 'README: checks or gates run in digikit''s emulator (not shipped)'}
@@ -3588,9 +4099,13 @@ projects:
     last_activity: '2026-10-29'
     notes: French-language collection of open-source .elemod mods for Digitakt mk1 and II, checked together and offered
       as ready packs with a step-by-step guide. MIT. Found by GitHub search 2026-11-02; README start read.
+    features:
+      - "ready-made packs of open-source Digitakt and Digitakt II mods, checked together"
+      - "step-by-step guide in French"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: packs built on elekloader''s web page'}
 
@@ -3608,9 +4123,13 @@ projects:
     last_activity: '2026-10-28'
     notes: Selectable C synth (SINE, synth id 6) and LOWPASS filter mods for the Digitone II via elekloader / DigiHealth.
       GPL. Found by GitHub search 2026-11-02; README start read.
+    features:
+      - "SINE synth machine written in C"
+      - "LOWPASS filter mode written in C"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: mods "via elekloader / DigiHealth"'}
     - {type: uses_tool, id: digihealth, evidence: 'README: build the C mods with DigiHealth'}
@@ -3631,9 +4150,15 @@ projects:
     last_activity: '2026-10-24'
     notes: Oberheim OB-1 oscillator section as a machine, via elekloader. No licence file seen. Found by GitHub search
       2026-11-02; README start read.
+    features:
+      - "OB-1 machine: the Oberheim OB-1 oscillator section"
+      - "two VCOs with saw and pulse shapes, sub-octave"
+      - "hard sync, cross modulation, noise"
+      - "the OB-1's mixer"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: a machine "via elekloader"'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
@@ -3652,9 +4177,14 @@ projects:
     last_activity: '2026-10-20'
     notes: GRAIN, a granular SRC machine reading up to eight windowed grains from the track's sample. Experimental
       elekloader mod. GPL. Found by GitHub search 2026-11-02; README start read.
+    features:
+      - "GRAIN: granular machine, up to eight grains from the track's sample"
+      - "position, size, density, scan, spray and pitch spread"
+      - "window shape, reverse grains, jitter"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "experimental elekloader mod"'}
     - {type: cites, id: digigrain, evidence: 'README: the idea is lucykowal/digigrain''s random RATE'}
@@ -3715,9 +4245,13 @@ projects:
       image; taktone-extended uses the Digitone''s second ColdFire (scenes on the extra buttons, Digisophie machines
       on the second core). Everything is erased on install; DIN MIDI needed for recovery. Found by GitHub search 2026-11-02;
       README start read.'
+    features:
+      - "runs Digitakt mk1 firmware (stock or modded) on a Digitone mk1"
+      - "extended version: four scenes on the extra buttons, SOPHIE machines on the second processor"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: Elekloader machine integration source'}
     - {type: vendors, id: digiemu, evidence: 'README: the ColdFire instruction decoder comes from irpina/digiemu (GPL retained)'}
@@ -3737,9 +4271,14 @@ projects:
     notes: 'Arp builds E05-E09: scale-constrained synth arp, offsets as scale degrees, arp notes over DIN MIDI, an
       arp on MIDI tracks; several user-reported working on a unit. No licence file seen. Found by GitHub search 2026-11-02;
       README start read.'
+    features:
+      - "arpeggiator locked to the scale; offsets as scale degrees"
+      - "arpeggiator notes out over DIN MIDI"
+      - "arpeggiator on MIDI tracks"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
   - id: trig-pages
     name: TRIG pages
     author: digitaktplus
@@ -3753,9 +4292,14 @@ projects:
     last_activity: '2026-10-17'
     notes: 'Framework adding TRIG sub-pages where each track picks a generator mod (first one: TURING). GPL. Found
       by GitHub search 2026-11-02; README start read.'
+    features:
+      - "more TRIG pages where each audio track picks a generator"
+      - "TURING generator (first one)"
+      - "settings kept per track"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
 
@@ -3789,9 +4333,12 @@ projects:
     last_activity: '2026-10-14'
     notes: Three tiny games (raycaster, Space Invaders, Snake) on the 128x64 screen as one elekloader mod. GPL. Found
       by GitHub search 2026-11-02; README start read.
+    features:
+      - "three games on the screen: a DOOM-style raycaster, Space Invaders, Snake"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: "elekloader mod"'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
@@ -3827,9 +4374,12 @@ projects:
     last_activity: '2026-09-25'
     notes: A 16-byte patch that lets the DT2 pick among all five boot animations instead of one, plus scripts to apply
       it. MIT. Found by GitHub search 2026-11-02; README start read.
+    features:
+      - "all five stock boot animations in rotation instead of one"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: the build needs elektron-firmware-tool'}
 
@@ -3850,9 +4400,12 @@ projects:
     last_activity: '2026-08-21'
     notes: Hardware battery mod for Digitone, Digitone II, Digitakt and Digitakt II (soldering; at your own risk).
       CC licence. Found by GitHub search 2026-11-02; README start read.
+    features:
+      - "internal battery (hardware mod, soldering)"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
   - id: elektron-mods-rumorismo
     name: Digitone MK1 Modding Project
     author: rumorismo
@@ -3872,9 +4425,13 @@ projects:
       machines on all 8 tracks) and dnmono (ported machines) - plus release folders per module set. The repo holds
       only build manifests (.syx.json); the OS files themselves are git-ignored. No licence file seen. Found by GitHub
       search 2026-11-02; README and module index read 2026-11-09.
+    features:
+      - "8-track expansion: two banks of tracks with their own mutes, custom machines on all tracks"
+      - "dnmono: ported Monomachine, SH-101, Plaits MACRO and SOPHIE machines"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: vendors, id: elekloader, evidence: 'README: repo tree includes elekloader'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tests, probes, captures or measurements run in digiemu'}
@@ -3912,9 +4469,13 @@ projects:
     last_activity: '2026-11-01'
     notes: digihealth's SYSTEM INFO and REMOTE KEYS ported to the analog machines. GPL. Found by GitHub search 2026-11-02;
       README start read.
+    features:
+      - "SYSTEM INFO: CPU, DSP, RAM and free sample memory in the top bar"
+      - "remote key presses over USB, for testing"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod'}
     - {type: port_of, id: digihealth, evidence: 'README: irpina''s digihealth for the Digitakt mk1, ported to the Rytm MKII and Analog Four MKII'}
@@ -3937,9 +4498,17 @@ projects:
       2026-11-06: lfo-rnd 1.3 and voice-dac 1.5 (and a 1.5-nodep variant without DAC FILTER's DEP knob) confirmed on a
       unit on OS 1.74 with core-ar2 0.10 (CCs, offsets, p-locks, kept over kit save and power cycle).
       GPL. Found by GitHub search 2026-11-02; README start read. 2026-11-08/09 (Modwerk TESTING files): comp-preview 1.1.0, kit-ab 1.0.0, lfo-rnd 1.2.0 and voice-dac 1.4.0 ran on a unit on Modwerk's base (core-ar2 0.7; each package byte-identical to the release object); the reload key in kit-ab's docs is NO + PLAY MODE, not NO + PLAY (CONFLICTS S18)."
+    features:
+      - "filter frequency in Hz"
+      - "control-all, envelope reset on AMP, slice loop"
+      - "Euclidean accents, velocity humanise, random LFO"
+      - "compressor preview and main RMS light"
+      - "kit A/B toggle"
+      - "voice DAC"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: modwerk, evidence: 'modwerk sdk/analog-rytm-mkii/modules: ctrl-all, env-reset-amp, euclid-accents, filter-hz, main-rms, slice-loop, velocity-humanise, and since 2026-11-08 comp-preview, kit-ab, lfo-rnd and voice-dac, name this repo as source (2026-11-09)'}
     - {type: port_of, id: rytm-mods-src, evidence: 'README: ported to elemod'}
@@ -3958,9 +4527,16 @@ projects:
     last_activity: '2026-10-22'
     notes: Open-source Model:Cycles mods, one folder per mod with its own README and a download zip for use in any
       flasher. MIT. Found by GitHub search 2026-11-02; README start read.
+    features:
+      - "BLAM: twelve OPL2 FM percussion models and two speech banks"
+      - "BLAST: fourteen tonal two-operator FM models"
+      - "Feral: nine noisy synthesis models"
+      - "LiXR: drum voice with feedback FM and decimator"
+      - "more engines, each a separate machine"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
   - id: model-machinedrum
     name: Elektron-Model-Machinedrum
     author: Talachan12
@@ -3975,9 +4551,12 @@ projects:
     notes: Fork adding Machinedrum machines (TRX-B2, TRX-SD, TRX-CH, ported sample for sample) to the Model:Cycles,
       patched in the browser from official files. No licence file seen. Found by GitHub search 2026-11-02; README
       start read.
+    features:
+      - "Machinedrum TRX-B2, TRX-SD and TRX-CH machines"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
   - id: mmodule
     name: MoDule (MD Drums)
     author: c0remusic
@@ -4033,9 +4612,14 @@ projects:
       grit) with five effects each, knob-gesture recording, a 30 s looper and MIDI CCs laid out like a commercial
       multi-effect pedal's chart. While active it owns the audio engine (synths silent); with core-dn1 3.4 it can
       instead sit after the master stage and stay on. GPL-2.0. Same author and platform as DigiSwarm.
+    features:
+      - "DigiPrism: effects pedal for the audio inputs"
+      - "four reorderable modules (colour, motion, ambience, grit), five effects each"
+      - "30-second looper, gesture recording, MIDI CC map"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on fxkit (core-dn1 4.1)'}
     - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
@@ -4056,9 +4640,15 @@ projects:
       60 s looper, hold, reverse, filter, reverb), tempo-synced, with p-locks and the stock LFO page. Owns the audio
       engine while active. 0.2 tested by the author on a unit and in digiemu; not yet on a Digitone Keys. Source also
       in elekloader as mods/digiswarm-dn1. GPL-2.0.
+    features:
+      - "DigiSwarm: effects engine for the two audio inputs"
+      - "eleven engines with four variations each"
+      - "60-second looper with hold and reverse"
+      - "resonant filter, pitch modulation, reverb"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'catalogue notes: source also in elekloader as mods/digiswarm-dn1'}
     - {type: uses_tool, id: digiemu, evidence: 'README: checked in the digiemu emulator on OS 1.43 and 1.44'}
@@ -4079,9 +4669,17 @@ projects:
       a scale lock, 303-style slides, kit persistence for the extra settings, a per-track digital path with drive,
       a digital wave/chord oscillator in place of noise, a random track generator and a resonance limit. Has its own
       flashing/recovery and hazards docs. The first public firmware mod for the Analog Four found. MIT.
+    features:
+      - "scale lock with 35 scales"
+      - "303-style slides"
+      - "per-track digital path with drive"
+      - "digital wave and chord oscillator in place of noise"
+      - "random track generator"
+      - "extra settings kept with the kit"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: it unpacks and repacks the OS'}
 
@@ -4147,9 +4745,14 @@ projects:
     last_activity: '2026-10-28'
     notes: Replaces the six stock machines with circuit-modelled TR-909 voices (integer models fitted to recordings);
       the experimental branch adds 808 and 606 voices on SHAPE. Hats/cymbals need user-supplied WAVs. MIT.
+    features:
+      - "TR-909 voices in place of the six stock machines"
+      - "TR-808 and TR-606 voices (experimental branch)"
+      - "hats and cymbals from your own WAV files"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: builds_on, id: modded-cycles, evidence: 'README: built on Modded-Cycles and Model-TG'}
     - {type: builds_on, id: model-tg, evidence: 'README: Model-TG is ticked with model909'}
@@ -4166,9 +4769,14 @@ projects:
     last_activity: '2026-10-31'
     notes: Source of several octabam modules (MIDI scales, loopback, follow, harmony, musical units, a Euclid LFO, an
       experimental percussion voice and a CPU supersaw). octabam supplies the builder and platform.
+    features:
+      - "MIDI scales, loopback, follow, harmony and musical units"
+      - "Euclid LFO"
+      - "percussion voice and CPU supersaw (experimental)"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: builds_on, id: octabam, evidence: 'README'}
   - id: midisc-sambanks
@@ -4185,9 +4793,15 @@ projects:
     notes: MIDI scene locks for the Octatrack (scene hold edits, crossfader morph, part save/reload, scene copy/paste).
       Built with Python from the user's own OS file. Same author as octabam, which later carried MIDI SCENES.
       Same name as bkkbrls-del/midisc in this list; how the two relate is not stated in the README start.
+    features:
+      - "MIDI scene locks"
+      - "scene hold edits and crossfader morph"
+      - "part save and reload"
+      - "scene clear, copy and paste"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: unclear, id: midisc, evidence: 'same name, both created 2026-09-09, neither a GitHub fork'}
   - id: rebirth2octatrack
@@ -4243,9 +4857,16 @@ projects:
     last_activity: "2026-11-10"
     notes: A Raspberry Pi 4B/5 on the Rytm's USB port adds digital voices, effects and a sequencer; the Rytm runs a
       patched OS. 0.3.2 adds experimental, emulator-only Digitakt support. The Teensy variant is frozen. GPL-2.0. On 2026-11-09, Analog Four MKII support since 0.4.0 (A4 firmware a4-v0.12, OS 1.56); 0.4.3 caps the Rytm screen redraws after users saw a sluggish Rytm at 20-40 redraws a second.
+    features:
+      - "a Raspberry Pi 4B or 5 on the Rytm's USB port adds digital voices, effects and a sequencer"
+      - "poly tracks on every Sidecar machine"
+      - "one SD card boots both"
+      - "Analog Four MKII support (experimental)"
+      - "Digitakt support in the emulator only"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: the Rytm firmware part is an elekloader module'}
     - {type: uses_tool, id: analog-emu, evidence: 'README: built or checked in trigcondition/analog-emu'}
@@ -4424,9 +5045,15 @@ projects:
     notes: Sister project of the A4 MK1 mods (same registry/verify method). Adds Machinedrum TX-8/TX-9 ports as new
       machines, a chorus as a third send, a sidechain-style duck at the voices' analog VCAs, and a CPU-load probe
       build. Has hazards and flashing docs. MIT.
+    features:
+      - "seven Machinedrum TX-8 and TX-9 ports as new machines"
+      - "a chorus as a third send effect"
+      - "DUCK: sidechain-style pumping from one track"
+      - "CPU probe build with live load readouts"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: it unpacks and repacks the OS'}
     - {type: builds_on, id: rytm1-mods, evidence: 'README: based on rytm1_mods and keeps its pipeline'}
@@ -4466,9 +5093,13 @@ projects:
     last_activity: '2026-10-23'
     notes: Each of the 16 tracks can play its own pattern of the playing bank and switch at its own loop end (a clip-style
       workflow). Checked in the ColdFire emulator and on the contributor's MKII; also submitted to octabam (PR 846). MIT.
+    features:
+      - "each of the 16 tracks plays its own pattern of the playing bank"
+      - "a track changes pattern at its own loop end (clip-style)"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: builds_on, id: octabam, evidence: 'README: also submitted as octabam PR 846'}
     - {type: mod_for, id: modwerk, evidence: 'README: a native octabam / Modwerk module'}
@@ -4489,9 +5120,16 @@ projects:
     last_activity: '2026-10-22'
     notes: A line-oriented scripting language for the Octatrack - scripts on the card reach (almost) every editable
       parameter and audio files and are called on the machine. Command reference in a separate docs repo. GPL-3.0.
+    features:
+      - "scripting language: scripts on the card run on the machine"
+      - "reach trigs, locks, pages, parts, scenes, tempo, patterns and banks"
+      - "load and free machines and sample slots"
+      - "save the current take as a WAV and load audio files"
+      - "live scripts on clock, note, CC and trig events"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
   - id: octadraw
     name: OctaDraw
     author: nordseele
@@ -4521,9 +5159,15 @@ projects:
     last_activity: '2026-08-23'
     notes: Web UI that patches parameter values (effect defaults, FX1/FX2 default assignment, an AMF multiply fix) into
       the user's own 1.40C file - values, not code, listed in a registry. macOS build tooling. MIT.
+    features:
+      - "web tool that writes parameter values into your own OS 1.40C file"
+      - "effect defaults and FX1/FX2 default assignment"
+      - "AMF multiply fix"
+      - "each patch checked against the stock file's hash"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: uses_tool, id: elektron-firmware-tool, evidence: 'README: fetched and built into vendor/ by setup, not shipped'}
 
@@ -4542,9 +5186,15 @@ projects:
     last_activity: '2026-10-21'
     notes: octabam modules - a circuit-modelled TB-303 voice per track on the ColdFire (calibrated against recordings),
       Devil Fish mods, an SD-1/RAT-style distortion and a dbx-160-style compressor. The README marks what is proven. MIT.
+    features:
+      - "octa303: a circuit-modelled TB-303 voice per track"
+      - "devilish: Devil Fish mods for the 303 voice"
+      - "distorx: distortion insert"
+      - "db666: compressor insert with side-chain"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
     relations:
     - {type: builds_on, id: octabam, evidence: 'README'}
     - {type: cites, id: octatrack-kyoti-fw, evidence: 'README credits: the dispatcher hook site'}
@@ -4561,9 +5211,13 @@ projects:
     base_os: Machinedrum with MDX X.20
     last_activity: '2026-10-18'
     notes: Custom USR machines, each a single SysEx file sent to MDX's machine manager. MIT.
+    features:
+      - "three USR machines: RASP (blown trill), KOOK (kookaburra), SMSH (smashed piano)"
+      - "no sample banks needed"
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-11)"
   - id: monomachine-lab
     name: Monomachine Lab
     author: Jick238
@@ -4924,7 +5578,11 @@ projects:
       a fixed-slot tweak for Modded Cycles 2.0; also on the Cycles Engines flasher. Played on a Model:Cycles 2026-11-03 in
       slot 11 (README): heavy on the processor, and it does not combine with five model27 Track FX packages (15 overlap
       problems). Commits a compiled object (bias.o). Found via altstrument 2026-11-04.
-    sources: [altstrument (2026-11-04)]
+    features:
+      - "BIAS machine: six oscillators with their own envelopes"
+      - "wavefolder and a second envelope after it"
+      - "clock locked to the note"
+    sources: [altstrument (2026-11-04), "README (2026-11-11)"]
     relations:
     - {type: builds_on, id: model27, evidence: 'altstrument: a machine package for model27; its scripts clone model27 at a pinned commit'}
     - {type: mod_for, id: modded-cycles, evidence: 'catalogue notes: a fixed-slot tweak for Modded Cycles 2.0'}
@@ -4948,7 +5606,11 @@ projects:
       Adds the Digitone Keys' User Mode page (stock page 24) to the regular Digitone's TRIG page rotation, plus a USER CFG
       page that assigns the eight encoders; the assignment is saved with the project through core-dn1 project data.
       Testing status not stated. Found by GitHub search 2026-11-05.
-    sources: [GitHub search 2026-11-05, README]
+    features:
+      - "the Digitone Keys' User Mode pages in the regular Digitone's TRIG rotation"
+      - "USER CFG page to assign the eight encoders"
+      - "assignments saved with the project"
+    sources: [GitHub search 2026-11-05, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: install usercfg-0.6a.elemod with elekloader after core-dn1 4.0'}
 
@@ -4969,7 +5631,11 @@ projects:
       voices of the group's other tracks over one 32-sample block (0.7 ms). Names no firmware address (uses
       ev_voice_on, ev_render_voices, fw_voice_track). Checked only in digiemu (11 voices choked, output RMS measured);
       not heard, not on a unit.
-    sources: [GitHub search 2026-11-05, README]
+    features:
+      - "two choke groups, set per track"
+      - "a note fades out the other tracks of its group"
+      - "CHK knob on the second TRIG page, p-lockable"
+    sources: [GitHub search 2026-11-05, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on core-dn1'}
     - {type: uses_tool, id: digiemu, evidence: 'README: checked in digiemu (headless Session)'}
@@ -4989,7 +5655,10 @@ projects:
     notes: >
       A program change on a track's channel loads that number's sound from the project's pool onto the track, as the
       SOUND BROWSER's FUNC + YES does (program 1 = pool sound 001). Checked only in digiemu, not on a unit.
-    sources: [GitHub search 2026-11-05, README]
+    features:
+      - "a MIDI program change loads that pool sound onto the track"
+      - "PRG knob on the second TRIG page, p-lockable per trig"
+    sources: [GitHub search 2026-11-05, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on core-dn1 5.0.1'}
     - {type: uses_tool, id: digiemu, evidence: 'README: checked in digiemu (headless Session)'}
@@ -5010,7 +5679,11 @@ projects:
       An internal MIDI cable: what the MIDI tracks send on one chosen channel goes back into the unit as if from DIN,
       so a MIDI track sequences and p-locks a synth track or (on the FX channel) the master effects. Names no firmware
       address. Checked only in digiemu with its DIN output captured; the CC path only through core_midi_receive.
-    sources: [GitHub search 2026-11-05, README]
+    features:
+      - "MIDI loopback: a MIDI track's messages go back into the unit as if from DIN"
+      - "MIDI tracks can sequence and p-lock the synth tracks or the master effects"
+      - "LOOP knob on the MIDI TRIG page and a LOOPBACK tile in the Mod Menu"
+    sources: [GitHub search 2026-11-05, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on core-dn1 5.0.1'}
     - {type: uses_tool, id: digiemu, evidence: 'README: checked in digiemu (headless Session)'}
@@ -5030,7 +5703,10 @@ projects:
     notes: >
       Track key + FUNC solos a track among its four; four mute groups. Checked only in digiemu (with LOOPBACK and
       PC SOUND in the same build), not on a unit.
-    sources: [GitHub search 2026-11-05, README]
+    features:
+      - "solo a track with PAGE + track key"
+      - "four mute groups to store and recall"
+    sources: [GitHub search 2026-11-05, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on core-dn1 5.0.1'}
     - {type: uses_tool, id: digiemu, evidence: 'README: checked in digiemu (headless Session)'}
@@ -5050,7 +5726,10 @@ projects:
     notes: >
       A long FUNC + KEYBOARD opens the ARP menu (stock: FUNC + SYN1 at the other end of the panel); a quick press
       still toggles the arp. Checked only in digiemu; not on a Digitone Keys or a unit.
-    sources: [GitHub search 2026-11-05, README]
+    features:
+      - "a long FUNC + KEYBOARD press opens the ARP menu"
+      - "a quick press still toggles the arpeggiator"
+    sources: [GitHub search 2026-11-05, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an elekloader mod on core-dn1 5.0.1'}
     - {type: uses_tool, id: digiemu, evidence: 'README: checked in digiemu (headless Session)'}
@@ -5075,7 +5754,12 @@ projects:
       its own; stock SONG functions move to FUNC + SONG and TRK + SONG. Built locally in a browser patch page or from
       source (m68k-elf GCC, Node 24, a Modwerk checkout with core-dt2 1.0). English and Spanish README. Found by GitHub
       search 2026-11-05.
-    sources: [GitHub search 2026-11-05, README]
+    features:
+      - "DJ-style mix mode on the SONG key"
+      - "bring a reference pattern's tracks into the playing one, one by one"
+      - "per-track levels, mutes and one-step undo"
+      - "load the whole reference pattern with its kit"
+    sources: [GitHub search 2026-11-05, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: NOTICE names elekloader (core-dt2 and its kit) as a base'}
     - {type: builds_on, id: modwerk, evidence: 'README: build needs a Modwerk checkout with core-dt2 1.0'}
@@ -5132,7 +5816,12 @@ projects:
       LED theme editor and standby light show: six themes plus CUSTOM, eleven colour families with RGB 0-31, trig-key
       previews, COMET / RAINBOW / BREATHE idle animations, settings restored at start-up. Tested only in digiemu (README:
       not on a physical Digitakt). Found by GitHub search 2026-11-06.
-    sources: [GitHub search 2026-11-06, README]
+    features:
+      - "LED theme editor: six themes plus CUSTOM"
+      - "RGB editing per colour family with trig-key previews"
+      - "idle light shows: COMET, RAINBOW, BREATHE"
+      - "settings kept after restart"
+    sources: [GitHub search 2026-11-06, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an Elekloader mod for core 4.1'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tested in the digiemu emulator against OS 1.54'}
@@ -5154,7 +5843,13 @@ projects:
       pass-through to MIDI out on tracks A-H, velocity sensitivity per track, presets, saved with the project. A Modwerk
       SDK module, not submitted to the Modwerk library yet. Tested with host unit checks and in digiemu; ships a
       hardware stress-test script. Found by GitHub search 2026-11-05.
-    sources: [GitHub search 2026-11-06, README]
+    features:
+      - "pitch bend, mod wheel, aftertouch and breath from an external keyboard"
+      - "modulate audio track parameters"
+      - "pass them through on MIDI tracks"
+      - "velocity sensitivity per track"
+      - "presets, saved with the project"
+    sources: [GitHub search 2026-11-06, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: modwerk, evidence: 'README: a module for Modwerk, written with the Modwerk SDK'}
     - {type: uses_tool, id: digiemu, evidence: 'README: tested on the firmware in the digiemu emulator'}
@@ -5177,7 +5872,13 @@ projects:
       plug-in that follows the Cycles and reads sounds back. Built locally from the official OS (Python only), checked
       byte for byte. README: every part tested in emulation, and played on real hardware. Found by GitHub search
       2026-11-05.
-    sources: [GitHub search 2026-11-06, README]
+    features:
+      - "25 machines: 909, 808 and 606 voices, rumble kick, acid and growl basses, Braids, 6-op FM, sampler and granular among them"
+      - "filter and insert effect on every track"
+      - "sidechain and master DJ EQ"
+      - "6-channel USB audio"
+      - "companion plug-in that shows every knob"
+    sources: [GitHub search 2026-11-06, README, "README (2026-11-11)"]
     relations:
     - {type: builds_on, id: modded-cycles, evidence: 'README credits: build toolchain, per-track filter, machine list, MACRO and ACID ports'}
     - {type: bundles, id: model909, evidence: 'README credits: the 909 kick, toms, rim and clap from DMDaudio/model909'}
@@ -5221,7 +5922,10 @@ projects:
       The release page lists cycle counts for the MKII and for the MKI with DRAM or SRAM and says it was tested on a MKII
       with the +Drive. Send the slot-1 .syx with about 300 ms between messages; it replaces USR slot 01. The author
       credits Claude with the DSP code and tooling. Per altstrument 2026-11-06 (the repo was empty on 2026-11-05).
-    sources: [altstrument (2026-11-06)]
+    features:
+      - "DBX-K2: resonator kick USR machine with a falling pitch sweep"
+      - "knobs for pitch, sweep depth and time, decay, attack pulse, hold, saturation and tone"
+    sources: [altstrument (2026-11-06), "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: mdx, evidence: 'altstrument: needs a Machinedrum running MDX X.20'}
     - {type: uses_tool, id: mds, evidence: 'altstrument: the repository uses the MDS tooling as submodules'}
@@ -5244,7 +5948,11 @@ projects:
       Three generative sequencers on the synth tracks: a Euclidean rhythm, a Turing Machine and a TB-303-style acid line,
       played from the encoders; YES writes what you hear into the pattern as ordinary trigs. The author tested it for about
       an hour on one Digitone mk1 (OS 1.44). Found by GitHub search 2026-11-07.
-    sources: [GitHub search 2026-11-07, README]
+    features:
+      - "three generative sequencers on the synth tracks: Euclidean, Turing Machine, TB-303-style acid"
+      - "preview without touching the pattern"
+      - "YES writes what you hear into the pattern"
+    sources: [GitHub search 2026-11-07, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an Elekloader mod'}
 
@@ -5265,7 +5973,12 @@ projects:
       a phase-inverted feedback loop (gain up to 1.5, self-oscillating above 1) and WARP drift. Certified cycle counts per
       track and block: MKII 2,610, MKI DRAM 3,017, MKI SRAM 2,681; tested on one MKII +Drive UW, MKI certified but not
       played. Found by GitHub search 2026-11-07.
-    sources: [GitHub search 2026-11-07, README]
+    features:
+      - "DBX-DR: drone USR machine, three detuned saws and a square sub"
+      - "saturation and a 4-pole ladder low-pass"
+      - "feedback loop that can self-oscillate"
+      - "WARP drift"
+    sources: [GitHub search 2026-11-07, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: mdx, evidence: 'README: a USR machine for the Machinedrum running MDX X.20'}
 
@@ -5324,7 +6037,10 @@ projects:
       Open-hardware battery base using the original side mounting points and the left battery input: editable CAD,
       STEP/STL, parts list, build guide and printable fit gauges. No working physical prototype validated yet. Found by
       GitHub search 2026-11-07.
-    sources: [GitHub search 2026-11-07, README]
+    features:
+      - "3D-printable battery base (hardware)"
+      - "CAD files, parts list, build guide and fit gauges"
+    sources: [GitHub search 2026-11-07, README, "README (2026-11-11)"]
 
   # ================================================================ found 2026-11-08
   - id: digisendfx
@@ -5342,7 +6058,12 @@ projects:
       the stock one (VIBE, DRIFT, TONE, SAT, FDBK), two LFOs that move any chorus, delay, reverb or drive parameter
       (free or synced), and SHORT delay times. Written without Elektron code or tables. Checked in digikit's emulator.
       Found by GitHub search 2026-11-07.
-    sources: [GitHub search 2026-11-07, README]
+    features:
+      - "LUSH: a new chorus in place of the stock one"
+      - "two LFOs for any chorus, delay, reverb or drive parameter"
+      - "SHORT delay times down to 0.67 ms"
+      - "HARD, FUZZ and FOLD master drives"
+    sources: [GitHub search 2026-11-07, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: fxsend-0.2.elemod for OS 1.43 and 1.44'}
     - {type: uses_tool, id: digikit, evidence: 'README: checked in digikit''s emulator'}
@@ -5366,7 +6087,11 @@ projects:
       taller scope bars mirrored around zero that keep scrolling when audio stops, lower DSP and UI cost (about 4,246
       instructions per block for one shifted bus), and an optional Digitakt build for FAST AUDIO that needs
       digihealth 1.0 (install it or the regular build, not both). Four playable parameters: TUNE, GAIN, MIX, INPUT.
-    sources: [GitHub search 2026-11-07, README, RELEASE-NOTES.md 1.1]
+    features:
+      - "route the audio inputs or internal tracks into a track"
+      - "pitch shifter with tune, gain and mix"
+      - "oscilloscope on the machine page"
+    sources: [GitHub search 2026-11-07, README, RELEASE-NOTES.md 1.1, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: build a custom OS with elekloader'}
 
@@ -5387,7 +6112,12 @@ projects:
       MIDI arpeggiator for the Digitone mk1's MIDI tracks A-D, each with its own settings, controlled from the stock ARP
       page and step editor: tempo sync, recorded MIDI trigs, the stock modes plus UP TWICE, DOWN TWICE and UP/DOWN REPEAT.
       Known issues and test results are documented. Found by GitHub search 2026-11-07.
-    sources: [GitHub search 2026-11-07, README]
+    features:
+      - "arpeggiator for MIDI tracks A-D, each with its own settings"
+      - "controlled from the stock ARP page and step editor"
+      - "tempo sync and recorded MIDI trigs"
+      - "extra modes: UP TWICE, DOWN TWICE, UP/DOWN REPEAT"
+    sources: [GitHub search 2026-11-07, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: requires Elekloader core 4.1.1 and seq-events 0.1'}
 
@@ -5407,7 +6137,11 @@ projects:
       track's 64 steps, notes with VEL and LEN per step. Found by GitHub search 2026-11-08. 2026-11-11: the Split view
       also shows the audio tracks (each step's trig and its p-locks), and Pages with the audio tracks shows the
       cursor track's page values beside that page's SETUP.
-    sources: [GitHub search 2026-11-08, README]
+    features:
+      - "four views: all tracks, one track's 64 steps, piano roll, step details"
+      - "edit notes, velocity and length per step"
+      - "audio tracks' trigs and p-locks in the Split view"
+    sources: [GitHub search 2026-11-08, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: octabam, evidence: 'README: a module for octabam'}
 
@@ -5428,7 +6162,11 @@ projects:
     notes: >
       One added machine with nine noisy, unpredictable synthesis models, light on the processor; COLOR and SWEEP as
       macros. Source package for the Cycles Engines flasher. Found by GitHub search 2026-11-07.
-    sources: [GitHub search 2026-11-07, README]
+    features:
+      - "FERAL machine: nine noisy synthesis models"
+      - "COLOR and SWEEP as macros"
+      - "light on the processor"
+    sources: [GitHub search 2026-11-07, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: cycles-engines, evidence: 'README: tick FERAL in the Cycles Engines flasher'}
 
@@ -5449,7 +6187,10 @@ projects:
     notes: >
       One added machine with fourteen melodic two-operator FM models in the manner of the Yamaha OPL2 ('90s SoundBlaster).
       Source package for the Cycles Engines flasher. Found by GitHub search 2026-11-07.
-    sources: [GitHub search 2026-11-07, README]
+    features:
+      - "BLAST machine: fourteen melodic OPL2-style two-operator FM models"
+      - "stepped modulator ratio on SWEEP"
+    sources: [GitHub search 2026-11-07, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: cycles-engines, evidence: 'README: tick BLAST in the Cycles Engines flasher'}
 
@@ -5470,7 +6211,10 @@ projects:
     notes: >
       One added machine with twelve two-operator FM percussion engines with extended ratios. Source package for the
       Cycles Engines flasher. Found by GitHub search 2026-11-07.
-    sources: [GitHub search 2026-11-07, README]
+    features:
+      - "PUNCH machine: twelve OPL2-style FM percussion engines"
+      - "extended fixed ratios on SWEEP"
+    sources: [GitHub search 2026-11-07, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: cycles-engines, evidence: 'README: tick PUNCH in the Cycles Engines flasher'}
 
@@ -5489,7 +6233,10 @@ projects:
     notes: >
       Four extra Digitone mk1 voices - RUIN, XTAL, VOID and CREPUS - as separate elekloader mods plus a combined
       ESOTERIKA file. Found in the elekloader mod shop catalogue 2026-11-08.
-    sources: [elekloader mod shop catalog 2026-11-08]
+    features:
+      - "four extra machines: RUIN, XTAL, VOID and CREPUS"
+      - "each as its own mod, or all in one"
+    sources: [elekloader mod shop catalog 2026-11-08, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'elekloader web/catalog.json lists its .elemod files'}
 
@@ -5508,7 +6255,10 @@ projects:
     notes: >
       Seven filter-based effect modes per track: VOWEL, BANK, FOLD, CRUSH, RING, PHASER and FLANGER. Found in the
       elekloader mod shop catalogue 2026-11-08.
-    sources: [elekloader mod shop catalog 2026-11-08]
+    features:
+      - "seven extra filter modes per track: VOWEL, BANK, FOLD, CRUSH, RING, PHASER, FLANGER"
+      - "uses the track's own FREQ and RESO"
+    sources: [elekloader mod shop catalog 2026-11-08, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'elekloader web/catalog.json lists its .elemod files'}
 
@@ -5529,7 +6279,10 @@ projects:
     notes: >
       octabam's Octatrack modules repackaged as elekloader mods, so they can be picked in the elekloader mod shop. Found in
       the elekloader mod shop catalogue 2026-11-08.
-    sources: [elekloader mod shop catalog 2026-11-08]
+    features:
+      - "octabam's Octatrack modules as elekloader mods"
+      - "tuner, quantizer, MIDI scenes, CC map, recorder and USB MIDI/audio among them"
+    sources: [elekloader mod shop catalog 2026-11-08, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'elekloader web/catalog.json lists its .elemod files'}
     - {type: vendors, id: octabam, evidence: 'file names: octabam-<module>-363861e.elemod'}
@@ -5555,7 +6308,13 @@ projects:
       end of the audio and MIDI step fire (0x400d6e10, 0x400d7234 on OS 1.17). Built from your own OS file with
       shell scripts for Linux; a research log and a design document come with it. Credits Aggregat's rules and
       device facts for its build checks and flash procedure. Found via the owner 2026-11-08.
-    sources: [owner 2026-11-08, README, mods/eucplus-dt2/mod.json]
+    features:
+      - "generated melodies for the stock Euclidean sequencer, Torso T-1 style"
+      - "notes from the pattern's scale and root"
+      - "NOTES page: range, phrase shape and length"
+      - "RANDOM page: variance, seed and lock"
+      - "off by default, patterns are not rewritten"
+    sources: [owner 2026-11-08, README, mods/eucplus-dt2/mod.json, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: an Elekloader linkable mod (format 2), requires core-dt2 1.0'}
     - {type: uses_tool, id: digikit, evidence: 'README: every EUC+ test runs in digikit''s Digitakt II emulator'}
@@ -5580,7 +6339,11 @@ projects:
       machine 11 (SOPH) with four models - FUSE, BOOM, PIPE, SHARD - through the Digitone's own filter, mixer,
       effects and AMP envelope; knobs borrow stock SYN ranges. Shares the fixed-point DSP core with the Digitakt mod;
       one build per OS version. GitHub marks it a fork of digisophie; it adds its own Digitone machine adapter.
-    sources: [state/NEW.md 2026-11-10, README]
+    features:
+      - "SOPH machine: SOPHIE metallic percussion on the Digitone"
+      - "four models: FUSE, BOOM, PIPE, SHARD"
+      - "runs through the Digitone's filter, effects and AMP envelope"
+    sources: [state/NEW.md 2026-11-10, README, "README (2026-11-11)"]
     relations:
     - {type: port_of, id: digisophie, evidence: 'README: a port of the Digitakt 1 mod Digisophie to the Digitone 1'}
     - {type: fork_of, id: digisophie, evidence: 'GitHub fork flag; 3 own commits'}
@@ -5604,7 +6367,11 @@ projects:
       switch per sound turns them off). Waveforms and modulation follow measurements of an original Model D. No
       filter, envelopes or amplifier of the Model D (the Digitakt's own are used). CPU-heavy: needs SETTINGS > FAST
       AUDIO on. Digitone support planned.
-    sources: [state/NEW.md 2026-11-10, README]
+    features:
+      - "Model D-style oscillator section: three oscillators with ranges, waveforms and levels"
+      - "oscillator 3 modulates the others' pitch"
+      - "pitch drift and mixer saturation, switchable per sound"
+    sources: [state/NEW.md 2026-11-10, README, "README (2026-11-11)"]
     relations:
     - {type: mod_for, id: elekloader, evidence: 'README: included in a custom OS composed with Elekloader'}
 
@@ -5626,7 +6393,11 @@ projects:
       the Analog Four MKII's mod in a4/. 0.4.0 reports each track's pan and route (stereo through mode), adds MD's
       own page, preset browsers for JUNO and 6-OP FM, DSP SAMPLE's sample picker, list knobs of up to 36 names, a MIDI
       machine (machine 50) and arpeggiator settings in the sound. Sidecar Mini (Teensy) is frozen at 0.1.0.
-    sources: [state/NEW.md 2026-11-10, README]
+    features:
+      - "the Rytm MKII OS mods Sidecar | Expander needs"
+      - "builds a modded OS from your own stock file"
+      - "the Analog Four MKII mod"
+    sources: [state/NEW.md 2026-11-10, README, "README (2026-11-11)"]
     relations:
     - {type: same_project, id: sidecar-expander, evidence: 'README: the Rytm mods that Sidecar | Expander uses'}
     - {type: mod_for, id: elekloader, evidence: 'README: one elekloader module per OS'}

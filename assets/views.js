@@ -158,6 +158,7 @@
       .concat(D.relations.filter(r => r.target === p.id).map(r => `<li><a href="?p=${esc(r.project)}">${esc(name(r.project))}</a> ${esc(r.type.replace(/_/g, " "))} this${r.evidence ? ` <span class="meta">${esc(r.evidence)}</span>` : ""}</li>`));
     let links = {}; try { links = JSON.parse(p.links || "{}"); } catch (e) {}
     let srcs = []; try { srcs = JSON.parse(p.sources || "[]"); } catch (e) {}
+    let fs = []; try { fs = JSON.parse(p.features || "[]"); } catch (e) {}
     const md = window.AggMd || (s => esc(s));
     const devs = list(p.devices).map(s => D.devices.find(d => d.slug === s)).filter(Boolean);
     const inMods = list(p.list).includes("mods") && p.kind !== "loader";
@@ -173,6 +174,8 @@
       <div class="pj-act">${p.repo ? `<a class="tu-btn" href="${esc(p.repo)}">Repository</a>` : ""}
         ${Object.entries(links).map(([k, v]) => [].concat(v).map(u => `<a class="md-x" href="${esc(u)}">${esc(k.replace(/_/g, " "))}</a>`).join(" ")).join(" ")}
         <button class="md-x" id="pj-copy">copy link</button></div>
+      ${fs.length ? `<h3>What it does</h3><ul class="pj-feat">${fs.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
+        <p class="meta">In our words, from the sources listed below.</p>` : ""}
       <div class="text pj-notes">${md(p.notes, "data/projects.yml")}</div>
       ${p.contains ? `<h3>What is inside</h3><p class="text">${esc(p.contains)}</p>` : ""}
       ${ms.length ? `<h3>Mods it ships (${ms.length})</h3><ul>${ms.map(m => `<li><b>${esc(m.name)}</b>${m.version ? " " + esc(m.version) : ""}: ${esc(m.what)} <span class="meta">${esc(TESTED[m.tested] || "tests not stated")}</span></li>`).join("")}</ul>` : ""}

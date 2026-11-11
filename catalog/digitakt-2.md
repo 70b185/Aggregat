@@ -87,7 +87,7 @@ _Latest seen (2026-10-31, secondary directories): altstrument lists it as "Digit
 
 _Related: builds on `digikit` (all-in-one/README.md: modified firmware derived from digikit; uses its patchkit); vendors `elektron-firmware-tool` (catalogue notes: elektron-firmware-tool (vendored)); cites `syntakt-firmware-workbench` (README: the Syntakt Firmware Workbench as behavioural reference) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: forum threads 80 and 83, GitHub README, GitHub releases, all-in-one/README.md and NOTICE read 2026-11-02_
+_Sources: forum threads 80 and 83, GitHub README, GitHub releases, all-in-one/README.md and NOTICE read 2026-11-02, README (2026-11-11)_
 
 ### Elektron Firmware Download List
 
@@ -139,7 +139,7 @@ _Latest seen (2026-10-31, secondary directories): altstrument: v1.0 (2026-10-04)
 
 _Related: uses tool `digikit` (catalogue notes: stock behaviour tested in digikit's emulator); mod for `elekloader` (README: elekloader mods for PERFORM KIT mode) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list_
+_Sources: GitHub README, lapin-list, README (2026-11-11)_
 
 ### dt2-machine-lab
 
@@ -159,7 +159,7 @@ _Latest seen (2026-10-31, secondary directories): altstrument: converts an image
 
 _Related: uses tool `elektron-firmware-tool` (README: the build needs elektron-firmware-tool); cites `digitakt-ii-splash-screens` (README credits: the original splash research) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list_
+_Sources: GitHub README, lapin-list, README (2026-11-11)_
 
 ### Digi2Core (core-dt2 2.6.1)
 
@@ -167,7 +167,7 @@ Base mod for gdeo607's Digitakt II machine mods; on its own it changes nothing. 
 
 _Related: mod for `elekloader` (README: an elekloader mod (core 2.6.1)); builds on `elekloader` (README: starts from core 1.0 (irpina's boot copier and hook bus, unchanged)); vendors `digikit` (README: adds the frameworks DigiKit's All-in-One builds its machines on); uses tool `digikit` (README: checked in the emulator) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README 2026-11-10_
+_Sources: GitHub README 2026-11-10, README (2026-11-11)_
 
 ### Digi2MacroOSC (MACRO)
 
@@ -175,7 +175,7 @@ MACRO, a macro-oscillator machine (type 11): 25 synthesis models and four DX7 pa
 
 _Related: mod for `elekloader` (README: an elekloader mod); builds on `digi2core` (README: on core-dt2 2.4); vendors `digikit` (README: DSP object built from DigiKit's machines/plaits module) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README 2026-11-10_
+_Sources: GitHub README 2026-11-10, README (2026-11-11)_
 
 ### Digi2ElixirPotionsDRUM (ELIXIR)
 
@@ -183,7 +183,7 @@ ELIXIR, a drum-synthesis machine (type 12) with four models picked by MODEL - DR
 
 _Related: mod for `elekloader` (README: an elekloader mod); builds on `digi2core` (README: core-dt2 2.4 (Digi2Core)); vendors `digikit` (README: lxm_entry.s derived from digikit's Plaits entry shim) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README 2026-11-10_
+_Sources: GitHub README 2026-11-10, README (2026-11-11)_
 
 ### Digi2String (STRING)
 
@@ -191,7 +191,7 @@ Alez22's Karplus-Strong STRING machine from the Digitakt mk1, ported to the Digi
 
 _Related: port of `digistring` (README: a floating-point port of Alez22's karplus.c); mod for `elekloader` (README: an elekloader mod); builds on `digi2core` (README: core-dt2 2.6.1 or later); vendors `digikit` (README: strg_entry.s derived from digikit's Plaits entry shim) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README 2026-11-10_
+_Sources: GitHub README 2026-11-10, README (2026-11-11)_
 
 ### Digi2Sophie (SOPHIE)
 
@@ -199,7 +199,7 @@ SOPHIE metallic percussion for the Digitakt II: Matt Estela's Sophie for Schwung
 
 _Related: port of `digisophie` (README: PIPE and BOOM from Sophie for Digitakt by soejrd); mod for `elekloader` (README: an elekloader mod); builds on `digi2core` (README: core-dt2 2.6.1 or later); vendors `digikit` (README: sphe_entry.s derived from digikit's Plaits entry shim); cites `overtone` (README: Overtone runs SOPHIE on the Digitone II) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README 2026-11-10_
+_Sources: GitHub README 2026-11-10, README (2026-11-11)_
 
 ### Digi2Digiseq (DIGISEQ)
 
@@ -207,7 +207,7 @@ Robbie's DIGISEQ sequencers for the Digitakt II: every track, audio or MIDI, pic
 
 _Related: port of `digiseq-digitakt` (README: DIGISEQ for Digitakt by Robbie (ClaidArremer), adapted); mod for `elekloader` (README: built with elekloader); builds on `digi2core` (README: core-dt2 2.6.1 or later, its pattern service) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README 2026-11-10_
+_Sources: GitHub README 2026-11-10, README (2026-11-11)_
 
 ### Elektroid
 
@@ -295,7 +295,7 @@ Eight performance macros (PAGE+MOD), each moving up to four parameters on chosen
 
 _Related: mod for `elekloader` (README: built with elekloader); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### digitakt-mods
 
@@ -303,7 +303,7 @@ French-language collection of open-source .elemod mods for Digitakt mk1 and II, 
 
 _Related: mod for `elekloader` (README: packs built on elekloader's web page) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### elkflash
 
@@ -337,13 +337,13 @@ A 16-byte patch that lets the DT2 pick among all five boot animations instead of
 
 _Related: uses tool `elektron-firmware-tool` (README: the build needs elektron-firmware-tool) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### Digi Battery
 
 Hardware battery mod for Digitone, Digitone II, Digitakt and Digitakt II (soldering; at your own risk). CC licence. Found by GitHub search 2026-11-02; README start read.
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### ElekPrep (elektron-sample-prep)
 
@@ -363,7 +363,7 @@ A DJ-style mix mode on the SONG key: pick a reference pattern and bring its trac
 
 _Related: mod for `elekloader` (README: NOTICE names elekloader (core-dt2 and its kit) as a base); builds on `modwerk` (README: build needs a Modwerk checkout with core-dt2 1.0); cites `digikit` (README: NOTICE credits digikit's research on the Digitakt II) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-05, README_
+_Sources: GitHub search 2026-11-05, README, README (2026-11-11)_
 
 ### digimod (Digitakt II mod builder)
 
@@ -399,7 +399,7 @@ Adds Torso T-1-style generated melodies to the stock Euclidean sequencer: each E
 
 _Related: mod for `elekloader` (README: an Elekloader linkable mod (format 2), requires core-dt2 1.0); uses tool `digikit` (README: every EUC+ test runs in digikit's Digitakt II emulator); cites `mezclando` (commit 2026-11-08: Mezclando as prior art in docs/EXTENDED-EUCLID.md) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: owner 2026-11-08, README, mods/eucplus-dt2/mod.json_
+_Sources: owner 2026-11-08, README, mods/eucplus-dt2/mod.json, README (2026-11-11)_
 
 ### selache (SHARC+ toolchain)
 

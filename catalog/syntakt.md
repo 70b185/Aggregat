@@ -40,7 +40,7 @@ _Latest seen (2026-10-31, secondary directories): Upstream is Angelo-politek/Syn
 
 _Related: fork of `synthack-os-upstream` (GitHub fork flag); uses tool `elektron-firmware-tool` (README: tools/unpack wraps elektron-firmware-tool) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: forum threads 81 and 85_
+_Sources: forum threads 81 and 85, README (2026-11-11)_
 
 ### Elektron Firmware Download List
 
@@ -54,7 +54,7 @@ Browser workbench, use your own official file; put your own waves into SY CHORD.
 
 _Related: cites `elektron-firmware-tool` (README credits); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)); cites `dn2-firmware-explore` (README: the model for a browser-only tool) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list_
+_Sources: GitHub README, lapin-list, README (2026-11-11)_
 
 ### sympakt
 
@@ -88,7 +88,7 @@ Unofficial modular patch set for the Syntakt: master compressor (THR/ATK/REL/MUP
 
 _Related: uses tool `elektron-firmware-tool` (README: tools/unpack wraps elektron-firmware-tool) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, altstrument Syntakt page_
+_Sources: GitHub README, altstrument Syntakt page, README (2026-11-11)_
 
 ### SY FM4
 
@@ -96,7 +96,7 @@ Four-operator FM machine that replaces SY TONE in place; eleven operator algorit
 
 _Related: uses tool `elektron-firmware-tool` (README: the build needs elektron-firmware-tool); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu); cites `synthack-os-upstream` (README refers to SyntHack OS) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument Syntakt page_
+_Sources: altstrument Syntakt page, README (2026-11-11)_
 
 ### syntakt-machine45-research
 
@@ -126,7 +126,7 @@ Sampler for the Syntakt as a patch to OS 1.42: replaces the Twinshot machine wit
 
 _Related: cites `elektron-firmware-tool` (README credits); cites `model-tg` (README: built on what others worked out first); cites `elektron-model-tweaks` (README: built on what others worked out first) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### analog-emu (rytm-emu)
 

@@ -113,7 +113,7 @@ _Latest seen (2026-10-31, secondary directories): altstrument: 0.7 needs the cor
 
 _Related: mod for `modwerk` (modwerk sdk/digitakt/modules/digineighbor names this repo as source (2026-11-09)); mod for `elekloader` (catalogue notes: "installed via elekloader"); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: forum thread 21, elekloader release v0.4.0_
+_Sources: forum thread 21, elekloader release v0.4.0, README (2026-11-11)_
 
 ### Digisophie / Sophie for Digitakt
 
@@ -123,7 +123,7 @@ _Latest seen (2026-10-31, secondary directories): altstrument: four models FUSE,
 
 _Related: mod for `modwerk` (modwerk sdk/digitakt/modules/digisophie names this repo as source (2026-11-09)); mod for `elekloader` (catalogue notes: "needs elekloader"); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: synthtopia, gearnews_
+_Sources: synthtopia, gearnews, README (2026-11-11)_
 
 ### takt1ccname (MIDI CC naming)
 
@@ -131,7 +131,7 @@ Author says it is "done and as good as it's going to get" (2026-10-15). Uses a c
 
 _Related: mod for `elekloader` (README: built as an elekloader linkable mod); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: forum thread 66_
+_Sources: forum thread 66, README (2026-11-11)_
 
 ### digirequests (Digitakt request mods)
 
@@ -139,13 +139,13 @@ Module collection suggested in the CC-naming thread. Its cc-names module reporte
 
 _Related: mod for `elekloader` (README: each mod is an Elekloader format-2 module); mod for `modwerk` (README: each folder is laid out for Modwerk's source builder) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: forum thread 66_
+_Sources: forum thread 66, README (2026-11-11)_
 
 ### x0x (808/909 kick machines)
 
 808 and 909 kick machines (MODEL 0 = 808, 127 = 909; TNTUN, DECAY, ATTK) that use the device's own sequencer, filters, AMP and effects, built from the user's stock OS for each device. On the Digitone II a new kick fades the previous one on the same track over about 2.7 ms. Physical qualification on Digitakt and Digitone is in progress (issue 94). docs/dn2-remote-control.md drives a DN2 1.12 remotely through a DigiHealth helper (remote keys, screen frames, ColdFire and DSP peek). Licence file not found in the clone. Found by GitHub code search 2026-11-03.
 
-_Sources: GitHub code search 2026-11-03, README, docs/dn2-remote-control.md_
+_Sources: GitHub code search 2026-11-03, README, docs/dn2-remote-control.md, README (2026-11-11)_
 
 ### Request: additional sequencer pages for DN1/DT1
 
@@ -173,7 +173,7 @@ _Latest seen (2026-10-31, secondary directories): altstrument: v0.8.0 adds OS 1.
 
 _Related: mod for `modwerk` (modwerk sdk/digitakt/modules/digistring names this repo as source (2026-11-09)); mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list_
+_Sources: GitHub README, lapin-list, README (2026-11-11)_
 
 ### DigiFilter
 
@@ -183,7 +183,7 @@ _Latest seen (2026-10-31, secondary directories): altstrument: v1.3 adds a Digit
 
 _Related: mod for `elekloader` (README: build needs elekloader 0.5+ and its cores); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list_
+_Sources: GitHub README, lapin-list, README (2026-11-11)_
 
 ### Filter+ (13 filter types)
 
@@ -191,7 +191,7 @@ elekloader format-2 mods adding 13 per-track filter types (BP, BP2, COMB, TRASH,
 
 _Related: builds on `digifilter` (same author; BP/BP2/COMB/TRASH are DigiFilter modes; LICENSE names the DigiFilter authors); mod for `elekloader` (catalogue notes: "elekloader format-2 mods"); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, CHANGELOG.md_
+_Sources: GitHub README, CHANGELOG.md, README (2026-11-11)_
 
 ### DigiSplash
 
@@ -201,7 +201,7 @@ _Latest seen (2026-10-31, secondary directories): altstrument: animated splashes
 
 _Related: mod for `elekloader` (README: an elekloader mod); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list_
+_Sources: GitHub README, lapin-list, README (2026-11-11)_
 
 ### digi1_mods
 
@@ -209,7 +209,7 @@ Patch set with a POLY core, synth machines and utility pages. "Unofficial and un
 
 _Related: mod for `modwerk` (modwerk sdk/digitakt/modules: digichain, digieq, digimatrix, digimono, digipoly, digiutils name this repo as source (2026-11-09)); mod for `elekloader` (README: an elekloader mod); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu); bundles `tone-fx` (README: Tone+FX, Digital Alchemy DSP's master effects suite, ported) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list_
+_Sources: GitHub README, lapin-list, README (2026-11-11)_
 
 ### digislicer
 
@@ -219,7 +219,7 @@ _Latest seen (2026-10-31, secondary directories): altstrument: 2.5 replaces GRID
 
 _Related: mod for `modwerk` (modwerk sdk/digitakt/modules/digislicer names this repo as source (2026-11-09)); mod for `elekloader` (catalogue notes: a curated mod in the elekloader shop); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list, elekloader release v0.2.0_
+_Sources: GitHub README, lapin-list, elekloader release v0.2.0, README (2026-11-11)_
 
 ### DT-FM
 
@@ -229,7 +229,7 @@ _Latest seen (2026-10-31, secondary directories): altstrument: eight algorithms,
 
 _Related: builds on `digisophie` (notes); mod for `elekloader` (README changelog: compatibility with other Elekloader mods); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list_
+_Sources: GitHub README, lapin-list, README (2026-11-11)_
 
 ### Digidrum
 
@@ -245,7 +245,7 @@ Granular playback engine. "Verified in the emulator on the real firmware", hardw
 
 _Related: mod for `elekloader` (README: built with elekloader); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list_
+_Sources: GitHub README, lapin-list, README (2026-11-11)_
 
 ### digihealth
 
@@ -255,7 +255,7 @@ _Latest seen (2026-10-31, secondary directories): altstrument: FAST AUDIO runs h
 
 _Related: mod for `modwerk` (modwerk sdk/digitakt and sdk/digitone modules: digihealth names this repo as source (2026-11-09)); mod for `elekloader` (README: an elekloader mod); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list, elekloader release v0.4.0_
+_Sources: GitHub README, lapin-list, elekloader release v0.4.0, README (2026-11-11)_
 
 ### digirta
 
@@ -263,7 +263,7 @@ Octave-band real-time analyzer. MIT, 1 commit.
 
 _Related: mod for `elekloader` (README: an elekloader mod) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list_
+_Sources: GitHub README, lapin-list, README (2026-11-11)_
 
 ### DigiCandy
 
@@ -271,7 +271,7 @@ Full-panel 128x64 image overlay on command. README: work in progress, "tested on
 
 _Related: mod for `elekloader` (README: built for elekloader, needs its core mod) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list_
+_Sources: GitHub README, lapin-list, README (2026-11-11)_
 
 ### screendump
 
@@ -289,7 +289,7 @@ _Latest seen (2026-10-31, secondary directories): altstrument: v3.2b separates W
 
 _Related: unclear `ringtone` (Tone+FX README calls RingTone "the older RingTone repo" (same author); successor or same project not stated. Was same_project until 2026-11-04 (raised in PR #3)); mod for `elekloader` (README: a set of elekloader mods released as one suite); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub README, lapin-list_
+_Sources: GitHub README, lapin-list, README (2026-11-11)_
 
 ### Elektroid
 
@@ -327,13 +327,13 @@ SRC machine for Digitakt mk1 built on elekloader, played from the Chromatic keyb
 
 _Related: mod for `elekloader` (catalogue notes: "built on elekloader") - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: elektronmods list_
+_Sources: elektronmods list, README (2026-11-11)_
 
 ### Vampire Manga OS
 
 Combined OS for Digitakt mk1 and Digitone mk1: new engines (DigiMono machines and MACRO engines on Digitakt; VA and GRAIN on Digitone), a tagged sound library, 34 insert effects in three serial slots per track. README: public-testing build, not qualified on hardware, CPU target not reached. No licence file seen. Found by GitHub search 2026-11-02; README start read.
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### digitakt-digitone-mcp
 
@@ -349,7 +349,7 @@ S.A.M. (1982 speech synthesiser) as a machine: type a phrase on the naming scree
 
 _Related: mod for `elekloader` (README: built with elekloader from the stock OS file); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### DIGISEQ (Digitakt)
 
@@ -357,7 +357,7 @@ Per-track choice of sequencer on the TRIG page's second page (e.g. SNAKE walking
 
 _Related: mod for `elekloader` (catalogue notes: "elekloader mod"); bundles `digisnake-digitakt` (README: DIGISNAKE for Digitakt, unchanged, as its SNAKE type) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### PUMP (Digitakt)
 
@@ -365,7 +365,7 @@ SP-303 Vinyl-Sim-style levelling master compressor in place of the stock compres
 
 _Related: mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### DIRECT JUMP (Digitakt)
 
@@ -373,7 +373,7 @@ Direct pattern jump and start-on-bar settings for the Digitakt mk1. elekloader m
 
 _Related: mod for `elekloader` (catalogue notes: "elekloader mod") - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### DIGISNAKE (Digitakt)
 
@@ -381,7 +381,7 @@ Cartesian sequencer after MDD Snake / Make Noise René. elekloader mod. GPL. Fou
 
 _Related: mod for `elekloader` (catalogue notes: "elekloader mod"); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### Sidecar (Digitakt mod)
 
@@ -389,7 +389,7 @@ Plays a Sidecar expander from the Digitakt mk1. README: experimental, emulator o
 
 _Related: variant of `sidecar-expander` (same author, Digitakt side of Sidecar); uses tool `elekloader` (README: elekloader builds the OS candidates); cites `digitakt-sidecar-pi` (README: thanks to soejrd's digitakt-sidecar for its reverse-engineering findings); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### Digitakt integrated sidecar
 
@@ -397,7 +397,7 @@ Runs a TRX-B2 engine on a Raspberry Pi 4B, controlled from a Digitakt mk1 audio 
 
 _Related: builds on `sidecar-expander` (README: based on Sidecar by Trig Condition); uses tool `elekloader` (README: elekloader builds the OS candidates); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### analog-emu (rytm-emu)
 
@@ -419,7 +419,7 @@ Gives the SLICE knob beat divisions (1/1 to 1/16T) at the project tempo and a ra
 
 _Related: mod for `elekloader` (README: an elekloader mod) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### digitakt-mods
 
@@ -427,7 +427,7 @@ French-language collection of open-source .elemod mods for Digitakt mk1 and II, 
 
 _Related: mod for `elekloader` (README: packs built on elekloader's web page) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### OB-1 (elektrob-1)
 
@@ -435,7 +435,7 @@ Oberheim OB-1 oscillator section as a machine, via elekloader. No licence file s
 
 _Related: mod for `elekloader` (catalogue notes: a machine "via elekloader"); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### diginular
 
@@ -443,7 +443,7 @@ GRAIN, a granular SRC machine reading up to eight windowed grains from the track
 
 _Related: mod for `elekloader` (catalogue notes: "experimental elekloader mod"); cites `digigrain` (README: the idea is lucykowal/digigrain's random RATE) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### elkflash
 
@@ -459,7 +459,7 @@ Runs Digitakt mk1 firmware on Digitone mk1 hardware: taktone-core converts any s
 
 _Related: mod for `elekloader` (README: Elekloader machine integration source); vendors `digiemu` (README: the ColdFire instruction decoder comes from irpina/digiemu (GPL retained)); bundles `digisophie` (README: Digisophie machines running on the second DSP) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### TRIG pages
 
@@ -467,13 +467,13 @@ Framework adding TRIG sub-pages where each track picks a generator mod (first on
 
 _Related: mod for `elekloader` (README: an elekloader mod) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### Digi Battery
 
 Hardware battery mod for Digitone, Digitone II, Digitakt and Digitakt II (soldering; at your own risk). CC licence. Found by GitHub search 2026-11-02; README start read.
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### dtdump
 
@@ -487,7 +487,7 @@ A Raspberry Pi 4B/5 on the Rytm's USB port adds digital voices, effects and a se
 
 _Related: mod for `elekloader` (README: the Rytm firmware part is an elekloader module); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### Digitakt Pattern Editor (JUCE)
 
@@ -523,7 +523,7 @@ LED theme editor and standby light show: six themes plus CUSTOM, eleven colour f
 
 _Related: mod for `elekloader` (README: an Elekloader mod for core 4.1); uses tool `digiemu` (README: tested in the digiemu emulator against OS 1.54) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-06, README_
+_Sources: GitHub search 2026-11-06, README, README (2026-11-11)_
 
 ### MIDI Expression for the Digitakt (Digi-Expression)
 
@@ -531,7 +531,7 @@ Pitch bend, mod wheel, aftertouch and breath controller from an external keyboar
 
 _Related: mod for `modwerk` (README: a module for Modwerk, written with the Modwerk SDK); uses tool `digiemu` (README: tested on the firmware in the digiemu emulator) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-06, README_
+_Sources: GitHub search 2026-11-06, README, README (2026-11-11)_
 
 ### Flex+ (FlexBus machine)
 
@@ -539,7 +539,7 @@ Routes the audio inputs or internal tracks into a track, with a low-CPU pitch sh
 
 _Related: mod for `elekloader` (README: build a custom OS with elekloader) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-07, README, RELEASE-NOTES.md 1.1_
+_Sources: GitHub search 2026-11-07, README, RELEASE-NOTES.md 1.1, README (2026-11-11)_
 
 ### Filter-FX (seven filter effects)
 
@@ -547,7 +547,7 @@ Seven filter-based effect modes per track: VOWEL, BANK, FOLD, CRUSH, RING, PHASE
 
 _Related: mod for `elekloader` (elekloader web/catalog.json lists its .elemod files) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: elekloader mod shop catalog 2026-11-08_
+_Sources: elekloader mod shop catalog 2026-11-08, README (2026-11-11)_
 
 ### ModelDigi (Model D oscillators)
 
@@ -555,7 +555,7 @@ A Minimoog Model D-style oscillator section for the Digitakt mk1: three oscillat
 
 _Related: mod for `elekloader` (README: included in a custom OS composed with Elekloader) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: state/NEW.md 2026-11-10, README_
+_Sources: state/NEW.md 2026-11-10, README, README (2026-11-11)_
 
 ### elkbench (hardware tests as an MCP server)
 

@@ -58,7 +58,7 @@ Firmware for rhythmic noise and power noise: four generators (Patch, Kit, Phrase
 
 _Related: bundles `modded-cycles` (README: mods included from Modded-Cycles are part of Motor:Cycles); cites `elektron-model-tweaks` (README thanks: drumkilla's mtlib firmware toolkit); cites `ms-multi-output` (README credits: the original multi-channel USB audio mod) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub code search 2026-11-03, README_
+_Sources: GitHub code search 2026-11-03, README, README (2026-11-11)_
 
 ### Elek View (screen viewer in the browser)
 
@@ -76,11 +76,11 @@ _Sources: altstrument (2026-11-01)_
 
 ### Chord Keys
 
-Turns the trig keys into a scale-locked chord keyboard on a CHORD track (Model:Cycles 1.13); later versions add harmony pads and MIDI chord out. Licence: unspecified; distribution: source-only. Listed by altstrument; repo not read by us yet.
+Turns the trig keys into a scale-locked chord keyboard on a CHORD track (Model:Cycles 1.13); later versions add harmony pads and MIDI chord out. Licence: unspecified; distribution: source-only. Listed by altstrument; README read 2026-11-11.
 
 _Related: fork of `modded-cycles` (GitHub fork flag) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### Control All Config
 
@@ -110,47 +110,47 @@ One community OS for Model:Cycles 1.13, built in a browser from your own files (
 
 _Related: cites `elektron-firmware-tool` (README credits); cites `elektroid` (README credits: the Elektron Transfer update protocol behind fast USB flashing); bundles `model-tg` (README: Model-TG's Sampler as the 7th machine); bundles `elektron-model-tweaks` (README: includes drumkilla's tweaks (latching mute, trig preview)); bundles `ms-multi-output` (README: 6-channel audio after scottmetoyer/ms-multi-output); cites `octamax` (README credits: reverse-engineering method); cites `octa-bt-pt` (README credits: reverse-engineering and patching) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### Model-TG
 
-Sampler as a seventh Model:Cycles machine (one-shot, loop, slice, granular, stretch, wavetable), resampling, master FX. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
+Sampler as a seventh Model:Cycles machine (one-shot, loop, slice, granular, stretch, wavetable), resampling, master FX. Licence: MIT; distribution: patch-your-own. Listed by altstrument.
 
 _Related: uses tool `elektron-firmware-tool` (README: it unpacks and repacks the OS); bundles `elektron-model-tweaks` (README: includes drumkilla's tweaks (latching mute, trig preview)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### model27
 
-Repo was offline 2026-11-07 to 11-09 (check_updates 2026-11-08); public again on 2026-11-09 (altstrument and SPOKES change reports; README read 2026-11-10). Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: a web Manager keeps one Model:Cycles project per firmware: it backs up the current project, flashes the other firmware over USB and restores that firmware's project (notes/77).
+Repo was offline 2026-11-07 to 11-09 (check_updates 2026-11-08); public again on 2026-11-09 (altstrument and SPOKES change reports; README read 2026-11-10). Beta fork of Modded Cycles 1.55 with a short mod list in the browser picker. Licence: MIT; distribution: browser-installer. Listed by altstrument. 2026-11-02: a web Manager keeps one Model:Cycles project per firmware: it backs up the current project, flashes the other firmware over USB and restores that firmware's project (notes/77).
 
 _Related: fork of `modded-cycles` (own README: beta fork of Modded Cycles 1.55); cites `digiemu` (README credits digiemu); cites `elektroid` (README credits: the Elektron Transfer update protocol behind fast USB flashing); bundles `elektron-model-tweaks` (README: includes drumkilla's tweaks (latching mute, trig preview)); cites `octamax` (README credits: reverse-engineering method); cites `octa-bt-pt` (README credits: reverse-engineering and patching); cites `model-tg` (README: its CPU page built as Model-TG's System page); cites `ms-multi-output` (README credits: the original 6-channel USB mod); bundles `cycles-control-all-config` (README: Modded-Cycles 1.55 plus the Control All Config mod); bundles `cycles-one-shot` (README: the SAMPLE machine of Cycles One-Shot) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### plaits-on-models
 
-Plaits engines in fixed point as a Model:Cycles machine; emulator only so far. Licence: MIT; distribution: source-only. Listed by altstrument; repo not read by us yet.
+Plaits engines in fixed point as a Model:Cycles machine; emulator only so far. Licence: MIT; distribution: source-only. Listed by altstrument.
 
 _Related: builds on `digi1-mods` (README: the base is MACRO from gdeo607/digi1_mods); builds on `modded-cycles` (README: clone the Modded-Cycles fork with the PLAITS files) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### SPOKES
 
-Browser hub that builds a chosen Model:Cycles community firmware from your OS 1.13 file and sends it over Web MIDI. Licence: MIT; distribution: browser-installer. Listed by altstrument; repo not read by us yet.
+Browser hub that builds a chosen Model:Cycles community firmware from your OS 1.13 file and sends it over Web MIDI. Licence: MIT; distribution: browser-installer. Listed by altstrument.
 
 _Related: bundles `modded-cycles` (README table); bundles `model27` (README table); bundles `supermodel-edition` (README table); cites `elekloader` (README mentions elekloader (porting from it / hosted loader)); cites `motorcycles` (README: listed as a builder Spokes integrates); cites `model-tg` (README: listed as a builder Spokes integrates); cites `plaits-on-models` (README: listed as a builder Spokes integrates); cites `elektron-model-tweaks` (README: listed as a builder Spokes integrates); cites `model-machinedrum` (README: listed as a builder Spokes integrates) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### Supermodel Edition
 
-Fork of Modded Cycles with a 909-style kit flasher, ACID machine, sequence generator, second LFO. Licence: unspecified; distribution: browser-installer. Listed by altstrument; repo not read by us yet. 2026-11-02: more screenshots of the running firmware added to docs/assets/screens. 2026-11-03: release 3.02 documented (shortcut guide, printable manual, English and French); playback modes One-Shot, Loop, Slice, Granular, Stretch, Pluck, Wavetable.
+Fork of Modded Cycles with a 909-style kit flasher, ACID machine, sequence generator, second LFO. Licence: unspecified; distribution: browser-installer. Listed by altstrument. 2026-11-02: more screenshots of the running firmware added to docs/assets/screens. 2026-11-03: release 3.02 documented (shortcut guide, printable manual, English and French); playback modes One-Shot, Loop, Slice, Granular, Stretch, Pluck, Wavetable.
 
 _Related: fork of `modded-cycles` (GitHub fork flag); vendors `model27` (README: release 2.61 adds durchgemacht/model27 POTS delay (MIT)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### Vladiktron Spoke
 
@@ -166,27 +166,27 @@ Web flasher and CLI tweaks for Model:Samples and Model:Cycles 1.13 (16-ch USB au
 
 _Related: vendors `elekloader` (README: linked by elekloader's linker, an unchanged copy in elekloader/); builds on `elektron-firmware-tool` (README: building scripts are based on elektron-firmware-tool); cites `digihealth` (README: based on 18nelli's research and the FAST AUDIO of digihealth); builds on `ms-multi-output` (README: based on ms-multi-output by Scott Metoyer) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### ms-multi-output
 
-Six channels of per-track USB audio for Model:Samples and Model:Cycles; patch sources and build script only. Licence: MIT; distribution: patch-your-own. Listed by altstrument; repo not read by us yet.
+Six channels of per-track USB audio for Model:Samples and Model:Cycles; patch sources and build script only. Licence: MIT; distribution: patch-your-own. Listed by altstrument.
 
 _Related: uses tool `elektron-firmware-tool` (README: it unpacks and repacks the OS); cites `octamax` (README credits: reverse-engineering method) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### Cycles Mods
 
 Open-source Model:Cycles mods, one folder per mod with its own README and a download zip for use in any flasher. MIT. Found by GitHub search 2026-11-02; README start read.
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### Elektron-Model-Machinedrum
 
 Fork adding Machinedrum machines (TRX-B2, TRX-SD, TRX-CH, ported sample for sample) to the Model:Cycles, patched in the browser from official files. No licence file seen. Found by GitHub search 2026-11-02; README start read.
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### Cycles Engines
 
@@ -210,7 +210,7 @@ Replaces the six stock machines with circuit-modelled TR-909 voices (integer mod
 
 _Related: builds on `modded-cycles` (README: built on Modded-Cycles and Model-TG); builds on `model-tg` (README: Model-TG is ticked with model909) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### Model:Cycles .mcpst format notes
 
@@ -230,7 +230,7 @@ Source package for a percussion machine with six oscillators, each with its own 
 
 _Related: builds on `model27` (altstrument: a machine package for model27; its scripts clone model27 at a pinned commit); mod for `modded-cycles` (catalogue notes: a fixed-slot tweak for Modded Cycles 2.0); mod for `cycles-engines` (README: tested as cycles-engines composes it) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-04)_
+_Sources: altstrument (2026-11-04), README (2026-11-11)_
 
 ### Modded Cycles Techno Edition
 
@@ -238,7 +238,7 @@ _Sources: altstrument (2026-11-04)_
 
 _Related: builds on `modded-cycles` (README credits: build toolchain, per-track filter, machine list, MACRO and ACID ports); bundles `model909` (README credits: the 909 kick, toms, rim and clap from DMDaudio/model909); bundles `elektron-model-tweaks` (README credits: scrolling names and the mtlib toolkit); cites `model-tg` (README credits: CPU measurement, sample transfer identity, delay/reverb tricks); builds on `ms-multi-output` (README credits: the original 6-channel USB audio mod) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-06, README_
+_Sources: GitHub search 2026-11-06, README, README (2026-11-11)_
 
 ### FERAL (nine noisy models)
 
@@ -246,7 +246,7 @@ One added machine with nine noisy, unpredictable synthesis models, light on the 
 
 _Related: mod for `cycles-engines` (README: tick FERAL in the Cycles Engines flasher) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-07, README_
+_Sources: GitHub search 2026-11-07, README, README (2026-11-11)_
 
 ### BLAST (OPL2-style FM)
 
@@ -254,7 +254,7 @@ One added machine with fourteen melodic two-operator FM models in the manner of 
 
 _Related: mod for `cycles-engines` (README: tick BLAST in the Cycles Engines flasher) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-07, README_
+_Sources: GitHub search 2026-11-07, README, README (2026-11-11)_
 
 ### PUNCH (OPL2-style FM percussion)
 
@@ -262,7 +262,7 @@ One added machine with twelve two-operator FM percussion engines with extended r
 
 _Related: mod for `cycles-engines` (README: tick PUNCH in the Cycles Engines flasher) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-07, README_
+_Sources: GitHub search 2026-11-07, README, README (2026-11-11)_
 
 ### CyclesEmu (Model:Cycles engine as plug-ins)
 

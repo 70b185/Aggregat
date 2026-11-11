@@ -20,6 +20,8 @@
   const isLoader = p => p.kind === "loader" || (isMod(p) && p.kind === "tool");
   // mods a loader or platform ships itself (projects.yml own_mods), stored as a JSON list
   const own = p => { try { return JSON.parse(p.own_mods || "[]"); } catch (e) { return []; } };
+  // what the mod does, in a few points read from its README (projects.yml features), stored as a JSON list
+  const feats = p => { try { return JSON.parse(p.features || "[]"); } catch (e) { return []; } };
   const TESTED = {"unit": "yes, on a unit", "partly": "partly", "emulator": "emulator only", "not-stated": "not stated"};
   const T_ORDER = ["unit", "partly", "emulator", "not-stated"];
   // a platform's own mods become ONE mod card "<platform> mods" installed via it (one entry per repo, like every
@@ -72,7 +74,7 @@
   function filtered(D, words) {
     const hosts = hostsOf(D), via = viaOf(D);
     let rows = catalogue(D, S.all);
-    if (words.length) rows = rows.filter(p => words.every(w => [p.id, p.name, p.author, p.notes, p.contains, p.base_os, p.version, via(p)]
+    if (words.length) rows = rows.filter(p => words.every(w => [p.id, p.name, p.author, p.notes, p.contains, feats(p).join(" "), p.base_os, p.version, via(p)]
       .join(" ").toLowerCase().includes(w)));
     if (S.via) rows = rows.filter(p => (hosts[p.id] || []).includes(S.via));
     return rows;
@@ -124,7 +126,9 @@
           <a class="md-perma" href="?p=${esc(p.platform || p.id)}" title="Page of this entry, with a link you can share">details</a><span class="md-date" title="${dateTitle}">${esc(shownDate(p) || "")}</span></div>
         <h3>${p.repo ? `<a href="${esc(p.repo)}">${esc(p.name)}</a>` : esc(p.name)}</h3>
         <div class="md-by">${esc(short(p.author, 60))}</div>
-        <p>${esc(short(p.notes, 190))}</p>
+        <p>${esc(short(p.notes, feats(p).length ? 130 : 190))}</p>
+        ${feats(p).length ? `<ul class="md-feat">${feats(p).slice(0, 4).map(f => `<li>${esc(f)}</li>`).join("")}${feats(p).length > 4
+          ? `<li class="md-more"><a href="?p=${esc(p.id)}">${feats(p).length - 4} more</a></li>` : ""}</ul>` : ""}
         ${p.contains ? `<details><summary>What is inside</summary><div>${esc(p.contains)}</div></details>` : ""}
         <div class="md-foot">${devs(p)}<span class="md-via">via ${esc(via(p))}</span></div>
         ${os ? `<div class="md-os">${esc(os)}</div>` : ""}
@@ -165,5 +169,5 @@
   // state for the page address (?via=, ?sort=, ?all=1), so a filtered view can be shared
   const getState = () => ({via: S.via, sort: S.sort === "updated" ? "" : S.sort, all: S.all ? "1" : ""});
   const setState = st => { if (st.via) S.via = st.via; if (["found", "name"].includes(st.sort)) S.sort = st.sort; if (st.all === "1") S.all = true; };
-  window.AggMods = {draw, ownMods, catalogue, showsHidden: () => S.all, filtered, getState, setState};
+  window.AggMods = {draw, ownMods, catalogue, feats, showsHidden: () => S.all, filtered, getState, setState};
 })();

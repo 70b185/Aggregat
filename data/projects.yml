@@ -6,7 +6,8 @@
 #   author         handle(s) as published
 #   kind           mod | loader | emulator | editor | tool | research | resource | request (a custom OS is a mod too:
 #                  since 2026-11-11 there is no separate kind for it, the line between the two was never defined)
-#   devices        list of device slugs (see devices.yml)
+#   devices        list of device slugs (see devices.yml); for an entry in the mods list only the devices it ships mods
+#                  for (tools or file support for other devices go into notes)
 #   repo           primary source repository (null if none known)
 #   links          other URLs: homepage / releases / forum thread
 #   status         unreachable (repo gone or private) | active | beta | alpha | stable | wip | pre-release | released | done | request

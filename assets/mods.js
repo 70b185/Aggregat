@@ -120,7 +120,7 @@
       const st = SHOWN_STATUS[p.status] && p.status !== "unverified" ? `<span class="md-st">${SHOWN_STATUS[p.status]}</span>` : "";
       const os = p.base_os ? short(p.base_os, 70) : "";
       return `<article style="--dc:var(--c-${esc(list(p.devices)[0] || "")})" class="md-card md-k-${esc(p.kind)}${["unreachable", "unverified"].includes(p.status) ? " md-dim" : ""}">
-        <div class="md-top">${p.contains || p.platform ? `<span class="md-kind" title="One entry with several mods inside">collection</span>` : ""}${isNew ? `<span class="md-new">new</span>` : ""}${p.status === "unverified" ? `<span class="md-st">unverified lead</span>` : st}
+        <div class="md-top">${isNew ? `<span class="md-new">new</span>` : ""}${p.status === "unverified" ? `<span class="md-st">unverified lead</span>` : st}
           <a class="md-perma" href="?p=${esc(p.platform || p.id)}" title="Page of this entry, with a link you can share">details</a><span class="md-date" title="${dateTitle}">${esc(shownDate(p) || "")}</span></div>
         <h3>${p.repo ? `<a href="${esc(p.repo)}">${esc(p.name)}</a>` : esc(p.name)}</h3>
         <div class="md-by">${esc(short(p.author, 60))}</div>

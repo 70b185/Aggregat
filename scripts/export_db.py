@@ -18,6 +18,7 @@ an index over them, rebuilt on every run.
 Usage: python3 scripts/export_db.py        (needs PyYAML; sqlite3 is in the standard library)
 """
 from pathlib import Path
+import hashlib
 import json
 import re
 import sqlite3
@@ -70,6 +71,10 @@ def devices_in(text):
 
 def clean(text):
     return re.sub(r"\s+", " ", text).strip()
+
+
+def list_of(s):
+    return [x for x in str(s or "").split(",") if x]
 
 
 # ---------------------------------------------------------------- facts from the prose
@@ -147,6 +152,29 @@ for f in fact_files:
     facts += extract_facts(f)
 for i, f in enumerate(facts, 1):
     f["id"] = i
+
+
+def fact_fid(f):
+    """Stable id: hash of the file name and the normalised text, so it survives moved lines and re-ordered sections
+    (it changes only when the fact's own text changes). Prefix with the file stem for readability."""
+    stem = Path(f["file"]).stem
+    norm = re.sub(r"[^a-z0-9]+", " ", f["text"].lower()).strip()
+    return f"{stem}#{hashlib.sha1((f["file"] + "|" + norm).encode()).hexdigest()[:8]}"
+
+
+seen_fid = {}
+for f in facts:
+    fid = fact_fid(f)
+    n = seen_fid.get(fid, 0)
+    seen_fid[fid] = n + 1
+    f["fid"] = fid if n == 0 else f"{fid}-{n + 1}"   # identical bullets in one file: numbered in file order
+
+# one row per (address, fact): the address explorer and check_address() read this
+addresses = []
+for f in facts:
+    for a in list_of(f["addresses"]):
+        addresses.append({"address": a.lower(), "value": int(a, 16), "fid": f["fid"], "file": f["file"], "line": f["line"],
+                          "section": f["section"], "devices": f["devices"], "evidence": f["evidence"]})
 
 # ---------------------------------------------------------------- rules, sources, conflicts
 rules = []
@@ -326,7 +354,8 @@ meta = {"checked": checked, "generator": "scripts/export_db.py",
         "counts": {"projects": len(prow), "devices": len(devices), "relations": len(rrow), "rules": len(rules),
                    "sources": len(sources), "conflicts": len(conflicts), "facts": len(facts),
                    "goals": len(goals), "tasks": len(tasks), "hypotheses": len(hyps), "research_links": len(links),
-                   "participants": len(participants), "incidents": len(incidents), "stock_bugs": len(stock_bugs)},
+                   "participants": len(participants), "incidents": len(incidents), "stock_bugs": len(stock_bugs),
+                   "addresses": len(addresses)},
         "research_snapshot": snapshot}
 
 # ---------------------------------------------------------------- write SQLite and JSON
@@ -344,8 +373,9 @@ SCHEMA = {
     "rules": "id TEXT PRIMARY KEY, section TEXT, title TEXT, text TEXT, evidence TEXT, sources TEXT, devices TEXT",
     "sources": "key TEXT PRIMARY KEY, what TEXT, url TEXT",
     "conflicts": "id TEXT PRIMARY KEY, status TEXT, topic TEXT, a TEXT, b TEXT, details TEXT, devices TEXT",
-    "facts": "id INTEGER PRIMARY KEY, file TEXT, line INTEGER, section TEXT, text TEXT, evidence TEXT, "
+    "facts": "id INTEGER PRIMARY KEY, fid TEXT UNIQUE, file TEXT, line INTEGER, section TEXT, text TEXT, evidence TEXT, "
              "sources TEXT, devices TEXT, addresses TEXT",
+    "addresses": "address TEXT, value INTEGER, fid TEXT, file TEXT, line INTEGER, section TEXT, devices TEXT, evidence TEXT",
     "goals": "id TEXT PRIMARY KEY, goal TEXT, status TEXT, moved_by TEXT",
     "tasks": "id TEXT PRIMARY KEY, task TEXT, devices TEXT, needs TEXT, effort TEXT, value TEXT, status TEXT",
     "hypotheses": "id TEXT PRIMARY KEY, goals TEXT, inference TEXT, derived_from TEXT, devices TEXT, test TEXT, "
@@ -395,7 +425,9 @@ ins("incident_rules", incident_rules)
 SB_COLS = ("id", "title", "device_os", "area", "symptom", "trigger", "cause", "workaround", "test_tip", "found_by", "status",
            "evidence", "sources", "incidents", "devices")
 con.executemany('INSERT INTO stock_bugs VALUES (' + ','.join('?' * len(SB_COLS)) + ')', [[b[k] for k in SB_COLS] for b in stock_bugs])
-ins("facts", [{k: f[k] for k in ("id", "file", "line", "section", "text", "evidence", "sources", "devices", "addresses")} for f in facts])
+ins("facts", [{k: f[k] for k in ("id", "fid", "file", "line", "section", "text", "evidence", "sources", "devices", "addresses")} for f in facts])
+ins("addresses", addresses)
+con.execute("CREATE INDEX addresses_value ON addresses(value)")
 # full-text search over facts and rules, if this SQLite has FTS5
 try:
     con.execute("CREATE VIRTUAL TABLE facts_fts USING fts5(text, section, devices, content='facts', content_rowid='id')")
@@ -411,4 +443,15 @@ con.close()
     "sources": sources, "conflicts": conflicts, "facts": facts,
     "goals": goals, "tasks": tasks, "hypotheses": hyps, "research_links": links, "participants": participants,
     "incidents": incidents, "incident_rules": incident_rules, "stock_bugs": stock_bugs}, ensure_ascii=False, indent=1), encoding="utf-8")
+# the website loads these instead of aggregat.json: core.json (everything but the facts) at start, facts.json only when a
+# tab needs it. Compact separators; aggregat.json above stays the complete file for agents and scripts.
+WEB = OUT / "web"
+WEB.mkdir(exist_ok=True)
+compact = dict(ensure_ascii=False, separators=(",", ":"))
+(WEB / "core.json").write_text(json.dumps({
+    "meta": meta, "devices": devices, "projects": prow, "relations": rrow, "rules": rules,
+    "sources": sources, "conflicts": conflicts, "goals": goals, "tasks": tasks, "hypotheses": hyps,
+    "research_links": links, "participants": participants, "incidents": incidents, "incident_rules": incident_rules,
+    "stock_bugs": stock_bugs}, **compact), encoding="utf-8")
+(WEB / "facts.json").write_text(json.dumps(facts, **compact), encoding="utf-8")
 print("export:", meta["counts"])

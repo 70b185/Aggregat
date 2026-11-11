@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "aggregat": {
+      "command": "python3",
+      "args": ["mcp/aggregat_mcp.py"]
+    }
+  }
+}

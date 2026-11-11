@@ -1,0 +1,39 @@
+# Aggregat
+
+> Index and agent knowledge base for community firmware, mods and tools on Elektron devices: 263 projects, 1096 hardware facts with evidence tags, 106 rules for agents, 72 incidents on real units and 19 bugs in Elektron's own OS. Metadata only, no firmware. CC0.
+
+Everything is second-hand; re-check addresses against the cited source. Evidence: [hw] real unit, [emu] emulator only, [doc] stated without a test, [?] inferred. Safety rules A1-A49 apply to every flash.
+
+## Start here
+- [AGENTS.md](https://raw.githubusercontent.com/70b185/Aggregat/master/AGENTS.md): how agents should use this repository
+- [Agent rules](https://raw.githubusercontent.com/70b185/Aggregat/master/hardware/AGENT-RULES.md): safety, legal and process rules, each with its evidence
+- [Stock bugs](https://raw.githubusercontent.com/70b185/Aggregat/master/hardware/STOCK-BUGS.md): bugs in Elektron's OS, check before blaming a mod
+- [Incidents](https://raw.githubusercontent.com/70b185/Aggregat/master/hardware/INCIDENTS.md): what went wrong on real units and the rule it taught
+
+## Context packs (one file per device; brief = before touching a unit, full = with all facts)
+- [Digitakt (MKI)](https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/digitakt-brief.md): brief; full: https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/digitakt.md
+- [Digitakt II](https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/digitakt-2-brief.md): brief; full: https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/digitakt-2.md
+- [Digitone (MKI) / Digitone Keys](https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/digitone-brief.md): brief; full: https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/digitone.md
+- [Digitone II](https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/digitone-2-brief.md): brief; full: https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/digitone-2.md
+- [Syntakt](https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/syntakt-brief.md): brief; full: https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/syntakt.md
+- [Analog Heat (MKI, MKII, +FX)](https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/analog-heat-brief.md): brief; full: https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/analog-heat.md
+- [Octatrack (MKI, MKII)](https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/octatrack-brief.md): brief; full: https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/octatrack.md
+- [Analog Rytm (MKI, MKII)](https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/analog-rytm-brief.md): brief; full: https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/analog-rytm.md
+- [Analog Four / Analog Keys](https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/analog-four-keys-brief.md): brief; full: https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/analog-four-keys.md
+- [Model:Cycles](https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/model-cycles-brief.md): brief; full: https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/model-cycles.md
+- [Model:Samples](https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/model-samples-brief.md): brief; full: https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/model-samples.md
+- [Machinedrum (incl. UW)](https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/machinedrum-brief.md): brief; full: https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/machinedrum.md
+- [Monomachine](https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/monomachine-brief.md): brief; full: https://raw.githubusercontent.com/70b185/Aggregat/master/export/context/monomachine.md
+
+## Data
+- [SQLite database](https://raw.githubusercontent.com/70b185/Aggregat/master/export/aggregat.sqlite): all tables with full-text search over facts
+- [JSON export](https://raw.githubusercontent.com/70b185/Aggregat/master/export/aggregat.json): the same tables as JSON
+- [Export schema and example queries](https://raw.githubusercontent.com/70b185/Aggregat/master/export/README.md)
+- [MCP server](https://raw.githubusercontent.com/70b185/Aggregat/master/mcp/README.md): query tools for agents
+
+## Optional
+- [Research map](https://raw.githubusercontent.com/70b185/Aggregat/master/RESEARCH-MAP.md): what is known and open per device, shared goals
+- [Feature overlap](https://raw.githubusercontent.com/70b185/Aggregat/master/FEATURE-OVERLAP.md): the same feature built on several devices
+- [Address map](https://raw.githubusercontent.com/70b185/Aggregat/master/hardware/ADDRESS-MAP.md): every address named in a fact, per device
+- [RAM tenancy](https://raw.githubusercontent.com/70b185/Aggregat/master/hardware/RAM-TENANCY.md): which mod platform uses which RAM range
+- [Website](https://70b185.github.io/Aggregat/): search, mod finder, network map

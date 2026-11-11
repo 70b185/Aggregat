@@ -175,5 +175,12 @@ Clock (1.000 GHz, 666,667 cycles/block), FreeRTOS task map, free reply words, mi
 - **ColdFire jump targets must be even:** a jsr/jmp to an odd address faults with an address error on the unit while the emulator runs on; a byte-aligned mod section froze a DT2 at boot (I61). `[hw]` {elekloader-oddjump}
 - **Modwerk's DT2 base:** a combined image booted on a DT2 (OS 1.17, 2026-11-08) and restored saved module kit data after a project reload. Its audio scheduler (grid callbacks and phrase replacement at the stock audio submission call `0x400d82f8`) is a proposal checked only in digikit fixtures. `[hw]` / `[emu]` {modwerk-dt2-base}
 
+## +Drive file writes from mod code (digikit finding 120, DT2 1.17) {digikit-f120}
+- **The firmware's own file calls** can write samples: open (`0x40158902`, mode "w"), write (`0x4015866a`), reserve, hash (`0x4015b3aa`), close (`0x401588c0`), info, delete (`0x40157078`), mkdir and rename (`0x40156f6c`, which keeps the inode, size and stored hash). Each takes the recursive filesystem mutex itself and blocks, so call them from a task, never an interrupt. The sampler's recorder `0x40153c70` is a complete stock caller. `[doc]` (static)
+- **Open does not truncate:** an existing file opens at position 0 with its old size and data; stock deletes first. Whole 32 KiB pages at multiples of `0x8000` are written straight from the buffer, the rest goes through the page cache. `[doc]`
+- **The 16-byte trailer:** files carry 16 zero bytes after the data, and the stored hash covers them; the C calls do not add them (the recorder and stock's MidiRpc close do), so a writer adds them before the hash. File info reports size minus 16. `[emu]` (card read back on the emulator) Elekloader's Rytm loader meets the same 16 bytes as a header at the start of each file on the Analog Rytm MKII ([analog-rytm.md](analog-rytm.md)).
+- **Power cut:** a cut mid-write leaves a visible file with a partial size and no hash; the mount was not seen to repair it. Delete refuses an open file (open-file bitmap at `0x46f4ded0`). Only `/factory` is RAM-backed; user files always go to the card, and a failed card write is not reported. `[doc]`
+- On a unit (2026-11-11) digikit's bulk uploads through these calls left only complete files after a pulled cable, and the stock sample browser did not list the staging folder `/.dkstage`. `[hw]` {digikit-usbfast}
+
 ## Gaps
 Memory map beyond the numbers above, DSP memory, machine API, parameter-table layout: not collected yet (see `../MINING.md`).

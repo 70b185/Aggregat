@@ -115,6 +115,16 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** F7
 - **Fact:** [common/sysex-and-midi.md](common/sysex-and-midi.md)
 
+### I70. A 1024-byte bulk IN transfer wedged the Digitone II's USB controller
+- **Unit:** Digitone II, OS 1.12 (digikit core/usb-bulk, a vendor bulk interface added in USB MIDI mode), 2026-11-11; the Digitakt II 1.17 ran the fixed adapter the same day
+- **Seen:** echo transfers of 1, 511, 512 and 513 bytes worked; 1,024 and 4,096 bytes got no reply, then every bulk send failed and SysEx stopped answering too. The CPU kept running (keys, audio), no crash record was written, and unplugging USB did not bring it back: only a power cycle did.
+- **Cause (bisected on the unit, then read in the controller's reference manual):** the controller has a 64-byte transmit buffer per endpoint. Two back-to-back 512-byte IN packets wedged it the moment the host read them; OUT with two 512-byte packets was fine. Stock does the same thing on purpose: it declares its MIDI IN endpoint as bulk 512 but programs the queue head for 64-byte packets (caps `0x20400000`), as in its audio and Overbridge modes. A first guess (dTD page pointers) was not the cause.
+- **Fix:** the bulk IN queue head is programmed for 64-byte packets while the descriptor keeps 512; the host reads short packets until a frame is complete. Echo then matched from 1 byte to 1 MiB at about 2.3 MB/s each way (DN2) and 2.9 MB/s (DT2), and the emulator now faults an IN transfer whose packets after the first exceed 64 bytes.
+- **Status:** fixed.
+- **Evidence:** `[hw]` {digikit-usbfast}
+- **Rule:** A39
+- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md#usb-transfer-speed-on-the-units-digikit-2026-11-11-digikit-usbfast)
+
 ## M. Mods that failed on a unit
 
 ### I10. Byte-wise reads of uncached DMA buffers stalled the sequencer
@@ -516,7 +526,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Status:** fixed; v0.44 withdrawn.
 - **Evidence:** `[hw]` {dn2mk2-v045}
 - **Rule:** A53
-- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md#dn2mk2-findings-v045-v047-os-111-2026-11-10)
+- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md#dn2mk2-findings-v045-v048-os-111-2026-11-11)
 
 ### I69. A mod took stock's USB DISK MODE pause for a DSP stall and kept the audio off
 - **Unit:** Octatrack MKI and MKII, OS 1.40C (Modwerk beta base; finding 72, several testers' units), late Oct to 2026-11-10
@@ -537,6 +547,26 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` {dn2-cfw-sp02} {dn2-cfw-mr03}
 - **Rule:** A16
 - **Fact:** [devices/digitone-2.md](devices/digitone-2.md)
+
+### I71. A DSP load guard dropped a sample voice block after block
+- **Unit:** Digitone II, OS 1.11 (dn2mk2 v0.47, a user's unit), reported 2026-11-10
+- **Seen:** with a SID voice and three PERC tracks playing, an ONESHOT kick sounded crunchy at about 85 % DSP load.
+- **Cause (from the report and the guard's code):** the frame-time guard left the sample voice out when a block ran short of time, and because a sample voice is retried in every block it came and went block by block instead of stopping.
+- **Fix:** planned for v0.49: render the sample voices first, so time runs out on the heavy synth voices, and keep a dropped sample voice stopped until its next note, as PERC voices already are.
+- **Status:** open (fix designed, not built, 2026-11-11).
+- **Evidence:** `[hw]` (user report) {dn2mk2-v048}
+- **Rule:** A44
+- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md#dn2mk2-findings-v045-v048-os-111-2026-11-11)
+
+### I72. A drum machine mod played silent hits after power-up and misread stock's voice start
+- **Unit:** Octatrack MKII, OS 1.40C (octabam's DRUMMER by djib, the author's unit, images 44-46), 2026-11-05/06
+- **Seen:** the machine, its kit window and AUTO kit worked, but hits stayed silent until the machine was chosen again or the track's audio editor was touched; retrigs did not run.
+- **Cause (found under octabam's emulator after the unit test):** the hit level was scaled from a base read only when a restore bit at `0x80001538` was clear, and on the unit that bit can be set at power-up, so the base stayed 0. Separately, the mod's wrapper of the FLEX voice start passed two arguments where stock's routine `0x4000f450(track, slot, flags)` takes three, so stock read a word of the wrapper's stack.
+- **Fix:** the base is now the lane's VOL; the wrapper forwards all three arguments, and stock's retrigs run.
+- **Status:** fixed; later images (to 78, 2026-11-09) ran on the author's MKII.
+- **Evidence:** `[hw]` {octabam-drummer}
+- **Rule:** G8, C10
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#octabam-findings-2026-11-11)
 
 ## E. Emulator or toolchain disagreed with the unit
 
@@ -653,12 +683,12 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 ### I66. A feature that crosses ColdFire and DSP passed the gate and failed on units
 - **Unit:** Digitone II, OS 1.11 (dn2mk2 v0.45/v0.46, BOUNCE), 2026-11-08/09
 - **Seen:** on testers' units BOUNCE recorded nothing, or recorded and never played back.
-- **Cause:** unknown. The gate never ran the ColdFire and the DSP together.
-- **Fix:** BOUNCE removed from the menu in v0.47; a rebuild with both processors emulated together is planned (FLEX).
-- **Status:** open.
-- **Evidence:** `[hw]` {dn2mk2-v046} {dn2mk2-v047}
+- **Cause:** unknown. The gate never ran the ColdFire and the DSP together. Per the v0.48 notes the recorder trigs fired and takes were made, but the track never played its buffer.
+- **Fix:** BOUNCE removed from the menu in v0.47 and its code removed in v0.48 (old projects load, the track silent). v0.48 adds a coupled emulator that runs both processors one audio block at a time (faithful in order and content, not in timing margins) and the first gate step on it; FLEX, the replacement, is to be tested from recording to playback on it.
+- **Status:** open (FLEX not built yet, 2026-11-11).
+- **Evidence:** `[hw]` {dn2mk2-v046} {dn2mk2-v047} {dn2mk2-v048}
 - **Rule:** C4, C2
-- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md#dn2mk2-findings-v045-v047-os-111-2026-11-10)
+- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md#dn2mk2-findings-v045-v048-os-111-2026-11-11)
 
 ## R. Recovery and transfer links
 

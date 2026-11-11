@@ -282,3 +282,4 @@ ignore:
   # a copy of durchgemacht/cycles-one-shot (catalogued as cycles-one-shot, offline since 2026-11-07): all 28 commits are
   # the original author's, up to machine 0.12 (the original had reached 0.13); nothing of its own
   - clarkreiz/cycles-one-shot
+  - nerazin/mono-filter-distortion-clap   # a desktop CLAP effect for Bitwig modelled on the Monomachine filter; no device, firmware or mod

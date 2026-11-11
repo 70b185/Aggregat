@@ -130,3 +130,17 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | sidecar-expander README, RELEASE-NOTES, INSTALL-PI, KNOWN-ISSUES (0.4.4) | diff | projects.yml (sidecar-expander, sidecar-mods) |
 | synfact-dev docs/ADAPTING, MACHINE-REFERENCE, core-st, recorder, probes (core 1.8.0) | diff | projects.yml, devices/syntakt |
 | altstrument directory (CyclesEmu, Sidecar, dn2mk2, DNX entries) | diff | nothing new (CyclesEmu catalogued today) |
+
+## Pass 2026-11-11 (daily update run)
+| Source | Depth | Folded into |
+|---|---|---|
+| digikit findings 42 (4a), 43 (hardware section), 120; plans usb-fast and usb-fast-hardware; CONTROL, store and upload designs, handover | diff, finding 120 whole | projects.yml, devices/digitone-2-internals, devices/digitakt-2, INCIDENTS I70, AGENT-RULES A39 |
+| dn2mk2 v0.48 release, FIRMWARE.md, coupled-emulator, flex-design, bounce-removal-plan, v048-plan, ROADMAP | diff | projects.yml, devices/digitone-2-internals, INCIDENTS I66 (update), I71, AGENT-RULES A44 |
+| elekloader drive-loader-ar2 README and PAGE, docs DRIVE, FORMAT, WEB, ADAPTING (core-a4 renamed core-a4mk2) | diff | projects.yml (own_mods Drive Loader), devices/analog-rytm, STOCK-BUGS SB19, HYPOTHESES H24 |
+| modwerk Rytm machine guide (queued trigs), QPER Live Rec rename, Zoom pedal docs and changelog | diff | projects.yml, devices/analog-rytm; Zoom pedals out of scope |
+| octabam DRUMMER (INVESTIGATION, README), CX OSC README and MORPH, CHIP.md DSP forms, TRAPS, pages, modulation, reload and rec-trig-mute READMEs | diff | projects.yml, devices/octatrack, INCIDENTS I72, AGENT-RULES G8 |
+| octatrack-kyoti-fw NOTES (RELOAD beside FREE LOOP) | diff | projects.yml |
+| octatrack-step-view README (audio tracks in Split and Pages) | diff | projects.yml |
+| elkbench README (cached flash gates) | diff | projects.yml |
+| sample-shepherd CLI docs and daily log | diff | projects.yml (log content left out: personal) |
+| dn2_firmware_explore ideas backlog (#39 keyboard hold), usbprobe doc | diff | projects.yml (last activity only; the LFO4 memory fault is already in CONFLICTS S17 and common/memory-maps) |

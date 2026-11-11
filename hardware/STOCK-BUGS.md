@@ -235,6 +235,18 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Status:** stock behaviour
 - **Evidence:** `[emu]` {modwerk-rytm-machines}
 
+### SB19. A non-sample file on the +Drive hangs LOAD TO PROJECT and later stalls the OS upgrade
+- **Device and OS:** Analog Rytm MKII, OS 1.74
+- **Area:** +Drive, SAMPLES browser, OS upgrade
+- **Symptom:** loading a file that is not a sample (a raw `.elemod` in this case) into the project hangs the unit; a project that holds such a file then stalls the next OS upgrade at PREPARING until CREATE NEW.
+- **Trigger:** any file on the +Drive's sample filesystem is listed by SAMPLES, in every folder; LOAD TO PROJECT reads its first 16 bytes as the sample header without a check.
+- **Cause:** per elekloader, LOAD TO PROJECT trusts the 16-byte header at the start of the file.
+- **Workaround:** a tool that stores other files on the +Drive starts each with 16 zero bytes, which stock loads as an empty sample (elekloader's Drive Loader does this).
+- **Test tip:** keep test files off the +Drive, or give them the zero header; if an OS upgrade stalls at PREPARING after +Drive experiments, try CREATE NEW before blaming the image.
+- **Found by:** elekloader (Drive Loader development)
+- **Status:** stock behaviour
+- **Evidence:** `[doc]` {elekloader-drive}
+
 ## Model:Cycles
 
 ### SB15. A random exception while browsing (filesystem block cache)

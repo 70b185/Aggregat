@@ -45,6 +45,14 @@
     });
   }
 
+  // The one list of mods every view counts from (mods tab, finder, device bar): catalogue mods plus one card per
+  // platform's own mods, without loaders; unreachable repos and unverified leads only when asked for.
+  const HIDDEN = ["unreachable", "unverified", "request"];
+  function catalogue(D, withHidden) {
+    const all = D.projects.filter(isMod).concat(ownMods(D)).filter(p => !isLoader(p) && !own(p).length);
+    return withHidden ? all : all.filter(p => !HIDDEN.includes(p.status));
+  }
+
   function draw(root, D, ctx) {
     const extra = ownMods(D);
     const byId = Object.fromEntries(D.projects.concat(extra).map(p => [p.id, p]));
@@ -58,11 +66,12 @@
     const all = D.projects.filter(isMod).concat(extra);
     // loaders: mod loaders and patchers, plus any platform that ships mods of its own (e.g. digikit)
     const loaders = D.projects.filter(p => (isMod(p) && isLoader(p)) || own(p).length);
-    let mods = all.filter(p => !isLoader(p) && !own(p).length);
+    let mods = catalogue(D, true);
+    const nHidden = mods.length - catalogue(D, false).length;
     const words = ctx.words || [];
     // device and search filter first: the counts on the chips follow them
     let base = mods.filter(p => ctx.devOk(list(p.devices)));
-    if (!S.all) base = base.filter(p => !["unreachable", "unverified"].includes(p.status));
+    if (!S.all) base = base.filter(p => !HIDDEN.includes(p.status));
     if (words.length) base = base.filter(p => words.every(w => [p.id, p.name, p.author, p.notes, p.contains, p.base_os, p.version, via(p)]
       .join(" ").toLowerCase().includes(w)));
     if (S.via) base = base.filter(p => (hosts[p.id] || []).includes(S.via));
@@ -73,7 +82,8 @@
       name: (a, b) => a.name.localeCompare(b.name, "en", {sensitivity: "base"})
     };
     rows = rows.slice().sort(SORT[S.sort]);
-    const nNew = mods.filter(p => p.status !== "unverified" && found(p) > cutNew).length;
+    const nNew = catalogue(D, false).filter(p => found(p) > cutNew).length;
+    const total = catalogue(D, S.all).length;
 
     const loaderCount = id => mods.filter(p => (hosts[p.id] || []).includes(id)).length;
     const ls = loaders.filter(l => ctx.devOk(list(l.devices)))
@@ -97,7 +107,7 @@
     };
 
     root.innerHTML = `
-      <p class="md-lead">${mods.length} mods and custom OS builds, ${nNew} new in the last 7 days.
+      <p class="md-lead">${total} mods and custom OS builds, ${nNew} new in the last 7 days${S.all ? "" : nHidden ? ` (${nHidden} more are unreachable or not yet checked by us; tick the box below to see them)` : ""}.
         Mods are unofficial: <a href="https://github.com/70b185/aggregat/blob/master/hardware/common/recovery.md">read the recovery notes</a> before you flash anything.</p>
       <div class="md-ctl">
         <select id="md-sort" aria-label="Sort">
@@ -114,12 +124,12 @@
       <h2 class="md-h">${S.via ? `Mods for ${esc(byId[S.via].name)} <button class="md-x" id="md-clear">show all</button>` : "Mods"} <span>${rows.length} shown</span></h2>
       <div class="md-grid">${rows.map(card).join("") || `<div class="empty">Nothing matches.</div>`}</div>`;
 
-    const c = document.getElementById("count"); if (c) c.textContent = `${rows.length} of ${mods.length} mods`;
+    const c = document.getElementById("count"); if (c) c.textContent = rows.length === total ? `${total} mods` : `${rows.length} of ${total} mods`;
     const redraw = () => draw(root, D, ctx);
     root.querySelector("#md-sort").onchange = e => { S.sort = e.target.value; redraw(); };
-    root.querySelector("#md-all").onchange = e => { S.all = e.target.checked; redraw(); };
+    root.querySelector("#md-all").onchange = e => { S.all = e.target.checked; (ctx.rerender || redraw)(); };   // the device bar counts follow
     root.querySelector(".md-loaders").onclick = e => { const b = e.target.closest("button"); if (!b) return; S.via = S.via === b.dataset.v ? "" : b.dataset.v; redraw(); };
     const x = root.querySelector("#md-clear"); if (x) x.onclick = () => { S.via = ""; redraw(); };
   }
-  window.AggMods = {draw, ownMods};
+  window.AggMods = {draw, ownMods, catalogue, showsHidden: () => S.all};
 })();

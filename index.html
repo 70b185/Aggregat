@@ -244,15 +244,30 @@
   .pj-kv dt { color:var(--mute); font-family:var(--font); font-size:var(--fs-s); } .pj-kv dd { margin:0; overflow-wrap:anywhere; }
   .md-perma { margin-left:auto; text-decoration:none; color:var(--mute); font-family:var(--font); font-size:var(--fs-s); } .md-perma + .md-date { margin-left:8px; }
   footer .love { color:var(--accent); }
+  /* two-level navigation: five sections, views inside a section */
+  .h1-sub { font-weight:400; color:var(--mute); font-size:15px; letter-spacing:0; }
+  nav#tabs button { font-size:13.5px; padding:8px 14px; }
+  .subnav { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-top:10px; }
+  .subnav:empty { display:none; }
+  .subnav button { font:inherit; font-family:var(--font); font-size:var(--fs-s); border:1px solid var(--line); background:var(--g1); color:var(--fg);
+                   padding:4px 11px; cursor:pointer; border-radius:999px; display:inline-flex; gap:6px; align-items:baseline; }
+  .subnav button:hover { border-color:var(--fg); }
+  .subnav button.on { background:var(--fg); color:var(--bg); border-color:var(--fg); } .subnav button .meta { font-size:11px; } .subnav button.on .meta { color:var(--bg); opacity:.7; }
+  .sn-group { display:inline-flex; flex-wrap:wrap; gap:6px; align-items:center; margin-right:14px; }
+  .sn-label { font-family:var(--font); font-size:11px; color:var(--mute); text-transform:uppercase; letter-spacing:.06em; margin-right:2px; }
+  .devbar { padding:8px 24px; gap:10px; } .devbar button { padding:3px 9px; font-size:12px; margin:0 4px 4px 0; }
+  @media (max-width:760px) { .sn-hint { display:none; } }
+  .sn-hint { flex-basis:100%; color:var(--mute); font-size:var(--fs-s); margin-top:2px; }
   @media (max-width:760px) { nav { flex-wrap:nowrap; overflow-x:auto; scrollbar-width:thin; } nav button { flex:none; white-space:nowrap; }
     .ad-row { grid-template-columns:90px 1fr; } .ad-mark { display:none; } .pj-kv { grid-template-columns:110px 1fr; } }
 </style>
 </head>
 <body>
 <header>
-  <h1><span>Aggregat</span> - Elektron mods and hardware knowledge</h1>
+  <h1><span>Aggregat</span> <span class="h1-sub">community mods and tools for Elektron devices</span></h1>
   <div class="sub" id="sub">Loading ...</div>
-  <nav id="tabs"></nav>
+  <nav id="tabs" aria-label="Sections"></nav>
+  <div id="subnav" class="subnav" aria-label="Views"></div>
 </header>
 <div class="bar">
   <input id="q" type="search" placeholder="Search (all words must match; an address like 0x40000400 works too)" autofocus>
@@ -271,7 +286,20 @@
 <script src="assets/views.js"></script>
 <script>
 const REPO = "https://github.com/70b185/aggregat/blob/master/";
-const TABS = [["mods","Mods"],["finder","Mod finder"],["news","New"],["stock_tests","Test your unit"],["network","Network map"],["community","Community"],["facts","Hardware facts"],["addresses","Addresses"],["projects","Projects"],["rules","Agent rules"],["incidents","Incidents"],["stock_bugs","Stock bugs"],["hypotheses","Tests to run"],["tasks","Tasks"],["goals","Goals"],["conflicts","Conflicts"],["sources","Sources"]];
+// Five sections; the views inside a section show as a second row. Every view keeps its ?t= name, so old links work.
+const NAV = [
+  {k: "mods", l: "Mods", views: [["mods", "Browse all mods"], ["finder", "Find mods for my unit"]]},
+  {k: "news", l: "What's new", views: [["news", ""]]},
+  {k: "help", l: "Help out", views: [["stock_tests", ""]]},
+  {k: "community", l: "Community", views: [["community", "Who builds what"], ["network", "How projects relate"]]},
+  {k: "dev", l: "For developers", hint: "The knowledge base behind the catalogue: for people and coding agents who write mods and tools. Agents can also use the MCP server and the context packs (see the footer).",
+   groups: [["Knowledge base", [["facts", "Hardware facts"], ["addresses", "Memory & addresses"], ["rules", "Rules"], ["incidents", "Incidents"], ["stock_bugs", "Bugs in Elektron's OS"]]],
+            ["Research", [["hypotheses", "Open tests"], ["tasks", "Tasks"], ["goals", "Goals"], ["conflicts", "Conflicts"]]],
+            ["Catalogue", [["projects", "All projects"], ["sources", "Sources"]]]]},
+];
+const navViews = n => n.views || n.groups.flatMap(g => g[1]);
+const sectionOf = view => NAV.find(n => navViews(n).some(([v]) => v === view)) || NAV[0];
+const lastView = {};   // the view last open in each section
 let D = null, tab = "mods", srcUrl = {}, devName = {}, projId = "", projIds = new Set();
 // Data comes in parts: core.json at start, facts.json and news.json only when a tab needs them.
 const PARTS = {facts: "export/web/facts.json", news: "export/web/news.json"}, loading = {};
@@ -324,7 +352,7 @@ const VIEWS = {
   },
   mods: {
     custom: true, rows: () => D.projects, dev: p => p.devices, hay: () => "",
-    draw: (words, dev) => AggMods.draw($("out"), D, {words, dev, devs: dev, devOk, devName}),
+    draw: (words, dev) => AggMods.draw($("out"), D, {words, dev, devs: dev, devOk, devName, rerender: () => render()}),
     count: () => ""
   },
   community: {
@@ -439,8 +467,22 @@ function url() {
   if ($("q").value) q.set("q", $("q").value); if (DEVS.length && tab !== "project") q.set("d", DEVS.join(","));
   history.replaceState(null, "", "?" + q);
 }
+const COUNT = k => k === "facts" ? D.meta.counts.facts : (D[k] || []).length;
+function drawNav() {
+  const sec = tab === "project" ? null : sectionOf(tab);
+  if (sec) lastView[sec.k] = tab;
+  [...$("tabs").children].forEach(b => b.classList.toggle("on", !!sec && b.dataset.s === sec.k));
+  const btn = ([v, l], count) => `<button data-t="${v}" class="${v === tab ? "on" : ""}">${esc(l)}${count && !VIEWS[v].custom ? ` <span class="meta">${COUNT(v)}</span>` : ""}</button>`;
+  if (!sec || (sec.views && sec.views.length < 2)) { $("subnav").innerHTML = ""; }
+  else if (sec.views) $("subnav").innerHTML = sec.views.map(x => btn(x)).join("");
+  else $("subnav").innerHTML = sec.groups.map(([label, vs]) => `<span class="sn-group"><span class="sn-label">${esc(label)}</span>${vs.map(x => btn(x, true)).join("")}</span>`).join("")
+    + `<div class="sn-hint">${esc(sec.hint)}</div>`;
+  $("q").placeholder = sec && sec.k === "dev" ? "Search (all words must match; an address like 0x40000400 works too)"
+    : sec && sec.k === "mods" ? "Search mods: name, author, feature" : "Search";
+}
 function render() {
   const v = VIEWS[tab];
+  drawNav();
   if (v.needs && v.needs.some(k => !D[k])) {
     $("out").innerHTML = `<div class="empty">Loading ...</div>`;
     need(v.needs).then(render, e => { $("out").innerHTML = `<div class="empty">Could not load the data: ${esc(e)}</div>`; });
@@ -479,15 +521,15 @@ const stripeDev = ds => ds.find(d => DEVS.includes(d)) || ds[0] || "";
 const DEV_SHORT = n => n.replace(/ \(.*?\)/g, "").replace("Digitone / Digitone Keys", "Digitone / Keys").replace("Analog Four / Analog Keys", "Analog Four / Keys");
 function devCounts() {
   // the number on each device button: mods on the Mods tab, otherwise the rows of the open tab
-  const v = VIEWS[tab], isMod = p => list(p.list).includes("mods") && !["loader", "tool"].includes(p.kind) && (p.own_mods || "[]") === "[]" && !["unreachable", "unverified"].includes(p.status);
-  const rows = tab === "mods" ? D.projects.concat(AggMods.ownMods(D)).filter(isMod) : v.dev ? v.rows() : [];
+  const v = VIEWS[tab];
+  const rows = tab === "mods" ? AggMods.catalogue(D, AggMods.showsHidden()) : v.dev ? v.rows() : [];
   const n = s => rows.filter(r => !s || list(v.dev(r)).includes(s)).length;
   $("devbar").style.display = v.dev ? "" : "none";
   $("devbar").querySelectorAll("button").forEach(b => { b.querySelector(".dv-c").textContent = n(b.dataset.v); b.classList.toggle("on", b.dataset.v ? DEVS.includes(b.dataset.v) : !DEVS.length); });
 }
 function devBar() {
   const btn = (v, l) => `<button data-v="${esc(v)}" style="--dc:var(--c-${esc(v)})"><span>${esc(l)}</span><span class="dv-c"></span></button>`;
-  $("devbar").innerHTML = `<div class="dv-label">Device<br><span>click several to combine</span></div><div class="dv-list">${btn("", "All")}${D.devices.map(d => btn(d.slug, DEV_SHORT(d.name))).join("")}</div>`;
+  $("devbar").innerHTML = `<div class="dv-label" title="Click several devices to combine them">Device</div><div class="dv-list">${btn("", "All")}${D.devices.map(d => btn(d.slug, DEV_SHORT(d.name))).join("")}</div>`;
   // click toggles a device, so several can be combined; "All" clears the choice
   $("devbar").onclick = e => { const b = e.target.closest("button"); if (!b) return; const v = b.dataset.v;
     DEVS = !v ? [] : DEVS.includes(v) ? DEVS.filter(x => x !== v) : [...DEVS, v]; render(); };
@@ -499,14 +541,15 @@ function init() {
   if (p.get("p")) { tab = "project"; projId = p.get("p"); }
   D.projects.forEach(x => projIds.add(x.id));
   $("q").value = p.get("q") || "";
-  $("tabs").innerHTML = TABS.map(([k, l]) => `<button data-t="${k}" class="${k === tab ? "on" : ""}">${l} <span class="meta">${["network", "community", "finder", "news", "addresses"].includes(k) ? "" : k === "facts" ? D.meta.counts.facts : k === "stock_tests" ? (D.hypotheses || []).filter(h => h.kind === "stock").length : (k === "mods" ? D.projects.concat(AggMods.ownMods(D)).filter(p => String(p.list || "").split(",").includes("mods") && !["loader","tool"].includes(p.kind) && (p.own_mods || "[]") === "[]").length : (D[k] || []).length)}</span></button>`).join("");
-  $("tabs").onclick = e => { const b = e.target.closest("button"); if (!b) return; tab = b.dataset.t; projId = "";
-    [...$("tabs").children].forEach(x => x.classList.toggle("on", x === b)); render(); };
+  $("tabs").innerHTML = NAV.map(n => `<button data-s="${n.k}">${esc(n.l)}</button>`).join("");
+  $("tabs").onclick = e => { const b = e.target.closest("button"); if (!b) return;
+    const n = NAV.find(x => x.k === b.dataset.s); tab = lastView[n.k] || navViews(n)[0][0]; projId = ""; render(); };
+  $("subnav").onclick = e => { const b = e.target.closest("button[data-t]"); if (!b) return; tab = b.dataset.t; projId = ""; render(); };
   D.devices.forEach(d => { devName[d.slug] = d.name; });
   DEVS = (p.get("d") || "").split(",").filter(x => devName[x]);
   devBar();
   D.sources.forEach(s => srcUrl[s.key] = s.url);
-  $("sub").textContent = `${D.projects.length} projects, ${D.meta.counts.facts} hardware facts, ${D.rules.length} rules, ${D.conflicts.length} conflicts - data checked ${D.meta.checked}`;
+  $("sub").textContent = `${D.projects.length} projects for ${D.devices.length} Elektron devices, checked daily (last ${D.meta.checked}). Not affiliated with Elektron.`;
   let t; $("q").oninput = () => { clearTimeout(t); t = setTimeout(render, 120); };
 
   render();

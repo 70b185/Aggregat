@@ -63,8 +63,7 @@
                 ["high", "Higher risk", "emulator only or no test stated: you would be among the first on real hardware"]];
 
   function finder(root, D, ctx) {
-    const mods = D.projects.concat(window.AggMods ? AggMods.ownMods(D) : []).filter(isMod)
-      .filter(p => F.showAll || !["unreachable", "unverified", "request"].includes(p.status));
+    const mods = AggMods.catalogue(D, F.showAll);
     const hosts = {};
     D.relations.forEach(r => { if (r.type === "mod_for") (hosts[r.project] = hosts[r.project] || []).push(r.target); });
     const byId = Object.fromEntries(D.projects.map(p => [p.id, p]));

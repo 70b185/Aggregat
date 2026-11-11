@@ -1,7 +1,7 @@
 # Analog Rytm (MKI, MKII) - OS 1.73 / 1.74
 
 Coverage: **first profile** (phase 2). Source: ethernet8023/rytm-fw-re (`STATUS.md`, `docs/flash-driver.md`, `docs/usb-reflash.md`),
-read 2026-11-02, plus the phase-2 catalogue. Key {rytm-fw-re}. MK1 section: hugz202/AE-analog-rytm-mods (`docs/HAZARDS.md`, `docs/MANUAL.md`, `re/`, mod design notes), key {rytm-mk1-mods}, and analog-emu's `MK1-PORT.md`, key {analog-emu-mk1}. Projects: [../../devices/analog-rytm.md](../../devices/analog-rytm.md).
+read 2026-11-02, plus the phase-2 catalogue. Key {rytm-fw-re}. MK1 section: hugz202/AE-analog-rytm-mods (`docs/HAZARDS.md`, `docs/MANUAL.md`, `re/`, mod design notes), key {rytm-mk1-mods}, and analog-emu's `MK1-PORT.md`, key {analog-emu-mk1}. Projects: [../../catalog/analog-rytm.md](../../catalog/analog-rytm.md).
 Most mods target **MKII OS 1.73** (MrScruff's rytm-mods, Chopshop) or **1.74** (rytm-fw-re, analoghealth); elekloader has a core for the
 Rytm MKII (`core-ar2`).
 

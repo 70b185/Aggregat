@@ -5,7 +5,7 @@ Coverage: **first profile** (phase 2). Read 2026-11-02 from:
 - trigcondition/analog-emu (`docs/A4-PORT.md`, `docs/MK1-PORT.md`), an emulator for the Rytm, A4 and Syntakt. Keys {analog-emu-a4} and {analog-emu-mk1}. These are mostly static analysis and emulator runs; the author tags each claim measured / inferred / community.
 - Iced-Cream/analoghealth (README), a diagnostics mod that passed on an A4 MKII unit. Key {analoghealth}.
 
-Projects: [../../devices/analog-four-keys.md](../../devices/analog-four-keys.md).
+Projects: [../../catalog/analog-four-keys.md](../../catalog/analog-four-keys.md).
 
 **The short version:** a ColdFire-only machine. There is no DSP chip; the effects and every digital part of the audio run on the ColdFire's EMAC inside one audio interrupt. The voices are analog. The interrupt is ~71 % busy before you add anything. Same platform family as the Analog Rytm (see [analog-rytm.md](analog-rytm.md)).
 

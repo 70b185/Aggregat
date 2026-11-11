@@ -56,6 +56,20 @@ def tokens(text):
     return round(len(text) / 4)   # rough: ~4 characters per token for English technical text
 
 
+def abs_links(text, base):
+    """Relative Markdown links in a fact point from its source file; resolve them to GitHub URLs so they work anywhere."""
+    import posixpath
+
+    def fix(m):
+        href = m.group(2)
+        if re.match(r"^(https?:|mailto:|#)", href):
+            return m.group(0)
+        path, _, anchor = href.partition("#")
+        full = posixpath.normpath(posixpath.join(posixpath.dirname(base), path))
+        return f"[{m.group(1)}]({REPO}{full}{'#' + anchor if anchor else ''})"
+    return re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", fix, text or "")
+
+
 def write(path, text):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding="utf-8")
@@ -103,22 +117,23 @@ def main():
         brief += [f"- **{r['id']}** {r['title']} {tag(r['evidence'])}" for r in safety] + [""]
         if dev_rules:
             brief += [f"## 2. Rules that name the {name}", ""]
-            brief += [f"- **{r['id']}** ({r['section'].split(' ', 1)[0]}) {r['text']}" for r in dev_rules] + [""]
+            brief += [f"- **{r['id']}** ({r['section'].split(' ', 1)[0].rstrip('.')}) "
+                      + abs_links(re.sub(rf"^{r['id']}\.\s*", "", r["text"]), "hardware/AGENT-RULES.md") for r in dev_rules] + [""]
         brief += ["## 3. Recovery and flashing", ""]
-        brief += ([f"- {tag(f['evidence'])} {f['text']} (`{f['fid']}`, [{f['file']}:{f['line']}]({REPO}{f['file']}#L{f['line']}))"
+        brief += ([f"- {tag(f['evidence'])} {abs_links(f['text'], f['file'])} (`{f['fid']}`, [{f['file']}:{f['line']}]({REPO}{f['file']}#L{f['line']}))"
                    for f in recovery] or ["- Nothing device-specific recorded; read [recovery.md](" + REPO +
                                           "hardware/common/recovery.md) and treat recovery as unproven."]) + [""]
         brief += ["## 4. Bugs in Elektron's own OS (check before you blame your mod)", ""]
-        brief += ([f"- **{b['id']}** {b['title']} ({b['device_os']}; {b['status']}). Workaround: {b['workaround']}" for b in d_bugs]
+        brief += ([f"- **{b['id']}** {b['title']} ({b['device_os']}; {b['status']}). Workaround: {abs_links(b['workaround'], 'hardware/STOCK-BUGS.md')}" for b in d_bugs]
                   or ["- None recorded."]) + [""]
         brief += ["## 5. What went wrong on real units", ""]
-        brief += ([f"- **{i['id']}** {i['title']}. Cause: {i['cause']} Fix: {i['fix']}"
+        brief += ([f"- **{i['id']}** {i['title']}. Cause: {abs_links(i['cause'], 'hardware/INCIDENTS.md')} Fix: {abs_links(i['fix'], 'hardware/INCIDENTS.md')}"
                    + (f" Rules: {i['rules']}." if i["rules"] else "") for i in d_inc] or ["- None recorded."]) + [""]
         brief += ["## 6. Open conflicts (sources disagree)", ""]
-        brief += ([f"- **{c['id']}** {c['topic']}: A) {c['a']} B) {c['b']}" for c in d_conf] or ["- None open."]) + [""]
+        brief += ([abs_links(f"- **{c['id']}** {c['topic']}: A) {c['a']} B) {c['b']}", "hardware/CONFLICTS.md") for c in d_conf] or ["- None open."]) + [""]
         brief += ["## 7. Open tests and tasks you could settle", ""]
-        brief += [f"- **{h['id']}** ({h['kind']}) {h['inference']} Test: {h['test']}" for h in d_hyps]
-        brief += [f"- **{t['id']}** (needs {t['needs']}, effort {t['effort']}) {t['task']}" for t in d_tasks]
+        brief += [abs_links(f"- **{h['id']}** ({h['kind']}) {h['inference']} Test: {h['test']}", "hardware/HYPOTHESES.md") for h in d_hyps]
+        brief += [abs_links(f"- **{t['id']}** (needs {t['needs']}, effort {t['effort']}) {t['task']}", "RESEARCH-MAP.md") for t in d_tasks]
         if not d_hyps and not d_tasks:
             brief += ["- None open."]
         brief += ["", "Report results with the [test-result issue form](https://github.com/70b185/Aggregat/issues/new?template=test-result.yml).", ""]
@@ -131,8 +146,8 @@ def main():
         full = list(brief)
         full += [f"## 9. All {len(d_facts)} facts, best evidence first", ""]
         for f in d_facts:
-            full.append(f"- {tag(f['evidence'])} {f['text']} — `{f['fid']}` [{f['file']}:{f['line']}]({REPO}{f['file']}#L{f['line']})"
-                        + (f" · {f['section']}" if f["section"] else ""))
+            full.append(f"- {tag(f['evidence'])} {abs_links(f['text'], f['file'])} — `{f['fid']}` [{f['file']}:{f['line']}]({REPO}{f['file']}#L{f['line']})"
+                        + (f" · {abs_links(f['section'], f['file'])}" if f["section"] else ""))
         full.append("")
 
         b_txt = "\n".join(head + ["Brief version: rules, recovery, bugs, incidents and open questions. The full pack "

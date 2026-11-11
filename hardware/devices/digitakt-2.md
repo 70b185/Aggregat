@@ -1,6 +1,6 @@
 # Digitakt II
 
-Coverage: **medium**. Projects: [../../devices/digitakt-2.md](../../devices/digitakt-2.md)
+Coverage: **medium**. Projects: [../../catalog/digitakt-2.md](../../catalog/digitakt-2.md)
 
 ## Hardware (as reported by digikit's author)
 - Control CPU: Freescale ColdFire **MCF54415**, big-endian, runs UI, sequencer, files, MIDI. `[doc]` {digikit-old}

@@ -15,7 +15,7 @@ Rytm/Four/Keys, Model:Cycles/Samples, Machinedrum and Monomachine.
 
 | You are | Read |
 |---|---|
-| **Musician** looking for a mod or a tool | [MODS.md](MODS.md) (mods, custom firmware, loaders) · [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (editors, sample and project managers, nothing that changes firmware) · [INDEX.md](INDEX.md) and [devices/](devices/) (everything per device) |
+| **Musician** looking for a mod or a tool | [MODS.md](MODS.md) (mods, custom firmware, loaders) · [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (editors, sample and project managers, nothing that changes firmware) · [INDEX.md](INDEX.md) and [catalog/](catalog/) (everything per device) |
 | **Developer** writing a mod | [hardware/](hardware/README.md) (how the hardware works) · [AGENT-RULES.md](hardware/AGENT-RULES.md) (rules, grown from tests) · [INCIDENTS.md](hardware/INCIDENTS.md) (what went wrong on real units) · [STOCK-BUGS.md](hardware/STOCK-BUGS.md) (bugs in Elektron's own OS, check before you blame your mod) · [DEV-TOOLS.md](DEV-TOOLS.md) (toolchains, emulators, unpackers) · [FEATURE-OVERLAP.md](FEATURE-OVERLAP.md) (features already built elsewhere) |
 | **Researcher**, or want to help | [RESEARCH-MAP.md](RESEARCH-MAP.md) (what is known and open per device, shared goals, tests that take minutes on a stock unit) · [research/PARTICIPANTS.md](research/PARTICIPANTS.md) (take part with your project) |
 | **Agent or script** | [export/](export/README.md): one SQLite/JSON database with projects, relations, rules, incidents, stock bugs, sources, conflicts and about 1,000 hardware facts, with full-text search |

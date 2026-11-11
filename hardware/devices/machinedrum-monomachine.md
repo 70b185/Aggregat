@@ -8,7 +8,7 @@ Sources read 2026-11-02:
 - shnolk/monomodule README. Key {monomodule}.
 - joelanders/gearmulator-md-mm source (`source/elektron/md/mdLib`: memory map, types, board scheduler comments). Key {gearmulator-md-mm}.
 
-Projects: [../../devices/machinedrum.md](../../devices/machinedrum.md), [../../devices/monomachine.md](../../devices/monomachine.md).
+Projects: [../../catalog/machinedrum.md](../../catalog/machinedrum.md), [../../catalog/monomachine.md](../../catalog/monomachine.md).
 
 **The short version:** an early-2000s three-chip design (an old ColdFire plus two Motorola DSP56303s). It is nothing like the DT2/DN2: no SHARC, no FreeRTOS budget model, and no USB. Its flash updater lives in a boot sector that the OS itself can rewrite.
 

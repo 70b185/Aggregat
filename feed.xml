@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Aggregat: new Elektron mods, tools and hardware knowledge</title>
+  <link href="https://70b185.github.io/Aggregat/"/>
+  <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
+  <id>https://70b185.github.io/Aggregat/</id>
+  <updated>2026-11-11T00:00:00Z</updated>
+  <author><name>Aggregat</name></author>
+  <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>Agent foundation: stable fact ids, address index, context packs, AGENTS.md, llms.txt, MCP server</title>
+    <link href="https://github.com/70b185/Aggregat/commit/c046776058dbc2704310e9f9e4d10164e90112f3"/>
+    <id>https://70b185.github.io/Aggregat/#commit-c046776058db</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Update 2026-11-11: ten change reports folded, I70-I72, SB19, H24</title>
+    <link href="https://github.com/70b185/Aggregat/commit/3d970aa1495fd7bc87b9bcf41ae7ad2a9cb826b2"/>
+    <id>https://70b185.github.io/Aggregat/#commit-3d970aa1495f</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Sidecar | Expander: Rytm mods (Mod, Analog Rytm, Analog Four / Analog Keys)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=sidecar-mods"/>
+    <id>https://70b185.github.io/Aggregat/#project-sidecar-mods</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>The source of the Analog Rytm MKII OS mods that Sidecar | Expander needs: patch sources, symbol map, allocation registry and the build that turns the user's own stock .syx into a modded one, as one elekloader module per OS; the Analog Four MKII's mod in a4/. 0.4.0 reports each …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: sidecar-emu (Sidecar emulator) (Emulator, Analog Rytm)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=sidecar-emu"/>
+    <id>https://70b185.github.io/Aggregat/#project-sidecar-emu</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>QEMU cut down to the Raspberry Pi 4B and the devices Sidecar's engine needs: boots the Sidecar engine image, answers over Ethernet, puts an Analog Rytm MKII stand-in on its USB-A side and gives its USB-C gadget a raw MIDI TCP port, so an OS upgrade or an elkbench run can go …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Mono Chorus CLAP (Tool, Monomachine)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=mono-chorus-clap"/>
+    <id>https://70b185.github.io/Aggregat/#project-mono-chorus-clap</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A small stereo CLAP chorus plug-in (macOS) after the Monomachine's FX-CHORS: a floating-point reconstruction with eight automatable parameters (DEL, DEP, SPD, MIX, FB, WID, LP, INP), one C file, no firmware and no emulator.</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: ModelDigi (Model D oscillators) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=modeldigi"/>
+    <id>https://70b185.github.io/Aggregat/#project-modeldigi</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A Minimoog Model D-style oscillator section for the Digitakt mk1: three oscillators with their ranges, waveforms, tuning and levels, oscillator 3 as a pitch modulator of the others, slight pitch drift and mixer saturation (a switch per sound turns them off). Waveforms and …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: elkbench (hardware tests as an MCP server) (Tool, Analog Rytm, Analog Four / Analog Keys, Digitone, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=elkbench"/>
+    <id>https://70b185.github.io/Aggregat/#project-elkbench</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>One local MCP server per PC that gives AI agent sessions the same tools for testing Elektron units (Analog Rytm MKII, Analog Four MKII, Digitone; Digitakt untested on hardware) and their emulators: claim a unit, run a test plan, flash an OS, take screenshots, record and check …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: DN2 Tools (dn2mk2 browser tools) (Tool, Digitone II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=dn2-tools-depattern"/>
+    <id>https://70b185.github.io/Aggregat/#project-dn2-tools-depattern</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Browser tools (Chrome or Edge, Web MIDI) for the dn2mk2 Digitone II mod: DN2 Sample Import sends WAV files and folders to the mod's sampler over USB (replace all, choose slots, or add), plus tools for its recorder and the Machinedrum PERC machine. Hosted on GitHub Pages; the …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Digisophie-DN (SOPHIE for the Digitone) (Mod, Digitone)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digisophie-dn"/>
+    <id>https://70b185.github.io/Aggregat/#project-digisophie-dn</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>soejrd's Digisophie ported from the Digitakt mk1 to the Digitone mk1 / Keys: SOPHIE metallic percussion as machine 11 (SOPH) with four models - FUSE, BOOM, PIPE, SHARD - through the Digitone's own filter, mixer, effects and AMP envelope; knobs borrow stock SYN ranges. Shares …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Digi2String (STRING) (Mod, Digitakt II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digi2string"/>
+    <id>https://70b185.github.io/Aggregat/#project-digi2string</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Alez22's Karplus-Strong STRING machine from the Digitakt mk1, ported to the Digitakt II: bowed, struck, noise-excited or plucked, with stiffness, excitation position, softness and a note-tracking tone filter. 0.2.0 makes STIFF and POS clearly audible, departing from the mk1 …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Digi2Sophie (SOPHIE) (Mod, Digitakt II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digi2sophie"/>
+    <id>https://70b185.github.io/Aggregat/#project-digi2sophie</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>SOPHIE metallic percussion for the Digitakt II: Matt Estela's Sophie for Schwung, with PIPE and BOOM from soejrd's Sophie for Digitakt; FM and phase modulation with oscillator feedback, pitch sweep, bit crusher, drive and a resonant ring. Needs Digi2Core 2.6.1 or later. …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Digi2MacroOSC (MACRO) (Mod, Digitakt II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digi2macroosc"/>
+    <id>https://70b185.github.io/Aggregat/#project-digi2macroosc</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>MACRO, a macro-oscillator machine (type 11): 25 synthesis models and four DX7 patch banks after Emilie Gillet's Plaits, with a graphical model selector and HARM, TIMBRE, MORPH and MIX. Its DSP object is built from digikit's Plaits module. The README still names core-dt2 2.4, …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Digi2ElixirPotionsDRUM (ELIXIR) (Mod, Digitakt II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digi2elixir"/>
+    <id>https://70b185.github.io/Aggregat/#project-digi2elixir</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>ELIXIR, a drum-synthesis machine (type 12) with four models picked by MODEL - DRUM, SNARE, CYMBAL, HIHAT - each with a pitch sweep and a transient; the voices follow the open-source LXR drum machine firmware (Sonic Potions / Erica Synths). Two SRC pages; host tests render …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Digi2Digiseq (DIGISEQ) (Mod, Digitakt II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digi2digiseq"/>
+    <id>https://70b185.github.io/Aggregat/#project-digi2digiseq</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Robbie's DIGISEQ sequencers for the Digitakt II: every track, audio or MIDI, picks a TYPE whose sequencer plays instead of its trigs - SNAKE (a path through a 4 x 2 grid), 185 (stage sequencer after ML-185), ARP (played by the track's own note trigs) and PRINT (writes the …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Digi2Core (core-dt2 2.6.1) (Mod, Digitakt II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digi2core"/>
+    <id>https://70b185.github.io/Aggregat/#project-digi2core</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Base mod for gdeo607's Digitakt II machine mods; on its own it changes nothing. It keeps irpina's core 1.0 hook bus and adds digikit's machine, parameter and DSP-inline frameworks as core services: added machine types 7-23 and parameter codes 275-338, DSP voices as relocatable …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: CyclesEmu (Model:Cycles engine as plug-ins) (Tool, Model:Cycles)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=cyclesemu"/>
+    <id>https://70b185.github.io/Aggregat/#project-cyclesemu</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Unofficial macOS plug-ins (AU, VST3, standalone) that run the Model:Cycles' own sound engine: the parts of the firmware that render audio are translated ahead of time from ColdFire code to C, from the user's own firmware (nothing included or derived in the repo). CyclesEmu …</summary>
+  </entry>
+  <entry>
+    <title>Update 2026-11-10: change reports of 11-09 and 11-10 folded, I55-I66, SB17-SB18</title>
+    <link href="https://github.com/70b185/Aggregat/commit/ea694d1c51929aaf7fe9091a0db36b7e8c5acabc"/>
+    <id>https://70b185.github.io/Aggregat/#commit-ea694d1c5192</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Fold the 10 Nov afternoon changes; Action reports without moving baselines</title>
+    <link href="https://github.com/70b185/Aggregat/commit/5fe9651abc34db8e0d20b4c8e26d7990b3e35358"/>
+    <id>https://70b185.github.io/Aggregat/#commit-5fe9651abc34</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Fold the evening changes; fresh search finds nothing new</title>
+    <link href="https://github.com/70b185/Aggregat/commit/5ad09d8df22c0857f84813b9e86a8abf4347dfb9"/>
+    <id>https://70b185.github.io/Aggregat/#commit-5ad09d8df22c</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Add gdeo607's Digi2 family for the Digitakt II; I67</title>
+    <link href="https://github.com/70b185/Aggregat/commit/41d79b1ccba4985c83c7fe93e19de4dab9d91315"/>
+    <id>https://70b185.github.io/Aggregat/#commit-41d79b1ccba4</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Triage state/NEW.md: 8 new entries, 29 ignored, 1 candidate</title>
+    <link href="https://github.com/70b185/Aggregat/commit/2f73f412561988da58f04296736574a53c26cade"/>
+    <id>https://70b185.github.io/Aggregat/#commit-2f73f4125619</id>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Drop the model27 copy (nicolai-creates/model27): no changes of its own</title>
+    <link href="https://github.com/70b185/Aggregat/commit/becdae7cfd9d3fb88c1e7a4a94cb309a0c346866"/>
+    <id>https://70b185.github.io/Aggregat/#commit-becdae7cfd9d</id>
+    <updated>2026-11-09T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Group each platform's own mods into one entry, like any collection</title>
+    <link href="https://github.com/70b185/Aggregat/commit/bb933ed656712e89fd292f259f3bbf1f69d254bd"/>
+    <id>https://70b185.github.io/Aggregat/#commit-bb933ed65671</id>
+    <updated>2026-11-09T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Loaders show their own mods: own_mods replaces also_mod</title>
+    <link href="https://github.com/70b185/Aggregat/commit/9e0fe8f61abe24767650397a8d126c85b0f2764a"/>
+    <id>https://70b185.github.io/Aggregat/#commit-9e0fe8f61abe</id>
+    <updated>2026-11-09T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Drop the elekloader fork by simonjohansson: no changes of its own</title>
+    <link href="https://github.com/70b185/Aggregat/commit/73080dcb0eabd2f79c9b023609ee07cbc82ee2e7"/>
+    <id>https://70b185.github.io/Aggregat/#commit-73080dcb0eab</id>
+    <updated>2026-11-09T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>digimod: credit the original authors of its ported mods</title>
+    <link href="https://github.com/70b185/Aggregat/commit/4846784b7ac8c24c9af4cc032d76e832c7e8148f"/>
+    <id>https://70b185.github.io/Aggregat/#commit-4846784b7ac8</id>
+    <updated>2026-11-09T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>New in the catalogue: PUNCH (OPL2-style FM percussion) (Mod, Model:Cycles)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=punch"/>
+    <id>https://70b185.github.io/Aggregat/#project-punch</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>One added machine with twelve two-operator FM percussion engines with extended ratios. Source package for the Cycles Engines flasher. Found by GitHub search 2026-11-07.</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: STEP VIEW (Octatrack MIDI step editor) (Mod, Octatrack)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=octatrack-step-view"/>
+    <id>https://70b185.github.io/Aggregat/#project-octatrack-step-view</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A step editor and piano-roll pitch view for the eight MIDI tracks (MIXER + MIDI): all tracks at 32 steps a row, one track's 64 steps, notes with VEL and LEN per step. Found by GitHub search 2026-11-08. 2026-11-11: the Split view also shows the audio tracks (each step's trig and …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: octabam2elemod (octabam modules as elekloader mods) (Mod, Octatrack)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=octabam2elemod"/>
+    <id>https://70b185.github.io/Aggregat/#project-octabam2elemod</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>octabam's Octatrack modules repackaged as elekloader mods, so they can be picked in the elekloader mod shop. Found in the elekloader mod shop catalogue 2026-11-08.</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Flex+ (FlexBus machine) (Mod, Digitone, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=flex-plus"/>
+    <id>https://70b185.github.io/Aggregat/#project-flex-plus</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Routes the audio inputs or internal tracks into a track, with a low-CPU pitch shifter and an oscilloscope on the machine page. Found by GitHub search 2026-11-07. 1.1: internal tracks are now tapped after the source track's filter and AMP (a track picking itself is silent), …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Filter-FX (seven filter effects) (Mod, Digitakt, Digitone)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=filter-fx"/>
+    <id>https://70b185.github.io/Aggregat/#project-filter-fx</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Seven filter-based effect modes per track: VOWEL, BANK, FOLD, CRUSH, RING, PHASER and FLANGER. Found in the elekloader mod shop catalogue 2026-11-08.</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: FERAL (nine noisy models) (Mod, Model:Cycles)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=feral"/>
+    <id>https://70b185.github.io/Aggregat/#project-feral</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>One added machine with nine noisy, unpredictable synthesis models, light on the processor; COLOR and SWEEP as macros. Source package for the Cycles Engines flasher. Found by GitHub search 2026-11-07.</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: EUC+ (melodies for the Euclidean sequencer) (Mod, Digitakt II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=eucplus"/>
+    <id>https://70b185.github.io/Aggregat/#project-eucplus</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Adds Torso T-1-style generated melodies to the stock Euclidean sequencer: each Euclid hit gets a note from a pool of scale degrees in the pattern's KB SCALE and ROOT NOTE, moved by a phrase shape and a seeded, lockable random sequence. Own NOTES and RANDOM pages opened from the …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: ESOTERIKA (four Digitone voices) (Mod, Digitone)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=esoterika"/>
+    <id>https://70b185.github.io/Aggregat/#project-esoterika</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Four extra Digitone mk1 voices - RUIN, XTAL, VOID and CREPUS - as separate elekloader mods plus a combined ESOTERIKA file. Found in the elekloader mod shop catalogue 2026-11-08.</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: SEND FX (Digitone mk1) (Mod, Digitone)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digisendfx"/>
+    <id>https://70b185.github.io/Aggregat/#project-digisendfx</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>More from the Digitone mk1's own send effects and master drive: LUSH, a new bucket-brigade-style chorus in place of the stock one (VIBE, DRIFT, TONE, SAT, FDBK), two LFOs that move any chorus, delay, reverb or drive parameter (free or synced), and SHORT delay times. Written …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: DigiArp MIDI (DA27) (Mod, Digitone)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digiarp-midi"/>
+    <id>https://70b185.github.io/Aggregat/#project-digiarp-midi</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>MIDI arpeggiator for the Digitone mk1's MIDI tracks A-D, each with its own settings, controlled from the stock ARP page and step editor: tempo sync, recorded MIDI trigs, the stock modes plus UP TWICE, DOWN TWICE and UP/DOWN REPEAT. Known issues and test results are documented. …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: BLAST (OPL2-style FM) (Mod, Model:Cycles)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=blast"/>
+    <id>https://70b185.github.io/Aggregat/#project-blast</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>One added machine with fourteen melodic two-operator FM models in the manner of the Yamaha OPL2 ('90s SoundBlaster). Source package for the Cycles Engines flasher. Found by GitHub search 2026-11-07.</summary>
+  </entry>
+  <entry>
+    <title>Add EUC+ (joesciii): generated melodies for the Digitakt II Euclid sequencer</title>
+    <link href="https://github.com/70b185/Aggregat/commit/dae31952fe5d8519c3fc93bf88eaabd2aea1aa4f"/>
+    <id>https://70b185.github.io/Aggregat/#commit-dae31952fe5d</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Update 2026-11-08 evening: digikit boot screens, Rytm storage, I53-I54</title>
+    <link href="https://github.com/70b185/Aggregat/commit/c85f263e8a62ecbe970cba03f968e02bdef9e16a"/>
+    <id>https://70b185.github.io/Aggregat/#commit-c85f263e8a62</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>DN2 DT2 firmware research (armio): Digitone II only</title>
+    <link href="https://github.com/70b185/Aggregat/commit/c5ecc4884c18e61c010a9b75ef9c4af3e84404e3"/>
+    <id>https://70b185.github.io/Aggregat/#commit-c5ecc4884c18</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Rework MODS.md and add seven new mods with a tested field</title>
+    <link href="https://github.com/70b185/Aggregat/commit/c002a68439de0fc5817919340227e52d402a3b4f"/>
+    <id>https://70b185.github.io/Aggregat/#commit-c002a68439de</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Add a Mods tab to the website; list every known usable mod in MODS.md</title>
+    <link href="https://github.com/70b185/Aggregat/commit/bfadedcacca07797cf563f53ed89122e3242e723"/>
+    <id>https://70b185.github.io/Aggregat/#commit-bfadedcacca0</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Update 2026-11-08: durchgemacht's repos offline, mutiny v0.2.1</title>
+    <link href="https://github.com/70b185/Aggregat/commit/50a49ce39bbf7219c7a95b148572247b06b25709"/>
+    <id>https://70b185.github.io/Aggregat/#commit-50a49ce39bbf</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Scope: every Elektron device with custom firmware; elekloader on all its devices</title>
+    <link href="https://github.com/70b185/Aggregat/commit/17f4eee813ff9a9ba4dcfd9f7317fe80054e235b"/>
+    <id>https://70b185.github.io/Aggregat/#commit-17f4eee813ff</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>List loaders and platforms that ship their own mods under their devices too</title>
+    <link href="https://github.com/70b185/Aggregat/commit/0bd11631bfd2cfa3e4272da8eb14621e8151d91b"/>
+    <id>https://70b185.github.io/Aggregat/#commit-0bd11631bfd2</id>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>New in the catalogue: sample-shepherd (Tool, Digitakt II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=sample-shepherd"/>
+    <id>https://70b185.github.io/Aggregat/#project-sample-shepherd</id>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Organises a sample library (through Fourier Samples), exports it per device profile and syncs it to a sampler without breaking the projects on it: backs up projects, works out which samples they use, plans uploads and deletions and carries them out resumably; never deletes a …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: MUTINY (modular sequencers for Digitone mk1) (Mod, Digitone)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=mutiny"/>
+    <id>https://70b185.github.io/Aggregat/#project-mutiny</id>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Three generative sequencers on the synth tracks: a Euclidean rhythm, a Turing Machine and a TB-303-style acid line, played from the encoders; YES writes what you hear into the pattern as ordinary trigs. The author tested it for about an hour on one Digitone mk1 (OS 1.44). Found …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Model:Samples battery base (Research, Model:Samples)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=model-samples-battery-base"/>
+    <id>https://70b185.github.io/Aggregat/#project-model-samples-battery-base</id>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Open-hardware battery base using the original side mounting points and the left battery input: editable CAD, STEP/STL, parts list, build guide and printable fit gauges. No working physical prototype validated yet. Found by GitHub search 2026-11-07.</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Elektron Project Companion (Tool, Analog Rytm, Digitakt II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=elektron-project-companion"/>
+    <id>https://70b185.github.io/Aggregat/#project-elektron-project-companion</id>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Windows editor for arranging live sets from local project backups: place patterns in banks A-H and export a new project for Transfer. Rytm MKII: .arprj and whole-project .syx (patterns, kits, sound locks, sample references). Digitakt II: .dt2prj project image v4 (patterns with …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: DBX-DR (dark drone for MDX) (Mod, Machinedrum)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=dbx-dr"/>
+    <id>https://70b185.github.io/Aggregat/#project-dbx-dr</id>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Single-voice drone USR machine: three detuned saws and a square sub into saturation and a 4-pole ladder lowpass, with a phase-inverted feedback loop (gain up to 1.5, self-oscillating above 1) and WARP drift. Certified cycle counts per track and block: MKII 2,610, MKI DRAM …</summary>
+  </entry>
+  <entry>
+    <title>Stock bug list (16 bugs from the projects' repos) and update 2026-11-07</title>
+    <link href="https://github.com/70b185/Aggregat/commit/d4a6c81a8d719bec1f3788c509805824c5c185aa"/>
+    <id>https://70b185.github.io/Aggregat/#commit-d4a6c81a8d71</id>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Whiplash (agent plays a Digitakt II) (Tool, Digitakt II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=whiplash"/>
+    <id>https://70b185.github.io/Aggregat/#project-whiplash</id>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A Hermes Agent plugin that jams on a Digitakt II over USB MIDI: starts patterns by genre or mood, changes sounds live by CC/NRPN, mutes tracks (optionally the unit's own mute, CC 94); nothing is saved to the unit. Falls back to a virtual MIDI port without hardware. Found by …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Modded Cycles Techno Edition (Custom firmware, Model:Cycles)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=modded-cycles-techno"/>
+    <id>https://70b185.github.io/Aggregat/#project-modded-cycles-techno</id>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>25 machines (Elektron's six plus 19: 909/808/606 voices, rumble kick, modal metal, additive drum, acid and growl basses, Braids, VA, cross-mod, 6-op FM, pad, and a sampler / granular / wavetable engine), a filter and insert effect per track, sidechain, master DJ EQ, 6-channel …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Digitakt LED colours (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digitakt-led-colors"/>
+    <id>https://70b185.github.io/Aggregat/#project-digitakt-led-colors</id>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>LED theme editor and standby light show: six themes plus CUSTOM, eleven colour families with RGB 0-31, trig-key previews, COMET / RAINBOW / BREATHE idle animations, settings restored at start-up. Tested only in digiemu (README: not on a physical Digitakt). Found by GitHub …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: digimod (Digitakt II mod builder) (Loader, Digitakt II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digimod"/>
+    <id>https://70b185.github.io/Aggregat/#project-digimod</id>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A local web service (Docker, or native on macOS) that packs a Digitakt II .syx from ticked mods, checks it before download and, on a Mac, boots it in a built-in DT2 emulator. Mods: Polyphony (VOICES 1-8 per track, borrowing idle tracks' channels), Plaits (25 models and four DX7 …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: MIDI Expression for the Digitakt (Digi-Expression) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digi-expression"/>
+    <id>https://70b185.github.io/Aggregat/#project-digi-expression</id>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Pitch bend, mod wheel, aftertouch and breath controller from an external keyboard: modulation of audio tracks 1-8, pass-through to MIDI out on tracks A-H, velocity sensitivity per track, presets, saved with the project. A Modwerk SDK module, not submitted to the Modwerk library …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: DBX-K2 (resonator kick for MDX) (Mod, Machinedrum)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=dbx-k2"/>
+    <id>https://70b185.github.io/Aggregat/#project-dbx-k2</id>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A DSP56300 user machine sent as SysEx into a USR slot: each trigger strikes a tuned resonator whose pitch falls from a higher start; knobs for base pitch, sweep depth and time, decay, attack pulse, hold, saturation and a low-pass tone. The release page lists cycle counts for …</summary>
+  </entry>
+  <entry>
+    <title>Document R022 working-state and SYN-view fixes</title>
+    <link href="https://github.com/70b185/Aggregat/commit/f46b54eef0061b50a0b76ccdad789f1ac1a1e25b"/>
+    <id>https://70b185.github.io/Aggregat/#commit-f46b54eef006</id>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Correct Digiwerk release availability and USB research scope</title>
+    <link href="https://github.com/70b185/Aggregat/commit/c8246c9bff5b4f1f49a49321682c4e5432cf5028"/>
+    <id>https://70b185.github.io/Aggregat/#commit-c8246c9bff5b</id>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Incident register: 48 failures and tests on real units, each with its rule</title>
+    <link href="https://github.com/70b185/Aggregat/commit/babef771a2855edbd39891e81673e09f99f32150"/>
+    <id>https://70b185.github.io/Aggregat/#commit-babef771a285</id>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+</feed>

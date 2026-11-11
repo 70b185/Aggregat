@@ -1,0 +1,51 @@
+name: pr-check
+
+# Feedback for contributors on every pull request (and on pushes to master): schema and cross-reference checks,
+# the test suite, and a rebuild that shows which generated files would change. Read-only: it never commits.
+on:
+  pull_request:
+  push:
+    branches: [master]
+    paths-ignore: ["state/**", "export/**"]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # first_seen.py and feed.py read the history
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml jsonschema pytest
+      - name: Validate data (schema, devices, relations, source keys, incidents, no binaries)
+        run: python3 scripts/validate.py
+      - name: Tests
+        run: python3 -m pytest -q tests
+      - name: Rebuild and list generated files that changed
+        run: |
+          python3 scripts/validate.py --sync | tee sync.txt
+          {
+            echo "### Aggregat checks"
+            echo
+            echo '```'
+            tail -5 sync.txt
+            echo '```'
+            echo "Generated files are refreshed on master by the scheduled check-updates run; committing them in the PR is optional."
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: No hand edits to generated files
+        if: github.event_name == 'pull_request'
+        run: |
+          base="${{ github.event.pull_request.base.sha }}"
+          # a generated file changed while no source changed: probably edited by hand
+          gen=$(git diff --name-only "$base"...HEAD | grep -E '^(INDEX|MODS|DEV-TOOLS|MUSICIAN-TOOLS|PROJECT-FAMILIES)\.md$|^catalog/|^hardware/(DUPLICATES|WEAK-EVIDENCE|ADDRESS-MAP)\.md$' || true)
+          src=$(git diff --name-only "$base"...HEAD | grep -E '^data/|^hardware/|^RESEARCH-MAP\.md$|^scripts/' | grep -vE '^hardware/(DUPLICATES|WEAK-EVIDENCE|ADDRESS-MAP)\.md$' || true)
+          if [ -n "$gen" ] && [ -z "$src" ]; then
+            echo "::error::These files are generated; edit data/*.yml or hardware/*.md instead and run python3 scripts/rebuild.py:"
+            echo "$gen"
+            exit 1
+          fi

@@ -3501,7 +3501,7 @@ projects:
     tested: unit
     tested_note: "ran on units; one build froze at the logo"
     base_os: Digitakt II (version in the vendored README)
-    last_activity: unknown
+    last_activity: null
     notes: >
       Custom OS that replaces the Digitakt II's native time-stretch and repitch DSP with an engine built on Heavylight Industries'
       Capicola (AGPL-3.0-or-later): covers STRETCH, REPITCH, SLICE and GRID; a CAPI parameter switches each track between the new

@@ -65,11 +65,11 @@ Titles only; full text in [AGENT-RULES.md](https://github.com/70b185/Aggregat/bl
 
 ## 2. Rules that name the Analog Four / Analog Keys
 
-- **F5** (F.) F5. Never run parsers across device generations (Digitone mk1 device ID 0x0D vs Digitone II, Analog Four gen-1 vs gen-2). `[doc]` {syxgrid} {digi-roll-studio}
+- **F5** (F) Never run parsers across device generations (Digitone mk1 device ID 0x0D vs Digitone II, Analog Four gen-1 vs gen-2). `[doc]` {syxgrid} {digi-roll-studio}
 
 ## 3. Recovery and flashing
 
-- [doc] Other Elektron devices, from elekloader's BUILDING.md (for reference): Analog Rytm MKII and Analog Four MKII - FUNC at power-on (STARTUP menu), TRIG 4, stock `.syx` over 5-pin DIN MIDI, USB does not work. Octatrack - hold FUNC at power-on, TRIG 3 = MIDI UPGRADE, DIN MIDI; normal flashing from the card (PROJECT > SYSTEM > USB DISK MODE, copy the `.bin`, then PROJECT > SYSTEM > OS UPGRADE, power-cycle once more before judging). Digitakt mk1 / Digitone mk1: FUNC, TRIG 4, legacy mode; the connection is not stated for these two. Per-device notes: [`analog-rytm.md`](../devices/analog-rytm.md), [`digitakt.md`](../devices/digitakt.md), [`digitone.md`](../devices/digitone.md). `[doc]` {elekloader-building} (`recovery#ff8f0917`, [hardware/common/recovery.md:37](https://github.com/70b185/Aggregat/blob/master/hardware/common/recovery.md#L37))
+- [doc] Other Elektron devices, from elekloader's BUILDING.md (for reference): Analog Rytm MKII and Analog Four MKII - FUNC at power-on (STARTUP menu), TRIG 4, stock `.syx` over 5-pin DIN MIDI, USB does not work. Octatrack - hold FUNC at power-on, TRIG 3 = MIDI UPGRADE, DIN MIDI; normal flashing from the card (PROJECT > SYSTEM > USB DISK MODE, copy the `.bin`, then PROJECT > SYSTEM > OS UPGRADE, power-cycle once more before judging). Digitakt mk1 / Digitone mk1: FUNC, TRIG 4, legacy mode; the connection is not stated for these two. Per-device notes: [`analog-rytm.md`](https://github.com/70b185/Aggregat/blob/master/hardware/devices/analog-rytm.md), [`digitakt.md`](https://github.com/70b185/Aggregat/blob/master/hardware/devices/digitakt.md), [`digitone.md`](https://github.com/70b185/Aggregat/blob/master/hardware/devices/digitone.md). `[doc]` {elekloader-building} (`recovery#ff8f0917`, [hardware/common/recovery.md:37](https://github.com/70b185/Aggregat/blob/master/hardware/common/recovery.md#L37))
 
 ## 4. Bugs in Elektron's own OS (check before you blame your mod)
 

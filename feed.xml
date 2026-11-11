@@ -43,6 +43,13 @@
     <category term="update"/>
   </entry>
   <entry>
+    <title>Tidy the root so the README shows near the top</title>
+    <link href="https://github.com/70b185/Aggregat/commit/1a2a51a5472b7103f66788037fea6e2f740a4cc0"/>
+    <id>https://70b185.github.io/Aggregat/#commit-1a2a51a5472b</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>Website: mod finder, New tab + feed, Test your unit, address explorer, project pages, lazy data, one set of design tokens</title>
     <link href="https://github.com/70b185/Aggregat/commit/0b5adcd4097701d7ea19e4554678471371a0ba61"/>
     <id>https://70b185.github.io/Aggregat/#commit-0b5adcd40977</id>
@@ -453,13 +460,5 @@
     <updated>2026-11-06T00:00:00Z</updated>
     <category term="project"/>
     <summary>A local web service (Docker, or native on macOS) that packs a Digitakt II .syx from ticked mods, checks it before download and, on a Mac, boots it in a built-in DT2 emulator. Mods: Polyphony (VOICES 1-8 per track, borrowing idle tracks' channels), Plaits (25 models and four DX7 …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: MIDI Expression for the Digitakt (Digi-Expression) (Mod, Digitakt)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=digi-expression"/>
-    <id>https://70b185.github.io/Aggregat/#project-digi-expression</id>
-    <updated>2026-11-06T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>Pitch bend, mod wheel, aftertouch and breath controller from an external keyboard: modulation of audio tracks 1-8, pass-through to MIDI out on tracks A-H, velocity sensitivity per track, presets, saved with the project. A Modwerk SDK module, not submitted to the Modwerk library …</summary>
   </entry>
 </feed>

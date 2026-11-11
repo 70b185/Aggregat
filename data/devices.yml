@@ -6,7 +6,7 @@
 
 # recovery: has the stock-OS recovery path been used on a real unit? proven (two or more reports, or one project
 # using it routinely) | reported (one report) | documented (described, never reported used) | unknown. Source: the
-# G1 row of research/RESEARCH-MAP.md; keep both in step. The website's mod finder shows it next to every mod.
+# G1 row of research/RESEARCH-MAP.md; keep both in step. The website shows it on every mod's page ("Before you flash").
 devices:
   - slug: digitakt
     name: Digitakt (MKI)

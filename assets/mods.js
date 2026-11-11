@@ -45,7 +45,7 @@
     });
   }
 
-  // The one list of mods every view counts from (mods tab, finder, device bar): catalogue mods plus one card per
+  // The one list of mods every view counts from (mods tab, device bar): catalogue mods plus one card per
   // platform's own mods, without loaders; unreachable repos and unverified leads only when asked for.
   const HIDDEN = ["unreachable", "unverified", "request"];
   function catalogue(D, withHidden) {

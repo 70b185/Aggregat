@@ -418,13 +418,13 @@ const VIEWS = {
     hay: t => [t.id, t.task, t.devices, t.needs, t.effort, t.value, t.status].join(" "),
     html: (t, w) => `<div class="head"><span class="title">${esc(t.id)}</span> <span class="chip">${esc(t.status)}</span>
         <span class="chip">${esc(t.needs)}</span> <span class="chip">effort ${esc(t.effort)}</span> <span class="meta">${esc(t.devices)}</span></div>
-        <div class="text">${hl(md(t.task, "RESEARCH-MAP.md"), w)}</div><div class="meta">${md(t.value, "RESEARCH-MAP.md")}</div>`
+        <div class="text">${hl(md(t.task, "research/RESEARCH-MAP.md"), w)}</div><div class="meta">${md(t.value, "research/RESEARCH-MAP.md")}</div>`
   },
   goals: {
     rows: () => D.goals || [],
     hay: g => [g.id, g.goal, g.status, g.moved_by].join(" "),
     html: (g, w) => `<div class="head"><span class="title">${esc(g.id)}</span> <span class="title">${hl(esc(g.goal), w)}</span></div>
-        <div class="text">${hl(md(g.status, "RESEARCH-MAP.md"), w)}</div><div class="meta"><b>Moved by:</b> ${md(g.moved_by, "RESEARCH-MAP.md")}</div>`
+        <div class="text">${hl(md(g.status, "research/RESEARCH-MAP.md"), w)}</div><div class="meta"><b>Moved by:</b> ${md(g.moved_by, "research/RESEARCH-MAP.md")}</div>`
   },
   sources: {
     rows: () => D.sources,

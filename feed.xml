@@ -15,6 +15,13 @@
     <category term="update"/>
   </entry>
   <entry>
+    <title>Research: official MIDI tables (T13), test status from 43 READMEs, mod-author checklist, anchor_translate (G5)</title>
+    <link href="https://github.com/70b185/Aggregat/commit/a65404f1da338fb59e0bd62a21c043acf5d58f7d"/>
+    <id>https://70b185.github.io/Aggregat/#commit-a65404f1da33</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>RAM tenancy register (T23), recovery status per device, ram_users MCP tool</title>
     <link href="https://github.com/70b185/Aggregat/commit/9b1fb8fce56d4343dfce34e3462dc10ea59449a7"/>
     <id>https://70b185.github.io/Aggregat/#commit-9b1fb8fce56d</id>
@@ -454,13 +461,5 @@
     <updated>2026-11-06T00:00:00Z</updated>
     <category term="project"/>
     <summary>Pitch bend, mod wheel, aftertouch and breath controller from an external keyboard: modulation of audio tracks 1-8, pass-through to MIDI out on tracks A-H, velocity sensitivity per track, presets, saved with the project. A Modwerk SDK module, not submitted to the Modwerk library …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: DBX-K2 (resonator kick for MDX) (Mod, Machinedrum)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=dbx-k2"/>
-    <id>https://70b185.github.io/Aggregat/#project-dbx-k2</id>
-    <updated>2026-11-06T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>A DSP56300 user machine sent as SysEx into a USR slot: each trigger strikes a tuned resonator whose pitch falls from a higher start; knobs for base pitch, sweep depth and time, decay, attack pulse, hold, saturation and a low-pass tone. The release page lists cycle counts for …</summary>
   </entry>
 </feed>

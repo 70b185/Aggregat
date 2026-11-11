@@ -48,7 +48,7 @@ _Sources: altstrument (2026-11-01)_
 
 F# toolchain for DSP56300 machines: prototype and render on an emulated DSP, pack as MDS packages for MDX X.20. Licence: AGPL-3.0-or-later; distribution: source-only. Listed by altstrument; repo not read by us yet.
 
-_Related: cites `kitbasher` (README credits: the TX6 kit in kitbasher); cites `mds` (README credits: MDS) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: cites `kitbasher` (README credits: the TX6 kit in kitbasher); cites `mds` (README credits: MDS) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -68,7 +68,7 @@ _Sources: altstrument (2026-11-01)_
 
 RE docs for Machinedrum OS 1.63 with a Python toolkit, headless emulator and example DSP machines to build into your own image. Licence: GPL-3.0-only; distribution: source-only. Listed by altstrument; repo not read by us yet.
 
-_Related: uses tool `gearmulator-md-mm` (README: checks out joelanders/gearmulator-md-mm at a pinned commit) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `gearmulator-md-mm` (README: checks out joelanders/gearmulator-md-mm at a pinned commit) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -76,7 +76,7 @@ _Sources: altstrument (2026-11-01)_
 
 Desktop editors for Machinedrum and Monomachine that run the unit's own OS in an emulator (app or VST3/AU), optional hardware MIDI mode. Licence: GPL-3.0-only; distribution: download. Listed by altstrument; repo not read by us yet.
 
-_Related: builds on `gearmulator-md-mm` (README: grew out of joelanders' Machinedrum and Monomachine emulation) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `gearmulator-md-mm` (README: grew out of joelanders' Machinedrum and Monomachine emulation) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -90,7 +90,7 @@ _Sources: altstrument (2026-11-01)_
 
 Tools around the MDS specification: mds_pack.py builds an MDS file from a JSON definition and assembled DSP56300 code (CLD, LOD or raw binary), mds-certifier runs a machine and stamps its cycle costs for MKII, MKI with the program in DRAM and MKI in SRAM, and mds_to_syx.py converts an MDS file to SysEx for a USR slot. A --quick mode checks default, minimum and maximum parameters over four blocks on all sixteen tracks. Needs Motorola's asm56300 (or a compatible assembler). GPL. Found by GitHub search 2026-11-03; READMEs read.
 
-_Related: builds on `mds` (README: tools for the MDS specification) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `mds` (README: tools for the MDS specification) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-03, README and certifier/README.md_
 
@@ -110,7 +110,7 @@ _Sources: altstrument (2026-11-01)_
 
 The Machinedrum's synthesis engines as a VST3 instrument edited like Overbridge. GPL. Found by GitHub search 2026-11-02; README start read.
 
-_Related: builds on `gearmulator-md-mm` (README: MD Drums came from gearmulator-md-mm); builds on `machinemodule-mpc` (README: Machinemodule by sd88me, the Machinedrum engine without its OS) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `gearmulator-md-mm` (README: MD Drums came from gearmulator-md-mm); builds on `machinemodule-mpc` (README: Machinemodule by sd88me, the Machinedrum engine without its OS) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -124,7 +124,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Chip-level Machinedrum emulation as a DAW plug-in that runs the user's own OS and DSP programs, with the sequencer and a library. Fork of Monomodule and still builds the Monomodule plug-ins. AGPL-3.0.
 
-_Related: fork of `monomodule` (README); cites `elektron-firmware-tool` (README credits) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: fork of `monomodule` (README); cites `elektron-firmware-tool` (README credits) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -132,7 +132,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 The Machinedrum's own DSP code and machine/LFO/mixer maths as a VST2 for Akai MPC/Force standalone devices (all 16 tracks in one instance). The same author ports it to Ableton Move (Schwung) and ships Monomodule for MPC OS. User supplies the OS file. AGPL-3.0.
 
-_Related: uses tool `gearmulator-md-mm` (README: checked against gearmulator-md-mm); vendors `moduledrum` (README: ideas and code adapted from ModuleDrum (AGPL-3.0)) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `gearmulator-md-mm` (README: checked against gearmulator-md-mm); vendors `moduledrum` (README: ideas and code adapted from ModuleDrum (AGPL-3.0)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -140,7 +140,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Windows/macOS standalone and VST3 port of sd88me's Machinedrum engine with a JUCE interface; 0.4.6 adds a native ARM JIT for voices and master effects. AGPL-3.0.
 
-_Related: port of `machinemodule-mpc` (README); cites `monomodule` (README: Monomodule informed it / related project) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: port of `machinemodule-mpc` (README); cites `monomodule` (README: Monomodule informed it / related project) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -154,7 +154,7 @@ _Sources: GitHub search 2026-11-02, README, LICENSE and NOTICE (2026-11-11)_
 
 Machinedrum and Monomachine engines written from scratch (not an emulation of the chips) for the Teenage Engineering OP-XY on the Open-XY SDK. MIT.
 
-_Related: uses tool `gearmulator-md-mm` (README: checked against gearmulator-md-mm) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `gearmulator-md-mm` (README: checked against gearmulator-md-mm) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -174,7 +174,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Fork of gearmulator-md-mm with Native Instruments Maschine MK3 integration. GPL-3.0.
 
-_Related: fork of `gearmulator-md-mm` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: fork of `gearmulator-md-mm` (README) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -212,7 +212,7 @@ _Sources: altstrument (2026-11-03)_
 
 A DSP56300 user machine sent as SysEx into a USR slot: each trigger strikes a tuned resonator whose pitch falls from a higher start; knobs for base pitch, sweep depth and time, decay, attack pulse, hold, saturation and a low-pass tone. The release page lists cycle counts for the MKII and for the MKI with DRAM or SRAM and says it was tested on a MKII with the +Drive. Send the slot-1 .syx with about 300 ms between messages; it replaces USR slot 01. The author credits Claude with the DSP code and tooling. Per altstrument 2026-11-06 (the repo was empty on 2026-11-05).
 
-_Related: mod for `mdx` (altstrument: needs a Machinedrum running MDX X.20); uses tool `mds` (altstrument: the repository uses the MDS tooling as submodules) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: mod for `mdx` (altstrument: needs a Machinedrum running MDX X.20); uses tool `mds` (altstrument: the repository uses the MDS tooling as submodules) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-06)_
 
@@ -220,6 +220,6 @@ _Sources: altstrument (2026-11-06)_
 
 Single-voice drone USR machine: three detuned saws and a square sub into saturation and a 4-pole ladder lowpass, with a phase-inverted feedback loop (gain up to 1.5, self-oscillating above 1) and WARP drift. Certified cycle counts per track and block: MKII 2,610, MKI DRAM 3,017, MKI SRAM 2,681; tested on one MKII +Drive UW, MKI certified but not played. Found by GitHub search 2026-11-07.
 
-_Related: mod for `mdx` (README: a USR machine for the Machinedrum running MDX X.20) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: mod for `mdx` (README: a USR machine for the Machinedrum running MDX X.20) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-07, README_

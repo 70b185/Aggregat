@@ -42,8 +42,8 @@ jobs:
         run: |
           base="${{ github.event.pull_request.base.sha }}"
           # a generated file changed while no source changed: probably edited by hand
-          gen=$(git diff --name-only "$base"...HEAD | grep -E '^(INDEX|MODS|DEV-TOOLS|MUSICIAN-TOOLS|PROJECT-FAMILIES)\.md$|^catalog/|^hardware/(DUPLICATES|WEAK-EVIDENCE|ADDRESS-MAP)\.md$' || true)
-          src=$(git diff --name-only "$base"...HEAD | grep -E '^data/|^hardware/|^RESEARCH-MAP\.md$|^scripts/' | grep -vE '^hardware/(DUPLICATES|WEAK-EVIDENCE|ADDRESS-MAP)\.md$' || true)
+          gen=$(git diff --name-only "$base"...HEAD | grep -E '^catalog/|^hardware/(DUPLICATES|WEAK-EVIDENCE|ADDRESS-MAP)\.md$' || true)
+          src=$(git diff --name-only "$base"...HEAD | grep -E '^data/|^hardware/|^research/RESEARCH-MAP\.md$|^scripts/' | grep -vE '^hardware/(DUPLICATES|WEAK-EVIDENCE|ADDRESS-MAP)\.md$' || true)
           if [ -n "$gen" ] && [ -z "$src" ]; then
             echo "::error::These files are generated; edit data/*.yml or hardware/*.md instead and run python3 scripts/rebuild.py:"
             echo "$gen"

@@ -17,6 +17,8 @@ import json
 import re
 import sqlite3
 
+from mdlinks import relink
+
 ROOT = Path(__file__).resolve().parent.parent
 DB = ROOT / "export" / "aggregat.sqlite"
 CTX = ROOT / "export" / "context"
@@ -133,7 +135,7 @@ def main():
         brief += ([abs_links(f"- **{c['id']}** {c['topic']}: A) {c['a']} B) {c['b']}", "hardware/CONFLICTS.md") for c in d_conf] or ["- None open."]) + [""]
         brief += ["## 7. Open tests and tasks you could settle", ""]
         brief += [abs_links(f"- **{h['id']}** ({h['kind']}) {h['inference']} Test: {h['test']}", "hardware/HYPOTHESES.md") for h in d_hyps]
-        brief += [abs_links(f"- **{t['id']}** (needs {t['needs']}, effort {t['effort']}) {t['task']}", "RESEARCH-MAP.md") for t in d_tasks]
+        brief += [abs_links(f"- **{t['id']}** (needs {t['needs']}, effort {t['effort']}) {t['task']}", "research/RESEARCH-MAP.md") for t in d_tasks]
         if not d_hyps and not d_tasks:
             brief += ["- None open."]
         brief += ["", "Report results with the [test-result issue form](https://github.com/70b185/Aggregat/issues/new?template=test-result.yml).", ""]
@@ -185,6 +187,7 @@ def main():
         out += [f"## [{file}](../{file}) ({len(by_file[file])})", ""]
         for f in by_file[file]:
             t = f["text"] if len(f["text"]) <= 220 else f["text"][:217].rsplit(" ", 1)[0] + " ..."
+            t = relink(t, f["file"], "hardware/WEAK-EVIDENCE.md")
             out.append(f"- [L{f['line']}](../{file}#L{f['line']}) {tag(f['evidence'])} {t} `{f['fid']}`")
         out.append("")
     write(ROOT / "hardware" / "WEAK-EVIDENCE.md", "\n".join(out))
@@ -196,7 +199,7 @@ def main():
            "Every address that a fact names, per device, in address order. One line per address; the facts that name it "
            "follow, best evidence first. Two facts at the same address with different claims are worth a look: they may "
            "be a conflict (add it to [CONFLICTS.md](CONFLICTS.md)) or a RAM range two projects both use (rule area G8 in "
-           "the [research map](../RESEARCH-MAP.md)). Addresses differ between OS versions; the fact text says which.", "",
+           "the [research map](../research/RESEARCH-MAP.md)). Addresses differ between OS versions; the fact text says which.", "",
            stamp, ""]
     for d in devices:
         drows = [r for r in rows if d["slug"] in lst(r["devices"])]
@@ -259,8 +262,8 @@ def main():
              f"- [Export schema and example queries]({raw}export/README.md)",
              f"- [MCP server]({raw}mcp/README.md): query tools for agents",
              "", "## Optional",
-             f"- [Research map]({raw}RESEARCH-MAP.md): what is known and open per device, shared goals",
-             f"- [Feature overlap]({raw}FEATURE-OVERLAP.md): the same feature built on several devices",
+             f"- [Research map]({raw}research/RESEARCH-MAP.md): what is known and open per device, shared goals",
+             f"- [Feature overlap]({raw}research/FEATURE-OVERLAP.md): the same feature built on several devices",
              f"- [Address map]({raw}hardware/ADDRESS-MAP.md): every address named in a fact, per device",
              f"- [RAM tenancy]({raw}hardware/RAM-TENANCY.md): which mod platform uses which RAM range",
              f"- [Website]({site}): search, mod finder, network map", ""]

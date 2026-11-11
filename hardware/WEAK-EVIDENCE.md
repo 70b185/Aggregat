@@ -10,7 +10,7 @@ Data checked 2026-11-08, research snapshot `2945a822544d`.
 
 ## [hardware/common/dt2-dn2-limits-and-audio-chain.md](../hardware/common/dt2-dn2-limits-and-audio-chain.md) (1)
 
-- [L35](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L35) [?] The free L2 above is a static result. The owner measured problems on a real DT2 past `0x200f5a74` (see [`../devices/digitakt-2-sharc-measured.md`](../devices/digitakt-2-sharc-measured.md)), so treat the top of L2 as ... `dt2-dn2-limits-and-audio-chain#d975e1b3`
+- [L35](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L35) [?] The free L2 above is a static result. The owner measured problems on a real DT2 past `0x200f5a74` (see [`../devices/digitakt-2-sharc-measured.md`](devices/digitakt-2-sharc-measured.md)), so treat the top of L2 as ... `dt2-dn2-limits-and-audio-chain#d975e1b3`
 
 ## [hardware/common/ecosystem-lessons.md](../hardware/common/ecosystem-lessons.md) (10)
 
@@ -23,7 +23,7 @@ Data checked 2026-11-08, research snapshot `2945a822544d`.
 - [L28](../hardware/common/ecosystem-lessons.md#L28) [?] Developers distribute patches or scripts, not firmware, and warn users not to share compiled `.syx`/`.bin` outputs. The article cites US DMCA section 1201 exemptions (research, repair, interoperability; active ... `ecosystem-lessons#74e96c16`
 - [L29](../hardware/common/ecosystem-lessons.md#L29) [?] Predictions listed: signed bootloaders spreading on new hardware, official sandboxed DSP slots (Korg logue SDK, Ableton Extensions SDK as precedents), testing as the scarce resource, tier pressure on software-locked ... `ecosystem-lessons#02798dc9`
 - [L34](../hardware/common/ecosystem-lessons.md#L34) [?] Official notes also say "Downgrading the device OS is not supported" ({elektron-dt2-notes}). `ecosystem-lessons#8cd3f5cd`
-- [L40](../hardware/common/ecosystem-lessons.md#L40) [?] Note the interaction with Digitone II's in-place loader margin ([`../devices/digitone-2-internals.md`](../devices/digitone-2-internals.md)): the tool's default level can make a build too large to unpack in place. `ecosystem-lessons#f48706d1`
+- [L40](../hardware/common/ecosystem-lessons.md#L40) [?] Note the interaction with Digitone II's in-place loader margin ([`../devices/digitone-2-internals.md`](devices/digitone-2-internals.md)): the tool's default level can make a build too large to unpack in place. `ecosystem-lessons#f48706d1`
 
 ## [hardware/common/firmware-container.md](../hardware/common/firmware-container.md) (6)
 
@@ -87,7 +87,7 @@ Data checked 2026-11-08, research snapshot `2945a822544d`.
 
 - [L4](../hardware/devices/analog-four-keys.md#L4) [untagged] hugz202/AE-analog-four-mods (`docs/HAZARDS.md`, `docs/FLASHING.md`, `docs/research/digital-path-findings.md`, README), the first public firmware mods for the A4 MK1. Key {a4mods}. Its builds have run on units. `analog-four-keys#c347c735`
 - [L5](../hardware/devices/analog-four-keys.md#L5) [untagged] trigcondition/analog-emu (`docs/A4-PORT.md`, `docs/MK1-PORT.md`), an emulator for the Rytm, A4 and Syntakt. Keys {analog-emu-a4} and {analog-emu-mk1}. These are mostly static analysis and emulator runs; the author ... `analog-four-keys#2590b097`
-- [L6](../hardware/devices/analog-four-keys.md#L6) [untagged] Iced-Cream/analoghealth (README), a diagnostics mod that passed on an A4 MKII unit. Key {analoghealth}. Projects: [../../catalog/analog-four-keys.md](../../catalog/analog-four-keys.md). The short version: a ... `analog-four-keys#7a7c5084`
+- [L6](../hardware/devices/analog-four-keys.md#L6) [untagged] Iced-Cream/analoghealth (README), a diagnostics mod that passed on an A4 MKII unit. Key {analoghealth}. Projects: [../../catalog/analog-four-keys.md](../catalog/analog-four-keys.md). The short version: a ... `analog-four-keys#7a7c5084`
 - [L39](../hardware/devices/analog-four-keys.md#L39) [untagged] The dry voice is analog to the outputs. The digital side gets a captured copy and returns only the effects. `analog-four-keys#900d024e`
 - [L56](../hardware/devices/analog-four-keys.md#L56) [untagged] Almost no free space. Mods use the padding between the C++ constructor table and `__bss_start`, a 1 KB gap between chorus lookup tables that no index can reach, and runs of code the firmware contains but never calls. `analog-four-keys#7c818a80`
 - [L66](../hardware/devices/analog-four-keys.md#L66) [untagged] The MK1 `.syx` has one section. The bootstrap (STARTUP menu plus DIN-MIDI OS UPGRADE) is carried inside MAIN OS: on 1.56 its version words are at `0x40226958` and its image at `0x40226960..0x40233a30` (53,456 B). `analog-four-keys#36ed2f46`
@@ -116,7 +116,7 @@ Data checked 2026-11-08, research snapshot `2945a822544d`.
 ## [hardware/devices/analog-rytm.md](../hardware/devices/analog-rytm.md) (2)
 
 - [L15](../hardware/devices/analog-rytm.md#L15) [?] Which ColdFire is open: rytm-fw-re builds with `-mcpu=54455` (MCF5445x), while analog-emu identifies the Rytm MKII as MCF5441x (same entry code, CACR/ACR values and peripheral blocks as the A4 MKII). Both are V4 ... `analog-rytm#7f44f829`
-- [L34](../hardware/devices/analog-rytm.md#L34) [untagged] Rule for every device: a replacement or heavily modified OS should keep the in-OS USB update working, or the user needs a DIN interface. See rule A36 in [`../AGENT-RULES.md`](../AGENT-RULES.md). `analog-rytm#3fd73c7b`
+- [L34](../hardware/devices/analog-rytm.md#L34) [untagged] Rule for every device: a replacement or heavily modified OS should keep the in-OS USB update working, or the user needs a DIN interface. See rule A36 in [`../AGENT-RULES.md`](AGENT-RULES.md). `analog-rytm#3fd73c7b`
 
 ## [hardware/devices/digitakt-2.md](../hardware/devices/digitakt-2.md) (6)
 
@@ -136,7 +136,7 @@ Data checked 2026-11-08, research snapshot `2945a822544d`.
 - [L58](../hardware/devices/digitakt.md#L58) [?] A forum photo comparison names the eMMC differently (THGBMDG5D1LBAIT, 4 GB) and the CPU MCF54415CMJ250 - the sources disagree on the eMMC part. `[?]` {elektronauts-dt2-intro} `digitakt#199b2b70`
 - [L63](../hardware/devices/digitakt.md#L63) [untagged] digislicer (1.2 README; 2.5 per altstrument) - hold YES ~1 s on a SLICE track's SRC page to open the editor; slices keyed to the sample content and saved to the +Drive about one second after the editor closes ... `digitakt#66d647e3`
 - [L65](../hardware/devices/digitakt.md#L65) [untagged] digi1_mods - POLY: extra notes borrow voices from the track idle longest (excluding muted tracks, same-moment triggers and removed tracks); SETTINGS > POLY pool is per pattern and saved with the project (power-cycle ... `digitakt#7b11ca67`
-- [L68](../hardware/devices/digitakt.md#L68) [untagged] Tone+FX, DigiSplash, DigiCandy, digihealth also run on the Digitone mk1 - see [`digitone.md`](digitone.md). `digitakt#6c4a5937`
+- [L68](../hardware/devices/digitakt.md#L68) [untagged] Tone+FX, DigiSplash, DigiCandy, digihealth also run on the Digitone mk1 - see [`digitone.md`](devices/digitone.md). `digitakt#6c4a5937`
 - [L71](../hardware/devices/digitakt.md#L71) [untagged] Digitakt II is explicitly out of scope for the mk1 mods (e.g. DigiFilter). {digifilter} `digitakt#7909d316`
 - [L72](../hardware/devices/digitakt.md#L72) [untagged] digihealth's FAST AUDIO gives a lower DSP load with the same audio (elekloader v0.2.0 notes; checked alone in digikit's emulator with cold boot). {elekloader-readme} `digitakt#06a18592`
 - [L73](../hardware/devices/digitakt.md#L73) [untagged] Test state varies per build: see the project pages; several are emulator-only. `digitakt#1f1ad5c8`
@@ -176,7 +176,7 @@ Data checked 2026-11-08, research snapshot `2945a822544d`.
 - [L6](../hardware/devices/machinedrum-monomachine.md#L6) [untagged] janne808/machinedrum-kit `docs/` (system overview, SysEx updates, firmware image, DSP2 voice ABI, DSP programming, emulation and verification, open questions). Key {mdkit-docs}. The kit's custom machines ran on ... `machinedrum-monomachine#48a9e3ea`
 - [L7](../hardware/devices/machinedrum-monomachine.md#L7) [untagged] emuyia's em's Machinedrum and Monomachine firmware READMEs and CHANGELOG. Key {ems-fw}. `machinedrum-monomachine#074a6a12`
 - [L8](../hardware/devices/machinedrum-monomachine.md#L8) [untagged] shnolk/monomodule README. Key {monomodule}. `machinedrum-monomachine#8fc0cc52`
-- [L9](../hardware/devices/machinedrum-monomachine.md#L9) [untagged] joelanders/gearmulator-md-mm source (`source/elektron/md/mdLib`: memory map, types, board scheduler comments). Key {gearmulator-md-mm}. Projects: [../../catalog/machinedrum.md](../../catalog/machinedrum.md), ... `machinedrum-monomachine#4b4a480c`
+- [L9](../hardware/devices/machinedrum-monomachine.md#L9) [untagged] joelanders/gearmulator-md-mm source (`source/elektron/md/mdLib`: memory map, types, board scheduler comments). Key {gearmulator-md-mm}. Projects: [../../catalog/machinedrum.md](../catalog/machinedrum.md), ... `machinedrum-monomachine#4b4a480c`
 - [L17](../hardware/devices/machinedrum-monomachine.md#L17) [untagged] DSP2 ("producer"), a DSP56303: renders the 16 machine voices, one 32-sample mono block per track per audio block. It holds the machine code, the stock sample data and the sample RAM. Custom machines run here. `machinedrum-monomachine#43658ab1`
 - [L18](../hardware/devices/machinedrum-monomachine.md#L18) [untagged] DSP1 ("mixer"), a DSP56303: track effects, mix, master delay/reverb/EQ/dynamics, and the six-output codec. Custom-machine work leaves it untouched. `machinedrum-monomachine#f9c168c5`
 - [L39](../hardware/devices/machinedrum-monomachine.md#L39) [untagged] Kitbasher measured that pipeline interlocks alone add a median 26 % on hardware, so the dearest stock kits sit close to the limit. Treat these numbers as a floor. `machinedrum-monomachine#5f386828`

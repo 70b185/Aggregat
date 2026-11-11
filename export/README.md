@@ -32,8 +32,8 @@ Query tools over the same database for agents: the MCP server in [`../mcp/`](../
 | `addresses` | the addresses in `facts` | address, value (integer, indexed), fid, file, line, section, devices, evidence: one row per address and fact |
 | `ram_tenancy` | `hardware/RAM-TENANCY.md` | device, space (e.g. "Digitone II ColdFire DDR"), start, end (NULL when only a start is known), user, use, os, evidence, sources |
 | `facts_fts` | FTS5 index over `facts` | text, section, devices |
-| `goals` | goals table in `RESEARCH-MAP.md` | id (G1..), goal, status, moved_by |
-| `tasks` | shared to-do in `RESEARCH-MAP.md` | id (T1..), task, devices, needs, effort, value, status (open/done) |
+| `goals` | goals table in `research/RESEARCH-MAP.md` | id (G1..), goal, status, moved_by |
+| `tasks` | shared to-do in `research/RESEARCH-MAP.md` | id (T1..), task, devices, needs, effort, value, status (open/done) |
 | `hypotheses` | `hardware/HYPOTHESES.md` | id (H1..), goals, inference, derived_from, devices, test, kind (stock/probe/build), status |
 | `research_links` | goal columns of both | item (T/H id), goal, via |
 | `participants` | `research/PARTICIPANTS.md` | project, repo |

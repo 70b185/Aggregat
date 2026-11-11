@@ -23,7 +23,7 @@
   const TESTED = {"unit": "yes, on a unit", "partly": "partly", "emulator": "emulator only", "not-stated": "not stated"};
   const T_ORDER = ["unit", "partly", "emulator", "not-stated"];
   // a platform's own mods become ONE mod card "<platform> mods" installed via it (one entry per repo, like every
-  // other collection); each mod is listed under "What is inside". scripts/build.py builds MODS.md the same way.
+  // other collection); each mod is listed under "What is inside". scripts/build.py builds catalog/MODS.md the same way.
   function ownMods(D) {
     const order = (D.devices || []).map(d => d.slug), dn = Object.fromEntries((D.devices || []).map(d => [d.slug, d.name.replace(/ \(.*\)$/, "")]));
     return D.projects.filter(p => own(p).length).map(p => {

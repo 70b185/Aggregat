@@ -4,7 +4,7 @@
 
 The aim: whoever starts a research session (alone or with an AI agent) starts where the community's knowledge ends, instead of re-deriving what is already settled. Every line points to where the details and sources are. Phase 1 devices first (Digitakt MKI/II, Digitone MKI/II, Syntakt, Analog Heat); phase 2 follows.
 
-Last reviewed: 2026-11-03. Details and sources: [hardware/](hardware/README.md) (rules A1-A53 and sections B-G, [INCIDENTS.md](hardware/INCIDENTS.md), device files, [CONFLICTS.md](hardware/CONFLICTS.md)). Projects: [MODS.md](MODS.md), [DEV-TOOLS.md](DEV-TOOLS.md).
+Last reviewed: 2026-11-03. Details and sources: [hardware/](../hardware/README.md) (rules A1-A53 and sections B-G, [INCIDENTS.md](../hardware/INCIDENTS.md), device files, [CONFLICTS.md](../hardware/CONFLICTS.md)). Projects: [MODS.md](../catalog/MODS.md), [DEV-TOOLS.md](../catalog/DEV-TOOLS.md).
 
 ## How to read the status column
 
@@ -27,11 +27,11 @@ This page is the one place where the research of all projects comes together.
 | Layer | What it is | Where |
 |---|---|---|
 | **Goals** (G1-G8) | What the whole community gains, beyond any single mod | [Shared goals](#shared-goals-worth-more-than-any-single-mod) below |
-| **Open questions** | Status ❓/⬜ per device; disagreements between projects (O1-O19) | the device tables below; [CONFLICTS.md](hardware/CONFLICTS.md) |
-| **Experiments** | Tasks that need research (T1-T24) and inferred facts that need one test on a unit (H1-H24) | [Shared to-do](#shared-to-do); [HYPOTHESES.md](hardware/HYPOTHESES.md) |
-| **Results** | Facts with evidence tags and sources; rules distilled from them | [hardware/devices/](hardware/README.md), [AGENT-RULES.md](hardware/AGENT-RULES.md) |
-| **Incidents** (I1-I66) | What went wrong or was tested on real units, the cause and how it was found, and the rule it taught (rule C11: every failure becomes an incident, every general lesson a rule) | [INCIDENTS.md](hardware/INCIDENTS.md) |
-| **Stock bugs** (SB1-SB18) | Bugs in Elektron's own OS that projects found while testing, with trigger, workaround and a test tip (rule C12: reproduce on stock before you blame your mod) | [STOCK-BUGS.md](hardware/STOCK-BUGS.md), [report form](https://github.com/70b185/Aggregat/issues/new?template=stock-bug.yml) |
+| **Open questions** | Status ❓/⬜ per device; disagreements between projects (O1-O19) | the device tables below; [CONFLICTS.md](../hardware/CONFLICTS.md) |
+| **Experiments** | Tasks that need research (T1-T24) and inferred facts that need one test on a unit (H1-H24) | [Shared to-do](#shared-to-do); [HYPOTHESES.md](../hardware/HYPOTHESES.md) |
+| **Results** | Facts with evidence tags and sources; rules distilled from them | [hardware/devices/](../hardware/README.md), [AGENT-RULES.md](../hardware/AGENT-RULES.md) |
+| **Incidents** (I1-I66) | What went wrong or was tested on real units, the cause and how it was found, and the rule it taught (rule C11: every failure becomes an incident, every general lesson a rule) | [INCIDENTS.md](../hardware/INCIDENTS.md) |
+| **Stock bugs** (SB1-SB18) | Bugs in Elektron's own OS that projects found while testing, with trigger, workaround and a test tip (rule C12: reproduce on stock before you blame your mod) | [STOCK-BUGS.md](../hardware/STOCK-BUGS.md), [report form](https://github.com/70b185/Aggregat/issues/new?template=stock-bug.yml) |
 
 Each goal below lists the questions, tasks and tests that move it. A result goes into the device file, changes the status mark here, and closes the conflict, task or test it answered.
 
@@ -48,14 +48,14 @@ Own a **Digitakt II, Digitakt, Digitone II, Analog Heat (+FX/MKII) or Model:Cycl
 - **H23** does a long unpaged file listing from your DN2 (more than 130 entries in one folder) come back complete, or cut at about 4 KB?
 - **H24** does your DT2 or DN2 hang when you LOAD TO PROJECT a +Drive file that is not a sample (back up first)?
 
-Report with the **[Test result](https://github.com/70b185/Aggregat/issues/new?template=test-result.yml)** issue template. Details and the probe and build tests for people who flash: [HYPOTHESES.md](hardware/HYPOTHESES.md).
+Report with the **[Test result](https://github.com/70b185/Aggregat/issues/new?template=test-result.yml)** issue template. Details and the probe and build tests for people who flash: [HYPOTHESES.md](../hardware/HYPOTHESES.md).
 
 ## Take part with your project
 
 Anyone can help; nobody has to. Three ways, from small to ongoing:
 1. **One result:** run a test and report it with the Test result issue template.
 2. **Your own experiment:** take a task (T), hypothesis (H) or open conflict (O) and publish what you find in your repo.
-3. **Ongoing:** copy [research/AGGREGAT_RESEARCH.md](research/AGGREGAT_RESEARCH.md) to the root of your repo. It holds a full copy of the current goals, tasks, hypotheses and open conflicts (with a snapshot id), so your results stay tied to the state you started from, plus a table for your results. We find the file when we update, list your project in [research/PARTICIPANTS.md](research/PARTICIPANTS.md) with tasks that fit what your project already does, and merge your results by hand with credit. We never open issues or pull requests in your repo.
+3. **Ongoing:** copy [research/AGGREGAT_RESEARCH.md](AGGREGAT_RESEARCH.md) to the root of your repo. It holds a full copy of the current goals, tasks, hypotheses and open conflicts (with a snapshot id), so your results stay tied to the state you started from, plus a table for your results. We find the file when we update, list your project in [research/PARTICIPANTS.md](PARTICIPANTS.md) with tasks that fit what your project already does, and merge your results by hand with credit. We never open issues or pull requests in your repo.
 
 A hypothesis stays a hypothesis until a real unit (or something equally direct) shows it; one unit report makes it 🟢, a second unit or project ✅.
 
@@ -66,7 +66,7 @@ A hypothesis stays a hypothesis until a real unit (or something equally direct) 
 Paste this into a new agent session (Claude Code or similar) that has this repo checked out:
 
 ```text
-Read RESEARCH-MAP.md, then hardware/README.md, hardware/AGENT-RULES.md and hardware/INCIDENTS.md.
+Read research/RESEARCH-MAP.md, then hardware/README.md, hardware/AGENT-RULES.md and hardware/INCIDENTS.md.
 I own a <device> on OS <version> and I have <a DIN MIDI interface / only my OS file / only the manual>.
 Pick one item from the "Shared to-do" or hardware/HYPOTHESES.md that I can do with what I have, or a ❓/⬜ row of my device.
 Before researching anything, search hardware/ (and hardware/CONFLICTS.md, hardware/READING-LEDGER.md)
@@ -85,7 +85,7 @@ Copy research/AGGREGAT_RESEARCH.md from https://github.com/70b185/Aggregat to th
 table (unit, OS, what happened, evidence tag, link to the details).
 ```
 
-**Before you spend tokens on a topic:** `grep -ri "<topic>" hardware/` takes seconds. Read [READING-LEDGER.md](hardware/READING-LEDGER.md) to see which sources were already mined. If two sources disagree, the topic is in [CONFLICTS.md](hardware/CONFLICTS.md).
+**Before you spend tokens on a topic:** `grep -ri "<topic>" hardware/` takes seconds. Read [READING-LEDGER.md](../hardware/READING-LEDGER.md) to see which sources were already mined. If two sources disagree, the topic is in [CONFLICTS.md](../hardware/CONFLICTS.md).
 
 **When you find something:** add it to the device file with `[hw]`/`[emu]`/`[doc]`/`[?]`, move this map's row to its new status, and close or open a conflict. A negative result ("X is not there") counts too: say what the search covered (rule A31).
 
@@ -110,7 +110,7 @@ table (unit, OS, what happened, evidence tag, link to the details).
 
 | Area | Status | What is known | Next step / where |
 |---|---|---|---|
-| Modified OS accepted | ✅ | Many elekloader mods run on units. Whether the container carries a (non-blocking) signature is not stated. | Quick check with your own file: T5-style. [digitakt.md](hardware/devices/digitakt.md) |
+| Modified OS accepted | ✅ | Many elekloader mods run on units. Whether the container carries a (non-blocking) signature is not stated. | Quick check with your own file: T5-style. [digitakt.md](../hardware/devices/digitakt.md) |
 | Recovery | ✅ | FUNC at power-on, TRIG 4, stock `.syx` over DIN. | - |
 | CPU and audio | ✅ | ColdFire, **no DSP**: all audio in the render interrupt (vector 191). | - |
 | Mod platform | ✅ | elekloader core with a hook bus (tick, draw, key, encoder, settings, render in/out); core-owned sites listed. | - |
@@ -136,15 +136,15 @@ table (unit, OS, what happened, evidence tag, link to the details).
 | Area | Status | What is known | Next step / where |
 |---|---|---|---|
 | SHARC timing | ✅ | 1.000 GHz, 666,667 cycles per 32-sample block, 1,500 blocks/s (conflict S1 settled). | - |
-| Silicon costs | ✅ | Taken jump ~7 cycles, CALL+RTS ~14, L2 miss ~58; device cycles ~2x emulator counts (A35). | [digitakt-2-dsp-optimizing.md](hardware/devices/digitakt-2-dsp-optimizing.md) |
-| RTOS and missed blocks | ✅ | FreeRTOS on the SHARC; a late block is a whole missed block; stock never misses on its own (A25). | [digitakt-2-sharc-measured.md](hardware/devices/digitakt-2-sharc-measured.md) |
+| Silicon costs | ✅ | Taken jump ~7 cycles, CALL+RTS ~14, L2 miss ~58; device cycles ~2x emulator counts (A35). | [digitakt-2-dsp-optimizing.md](../hardware/devices/digitakt-2-dsp-optimizing.md) |
+| RTOS and missed blocks | ✅ | FreeRTOS on the SHARC; a late block is a whole missed block; stock never misses on its own (A25). | [digitakt-2-sharc-measured.md](../hardware/devices/digitakt-2-sharc-measured.md) |
 | ColdFire <-> SHARC reply words | ✅ | Words 670-676 arrive untouched; word 0 is a true load figure on DT2 (A26, S5, S6). | - |
 | Unsafe encodings | ✅ | Same-DAG stores (two independent unit cases), SIMD moves, negative shift immediates: run in the emulator, hang the unit (A33, A41). digikit's patchkit refuses same-DAG stores at build time. | - |
 | "Bitcrush until reboot" | ❓ | Not caused by missed blocks; appears only with several custom-engine tracks at extreme settings. Cause unknown. | T7 |
 | Free L2 on 1.17 | ❓ | Static says up to `0x200fa000`, a unit clicked past `0x200f5a74` (O7). | T15 |
-| Mod routes side by side | 🟡 | Six projects compared (T21): five users share the 2 KB flash cave at `0x403117c4`; elekloader's RAM `0x47f00000` lies inside digikit's `cf.expansion`; the listed UI hook sites are disjoint. One report says the cave froze a unit (O18). | [memory-maps.md](hardware/common/memory-maps.md) |
-| Section 7 size | ✅ | Decoded size must stay under `0xfffff`: the check runs only after depacking into a 1 MiB buffer, and an oversized stream crashed a unit (A46). | [firmware-container.md](hardware/common/firmware-container.md) |
-| ColdFire watchdog | ✅ | Not configured (static): a ColdFire hang stays hung until a power cycle. | [memory-maps.md](hardware/common/memory-maps.md) |
+| Mod routes side by side | 🟡 | Six projects compared (T21): five users share the 2 KB flash cave at `0x403117c4`; elekloader's RAM `0x47f00000` lies inside digikit's `cf.expansion`; the listed UI hook sites are disjoint. One report says the cave froze a unit (O18). | [memory-maps.md](../hardware/common/memory-maps.md) |
+| Section 7 size | ✅ | Decoded size must stay under `0xfffff`: the check runs only after depacking into a 1 MiB buffer, and an oversized stream crashed a unit (A46). | [firmware-container.md](../hardware/common/firmware-container.md) |
+| ColdFire watchdog | ✅ | Not configured (static): a ColdFire hang stays hung until a power cycle. | [memory-maps.md](../hardware/common/memory-maps.md) |
 | "Rung C" halt | ✅ | Solved: 17 stores of a DAG register through its own DAG (excluded by the ISA, accepted by assembler and emulator); without them the build played on a unit. The same rule the repo owner found independently (A33). | - |
 | Bootstrap-menu recovery | 🟢 | **Used on a unit:** after a crashing build, official OS 1.16 was restored over DIN via Transfer's recovery mode (dt2-machine-lab, 2026-10-06). A cheap USB-MIDI cable adapter delivered nothing. One report; more welcome. | T1 (a second report, ideally on 1.17) |
 | OS version gate | ✅ | DT2 refuses OS below "0060" (S8). | - |
@@ -157,19 +157,19 @@ table (unit, OS, what happened, evidence tag, link to the details).
 
 | Area | Status | What is known | Next step / where |
 |---|---|---|---|
-| Container and signing | ✅ | ELE3, HMAC-SHA256 with the key derived from the image, so tools can re-sign; section 7 is the SHARC's ADI boot stream (S4). | [digitone-2.md](hardware/devices/digitone-2.md) |
-| Recovery | ✅ | FUNC at power-on, TRIG 4, DIN; tested on units. OS writer has no length clamp (A30). | [flash-procedure.md](hardware/common/flash-procedure.md) |
+| Container and signing | ✅ | ELE3, HMAC-SHA256 with the key derived from the image, so tools can re-sign; section 7 is the SHARC's ADI boot stream (S4). | [digitone-2.md](../hardware/devices/digitone-2.md) |
+| Recovery | ✅ | FUNC at power-on, TRIG 4, DIN; tested on units. OS writer has no length clamp (A30). | [flash-procedure.md](../hardware/common/flash-procedure.md) |
 | SHARC load | ❓ | Two unit measurements disagree at idle: ~63-65 % (idle-task, dnfw/Digiwerk) vs ~80 % falling to 65 % with 64 notes (elekloader) - O15. Both agree it is **not headroom** (A37). | T9 |
 | Load prediction model | ❓ | Instruction-count model overestimates (O12). | T9 |
 | Free SHARC memory | ❓ | Contested L2 range `0x200918c0-0x200c2000` (O19, T24). Proven code room 83,838 B over four regions. L1 block 1 adds ~12 KB, not 45; block 3's tail is I-cache; `0x315f8c-0x318000` stopped the DSP (PM cache size open); two L2 candidates (38.5 KB, 229 KB); code in dead stock-FX spots in L2 stopped the DSP (O13). | A probe build (Digiwerk's planned PB01). |
-| ColdFire -> DSP frame | ✅ | 0xabc-byte frame, data in the first 0xa80; the tail and reply word 2 are free (one owner per build). | [digitone-2-internals.md](hardware/devices/digitone-2-internals.md) |
-| ColdFire RAM above the reset clear | 🟡 | Five projects compared: dnfw, cfmod and Digiwerk all start at `0x46800000`; `0x46700000` up to `0x46710000` is not free (S17: dnfw's LFO4 state there corrupted saved projects). | T23, [memory-maps.md](hardware/common/memory-maps.md) |
-| SHARC filter accelerators | 🟢 | IIR0/FIR0 read on a unit: three differences from the hardware reference; stock uses neither. | [digitone-2-internals.md](hardware/devices/digitone-2-internals.md) |
-| Persisting a mod's parameters | ✅ | Unsaved edits survive a power cycle through `Sound::updateMirror`; a mod's own parameters persist when it sends the stock whole-sound event (E2, on the unit). | [AGENT-RULES.md](hardware/AGENT-RULES.md) |
-| Adding machines, linking DSP code | 🟢 | elekloader (1.12) and dn2mk2 (1.11) ship machines; DT2 sample machines run on DN2. | [digitone-2-machines-sampler-sharc.md](hardware/devices/digitone-2-machines-sampler-sharc.md) |
+| ColdFire -> DSP frame | ✅ | 0xabc-byte frame, data in the first 0xa80; the tail and reply word 2 are free (one owner per build). | [digitone-2-internals.md](../hardware/devices/digitone-2-internals.md) |
+| ColdFire RAM above the reset clear | 🟡 | Five projects compared: dnfw, cfmod and Digiwerk all start at `0x46800000`; `0x46700000` up to `0x46710000` is not free (S17: dnfw's LFO4 state there corrupted saved projects). | T23, [memory-maps.md](../hardware/common/memory-maps.md) |
+| SHARC filter accelerators | 🟢 | IIR0/FIR0 read on a unit: three differences from the hardware reference; stock uses neither. | [digitone-2-internals.md](../hardware/devices/digitone-2-internals.md) |
+| Persisting a mod's parameters | ✅ | Unsaved edits survive a power cycle through `Sound::updateMirror`; a mod's own parameters persist when it sends the stock whole-sound event (E2, on the unit). | [AGENT-RULES.md](../hardware/AGENT-RULES.md) |
+| Adding machines, linking DSP code | 🟢 | elekloader (1.12) and dn2mk2 (1.11) ship machines; DT2 sample machines run on DN2. | [digitone-2-machines-sampler-sharc.md](../hardware/devices/digitone-2-machines-sampler-sharc.md) |
 | OS 1.11 <-> 1.12 addresses | ❓ | Projects split between versions; the parameter table base differs by 4 bytes between two maps (O6). | **T8** |
 | Grown parameter table | 🟢 | Grown to 0x180 rows and running on a unit, +Drive save/load fine (Digiwerk GT00/GT01); a 3-band compressor ships on it. Open: does such a project open cleanly on a **stock** OS? | T16 |
-| Overbridge with modified OS | ✅ | Cause found and fixed: the container's version field is sent to the computer; keep `1.12` in what is sent (Digiwerk OB01, on the unit). Open: what the plugin does with parameter ids of `0x400`+ from grown tables. | [overbridge-usb.md](hardware/common/overbridge-usb.md); T17 |
+| Overbridge with modified OS | ✅ | Cause found and fixed: the container's version field is sent to the computer; keep `1.12` in what is sent (Digiwerk OB01, on the unit). Open: what the plugin does with parameter ids of `0x400`+ from grown tables. | [overbridge-usb.md](../hardware/common/overbridge-usb.md); T17 |
 | Real-time DSP audio in an emulator | ❓ | Open in digikit. | T14 |
 | Project file format (`.dn2prj`) | 🟡 | DNX reads parts of it; the deobfuscator repo is unreachable. | T18 |
 
@@ -177,11 +177,11 @@ table (unit, OS, what happened, evidence tag, link to the details).
 
 | Area | Status | What is known | Next step / where |
 |---|---|---|---|
-| Platform | 🟢 | Two MCF5441x at 250 MHz (166,667 cycles per block); CPU #2 is the voice CPU with its own 128 MB RAM, a 64 MB sample pool and its own FPGA; analog mixer. | [syntakt.md](hardware/devices/syntakt.md) |
+| Platform | 🟢 | Two MCF5441x at 250 MHz (166,667 cycles per block); CPU #2 is the voice CPU with its own 128 MB RAM, a 64 MB sample pool and its own FPGA; analog mixer. | [syntakt.md](../hardware/devices/syntakt.md) |
 | Recovery | 🟢 | Documented by SyntHack: Transfer over USB normally; if it doesn't boot, FUNC + TRIG 4 over DIN (tens of minutes). Avoid TRIG 2/3. | - |
 | Signing | ❓ | 1.41 carries an HMAC (SyntHack); 1.42 has a zero trailer (digikit) (O1). | **T5** |
 | CPU #1 load | ❓ | ~89 % of the audio interrupt at rest vs. 85.8k of 166.7k cycles - probably different spans (O3). | **T4** |
-| Where mod code can live | ✅ | Not above the BSS: sample loading overwrites `0x45565490-0x48000000` (settled S13). SyntHack reserves the first 64 KB heap block at boot; kit and project files carry spare bytes that round-trip through stock code. | [syntakt.md](hardware/devices/syntakt.md) |
+| Where mod code can live | ✅ | Not above the BSS: sample loading overwrites `0x45565490-0x48000000` (settled S13). SyntHack reserves the first 64 KB heap block at boot; kit and project files carry spare bytes that round-trip through stock code. | [syntakt.md](../hardware/devices/syntakt.md) |
 | Free executable storage on CPU #2 | ❓ | Unresolved. | machine-45 research notes |
 | Section 8 | ✅ | A shared ARM Cortex-M firmware image, the same on several devices, not an FPGA (S15). Which accessory it serves is open (O16): Outbox 8 is the likely candidate. | - |
 | FPGA role | ⬜ | Unknown on every device that has one. | T12 |
@@ -193,7 +193,7 @@ table (unit, OS, what happened, evidence tag, link to the details).
 | Area | Status | What is known | Next step / where |
 |---|---|---|---|
 | MKI / MKII firmware | ⬜ | **Nothing beyond official facts.** Container, CPU, DSP, signing: all unknown. | **T11** (files only, beginner-friendly) |
-| +FX container | ✅ | ELE3, no HMAC, byte-exact round trip with two independent unpackers (70b185). | [analog-heat.md](hardware/devices/analog-heat.md) |
+| +FX container | ✅ | ELE3, no HMAC, byte-exact round trip with two independent unpackers (70b185). | [analog-heat.md](../hardware/devices/analog-heat.md) |
 | +FX recovery | ✅ | Hold ACTIVE at power-on, **MOD** = OS UPGRADE, DIN (official); the bootstrap holds the menu. | - |
 | +FX CPU and audio | 🟡 | MCF5441x, **no DSP section**, audio on the ColdFire (SSI1, eDMA, a software interrupt) - static. | - |
 | +FX own code on a unit | 🟢 | A text change and a 42-byte hook in the audio software interrupt ran (70b185, test01/test02). Code must stay below `0x40206000` (A27). | - |
@@ -201,13 +201,13 @@ table (unit, OS, what happened, evidence tag, link to the details).
 | +FX CPU reserve with all FX | ❓ | A forum post claims 79 %; not measured. | **T10** |
 | +FX FPGA role | ⬜ | Loaded by the OS; role unknown. Section size is 54,664 B, **the same size as the A4 MKII's FPGA section and the Digitone mk1's bitstream** - a lead, not a finding. | T12 |
 | +FX preset format, latency, flash budget | ⬜ | Not looked at. | - |
-| Community | 🟡 | First public +FX custom firmware announced on elektronmods.com ("MultiMode", beta 0.1, 2026-11-02; screenshots only, catalogued as a candidate). The repo owner's research is paused. Stock tests for the +FX: H1, H5, H18. | [HYPOTHESES.md](hardware/HYPOTHESES.md) |
+| Community | 🟡 | First public +FX custom firmware announced on elektronmods.com ("MultiMode", beta 0.1, 2026-11-02; screenshots only, catalogued as a candidate). The repo owner's research is paused. Stock tests for the +FX: H1, H5, H18. | [HYPOTHESES.md](../hardware/HYPOTHESES.md) |
 
 ---
 
 ## Shared to-do
 
-Inferred facts waiting for a test on a unit, sorted by effort (stock, probe, build): [hardware/HYPOTHESES.md](hardware/HYPOTHESES.md).
+Inferred facts waiting for a test on a unit, sorted by effort (stock, probe, build): [hardware/HYPOTHESES.md](../hardware/HYPOTHESES.md).
 
 Pick one, check the status above, and go. **S** = an evening, **M** = a few sessions, **L** = a project. "Value" says why the community gains from it.
 
@@ -218,24 +218,24 @@ Pick one, check the status above, and go. **S** = an evening, **M** = a few sess
 | T3 | Test rule A39 (no EP0 stage of a multiple of 64 bytes) on a small box with a vendor request. The DT2 has the same EHCI-style controller with EP0 max packet 64 and its own EP0 vendor requests (digikit 42), so it is the best candidate | DT2 (or DN2, DT/DN mk1) | unit + a USB mod | M | Confirms or limits a rule found on the Octatrack (G3). |
 | T4 | Measure CPU #1 load with the digihealth DMA-timer method over the whole interrupt, at rest and busy | Syntakt | unit + SyntHack | M | Settles O3; gives Syntakt modders a budget (G2). |
 | T5 | Check the trailer and HMAC of 1.40A/1.41/1.42 with your own files (elektron-firmware-tool, digikit) | Syntakt (also DT mk1) | files | S | Settles O1; tells modders whether 1.42 needs re-signing. |
-| T6 | Translate SyntHack/machine-45 anchors from 1.41 to 1.42 (byte patterns, not addresses) (tool: [`scripts/anchor_translate.py`](scripts/anchor_translate.py), 2026-11-11: you supply both images; it reports per address whether the translation is exact, bracketed, one-sided or ambiguous) | Syntakt | files | M | Opens the current OS to mods (G5). |
+| T6 | Translate SyntHack/machine-45 anchors from 1.41 to 1.42 (byte patterns, not addresses) (tool: [`scripts/anchor_translate.py`](../scripts/anchor_translate.py), 2026-11-11: you supply both images; it reports per address whether the translation is exact, bracketed, one-sided or ambiguous) | Syntakt | files | M | Opens the current OS to mods (G5). |
 | T7 | Find the cause of the sticky "bitcrush until reboot" | Digitakt II | unit + custom engine | L | A hidden state bug that any DT2 engine can trigger. |
-| T8 | Build an address-translation table DN2 1.11 <-> 1.12 from shared anchors (tool: [`scripts/anchor_translate.py`](scripts/anchor_translate.py), 2026-11-11: you supply both images; it reports per address whether the translation is exact, bracketed, one-sided or ambiguous) | Digitone II | files | M | Lets dn2mk2 (1.11) and elekloader/dn2-cfw (1.12) share work (G5); settles O6. |
+| T8 | Build an address-translation table DN2 1.11 <-> 1.12 from shared anchors (tool: [`scripts/anchor_translate.py`](../scripts/anchor_translate.py), 2026-11-11: you supply both images; it reports per address whether the translation is exact, bracketed, one-sided or ambiguous) | Digitone II | files | M | Lets dn2mk2 (1.11) and elekloader/dn2-cfw (1.12) share work (G5); settles O6. |
 | T9 | Measure DN2 load with both meters (dnfw idle-task and elekloader dspbusy) in the same states, then calibrate a cost model (dn2mk2's instructions + 4 x L2 + 10 x DDR is a start) | Digitone II | unit | M | Settles O15 and O12; predict cost before flashing (G2). |
 | T10 | Port a DMA-timer load probe (digihealth / A4 0011-style) to the Heat +FX and measure all FX on | Analog Heat +FX | unit | M | First budget for the only fresh platform in phase 1 (G2). |
 | T11 | Unpack the MKI and MKII OS files: sections, container, CPU (peripheral census), any DSP section | Analog Heat MKI/MKII | files | S | Turns two ⬜ devices into mapped ones. Good first task. |
 | T12 | Compare FPGA bitstreams across devices (sizes, SHA-256, header) and the OS code that talks to them. **Leads:** on the Rytm MKII, sample bit reduction is a command word sent to the external audio hardware, not PCM work on the ColdFire; and three bitstreams are exactly 54,664 bytes - Heat +FX section 1, A4 MKII section 1, and the Digitone mk1's (inside section 7, loaded by the second CPU) | Heat +FX, A4 MKII, DN mk1, Syntakt, DT2/DN2, Rytm | files | M | First step on "what does the FPGA do" everywhere (G3). |
-| T13 | ~~Transcribe the official MIDI CC/NRPN tables from the manuals' appendices~~ **done 2026-11-11** for DT2 (OS 1.17 manual), DN2 (OS 1.12 manual) and Heat +FX (manual DOC10069enB): [sysex-and-midi.md](hardware/common/sysex-and-midi.md#official-cc-and-nrpn-tables-transcribed-from-the-manuals-task-t13-2026-11-11). Remaining: a person comparing the transcription with the printed pages, and a unit test of the seven rows that look like misprints (duplicate numbers) | DT2, DN2, Heat +FX | PDF, then unit | S | Official numbers for every control tool (G6). |
+| T13 | ~~Transcribe the official MIDI CC/NRPN tables from the manuals' appendices~~ **done 2026-11-11** for DT2 (OS 1.17 manual), DN2 (OS 1.12 manual) and Heat +FX (manual DOC10069enB): [sysex-and-midi.md](../hardware/common/sysex-and-midi.md#official-cc-and-nrpn-tables-transcribed-from-the-manuals-task-t13-2026-11-11). Remaining: a person comparing the transcription with the printed pages, and a unit test of the seven rows that look like misprints (duplicate numbers) | DT2, DN2, Heat +FX | PDF, then unit | S | Official numbers for every control tool (G6). |
 | T14 | Fix or document digikit's EMAC fractional-mode emulation against a unit measurement | DT2/DN2 (all ColdFire boxes) | unit + emulator | M | Fewer "works in the emulator" surprises (G4). |
 | T15 | Probe free SHARC L2 on DT2 1.17 between `0x200f5a74` and `0x200fa000` on a unit | Digitakt II | unit | M | Settles O7; more room for engines. |
 | T16 | Save a project on a grown parameter table, load it on stock, record what happens | Digitone II | unit | S | Tells users whether modded projects stay safe. |
 | T17 | ~~Find why Overbridge rejects modified DN2 builds~~ **done** (Digiwerk OB01: the version field). Remaining: how the plugin treats parameter ids `0x400`+ from a grown table | Digitone II | unit + Overbridge | S | Grown-table mods with Overbridge automation. |
 | T18 | Document the project file formats (`.dt2prj`, `.dn2prj`) beyond song slots | DT2, DN2 | files | M | Librarians and converters for musicians. |
-| T19 | ~~Check which DN2 SHARC findings hold on the DT2 (and back)~~ **done as a comparison** (2026-11-02, [dt2-dn2-sharc-crosscheck.md](hardware/common/dt2-dn2-sharc-crosscheck.md)): silicon facts hold on both (digikit's probe on both units), firmware facts do not carry over. Remaining unit tests: SIMD L2 access on a DN2, reply-record arrivals on a DN2, single late blocks on a DN2 | DT2, DN2 | unit | S each | Doubles the value of every SHARC finding (G3). |
+| T19 | ~~Check which DN2 SHARC findings hold on the DT2 (and back)~~ **done as a comparison** (2026-11-02, [dt2-dn2-sharc-crosscheck.md](../hardware/common/dt2-dn2-sharc-crosscheck.md)): silicon facts hold on both (digikit's probe on both units), firmware facts do not carry over. Remaining unit tests: SIMD L2 access on a DN2, reply-record arrivals on a DN2, single late blocks on a DN2 | DT2, DN2 | unit | S each | Doubles the value of every SHARC finding (G3). |
 | T20 | ~~DT mk1 machine-id registry~~ **done** (nine ids). Keep it current: add each new machine mod's id from its `mod.json` | Digitakt mk1 | reading | S | Prevents clashes between mods. |
-| T21 | ~~Cross-check the three Digitakt II mod routes~~ **done** (2026-11-02, six projects: [memory-maps.md](hardware/common/memory-maps.md)). Found: five users share the flash cave, elekloader's RAM lies inside digikit's `cf.expansion`, the listed UI sites are disjoint. Remaining: settle O18 (canary in the flash cave on a unit) and agree one RAM split between digikit and elekloader | Digitakt II | files, then unit | S | Lets DT2 mods be combined instead of competing. |
-| T22 | ~~Compare libanalogrytm's Rytm SysEx container/encoding with Digitakt II and Digitone II~~ **done** (2026-11-02, [sysex-and-midi.md](hardware/common/sysex-and-midi.md)): same frame, packing, checksum and count on both generations; the type bytes differ; three device-id namespaces tabulated. Remaining: the Rytm MKII's dump byte, and what a Rytm does with the index byte on receive | Rytm, DT2, DN2 | files | S | One shared description of Elektron's SysEx data encoding. |
-| T23 | ~~Keep a DN2 RAM tenancy table~~ **table done 2026-11-11**: [RAM-TENANCY.md](hardware/RAM-TENANCY.md) lists eight users on DN2 and DT2 (dnfw, dn2mk2, cfmod, armio, dn2-cfw, elekloader, digikit and more) with overlaps computed in [ADDRESS-MAP.md](hardware/ADDRESS-MAP.md); open from it: whether dn2mk2 still ships LFO4 state at `0x46700000`. Remaining: a unit canary at `0x46700000` after a large +Drive sample load (confirms S17, which dnfw settled from LFO4 project corruption), and new platforms declaring their ranges | Digitone II | unit | S | On 1.11 four platforms claim `0x46800000` (dnfw and its fork dn2mk2, cfmod, armio); on 1.12 dn2-cfw and elekloader are disjoint. |
+| T21 | ~~Cross-check the three Digitakt II mod routes~~ **done** (2026-11-02, six projects: [memory-maps.md](../hardware/common/memory-maps.md)). Found: five users share the flash cave, elekloader's RAM lies inside digikit's `cf.expansion`, the listed UI sites are disjoint. Remaining: settle O18 (canary in the flash cave on a unit) and agree one RAM split between digikit and elekloader | Digitakt II | files, then unit | S | Lets DT2 mods be combined instead of competing. |
+| T22 | ~~Compare libanalogrytm's Rytm SysEx container/encoding with Digitakt II and Digitone II~~ **done** (2026-11-02, [sysex-and-midi.md](../hardware/common/sysex-and-midi.md)): same frame, packing, checksum and count on both generations; the type bytes differ; three device-id namespaces tabulated. Remaining: the Rytm MKII's dump byte, and what a Rytm does with the index byte on receive | Rytm, DT2, DN2 | files | S | One shared description of Elektron's SysEx data encoding. |
+| T23 | ~~Keep a DN2 RAM tenancy table~~ **table done 2026-11-11**: [RAM-TENANCY.md](../hardware/RAM-TENANCY.md) lists eight users on DN2 and DT2 (dnfw, dn2mk2, cfmod, armio, dn2-cfw, elekloader, digikit and more) with overlaps computed in [ADDRESS-MAP.md](../hardware/ADDRESS-MAP.md); open from it: whether dn2mk2 still ships LFO4 state at `0x46700000`. Remaining: a unit canary at `0x46700000` after a large +Drive sample load (confirms S17, which dnfw settled from LFO4 project corruption), and new platforms declaring their ranges | Digitone II | unit | S | On 1.11 four platforms claim `0x46800000` (dnfw and its fork dn2mk2, cfmod, armio); on 1.12 dn2-cfw and elekloader are disjoint. |
 | T24 | Watch DN2 SHARC L2 `0x200918c0-0x200c2000` for stock writes during playback, pattern changes and a save (emulator write watch first, then a canary on a unit); settles O19 | Digitone II | emulator, then unit | S | Decides whether 160 KB of L2 that two projects use and one avoids is really free. |
 
 ### Where new findings are most likely
@@ -247,4 +247,4 @@ Pick one, check the status above, and go. **S** = an evening, **M** = a few sess
 
 ---
 
-*Maintenance:* this file is hand-written. When a row changes, update the status and the date at the top. Phase 2 devices (Octatrack, Rytm, A4/Keys, Model:Cycles/Samples, Machinedrum, Monomachine) will get their sections next; until then, their device files under [hardware/devices/](hardware/devices/) end with "Open" or "Gaps" lists.
+*Maintenance:* this file is hand-written. When a row changes, update the status and the date at the top. Phase 2 devices (Octatrack, Rytm, A4/Keys, Model:Cycles/Samples, Machinedrum, Monomachine) will get their sections next; until then, their device files under [hardware/devices/](../hardware/devices/) end with "Open" or "Gaps" lists.

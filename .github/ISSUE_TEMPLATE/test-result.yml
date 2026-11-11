@@ -13,7 +13,7 @@ body:
     id: test_id
     attributes:
       label: Test or task ID
-      description: From hardware/HYPOTHESES.md or RESEARCH-MAP.md, e.g. H2, T24, O18.
+      description: From hardware/HYPOTHESES.md or research/RESEARCH-MAP.md, e.g. H2, T24, O18.
       placeholder: H2
     validations:
       required: true

@@ -32,8 +32,8 @@ Everything is second-hand; re-check addresses against the cited source. Evidence
 - [MCP server](https://raw.githubusercontent.com/70b185/Aggregat/master/mcp/README.md): query tools for agents
 
 ## Optional
-- [Research map](https://raw.githubusercontent.com/70b185/Aggregat/master/RESEARCH-MAP.md): what is known and open per device, shared goals
-- [Feature overlap](https://raw.githubusercontent.com/70b185/Aggregat/master/FEATURE-OVERLAP.md): the same feature built on several devices
+- [Research map](https://raw.githubusercontent.com/70b185/Aggregat/master/research/RESEARCH-MAP.md): what is known and open per device, shared goals
+- [Feature overlap](https://raw.githubusercontent.com/70b185/Aggregat/master/research/FEATURE-OVERLAP.md): the same feature built on several devices
 - [Address map](https://raw.githubusercontent.com/70b185/Aggregat/master/hardware/ADDRESS-MAP.md): every address named in a fact, per device
 - [RAM tenancy](https://raw.githubusercontent.com/70b185/Aggregat/master/hardware/RAM-TENANCY.md): which mod platform uses which RAM range
 - [Website](https://70b185.github.io/Aggregat/): search, mod finder, network map

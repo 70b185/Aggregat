@@ -1,6 +1,6 @@
 # Reading list - what still has to be mined for hardware/
 
-Marks: `[x]` done, `[~]` partly, `[ ]` open (worth reading), `[!]` blocked - needs a person (a PDF, a forum login, a unit), `[-]` deliberately not pursued, `[->]` moved to [RESEARCH-MAP.md](../RESEARCH-MAP.md) as a research task. Status 2026-11-02: every project in the catalogue has at least been scanned; what remains open below is depth, not coverage.
+Marks: `[x]` done, `[~]` partly, `[ ]` open (worth reading), `[!]` blocked - needs a person (a PDF, a forum login, a unit), `[-]` deliberately not pursued, `[->]` moved to [RESEARCH-MAP.md](../research/RESEARCH-MAP.md) as a research task. Status 2026-11-02: every project in the catalogue has at least been scanned; what remains open below is depth, not coverage.
 
 Ordered by expected value for an agent that builds mods. Tick off and fold the result into the matching device file.
 

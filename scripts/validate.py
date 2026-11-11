@@ -7,7 +7,7 @@
                                          the feed and "new" dates depend on the commit itself)
 
 Checks
-  - data/projects.yml and data/candidates.yml against schema/projects.schema.json
+  - data/projects.yml and data/candidates.yml against data/projects.schema.json
   - ids unique across both files; every device slug is in data/devices.yml; every relation target exists
   - mods, firmware and loaders in projects.yml say what was tested (`tested`)
   - every {source-key} cited in hardware/ resolves in hardware/SOURCES.md
@@ -57,7 +57,7 @@ def check_schema(data, rel, relaxed=()):
     except ImportError:
         warn("jsonschema not installed (pip install jsonschema); schema check skipped")
         return
-    schema = json.loads((ROOT / "schema" / "projects.schema.json").read_text(encoding="utf-8"))
+    schema = json.loads((ROOT / "data" / "projects.schema.json").read_text(encoding="utf-8"))
     req = schema["$defs"]["project"]["required"]
     schema["$defs"]["project"]["required"] = [r for r in req if r not in relaxed]
     v = jsonschema.Draft202012Validator(schema)
@@ -68,6 +68,34 @@ def check_schema(data, rel, relaxed=()):
             pid = (data["projects"][path[1]] or {}).get("id", f"#{path[1]}")
             where += f" [{pid}] " + ".".join(str(p) for p in path[2:])
         err(f"{where}: {e.message}")
+
+
+LINK = re.compile(r"\[[^\]]*\]\(([^)\s]+)\)")
+
+
+def broken_links():
+    """(file, line, target) for every relative Markdown link whose target file or folder is missing."""
+    out = []
+    skip = ("export/context/", "p/")          # generated with absolute URLs, or HTML
+    for f in sorted(ROOT.rglob("*.md")):
+        rel = f.relative_to(ROOT).as_posix()
+        if rel.startswith((".git/", ".pytest_cache/")) or rel.startswith(skip):
+            continue
+        text = f.read_text(encoding="utf-8")
+        in_code = False
+        for n, line in enumerate(text.splitlines(), 1):
+            if line.startswith("```"):
+                in_code = not in_code
+                continue
+            if in_code:
+                continue
+            for target in LINK.findall(re.sub(r"`[^`]*`", "", line)):
+                if re.match(r"^(https?:|mailto:|#|\?|<)", target):
+                    continue
+                path = target.split("#")[0].split("?")[0]
+                if path and not (f.parent / path).exists():
+                    out.append((rel, n, target))
+    return out
 
 
 def main(sync=False):
@@ -141,6 +169,10 @@ def main(sync=False):
     sb = re.findall(r"^### (SB\d+)\.", (ROOT / "hardware" / "STOCK-BUGS.md").read_text(encoding="utf-8"), re.M)
     for i in {x for x in sb if sb.count(x) > 1}:
         err(f"hardware/STOCK-BUGS.md: duplicate id {i}")
+
+    # relative links in Markdown must point at files that exist (anchors are not checked)
+    for f, n, target in broken_links():
+        err(f"{f}:{n}: link to {target}, which does not exist")
 
     # metadata only: no binaries that look like firmware
     try:

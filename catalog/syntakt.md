@@ -38,7 +38,7 @@ Several firmware mods in one build; SY FM4 included. Builder is a Windows app (a
 
 _Latest seen (2026-10-31, secondary directories): Upstream is Angelo-politek/Synthack-OS ("SyntHack OS", MIT, v0.9.0 on 2026-10-19: performance FX on all tracks replace beat repeat, quantized retrig, separate IN R page; v0.8.1 fixes boot crashes with sample projects; v0.8.0 adds the third send). This entry is the fork by karigardarsson, branded "Syntakt MAX": Modular Builder RC2 (2026-10-20) restores native MIDI parameter ownership for the third send, compressor and beat repeat; RC1 (2026-10-19) adds SY FM4 and per-feature selection; MAX 1.0 (2026-10-17) was a fixed seven-feature bundle. Brick-risk flag set on altstrument._
 
-_Related: fork of `synthack-os-upstream` (GitHub fork flag); uses tool `elektron-firmware-tool` (README: tools/unpack wraps elektron-firmware-tool) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: fork of `synthack-os-upstream` (GitHub fork flag); uses tool `elektron-firmware-tool` (README: tools/unpack wraps elektron-firmware-tool) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: forum threads 81 and 85_
 
@@ -52,7 +52,7 @@ _Sources: forum overview_
 
 Browser workbench, use your own official file; put your own waves into SY CHORD. In progress: safer test loop that runs program-code changes in an emulator before hardware. MIT, 8 commits.
 
-_Related: cites `elektron-firmware-tool` (README credits); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)); cites `dn2-firmware-explore` (README: the model for a browser-only tool) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: cites `elektron-firmware-tool` (README credits); uses tool `digikit` (README: checks or gates run in digikit's emulator (not shipped)); cites `dn2-firmware-explore` (README: the model for a browser-only tool) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list_
 
@@ -78,7 +78,7 @@ Multitrack Overbridge audio on Linux. Supports Overbridge 2 devices incl. Analog
 
 _Latest seen (2026-10-31, secondary directories): altstrument: v2.2 (2025-12-21), GPL-3.0-or-later, JACK clients streaming multitrack Overbridge 2 audio._
 
-_Related: builds on `dtdump` (README: based on the Overbridge USB reverse engineering in dtdump) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `dtdump` (README: based on the Overbridge USB reverse engineering in dtdump) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, lapin-list_
 
@@ -86,7 +86,7 @@ _Sources: GitHub README, lapin-list_
 
 Unofficial modular patch set for the Syntakt: master compressor (THR/ATK/REL/MUP/RAT with meter, saved per pattern or global), dual-mono external input levels, boot splash, readable parameter values (Hz, dB, ms, %), beat repeat (v0.6.0), third send FX SND3 into chorus/flanger/phaser/crusher (v0.8.0). Mod area: 64 KB RAM, stored compressed and unpacked at boot. Each mods/<name>/patch.json lists the patch location, a hash of the expected original bytes and the new bytes; tools/build/build.py refuses the wrong OS, overlapping patches and protected sections. tools/emu is a ColdFire emulator (Unicorn + EMAC model); every mod is tested there before flashing. A git hook (tools/hooks) blocks firmware files from commits - a practice worth copying. README: seven mods running on real hardware (v0.8.0); RECOVERY.md exists. Planned: PIN lock, new LFO shapes, 3rd LFO/mod matrix, arpeggiator, resampling, new machines (RISER/DOWNFILTER, SY SWARM+), web builder. MIT, 66 commits, 9 stars. Brick-risk flag set on altstrument. Fork "Syntakt MAX" is the synthack-os entry.
 
-_Related: uses tool `elektron-firmware-tool` (README: tools/unpack wraps elektron-firmware-tool) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `elektron-firmware-tool` (README: tools/unpack wraps elektron-firmware-tool) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, altstrument Syntakt page_
 
@@ -94,7 +94,7 @@ _Sources: GitHub README, altstrument Syntakt page_
 
 Four-operator FM machine that replaces SY TONE in place; eleven operator algorithms and a second parameter page. Build from source. MIT. Brick-risk flag set on altstrument. Syntakt MAX integrates an SY FM4 engine for 1.41 (see synthack-os).
 
-_Related: uses tool `elektron-firmware-tool` (README: the build needs elektron-firmware-tool); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu); cites `synthack-os-upstream` (README refers to SyntHack OS) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `elektron-firmware-tool` (README: the build needs elektron-firmware-tool); uses tool `digiemu` (README: tests, probes, captures or measurements run in digiemu); cites `synthack-os-upstream` (README refers to SyntHack OS) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument Syntakt page_
 
@@ -102,7 +102,7 @@ _Sources: altstrument Syntakt page_
 
 Documentation, a C header and tools/check_stock_metadata.py (standard-library only; checks exact input hashes and selected metadata of the user's own extracted MAIN and section-7 files) for adding a separate 46th Machine with public ID 45 while keeping stock IDs 0-44. Claims: a distinct MAIN raw ID 45 and menu/metadata edits confirmed by static analysis; mapping of public ID 45 to compact selector 45 and implementation family e12 "strongly supported"; entering/leaving the machine, Sound-lock precedence and the p-lock lifecycle not verified end-to-end; arbitrary native DSP installation blocked/unproven; docs/DSP_ABI.md describes eight raw controls. Explicitly makes no claim of a hardware-working new Machine; the original private candidate is frozen. Files: MACHINE45_TECHNICAL_HANDOFF.md, EVIDENCE_INDEX.md (refers to a private 803-file census), docs/FROZEN_BASELINE.md, docs/PUBLICATION_POLICY.md. Excludes firmware images, opcode/disassembly dumps, coefficient tables, binary diffs and deployable packages. MIT. Meant to complement SyntHack OS and SY FM4 (FM4 extends machine 4; this concerns ID 45).
 
-_Related: cites `synthack-os-upstream` (README refers to SyntHack OS); cites `sy-fm4` (README: meant to complement SY FM4) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: cites `synthack-os-upstream` (README refers to SyntHack OS); cites `sy-fm4` (README: meant to complement SY FM4) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub README, altstrument Syntakt page_
 
@@ -116,7 +116,7 @@ _Sources: GitHub README, altstrument tools page_
 
 Mod system for the Syntakt bringing Digitakt mk1 sample machines (ONE SHOT, WERP, REPITCH, SLICE), a per-project sample pool with long samples in slots 65-128 and a basic sample manager. Experimental. MIT. 18 stars at first sight. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read. 2026-11-03: the Lapin list links it as an external web app, https://synfact.app (builds custom Syntakt firmware from the user's stock OS file). 2026-11-03: the project moved to GSM1980/synfact-dev and was rebuilt on elekloader (GPL-2.0; the old release repo was MIT): a core (mods/core-st) with hook bus, UI and SETTINGS events, SMZ4 banks of machines and modules that can change without reinstalling, long-sample storage (HZFS) and a project sample pool. Mods: SP sample machines, SY FM DTONE, audio recorder, third LFO, arpeggiator, POLY, system info, sample manager. Builds change MAIN and a bounded part of AUDIO only; a recovery core that never loads the bank can replace a bank that stops the unit from starting. Also builds in the browser (synfact.app). A snapshot of the old release repo survives as nrdsrfr/synfact-release (2026-10-17). 2026-11-06: project lifecycle audit after a user report of slow project load and save; arp-st leaves default carriers absent (81 % fewer emulated instructions); RANDOMIZE pages documented. 2026-11-09: new docs SETUP, MACHINES (writing a machine), MACHINE-REFERENCE and SAFE-BOOT-SMZ4-07-16; a safe-boot trial crashed every boot until core 1.7.1 (I62); a companion window broke BASE/WDTH until 1.7.2 (I63).
 
-_Related: builds on `elekloader` (README of synfact-dev: built on elekloader, its engine, file format and checks); vendors `digikit` (README: NOTICE covers the code that comes from elekloader and digikit) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `elekloader` (README of synfact-dev: built on elekloader, its engine, file format and checks); vendors `digikit` (README: NOTICE covers the code that comes from elekloader and digikit) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: synfact-dev README (2026-11-03), GitHub search 2026-11-02, README_
 
@@ -124,7 +124,7 @@ _Sources: synfact-dev README (2026-11-03), GitHub search 2026-11-02, README_
 
 Sampler for the Syntakt as a patch to OS 1.42: replaces the Twinshot machine with a sample player (64 slots, 16-bit 48 kHz, 64 MB pool), loops, slices across the keys, tempo-following time stretch, a sampling page. MIT. Created 2026-10-30. Found by GitHub search 2026-11-02; README start read. 2026-11-03: README links a walkthrough video.
 
-_Related: cites `elektron-firmware-tool` (README credits); cites `model-tg` (README: built on what others worked out first); cites `elektron-model-tweaks` (README: built on what others worked out first) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: cites `elektron-firmware-tool` (README credits); cites `model-tg` (README: built on what others worked out first); cites `elektron-model-tweaks` (README: built on what others worked out first) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -138,7 +138,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 The instrument's screen live in a terminal or window at 30 fps for OBS capture; fork of jakobbak/screendump. MIT. Found by GitHub search 2026-11-02; README start read.
 
-_Related: fork of `screendump` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: fork of `screendump` (README) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -146,7 +146,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). MIT. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the first Ping on a new port is retried up to 3 times (3 s each) before giving up, before anything is written.
 
-_Related: cites `elektroid` (catalogue notes: uses the MIDI RPC OS-upgrade commands as Elektroid does); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: cites `elektroid` (catalogue notes: uses the MIDI RPC OS-upgrade commands as Elektroid does); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

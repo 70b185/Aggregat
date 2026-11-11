@@ -33,7 +33,7 @@ _Sources: altstrument (2026-11-01)_
 
 Desktop editors for Machinedrum and Monomachine that run the unit's own OS in an emulator (app or VST3/AU), optional hardware MIDI mode. Licence: GPL-3.0-only; distribution: download. Listed by altstrument; repo not read by us yet.
 
-_Related: builds on `gearmulator-md-mm` (README: grew out of joelanders' Machinedrum and Monomachine emulation) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: builds on `gearmulator-md-mm` (README: grew out of joelanders' Machinedrum and Monomachine emulation) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -47,7 +47,7 @@ _Sources: altstrument (2026-11-01)_
 
 DAW plug-ins and a SysEx library app running the Monomachine engine in a DSP56300 emulator from your OS file. Licence: AGPL-3.0-only; distribution: download. Listed by altstrument; repo not read by us yet.
 
-_Related: cites `elektron-firmware-tool` (README credits) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: cites `elektron-firmware-tool` (README credits) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: altstrument (2026-11-01)_
 
@@ -61,7 +61,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Port of Monomodule (chip-level Monomachine engine) to Ableton Move via Schwung, as one synth track plus the seven FX machines. GPL-3.0 per README (repo metadata says AGPL-3.0).
 
-_Related: port of `monomodule` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: port of `monomodule` (README) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -69,7 +69,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Machinedrum and Monomachine engines written from scratch (not an emulation of the chips) for the Teenage Engineering OP-XY on the Open-XY SDK. MIT.
 
-_Related: uses tool `gearmulator-md-mm` (README: checked against gearmulator-md-mm) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: uses tool `gearmulator-md-mm` (README: checked against gearmulator-md-mm) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -83,7 +83,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 AU/VST3 that runs one Monomachine DSP track's original DSP56300 code (15 synth and 7 FX machine dispatches, the per-track chain, kit SysEx import). Independent of Monomodule, which it points to for a fuller emulation.
 
-_Related: cites `monomodule` (README: Monomodule informed it / related project) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: cites `monomodule` (README: Monomodule informed it / related project) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -91,7 +91,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 Fork of gearmulator-md-mm with Native Instruments Maschine MK3 integration. GPL-3.0.
 
-_Related: fork of `gearmulator-md-mm` (README) - see [PROJECT-FAMILIES.md](../PROJECT-FAMILIES.md)_
+_Related: fork of `gearmulator-md-mm` (README) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

@@ -48,7 +48,7 @@ def links_absolute(text, base):
 
 
 def main():
-    rmap = ROOT / "RESEARCH-MAP.md"
+    rmap = ROOT / "research" / "RESEARCH-MAP.md"
     hyp = ROOT / "hardware" / "HYPOTHESES.md"
     conf = ROOT / "hardware" / "CONFLICTS.md"
     goals = rows(rmap, r"G\d+")

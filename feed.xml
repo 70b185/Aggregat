@@ -15,9 +15,23 @@
     <category term="update"/>
   </entry>
   <entry>
+    <title>RAM tenancy register (T23), recovery status per device, ram_users MCP tool</title>
+    <link href="https://github.com/70b185/Aggregat/commit/9b1fb8fce56d4343dfce34e3462dc10ea59449a7"/>
+    <id>https://70b185.github.io/Aggregat/#commit-9b1fb8fce56d</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>Update 2026-11-11: ten change reports folded, I70-I72, SB19, H24</title>
     <link href="https://github.com/70b185/Aggregat/commit/3d970aa1495fd7bc87b9bcf41ae7ad2a9cb826b2"/>
     <id>https://70b185.github.io/Aggregat/#commit-3d970aa1495f</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Dev tooling: schema, validator, tests, PR checks, CONTRIBUTING, catalog/ rename, feed</title>
+    <link href="https://github.com/70b185/Aggregat/commit/2c4f02ace38618e4be81c4ee6081ea74ff1f4bbc"/>
+    <id>https://70b185.github.io/Aggregat/#commit-2c4f02ace386</id>
     <updated>2026-11-11T00:00:00Z</updated>
     <category term="update"/>
   </entry>
@@ -446,20 +460,6 @@
     <title>Document R022 working-state and SYN-view fixes</title>
     <link href="https://github.com/70b185/Aggregat/commit/f46b54eef0061b50a0b76ccdad789f1ac1a1e25b"/>
     <id>https://70b185.github.io/Aggregat/#commit-f46b54eef006</id>
-    <updated>2026-11-06T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Correct Digiwerk release availability and USB research scope</title>
-    <link href="https://github.com/70b185/Aggregat/commit/c8246c9bff5b4f1f49a49321682c4e5432cf5028"/>
-    <id>https://70b185.github.io/Aggregat/#commit-c8246c9bff5b</id>
-    <updated>2026-11-06T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Incident register: 48 failures and tests on real units, each with its rule</title>
-    <link href="https://github.com/70b185/Aggregat/commit/babef771a2855edbd39891e81673e09f99f32150"/>
-    <id>https://70b185.github.io/Aggregat/#commit-babef771a285</id>
     <updated>2026-11-06T00:00:00Z</updated>
     <category term="update"/>
   </entry>

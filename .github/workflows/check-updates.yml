@@ -46,17 +46,17 @@ jobs:
             # keyword and code search, new repos of catalogued authors -> state/NEW.md
             python3 scripts/find_new.py --since "$(date -u -d '-30 days' +%F)" --authors --code --report state/NEW.md \
               || echo "find_new failed; keeping the old report"
-            python3 scripts/first_seen.py && python3 scripts/build.py
-            python3 scripts/research_snapshot.py   # before export_db, which records the snapshot hash
-            python3 scripts/export_db.py
-            python3 scripts/find_duplicates.py
+            # every local generator in order: first_seen, build, research_snapshot, export_db, agent_packs
+            # (context packs, weak-evidence list, address map, llms.txt), find_duplicates, feed, site_pages
+            python3 scripts/rebuild.py
           }
           git config user.name "aggregat-bot"
           git config user.email "aggregat-bot@users.noreply.github.com"
           gen
           for attempt in 1 2 3; do
             [ -z "$(git status --porcelain)" ] && { echo "nothing changed"; exit 0; }
-            git add state README.md INDEX.md devices MODS.md DEV-TOOLS.md MUSICIAN-TOOLS.md PROJECT-FAMILIES.md export hardware/DUPLICATES.md research
+            git add state README.md INDEX.md catalog MODS.md DEV-TOOLS.md MUSICIAN-TOOLS.md PROJECT-FAMILIES.md export research \
+              hardware/DUPLICATES.md hardware/WEAK-EVIDENCE.md hardware/ADDRESS-MAP.md llms.txt feed.xml sitemap.xml robots.txt p
             git commit -q -m "check-updates: $(head -3 state/CHANGES.md | tail -1)"
             git push && exit 0
             # master moved (usually the update run): start from it and generate again, so nothing of its work is undone

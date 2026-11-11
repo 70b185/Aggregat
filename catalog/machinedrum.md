@@ -146,9 +146,9 @@ _Sources: GitHub search 2026-11-02, README_
 
 ### mdkit
 
-The Machinedrum's EFM, TRX and P-I voice families as standalone C99 for porting, with a web demo. Whether it was derived from the OS or modelled from recordings is not said in the README start. CC0.
+The Machinedrum's EFM, TRX and P-I voice families as standalone C99 for porting, with a web demo. Whether it was derived from the OS or modelled from recordings is not said in the README start. CC0 (LICENSE and NOTICE read 2026-11-11; the NOTICE adds that CC0 covers what the contributors can dedicate, not third-party names or materials).
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, LICENSE and NOTICE (2026-11-11)_
 
 ### OP-XY MNMD
 

@@ -20,7 +20,7 @@
    "addresses": 889,
    "ram_tenancy": 59
   },
-  "research_snapshot": "2e69cfba110a"
+  "research_snapshot": "46e43489ee13"
  },
  "devices": [
   {
@@ -6036,7 +6036,7 @@
    "own_mods": "[]",
    "devices": "machinedrum",
    "repo": "https://github.com/soejrd/mdkit",
-   "license": null,
+   "license": "CC0-1.0",
    "status": "active",
    "base_os": null,
    "version": null,
@@ -6046,9 +6046,9 @@
    "install": null,
    "contains": null,
    "first_seen": "2026-11-02",
-   "notes": "The Machinedrum's EFM, TRX and P-I voice families as standalone C99 for porting, with a web demo. Whether it was derived from the OS or modelled from recordings is not said in the README start. CC0.",
+   "notes": "The Machinedrum's EFM, TRX and P-I voice families as standalone C99 for porting, with a web demo. Whether it was derived from the OS or modelled from recordings is not said in the README start. CC0 (LICENSE and NOTICE read 2026-11-11; the NOTICE adds that CC0 covers what the contributors can dedicate, not third-party names or materials).",
    "links": "{}",
-   "sources": "[\"GitHub search 2026-11-02\", \"README\"]",
+   "sources": "[\"GitHub search 2026-11-02\", \"README\", \"LICENSE and NOTICE (2026-11-11)\"]",
    "owner": "soejrd",
    "created": "2026-10-12",
    "pushed": "2026-10-22",
@@ -29978,29 +29978,7 @@
   },
   {
    "device": "digitakt-2",
-   "space": "Digitakt II ColdFire RAM and flash",
-   "start": 1076961280,
-   "end": 1206027376,
-   "user": "stock",
-   "use": "cleared at reset",
-   "os": "1.17",
-   "evidence": "doc",
-   "sources": "elekloader-dt2-profile"
-  },
-  {
-   "device": "digitakt-2",
-   "space": "Digitakt II ColdFire RAM and flash",
-   "start": 1206059008,
-   "end": 1206365824,
-   "user": "stock",
-   "use": "DSP buffers (reached through the uncached alias)",
-   "os": "1.17",
-   "evidence": "doc",
-   "sources": "elekloader-dt2-profile"
-  },
-  {
-   "device": "digitakt-2",
-   "space": "Digitakt II ColdFire RAM and flash",
+   "space": "Digitakt II flash cave",
    "start": 1076959172,
    "end": 1076961280,
    "user": "digikit patchkit",
@@ -30011,7 +29989,7 @@
   },
   {
    "device": "digitakt-2",
-   "space": "Digitakt II ColdFire RAM and flash",
+   "space": "Digitakt II flash cave",
    "start": 1076959172,
    "end": 1076961202,
    "user": "Deja Vu",
@@ -30022,7 +30000,7 @@
   },
   {
    "device": "digitakt-2",
-   "space": "Digitakt II ColdFire RAM and flash",
+   "space": "Digitakt II flash cave",
    "start": 1076961204,
    "end": 1076961232,
    "user": "70b185 (private)",
@@ -30033,7 +30011,7 @@
   },
   {
    "device": "digitakt-2",
-   "space": "Digitakt II ColdFire RAM and flash",
+   "space": "Digitakt II flash cave",
    "start": 1076961252,
    "end": 1076961268,
    "user": "Deja Vu",
@@ -30044,7 +30022,7 @@
   },
   {
    "device": "digitakt-2",
-   "space": "Digitakt II ColdFire RAM and flash",
+   "space": "Digitakt II flash cave",
    "start": 1076960402,
    "end": null,
    "user": "All-in-One (digitakt-ii-research)",
@@ -30055,7 +30033,7 @@
   },
   {
    "device": "digitakt-2",
-   "space": "Digitakt II ColdFire RAM and flash",
+   "space": "Digitakt II flash cave",
    "start": 1076959556,
    "end": 1076959940,
    "user": "dt2-machine-lab",
@@ -30066,7 +30044,7 @@
   },
   {
    "device": "digitakt-2",
-   "space": "Digitakt II ColdFire RAM and flash",
+   "space": "Digitakt II flash cave",
    "start": 1076960128,
    "end": 1076961280,
    "user": "dt2-machine-lab",
@@ -30077,7 +30055,29 @@
   },
   {
    "device": "digitakt-2",
-   "space": "Digitakt II ColdFire RAM and flash",
+   "space": "Digitakt II ColdFire RAM",
+   "start": 1076961280,
+   "end": 1206027376,
+   "user": "stock",
+   "use": "cleared at reset",
+   "os": "1.17",
+   "evidence": "doc",
+   "sources": "elekloader-dt2-profile"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM",
+   "start": 1206059008,
+   "end": 1206365824,
+   "user": "stock",
+   "use": "DSP buffers (reached through the uncached alias)",
+   "os": "1.17",
+   "evidence": "doc",
+   "sources": "elekloader-dt2-profile"
+  },
+  {
+   "device": "digitakt-2",
+   "space": "Digitakt II ColdFire RAM",
    "start": 1206431744,
    "end": 1207828480,
    "user": "digikit",
@@ -30088,7 +30088,7 @@
   },
   {
    "device": "digitakt-2",
-   "space": "Digitakt II ColdFire RAM and flash",
+   "space": "Digitakt II ColdFire RAM",
    "start": 1206431744,
    "end": null,
    "user": "All-in-One (digitakt-ii-research)",
@@ -30099,7 +30099,7 @@
   },
   {
    "device": "digitakt-2",
-   "space": "Digitakt II ColdFire RAM and flash",
+   "space": "Digitakt II ColdFire RAM",
    "start": 1206456320,
    "end": null,
    "user": "All-in-One (digitakt-ii-research)",
@@ -30110,7 +30110,7 @@
   },
   {
    "device": "digitakt-2",
-   "space": "Digitakt II ColdFire RAM and flash",
+   "space": "Digitakt II ColdFire RAM",
    "start": 1206431744,
    "end": 1206497280,
    "user": "dt2-machine-lab",
@@ -30121,7 +30121,7 @@
   },
   {
    "device": "digitakt-2",
-   "space": "Digitakt II ColdFire RAM and flash",
+   "space": "Digitakt II ColdFire RAM",
    "start": 1206910976,
    "end": 1207173120,
    "user": "elekloader",
@@ -30132,7 +30132,7 @@
   },
   {
    "device": "digitakt-2",
-   "space": "Digitakt II ColdFire RAM and flash",
+   "space": "Digitakt II ColdFire RAM",
    "start": 1207828480,
    "end": 1207832576,
    "user": "digikit",

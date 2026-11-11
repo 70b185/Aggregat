@@ -3,7 +3,7 @@
 
 133 of 1096 facts carry no evidence tag or only `[?]`. Each is a small contribution waiting to happen: find the source and add the tag (`[hw]`, `[emu]` or `[doc]`), or turn the claim into a test in [HYPOTHESES.md](HYPOTHESES.md). Many untagged bullets are pointers or open questions, not claims; those just need `[?]` or a rewording.
 
-Data checked 2026-11-08, research snapshot `2e69cfba110a`.
+Data checked 2026-11-08, research snapshot `46e43489ee13`.
 
 - untagged: 93
 - only `[?]`: 40

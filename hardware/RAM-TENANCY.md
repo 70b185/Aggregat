@@ -85,16 +85,14 @@ What this shows (2026-11-11)
 | `0x20090000` | `0x20098000` | elekloader | SHARC mod area (32 KiB) | 1.12 | `[doc]` {elekloader-dn2-profile} |
 | `0x200e9000` | `0x200fa000` | dn2mk2 | unused in dn2mk2's image (68 KB), listed as room | 1.11 | `[doc]` {dn2mk2-fascia-plan} |
 
-## Digitakt II ColdFire RAM and flash (`digitakt-2`)
+## Digitakt II flash cave (`digitakt-2`)
 
-From the six-project comparison of 2026-11-02 in [`common/memory-maps.md`](common/memory-maps.md) (task T21). The reset
-copies `0x40312000-0x4031ff60` to SRAM and clears `0x40312000-0x47e28470`; stock's DSP buffers are `0x47e30000-0x47e7ae80`
-in the cached view.
+From the six-project comparison of 2026-11-02 in [`common/memory-maps.md`](common/memory-maps.md) (task T21). The cave
+is the last 2,108 flashed bytes below the reset clear, the most contested 2 KB on the unit: five users fit only
+because each checked the bytes the others left.
 
 | start | end | user | use | OS | evidence |
 |---|---|---|---|---|---|
-| `0x40312000` | `0x47e28470` | stock | cleared at reset | 1.17 | `[doc]` {elekloader-dt2-profile} |
-| `0x47e30000` | `0x47e7ae80` | stock | DSP buffers (reached through the uncached alias) | 1.17 | `[doc]` {elekloader-dt2-profile} |
 | `0x403117c4` | `0x40312000` | digikit patchkit | `flash_cave`: the last 2,108 flashed bytes below the clear, home of its reset loader and shared by the rows below | 1.17 | `[hw]` {digikit-f01} |
 | `0x403117c4` | `0x40311fb2` | Deja Vu | payload | 1.17 | `[hw]` {dt2-aio-src} |
 | `0x40311fb4` | `0x40311fd0` | 70b185 (private) | 28 bytes between Deja Vu's payload and its latches | 1.17 | `[hw]` {own-dt2-notes} |
@@ -102,6 +100,16 @@ in the cached view.
 | `0x40311c92` | ? | All-in-One (digitakt-ii-research) | its loader, copied within the cave | 1.17 | `[doc]` {dt2-aio-src} |
 | `0x40311944` | `0x40311ac4` | dt2-machine-lab | control tables | 1.16 | `[doc]` {dt2-lab-cpu} |
 | `0x40311b80` | `0x40312000` | dt2-machine-lab | Plaits rows and code | 1.16 | `[doc]` {dt2-lab-cpu} |
+
+## Digitakt II ColdFire RAM (`digitakt-2`)
+
+The reset copies `0x40312000-0x4031ff60` to SRAM and clears `0x40312000-0x47e28470`; stock's DSP buffers are
+`0x47e30000-0x47e7ae80` in the cached view. Same comparison as above.
+
+| start | end | user | use | OS | evidence |
+|---|---|---|---|---|---|
+| `0x40312000` | `0x47e28470` | stock | cleared at reset | 1.17 | `[doc]` {elekloader-dt2-profile} |
+| `0x47e30000` | `0x47e7ae80` | stock | DSP buffers (reached through the uncached alias) | 1.17 | `[doc]` {elekloader-dt2-profile} |
 | `0x47e8b000` | `0x47fe0000` | digikit | `cf.expansion`: modules (1.33 MiB of unreferenced RAM above the DSP buffers) | both | `[doc]` {digikit-patching} |
 | `0x47e8b000` | ? | All-in-One (digitakt-ii-research) | zoom and Musical WAVE code | 1.17 | `[doc]` {dt2-aio-src} |
 | `0x47e91000` | ? | All-in-One (digitakt-ii-research) | One-Shot Zoom V11 code | 1.17 | `[doc]` {dt2-aio-src} |

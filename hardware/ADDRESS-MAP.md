@@ -3,7 +3,7 @@
 
 Every address that a fact names, per device, in address order. One line per address; the facts that name it follow, best evidence first. Two facts at the same address with different claims are worth a look: they may be a conflict (add it to [CONFLICTS.md](CONFLICTS.md)) or a RAM range two projects both use (rule area G8 in the [research map](../RESEARCH-MAP.md)). Addresses differ between OS versions; the fact text says which.
 
-Data checked 2026-11-08, research snapshot `2e69cfba110a`.
+Data checked 2026-11-08, research snapshot `46e43489ee13`.
 
 ## Digitakt (MKI) (43 addresses)
 
@@ -893,19 +893,19 @@ Pairs of ranges in [RAM-TENANCY.md](RAM-TENANCY.md) that overlap on the same OS.
 
 | Device | Memory | OS | Kind | Range | Range |
 |---|---|---|---|---|---|
-| Digitakt II | ColdFire RAM and flash | 1.16 | two users | digikit `0x47e8b000-0x47fe0000` | dt2-machine-lab `0x47e8b000-0x47e9b000` |
-| Digitakt II | ColdFire RAM and flash | 1.17 | two users | Deja Vu `0x403117c4-0x40311fb2` | All-in-One (digitakt-ii-research) `0x40311c92-?` |
-| Digitakt II | ColdFire RAM and flash | 1.17 | two users | digikit `0x47e8b000-0x47fe0000` | All-in-One (digitakt-ii-research) `0x47e8b000-?` |
-| Digitakt II | ColdFire RAM and flash | 1.17 | two users | digikit `0x47e8b000-0x47fe0000` | All-in-One (digitakt-ii-research) `0x47e91000-?` |
-| Digitakt II | ColdFire RAM and flash | 1.17 | two users | digikit `0x47e8b000-0x47fe0000` | elekloader `0x47f00000-0x47f40000` |
-| Digitakt II | ColdFire RAM and flash | 1.17 | two users | digikit patchkit `0x403117c4-0x40312000` | 70b185 (private) `0x40311fb4-0x40311fd0` |
-| Digitakt II | ColdFire RAM and flash | 1.17 | two users | digikit patchkit `0x403117c4-0x40312000` | All-in-One (digitakt-ii-research) `0x40311c92-?` |
-| Digitakt II | ColdFire RAM and flash | 1.17 | two users | digikit patchkit `0x403117c4-0x40312000` | Deja Vu `0x403117c4-0x40311fb2` |
-| Digitakt II | ColdFire RAM and flash | 1.17 | two users | digikit patchkit `0x403117c4-0x40312000` | Deja Vu `0x40311fe4-0x40311ff4` |
+| Digitakt II | ColdFire RAM | 1.16 | two users | digikit `0x47e8b000-0x47fe0000` | dt2-machine-lab `0x47e8b000-0x47e9b000` |
+| Digitakt II | ColdFire RAM | 1.17 | two users | digikit `0x47e8b000-0x47fe0000` | All-in-One (digitakt-ii-research) `0x47e8b000-?` |
+| Digitakt II | ColdFire RAM | 1.17 | two users | digikit `0x47e8b000-0x47fe0000` | All-in-One (digitakt-ii-research) `0x47e91000-?` |
+| Digitakt II | ColdFire RAM | 1.17 | two users | digikit `0x47e8b000-0x47fe0000` | elekloader `0x47f00000-0x47f40000` |
 | Digitakt II | SHARC L2 | 1.16 | two users | digikit `0x2001ab7c-0x200fa000` | dt2-machine-lab `0x20080000-?` |
 | Digitakt II | SHARC L2 | 1.16 | two users | digikit `0x2001ab7c-0x200fa000` | dt2-machine-lab `0x200a0000-?` |
 | Digitakt II | SHARC L2 | 1.16 | two users | digikit `0x2001ab7c-0x200fa000` | dt2-machine-lab `0x200e0000-0x200e8000` |
 | Digitakt II | SHARC L2 | 1.17 | two users | digikit `0x2001ab7c-0x200fa000` | 70b185 (private) `0x20020000-0x200fa000` |
+| Digitakt II | flash cave | 1.17 | two users | Deja Vu `0x403117c4-0x40311fb2` | All-in-One (digitakt-ii-research) `0x40311c92-?` |
+| Digitakt II | flash cave | 1.17 | two users | digikit patchkit `0x403117c4-0x40312000` | 70b185 (private) `0x40311fb4-0x40311fd0` |
+| Digitakt II | flash cave | 1.17 | two users | digikit patchkit `0x403117c4-0x40312000` | All-in-One (digitakt-ii-research) `0x40311c92-?` |
+| Digitakt II | flash cave | 1.17 | two users | digikit patchkit `0x403117c4-0x40312000` | Deja Vu `0x403117c4-0x40311fb2` |
+| Digitakt II | flash cave | 1.17 | two users | digikit patchkit `0x403117c4-0x40312000` | Deja Vu `0x40311fe4-0x40311ff4` |
 | Digitone II | ColdFire DDR | 1.11 | inside stock's own memory | stock `0x466b8000-0x46701340` | dn2mk2 `0x46700000-0x46702a00` |
 | Digitone II | ColdFire DDR | 1.11 | two users | cfmod / cfkit `0x46800000-?` | armio T1E2 / R012 / R022 `0x46800000-0x47ad0000` |
 | Digitone II | ColdFire DDR | 1.11 | two users | cfmod / cfkit `0x46a00000-?` | armio T1E2 / R012 / R022 `0x46800000-0x47ad0000` |

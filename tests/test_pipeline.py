@@ -189,3 +189,52 @@ def test_mcp_device_filter_is_exact(repo, monkeypatch):
     importlib.reload(aggregat_mcp)
     res = aggregat_mcp.search_facts("SHARC", device="digitakt", limit=100)
     assert all("digitakt" in f["devices"].split(",") for f in res["facts"])
+
+
+# ------------------------------------------------------------------ RAM tenancy, feed, share pages
+def test_ram_tenancy_parsed(repo):
+    con = sqlite3.connect(repo / "export" / "aggregat.sqlite")
+    rows = con.execute('SELECT device, start, "end", user FROM ram_tenancy').fetchall()
+    con.close()
+    assert len(rows) > 30
+    assert {r[0] for r in rows} == {"digitone-2", "digitakt-2"}
+    assert all(e is None or e > s for _, s, e, _ in rows)
+    assert any(u == "elekloader" and s == 0x47F00000 for _, s, _, u in rows)
+
+
+def test_overlaps_listed(repo):
+    t = (repo / "hardware" / "ADDRESS-MAP.md").read_text(encoding="utf-8")
+    assert "## RAM tenancy overlaps" in t
+    assert "armio" in t.split("## RAM tenancy overlaps")[1]
+
+
+def test_mcp_ram_users(repo, monkeypatch):
+    monkeypatch.setenv("AGGREGAT_DB", str(repo / "export" / "aggregat.sqlite"))
+    sys.path.insert(0, str(ROOT / "mcp"))
+    import importlib
+    import aggregat_mcp
+    importlib.reload(aggregat_mcp)
+    res = aggregat_mcp.ram_users("DN2", "1.12")
+    assert res["ranges"] and not res["overlaps"]          # dn2-cfw and elekloader are disjoint on 1.12
+    assert aggregat_mcp.ram_users("DN2", "1.11")["overlaps"]
+    hit = aggregat_mcp.check_address("0x47f00010", device="DN2")
+    assert any(t["user"] == "elekloader" for t in hit["ram_tenancy"])
+
+
+def test_feed_and_share_pages(repo):
+    run("feed.py", repo)
+    run("site_pages.py", repo)
+    import xml.etree.ElementTree as ET
+    root = ET.parse(repo / "feed.xml").getroot()
+    ns = {"a": "http://www.w3.org/2005/Atom"}
+    assert root.find("a:title", ns) is not None and root.findall("a:entry", ns)
+    news = json.loads((repo / "export" / "web" / "news.json").read_text(encoding="utf-8"))
+    assert news and all({"date", "type", "title", "link"} <= set(e) for e in news)
+    page = (repo / "p" / "elekloader" / "index.html").read_text(encoding="utf-8")
+    assert 'property="og:title"' in page and "?p=elekloader" in page
+    ET.parse(repo / "sitemap.xml")
+
+
+def test_every_device_has_a_recovery_status(repo):
+    core = json.loads((repo / "export" / "web" / "core.json").read_text(encoding="utf-8"))
+    assert all(d["recovery"] in ("proven", "reported", "documented", "unknown") for d in core["devices"])

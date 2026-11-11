@@ -3,14 +3,14 @@
 
 For agents: load the **brief** pack before you touch a unit (safety rules, recovery, stock bugs, incidents, open questions, catalogued projects), and the **full** pack when you need the hardware facts too. Token counts are estimates (characters / 4). Each fact carries a stable id (`file-stem#hash`) that survives moved lines; cite it.
 
-Data checked 2026-11-08, research snapshot `2e69cfba110a`.
+Data checked 2026-11-08, research snapshot `46e43489ee13`.
 
 | Device | Brief | Tokens | Full | Tokens | Facts | Incidents | Stock bugs |
 |---|---|---|---|---|---|---|---|
 | Digitakt (MKI) | [digitakt-brief.md](digitakt-brief.md) | ~4,446 | [digitakt.md](digitakt.md) | ~11,613 | 53 | 1 | 0 |
 | Digitakt II | [digitakt-2-brief.md](digitakt-2-brief.md) | ~7,304 | [digitakt-2.md](digitakt-2.md) | ~49,248 | 280 | 15 | 0 |
 | Digitone (MKI) / Digitone Keys | [digitone-brief.md](digitone-brief.md) | ~4,347 | [digitone.md](digitone.md) | ~11,744 | 49 | 1 | 1 |
-| Digitone II | [digitone-2-brief.md](digitone-2-brief.md) | ~11,689 | [digitone-2.md](digitone-2.md) | ~74,314 | 369 | 27 | 5 |
+| Digitone II | [digitone-2-brief.md](digitone-2-brief.md) | ~11,583 | [digitone-2.md](digitone-2.md) | ~74,230 | 369 | 27 | 5 |
 | Syntakt | [syntakt-brief.md](syntakt-brief.md) | ~3,360 | [syntakt.md](syntakt.md) | ~14,072 | 75 | 6 | 0 |
 | Analog Heat (MKI, MKII, +FX) | [analog-heat-brief.md](analog-heat-brief.md) | ~2,586 | [analog-heat.md](analog-heat.md) | ~12,146 | 72 | 0 | 0 |
 | Octatrack (MKI, MKII) | [octatrack-brief.md](octatrack-brief.md) | ~5,715 | [octatrack.md](octatrack.md) | ~17,255 | 82 | 18 | 9 |

@@ -8,13 +8,17 @@ The output is deterministic: an unchanged repo gives byte-identical files.
 |---|---|
 | `aggregat.sqlite` | one SQLite file, queryable with `sqlite3` or any SQLite library |
 | `aggregat.json` | the same tables as JSON arrays, for tools without SQLite |
+| `context/<device>.md`, `context/<device>-brief.md` | one file per device for agents: rules, recovery, stock bugs, incidents, open questions, and (full version) every fact; [index with token counts](context/README.md). From `scripts/agent_packs.py` |
+| `web/core.json`, `web/facts.json`, `web/news.json` | what the website loads: everything but the facts at start, the facts and the news only when a tab needs them |
+
+Query tools over the same database for agents: the MCP server in [`../mcp/`](../mcp/README.md).
 
 ## Tables
 
 | table | from | columns |
 |---|---|---|
 | `meta` | - | `checked` (date of the last update check), `counts`, `research_snapshot` (id of the current research state, as in research/AGGREGAT_RESEARCH.md) |
-| `devices` | `data/devices.yml` | slug, name, family, phase |
+| `devices` | `data/devices.yml` | slug, name, family, phase, recovery (proven / reported / documented / unknown: has stock recovery been used on a unit), recovery_note |
 | `projects` | `data/projects.yml`, `state/repo_meta.json` | id, name, author, kind, list, own_mods (JSON list, see the next table), devices, repo, license, status, base_os, version, last_activity, tested, tested_note (mods: unit / partly / emulator / not-stated, as the authors claim), notes, links, sources; from GitHub (`scripts/repo_meta.py`, refreshed daily): owner, created, pushed, stars, forks, language, gh_fork, gh_license (GitHub's licence detection, used only when `license` is empty) |
 | `relations` | `relations:` in projects.yml | project, type, target, evidence |
 | `own_mods` | `own_mods:` in projects.yml | platform (project id), name, author, devices, version, path, tested, note, origin, what: mods a loader or platform ships itself, without an entry of their own |
@@ -24,7 +28,9 @@ The output is deterministic: an unchanged repo gives byte-identical files.
 | `incidents` | `hardware/INCIDENTS.md` | id (I1..), group (stock, mod, emulator-or-tool, recovery-or-link), title, unit, seen, cause, cause_found_by, fix, status, evidence, sources, rules, fact_file, devices |
 | `stock_bugs` | `hardware/STOCK-BUGS.md` | id (SB1..), title, device_os, area, symptom, trigger, cause, workaround, test_tip, found_by, status, evidence, sources, incidents, devices |
 | `incident_rules` | `hardware/INCIDENTS.md` | incident, rule: which rule each incident taught or confirmed (join with `rules`) |
-| `facts` | `hardware/devices/*.md`, `hardware/common/*.md` | id, file, line, section, text, evidence, sources, devices, addresses |
+| `facts` | `hardware/devices/*.md`, `hardware/common/*.md` | id, **fid** (stable id, e.g. `digitone-2#3f9a01bc`: a hash of file and text that survives moved lines; cite this one), file, line, section, text, evidence, sources, devices, addresses |
+| `addresses` | the addresses in `facts` | address, value (integer, indexed), fid, file, line, section, devices, evidence: one row per address and fact |
+| `ram_tenancy` | `hardware/RAM-TENANCY.md` | device, space (e.g. "Digitone II ColdFire DDR"), start, end (NULL when only a start is known), user, use, os, evidence, sources |
 | `facts_fts` | FTS5 index over `facts` | text, section, devices |
 | `goals` | goals table in `RESEARCH-MAP.md` | id (G1..), goal, status, moved_by |
 | `tasks` | shared to-do in `RESEARCH-MAP.md` | id (T1..), task, devices, needs, effort, value, status (open/done) |
@@ -55,6 +61,11 @@ sqlite3 export/aggregat.sqlite "SELECT id, topic FROM conflicts WHERE status='op
 
 # What went wrong on Digitone II units, and the rules it taught
 sqlite3 export/aggregat.sqlite "SELECT i.id, i.title, r.id, r.title FROM incidents i JOIN incident_rules ir ON ir.incident=i.id JOIN rules r ON r.id=ir.rule WHERE i.devices LIKE '%digitone-2%'"
+
+# Who uses the RAM around an address on the Digitone II, and what facts name it
+sqlite3 export/aggregat.sqlite "SELECT user, printf('0x%08x', start), use, os FROM ram_tenancy
+  WHERE device='digitone-2' AND start <= 0x46800000 AND COALESCE(\"end\", start + 1) > 0x46800000"
+sqlite3 export/aggregat.sqlite "SELECT address, fid, file, line FROM addresses WHERE value BETWEEN 0x46800000 AND 0x46810000"
 
 # Forks and copies of a project
 sqlite3 export/aggregat.sqlite "SELECT project, type, evidence FROM relations WHERE target='overtone'"

@@ -22,7 +22,7 @@ results by hand, with credit to this project. Taking part is voluntary and can s
 
 | | |
 |---|---|
-| Aggregat state | research map reviewed 2026-11-03, snapshot `2e69cfba110a` |
+| Aggregat state | research map reviewed 2026-11-03, snapshot `46e43489ee13` |
 | Copied on | <date you copied it> |
 
 ## What we work on
@@ -49,7 +49,7 @@ emulator, `doc` = read in code or documents.
 
 ---
 
-# Copied state: Aggregat research, snapshot `2e69cfba110a` (research map reviewed 2026-11-03)
+# Copied state: Aggregat research, snapshot `46e43489ee13` (research map reviewed 2026-11-03)
 
 ## Goals (copied from Aggregat)
 
@@ -83,7 +83,6 @@ emulator, `doc` = read in code or documents.
 | T15 | Probe free SHARC L2 on DT2 1.17 between `0x200f5a74` and `0x200fa000` on a unit | Digitakt II | unit | M |
 | T16 | Save a project on a grown parameter table, load it on stock, record what happens | Digitone II | unit | S |
 | T18 | Document the project file formats (`.dt2prj`, `.dn2prj`) beyond song slots | DT2, DN2 | files | M |
-| T23 | Keep a DN2 RAM tenancy table: every mod platform's and mod's ranges above the reset clear, per OS version (start: [memory-maps.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/memory-maps.md), five projects compared 2026-11-02); then a unit canary at `0x46700000` after a large +Drive sample load (confirms S17, which dnfw settled from LFO4 project corruption) | Digitone II | reading, then unit | S |
 | T24 | Watch DN2 SHARC L2 `0x200918c0-0x200c2000` for stock writes during playback, pattern changes and a save (emulator write watch first, then a canary on a unit); settles O19 | Digitone II | emulator, then unit | S |
 
 ## Hypotheses (inferred, not yet shown on a unit)

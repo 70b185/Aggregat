@@ -1,5 +1,5 @@
 // Aggregat mod browser: every mod, custom OS and loader we know, as cards with filters.
-// Plain HTML; data from export/aggregat.json. Exposes window.AggMods.draw(container, D, {words, dev, devName}).
+// Plain HTML; data from export/web/core.json. Exposes window.AggMods.draw(container, D, {words, dev, devName}).
 (function () {
   "use strict";
   const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -86,7 +86,7 @@
       const os = p.base_os ? short(p.base_os, 70) : "";
       return `<article style="--dc:var(--c-${esc(list(p.devices)[0] || "")})" class="md-card md-k-${esc(p.kind)}${["unreachable", "unverified"].includes(p.status) ? " md-dim" : ""}">
         <div class="md-top"><span class="md-kind">${esc(p.kind === "firmware" ? "custom OS" : p.kind)}</span>${isNew ? `<span class="md-new">new</span>` : ""}${p.status === "unverified" ? `<span class="md-st">unverified lead</span>` : st}
-          <span class="md-date">${esc(updated(p) || "")}</span></div>
+          <a class="md-perma" href="?p=${esc(p.platform || p.id)}" title="Page of this entry, with a link you can share">details</a><span class="md-date">${esc(updated(p) || "")}</span></div>
         <h3>${p.repo ? `<a href="${esc(p.repo)}">${esc(p.name)}</a>` : esc(p.name)}</h3>
         <div class="md-by">${esc(short(p.author, 60))}</div>
         <p>${esc(short(p.notes, 190))}</p>

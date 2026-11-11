@@ -4,6 +4,25 @@ Many features have been built independently on several Elektron boxes, often by 
 
 Compiled 2026-11-02 from the catalogue notes and the documents read for [`hardware/`](hardware/README.md). It is not exhaustive. "Unit" means the project reports it running on a real device; "emulator" means it has only been shown in an emulator so far. Project details: [MODS.md](MODS.md); which entries are forks or copies of each other: [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md).
 
+## Start here: shared building blocks
+
+Before you port an engine or write a tool again, check whether one of these already does the part you need. They are
+written to be reused: standalone cores without a device's hooks, or libraries for a file format or protocol. Licences
+as read in each repository on 2026-11-11; a project without a licence file gives you no right to reuse its code, however
+open it looks. Ask its author first.
+
+| Piece | What you get | Licence | Already used by |
+|---|---|---|---|
+| [**mdkit**](https://github.com/soejrd/mdkit) | The Machinedrum's EFM, TRX and P-I voice families as standalone C99, with tests and a web demo | **CC0-1.0** (its NOTICE: covers what the contributors can dedicate, not third-party names or materials) | the easiest legal start for any Machinedrum port; several independent Machinedrum ports are listed below |
+| [digisophie](https://github.com/soejrd/digisophie) | The Sophie engine in fixed point for ColdFire-audio boxes | MIT (third-party notices in its THIRD_PARTY.md) | Digitakt mk1, Digitone mk1 |
+| [plaits-on-models](https://github.com/DMDaudio/plaits-on-models) | Plaits engines in fixed point, with verification | MIT (engines keep their original MIT notices) | Model:Cycles (Modded Cycles) |
+| [digigrain](https://github.com/lucykowal/digigrain) | A bounded granular engine and platform notes for the Digitakt mk1 | no licence file (2026-11-11): read it for the method, ask before reusing code | Digitakt mk1 |
+| [libanalogrytm](https://github.com/bsp2/libanalogrytm), [rytm-rs](https://70b185.github.io/Aggregat/p/rytm-rs/) | Rytm SysEx: kits, sounds, patterns, settings | MIT | editors and converters |
+| [elektron-firmware-tool](https://github.com/mischa85/elektron-firmware-tool) | Unpack and repack the OS container | see its repo | most patchers |
+| the rules in [hardware/AGENT-RULES.md](hardware/AGENT-RULES.md) | Lessons measured on real units (cache, ISA, load, USB timing) | CC0 | every box with the same chip |
+
+If you publish a reusable core, tell us (pull request or issue) and it goes in this table.
+
 ---
 
 ## Engines carried from one Elektron box to another
@@ -141,6 +160,6 @@ The most common pattern. The engines come from the source device's own code or f
 
 ## What this suggests
 
-- **Portable engine cores already exist:** mdkit (Machinedrum voices, CC0), digisophie (Sophie, fixed point), plaits-on-models (Plaits, fixed point) and digigrain (bounded granular). A new port should start from one of these rather than from the original source.
+- **Portable engine cores already exist:** mdkit (Machinedrum voices, CC0), digisophie (Sophie, fixed point), plaits-on-models (Plaits, fixed point) and digigrain (bounded granular). A new port should start from one of these rather than from the original source; licences and links are in the table at the top of this page.
 - **Two or more parallel implementations** of the same feature on the same device: direct jump on the DN2, scale handling on the Octatrack (four), load meters on the DN2 (three, which disagree). Comparing these is cheap and likely to find bugs in one of them.
 - **Measured rules travel better than code:** a ColdFire or SHARC lesson found by one project (cache, ISA, load governor, USB timing) applies to all boxes with the same chip. Those are collected as rules A1-A46 in [hardware/AGENT-RULES.md](hardware/AGENT-RULES.md).

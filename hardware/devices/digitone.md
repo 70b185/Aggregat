@@ -1,6 +1,6 @@
 # Digitone (mk1) / Digitone Keys
 
-Coverage: **good** (almost entirely through the elekloader family). Projects: [../../devices/digitone.md](../../devices/digitone.md)
+Coverage: **good** (almost entirely through the elekloader family). Projects: [../../catalog/digitone.md](../../catalog/digitone.md)
 
 ## Basics
 - OS targets: **1.43** and **1.44**. `[doc]` {elekloader-readme}

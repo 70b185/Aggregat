@@ -1,6 +1,6 @@
 # Digitakt (mk1)
 
-Coverage: **good**. Everything below targets OS 1.53 unless stated. Projects: [../../devices/digitakt.md](../../devices/digitakt.md)
+Coverage: **good**. Everything below targets OS 1.53 unless stated. Projects: [../../catalog/digitakt.md](../../catalog/digitakt.md)
 
 ## Basics
 - OS targets in use: **1.53** (nearly all mods), **1.54** (elekloader v0.4.0: "linkable mods and whole builds"). A mod built for 1.53 is refused on a 1.54 stock file. `[doc]` {elekloader-readme} {elekloader-adapting}

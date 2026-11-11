@@ -4,14 +4,46 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aggregat - Elektron mods and hardware knowledge</title>
+<meta name="description" content="Community firmware, mods and tools for Elektron devices: a mod finder with risk lights, what is new, tests you can run on a stock unit, and a hardware knowledge base for coding agents.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230b0b0c'/%3E%3Crect x='3' y='4' width='10' height='2' fill='%23ff6a33'/%3E%3Crect x='3' y='7' width='7' height='2' fill='%233b8fe0'/%3E%3Crect x='3' y='10' width='4' height='2' fill='%235cbf4d'/%3E%3C/svg%3E">
+<link rel="canonical" href="https://70b185.github.io/Aggregat/">
+<link rel="alternate" type="application/atom+xml" title="Aggregat: what is new" href="feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aggregat">
+<meta property="og:title" content="Aggregat - Elektron mods and hardware knowledge">
+<meta property="og:description" content="Find mods for your Digitakt, Digitone, Syntakt, Octatrack and more, see how far each was tested, and help with five-minute tests. A knowledge base for mod developers and their coding agents.">
+<meta property="og:url" content="https://70b185.github.io/Aggregat/">
+<meta property="og:image" content="https://70b185.github.io/Aggregat/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
 <style>
-  /* Mono: one monospaced face, three sizes, black on white / white on black, square corners. */
-  :root { --bg:#ffffff; --fg:#0a0a0a; --mute:#707070; --line:#d4d4d4; --acc:#0a0a0a; --chip:#e6e6e6; --g1:#f4f4f4; --g2:#e6e6e6; --hw:#0a0a0a; --emu:#707070; --doc:#707070;
-          --s1:#3a3a3a; --s2:#8c8c8c; --s3:#bdbdbd; --s5:#5e5e5e; --s0:#e0e0e0; --person:#0a0a0a;
+  /* Design tokens: one set for light, one for dark (Studio design: sans text, mono labels, orange accent, a colour per device). */
+  :root { color-scheme:light dark;
+          /* surfaces and text */
+          --bg:#fafafa; --g1:#ffffff; --g2:#f0f0f0; --fg:#141414; --mute:#6a6a6a; --line:#e3e3e3; --chip:#f0f0f0; --acc:#0a0a0a;
+          /* accent, states, evidence */
+          --accent:#ff5a1f; --on-accent:#ffffff; --ok:#1a8a4a; --info:#2563eb; --warn:#c2410c; --hw:#0a0a0a; --emu:#707070;
+          --doc:#707070; --k1:#ffffff; --k2:#ffffff; --k3:#ffffff; --st1:#ff5a1f; --st2:#2563eb; --st3:#9a9a9a;
+          /* charts and map */
+          --s0:#b9b4aa; --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s5:#e87ba4; --person:#3d3a35;
+          /* type */
           --font:ui-monospace, "SF Mono", "Cascadia Mono", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
-          --fs:13px; --fs-s:12px; --fs-l:16px; color-scheme:light dark; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#0a0a0a; --fg:#ededed; --mute:#8a8a8a; --line:#2e2e2e; --acc:#ededed; --chip:#242424; --g1:#141414; --g2:#242424; --hw:#ededed; --emu:#8a8a8a; --doc:#8a8a8a;
-          --s1:#bdbdbd; --s2:#808080; --s3:#555555; --s5:#9e9e9e; --s0:#383838; --person:#ffffff; } }
+          --sans:-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+          --fs:13px; --fs-s:12px; --fs-l:16px;
+          /* device colours, taken from each unit's panel print and lights */
+          --c-digitakt:#f07a1f; --c-digitakt-2:#d92b00; --c-digitone:#19b3bf; --c-digitone-2:#3b8fe0; --c-syntakt:#5cbf4d;
+          --c-analog-heat:#f23d61; --c-octatrack:#8c7038; --c-analog-rytm:#bf30b6; --c-analog-four-keys:#6161f2;
+          --c-model-cycles:#4dbf99; --c-model-samples:#f261ae; --c-machinedrum:#38818c; --c-monomachine:#008c70; }
+  @media (prefers-color-scheme: dark) { :root {
+          /* surfaces and text */
+          --bg:#0b0b0c; --g1:#151517; --g2:#1e1e21; --fg:#ececee; --mute:#9b9ba3; --line:#26262a; --chip:#222226; --acc:#ededed;
+          /* accent, states, evidence */
+          --accent:#ff6a33; --on-accent:#111; --ok:#4fd08a; --info:#7aa7ff; --warn:#ff9a5c; --hw:#ededed; --emu:#8a8a8a;
+          --doc:#8a8a8a; --k1:#151517; --k2:#151517; --k3:#151517; --st1:#ff6a33; --st2:#7aa7ff; --st3:#5c5c63;
+          /* charts and map */
+          --s0:#5d5a54; --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s5:#d55181; --person:#d8d3c8; } }
+
+  /* Mono: one monospaced face, three sizes, black on white / white on black, square corners. */
+
   * { box-sizing: border-box; } input[type=checkbox], input[type=radio] { accent-color:var(--fg); }
   body { margin:0; background:var(--bg); color:var(--fg); font:var(--fs)/1.55 var(--font); }
   header { padding:20px 24px 8px; border-bottom:1px solid var(--line); }
@@ -135,7 +167,6 @@
 
   /* ===== Studio design (variant C): sans text, mono labels, orange accent, a colour per device ===== */
 
-  :root { --sans:-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, sans-serif; }
   body { font:14px/1.6 var(--sans); }
   .text, .md-card p, .md-lead, .cm-card, .net-panel, .item, .bar input { font-family:var(--sans); font-size:14px; }
   .md-card h3 { font-family:var(--sans); font-size:15.5px; font-weight:650; }
@@ -150,12 +181,6 @@
   .item { padding:14px 16px; margin:8px 0; border:1px solid var(--line); background:var(--g1); }
   .ev-hw { color:var(--ok); } .ev-emu { color:var(--info); } .ev-doc { color:var(--warn); }
 
-  :root { --bg:#fafafa; --g1:#ffffff; --g2:#f0f0f0; --fg:#141414; --mute:#6a6a6a; --line:#e3e3e3; --chip:#f0f0f0;
-          --accent:#ff5a1f; --on-accent:#ffffff; --k1:#ffffff; --k2:#ffffff; --k3:#ffffff; --ok:#1a8a4a; --info:#2563eb; --warn:#c2410c;
-          --st1:#ff5a1f; --st2:#2563eb; --st3:#9a9a9a; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#0b0b0c; --g1:#151517; --g2:#1e1e21; --fg:#ececee; --mute:#9b9ba3; --line:#26262a; --chip:#222226;
-          --accent:#ff6a33; --on-accent:#111; --k1:#151517; --k2:#151517; --k3:#151517; --ok:#4fd08a; --info:#7aa7ff; --warn:#ff9a5c;
-          --st1:#ff6a33; --st2:#7aa7ff; --st3:#5c5c63; } }
   * { border-radius:4px; } header, .bar, .devbar { border-radius:0; }
   header, .bar, .devbar { background:var(--bg); }
   nav button { border:0; margin:0 2px 0 0; background:transparent; }
@@ -168,24 +193,65 @@
   .md-h { background:transparent; padding:0; color:var(--accent); }
   .md-ld.on { background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
   /* chart and map colours back in colour */
-  :root { --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s5:#e87ba4; --s0:#b9b4aa; --person:#3d3a35; }
-  @media (prefers-color-scheme: dark) { :root { --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s5:#d55181; --s0:#5d5a54; --person:#d8d3c8; } }
+
   /* device colours, taken from each unit's panel print and lights */
-  :root { --c-digitakt:#f07a1f; --c-digitakt-2:#d92b00; --c-digitone:#19b3bf; --c-digitone-2:#3b8fe0; --c-syntakt:#5cbf4d;
-          --c-analog-heat:#f23d61; --c-octatrack:#8c7038; --c-analog-rytm:#bf30b6; --c-analog-four-keys:#6161f2; --c-model-cycles:#4dbf99;
-          --c-model-samples:#f261ae; --c-machinedrum:#38818c; --c-monomachine:#008c70; }
+  
   .devbar button::before { content:""; width:9px; height:9px; border-radius:50%; background:var(--dc, var(--mute)); align-self:center; }
   .devbar button.on { background:var(--dc, var(--fg)); border-color:var(--dc, var(--fg)); color:#111; } .devbar button.on .dv-c { color:#111; }
   .md-card, .md-k-mod, .md-k-firmware { border-left:4px solid var(--dc, var(--st3)); }
   .md-tag { box-shadow:inset 3px 0 0 var(--dc, transparent); padding-left:8px; }
   .item { border-left:4px solid var(--dc, var(--line)); }
   .devbar button[data-v=""].on { background:var(--fg); border-color:var(--fg); color:var(--bg); } .devbar button[data-v=""].on .dv-c { color:var(--bg); }
+
+  /* mod finder */
+  .fd-step { margin:22px 0 10px; font-size:15.5px; font-weight:650; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  .fd-n { font-family:var(--font); font-size:var(--fs-s); background:var(--accent); color:var(--on-accent); width:22px; height:22px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; }
+  .fd-step .md-chk { font-weight:400; font-size:var(--fs-s); margin-left:auto; }
+  .fd-devs { display:grid; grid-template-columns:repeat(auto-fill, minmax(170px, 1fr)); gap:8px; }
+  .fd-dev { font:inherit; text-align:left; border:1px solid var(--line); border-left:4px solid var(--dc, var(--line)); background:var(--g1); color:var(--fg); padding:8px 10px; cursor:pointer; display:flex; flex-direction:column; gap:2px; }
+  .fd-dev span { color:var(--mute); font-size:var(--fs-s); font-family:var(--font); } .fd-dev:hover { border-color:var(--fg); border-left-color:var(--dc, var(--fg)); }
+  .fd-dev.on { background:var(--dc, var(--fg)); color:#111; border-color:var(--dc, var(--fg)); } .fd-dev.on span { color:#111; }
+  .fd-os { display:flex; flex-wrap:wrap; gap:6px; } .fd-os button { font:inherit; font-family:var(--font); font-size:var(--fs); border:1px solid var(--line); background:var(--g1); color:var(--fg); padding:5px 12px; cursor:pointer; }
+  .fd-os button:hover { border-color:var(--fg); } .fd-os button.on { background:var(--fg); color:var(--bg); border-color:var(--fg); }
+  .fd-rec { font-family:var(--font); font-size:var(--fs-s); } .fd-rec-proven, .fd-rec-reported { color:var(--ok) !important; } .fd-rec-documented, .fd-rec-unknown { color:var(--warn) !important; }
+  .fd-dev.on .fd-rec { color:#111 !important; }
+  .fd-light { width:10px; height:10px; border-radius:50%; display:inline-block; flex:none; } .fd-l0 { background:var(--ok); } .fd-l1 { background:#e0a100; } .fd-l2 { background:var(--warn); }
+  .fd-t { font-family:var(--font); font-size:var(--fs-s); padding:0 6px; border:1px solid var(--line); white-space:nowrap; }
+  .fd-t-unit { color:var(--ok); border-color:var(--ok); } .fd-t-partly { color:#b88600; border-color:#b88600; } .fd-t-emulator, .fd-t-not-stated { color:var(--warn); border-color:var(--warn); }
+  .fd-why { display:flex; flex-wrap:wrap; gap:6px; align-items:baseline; } .fd-check ol { margin:6px 0; }
+  .md-h .fd-light { align-self:center; }
+  /* new */
+  .nw-item { display:grid; grid-template-columns:52px 1fr; gap:10px; padding:8px 0; border-bottom:1px solid var(--line); max-width:900px; }
+  .nw-date { font-family:var(--font); font-size:var(--fs-s); color:var(--mute); padding-top:2px; } .nw-title { font-weight:650; text-decoration:none; } .nw-title:hover { text-decoration:underline; background:none; color:var(--fg); }
+  .nw-text { color:var(--mute); font-size:var(--fs); margin-top:2px; } .nw-up a { font-size:var(--fs); }
+  /* test your unit */
+  .tu-intro { max-width:900px; border-left:4px solid var(--accent); margin-top:14px; } .tu-card h3 { font-weight:600; }
+  .tu-act { display:flex; gap:12px; align-items:center; margin-top:auto; padding-top:6px; }
+  .tu-btn { white-space:nowrap; background:var(--accent); color:var(--on-accent); text-decoration:none; padding:4px 12px; font-family:var(--font); font-size:var(--fs); }
+  .tu-btn:hover { background:var(--fg); color:var(--bg); }
+  /* addresses */
+  .ad-lane { position:relative; } .ad-row { display:grid; grid-template-columns:160px 1fr; gap:10px; align-items:center; margin:4px 0; font-size:var(--fs-s); }
+  .ad-user { font-family:var(--font); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; } .ad-track { position:relative; height:14px; background:var(--g2); border-radius:0; }
+  .ad-bar { position:absolute; top:0; height:14px; background:var(--s1); opacity:.85; border-radius:1px; min-width:3px; } .ad-bar:hover { opacity:1; outline:1px solid var(--fg); }
+  .ad-stock { background:var(--mute); } .ad-pt { background:var(--s2); } .ad-hit { outline:2px solid var(--accent); opacity:1; }
+  .ad-mark { position:absolute; top:44px; bottom:10px; width:0; border-left:2px dashed var(--accent); pointer-events:none; }
+  .ad-item { border-bottom:1px solid var(--line); padding:6px 0; } .ad-item summary { cursor:pointer; display:flex; gap:8px; align-items:baseline; flex-wrap:wrap; }
+  .ad-claim { font-family:var(--font); font-size:var(--fs-s); color:var(--accent); } .ad-fact { margin:8px 0 8px 18px; }
+  /* project page */
+  .pj { max-width:860px; } .pj-h { font-size:24px; margin:6px 0 0; letter-spacing:-.01em; } .pj h3 { font-size:15.5px; margin:18px 0 6px; }
+  .pj-act { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:12px 0; } .pj-act .md-x { text-decoration:none; padding:3px 10px; font-family:var(--font); }
+  .pj-notes { font-size:15px; line-height:1.6; } .pj-kv { display:grid; grid-template-columns:150px 1fr; gap:4px 12px; margin:16px 0; }
+  .pj-kv dt { color:var(--mute); font-family:var(--font); font-size:var(--fs-s); } .pj-kv dd { margin:0; overflow-wrap:anywhere; }
+  .md-perma { margin-left:auto; text-decoration:none; color:var(--mute); font-family:var(--font); font-size:var(--fs-s); } .md-perma + .md-date { margin-left:8px; }
+  footer .love { color:var(--accent); }
+  @media (max-width:760px) { nav { flex-wrap:nowrap; overflow-x:auto; scrollbar-width:thin; } nav button { flex:none; white-space:nowrap; }
+    .ad-row { grid-template-columns:90px 1fr; } .ad-mark { display:none; } .pj-kv { grid-template-columns:110px 1fr; } }
 </style>
 </head>
 <body>
 <header>
   <h1><span>Aggregat</span> - Elektron mods and hardware knowledge</h1>
-  <div class="sub" id="sub">Loading export/aggregat.json ...</div>
+  <div class="sub" id="sub">Loading ...</div>
   <nav id="tabs"></nav>
 </header>
 <div class="bar">
@@ -195,14 +261,24 @@
 <div id="devbar" class="devbar" role="group" aria-label="Device"></div>
 <main id="out"></main>
 <footer>Generated from the repo by <code>scripts/export_db.py</code>. Data CC0. Edit the Markdown/YAML in the repo, not this page.
-  <a href="https://github.com/70b185/aggregat">github.com/70b185/aggregat</a></footer>
+  <a href="https://github.com/70b185/aggregat">github.com/70b185/aggregat</a> · <a href="feed.xml">feed</a> ·
+  for agents: <a href="llms.txt">llms.txt</a>, <a href="https://github.com/70b185/Aggregat/blob/master/mcp/README.md">MCP server</a>,
+  <a href="https://github.com/70b185/Aggregat/blob/master/export/context/README.md">context packs</a>
+  <br>Not affiliated with Elektron. <span class="love">vibecoded with love ♥</span></footer>
 <script src="assets/network.js"></script>
 <script src="assets/community.js"></script>
 <script src="assets/mods.js"></script>
+<script src="assets/views.js"></script>
 <script>
 const REPO = "https://github.com/70b185/aggregat/blob/master/";
-const TABS = [["mods","Mods"],["network","Network map"],["community","Community"],["facts","Hardware facts"],["projects","Projects"],["rules","Agent rules"],["incidents","Incidents"],["stock_bugs","Stock bugs"],["hypotheses","Tests to run"],["tasks","Tasks"],["goals","Goals"],["conflicts","Conflicts"],["sources","Sources"]];
-let D = null, tab = "mods", srcUrl = {}, devName = {};
+const TABS = [["mods","Mods"],["finder","Mod finder"],["news","New"],["stock_tests","Test your unit"],["network","Network map"],["community","Community"],["facts","Hardware facts"],["addresses","Addresses"],["projects","Projects"],["rules","Agent rules"],["incidents","Incidents"],["stock_bugs","Stock bugs"],["hypotheses","Tests to run"],["tasks","Tasks"],["goals","Goals"],["conflicts","Conflicts"],["sources","Sources"]];
+let D = null, tab = "mods", srcUrl = {}, devName = {}, projId = "", projIds = new Set();
+// Data comes in parts: core.json at start, facts.json and news.json only when a tab needs them.
+const PARTS = {facts: "export/web/facts.json", news: "export/web/news.json"}, loading = {};
+function need(parts) {
+  const miss = (parts || []).filter(k => !D[k]);
+  return Promise.all(miss.map(k => loading[k] = loading[k] || fetch(PARTS[k]).then(r => r.json()).then(j => { D[k] = j; }))).then(() => miss.length);
+}
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const list = s => String(s || "").split(",").filter(Boolean);
@@ -217,9 +293,11 @@ function md(s, base) {
     if (!/^https?:/.test(href)) { try { u = new URL(href, REPO + (base || "")).href; } catch (e) {} }
     return `<a href="${u}">${txt}</a>`;
   });
-  t = t.replace(/\{([a-z0-9][a-z0-9-]*)\}/g, (m, k) => srcUrl[k] ? `<a class="chip" href="${esc(srcUrl[k])}">${k}</a>` : m);
+  t = t.replace(/\{([a-z0-9][a-z0-9-]*)\}/g, (m, k) => srcUrl[k] ? `<a class="chip" href="${esc(srcUrl[k])}">${k}</a>`
+    : projIds.has(k) ? `<a class="chip" href="?p=${k}">${k}</a>` : m);
   return t;
 }
+window.AggMd = md;
 function hl(html, words) {
   if (!words.length) return html;
   const re = new RegExp("(" + words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")", "gi");
@@ -231,7 +309,14 @@ function evChip(e) {
 function devChips(d) { return list(d).map(x => `<span class="chip">${esc(devName[x] || x)}</span>`).join(" "); }
 
 const INC_GROUP = {stock: "stock firmware", mod: "mod on a unit", "emulator-or-tool": "emulator / tool vs unit", "recovery-or-link": "recovery / link"};
+const custom = (fn, o) => Object.assign({custom: true, rows: () => [], hay: () => "", count: () => "",
+  draw: (words, dev) => fn($("out"), D, {words, dev, devs: dev, devOk, devName})}, o);
 const VIEWS = {
+  finder: custom((...a) => AggViews.finder(...a), {}),
+  news: custom((...a) => AggViews.news(...a), {needs: ["news"], rows: () => (D.news || []).filter(e => e.type === "project"), dev: e => (e.devices || []).join(",")}),
+  stock_tests: custom((...a) => AggViews.tests(...a), {rows: () => (D.hypotheses || []).filter(h => h.kind === "stock"), dev: h => AggViews.devsIn(h.devices).join(",")}),
+  addresses: custom((...a) => AggViews.addresses(...a), {needs: ["facts"], rows: () => D.ram_tenancy || [], dev: r => r.device}),
+  project: custom((root, D_, ctx) => AggViews.project(root, D_, ctx, projId), {}),
   network: {
     custom: true, rows: () => D.projects, dev: p => p.devices, hay: () => "",
     draw: (words, dev) => AggNetwork.draw($("out"), D, {words, dev, devs: dev, devOk, devName}),
@@ -248,7 +333,8 @@ const VIEWS = {
     count: () => ""
   },
   facts: {
-    rows: () => D.facts,
+    needs: ["facts"],
+    rows: () => D.facts || [],
     hay: f => [f.text, f.section, f.file, f.addresses, f.sources].join(" "),
     dev: f => f.devices, ev: f => f.evidence,
     html: (f, w) => `<div class="head"><a class="meta" href="${REPO}${esc(f.file)}#L${f.line}">${esc(f.file.replace("hardware/",""))}:${f.line}</a>
@@ -263,6 +349,7 @@ const VIEWS = {
       const rel = D.relations.filter(r => r.project === p.id || r.target === p.id)
         .map(r => r.project === p.id ? `${r.type.replace(/_/g," ")} <b>${esc(r.target)}</b>` : `<b>${esc(r.project)}</b> ${r.type.replace(/_/g," ")} this`).join("; ");
       return `<div class="head"><span class="title">${p.repo ? `<a href="${esc(p.repo)}">${esc(p.name)}</a>` : esc(p.name)}</span>
+        <a class="meta" href="?p=${esc(p.id)}" title="Page of this entry">details</a>
         <span class="meta">${esc(p.author)}</span> <span class="chip">${esc(p.kind)}</span> <span class="chip">${esc(p.list)}</span>
         ${p.status ? `<span class="chip">${esc(p.status)}</span>` : ""} ${devChips(p.devices)}</div>
         <div class="meta">${[p.version && "version " + esc(p.version), p.last_activity && "last activity " + esc(p.last_activity), p.base_os && "base OS " + esc(p.base_os)].filter(Boolean).join(" · ")}</div>
@@ -346,8 +433,20 @@ const VIEWS = {
   }
 };
 
+function url() {
+  const q = new URLSearchParams();
+  if (tab === "project") q.set("p", projId); else q.set("t", tab);
+  if ($("q").value) q.set("q", $("q").value); if (DEVS.length && tab !== "project") q.set("d", DEVS.join(","));
+  history.replaceState(null, "", "?" + q);
+}
 function render() {
   const v = VIEWS[tab];
+  if (v.needs && v.needs.some(k => !D[k])) {
+    $("out").innerHTML = `<div class="empty">Loading ...</div>`;
+    need(v.needs).then(render, e => { $("out").innerHTML = `<div class="empty">Could not load the data: ${esc(e)}</div>`; });
+    return;
+  }
+  if (tab !== "project") document.title = "Aggregat - Elektron mods and hardware knowledge";
   const words = $("q").value.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const dev = DEVS.slice();
   devCounts();
@@ -362,8 +461,7 @@ function render() {
   if (v.custom) {
     $("count").textContent = v.count();
     v.draw(words, dev);
-    const q = new URLSearchParams(); q.set("t", tab); if ($("q").value) q.set("q", $("q").value); if (dev.length) q.set("d", dev.join(","));
-    history.replaceState(null, "", "?" + q);
+    url();
     return;
   }
   if (v.ev) rows.sort((a, b) => (list(v.ev(b)).includes("hw") ? 1 : 0) - (list(v.ev(a)).includes("hw") ? 1 : 0));
@@ -372,8 +470,7 @@ function render() {
   $("out").innerHTML = shown.length ? shown.map(r => `<div class="item" style="--dc:var(--c-${esc(v.dev ? stripeDev(list(v.dev(r))) : "")})">${v.html(r, words)}</div>`).join("")
     + (rows.length > 300 ? `<div class="empty">Showing the first 300. Narrow the search.</div>` : "")
     : `<div class="empty">Nothing matches.</div>`;
-  const p = new URLSearchParams(); p.set("t", tab); if ($("q").value) p.set("q", $("q").value); if (dev.length) p.set("d", dev.join(","));
-  history.replaceState(null, "", "?" + p);
+  url();
 }
 
 let DEVS = [];   // selected device slugs; empty = all
@@ -398,23 +495,25 @@ function devBar() {
 
 function init() {
   const p = new URLSearchParams(location.search);
-  if (VIEWS[p.get("t")]) tab = p.get("t");
+  if (VIEWS[p.get("t")] && p.get("t") !== "project") tab = p.get("t");
+  if (p.get("p")) { tab = "project"; projId = p.get("p"); }
+  D.projects.forEach(x => projIds.add(x.id));
   $("q").value = p.get("q") || "";
-  $("tabs").innerHTML = TABS.map(([k, l]) => `<button data-t="${k}" class="${k === tab ? "on" : ""}">${l} <span class="meta">${k === "network" || k === "community" ? "" : (k === "mods" ? D.projects.concat(AggMods.ownMods(D)).filter(p => String(p.list || "").split(",").includes("mods") && !["loader","tool"].includes(p.kind) && (p.own_mods || "[]") === "[]").length : (D[k] || []).length)}</span></button>`).join("");
-  $("tabs").onclick = e => { const b = e.target.closest("button"); if (!b) return; tab = b.dataset.t;
+  $("tabs").innerHTML = TABS.map(([k, l]) => `<button data-t="${k}" class="${k === tab ? "on" : ""}">${l} <span class="meta">${["network", "community", "finder", "news", "addresses"].includes(k) ? "" : k === "facts" ? D.meta.counts.facts : k === "stock_tests" ? (D.hypotheses || []).filter(h => h.kind === "stock").length : (k === "mods" ? D.projects.concat(AggMods.ownMods(D)).filter(p => String(p.list || "").split(",").includes("mods") && !["loader","tool"].includes(p.kind) && (p.own_mods || "[]") === "[]").length : (D[k] || []).length)}</span></button>`).join("");
+  $("tabs").onclick = e => { const b = e.target.closest("button"); if (!b) return; tab = b.dataset.t; projId = "";
     [...$("tabs").children].forEach(x => x.classList.toggle("on", x === b)); render(); };
   D.devices.forEach(d => { devName[d.slug] = d.name; });
   DEVS = (p.get("d") || "").split(",").filter(x => devName[x]);
   devBar();
   D.sources.forEach(s => srcUrl[s.key] = s.url);
-  $("sub").textContent = `${D.projects.length} projects, ${D.facts.length} hardware facts, ${D.rules.length} rules, ${D.conflicts.length} conflicts - data checked ${D.meta.checked}`;
+  $("sub").textContent = `${D.projects.length} projects, ${D.meta.counts.facts} hardware facts, ${D.rules.length} rules, ${D.conflicts.length} conflicts - data checked ${D.meta.checked}`;
   let t; $("q").oninput = () => { clearTimeout(t); t = setTimeout(render, 120); };
 
   render();
 }
 
-fetch("export/aggregat.json").then(r => r.json()).then(d => { D = d; init(); })
-  .catch(e => { $("sub").textContent = "Could not load export/aggregat.json: " + e; });
+fetch("export/web/core.json").then(r => r.json()).then(d => { D = d; init(); })
+  .catch(e => { $("sub").textContent = "Could not load export/web/core.json: " + e; });
 </script>
 </body>
 </html>

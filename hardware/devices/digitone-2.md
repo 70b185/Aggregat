@@ -1,7 +1,7 @@
 # Digitone II
 
 Coverage: **medium-good** - the most documented small box right now (dn2_firmware_explore, dn2-cfw, Overtone, dn2mk2, the modding skill).
-Projects: [../../devices/digitone-2.md](../../devices/digitone-2.md)
+Projects: [../../catalog/digitone-2.md](../../catalog/digitone-2.md)
 
 > **Lookup table for OS 1.11** (ColdFire and SHARC function/data map, boot-stream format, static-check rules, USB RPC upload protocol, build pipeline): [`digitone-2-os111-firmware-map.md`](digitone-2-os111-firmware-map.md).
 >

@@ -6,16 +6,16 @@ Data last verified: 2026-11-08. Repo fingerprints: see state/CHANGES.md
 
 | Device | Verified | Unverified candidates | Requests / resources |
 |---|---|---|---|
-| [Digitakt (MKI)](devices/digitakt.md) | 59 | 0 | 3 |
-| [Digitakt II](devices/digitakt-2.md) | 44 | 1 | 1 |
-| [Digitone (MKI) / Digitone Keys](devices/digitone.md) | 61 | 0 | 2 |
-| [Digitone II](devices/digitone-2.md) | 31 | 1 | 2 |
-| [Syntakt](devices/syntakt.md) | 16 | 0 | 1 |
-| [Analog Heat (MKI, MKII, +FX)](devices/analog-heat.md) | 4 | 1 | 1 |
-| [Octatrack (MKI, MKII)](devices/octatrack.md) | 28 | 1 | 0 |
-| [Analog Rytm (MKI, MKII)](devices/analog-rytm.md) | 27 | 0 | 0 |
-| [Analog Four / Analog Keys](devices/analog-four-keys.md) | 11 | 0 | 0 |
-| [Model:Cycles](devices/model-cycles.md) | 30 | 1 | 0 |
-| [Model:Samples](devices/model-samples.md) | 10 | 0 | 0 |
-| [Machinedrum (incl. UW)](devices/machinedrum.md) | 27 | 0 | 0 |
-| [Monomachine](devices/monomachine.md) | 12 | 0 | 0 |
+| [Digitakt (MKI)](catalog/digitakt.md) | 59 | 0 | 3 |
+| [Digitakt II](catalog/digitakt-2.md) | 44 | 1 | 1 |
+| [Digitone (MKI) / Digitone Keys](catalog/digitone.md) | 61 | 0 | 2 |
+| [Digitone II](catalog/digitone-2.md) | 31 | 1 | 2 |
+| [Syntakt](catalog/syntakt.md) | 16 | 0 | 1 |
+| [Analog Heat (MKI, MKII, +FX)](catalog/analog-heat.md) | 4 | 1 | 1 |
+| [Octatrack (MKI, MKII)](catalog/octatrack.md) | 28 | 1 | 0 |
+| [Analog Rytm (MKI, MKII)](catalog/analog-rytm.md) | 27 | 0 | 0 |
+| [Analog Four / Analog Keys](catalog/analog-four-keys.md) | 11 | 0 | 0 |
+| [Model:Cycles](catalog/model-cycles.md) | 30 | 1 | 0 |
+| [Model:Samples](catalog/model-samples.md) | 10 | 0 | 0 |
+| [Machinedrum (incl. UW)](catalog/machinedrum.md) | 27 | 0 | 0 |
+| [Monomachine](catalog/monomachine.md) | 12 | 0 | 0 |

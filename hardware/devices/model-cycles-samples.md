@@ -2,8 +2,8 @@
 
 Coverage: **first profile** (phase 2). Source: 18nelli18/Modded-Cycles (`RECOVERY.md`, `.agents/skills/*/references/os-map.md`
 and `free-space.md`, French lab notes `notes/00`-`notes/56`), read 2026-11-02. Facts the project marks `[FAIT]` (measured or read
-from the image) are `[doc]` here, hardware rows `[hw]`. Key {modded-cycles}. Projects: [../../devices/model-cycles.md](../../devices/model-cycles.md),
-[../../devices/model-samples.md](../../devices/model-samples.md).
+from the image) are `[doc]` here, hardware rows `[hw]`. Key {modded-cycles}. Projects: [../../catalog/model-cycles.md](../../catalog/model-cycles.md),
+[../../catalog/model-samples.md](../../catalog/model-samples.md).
 
 ## Platform
 - **CPU: ColdFire MCF54415CMJ250** (chip marking read 2026-09-30): MCF5441x, V4 core with EMAC, 250 MHz, **no separate DSP**. All audio is ColdFire assembly. It is the same CPU family as Digitakt mk1, Digitone mk1, Rytm and A4; the Octatrack is the exception. The MCF54418 reference manual applies. `[hw]`

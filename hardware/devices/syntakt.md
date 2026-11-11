@@ -1,6 +1,6 @@
 # Syntakt
 
-Coverage: **medium** (platform, memory map, audio path and modding rules from SyntHack OS; 1.42 container from digikit). Projects: [../../devices/syntakt.md](../../devices/syntakt.md)
+Coverage: **medium** (platform, memory map, audio path and modding rules from SyntHack OS; 1.42 container from digikit). Projects: [../../catalog/syntakt.md](../../catalog/syntakt.md)
 
 ## Ecosystem snapshot (altstrument 2026-10-31: 4 firmware/tool entries + 2 tools; elektronmods: 4 Syntakt entries)
 Listings: {alt-syntakt}. Entries: **SyntHack OS** (upstream, Angelo-politek, v0.9.0 2026-10-19; {synthack-upstream}), **Syntakt MAX** (fork with a Windows builder; see the data file), **SY FM4** (Rxuting; OS 1.40A), **Syntakt Firmware Workbench** (browser; OS 1.41), **syntakt-machine45-research** (documentation) and **Sympakt** (sample packs). Brick-risk flags are set on SyntHack OS, Syntakt MAX and SY FM4. Syntakt MAX integrates an SY FM4 engine for 1.41.

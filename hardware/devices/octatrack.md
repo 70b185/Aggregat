@@ -2,7 +2,7 @@
 
 Coverage: **first profile** (phase 2). Source: sambanks/octabam docs (`docs/firmware/CHIP.md`, `ARCHITECTURE.md`, `DSP.md`,
 `docs/contributing/PLACEMENT.md`, `TRAPS.md`, `docs/guide/BUILDING.md`), read 2026-11-02. octabam marks its facts measured (✅),
-inferred (🟡) or retracted (❌); we keep `[hw]` for its hardware rows. Projects: [../../devices/octatrack.md](../../devices/octatrack.md).
+inferred (🟡) or retracted (❌); we keep `[hw]` for its hardware rows. Projects: [../../catalog/octatrack.md](../../catalog/octatrack.md).
 Key {octabam}. **A different platform from the DT2/DN2:** the ColdFire is an MCF5445x, the DSP is a two-core Freescale DSP56721, not a SHARC.
 
 ## Silicon

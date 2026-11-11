@@ -1,7 +1,7 @@
 # Analog Heat (MKI, MKII, +FX)
 
 Coverage: **official facts only. We found no community firmware mod and no reverse-engineering notes.**
-Projects/tools: [../../devices/analog-heat.md](../../devices/analog-heat.md)
+Projects/tools: [../../catalog/analog-heat.md](../../catalog/analog-heat.md)
 
 ## Official facts (elektron.se, read 2026-10-31)
 - Analog Heat MKI and MKII: latest OS **1.22** (2024-10-16, "added support for Overbridge 2.13"). `[doc]` {elektron-heat-mkii-page}

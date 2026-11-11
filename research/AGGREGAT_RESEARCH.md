@@ -22,7 +22,7 @@ results by hand, with credit to this project. Taking part is voluntary and can s
 
 | | |
 |---|---|
-| Aggregat state | research map reviewed 2026-11-03, snapshot `2e69cfba110a` |
+| Aggregat state | research map reviewed 2026-11-03, snapshot `2945a822544d` |
 | Copied on | <date you copied it> |
 
 ## What we work on
@@ -49,7 +49,7 @@ emulator, `doc` = read in code or documents.
 
 ---
 
-# Copied state: Aggregat research, snapshot `2e69cfba110a` (research map reviewed 2026-11-03)
+# Copied state: Aggregat research, snapshot `2945a822544d` (research map reviewed 2026-11-03)
 
 ## Goals (copied from Aggregat)
 
@@ -59,8 +59,8 @@ emulator, `doc` = read in code or documents.
 | G2 | **An honest load/headroom measure per device** (rules A25, A34, A37) | ✅ DT2 (idle-task measure on a unit), DN2 (elekloader busy meter, with the "busy is not headroom" caveat). ❓ Syntakt (two readings conflict, O3). ⬜ Heat +FX, Digitone mk1 voice CPU. | T4, T9, T10; tests H15, H17 |
 | G3 | **Shared-silicon knowledge transfers between devices** | At least six phase-1 boxes use MCF5441x-family ColdFires (DT, DN, DT2, DN2, Syntakt, Heat +FX); DT2 and DN2 share the SHARC and 85 % of its functions. Many rules were found on one box and are only assumed for the others (e.g. A39 USB, A28 cache write-back). | T3, T12, T19; tests H7, H12-H15, H17 |
 | G4 | **Emulators you can trust for more than "it boots"** | ✅ known gaps: no memory stalls (device cycles ~2x emulator), no pipeline model, EMAC fractional-mode bugs in stock Unicorn. ❓ digikit: real-time DSP audio. | T14 |
-| G5 | **Mods that survive OS updates** | Every mod pins one OS version; address translation between versions is done ad hoc. Good news for DSP work: the SHARC sections are **byte-identical** between DT2 1.16 and 1.17 and between DN2 1.11 and 1.12 (digikit finding 53), so only the ColdFire side moves. | T6, T8 |
-| G6 | **Official numbers instead of guesses** (MIDI CC/NRPN tables, startup menus) | The manuals' appendices were beyond what our fetcher extracts. | T13; test H4 |
+| G5 | **Mods that survive OS updates** | Every mod pins one OS version; address translation between versions was done ad hoc; since 2026-11-11 `scripts/anchor_translate.py` does it from two user-supplied images (T6, T8). Good news for DSP work: the SHARC sections are **byte-identical** between DT2 1.16 and 1.17 and between DN2 1.11 and 1.12 (digikit finding 53), so only the ColdFire side moves. | T6, T8 |
+| G6 | **Official numbers instead of guesses** (MIDI CC/NRPN tables, startup menus) | MIDI CC/NRPN tables of the DT2, DN2 and Heat +FX manuals transcribed 2026-11-11 (T13), with seven possible misprints flagged for a unit test. Startup menus still open. | T13; test H4 |
 | G7 | **Talk to every unit the same way** (SysEx dumps, the RPC, device ids, project files) | The dump frame, 7-bit packing and checksum are the same from the Rytm (2014) to the DN2; the type bytes differ; three id namespaces mapped (T22). Project files are zips with LZ4 content. Per-device gaps: Heat +FX RPC, DT2 project format. | T18, T22; tests H1, H2, H3, H18 |
 | G8 | **Mods that coexist** (with each other, with Overbridge, with stock projects) | DT2 and DN2 RAM and hook use of five to six platforms compared: several start at the same addresses, the DT2 flash cave has five users (T21, T23). Open: O18, O19 (O17 settled as S17). | T16, T23, T24; tests H5, H6, H8-H11 |
 
@@ -71,19 +71,17 @@ emulator, `doc` = read in code or documents.
 | T3 | Test rule A39 (no EP0 stage of a multiple of 64 bytes) on a small box with a vendor request. The DT2 has the same EHCI-style controller with EP0 max packet 64 and its own EP0 vendor requests (digikit 42), so it is the best candidate | DT2 (or DN2, DT/DN mk1) | unit + a USB mod | M |
 | T4 | Measure CPU #1 load with the digihealth DMA-timer method over the whole interrupt, at rest and busy | Syntakt | unit + SyntHack | M |
 | T5 | Check the trailer and HMAC of 1.40A/1.41/1.42 with your own files (elektron-firmware-tool, digikit) | Syntakt (also DT mk1) | files | S |
-| T6 | Translate SyntHack/machine-45 anchors from 1.41 to 1.42 (byte patterns, not addresses) | Syntakt | files | M |
+| T6 | Translate SyntHack/machine-45 anchors from 1.41 to 1.42 (byte patterns, not addresses) (tool: [`scripts/anchor_translate.py`](https://github.com/70b185/Aggregat/blob/master/scripts/anchor_translate.py), 2026-11-11: you supply both images; it reports per address whether the translation is exact, bracketed, one-sided or ambiguous) | Syntakt | files | M |
 | T7 | Find the cause of the sticky "bitcrush until reboot" | Digitakt II | unit + custom engine | L |
-| T8 | Build an address-translation table DN2 1.11 <-> 1.12 from shared anchors | Digitone II | files | M |
+| T8 | Build an address-translation table DN2 1.11 <-> 1.12 from shared anchors (tool: [`scripts/anchor_translate.py`](https://github.com/70b185/Aggregat/blob/master/scripts/anchor_translate.py), 2026-11-11: you supply both images; it reports per address whether the translation is exact, bracketed, one-sided or ambiguous) | Digitone II | files | M |
 | T9 | Measure DN2 load with both meters (dnfw idle-task and elekloader dspbusy) in the same states, then calibrate a cost model (dn2mk2's instructions + 4 x L2 + 10 x DDR is a start) | Digitone II | unit | M |
 | T10 | Port a DMA-timer load probe (digihealth / A4 0011-style) to the Heat +FX and measure all FX on | Analog Heat +FX | unit | M |
 | T11 | Unpack the MKI and MKII OS files: sections, container, CPU (peripheral census), any DSP section | Analog Heat MKI/MKII | files | S |
 | T12 | Compare FPGA bitstreams across devices (sizes, SHA-256, header) and the OS code that talks to them. **Leads:** on the Rytm MKII, sample bit reduction is a command word sent to the external audio hardware, not PCM work on the ColdFire; and three bitstreams are exactly 54,664 bytes - Heat +FX section 1, A4 MKII section 1, and the Digitone mk1's (inside section 7, loaded by the second CPU) | Heat +FX, A4 MKII, DN mk1, Syntakt, DT2/DN2, Rytm | files | M |
-| T13 | Transcribe the official MIDI CC/NRPN tables from the manuals' appendices into `hardware/common/sysex-and-midi.md` | DT2, DN2, Heat +FX | PDF | S |
 | T14 | Fix or document digikit's EMAC fractional-mode emulation against a unit measurement | DT2/DN2 (all ColdFire boxes) | unit + emulator | M |
 | T15 | Probe free SHARC L2 on DT2 1.17 between `0x200f5a74` and `0x200fa000` on a unit | Digitakt II | unit | M |
 | T16 | Save a project on a grown parameter table, load it on stock, record what happens | Digitone II | unit | S |
 | T18 | Document the project file formats (`.dt2prj`, `.dn2prj`) beyond song slots | DT2, DN2 | files | M |
-| T23 | Keep a DN2 RAM tenancy table: every mod platform's and mod's ranges above the reset clear, per OS version (start: [memory-maps.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/memory-maps.md), five projects compared 2026-11-02); then a unit canary at `0x46700000` after a large +Drive sample load (confirms S17, which dnfw settled from LFO4 project corruption) | Digitone II | reading, then unit | S |
 | T24 | Watch DN2 SHARC L2 `0x200918c0-0x200c2000` for stock writes during playback, pattern changes and a save (emulator write watch first, then a canary on a unit); settles O19 | Digitone II | emulator, then unit | S |
 
 ## Hypotheses (inferred, not yet shown on a unit)

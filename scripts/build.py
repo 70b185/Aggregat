@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate devices/<slug>.md and INDEX.md from data/projects.yml + data/devices.yml.
+"""Generate catalog/<slug>.md and INDEX.md from data/projects.yml + data/devices.yml.
 
 Usage: python3 scripts/build.py   (run from anywhere)
 Needs PyYAML (pip install pyyaml).
@@ -60,7 +60,7 @@ def table(rows):
     return "\n".join(out)
 
 
-(ROOT / "devices").mkdir(exist_ok=True)
+(ROOT / "catalog").mkdir(exist_ok=True)
 index = [GEN, "# Index by device\n", f"Data last verified: {checked}. Repo fingerprints: see state/CHANGES.md\n",
          "| Device | Verified | Unverified candidates | Requests / resources |", "|---|---|---|---|"]
 for d in devices:
@@ -82,9 +82,9 @@ for d in devices:
             md.append(f"_Sources: {', '.join(map(str, p.get('sources', [])))}_\n")
     else:
         md.append("No projects collected yet.\n")
-    (ROOT / "devices" / f"{d['slug']}.md").write_text("\n".join(md), encoding="utf-8")
+    (ROOT / "catalog" / f"{d['slug']}.md").write_text("\n".join(md), encoding="utf-8")
     unv = [p for p in real if p["status"] == "unverified"]
-    index.append(f"| [{d['name']}](devices/{d['slug']}.md) | {len(real) - len(unv)} | {len(unv)} | {len(rows) - len(real)} |")
+    index.append(f"| [{d['name']}](catalog/{d['slug']}.md) | {len(real) - len(unv)} | {len(unv)} | {len(rows) - len(real)} |")
 
 (ROOT / "INDEX.md").write_text("\n".join(index) + "\n", encoding="utf-8")
 print(f"{len(projects)} projects, {len(devices)} devices")

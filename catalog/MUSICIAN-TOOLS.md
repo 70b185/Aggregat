@@ -4,7 +4,7 @@
 
 Software for using and managing the devices - editors, sample and project managers, Overbridge audio, screen mirrors, control from a computer or an AI agent. **None of these change the firmware.**
 
-Data last verified: 2026-11-08. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
+Data last verified: 2026-11-11. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
 
 
 The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds), [DEV-TOOLS.md](DEV-TOOLS.md) (development tools). Hardware knowledge for writing mods: [hardware/](../hardware/README.md).

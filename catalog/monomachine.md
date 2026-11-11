@@ -2,7 +2,7 @@
 
 # Monomachine
 
-Data last verified: 2026-11-08
+Data last verified: 2026-11-11
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
@@ -19,7 +19,7 @@ Data last verified: 2026-11-08
 | **Maschine MD-MM** (sid366) | emulator | - | - | v0.1.1-combined.1 | 2026-09-28 | [repo](https://github.com/sid366/maschine-md-mm-combined) |
 | **Monomodule** (shnolk) | emulator | - | 1.0.0 (2026-09-24); Monomachine OS 1.32B (supplied by you) | release | 2026-09-24 | [repo](https://github.com/shnolk/monomodule) |
 | **Gearmulator MD/MM** (Joe Landers) | emulator | - | mdmm-v0.1.0-alpha.14 (2026-09-21); Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-09-21 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
-| **TurboMIDI (C++)** (DatanoiseTV) | library | - | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
+| **TurboMIDI (C++)** (DatanoiseTV) | library | repo unreachable | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 
 ## Details
 
@@ -97,7 +97,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 ### TurboMIDI (C++)
 
-Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). On 2026-11-04 the repo no longer answered anonymously (git asked for credentials, so private or removed); not chased.
+Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). Since 2026-11-04 the repo no longer answers anonymously (git asks for credentials, so private or removed); still gone on 2026-11-11, so it is no longer polled.
 
 _Sources: GitHub search 2026-11-02, README_
 

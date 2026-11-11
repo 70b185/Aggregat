@@ -4,7 +4,7 @@
 
 For people (and agents) who build mods: toolchains, emulators, firmware unpackers, protocol libraries and research write-ups. Pair this with [hardware/](../hardware/README.md), which collects the rules and device facts.
 
-Data last verified: 2026-11-08. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
+Data last verified: 2026-11-11. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
 
 
 The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds), [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians). Hardware knowledge for writing mods: [hardware/](../hardware/README.md).
@@ -58,7 +58,7 @@ The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds),
 | **mdkit** (soejrd) | Machinedrum (incl. UW) | The Machinedrum's EFM, TRX and P-I voice families as standalone C99 for porting, with a web demo. | - | - | [repo](https://github.com/soejrd/mdkit) |
 | **MDS (Machine Dump Standard)** (Justin Mammarella) | Machinedrum (incl. UW) | Machine Dump Standard: spec, example DSP machines and Python packers for custom machines in the USR slots of MDX 2.0. | - | main @ c446179 (2026-10-09) | [repo](https://github.com/jmamma/MDS) |
 | **ot-tools-io** (jhw) | Octatrack (MKI, MKII) | Rust crate for reading and writing the Octatrack's binary project/bank/marker files; the same author's octapy does it in Python. | - | - | [repo](https://github.com/jhw/ot-tools-io) · [python lib](https://github.com/jhw/octapy) |
-| **TurboMIDI (C++)** (DatanoiseTV) | Machinedrum (incl. UW), Monomachine, Octatrack (MKI, MKII), Analog Rytm (MKI, MKII), Analog Four / Analog Keys | Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). | - | - | [repo](https://github.com/DatanoiseTV/TurboMidi) |
+| **TurboMIDI (C++)** (DatanoiseTV) | Machinedrum (incl. UW), Monomachine, Octatrack (MKI, MKII), Analog Rytm (MKI, MKII), Analog Four / Analog Keys | Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). | repo unreachable | - | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 | **rytm-rs / rytm-sys** (alisomay) <br>_builds on libanalogrytm_ | Analog Rytm (MKI, MKII) | Rust abstractions over the Rytm's undocumented SysEx (bindings to a fork of bsp2's libanalogrytm). | - | Analog Rytm firmware 1.70 | [repo](https://github.com/alisomay/rytm-rs) · [sys crate](https://github.com/alisomay/rytm-sys) |
 | **libanalogrytm** (bsp2) | Analog Rytm (MKI, MKII) | C library that decodes and encodes Rytm SysEx (kits, sounds, patterns, settings, projects); no MIDI I/O. Dormant since 2023. | - | master @ a0a19f6 (2023-12-21) | [repo](https://github.com/bsp2/libanalogrytm) |
 

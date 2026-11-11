@@ -26,7 +26,7 @@ projects:
     repo: https://github.com/davidecaldarola1-ship-it/Octacloudz
     status: unverified
     notes: >
-      Repo no longer reachable on 2026-11-08 (check_updates). Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds.
+      The repo exists but has no commits yet (checked 2026-11-11; check_updates reports it as empty). Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds.
       No README yet, so OS, loader, licence and tests are unknown. Found by GitHub search 2026-11-08.
     sources: [GitHub search 2026-11-08]
 

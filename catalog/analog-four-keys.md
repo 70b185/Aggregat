@@ -2,7 +2,7 @@
 
 # Analog Four / Analog Keys
 
-Data last verified: 2026-11-08
+Data last verified: 2026-11-11
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
@@ -16,7 +16,7 @@ Data last verified: 2026-11-08
 | **analoghealth** (Iced-Cream) | mod | - | Rytm MKII 1.74, A4 MKII 1.56 | v1.3 | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
 | **Analog Four / Keys MK1 OS 1.56 mods** (hugz202) | mod | - | Analog Four / Analog Keys MK1, OS 1.56 only (not MKII) | - | 2026-10-28 | [repo](https://github.com/hugz202/AE-analog-four-mods) |
 | **RytmRandomizer** (buzzijose-hub) | tool | - | main @ 892aaff (2026-09-28); Analog Rytm MK2 and Analog Four MK2 | - | 2026-09-28 | [repo](https://github.com/buzzijose-hub/rytmrandomizer) |
-| **TurboMIDI (C++)** (DatanoiseTV) | library | - | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
+| **TurboMIDI (C++)** (DatanoiseTV) | library | repo unreachable | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 | **Analog Four sound SysEx cheatsheet** (kimasendorf) | research | - | - | - | 2020-12-01 | [repo](https://github.com/kimasendorf/elektron-analog-four-sound-sysex) |
 | **Chopshop** (Jesus Triana (bandersong)) | mod | - | 1.73 (Rytm), 1.56 (Keys); not 1.74 | - | - | [repo](https://github.com/bandersong/chopshop) · [homepage](https://chopshop-synth.pages.dev/) |
 
@@ -78,7 +78,7 @@ _Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### TurboMIDI (C++)
 
-Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). On 2026-11-04 the repo no longer answered anonymously (git asked for credentials, so private or removed); not chased.
+Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). Since 2026-11-04 the repo no longer answers anonymously (git asks for credentials, so private or removed); still gone on 2026-11-11, so it is no longer polled.
 
 _Sources: GitHub search 2026-11-02, README_
 

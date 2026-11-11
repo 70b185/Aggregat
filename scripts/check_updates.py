@@ -67,7 +67,9 @@ def load_targets():
 
 def remote_state(repo):
     out = git("ls-remote", "--symref", repo, "HEAD", timeout=60)
-    head = next(l.split()[0] for l in out.splitlines() if l.endswith("\tHEAD") and not l.startswith("ref:"))
+    head = next((l.split()[0] for l in out.splitlines() if l.endswith("\tHEAD") and not l.startswith("ref:")), None)
+    if head is None:  # ls-remote succeeded but listed no HEAD: the repo exists and has no commits yet
+        raise RuntimeError("repo is empty (no commits yet)")
     tags = sorted({l.split("\t")[1][len("refs/tags/"):].removesuffix("^{}")
                    for l in git("ls-remote", "--tags", repo, timeout=60).splitlines() if "\trefs/tags/" in l})
     return head, tags

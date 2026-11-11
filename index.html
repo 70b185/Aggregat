@@ -244,6 +244,7 @@
   .pj-kv dt { color:var(--mute); font-family:var(--font); font-size:var(--fs-s); } .pj-kv dd { margin:0; overflow-wrap:anywhere; }
   .md-perma { margin-left:auto; text-decoration:none; color:var(--mute); font-family:var(--font); font-size:var(--fs-s); } .md-perma + .md-date { margin-left:8px; }
   footer .love { color:var(--accent); }
+  .md-quiet { margin:8px 0 0; } .md-quiet a { color:var(--mute); }
   /* two-level navigation: five sections, views inside a section */
   .h1-sub { font-weight:400; color:var(--mute); font-size:15px; letter-spacing:0; }
   nav#tabs button { font-size:13.5px; padding:8px 14px; }
@@ -352,7 +353,8 @@ const VIEWS = {
   },
   mods: {
     custom: true, rows: () => D.projects, dev: p => p.devices, hay: () => "",
-    draw: (words, dev) => AggMods.draw($("out"), D, {words, dev, devs: dev, devOk, devName, rerender: () => render()}),
+    draw: (words, dev) => AggMods.draw($("out"), D, {words, dev, devs: dev, devOk, devName, rerender: () => render(),
+      clearDevices: () => { DEVS = []; render(); }}),
     count: () => ""
   },
   community: {
@@ -465,6 +467,7 @@ function url() {
   const q = new URLSearchParams();
   if (tab === "project") q.set("p", projId); else q.set("t", tab);
   if ($("q").value) q.set("q", $("q").value); if (DEVS.length && tab !== "project") q.set("d", DEVS.join(","));
+  if (tab === "mods") Object.entries(AggMods.getState()).forEach(([k, v]) => { if (v) q.set(k, v); });
   history.replaceState(null, "", "?" + q);
 }
 const COUNT = k => k === "facts" ? D.meta.counts.facts : (D[k] || []).length;
@@ -522,7 +525,8 @@ const DEV_SHORT = n => n.replace(/ \(.*?\)/g, "").replace("Digitone / Digitone K
 function devCounts() {
   // the number on each device button: mods on the Mods tab, otherwise the rows of the open tab
   const v = VIEWS[tab];
-  const rows = tab === "mods" ? AggMods.catalogue(D, AggMods.showsHidden()) : v.dev ? v.rows() : [];
+  const words = $("q").value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const rows = tab === "mods" ? AggMods.filtered(D, words) : v.dev ? v.rows() : [];
   const n = s => rows.filter(r => !s || list(v.dev(r)).includes(s)).length;
   $("devbar").style.display = v.dev ? "" : "none";
   $("devbar").querySelectorAll("button").forEach(b => { b.querySelector(".dv-c").textContent = n(b.dataset.v); b.classList.toggle("on", b.dataset.v ? DEVS.includes(b.dataset.v) : !DEVS.length); });
@@ -539,6 +543,7 @@ function init() {
   const p = new URLSearchParams(location.search);
   if (VIEWS[p.get("t")] && p.get("t") !== "project") tab = p.get("t");
   if (p.get("p")) { tab = "project"; projId = p.get("p"); }
+  AggMods.setState({via: p.get("via"), sort: p.get("sort"), all: p.get("all")});
   D.projects.forEach(x => projIds.add(x.id));
   $("q").value = p.get("q") || "";
   $("tabs").innerHTML = NAV.map(n => `<button data-s="${n.k}">${esc(n.l)}</button>`).join("");

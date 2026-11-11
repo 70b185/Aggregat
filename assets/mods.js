@@ -53,14 +53,35 @@
     return withHidden ? all : all.filter(p => !HIDDEN.includes(p.status));
   }
 
+  // mod id -> [loader ids it installs through]
+  function hostsOf(D) {
+    const hosts = {};
+    D.relations.forEach(r => { if (r.type === "mod_for") (hosts[r.project] = hosts[r.project] || []).push(r.target); });
+    ownMods(D).forEach(m => { hosts[m.id] = [m.platform]; });
+    return hosts;
+  }
+  // every filter of the mods view except the device: the device bar counts from this, so its numbers follow the
+  // search, the chosen platform and the "unreachable too" box
+  // how a mod is installed, as shown on its card
+  function viaOf(D) {
+    const byId = Object.fromEntries(D.projects.concat(ownMods(D)).map(p => [p.id, p])), hosts = hostsOf(D);
+    return p => p.install || (hosts[p.id] || []).map(h => byId[h] ? byId[h].name.replace(/\s*\(.*\)$/, "") : h).join(", ")
+      || (["firmware", "loader"].includes(p.kind) || p.links && p.links !== "{}" ? "own patcher" : "see repo");
+  }
+  function filtered(D, words) {
+    const hosts = hostsOf(D), via = viaOf(D);
+    let rows = catalogue(D, S.all);
+    if (words.length) rows = rows.filter(p => words.every(w => [p.id, p.name, p.author, p.notes, p.contains, p.base_os, p.version, via(p)]
+      .join(" ").toLowerCase().includes(w)));
+    if (S.via) rows = rows.filter(p => (hosts[p.id] || []).includes(S.via));
+    return rows;
+  }
+
   function draw(root, D, ctx) {
     const extra = ownMods(D);
     const byId = Object.fromEntries(D.projects.concat(extra).map(p => [p.id, p]));
-    const hosts = {};  // mod id -> [loader ids]
-    D.relations.forEach(r => { if (r.type === "mod_for") (hosts[r.project] = hosts[r.project] || []).push(r.target); });
-    extra.forEach(m => { hosts[m.id] = [m.platform]; });
-    const via = p => p.install || (hosts[p.id] || []).map(h => byId[h] ? byId[h].name.replace(/\s*\(.*\)$/, "") : h).join(", ")
-      || (["firmware", "loader"].includes(p.kind) || p.links && p.links !== "{}" ? "own patcher" : "see repo");
+    const hosts = hostsOf(D);
+    const via = viaOf(D);
     const checked = D.meta.checked, cutNew = [new Date(Date.parse(checked) - 7 * DAY).toISOString().slice(0, 10), "2026-11-03"].sort().pop();  // BULK_UNTIL in build.py
 
     const all = D.projects.filter(isMod).concat(extra);
@@ -69,13 +90,8 @@
     let mods = catalogue(D, true);
     const nHidden = mods.length - catalogue(D, false).length;
     const words = ctx.words || [];
-    // device and search filter first: the counts on the chips follow them
-    let base = mods.filter(p => ctx.devOk(list(p.devices)));
-    if (!S.all) base = base.filter(p => !HIDDEN.includes(p.status));
-    if (words.length) base = base.filter(p => words.every(w => [p.id, p.name, p.author, p.notes, p.contains, p.base_os, p.version, via(p)]
-      .join(" ").toLowerCase().includes(w)));
-    if (S.via) base = base.filter(p => (hosts[p.id] || []).includes(S.via));
-    let rows = base;
+    if (S.via && !byId[S.via]) S.via = "";            // a link with a platform that is no longer listed
+    let rows = filtered(D, words).filter(p => ctx.devOk(list(p.devices)));
     const SORT = {
       updated: (a, b) => updated(b).localeCompare(updated(a)),
       found: (a, b) => found(b).localeCompare(found(a)),
@@ -85,9 +101,16 @@
     const nNew = catalogue(D, false).filter(p => found(p) > cutNew).length;
     const total = catalogue(D, S.all).length;
 
-    const loaderCount = id => mods.filter(p => (hosts[p.id] || []).includes(id)).length;
-    const ls = loaders.filter(l => ctx.devOk(list(l.devices)))
+    const loaderCount = id => catalogue(D, S.all).filter(p => (hosts[p.id] || []).includes(id)).length;
+    // the picker lists platforms with catalogued mods for the chosen devices; the chosen one always stays visible,
+    // so a device filter can never hide the way back. Platforms whose mods are not catalogued one by one get a line.
+    const ls = loaders.filter(l => l.id === S.via || (loaderCount(l.id) && ctx.devOk(list(l.devices))))
       .sort((a, b) => loaderCount(b.id) - loaderCount(a.id) || a.name.localeCompare(b.name));
+    const quiet = loaders.filter(l => !loaderCount(l.id) && l.id !== S.via && ctx.devOk(list(l.devices)));
+    const devSummary = l => { const ds = list(l.devices).map(d => (ctx.devName[d] || d).replace(/ \(.*\)$/, ""));
+      return ds.length > 2 ? `${ds.length} devices` : ds.join(", "); };
+    const shownDate = p => S.sort === "found" ? found(p) : updated(p);
+    const dateTitle = S.sort === "found" ? "added to Aggregat" : "last update (release, forum post or push)";
 
     const devs = p => list(p.devices).map(d => `<span class="md-tag" style="--dc:var(--c-${esc(d)})">${esc((ctx.devName[d] || d).replace(/ \(.*\)$/, ""))}</span>`).join("");
     const card = p => {
@@ -96,7 +119,7 @@
       const os = p.base_os ? short(p.base_os, 70) : "";
       return `<article style="--dc:var(--c-${esc(list(p.devices)[0] || "")})" class="md-card md-k-${esc(p.kind)}${["unreachable", "unverified"].includes(p.status) ? " md-dim" : ""}">
         <div class="md-top"><span class="md-kind">${esc(p.kind === "firmware" ? "custom OS" : p.kind)}</span>${isNew ? `<span class="md-new">new</span>` : ""}${p.status === "unverified" ? `<span class="md-st">unverified lead</span>` : st}
-          <a class="md-perma" href="?p=${esc(p.platform || p.id)}" title="Page of this entry, with a link you can share">details</a><span class="md-date">${esc(updated(p) || "")}</span></div>
+          <a class="md-perma" href="?p=${esc(p.platform || p.id)}" title="Page of this entry, with a link you can share">details</a><span class="md-date" title="${dateTitle}">${esc(shownDate(p) || "")}</span></div>
         <h3>${p.repo ? `<a href="${esc(p.repo)}">${esc(p.name)}</a>` : esc(p.name)}</h3>
         <div class="md-by">${esc(short(p.author, 60))}</div>
         <p>${esc(short(p.notes, 190))}</p>
@@ -111,7 +134,7 @@
         Mods are unofficial: <a href="https://github.com/70b185/aggregat/blob/master/hardware/common/recovery.md">read the recovery notes</a> before you flash anything.</p>
       <div class="md-ctl">
         <select id="md-sort" aria-label="Sort">
-          ${[["updated", "Recently updated"], ["found", "Newest first"], ["name", "Name"]]
+          ${[["updated", "Recently updated"], ["found", "Newest in Aggregat"], ["name", "Name"]]
             .map(([k, l]) => `<option value="${k}"${S.sort === k ? " selected" : ""}>${l}</option>`).join("")}
         </select>
         <label class="md-chk"><input type="checkbox" id="md-all"${S.all ? " checked" : ""}> unreachable and unverified too</label>
@@ -119,17 +142,26 @@
       <h2 class="md-h">Loaders and platforms <span>pick one to see its mods</span></h2>
       <div class="md-loaders">
         ${ls.map(l => `<button class="md-ld${S.via === l.id ? " on" : ""}" data-v="${esc(l.id)}" title="${esc(short(l.notes, 220))}">
-          <b>${esc(short(l.name, 48))}</b><span>${loaderCount(l.id) || "–"} ${loaderCount(l.id) === 1 ? "mod" : "mods"} · ${esc(list(l.devices).map(d => (ctx.devName[d] || d).replace(/ \(.*\)$/, "")).join(", "))}</span></button>`).join("")}
+          <b>${esc(short(l.name, 48))}</b><span>${loaderCount(l.id)} ${loaderCount(l.id) === 1 ? "mod" : "mods"} · ${esc(devSummary(l))}</span></button>`).join("")}
       </div>
+      ${quiet.length ? `<p class="md-note md-quiet">Also: ${quiet.map(l => `<a href="?p=${esc(l.id)}">${esc(short(l.name, 40))}</a>`).join(", ")}
+        (their mods are not catalogued one by one; see each page)</p>` : ""}
       <h2 class="md-h">${S.via ? `Mods for ${esc(byId[S.via].name)} <button class="md-x" id="md-clear">show all</button>` : "Mods"} <span>${rows.length} shown</span></h2>
-      <div class="md-grid">${rows.map(card).join("") || `<div class="empty">Nothing matches.</div>`}</div>`;
+      <div class="md-grid">${rows.map(card).join("") || `<div class="empty">${S.via && ctx.devs.length
+        ? `${esc(byId[S.via].name)} has no catalogued mods for the chosen device. <button class="md-x" id="md-clear2">show all of its mods</button>`
+        : "Nothing matches."}</div>`}</div>`;
 
     const c = document.getElementById("count"); if (c) c.textContent = rows.length === total ? `${total} mods` : `${rows.length} of ${total} mods`;
     const redraw = () => draw(root, D, ctx);
-    root.querySelector("#md-sort").onchange = e => { S.sort = e.target.value; redraw(); };
+    root.querySelector("#md-sort").onchange = e => { S.sort = e.target.value; (ctx.rerender || redraw)(); };
     root.querySelector("#md-all").onchange = e => { S.all = e.target.checked; (ctx.rerender || redraw)(); };   // the device bar counts follow
-    root.querySelector(".md-loaders").onclick = e => { const b = e.target.closest("button"); if (!b) return; S.via = S.via === b.dataset.v ? "" : b.dataset.v; redraw(); };
-    const x = root.querySelector("#md-clear"); if (x) x.onclick = () => { S.via = ""; redraw(); };
+    root.querySelector(".md-loaders").onclick = e => { const b = e.target.closest("button"); if (!b) return;
+      S.via = S.via === b.dataset.v ? "" : b.dataset.v; (ctx.rerender || redraw)(); };
+    const x = root.querySelector("#md-clear"); if (x) x.onclick = () => { S.via = ""; (ctx.rerender || redraw)(); };
+    const x2 = root.querySelector("#md-clear2"); if (x2) x2.onclick = () => (ctx.clearDevices || redraw)();
   }
-  window.AggMods = {draw, ownMods, catalogue, showsHidden: () => S.all};
+  // state for the page address (?via=, ?sort=, ?all=1), so a filtered view can be shared
+  const getState = () => ({via: S.via, sort: S.sort === "updated" ? "" : S.sort, all: S.all ? "1" : ""});
+  const setState = st => { if (st.via) S.via = st.via; if (["found", "name"].includes(st.sort)) S.sort = st.sort; if (st.all === "1") S.all = true; };
+  window.AggMods = {draw, ownMods, catalogue, showsHidden: () => S.all, filtered, getState, setState};
 })();

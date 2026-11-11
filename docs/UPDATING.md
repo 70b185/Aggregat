@@ -2,6 +2,17 @@
 
 Goal: find out **what changed** without reading every repo again. Most runs should end with "Nothing to do".
 
+## Scope (what goes into the catalogue)
+
+- **Phase 1, in depth:** Digitakt MKI/II, Digitone MKI/Keys/II, Syntakt, Analog Heat MKI/MKII/+FX: catalogue plus the
+  knowledge base in [`hardware/`](../hardware/).
+- **Phase 2, catalogue:** Octatrack, Analog Rytm, Analog Four/Keys, Model:Cycles/Samples, Machinedrum, Monomachine,
+  with device profiles in `hardware/devices/` where projects have published research.
+- **Every Elektron device that custom firmware or mods are written for belongs in the catalogue.** A device gets an
+  entry in [`data/devices.yml`](../data/devices.yml) as soon as the first such project appears, and a loader lists every
+  device it supports. Tonverk is not listed yet: so far there are research notes and requests, no mod.
+- Not covered: other brands ([`BACKLOG.md`](BACKLOG.md)).
+
 ## How it works
 - `scripts/check_updates.py` keeps one compact fingerprint per watched repo in `state/fingerprints.json`:
   default-branch HEAD, tag set, and the blob hashes of the *watched* files (README and other `*.md`, `mod.json`, `*.toml`, licences; per-project overrides in `data/watch.yml`).

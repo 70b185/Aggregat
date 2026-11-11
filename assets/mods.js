@@ -48,6 +48,7 @@
   // The one list of mods every view counts from (mods tab, device bar): catalogue mods plus one card per
   // platform's own mods, without loaders; unreachable repos and unverified leads only when asked for.
   const HIDDEN = ["unreachable", "unverified", "request"];
+  const SHOWN_STATUS = {unreachable: "repo unreachable", archived: "repo archived", unverified: "unverified lead", request: "request"};
   function catalogue(D, withHidden) {
     const all = D.projects.filter(isMod).concat(ownMods(D)).filter(p => !isLoader(p) && !own(p).length);
     return withHidden ? all : all.filter(p => !HIDDEN.includes(p.status));
@@ -66,7 +67,7 @@
   function viaOf(D) {
     const byId = Object.fromEntries(D.projects.concat(ownMods(D)).map(p => [p.id, p])), hosts = hostsOf(D);
     return p => p.install || (hosts[p.id] || []).map(h => byId[h] ? byId[h].name.replace(/\s*\(.*\)$/, "") : h).join(", ")
-      || (["firmware", "loader"].includes(p.kind) || p.links && p.links !== "{}" ? "own patcher" : "see repo");
+      || (p.kind === "loader" || p.links && p.links !== "{}" ? "own patcher" : "see repo");
   }
   function filtered(D, words) {
     const hosts = hostsOf(D), via = viaOf(D);
@@ -115,10 +116,11 @@
     const devs = p => list(p.devices).map(d => `<span class="md-tag" style="--dc:var(--c-${esc(d)})">${esc((ctx.devName[d] || d).replace(/ \(.*\)$/, ""))}</span>`).join("");
     const card = p => {
       const isNew = p.status !== "unverified" && found(p) > cutNew;
-      const st = ["active", "unverified"].includes(p.status) ? "" : `<span class="md-st">${esc(p.status)}</span>`;
+      // maturity words (wip, beta, stable...) are the authors' own and not checkable: only checkable facts are shown
+      const st = SHOWN_STATUS[p.status] && p.status !== "unverified" ? `<span class="md-st">${SHOWN_STATUS[p.status]}</span>` : "";
       const os = p.base_os ? short(p.base_os, 70) : "";
       return `<article style="--dc:var(--c-${esc(list(p.devices)[0] || "")})" class="md-card md-k-${esc(p.kind)}${["unreachable", "unverified"].includes(p.status) ? " md-dim" : ""}">
-        <div class="md-top"><span class="md-kind">${esc(p.kind === "firmware" ? "custom OS" : p.kind)}</span>${isNew ? `<span class="md-new">new</span>` : ""}${p.status === "unverified" ? `<span class="md-st">unverified lead</span>` : st}
+        <div class="md-top">${p.contains || p.platform ? `<span class="md-kind" title="One entry with several mods inside">collection</span>` : ""}${isNew ? `<span class="md-new">new</span>` : ""}${p.status === "unverified" ? `<span class="md-st">unverified lead</span>` : st}
           <a class="md-perma" href="?p=${esc(p.platform || p.id)}" title="Page of this entry, with a link you can share">details</a><span class="md-date" title="${dateTitle}">${esc(shownDate(p) || "")}</span></div>
         <h3>${p.repo ? `<a href="${esc(p.repo)}">${esc(p.name)}</a>` : esc(p.name)}</h3>
         <div class="md-by">${esc(short(p.author, 60))}</div>
@@ -130,7 +132,7 @@
     };
 
     root.innerHTML = `
-      <p class="md-lead">${total} mods and custom OS builds, ${nNew} new in the last 7 days${S.all ? "" : nHidden ? ` (${nHidden} more are unreachable or not yet checked by us; tick the box below to see them)` : ""}.
+      <p class="md-lead">${total} mods, ${nNew} new in the last 7 days${S.all ? "" : nHidden ? ` (${nHidden} more are unreachable or not yet checked by us; tick the box below to see them)` : ""}.
         Mods are unofficial: <a href="https://github.com/70b185/aggregat/blob/master/hardware/common/recovery.md">read the recovery notes</a> before you flash anything.</p>
       <div class="md-ctl">
         <select id="md-sort" aria-label="Sort">

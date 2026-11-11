@@ -93,7 +93,7 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **Monomodule** (emulator, active, tested: not stated, base OS Monomachine OS 1.32B (supplied by you)) https://github.com/shnolk/monomodule
 - **Monomodule for Schwung** (emulator, active, tested: not stated) https://github.com/legsmechanical/schwung-monomodule
 - **OP-XY MNMD** (emulator, active, tested: not stated) https://github.com/mmockett/OP-XY-MNMD
-- **ems-monomachine-firmware** (firmware, active, tested: not-stated, base OS 1.32B) https://github.com/emuyia/ems-monomachine-firmware
+- **ems-monomachine-firmware** (mod, active, tested: not-stated, base OS 1.32B) https://github.com/emuyia/ems-monomachine-firmware
 
 ## Fact files for this device
 

@@ -51,13 +51,21 @@ def row(p):
     return " · ".join(parts) or "-"
 
 
+# Maturity words (wip, beta, stable, released, ...) are the authors' own and say little that anyone can check, so the
+# lists do not show them. Only what can be checked is shown: the repo is gone or archived, or we have not verified the
+# entry yet. data/projects.yml keeps the authors' word in `status`.
+def shown_status(p):
+    return {"unreachable": "repo unreachable", "archived": "repo archived", "unverified": "unverified entry",
+            "request": "request, no project yet"}.get(p["status"], "")
+
+
 def table(rows):
-    out = ["| Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |", "|---|---|---|---|---|---|---|"]
+    out = ["| Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |", "|---|---|---|---|---|---|---|"]
     for p in sorted(rows, key=lambda x: str(x.get("last_activity") or ""), reverse=True):
         ver = "; ".join(x for x in (p.get("version"), p.get("base_os")) if x) or "-"
         ver = str(ver).replace("|", "/")
         out.append(
-            f"| **{p['name']}** ({p.get('author', '?')}) | {p['kind']} | {p['status']} | {ver} | "
+            f"| **{p['name']}** ({p.get('author', '?')}) | {p['kind']} | {shown_status(p) or '-'} | {ver} | "
             f"{latest_tag(p['id'])} | {p.get('last_activity') or '-'} | {row(p)} |"
         )
     return "\n".join(out)
@@ -103,7 +111,7 @@ import re
 
 # ---------------------------------------------------------------- the three topic lists
 # Which list an entry goes to: an explicit `list:` field wins, otherwise its kind decides.
-KIND_LIST = {"mod": "mods", "firmware": "mods", "loader": "mods",
+KIND_LIST = {"mod": "mods", "loader": "mods",
              "emulator": "dev", "research": "dev", "library": "dev", "agent-skill": "dev", "tool": "dev",
              "editor": "musician"}
 dev_names = {d["slug"]: d["name"] for d in devices}
@@ -129,7 +137,7 @@ REL_SHORT = {"fork_of": "fork of", "copy_of": "copy of", "port_of": "port of", "
 
 
 def lrow(p, show_kind=False):
-    st = "unverified entry" if p["status"] == "unverified" else p["status"]
+    st = shown_status(p) or "-"
     ver = str(p.get("version") or p.get("base_os") or "-").replace("|", "/")
     ver = ver if len(ver) <= 60 else ver[:59].rsplit(" ", 1)[0] + " …"
     kind = f"{p['kind']} | " if show_kind else ""
@@ -139,10 +147,10 @@ def lrow(p, show_kind=False):
 
 
 HEAD = ("Data last verified: {c}. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). "
-        "Status words are the authors' own; newest activity first in each table. Device pages with full notes: "
+        "Newest activity first in each table; \"Note\" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: "
         "[INDEX.md](INDEX.md).\n")
 other = ("\nThe other lists: {o}. Hardware knowledge for writing mods: [hardware/](hardware/README.md).\n")
-names = {"mods": "[MODS.md](MODS.md) (mods and custom firmware)", "dev": "[DEV-TOOLS.md](DEV-TOOLS.md) (development tools)",
+names = {"mods": "[MODS.md](MODS.md) (mods, including complete custom OS builds)", "dev": "[DEV-TOOLS.md](DEV-TOOLS.md) (development tools)",
          "musician": "[MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians)"}
 bylist = {k: [p for p in projects if which_list(p) == k or k in (p.get("also_lists") or [])] for k in names}
 by_act = lambda rows: sorted(rows, key=lambda x: str(x.get("last_activity") or ""), reverse=True)
@@ -217,7 +225,7 @@ def via(p):
     hosts = [x["id"] for x in p.get("relations") or [] if x["type"] == "mod_for"]
     if hosts:
         return ", ".join(_pid[h]["name"] if h in _pid else h for h in hosts)
-    if p["kind"] in ("firmware", "loader") or p.get("links"):
+    if p["kind"] == "loader" or p.get("links"):
         return "own patcher / builder"
     return "see repo"
 
@@ -235,7 +243,7 @@ def links2(p):
 
 
 def mrow(p, show_dev=False):
-    st = "" if p["status"] in ("active", "unverified", "unreachable") else f" <br>_{p['status']}_"
+    st = f" <br>_{shown_status(p)}_" if shown_status(p) and p["status"] not in ("unverified", "unreachable") else ""
     dv = f" | {devs(p)}" if show_dev else ""
     return (f"| **{cut(p['name'], 90)}** <br>{cut(p.get('author', '?'), 40)}{st}{dv} | {short(p, 150)} | {via(p)} | "
             f"{cut(p.get('base_os'), 45)} | {tested(p)} | {updated(p)} | {links2(p)} |")
@@ -255,7 +263,7 @@ cut_new = max(str(_dt.date.fromisoformat(str(checked)) - _dt.timedelta(days=7)),
 new = [p for p in real if p["status"] != "unverified" and found(p) > cut_new]
 cnt = {p["id"]: sum(1 for q in real if any(x["type"] == "mod_for" and x["id"] == p["id"] for x in q.get("relations") or []))
        for p in inst}
-mods = [GEN, "# Mods and custom firmware\n",
+mods = [GEN, "# Mods\n",
         "What you can put on an Elektron device today: mods, custom OS builds, and the loaders and patchers that build "
         "them from **your own** stock OS file. Nothing here is hosted by Aggregat; every link goes to the author.\n",
         "> **Before you flash anything:** read [hardware/common/recovery.md](hardware/common/recovery.md) and make sure "
@@ -286,10 +294,10 @@ else:
     mods.append("Nothing new.")
 mods.append("\n## Loaders and platforms\n\nThese do not change the sound themselves: they take your stock OS file "
             "and the mods you pick and build the custom OS on your computer or in the browser.\n")
-mods.append("| Loader / platform | Devices | How it works | Mods listed here | Status | Tested | Updated | Links |\n"
+mods.append("| Loader / platform | Devices | How it works | Mods listed here | Note | Tested | Updated | Links |\n"
             "|---|---|---|---|---|---|---|---|")
 mods += [f"| **{cut(p['name'], 90)}** <br>{cut(p.get('author', '?'), 40)} | {devs(p)} | {short(p, 150)} | {cnt[p['id']] or '-'} | "
-         f"{p['status']} | {tested(p)} | {updated(p)} | {links2(p)} |"
+         f"{shown_status(p) or '-'} | {tested(p)} | {updated(p)} | {links2(p)} |"
          for p in sorted(inst, key=lambda q: (-cnt[q["id"]], q["name"].lower()))]
 mods.append("\n## What is inside the collections\n\nSome entries bundle many mods or modules. These are the "
             "names their repos list; each collection still appears once in its device sections.\n")
@@ -326,7 +334,7 @@ for title, kinds in SECT:
     rows = [p for p in bylist["dev"] if p["kind"] in kinds]
     if rows:
         dev.append(f"\n## {title}\n")
-        dev.append("| Project | Devices | What it is | Status | Version / OS | Links |\n|---|---|---|---|---|---|")
+        dev.append("| Project | Devices | What it is | Note | Version / OS | Links |\n|---|---|---|---|---|---|")
         dev += [lrow(p) for p in by_act(rows)]
 write_catalog("DEV-TOOLS.md", "\n".join(dev) + "\n")
 
@@ -335,7 +343,7 @@ mus = [GEN, "# Tools for musicians\n",
        "Software for using and managing the devices - editors, sample and project managers, Overbridge audio, screen "
        "mirrors, control from a computer or an AI agent. **None of these change the firmware.**\n",
        HEAD.format(c=checked), other.format(o=", ".join(v for k, v in names.items() if k != "musician")),
-       "\n| Project | Kind | Devices | What it is | Status | Version / OS | Links |\n|---|---|---|---|---|---|---|"]
+       "\n| Project | Kind | Devices | What it is | Note | Version / OS | Links |\n|---|---|---|---|---|---|---|"]
 mus += [lrow(p, True) for p in by_act(bylist["musician"])]
 write_catalog("MUSICIAN-TOOLS.md", "\n".join(mus) + "\n")
 print("lists:", {k: len(v) for k, v in bylist.items()},

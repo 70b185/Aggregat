@@ -50,6 +50,13 @@
     <category term="update"/>
   </entry>
   <entry>
+    <title>Remove the mod finder</title>
+    <link href="https://github.com/70b185/Aggregat/commit/175f0dec77eeb92b2b2d7af4e64aec4c5252df24"/>
+    <id>https://70b185.github.io/Aggregat/#commit-175f0dec77ee</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>Website: mod finder, New tab + feed, Test your unit, address explorer, project pages, lazy data, one set of design tokens</title>
     <link href="https://github.com/70b185/Aggregat/commit/0b5adcd4097701d7ea19e4554678471371a0ba61"/>
     <id>https://70b185.github.io/Aggregat/#commit-0b5adcd40977</id>
@@ -399,7 +406,7 @@
     <summary>Three generative sequencers on the synth tracks: a Euclidean rhythm, a Turing Machine and a TB-303-style acid line, played from the encoders; YES writes what you hear into the pattern as ordinary trigs. The author tested it for about an hour on one Digitone mk1 (OS 1.44). Found …</summary>
   </entry>
   <entry>
-    <title>New in the catalogue: Model:Samples battery base (Research, Model:Samples)</title>
+    <title>New in the catalogue: Model:Samples battery base (Mod, Model:Samples)</title>
     <link href="https://70b185.github.io/Aggregat/?p=model-samples-battery-base"/>
     <id>https://70b185.github.io/Aggregat/#project-model-samples-battery-base</id>
     <updated>2026-11-07T00:00:00Z</updated>
@@ -438,7 +445,7 @@
     <summary>A Hermes Agent plugin that jams on a Digitakt II over USB MIDI: starts patterns by genre or mood, changes sounds live by CC/NRPN, mutes tracks (optionally the unit's own mute, CC 94); nothing is saved to the unit. Falls back to a virtual MIDI port without hardware. Found by …</summary>
   </entry>
   <entry>
-    <title>New in the catalogue: Modded Cycles Techno Edition (Custom firmware, Model:Cycles)</title>
+    <title>New in the catalogue: Modded Cycles Techno Edition (Mod, Model:Cycles)</title>
     <link href="https://70b185.github.io/Aggregat/?p=modded-cycles-techno"/>
     <id>https://70b185.github.io/Aggregat/#project-modded-cycles-techno</id>
     <updated>2026-11-06T00:00:00Z</updated>
@@ -452,13 +459,5 @@
     <updated>2026-11-06T00:00:00Z</updated>
     <category term="project"/>
     <summary>LED theme editor and standby light show: six themes plus CUSTOM, eleven colour families with RGB 0-31, trig-key previews, COMET / RAINBOW / BREATHE idle animations, settings restored at start-up. Tested only in digiemu (README: not on a physical Digitakt). Found by GitHub …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: digimod (Digitakt II mod builder) (Loader, Digitakt II)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=digimod"/>
-    <id>https://70b185.github.io/Aggregat/#project-digimod</id>
-    <updated>2026-11-06T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>A local web service (Docker, or native on macOS) that packs a Digitakt II .syx from ticked mods, checks it before download and, on a Mac, boots it in a built-in DT2 emulator. Mods: Polyphony (VOICES 1-8 per track, borrowing idle tracks' channels), Plaits (25 models and four DX7 …</summary>
   </entry>
 </feed>

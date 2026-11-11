@@ -9,7 +9,7 @@
 Checks
   - data/projects.yml and data/candidates.yml against data/projects.schema.json
   - ids unique across both files; every device slug is in data/devices.yml; every relation target exists
-  - mods, firmware and loaders in projects.yml say what was tested (`tested`)
+  - mods and loaders in projects.yml say what was tested (`tested`)
   - every {source-key} cited in hardware/ resolves in hardware/SOURCES.md
   - every rule an incident names exists in hardware/AGENT-RULES.md; incident and stock-bug ids are unique
   - no firmware-like binaries are tracked (the repository holds metadata only)
@@ -127,7 +127,7 @@ def main(sync=False):
                 err(f"{rel} [{p['id']}]: relation to itself")
         if not p.get("devices"):
             warn(f"{rel} [{p['id']}]: no devices; it will not show under any device filter")
-        if rel == "data/projects.yml" and p["kind"] in ("mod", "firmware", "loader") and not p.get("tested") and not p.get("own_mods"):
+        if rel == "data/projects.yml" and p["kind"] in ("mod", "loader") and not p.get("tested") and not p.get("own_mods"):
             err(f"{rel} [{p['id']}]: a {p['kind']} needs `tested` (unit | partly | emulator | not-stated)")
         if p.get("status") == "unverified" and rel == "data/projects.yml":
             err(f"{rel} [{p['id']}]: status unverified belongs in data/candidates.yml")

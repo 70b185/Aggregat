@@ -123,8 +123,6 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 
 - **octa-panel** (emulator, active, tested: not stated, base OS 1.40C) https://github.com/timhastie/octa-panel
 - **octemu** (emulator, active, tested: not stated, base OS 1.40C) https://github.com/markandrus/octemu
-- **octabam** (firmware, active, tested: partly, base OS 1.40C) https://github.com/sambanks/octabam
-- **OT Kyoti FW** (firmware, active, tested: unit, base OS 1.40C) https://github.com/Zac-Kyoti/octatrack-kyoti-fw
 - **elekloader** (loader, active, tested: unit, base OS Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed) https://github.com/elekloader/elekloader
 - **Modwerk (formerly Octamod)** (loader, active, tested: partly, base OS Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing) https://github.com/repeat98/modwerk
 - **aCiDtRacK modules** (mod, wip, tested: unit, base OS Octatrack MKI OS 1.40C via octabam) https://github.com/braikomarko-hub/acidtrack-modules
@@ -132,12 +130,14 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **midisc** (mod, active, tested: not-stated, base OS 1.40C) https://github.com/bkkbrls-del/midisc
 - **midisc (1.40MSC)** (mod, wip, tested: not-stated, base OS Octatrack MK1/MK2 OS 1.40C) https://github.com/sambanks/midisc
 - **octa-bt-pt** (mod, active, tested: unit, base OS Octatrack OS 1.40C only (hash-checked)) https://github.com/bryantysinger/octa-bt-pt
+- **octabam** (mod, active, tested: partly, base OS 1.40C) https://github.com/sambanks/octabam
 - **octabam2elemod (octabam modules as elekloader mods)** (mod, active, tested: partly, base OS Octatrack MKI/MKII OS 1.40C) https://github.com/irpina/octabam2elemod
 - **Octacloudz** (mod, unverified, tested: not stated) https://github.com/davidecaldarola1-ship-it/Octacloudz
 - **OCTAMAX** (mod, active, tested: unit, base OS 1.40C) https://github.com/mxldyn/octamax
 - **Octaplay** (mod, active, tested: unit, base OS 1.40C) https://github.com/devilfish707/Octaplay
 - **Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)** (mod, active, tested: not-stated, base OS Octatrack OS 1.40C via octabam) https://github.com/radiohagen/octatrack-modules
 - **Octatrick** (mod, active, tested: unit, base OS 1.40C) https://github.com/timhastie/octatrick
+- **OT Kyoti FW** (mod, active, tested: unit, base OS 1.40C) https://github.com/Zac-Kyoti/octatrack-kyoti-fw
 - **OType** (mod, wip, tested: unit, base OS Octatrack firmware (custom; see docs)) https://github.com/nordseele/otype
 - **PassOS** (mod, active, tested: unit, base OS 1.40C) https://github.com/theremoteviewer/octa-passos
 - **STEP VIEW (Octatrack MIDI step editor)** (mod, wip, tested: partly, base OS Octatrack MKI/MKII OS 1.40C) https://github.com/Slingdinger/octatrack-step-view

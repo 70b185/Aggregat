@@ -367,7 +367,7 @@ const VIEWS = {
       return `<div class="head"><span class="title">${p.repo ? `<a href="${esc(p.repo)}">${esc(p.name)}</a>` : esc(p.name)}</span>
         <a class="meta" href="?p=${esc(p.id)}" title="Page of this entry">details</a>
         <span class="meta">${esc(p.author)}</span> <span class="chip">${esc(p.kind)}</span> <span class="chip">${esc(p.list)}</span>
-        ${p.status ? `<span class="chip">${esc(p.status)}</span>` : ""} ${devChips(p.devices)}</div>
+        ${({unreachable: "repo unreachable", archived: "repo archived", unverified: "unverified", request: "request"})[p.status] ? `<span class="chip">${({unreachable: "repo unreachable", archived: "repo archived", unverified: "unverified", request: "request"})[p.status]}</span>` : ""} ${devChips(p.devices)}</div>
         <div class="meta">${[p.version && "version " + esc(p.version), p.last_activity && "last activity " + esc(p.last_activity), p.base_os && "base OS " + esc(p.base_os)].filter(Boolean).join(" · ")}</div>
         ${p.notes ? `<div class="text">${hl(md(p.notes, "data/projects.yml"), w)}</div>` : ""}
         ${rel ? `<div class="meta">Related: ${rel}</div>` : ""}`;

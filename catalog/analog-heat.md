@@ -6,14 +6,14 @@ Data last verified: 2026-11-08
 
 > No community firmware mod found yet (2026-10-31). Generic tooling covers it: elektron-firmware-tool (firmware container), Elektroid (sample/SysEx manager) and Overwitch (Overbridge audio on Linux) list Analog Heat MKI/MKII/+FX. screendump names it as 'not implemented'. Neither the Lapin list nor altstrument.org has a firmware entry for it. Last official OS we saw on elektron.se: Analog Heat MKI/MKII OS 1.22 (2024-10-16); the +FX has its own OS (release notes last updated 2024-10-16) and MKII firmware is not interchangeable with +FX.
 
-| Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
+| Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **Elek View (screen viewer in the browser)** (BlueSGL) | tool | active | main @ 29fc485 (2026-11-02) | - | 2026-11-02 | [repo](https://github.com/BlueSGL/Elek_View) · [web app](https://bluesgl.github.io/Elek_View/) · [forum](https://elektronmods.com/thread-93-elek-view-see-your-devices-screens-in-a-browser-via-webmidi) |
-| **elektron-firmware-tool** (mischa85) | tool | active | any (generic .syx unpack/repack with checksum verification) | - | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
-| **Elektron Firmware Download List** (elektronmods forum) | resource | unknown | - | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
-| **Elektroid** (dagargo) | tool | active | 3.4 (2026-08-22) | 3.4 | - | [repo](https://github.com/dagargo/elektroid) |
-| **Overwitch** (dagargo) | tool | active | 2.2 (2025-12-21) | 2.2 | - | [repo](https://github.com/dagargo/overwitch) |
-| **Analog Heat FX+ MultiMode (beta 0.1)** (sapfir365karat (elektronmods.com)) | firmware | unverified | - | - | - | [forum](https://elektronmods.com/thread-92-analog-heat-fx-multimode-beta-0-1) |
+| **Elek View (screen viewer in the browser)** (BlueSGL) | tool | - | main @ 29fc485 (2026-11-02) | - | 2026-11-02 | [repo](https://github.com/BlueSGL/Elek_View) · [web app](https://bluesgl.github.io/Elek_View/) · [forum](https://elektronmods.com/thread-93-elek-view-see-your-devices-screens-in-a-browser-via-webmidi) |
+| **elektron-firmware-tool** (mischa85) | tool | - | any (generic .syx unpack/repack with checksum verification) | - | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
+| **Elektron Firmware Download List** (elektronmods forum) | resource | - | - | - | - | [forum](https://elektronmods.com/thread-27-elektron-firmware-download-list) |
+| **Elektroid** (dagargo) | tool | - | 3.4 (2026-08-22) | 3.4 | - | [repo](https://github.com/dagargo/elektroid) |
+| **Overwitch** (dagargo) | tool | - | 2.2 (2025-12-21) | 2.2 | - | [repo](https://github.com/dagargo/overwitch) |
+| **Analog Heat FX+ MultiMode (beta 0.1)** (sapfir365karat (elektronmods.com)) | mod | unverified entry | - | - | - | [forum](https://elektronmods.com/thread-92-analog-heat-fx-multimode-beta-0-1) |
 
 ## Details
 

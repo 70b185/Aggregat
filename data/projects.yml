@@ -4,7 +4,8 @@
 #   id             unique slug
 #   name           project name
 #   author         handle(s) as published
-#   kind           mod | loader | emulator | editor | tool | research | resource | request
+#   kind           mod | loader | emulator | editor | tool | research | resource | request (a custom OS is a mod too:
+#                  since 2026-11-11 there is no separate kind for it, the line between the two was never defined)
 #   devices        list of device slugs (see devices.yml)
 #   repo           primary source repository (null if none known)
 #   links          other URLs: homepage / releases / forum thread
@@ -27,7 +28,7 @@
 #                  A mod that lives in a repo of its own gets an entry with `mod_for` instead.
 #   install        optional: how a user installs it, when no mod_for relation says so
 #   contains       optional: the named mods/modules inside a collection, as its repo lists them (with the date read)
-#   tested         mods, firmware and loaders: what the author (or a report we cite) says about tests -
+#   tested         mods and loaders: what the author (or a report we cite) says about tests -
 #                  unit (ran on a real device) | partly (some builds or parts on a unit, others not) |
 #                  emulator (emulator or host tests only) | not-stated (the sources we read say nothing).
 #                  tested_note: optional one-line detail. This records claims, it is not our own test.
@@ -435,7 +436,7 @@ projects:
   - id: motorcycles
     name: Motor:Cycles (rhythmic-noise firmware)
     author: nzimas
-    kind: firmware
+    kind: mod
     devices: [model-cycles]
     repo: https://github.com/nzimas/motorcycles
     links:
@@ -512,7 +513,7 @@ projects:
   - id: dn2-dt2-firmware-research
     name: DN2 DT2 firmware research
     author: armio
-    kind: firmware
+    kind: mod
     devices: [digitone-2]   # the Digitakt II OS is only a donor file
     repo: https://github.com/armio/dn2-dt2-firmware-research
     links:
@@ -1251,7 +1252,7 @@ projects:
     author: angellinares
     kind: research
     also_lists: [mods]
-    devices: [digitone-2, digitone]
+    devices: [digitone-2]   # the container tools also read DN1 files (see notes), but every mod is for the DN2
     repo: https://github.com/angellinares/dn2_firmware_explore
     license: "AGPL-3.0-or-later"
     status: active
@@ -1259,14 +1260,17 @@ projects:
     tested: partly
     install: "dnfw (CLI or browser)"
     tested_note: "14 of 16 mods confirmed on hardware per README; degreetranspose untested by the owner"
-    base_os: "Digitone II OS 1.11 (mods); README also covers Digitone / Keys"
+    base_os: "Digitone II OS 1.11 (mods)"
     version: "lfo4 1.0.6, waverider 0.5.1, usbprobe 0.1.1 (2026-11-09/10)"
     last_activity: 2026-11-11
     notes: >
       Tools to inspect, modify and rebuild Digitone firmware (dnfw, CLI and browser), plus 17 mods for
       Digitone II 1.11 (Waverider wavetable machine, LFO4, arp modes, LFO waves, FX destinations and others),
       each with a version and a changelog. The ~80% recovery-path stall once listed as open was the MIDI
-      link, not the image (settled 2026-09-11). AGPL-3.0-or-later.
+      link, not the image (settled 2026-09-11). AGPL-3.0-or-later. The container tools also unpack and rebuild
+      Digitone / Digitone Keys (MKI) OS files (tests use DN1 OS 1.42A; its container is unsigned), and its
+      parameter search on DN1 images is "not yet reliable" per the CLI; there are no mods for the MKI (README and
+      source read 2026-11-11).
     latest_seen: >
       altstrument: OS 1.11 target; includes the dnfw inspect/modify/rebuild tool, which also runs in the browser. Hardware-confirmed mods: lfo4, arpmodes, lfowaves, midiarp, layermidi, fxmod and the lfolength fix (2026-10-09, audio track). No GitHub releases - tags are work snapshots.
     sources: [GitHub README, lapin-list]
@@ -2082,7 +2086,7 @@ projects:
   - id: ems-machinedrum-firmware
     name: ems-machinedrum-firmware
     author: June Kiff (emuyia)
-    kind: firmware
+    kind: mod
     devices:
     - machinedrum
     repo: https://github.com/emuyia/ems-machinedrum-firmware
@@ -2266,7 +2270,7 @@ projects:
   - id: mdx
     name: MDX
     author: Justin Mammarella, Yatao Li
-    kind: firmware
+    kind: mod
     devices:
     - machinedrum
     status: active
@@ -2395,7 +2399,7 @@ projects:
   - id: modded-cycles
     name: Modded Cycles
     author: 18nelli18, Modded-Cycles contributors
-    kind: firmware
+    kind: mod
     devices:
     - model-cycles
     - model-samples
@@ -2447,7 +2451,7 @@ projects:
   - id: model27
     name: model27
     author: durchgemacht, 18nelli18
-    kind: firmware
+    kind: mod
     devices:
     - model-cycles
     repo: https://github.com/durchgemacht/model27
@@ -2525,7 +2529,7 @@ projects:
   - id: supermodel-edition
     name: Supermodel Edition
     author: A.V., 18nelli18
-    kind: firmware
+    kind: mod
     devices:
     - model-cycles
     repo: https://github.com/AveyCole/Supermodel
@@ -2612,7 +2616,7 @@ projects:
   - id: ems-monomachine-firmware
     name: ems-monomachine-firmware
     author: June Kiff (emuyia)
-    kind: firmware
+    kind: mod
     devices:
     - monomachine
     repo: https://github.com/emuyia/ems-monomachine-firmware
@@ -2729,7 +2733,7 @@ projects:
   - id: octabam
     name: octabam
     author: Sam Banks, Contributors credited per module
-    kind: firmware
+    kind: mod
     devices:
     - octatrack
     repo: https://github.com/sambanks/octabam
@@ -2815,7 +2819,7 @@ projects:
   - id: octatrack-kyoti-fw
     name: OT Kyoti FW
     author: Zac Kyoti
-    kind: firmware
+    kind: mod
     devices:
     - octatrack
     repo: https://github.com/Zac-Kyoti/octatrack-kyoti-fw
@@ -2919,7 +2923,7 @@ projects:
   - id: vampire-manga-os
     name: Vampire Manga OS
     author: karlalex732-dotcom
-    kind: firmware
+    kind: mod
     devices:
     - digitakt
     - digitone
@@ -3697,7 +3701,7 @@ projects:
   - id: taktone
     name: taktone
     author: water-feature
-    kind: firmware
+    kind: mod
     devices:
     - digitone
     - digitakt
@@ -5157,7 +5161,7 @@ projects:
   - id: modded-cycles-techno
     name: Modded Cycles Techno Edition
     author: mbreilly (m_reilly)
-    kind: firmware
+    kind: mod
     devices: [model-cycles]
     repo: https://github.com/mbreilly/Modded_f-king_cycles
     status: active

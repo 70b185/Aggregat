@@ -6,20 +6,20 @@ Data last verified: 2026-11-08
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
-| Project | Kind | Status | Version / OS | Latest tag (auto) | Last seen | Links |
+| Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **Mono Chorus CLAP** (nerazin) | tool | active | 0.3.0 (2026-11-10) | - | 2026-11-10 | [repo](https://github.com/nerazin/mono-chorus-clap) |
-| **ems-monomachine-firmware** (June Kiff (emuyia)) | firmware | active | 26B09-beta (2026-11-09): ARP p-locks, trig conditions to 8:8 plus PRE/NEI, microtiming, multi-trig edit, page transpose, BBOX sample manager (SDS and a compressed format shared with compatible Machinedrum firmware), DPRO>SBOX machine; 1.32B | 26910-release | 2026-11-09 | [repo](https://github.com/emuyia/ems-monomachine-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
-| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | active | mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-06 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
-| **OP-XY MNMD** (mmockett) | emulator | active | - | v1.3.1 | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
-| **BSP Machinedrum** (ABarracu87) | tool | active | - | v0.3.5 | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
-| **Monomachine Lab** (Jick238) | emulator | wip | Monomachine OS 1.32B (user-supplied) | v0.1.4 | 2026-10-21 | [repo](https://github.com/Jick238/monomachine-lab) |
-| **C7** (sata1000000) | editor | active | - | v0.1.0 | 2026-10-10 | [repo](https://github.com/sata1000000/C7) |
-| **Monomodule for Schwung** (legsmechanical) | emulator | active | - | v0.1.0-test.5 | 2026-09-28 | [repo](https://github.com/legsmechanical/schwung-monomodule) |
-| **Maschine MD-MM** (sid366) | emulator | active | - | v0.1.1-combined.1 | 2026-09-28 | [repo](https://github.com/sid366/maschine-md-mm-combined) |
-| **Monomodule** (shnolk) | emulator | active | 1.0.0 (2026-09-24); Monomachine OS 1.32B (supplied by you) | release | 2026-09-24 | [repo](https://github.com/shnolk/monomodule) |
-| **Gearmulator MD/MM** (Joe Landers) | emulator | active | mdmm-v0.1.0-alpha.14 (2026-09-21); Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-09-21 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
-| **TurboMIDI (C++)** (DatanoiseTV) | library | unknown | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
+| **Mono Chorus CLAP** (nerazin) | tool | - | 0.3.0 (2026-11-10) | - | 2026-11-10 | [repo](https://github.com/nerazin/mono-chorus-clap) |
+| **ems-monomachine-firmware** (June Kiff (emuyia)) | mod | - | 26B09-beta (2026-11-09): ARP p-locks, trig conditions to 8:8 plus PRE/NEI, microtiming, multi-trig edit, page transpose, BBOX sample manager (SDS and a compressed format shared with compatible Machinedrum firmware), DPRO>SBOX machine; 1.32B | 26910-release | 2026-11-09 | [repo](https://github.com/emuyia/ems-monomachine-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
+| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-06 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
+| **OP-XY MNMD** (mmockett) | emulator | - | - | v1.3.1 | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
+| **BSP Machinedrum** (ABarracu87) | tool | - | - | v0.3.5 | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
+| **Monomachine Lab** (Jick238) | emulator | - | Monomachine OS 1.32B (user-supplied) | v0.1.4 | 2026-10-21 | [repo](https://github.com/Jick238/monomachine-lab) |
+| **C7** (sata1000000) | editor | - | - | v0.1.0 | 2026-10-10 | [repo](https://github.com/sata1000000/C7) |
+| **Monomodule for Schwung** (legsmechanical) | emulator | - | - | v0.1.0-test.5 | 2026-09-28 | [repo](https://github.com/legsmechanical/schwung-monomodule) |
+| **Maschine MD-MM** (sid366) | emulator | - | - | v0.1.1-combined.1 | 2026-09-28 | [repo](https://github.com/sid366/maschine-md-mm-combined) |
+| **Monomodule** (shnolk) | emulator | - | 1.0.0 (2026-09-24); Monomachine OS 1.32B (supplied by you) | release | 2026-09-24 | [repo](https://github.com/shnolk/monomodule) |
+| **Gearmulator MD/MM** (Joe Landers) | emulator | - | mdmm-v0.1.0-alpha.14 (2026-09-21); Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-09-21 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
+| **TurboMIDI (C++)** (DatanoiseTV) | library | - | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 
 ## Details
 

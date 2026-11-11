@@ -94,12 +94,12 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **MoDule (MD Drums)** (emulator, active, tested: not stated) https://github.com/c0remusic/MModule
 - **ModuleDrum** (emulator, active, tested: not stated) https://github.com/K-X420/ModuleDrum
 - **OP-XY MNMD** (emulator, active, tested: not stated) https://github.com/mmockett/OP-XY-MNMD
-- **ems-machinedrum-firmware** (firmware, active, tested: not-stated) https://github.com/emuyia/ems-machinedrum-firmware
-- **MDX** (firmware, active, tested: not-stated)
 - **DBX-DR (dark drone for MDX)** (mod, active, tested: unit, base OS Machinedrum MKI/MKII running MDX X.20 (MDS 1.1)) https://github.com/MonCalamari/DBX-DR
 - **DBX-K2 (resonator kick for MDX)** (mod, active, tested: unit, base OS Machinedrum MKI/MKII running MDX X.20) https://github.com/MonCalamari/DBX-K2
+- **ems-machinedrum-firmware** (mod, active, tested: not-stated) https://github.com/emuyia/ems-machinedrum-firmware
 - **Kitbasher** (mod, active, tested: partly, base OS 1.63 / X.14 / 26A09 beta / MDX X.20 B) https://github.com/etcetc000/kitbasher
 - **Machinedrum USR machines (RASP, KOOK, SMSH...)** (mod, active, tested: not-stated, base OS Machinedrum with MDX X.20) https://github.com/SamplesAndSnacks/machinedrum-rasp
+- **MDX** (mod, active, tested: not-stated)
 - **murdenihcam USR machines** (mod, active, tested: not-stated, base OS MDX X.20 B) https://github.com/murdenihcam/murdenihcam-usr-machines
 
 ## Fact files for this device

@@ -88,11 +88,6 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 ## 8. Mods, firmware, loaders and emulators for this device
 
 - **Vladiktron Spoke** (emulator, active, tested: not stated, base OS 1.13) https://github.com/imaf6971/vladiktron-spoke
-- **Modded Cycles** (firmware, active, tested: unit, base OS 1.13) https://github.com/18nelli18/Modded-Cycles
-- **Modded Cycles Techno Edition** (firmware, active, tested: unit, base OS Model:Cycles OS 1.13) https://github.com/mbreilly/Modded_f-king_cycles
-- **model27** (firmware, active, tested: unit, base OS 1.13) https://github.com/durchgemacht/model27
-- **Motor:Cycles (rhythmic-noise firmware)** (firmware, wip, tested: unit, base OS Model:Cycles OS 1.13) https://github.com/nzimas/motorcycles
-- **Supermodel Edition** (firmware, active, tested: unit, base OS 1.13) https://github.com/AveyCole/Supermodel
 - **Cycles Engines** (loader, wip, tested: not-stated, base OS Model:Cycles OS 1.13 only) https://github.com/100demons/cycles-engines
 - **elekloader** (loader, active, tested: unit, base OS Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed) https://github.com/elekloader/elekloader
 - **BIAS (six-oscillator percussion machine)** (mod, active, tested: unit, base OS Model:Cycles OS 1.13) https://github.com/100demons/bias
@@ -104,12 +99,17 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **Elektron-Model-Machinedrum** (mod, wip, tested: not-stated, base OS Model:Cycles) https://github.com/Talachan12/Elektron-Model-Machinedrum
 - **elektron-model-tweaks** (mod, active, tested: unit, base OS 1.13) https://github.com/drumkilla/elektron-model-tweaks
 - **FERAL (nine noisy models)** (mod, active, tested: unit, base OS Model:Cycles OS 1.13) https://github.com/100demons/feral
+- **Modded Cycles** (mod, active, tested: unit, base OS 1.13) https://github.com/18nelli18/Modded-Cycles
+- **Modded Cycles Techno Edition** (mod, active, tested: unit, base OS Model:Cycles OS 1.13) https://github.com/mbreilly/Modded_f-king_cycles
 - **model-cycles-mods (100demons)** (mod, unverified, tested: not stated) https://github.com/100demons/model-cycles-mods
 - **Model-TG** (mod, active, tested: not-stated, base OS 1.13) https://github.com/TinyGregAudio/Model-TG
+- **model27** (mod, active, tested: unit, base OS 1.13) https://github.com/durchgemacht/model27
 - **model909** (mod, wip, tested: unit, base OS Model:Cycles OS 1.13 (also Model:Samples running the Cycles OS)) https://github.com/DMDaudio/model909
+- **Motor:Cycles (rhythmic-noise firmware)** (mod, wip, tested: unit, base OS Model:Cycles OS 1.13) https://github.com/nzimas/motorcycles
 - **ms-multi-output** (mod, active, tested: partly, base OS 1.13) https://github.com/scottmetoyer/ms-multi-output
 - **plaits-on-models** (mod, active, tested: emulator, base OS 1.13) https://github.com/DMDaudio/plaits-on-models
 - **PUNCH (OPL2-style FM percussion)** (mod, active, tested: emulator, base OS Model:Cycles OS 1.13) https://github.com/100demons/punch
+- **Supermodel Edition** (mod, active, tested: unit, base OS 1.13) https://github.com/AveyCole/Supermodel
 
 ## Fact files for this device
 

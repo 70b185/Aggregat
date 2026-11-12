@@ -1,30 +1,43 @@
 # Aggregat
 
-**An index and agent knowledge base for community firmware, mods and tools on Elektron devices.** In depth for
-Digitakt MKI/II, Digitone MKI/Keys/II, Syntakt and Analog Heat MKI/MKII/+FX; as a catalogue for Octatrack, Analog
-Rytm/Four/Keys, Model:Cycles/Samples, Machinedrum and Monomachine.
+**One place to find Elektron mods, and everything you need to build your own.** Community firmware, mods and tools
+are spread across many repos, threads and Discords; Aggregat lists them all with how far each was tested, and keeps a
+knowledge base for the people who build them. Metadata and short notes only, never firmware; every entry links to the
+original project.
 
-**[Website](https://70b185.github.io/Aggregat/)**:
-[Mods](https://70b185.github.io/Aggregat/?t=mods) (filter by device, see how far each was tested) ·
-[What's new](https://70b185.github.io/Aggregat/?t=news) ([feed](https://70b185.github.io/Aggregat/feed.xml)) ·
-[Help out](https://70b185.github.io/Aggregat/?t=stock_tests) (five-minute tests, no flashing) ·
-[Community](https://70b185.github.io/Aggregat/?t=community) ·
-[For developers](https://70b185.github.io/Aggregat/?t=facts) ·
-[Stock bugs](hardware/STOCK-BUGS.md) ·
-[Incidents](hardware/INCIDENTS.md) ·
-[Research map](research/RESEARCH-MAP.md)
+**[Open the website](https://70b185.github.io/Aggregat/)**
 
-## Start here
+## Looking for a mod
 
-| You are | Read |
-|---|---|
-| **Musician** looking for a mod or a tool | the [mods on the website](https://70b185.github.io/Aggregat/?t=mods) (filter by device; each card says how far it was tested) · [MODS.md](catalog/MODS.md) (mods, custom firmware, loaders) · [MUSICIAN-TOOLS.md](catalog/MUSICIAN-TOOLS.md) (editors, sample and project managers, nothing that changes firmware) · [INDEX.md](catalog/README.md) and [catalog/](catalog/) (everything per device) |
-| **Developer** writing a mod | [hardware/](hardware/README.md) (how the hardware works) · [AGENT-RULES.md](hardware/AGENT-RULES.md) (rules, grown from tests) · [INCIDENTS.md](hardware/INCIDENTS.md) (what went wrong on real units) · [STOCK-BUGS.md](hardware/STOCK-BUGS.md) (bugs in Elektron's own OS, check before you blame your mod) · [MOD-AUTHOR-CHECKLIST.md](docs/MOD-AUTHOR-CHECKLIST.md) (before you release; with a status block for your README) · [DEV-TOOLS.md](catalog/DEV-TOOLS.md) (toolchains, emulators, unpackers) · [FEATURE-OVERLAP.md](research/FEATURE-OVERLAP.md) (features already built elsewhere, and shared building blocks to start from) · [RAM-TENANCY.md](hardware/RAM-TENANCY.md) (which platform uses which memory: check before you pick an address, and declare yours) · [ADDRESS-MAP.md](hardware/ADDRESS-MAP.md) |
-| **Researcher**, or want to help | [CONTRIBUTING.md](.github/CONTRIBUTING.md) (five ways to help, from five minutes up) · [RESEARCH-MAP.md](research/RESEARCH-MAP.md) (what is known and open per device, shared goals, tests that take minutes on a stock unit) · [research/PARTICIPANTS.md](research/PARTICIPANTS.md) (take part with your project) |
-| **Agent or script** | [AGENTS.md](AGENTS.md) (start here) · [context packs](export/context/README.md): one file per device, brief or full · the [MCP server](mcp/README.md) (`preflight`, `search_facts`, `check_address` and more; no install) · [export/](export/README.md): one SQLite/JSON database with projects, relations, rules, incidents, stock bugs, sources, conflicts and about 1,100 hardware facts, with full-text search and stable fact ids · [llms.txt](llms.txt) |
+Pick your device:
 
-The lists are generated from [`data/projects.yml`](data/projects.yml); [PROJECT-FAMILIES.md](catalog/PROJECT-FAMILIES.md)
-shows which entries are forks, ports or copies of each other, so nothing is counted twice.
+[Digitakt](https://70b185.github.io/Aggregat/?t=mods&d=digitakt) · [Digitakt II](https://70b185.github.io/Aggregat/?t=mods&d=digitakt-2) · [Digitone / Keys](https://70b185.github.io/Aggregat/?t=mods&d=digitone) · [Digitone II](https://70b185.github.io/Aggregat/?t=mods&d=digitone-2) · [Syntakt](https://70b185.github.io/Aggregat/?t=mods&d=syntakt) · [Analog Heat](https://70b185.github.io/Aggregat/?t=mods&d=analog-heat) · [Octatrack](https://70b185.github.io/Aggregat/?t=mods&d=octatrack) · [Analog Rytm](https://70b185.github.io/Aggregat/?t=mods&d=analog-rytm) · [Analog Four / Keys](https://70b185.github.io/Aggregat/?t=mods&d=analog-four-keys) · [Model:Cycles](https://70b185.github.io/Aggregat/?t=mods&d=model-cycles) · [Model:Samples](https://70b185.github.io/Aggregat/?t=mods&d=model-samples) · [Machinedrum](https://70b185.github.io/Aggregat/?t=mods&d=machinedrum) · [Monomachine](https://70b185.github.io/Aggregat/?t=mods&d=monomachine)
+
+Each card says how far the mod was tested (on a real unit, emulator only, not yet), which OS it needs and how it
+installs. Read the project's own instructions before you flash anything: custom firmware can brick a unit and may
+affect your warranty.
+
+Also: [what's new](https://70b185.github.io/Aggregat/?t=news) ([feed](https://70b185.github.io/Aggregat/feed.xml)) · [musician tools](catalog/MUSICIAN-TOOLS.md) (editors, sample
+and project managers, nothing that changes firmware) · the same lists as Markdown in [`catalog/`](catalog/README.md).
+
+## Building a mod
+
+- **How the hardware works:** [`hardware/`](hardware/README.md) (the ten things to know first, then one page per
+  device), with about 1,100 facts, each with an evidence tag and a source.
+- **What went wrong before:** [incidents on real units](hardware/INCIDENTS.md) and
+  [bugs in Elektron's own OS](hardware/STOCK-BUGS.md) (check before you blame your mod).
+- **What exists already:** [features built elsewhere and shared building blocks](research/FEATURE-OVERLAP.md),
+  [developer tools](catalog/DEV-TOOLS.md) (toolchains, emulators, unpackers), and
+  [which memory other mods use](hardware/RAM-TENANCY.md).
+- **Before you release:** the [mod-author checklist](docs/MOD-AUTHOR-CHECKLIST.md), with a status block for your README.
+- **With a coding agent:** see [below](#using-it-with-an-ai-agent).
+
+## Help out
+
+No flashing needed: run a [five-minute test on your stock unit](https://70b185.github.io/Aggregat/?t=stock_tests), pick an issue labelled
+[good first test](https://github.com/70b185/Aggregat/labels/good%20first%20test), or correct the entry for your own
+project. More in [CONTRIBUTING.md](.github/CONTRIBUTING.md) and the [research map](research/RESEARCH-MAP.md) (what is
+known and open per device).
 
 ## Using it with an AI agent
 
@@ -36,6 +49,8 @@ Point the agent at this repo; it will find [AGENTS.md](AGENTS.md). The short ver
    `search_facts("reverb", "DN2")`, `check_address("0x46800000")` from the same data. A clone has a `.mcp.json`, so
    Claude Code offers it by itself; other clients need one line of config.
 3. **For open-ended research**, start with the prompt in [RESEARCH-MAP.md](research/RESEARCH-MAP.md).
+4. **For scripts:** [`export/`](export/README.md) holds everything as one SQLite/JSON database (full-text search,
+   stable fact ids); [llms.txt](llms.txt) is the short index for language models.
 
 The long way, file by file: [`hardware/README.md`](hardware/README.md) (the ten things to know first), then
 [`AGENT-RULES.md`](hardware/AGENT-RULES.md), [`INCIDENTS.md`](hardware/INCIDENTS.md),

@@ -13,7 +13,7 @@ What you can put on an Elektron device today: mods, custom OS builds, and the lo
 - **Updated** - the later of the last release or post we saw and the repo's last push.
 - Each device section lists mods that ran on a unit first, then the rest; unreachable projects come last. Full notes per project: [INDEX.md](README.md) and the device pages.
 
-Data last verified 2026-11-08; generated from `data/projects.yml`.
+Data last verified 2026-11-11; generated from `data/projects.yml`.
 
 
 The other lists: [DEV-TOOLS.md](DEV-TOOLS.md) (development tools), [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians). Hardware knowledge for writing mods: [hardware/](../hardware/README.md).
@@ -26,7 +26,7 @@ The other lists: [DEV-TOOLS.md](DEV-TOOLS.md) (development tools), [MUSICIAN-TOO
 
 ## New in the last 7 days
 
-Added to the catalogue after 2026-11-03, newest first.
+Added to the catalogue after 2026-11-04, newest first.
 
 | Mod | Device | What it does | Install via | Tested |
 |---|---|---|---|---|
@@ -65,7 +65,6 @@ Added to the catalogue after 2026-11-03, newest first.
 | **SOLO & MUTE GROUPS (Digitone mk1)** (irpina) | Digitone (MKI) / Digitone Keys | Track key + FUNC solos a track among its four; four mute groups. | elekloader | emulator only |
 | **ARP MENU (Digitone mk1)** (irpina) | Digitone (MKI) / Digitone Keys | A long FUNC + KEYBOARD opens the ARP menu (stock: FUNC + SYN1 at the other end of the panel); a quick press still … | elekloader | emulator only |
 | **Mezclando (transition mode for Digitakt II)** (Lucioic (Oicul)) | Digitakt II | A DJ-style mix mode on the SONG key: pick a reference pattern and bring its tracks, with their sequences and sounds, … | elekloader | not stated |
-| **BIAS (six-oscillator percussion machine)** (100demons) | Model:Cycles | Source package for a percussion machine with six oscillators, each with its own envelope, summed, wavefolded and given … | Modded Cycles, Cycles Engines | yes, on a unit |
 
 ## Loaders and platforms
 
@@ -365,7 +364,7 @@ Some entries bundle many mods or modules. These are the names their repos list; 
 
 | Mod | What it does | Install via | Needs OS | Tested | Updated | Links |
 |---|---|---|---|---|---|---|
-| **Octacloudz** <br>davidecaldarola1-ship-it | Repo no longer reachable on 2026-11-08 (check_updates). | see repo | - | unverified lead | - | [repo](https://github.com/davidecaldarola1-ship-it/Octacloudz) |
+| **Octacloudz** <br>davidecaldarola1-ship-it | The repo exists but has no commits yet (checked 2026-11-11; check_updates reports it as empty). | see repo | - | unverified lead | - | [repo](https://github.com/davidecaldarola1-ship-it/Octacloudz) |
 
 ## Analog Rytm (MKI, MKII)
 

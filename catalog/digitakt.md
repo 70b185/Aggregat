@@ -2,7 +2,7 @@
 
 # Digitakt (MKI)
 
-Data last verified: 2026-11-08
+Data last verified: 2026-11-11
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|

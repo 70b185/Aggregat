@@ -3,7 +3,7 @@
 
 For agents: load the **brief** pack before you touch a unit (safety rules, recovery, stock bugs, incidents, open questions, catalogued projects), and the **full** pack when you need the hardware facts too. Token counts are estimates (characters / 4). Each fact carries a stable id (`file-stem#hash`) that survives moved lines; cite it.
 
-Data checked 2026-11-08, research snapshot `2945a822544d`.
+Data checked 2026-11-11, research snapshot `2945a822544d`.
 
 | Device | Brief | Tokens | Full | Tokens | Facts | Incidents | Stock bugs |
 |---|---|---|---|---|---|---|---|

@@ -1,4 +1,4 @@
-# Research backlog (as of 2026-10-31)
+# Backlog (research as of 2026-10-31, project items as of 2026-11-11)
 
 ## Phase 1 - still to verify (small boxes + MKII versions)
 - Find the community firmware index on GitHub launched 2026-10-11 (about 260 projects, 19 brands, per Dubspot; name/URL not given). Check overlap before duplicating work.
@@ -9,7 +9,7 @@
 - Analog Heat MKI / MKII / +FX: search Elektronauts-adjacent sources, Reddit, GitHub topics for any community work (none found so far).
 - Syntakt: SY FM4 vs Syntakt MAX relationship, other Syntakt projects.
 - Digitone II and Digitakt II: other patchers besides Overtone, DigiRust and digitakt-ii-research.
-- Real "last commit" dates: the GitHub API was not reachable for non-attached repos, so `last_activity` currently comes from forum posts and release pages. A GitHub Action in this repo could fill commit/release dates automatically.
+- ~~Real "last commit" dates~~ Done: `scripts/repo_meta.py` stores last push, stars and forks per repo in `state/repo_meta.json`; the check-updates workflow refreshes it.
 
 ## Phase 2 - other devices
 Done 2026-11-01: catalogue of 45 projects for Octatrack, Analog Rytm, Analog Four/Keys, Model:Cycles/Samples, Machinedrum and Monomachine (from altstrument; facts only, our own notes). Next: read each repo's README like phase 1, then `hardware/` notes per platform (Octatrack: octabam/Modwerk DSP56300 + ColdFire; Model: Modded-Cycles; Rytm: rytm-fw-re, rytm-mods-src; Machinedrum: MDS/MDX, machinedrum-kit).
@@ -30,3 +30,10 @@ Original notes:
 ## Ground rules
 - Metadata only: names, links, status. No firmware, no binaries, no scraped forum text beyond short notes.
 - Every entry needs at least one source and a verification date.
+
+## Project (from the review on 2026-11-11, after the elektronmods.com post)
+- Keep GitHub's traffic numbers: GitHub keeps views, clones and referrers for 14 days only. A scheduled workflow could append them to `state/traffic.json` daily; it needs a fine-grained token with the repository's Administration (read) permission as a secret, because the default `GITHUB_TOKEN` cannot read traffic. Clone counts are mostly our own automation (check-updates, PR checks, agent sessions), so views and unique visitors are the numbers to watch.
+- Website visitors: GitHub Pages has no statistics. A cookieless counter (e.g. GoatCounter) would show whether the forum post brought people.
+- Create the beginner issues: `python3 scripts/good_first_issues.py` (check the list), then `--create`.
+- Release assets instead of commits for the database: `export/aggregat.sqlite` (2 MB) has been committed about 70 times since 2026-10-31. Building it in the workflow and attaching it to a rolling release would keep the history small; the website and MCP server would need the new URL.
+- Shorter entry for musicians: the README and the website lead with many links; a musician needs "pick your device, see its mods" first.

@@ -1,6 +1,6 @@
 {
  "meta": {
-  "checked": "2026-11-08",
+  "checked": "2026-11-11",
   "generator": "scripts/export_db.py",
   "counts": {
    "projects": 263,
@@ -6707,7 +6707,7 @@
    "devices": "machinedrum,monomachine,octatrack,analog-rytm,analog-four-keys",
    "repo": "https://github.com/DatanoiseTV/TurboMidi",
    "license": null,
-   "status": "unknown",
+   "status": "unreachable",
    "base_os": null,
    "version": null,
    "last_activity": "2025-06-07",
@@ -6717,7 +6717,7 @@
    "contains": null,
    "features": "[]",
    "first_seen": "2026-11-02",
-   "notes": "Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). On 2026-11-04 the repo no longer answered anonymously (git asked for credentials, so private or removed); not chased.",
+   "notes": "Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). Since 2026-11-04 the repo no longer answers anonymously (git asks for credentials, so private or removed); still gone on 2026-11-11, so it is no longer polled.",
    "links": "{}",
    "sources": "[\"GitHub search 2026-11-02\", \"README\"]",
    "owner": "datanoisetv",
@@ -8413,7 +8413,7 @@
    "contains": null,
    "features": "[]",
    "first_seen": "2026-11-08",
-   "notes": "Repo no longer reachable on 2026-11-08 (check_updates). Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds. No README yet, so OS, loader, licence and tests are unknown. Found by GitHub search 2026-11-08.",
+   "notes": "The repo exists but has no commits yet (checked 2026-11-11; check_updates reports it as empty). Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds. No README yet, so OS, loader, licence and tests are unknown. Found by GitHub search 2026-11-08.",
    "links": "{}",
    "sources": "[\"GitHub search 2026-11-08\"]",
    "owner": "davidecaldarola1-ship-it",

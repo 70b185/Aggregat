@@ -2,7 +2,7 @@
 
 # Analog Rytm (MKI, MKII)
 
-Data last verified: 2026-11-08
+Data last verified: 2026-11-11
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
@@ -29,7 +29,7 @@ Data last verified: 2026-11-08
 | **analog-rytm-agent-bridge** (algonormative) | tool | - | Rytm MKII | - | 2026-09-02 | [repo](https://github.com/algonormative/analog-rytm-agent-bridge) |
 | **Plock (Rytm pattern editor)** (plentyofnames) | editor | - | main @ 12ef58a (2026-06-19), no releases; Analog Rytm OS 1.70 (per altstrument) | v1.0 | 2026-06-19 | [repo](https://github.com/plentyofnames/plock) · [web app](https://plentyofnam.es/plock/plock.html) |
 | **ElekPrep (elektron-sample-prep)** (luizvarela) | tool | - | main @ 9f85fc8 (2026-02-27) | - | 2026-02-27 | [repo](https://github.com/luizvarela/elektron-sample-prep) · [web app](https://luizvarela.github.io/elektron-sample-prep/) |
-| **TurboMIDI (C++)** (DatanoiseTV) | library | - | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
+| **TurboMIDI (C++)** (DatanoiseTV) | library | repo unreachable | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 | **rytm-rs / rytm-sys** (alisomay) | library | - | Analog Rytm firmware 1.70 | - | 2024-12-07 | [repo](https://github.com/alisomay/rytm-rs) · [sys crate](https://github.com/alisomay/rytm-sys) |
 | **libanalogrytm** (bsp2) | library | - | master @ a0a19f6 (2023-12-21) | - | 2023-12-21 | [repo](https://github.com/bsp2/libanalogrytm) |
 | **Chopshop** (Jesus Triana (bandersong)) | mod | - | 1.73 (Rytm), 1.56 (Keys); not 1.74 | - | - | [repo](https://github.com/bandersong/chopshop) · [homepage](https://chopshop-synth.pages.dev/) |
@@ -174,7 +174,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 ### TurboMIDI (C++)
 
-Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). On 2026-11-04 the repo no longer answered anonymously (git asked for credentials, so private or removed); not chased.
+Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). Since 2026-11-04 the repo no longer answers anonymously (git asks for credentials, so private or removed); still gone on 2026-11-11, so it is no longer polled.
 
 _Sources: GitHub search 2026-11-02, README_
 

@@ -248,14 +248,18 @@
   .devbar { padding:8px 24px; gap:10px; } .devbar button { padding:3px 9px; font-size:12px; margin:0 4px 4px 0; }
   @media (max-width:760px) { .sn-hint { display:none; } }
   .sn-hint { flex-basis:100%; color:var(--mute); font-size:var(--fs-s); margin-top:2px; }
+  /* Static intro: what crawlers, link previews and visitors without JavaScript see; hidden once the script runs. */
+  .static-intro { max-width:760px; padding:8px 0 24px; } .static-intro h2 { font-size:var(--fs); text-transform:uppercase; letter-spacing:.06em; margin:22px 0 6px; }
+  .static-intro ul { margin:0; padding-left:20px; } .js .static-intro { display:none; }
   @media (max-width:760px) { nav { flex-wrap:nowrap; overflow-x:auto; scrollbar-width:thin; } nav button { flex:none; white-space:nowrap; }
     .ad-row { grid-template-columns:90px 1fr; } .ad-mark { display:none; } .pj-kv { grid-template-columns:110px 1fr; } }
 </style>
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 <header>
   <h1><span>Aggregat</span> <span class="h1-sub">community mods and tools for Elektron devices</span></h1>
-  <div class="sub" id="sub">Loading ...</div>
+  <div class="sub" id="sub">An overview of community firmware, mods and tools for Elektron devices, and a knowledge base for people who build them.</div>
   <nav id="tabs" aria-label="Sections"></nav>
   <div id="subnav" class="subnav" aria-label="Views"></div>
 </header>
@@ -264,7 +268,46 @@
   <span class="count" id="count"></span>
 </div>
 <div id="devbar" class="devbar" role="group" aria-label="Device"></div>
-<main id="out"></main>
+<main id="out">
+<section class="static-intro">
+  <p>Mods for Elektron boxes are spread across many repos, threads and Discords, and so is the knowledge behind them.
+  Aggregat brings both together: an overview of every community firmware, mod and tool, and a knowledge base for
+  people who build them. Metadata and short notes only, no firmware. Every entry links to the original project.</p>
+  <h2>Looking for mods</h2>
+  <ul>
+    <li><a href="https://github.com/70b185/Aggregat/blob/master/catalog/MODS.md">Mods and custom firmware</a>, with how far each was tested</li>
+    <li><a href="https://github.com/70b185/Aggregat/blob/master/catalog/MUSICIAN-TOOLS.md">Musician tools</a>: editors, sample and project managers</li>
+    <li>By device:
+      <a href="https://github.com/70b185/Aggregat/blob/master/catalog/digitakt.md">Digitakt</a>,
+      <a href="https://github.com/70b185/Aggregat/blob/master/catalog/digitakt-2.md">Digitakt II</a>,
+      <a href="https://github.com/70b185/Aggregat/blob/master/catalog/digitone.md">Digitone / Keys</a>,
+      <a href="https://github.com/70b185/Aggregat/blob/master/catalog/digitone-2.md">Digitone II</a>,
+      <a href="https://github.com/70b185/Aggregat/blob/master/catalog/syntakt.md">Syntakt</a>,
+      <a href="https://github.com/70b185/Aggregat/blob/master/catalog/analog-heat.md">Analog Heat</a>,
+      <a href="https://github.com/70b185/Aggregat/blob/master/catalog/octatrack.md">Octatrack</a>,
+      <a href="https://github.com/70b185/Aggregat/blob/master/catalog/analog-rytm.md">Analog Rytm</a>,
+      <a href="https://github.com/70b185/Aggregat/blob/master/catalog/analog-four-keys.md">Analog Four / Keys</a>,
+      <a href="https://github.com/70b185/Aggregat/blob/master/catalog/model-cycles.md">Model:Cycles</a>,
+      <a href="https://github.com/70b185/Aggregat/blob/master/catalog/model-samples.md">Model:Samples</a>,
+      <a href="https://github.com/70b185/Aggregat/blob/master/catalog/machinedrum.md">Machinedrum</a>,
+      <a href="https://github.com/70b185/Aggregat/blob/master/catalog/monomachine.md">Monomachine</a></li>
+    <li><a href="feed.xml">What's new</a> (feed; every project is checked daily)</li>
+  </ul>
+  <h2>Developing mods</h2>
+  <ul>
+    <li><a href="https://github.com/70b185/Aggregat/blob/master/hardware/README.md">Hardware knowledge base</a>: memory, file formats, flash procedure, recovery</li>
+    <li><a href="https://github.com/70b185/Aggregat/blob/master/hardware/INCIDENTS.md">Incidents on real units</a> and <a href="https://github.com/70b185/Aggregat/blob/master/hardware/STOCK-BUGS.md">bugs in Elektron's own OS</a></li>
+    <li><a href="https://github.com/70b185/Aggregat/blob/master/research/FEATURE-OVERLAP.md">What others already built</a> and <a href="https://github.com/70b185/Aggregat/blob/master/catalog/DEV-TOOLS.md">developer tools</a></li>
+    <li><a href="https://github.com/70b185/Aggregat/blob/master/docs/MOD-AUTHOR-CHECKLIST.md">Release checklist</a> for mod authors</li>
+    <li>For coding agents: <a href="https://github.com/70b185/Aggregat/blob/master/AGENTS.md">AGENTS.md</a>, <a href="llms.txt">llms.txt</a></li>
+  </ul>
+  <h2>Help out</h2>
+  <ul>
+    <li><a href="https://github.com/70b185/Aggregat/blob/master/.github/CONTRIBUTING.md">Five ways to help</a>, from a five-minute test on a stock unit to correcting your own project's entry</li>
+  </ul>
+  <p>This page is interactive (filter by device, search); turn on JavaScript to use it.</p>
+</section>
+</main>
 <footer>Generated from the repo by <code>scripts/export_db.py</code>. Data CC0. Edit the Markdown/YAML in the repo, not this page.
   <a href="https://github.com/70b185/aggregat">github.com/70b185/aggregat</a> · <a href="feed.xml">feed</a> ·
   for agents: <a href="llms.txt">llms.txt</a>, <a href="https://github.com/70b185/Aggregat/blob/master/mcp/README.md">MCP server</a>,

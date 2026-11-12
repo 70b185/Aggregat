@@ -2,7 +2,7 @@
 
 # Octatrack (MKI, MKII)
 
-Data last verified: 2026-11-08
+Data last verified: 2026-11-11
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
@@ -31,7 +31,7 @@ Data last verified: 2026-11-08
 | **octa-bt-pt** (bryantysinger) | mod | - | Octatrack OS 1.40C only (hash-checked) | - | 2026-08-23 | [repo](https://github.com/bryantysinger/octa-bt-pt) |
 | **OctaChainer 2** (Kai Drange) | tool | - | v2.0.0 (2026-08-05) | v2.0.0 | 2026-08-05 | [repo](https://github.com/KaiDrange/OctaChainer2) · [homepage](https://ticticelectro.com/2017/08/26/octachainer-v1-3/) |
 | **ot-tools-io** (jhw) | library | - | - | - | 2026-08-03 | [repo](https://github.com/jhw/ot-tools-io) · [python lib](https://github.com/jhw/octapy) |
-| **TurboMIDI (C++)** (DatanoiseTV) | library | - | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
+| **TurboMIDI (C++)** (DatanoiseTV) | library | repo unreachable | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 | **OctaLib** (snugsound) | tool | - | - | 0.1.1.0 | 2025-02-28 | [repo](https://github.com/snugsound/OctaLib) |
 | **ems-octakit** (June Kiff (emuyia)) | mod | - | 1.40C | - | - | [repo](https://github.com/emuyia/ems-octakit) · [earlier listed copy](https://github.com/LyingDalai/ems-octakit) |
 | **Octaplay** (devilfish707) | mod | - | 1.40C | - | - | [repo](https://github.com/devilfish707/Octaplay) |
@@ -226,7 +226,7 @@ _Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 
 ### TurboMIDI (C++)
 
-Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). On 2026-11-04 the repo no longer answered anonymously (git asked for credentials, so private or removed); not chased.
+Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). Since 2026-11-04 the repo no longer answers anonymously (git asks for credentials, so private or removed); still gone on 2026-11-11, so it is no longer polled.
 
 _Sources: GitHub search 2026-11-02, README_
 
@@ -254,6 +254,6 @@ _Sources: elekloader mod shop catalog 2026-11-08, README (2026-11-11)_
 
 ### Octacloudz
 
-Repo no longer reachable on 2026-11-08 (check_updates). Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds. No README yet, so OS, loader, licence and tests are unknown. Found by GitHub search 2026-11-08.
+The repo exists but has no commits yet (checked 2026-11-11; check_updates reports it as empty). Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds. No README yet, so OS, loader, licence and tests are unknown. Found by GitHub search 2026-11-08.
 
 _Sources: GitHub search 2026-11-08_

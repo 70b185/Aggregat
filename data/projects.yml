@@ -42,10 +42,10 @@
 #                  platform) | uses_tool (runs it, e.g. an emulator, without shipping it) | vendors (ships or ports
 #                  code from it) | cites (names it as a reference for methods or data)
 #
-# All entries last verified on 2026-10-31 (see `checked`). Status values are
+# `checked` is the date of the last update run (docs/UPDATING.md, step 4). Status values are
 # taken from the authors' own wording where available.
 
-checked: 2026-11-08
+checked: 2026-11-11
 
 projects:
   # ---------------------------------------------------------------- loaders / hubs
@@ -5295,10 +5295,11 @@ projects:
     - analog-rytm
     - analog-four-keys
     repo: https://github.com/DatanoiseTV/TurboMidi
-    status: unknown
+    status: unreachable
     last_activity: '2025-06-07'
-    notes: Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). On
-      2026-11-04 the repo no longer answered anonymously (git asked for credentials, so private or removed); not chased.
+    notes: Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). Since
+      2026-11-04 the repo no longer answers anonymously (git asks for credentials, so private or removed); still gone on
+      2026-11-11, so it is no longer polled.
     sources:
     - GitHub search 2026-11-02
     - README

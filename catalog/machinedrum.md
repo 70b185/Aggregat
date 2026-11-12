@@ -2,7 +2,7 @@
 
 # Machinedrum (incl. UW)
 
-Data last verified: 2026-11-08
+Data last verified: 2026-11-11
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
@@ -32,7 +32,7 @@ Data last verified: 2026-11-08
 | **Gearmulator MD/MM** (Joe Landers) | emulator | - | mdmm-v0.1.0-alpha.14 (2026-09-21); Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-09-21 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
 | **Say A! (MCL chromatic A tool)** (BartBral) | tool | - | main @ c241980 (2026-05-21) per altstrument | - | 2026-05-21 | [repo](https://github.com/BartBral/MCL-Chromatic-A-tool) · [web app](https://bartbral.github.io/MCL-Chromatic-A-tool/md-transfer.html) |
 | **MDDT (Machinedrum Data Tool)** (waftlord) | editor | - | V2.0 | v1.0.0 | 2026-01-04 | [repo](https://github.com/waftlord/mddt) · [web](https://wftlrd.uk/mddt/) |
-| **TurboMIDI (C++)** (DatanoiseTV) | library | - | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
+| **TurboMIDI (C++)** (DatanoiseTV) | library | repo unreachable | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 | **MachineDrandom** (Kerem Ergener (per altstrument)) | tool | - | - | - | - | [web app](https://machinedrandom.keremergener.com/) |
 | **SM (Machinedrum sample manager)** (Fyris) | tool | - | - | - | - | [web app](https://sm.fyris.me/) |
 
@@ -186,7 +186,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 ### TurboMIDI (C++)
 
-Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). On 2026-11-04 the repo no longer answered anonymously (git asked for credentials, so private or removed); not chased.
+Header-only C++ implementation of Elektron's TurboMIDI speed negotiation (up to 20x DIN MIDI speed). Since 2026-11-04 the repo no longer answers anonymously (git asks for credentials, so private or removed); still gone on 2026-11-11, so it is no longer polled.
 
 _Sources: GitHub search 2026-11-02, README_
 

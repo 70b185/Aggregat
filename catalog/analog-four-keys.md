@@ -2,16 +2,16 @@
 
 # Analog Four / Analog Keys
 
-Data last verified: 2026-11-11
+Data last verified: 2026-11-12
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **elekloader** (pina (irpina)) | loader | - | v0.10.0 (tag 2026-11-09): ships each device's newest core (DT1 4.1, DN1 5.2.1, DT2 1.0, DN2 0.3, AR2 0.11, A4 0.5, OT 0.8, MC 0.3, MS 0.1). main since: DT1 core 4.2/4.3 and DN1 5.3 (live-note and MIDI CC events), core-dn2 0.4 (MIDI CC event, DSP post words), core-ar2 0.12 (spare table entries for +Drive mods), SDK mono machines and MIDI CCs, DT2 sharc_raw (raw section-7 loads and relocatable DSP objects); 2026-11-11 the Analog Rytm MKII Drive Loader (drive-loader-ar2 0.4: mods linked from the +Drive at boot, a MODS page, the web page's +Drive view over Web MIDI) and core-a4 renamed core-a4mk2; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.10.0 | 2026-11-11 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/elekloader/elekloader/releases) · [shop](https://elekloader.github.io/shop/) · [shop repo](https://github.com/elekloader/shop) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
+| **elkbench (hardware tests as an MCP server)** (Iced-Cream) | tool | - | - | - | 2026-11-11 | [repo](https://github.com/Iced-Cream/elkbench) |
 | **Sidecar | Expander** (trigcondition) | mod | - | Sidecar 0.4.4 with Rytm firmware 0.4.4 (2026-11-10): a held step's locks on the SRC view, the pads' octave keys on the SEQ and ARP pages, one NO leaves a page, the CONNECTED screen when the Rytm boots after the Sidecar; the A4 mod stays 0.12, Sidecar Mini 0.1.0; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | v0.2.0 | 2026-11-10 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
 | **Sidecar | Expander: Rytm mods** (trigcondition) | mod | - | Rytm firmware 0.4.4 (with Sidecar 0.4.4, 2026-11-10); Analog Rytm MKII OS 1.74 and 1.73; Analog Four MKII (a4/) | v0.4.4 | 2026-11-10 | [repo](https://github.com/trigcondition/sidecar-mods) |
-| **elkbench (hardware tests as an MCP server)** (Iced-Cream) | tool | - | - | - | 2026-11-10 | [repo](https://github.com/Iced-Cream/elkbench) |
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | - | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
 | **analoghealth** (Iced-Cream) | mod | - | Rytm MKII 1.74, A4 MKII 1.56 | v1.3 | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
 | **Analog Four / Keys MK1 OS 1.56 mods** (hugz202) | mod | - | Analog Four / Analog Keys MK1, OS 1.56 only (not MKII) | - | 2026-10-28 | [repo](https://github.com/hugz202/AE-analog-four-mods) |
@@ -98,7 +98,7 @@ _Sources: state/NEW.md 2026-11-10, README, README (2026-11-11)_
 
 ### elkbench (hardware tests as an MCP server)
 
-One local MCP server per PC that gives AI agent sessions the same tools for testing Elektron units (Analog Rytm MKII, Analog Four MKII, Digitone; Digitakt untested on hardware) and their emulators: claim a unit, run a test plan, flash an OS, take screenshots, record and check USB audio, take or restore an Overbridge Total Recall image. It enforces one owner per unit, emulator first, and a hardware run only after the person says go. Python stdlib; Windows and Linux. 2026-11-10: a flash between two fixed OS files of a unit can reuse an emulator pass of the same flash, recorded with the hashes of the emulator, the flash tool and the card, while all of them stay the same.
+One local MCP server per PC that gives AI agent sessions the same tools for testing Elektron units (Analog Rytm MKII, Analog Four MKII, Digitone; Digitakt untested on hardware) and their emulators: claim a unit, run a test plan, flash an OS, take screenshots, record and check USB audio, take or restore an Overbridge Total Recall image. It enforces one owner per unit, emulator first, and a hardware run only after the person says go. Python stdlib; Windows and Linux. 2026-11-10: a flash between two fixed OS files of a unit can reuse an emulator pass of the same flash, recorded with the hashes of the emulator, the flash tool and the card, while all of them stay the same. 2026-11-11 (config example): an optional emulator headroom check waits for CPU, free RAM and a cap on running emulators before each emulator start.
 
 _Related: uses tool `analog-emu` (README: emulator first; sidecar-emu reaches analog-emu through it) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 

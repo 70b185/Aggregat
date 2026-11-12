@@ -553,8 +553,8 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Seen:** with a SID voice and three PERC tracks playing, an ONESHOT kick sounded crunchy at about 85 % DSP load.
 - **Cause (from the report and the guard's code):** the frame-time guard left the sample voice out when a block ran short of time, and because a sample voice is retried in every block it came and went block by block instead of stopping.
 - **Fix:** planned for v0.49: render the sample voices first, so time runs out on the heavy synth voices, and keep a dropped sample voice stopped until its next note, as PERC voices already are.
-- **Status:** open (fix designed, not built, 2026-11-11).
-- **Evidence:** `[hw]` (user report) {dn2mk2-v048}
+- **Status:** fix built in v0.49 (2026-11-11): the guard gives the sample voices their time first and keeps a dropped one stopped until its next note; not verified at the unit's real load.
+- **Evidence:** `[hw]` (user report) {dn2mk2-v048} {dn2mk2-v049}
 - **Rule:** A44
 - **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md#dn2mk2-findings-v045-v048-os-111-2026-11-11)
 
@@ -567,6 +567,56 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` {octabam-drummer}
 - **Rule:** G8, C10
 - **Fact:** [devices/octatrack.md](devices/octatrack.md#octabam-findings-2026-11-11)
+
+### I73. An old project stopped all sound on a sample-machine mod
+- **Unit:** Digitone II, OS 1.11 (dn2mk2 v0.48, a user's unit), reported 2026-11-11
+- **Seen:** a project saved on an earlier build played a STRETCH track once, briefly; then every track went silent until a reboot. A new project on the same build did not show it.
+- **Cause:** unknown. The author's sampler model plays STRETCH, REPITCH and ONESHOT cleanly with odd stored STRT/LEN words (old 127, 120.00, out of range), so the stored data of the old project is the main suspect; not reproduced.
+- **Fix:** none yet. The author plans two gate steps: projects saved on earlier builds played in the coupled emulator, and every stored control word driven through the DSP code.
+- **Status:** open (2026-11-12).
+- **Evidence:** `[hw]` (user report, not reproduced) {dn2mk2-v049}
+- **Rule:** C9
+- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md#dn2mk2-v049-flex-os-111-2026-11-11-dn2mk2-v049)
+
+### I74. Filter builds overloaded the DSP and broke USB audio
+- **Unit:** Digitone II (armio's dn2-dt2-firmware-research, the owner's unit), unpublished builds R023 and R024, early November 2026
+- **Seen:** USB audio was reported broken on the two SEM-filter builds, which overloaded the DSP.
+- **Cause (the project's own model, not measured):** the right-hand effects chain was duplicated and ran for every voice. With it gated to sampler voices (R025), the model predicts about 81.7 % of the audio block with 16 voices; it leaves out interrupts, cache, DMA and USB.
+- **Fix:** R025 runs the right effects chain only for sampler voices; R027 keeps that.
+- **Status:** the owner reports R025's audio working, but USB audio has not been checked since R024; the project tells USB-audio users to stay on R012.
+- **Evidence:** `[hw]` (owner report, no timing capture) {armio-r027}
+- **Rule:** A16, A37
+- **Fact:** [devices/digitone-2.md](devices/digitone-2.md)
+
+### I75. Removing a synth module that tracks still used left the loader stuck in recovery
+- **Unit:** Octatrack MKII, OS 1.40C (Modwerk beta base with SYNTIZ 0.1.0-experimental, the owner's unit), 2026-11-09 and 2026-11-11
+- **Seen:** an Undo of the module install while tracks used SYNTIZ ended in the loader's `needs-recovery` state. The unit stayed in recovery, and the loader's own `recover` was refused even after the tracks were set back to STATIC.
+- **Cause:** not traced in the source; the module's README now says to remove it only while no track in the Part uses it.
+- **Fix:** a power cycle brought the unit back.
+- **Status:** open; documented as a usage rule.
+- **Evidence:** `[hw]` {modwerk-syntiz}
+- **Rule:** A54
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#modwerk-and-octabam-findings-2026-11-12)
+
+### I77. Knob assignments a mod kept in a kit's spare bytes were lost at power-on
+- **Unit:** Digitakt (mk1), OS 1.53/1.54 (Modwerk's Digi Perform 0.1.2 and 0.1.3), 2026-11-11
+- **Seen:** after SAVE PROJECT and a power cycle the mod's knob assignments were gone; LOAD PROJECT brought them back.
+- **Cause (shown in the emulator):** after SAVE PROJECT, a cold boot came back with the sound records' spare bytes cleared, and a stock parameter written straight into the kit was lost too; LOAD PROJECT kept both. So the cold-boot path restores from another copy than the saved project file.
+- **Fix:** none yet (0.1.3 behaves the same).
+- **Status:** open.
+- **Evidence:** `[hw]` (power cycle) / `[emu]` (cause) {modwerk-digiperform}
+- **Rule:** E5, C9
+- **Fact:** [devices/digitakt.md](devices/digitakt.md#modwerk-digi-perform-os-153154-2026-11-11-modwerk-digiperform)
+
+### I78. The first PLAY after power-on started a track's recorder
+- **Unit:** Octatrack MKII, OS 1.40C (octabam rig image 41 with djib's FREE LOOP), 2026-11-05
+- **Seen:** in MIDI mode, the first PLAY after power-on started T1's recorder while T1 was idle. A double STOP before PLAY prevented it.
+- **Cause (inferred, not traced):** a quantized REC start left staged at `0x800018be`/`0x800018de` (the QREC branch of REC_POST `0x40005178`). Whether stock alone does this is unclear.
+- **Fix:** FREE LOOP's `stray_guard` stops such a recording; not seen on images 42-43.
+- **Status:** guarded, cause open at the source.
+- **Evidence:** `[hw]` (cause `[?]`) {octabam-freeloop}
+- **Rule:** A40, G8
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#modwerk-and-octabam-findings-2026-11-12)
 
 ## E. Emulator or toolchain disagreed with the unit
 
@@ -752,3 +802,12 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** A29
 - **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md#the-stock-intro-and-boot-screens-digikit-finding-117-dt2-117-and-dn2-111112-digikit-f117)
 
+### I76. A loader base update over USB said Done but did not stick
+- **Unit:** Octatrack MKII, OS 1.40C (Modwerk beta base, the author's unit), 2026-11-09
+- **Seen:** the web page's "Update over USB" reported Done, but the new base stalled at +0 s on its first start, and the next boot ran the old base. A second update held. In the same trials the loader's diagnostic log once showed a "hot" record (CPU 98.9 %) with the transport stopped, not explained.
+- **Cause:** unknown.
+- **Fix:** update again and check the base version after the reboot.
+- **Status:** open.
+- **Evidence:** `[hw]` {modwerk-syntiz}
+- **Rule:** A23
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#modwerk-and-octabam-findings-2026-11-12)

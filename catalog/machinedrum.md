@@ -2,19 +2,19 @@
 
 # Machinedrum (incl. UW)
 
-Data last verified: 2026-11-11
+Data last verified: 2026-11-12
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **Machinemodule for MPC OS** (sd88me) | emulator | - | v1.0.5 (tag, 2026-11-12) | v1.0.5 | 2026-11-12 | [repo](https://github.com/sd88me/mpc-vst-machinedrum) · [move port](https://github.com/sd88me/schwung-machinemodule) · [monomodule mpc](https://github.com/sd88me/mpc-vst-monomodule) |
+| **OP-XY MNMD** (mmockett) | emulator | - | v1.3.2 (tag, 2026-11-12) | v1.3.2 | 2026-11-12 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **DBX-DR (dark drone for MDX)** (MonCalamari) | mod | - | Machinedrum MKI/MKII running MDX X.20 (MDS 1.1) | drone-v0.5 | 2026-11-07 | [repo](https://github.com/MonCalamari/DBX-DR) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-06 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
 | **DBX-K2 (resonator kick for MDX)** (MonCalamari) | mod | - | kick2-v0.9 (2026-11-06): HOLD replaces colour, pitch 38-160 Hz, saturation always on; v0.7 first release the same day; Machinedrum MKI/MKII running MDX X.20 | kick2-v0.9 | 2026-11-06 | [repo](https://github.com/MonCalamari/DBX-K2) |
 | **mds-tools (MDS packer and certifier)** (Justin Mammarella) | tool | - | main @ 983600a (2026-11-03); MDX 2.0 USR machines (Machinedrum MKI and MKII) | - | 2026-11-03 | [repo](https://github.com/jmamma/mds-tools) |
-| **Machinemodule for MPC OS** (sd88me) | emulator | - | v1.0.2 (tag, 2026-11-03) | v1.0.3 | 2026-11-03 | [repo](https://github.com/sd88me/mpc-vst-machinedrum) · [move port](https://github.com/sd88me/schwung-machinemodule) · [monomodule mpc](https://github.com/sd88me/mpc-vst-monomodule) |
 | **ModuleDrum** (K-X420) | emulator | - | - | v1.4.1 | 2026-11-01 | [repo](https://github.com/K-X420/ModuleDrum) |
-| **OP-XY MNMD** (mmockett) | emulator | - | - | v1.3.1 | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **BSP Machinedrum** (ABarracu87) | tool | - | - | v0.3.5 | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
 | **MoDule (MD Drums)** (c0remusic) | emulator | - | - | module-v0.1.2 | 2026-10-29 | [repo](https://github.com/c0remusic/MModule) |
 | **fsdsp56k** (smoothdeveloper) | tool | - | main @ 2ac9d9b (2026-10-26); MDX X.20 for running packed machines on hardware | - | 2026-10-26 | [repo](https://github.com/smoothdeveloper/fsdsp56k) · [homepage](https://smoothdeveloper.github.io/fsdsp56k/) |
@@ -152,7 +152,7 @@ _Sources: GitHub search 2026-11-02, README, LICENSE and NOTICE (2026-11-11)_
 
 ### OP-XY MNMD
 
-Machinedrum and Monomachine engines written from scratch (not an emulation of the chips) for the Teenage Engineering OP-XY on the Open-XY SDK. MIT.
+Machinedrum and Monomachine engines written from scratch (not an emulation of the chips) for the Teenage Engineering OP-XY on the Open-XY SDK. MIT. v1.3.2 (README 2026-11-12) gives each MD KIT key its own pan, level, filter, sample-rate reduction and FX sends with step locks (needs OP-XY SDK 1.10).
 
 _Related: uses tool `gearmulator-md-mm` (README: checked against gearmulator-md-mm) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 

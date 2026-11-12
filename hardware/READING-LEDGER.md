@@ -144,3 +144,19 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | elkbench README (cached flash gates) | diff | projects.yml |
 | sample-shepherd CLI docs and daily log | diff | projects.yml (log content left out: personal) |
 | dn2_firmware_explore ideas backlog (#39 keyboard hold), usbprobe doc | diff | projects.yml (last activity only; the LFO4 memory fault is already in CONFLICTS S17 and common/memory-maps) |
+
+## Pass 2026-11-12 (daily update run)
+| Source | Depth | Folded into |
+|---|---|---|
+| digikit findings 121-125, usb-fast and usb-bulk READMEs, card-info fixture, hardware handover 2026-11-11 | diff + new files | devices/digitakt-2.md, RAM-TENANCY, CONFLICTS O25, projects.yml (handover's personal details left out) |
+| dn2mk2 releases/v0.49.md, FIRMWARE.md, ROADMAP | diff | devices/digitone-2-internals.md, INCIDENTS I71 (fixed in v0.49) and I73, projects.yml |
+| dn2_firmware_explore docs/os-versions.md (1.12 port) | diff | devices/digitone-2-internals.md, projects.yml |
+| armio README, docs/sem-filter.md (R023-R027) | diff + new file | devices/digitone-2.md, INCIDENTS I74, projects.yml |
+| Modwerk changelog 2026-11-11, Octatrack docs, SYNTIZ, Pattern Sample Locks, Analog BD, Rytm modules, Digi Perform | diff + moved files | devices/octatrack.md, analog-rytm.md, digitakt.md, INCIDENTS I75-I77, CONFLICTS S19, RAM-TENANCY, AGENT-RULES A54, projects.yml (Zoom pedal work out of scope) |
+| octabam FREE LOOP README and INVESTIGATION, FAILURE_MODES, DRUMMER README | diff | devices/octatrack.md, INCIDENTS I78, projects.yml |
+| octamax NOTES 2i, README | diff | STOCK-BUGS SB17, projects.yml |
+| model27 notes 65, 71-73, README (release 0.60, SOLID) | diff + new file | devices/model-cycles-samples.md, RAM-TENANCY, projects.yml |
+| whiplash CHANGELOG, README, docs/digitakt-ii/reference.md, clock-jitter.md | diff + new files | devices/digitakt-2.md, CONFLICTS O24, HYPOTHESES H25, projects.yml (hackathon and plan files skipped) |
+| synfact mod changelogs and READMEs (arp 1.9, poly 1.5, samplers 1.4) | diff | projects.yml (the Unicorn EMAC pitfall is already in syntakt.md and octatrack.md) |
+| op-xy-mnmd README v1.3.2, machinemodule-mpc tags, octatrack-manager v0.50.0 docs, octatrack-step-view README, elkbench config example, sample-shepherd CLI docs | diff | projects.yml (sample-shepherd daily log left out) |
+| altstrument data folder (version bumps only), dn2-tools-depattern, dnx, spokes (code only) | report | nothing to fold |

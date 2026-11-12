@@ -283,3 +283,5 @@ ignore:
   # the original author's, up to machine 0.12 (the original had reached 0.13); nothing of its own
   - clarkreiz/cycles-one-shot
   - nerazin/mono-filter-distortion-clap   # a desktop CLAP effect for Bitwig modelled on the Monomachine filter; no device, firmware or mod
+  - nerazin/mono-delay-clap   # a desktop CLAP effect for Bitwig modelled on the Monomachine delay; no device, firmware or mod
+  - DavidDudson/overbridge    # multi-repo workspaces for Claude Code sessions; the name is the only link to Elektron

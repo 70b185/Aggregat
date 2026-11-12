@@ -1,4 +1,4 @@
-# RAM tenancy: who uses which memory (Digitone II, Digitakt II)
+# RAM tenancy: who uses which memory (Digitone II, Digitakt II, Model:Cycles, Octatrack)
 
 Task T23 of the [research map](../research/RESEARCH-MAP.md), first full pass 2026-11-11. Every mod platform puts its code and
 data in RAM that stock leaves alone, and each picked its own addresses. This page lists every range we could find, so a
@@ -116,6 +116,8 @@ The reset copies `0x40312000-0x4031ff60` to SRAM and clears `0x40312000-0x47e284
 | `0x47e8b000` | `0x47e9b000` | dt2-machine-lab | opt-in 64 KiB | 1.16 | `[doc]` {dt2-lab-cpu} |
 | `0x47f00000` | `0x47f40000` | elekloader | core-dt2 and every elekloader mod (digitakt2-perform's among them) | 1.17 | `[doc]` {elekloader-dt2-profile} {dt2-perform} |
 | `0x47fe0000` | `0x47fe1000` | digikit | keep area: crash and hang records that survive a soft reset | both | `[doc]` {digikit-f46} |
+| `0x406658c0` | `0x4066d8c0` | stock | 32 KiB scratch of the +Drive close (firmware-owned) | 1.17 | `[doc]` {digikit-f124} |
+| `0x4066d8c0` | `0x406758c0` | stock / digikit | the firmware's 32 KiB close-hash scratch; digikit's core/plusdrive-write borrows it while it holds the filesystem mutex | 1.17 | `[doc]` {digikit-f124} |
 
 ## Digitakt II SHARC L2 (`digitakt-2`)
 
@@ -128,3 +130,22 @@ Stock loads up to `0x2001ab7c`; `0x200fa000-0x200fdfff` is referenced by stock.
 | `0x20080000` | ? | dt2-machine-lab | Plaits code | 1.16 | `[doc]` {dt2-lab-capicola} |
 | `0x200a0000` | ? | dt2-machine-lab | Capicola cold code | 1.16 | `[doc]` {dt2-lab-capicola} |
 | `0x200e0000` | `0x200e8000` | dt2-machine-lab | voice state | 1.16 | `[doc]` {dt2-lab-capicola} |
+
+## Model:Cycles SDRAM payload area (`model-cycles`)
+
+The area where Model:Cycles mods place added machines; the Syntakt engine ports and MACRO use the same area (see [`devices/model-cycles-samples.md`](devices/model-cycles-samples.md)).
+
+| start | end | user | use | OS | evidence |
+|---|---|---|---|---|---|
+| `0x43000000` | `0x43003eb0` | model27 | SOLID machine when it is the only added machine (13,216 B code + 2,832 B variables; end is our sum) | 1.13 | `[doc]` {model27-solid} |
+| `0x43009680` | ? | model27 | SOLID as machine 7, beside SAMPLE | 1.13 | `[doc]` {model27-solid} |
+
+## Octatrack DSP X memory (`octatrack`)
+
+DSP56300 X-memory words, written `$xxxx` in the projects' notes.
+
+| start | end | user | use | OS | evidence |
+|---|---|---|---|---|---|
+| `0x2840` | `0x2841` | octabam / Modwerk | core-1 load counter | 1.40C | `[doc]` {modwerk-analogbd} |
+| `0x2841` | `0x3201` | Modwerk (Analog BD 0.1.7) | 909 tables and voices | 1.40C | `[doc]` {modwerk-analogbd} |
+

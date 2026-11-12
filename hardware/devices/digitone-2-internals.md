@@ -158,6 +158,27 @@ Digitone mk1 projects are `.dnprj`, Digitone II projects `.dn2prj`, sound banks 
 - **Program IN endpoints for 64-byte packets.** The controller's transmit buffer is 64 bytes per endpoint: two 512-byte IN packets back to back wedged it until a power cycle (I70). Stock declares bulk 512 but programs its IN queue heads for 64. `[hw]` {digikit-usbfast}
 - **Measured over the bulk route** (64-byte IN packets): echo about 2.3 MB/s each way on a DN2 and 2.9 MB/s on a DT2; an 8 MB sample 3.86 MB/s on the DN2 (0.68 over SysEx), 0.94-1.60 MB/s with verify on the DT2 (0.11 over SysEx); for many small files the per-file overhead dominates. A cable pulled mid-file left only complete files. On the DT2 a sample loaded on a track keeps playing while its file is replaced, since it plays from sample RAM. `[hw]` {digikit-usbfast}
 
+## dn2mk2 v0.49 FLEX (OS 1.11, 2026-11-11) {dn2mk2-v049}
+- **FLEX replaces BOUNCE** (machine type 17, BOUNCE's, so older projects open their BOUNCE track as FLEX with no conversion code). Recorder trigs record a track, IN or MAIN into one of 8 buffers for R.LEN steps; the FLEX track plays the take. BOUNCE had two faults FLEX fixes: its engine read three sound slots the panel never wrote, so a take ignored its panel, and it waited for a +Drive pool directory that a unit with nothing ever sent to the +Drive never has, so every take was refused there. `[emu]` (gated; not verified on hardware)
+- **Load guard:** PERC and the Monomachine voices now leave room for every sounding sample voice, and a sample voice the guard has to leave out stops until its next note (the fix for I71). `[emu]`
+- **Playhead:** STRT/LEN/LOOP turned while a note sounds no longer move its read position; they apply at the next trig or loop pass. `[emu]`
+- **Coupled emulator pitfall:** digikit's Unicorn halved every fractional EMAC product (0.5 x 0.5 gave `0x10000000`), so the stock parameter smoother `0x400db12a` decayed every voice parameter to about 3 % and FLEX played reversed and about 52 semitones low in the emulator. dn2mk2 models the smoother; other EMAC users stay wrong until the EMAC itself is fixed (rule C10). `[emu]`
+- **Open on units:** an old project silenced every track until a reboot (I73); a FLEX take is much quieter than its input (takes are not normalised); BUF on the SYN page seemed to have no effect for one user. `[hw]` (user reports)
+
+## Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12) {dnfw-osport}
+| | 1.11 | 1.12 |
+|---|---|---|
+| MAIN OS length | 3,192,192 B | 3,196,288 B |
+| the reset clears stock data up to | `0x466b74d0` | `0x466b84d0` |
+| stock DMA section | `0x466b8000..0x46701340` | `0x466c0000..0x46709340` |
+| 138-byte loader cave (zero bytes) | `0x4028da6e` | `0x4028dfae` |
+| platform area (the stock end) | `0x4030b980` | `0x4030c980` |
+| start-up calls | `0x4000053e` | the same, same bytes |
+| bus sites and machine-count bounds | `0x400dc02a`, `0x400dc814`, `0x400dc8f6`, 6 bound sites | +`0x164` each |
+- **Address maps by anchors:** runs of 10 decoded instructions with address operands masked anchor the code; matched operands vote for the data map; byte windows anchor the data part. Of 778 mod sites, 594 had the same bytes on 1.12 and 184 were relocated, none unexplained. `[doc]`
+- **RAM above 1.12's DMA section,** `0x46709340..0x48000000`, passed dnfw's three checks (reference scan in nine windows, data-pointer scan, touch run with a project upload). Mod RAM that 1.12's DMA section now covers must move (bootscreen's `0x46708000`). Stock 1.12 writes the same 902 frame words as 1.11. Sections 2, 4, 7 and 8 hash the same on both. `[emu]` / `[doc]`
+- **First 1.12 test image** (the platform plus a handler that answers 0) booted from reset to the main UI at the same instruction as stock 1.12 in digikit's emulator, with no hit on the fault reporter (`0x4011ed4a` on 1.12). Not on a unit yet. `[emu]`
+
 ## OS release history (dn2-cfw `notes/dn2-release-history.md`, dnfw `docs/os-versions.md`)
 | OS | Bootstrap version | Build | What changed (sections) | Impact for mods |
 |---|---|---|---|---|

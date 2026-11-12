@@ -81,6 +81,16 @@ Supermodel's Syntakt-engine bridge measures the audio function every block and f
   - The same method as digihealth (Digitakt mk1) and dnfw's loadmap (DN2): measure before optimising. `[doc]`
 
 
+## MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) {model27-solid}
+- **CC lookup (Model:Cycles):** the CC-to-descriptor table is built at `0x4005a8ce`; CC 16-23 are looked up only in the row of the track's machine, so a shared descriptor on CC 20-23 is never reached, while CC 75-78 reach shared descriptors on all six tracks (`[emu]`, interpreter). CC values are not scaled: the handler `0x4000b568` writes value x 256 and the setter `0x4000b274` clamps to the descriptor's range. Edits send their CC through `0x4000b942`, which reads the stock table at `0x4010dce0`. `[doc]`
+- **Stock MIDI map (Model:Cycles):** CCs that reach a track descriptor: 3, 7, 10, 12-19, 65-67, 70, 80, 93 (Solo, by code reading), 102-110; on the FX channel 3, 14, 15, 85-88, 102-110. Stock NRPNs: 1:26-1:30, 1:32-1:39, 3:0, 1:100-1:103. Free next to 74/71: CC 72, 73, 75-79. `[doc]`
+- **Model:Samples knob CCs** from its descriptor table at `0x40109048`: Pitch 16, Loop 17, Flip 18, Start 19, Length 20, Cutoff 74, Reso 71, Decay 80. `[doc]` (code reading, not run)
+- **No CC goes out** for a knob until TRACK SETUP MOUT is on for that track (with ENCS at I+E); stock behaviour, not a bug. `[hw]`
+- **Voice internals (Model:Cycles):** amp envelope `0x400a9252`, decay table `0x4011d84c` (DECAY 127 is about 15 s to -60 dB); the VCA `0x400a9430` clears the level in a trig's block, which clicks on a retrig; PUNCH `0x400a967a` (with PUNCH off a TONE track's output is x1/8); the voice loop `0x400a7d4a` keeps trig and release flags for one block only, runs the EMAC with MACSR `0xa0` and leaves acc0 uncleared; per-track velocity gain at `0x40fe4c90 + 2*track`. `[doc]`
+- **Cost per 32-frame block** in Unicorn (instructions, not cycles): TONE 5,291, PERC 6,079, METAL 6,431, KICK 7,429, SNARE 7,158, CHORD 8,300; model27's SOLID (an eight-mode struck-body machine on the EMAC) 3,588 for one ringing voice, 51,589 for six tracks of sustained noise. `[emu]`
+- **On a unit (2026-11-11):** SOLID with every other model27 card ran on a Model:Cycles; six SOLID tracks, each with a Track FX, and POTS on the delay send averaged about 60 % CPU with peaks up to 75 %. Track FX answered CC 75/76 and NRPN 1:22/1:23. `[hw]`
+- **Where SOLID sits:** at `0x43000000` when it is the only added machine (13,216 bytes of code, 2,832 of variables), or as machine 7 at `0x43009680` beside SAMPLE; this is the same SDRAM payload area the Syntakt engines and MACRO use ([RAM-TENANCY.md](../RAM-TENANCY.md)). It takes 80 bytes of the shared freed mask at `0x4016cae8`, now 1,016 of 1,024 bytes used. `[doc]`
+
 ## The +Drive sample store (model27's sample uploader, OS 1.13) {model27-uploader}
 - **A sample in use is locked.** Once a track uses a sample, the Model:Cycles refuses to delete it; a restart unlocks it only if no track uses it anymore (tried on a Model:Cycles with one SAMPLE track, 2026-11-10). An uploader should delete what it can and name the locked files rather than stop. `[hw]`
 - Uploads become 48 kHz mono samples; Chromium decodes neither AIFF nor 64-bit float WAV, so model27's page converts those itself before handing them on. `[doc]`

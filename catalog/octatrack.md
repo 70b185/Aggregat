@@ -2,18 +2,19 @@
 
 # Octatrack (MKI, MKII)
 
-Data last verified: 2026-11-11
+Data last verified: 2026-11-12
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **STEP VIEW (Octatrack step editor)** (Slingdinger) | mod | - | Octatrack MKI/MKII OS 1.40C | - | 2026-11-12 | [repo](https://github.com/Slingdinger/octatrack-step-view) |
 | **elekloader** (pina (irpina)) | loader | - | v0.10.0 (tag 2026-11-09): ships each device's newest core (DT1 4.1, DN1 5.2.1, DT2 1.0, DN2 0.3, AR2 0.11, A4 0.5, OT 0.8, MC 0.3, MS 0.1). main since: DT1 core 4.2/4.3 and DN1 5.3 (live-note and MIDI CC events), core-dn2 0.4 (MIDI CC event, DSP post words), core-ar2 0.12 (spare table entries for +Drive mods), SDK mono machines and MIDI CCs, DT2 sharc_raw (raw section-7 loads and relocatable DSP objects); 2026-11-11 the Analog Rytm MKII Drive Loader (drive-loader-ar2 0.4: mods linked from the +Drive at boot, a MODS page, the web page's +Drive view over Web MIDI) and core-a4 renamed core-a4mk2; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.10.0 | 2026-11-11 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/elekloader/elekloader/releases) · [shop](https://elekloader.github.io/shop/) · [shop repo](https://github.com/elekloader/shop) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | - | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-11 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
-| **octabam** (Sam Banks, Contributors credited per module) | mod | - | v0.4 (tag 2026-11-04, the web builder's patch; adds SHATTER and SIDECHAIN_COMPRESSOR). Unreleased (2026-11-10): WAVE moved from a DSP effect to a ColdFire machine (wavecf), new XF CURVE, KEYBUS and SC KEYBUS BRIDGE, a leaner demand-loader copier; 2026-11-11 DRUMMER by djib (a FLEX track's sliced drum loop played as a drummer: styles, humanisation, breaks on the crossfader; run on the author's MKII) and CX OSC reworked into a Buchla-style complex oscillator capped at six tracks; 1.40C | v0.4 | 2026-11-11 | [repo](https://github.com/sambanks/octabam) · [homepage](https://modwerk.app/) |
-| **STEP VIEW (Octatrack MIDI step editor)** (Slingdinger) | mod | - | Octatrack MKI/MKII OS 1.40C | - | 2026-11-11 | [repo](https://github.com/Slingdinger/octatrack-step-view) |
+| **octabam** (Sam Banks, Contributors credited per module) | mod | - | v0.4 (tag 2026-11-04, the web builder's patch; adds SHATTER and SIDECHAIN_COMPRESSOR). Unreleased (2026-11-10): WAVE moved from a DSP effect to a ColdFire machine (wavecf), new XF CURVE, KEYBUS and SC KEYBUS BRIDGE, a leaner demand-loader copier; 2026-11-11 DRUMMER by djib (a FLEX track's sliced drum loop played as a drummer: styles, humanisation, breaks on the crossfader; run on the author's MKII) and CX OSC reworked into a Buchla-style complex oscillator capped at six tracks; 2026-11-12 DRUMMER gains a NEXT page with on-beat orders (stop, resume, fill, style, break), and djib's FREE LOOP (MIDI-pedal looper, CC 90-93 per track, transport CCs 83-89, run in the author's rig on an MKII 5-10 Nov) is documented; a stray recording after power-on is guarded (I78); 1.40C | v0.4 | 2026-11-11 | [repo](https://github.com/sambanks/octabam) · [homepage](https://modwerk.app/) |
+| **OCTAMAX** (Maxolydian (mxldyn)) | mod | - | OCTAMAX_2i (2026-11-11; the audio editor follows pattern, bank and Part changes, SB17); 1.40C | dual256-v1 | 2026-11-11 | [repo](https://github.com/mxldyn/octamax) |
+| **Octatrack Manager** (David Ferlay) | tool | - | v0.50.0 (2026-11-11); Projects saved on OS 1.40 or later | v0.50.0 | 2026-11-11 | [repo](https://github.com/davidferlay/octatrack-manager) · [homepage](https://davidferlay.github.io/octatrack-manager/) |
 | **OT Kyoti FW** (Zac Kyoti) | mod | - | KYOTI V1.7 + RELOAD_FROM_PROJECT (final 2026-11-09, flashed on the author's MKI); 1.40C | ref/sp12-midside-vem7 | 2026-11-10 | [repo](https://github.com/Zac-Kyoti/octatrack-kyoti-fw) |
-| **OCTAMAX** (Maxolydian (mxldyn)) | mod | - | OCTAMAX_2h (2.0 beta patch; 2h moves all patch state out of internal SRAM); 1.40C | dual256-v1 | 2026-11-09 | [repo](https://github.com/mxldyn/octamax) |
 | **octabam2elemod (octabam modules as elekloader mods)** (irpina) | mod | - | v1.0 (octabam 363861e); Octatrack MKI/MKII OS 1.40C | v1.0 | 2026-11-08 | [repo](https://github.com/irpina/octabam2elemod) |
 | **Octatrack modules (MIDI Scales, Loopback, Follow, Harmony)** (radiohagen) | mod | - | Octatrack OS 1.40C via octabam | - | 2026-10-31 | [repo](https://github.com/radiohagen/octatrack-modules) |
 | **ReBirth to Octatrack** (alexandrubelc) | tool | - | Octatrack with octabam GARDEN36 or later | - | 2026-10-29 | [repo](https://github.com/alexandrubelc/rebirth2octatrack) |
@@ -21,7 +22,6 @@ Data last verified: 2026-11-11
 | **OType** (nordseele) | mod | - | Octatrack firmware (custom; see docs) | - | 2026-10-22 | [repo](https://github.com/nordseele/otype) · [docs](https://nordseele.github.io/otype-docs/) |
 | **OctaDraw** (nordseele) | tool | - | - | v0.13 | 2026-10-21 | [repo](https://github.com/nordseele/octadraw) |
 | **aCiDtRacK modules** (braikomarko-hub) | mod | - | Octatrack MKI OS 1.40C via octabam | - | 2026-10-21 | [repo](https://github.com/braikomarko-hub/acidtrack-modules) |
-| **Octatrack Manager** (David Ferlay) | tool | - | v0.49.0 (2026-10-18); Projects saved on OS 1.40 or later | v0.49.0 | 2026-10-18 | [repo](https://github.com/davidferlay/octatrack-manager) · [homepage](https://davidferlay.github.io/octatrack-manager/) |
 | **midisc** (bkkbrls-del) | mod | - | MIDISC2.1 (2026-10-08); 1.40C | 1.40MIDISC | 2026-10-08 | [repo](https://github.com/bkkbrls-del/midisc) |
 | **octa-panel** (Tim Hastie) | emulator | - | octatrick-2.9 (2026-09-29); 1.40C | octatrick-2.9 | 2026-09-29 | [repo](https://github.com/timhastie/octa-panel) |
 | **PassOS** (theremoteviewer) | mod | - | v1.0 (2026-09-28); 1.40C | v1.0 | 2026-09-28 | [repo](https://github.com/theremoteviewer/octa-passos) |
@@ -52,11 +52,11 @@ _Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
 
 ### Modwerk (formerly Octamod)
 
-2026-11-09/10: Octatrack beta: the silence after USB DISK MODE (finding 72) was the base mistaking stock's DSP pause for a stall, fixed (I69); FM Synth with many FLEX tracks no longer loses the audio on PLAY; the Octatrack page asks for a power cycle when the DSP has stopped; Temp Save 0.1.0 withdrawn from USB installs (card build stays). Modwerk also loads effects onto Zoom MultiStomp pedals now (ZDL files over USB; not an Elektron device). Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still early prototypes. last_activity = date of the Dubspot article, not a forum post. 2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI. 2026-11-03: the site now lets you download a built Analog Rytm MKII .syx (after confirming you know how to get back to stock); new Rytm module quick-velocity-aftertouch-assign with a verification note. Zoom pedals: an effect whose group+ID clashes with one already on the pedal is moved to a free local Delay ID 958-1023 (ID only in the ZDL header at 0x40-0x41, no checksum); two effects with the same group and ID froze an MS-70CDR at boot until its ROM was reprogrammed. 2026-11-04/05: Rytm MKII downloads on (records); npp1993's Control In Actions (footswitch or 0-5 V gate on EXP/CV IN as ACTION for MUTE and more) and Quick Velocity+Aftertouch Assign join the library, Silent Pad+Trig Settings 0.7.0; euclidean 1.1.6 for Digitakt I 1.53/1.54 reported working on a unit by sumedho (all cases, save/reload, power cycle). 2026-11-08 to 11-10 (74c9eb2): Rytm library gains comp-preview, kit-ab, lfo-rnd and voice-dac (from rytm2_mods, unit runs on the Modwerk base), ctrl-in-perf and scene-mutes (from rytm-mods-src 0017/0018, unit runs T208/T210/T221), Improved Machine Browser and MIDI Mute; the Octatrack key bus moved to the tail of the first FX2 slot (checked on an MKI and an MKII); a Digitakt II audio scheduler is proposed (emulator only); Zoom MS-70CDR pedal work (out of scope here).
+2026-11-11/12: the Octatrack base and USB installs are open to everyone (first install still from the card, at most 20 modules per set; Tuner, Stem Rec and Temp Save card-only); USB Audio is off unless the set has the USB Audio module; skipping modules at boot moved from FUNC to holding PROJ at power-on (MKI keeps FUNC); the octabam pin is frozen (Modwerk follows only elekloader upstream); Analog BD 0.1.7 has a new 909 model; base-update and SYNTIZ incidents I75 and I76. 2026-11-09/10: Octatrack beta: the silence after USB DISK MODE (finding 72) was the base mistaking stock's DSP pause for a stall, fixed (I69); FM Synth with many FLEX tracks no longer loses the audio on PLAY; the Octatrack page asks for a power cycle when the DSP has stopped; Temp Save 0.1.0 withdrawn from USB installs (card build stays). Modwerk also loads effects onto Zoom MultiStomp pedals now (ZDL files over USB; not an Elektron device). Browser-based hub, builds locally from the user's own stock OS. Browse mods by device, forum with a section per device, shared SDK. Dubspot (13 Oct): several modules are still early prototypes. last_activity = date of the Dubspot article, not a forum post. 2026-11-02: three Analog Rytm MKII modules by npp1993 moved into the library (Pipo Loop 0.1.1, Sample RATE 0.1.0, Silent Pad+Trig Settings 0.6.0, all experimental, OS 1.74; linkable together with core-ar2 0.7, Filter Hz and Loop Sync; the packages themselves not yet run on a unit). `_submissions/` takes no new modules. The Octatrack USB beta also works on the MKI. 2026-11-03: the site now lets you download a built Analog Rytm MKII .syx (after confirming you know how to get back to stock); new Rytm module quick-velocity-aftertouch-assign with a verification note. Zoom pedals: an effect whose group+ID clashes with one already on the pedal is moved to a free local Delay ID 958-1023 (ID only in the ZDL header at 0x40-0x41, no checksum); two effects with the same group and ID froze an MS-70CDR at boot until its ROM was reprogrammed. 2026-11-04/05: Rytm MKII downloads on (records); npp1993's Control In Actions (footswitch or 0-5 V gate on EXP/CV IN as ACTION for MUTE and more) and Quick Velocity+Aftertouch Assign join the library, Silent Pad+Trig Settings 0.7.0; euclidean 1.1.6 for Digitakt I 1.53/1.54 reported working on a unit by sumedho (all cases, save/reload, power cycle). 2026-11-08 to 11-10 (74c9eb2): Rytm library gains comp-preview, kit-ab, lfo-rnd and voice-dac (from rytm2_mods, unit runs on the Modwerk base), ctrl-in-perf and scene-mutes (from rytm-mods-src 0017/0018, unit runs T208/T210/T221), Improved Machine Browser and MIDI Mute; the Octatrack key bus moved to the tail of the first FX2 slot (checked on an MKI and an MKII); a Digitakt II audio scheduler is proposed (emulator only); Zoom MS-70CDR pedal work (out of scope here).
 
 _Related: cites `elekloader` (README mentions elekloader (porting from it / hosted loader)); cites `octabam` (README: porting from octabam is part of the module guide) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: gearnews, dubspot, forum thread 36_
+_Sources: gearnews, dubspot, forum thread 36, changelog (2026-11-11), module READMEs (2026-11-12)_
 
 ### ems-octakit
 
@@ -94,7 +94,7 @@ Modular Octatrack OS 1.40C "remixer": bus and track effects, FM synth machine, 2
 
 _Related: cites `elektron-firmware-tool` (README credits); bundles `ems-octakit` (README: module table lists OCTAKIT from emuyia/ems-octakit); bundles `midisc` (README: module table lists MIDI SCENES from bkkbrls-del/midisc); bundles `octa-bt-pt` (README: module table lists LOFI AMF FIX from bryantysinger/octa-bt-pt); bundles `octatrick` (README: module table lists DIRECT JUMP from timhastie/octatrick-modules); bundles `octemu` (README: module table lists USB from markandrus/octemu); fork of `octamax` (README: began as a fork of mxldyn/octamax) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01), README (2026-11-11)_
+_Sources: altstrument (2026-11-01), README (2026-11-11), README (2026-11-12)_
 
 ### OctaChainer 2
 
@@ -108,7 +108,7 @@ RE toolkit for Octatrack MKII OS 1.40C plus opt-in behaviour patches (lazy part 
 
 _Related: uses tool `elektron-firmware-tool` (README: fetched and built into vendor/ by setup, not shipped) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01), README (2026-11-11)_
+_Sources: altstrument (2026-11-01), README (2026-11-12)_
 
 ### Octaplay
 
@@ -128,7 +128,7 @@ _Sources: altstrument (2026-11-01), README (2026-11-11)_
 
 ### Octatrack Manager
 
-Desktop app to inspect and edit Octatrack projects, patterns, parts and sample pools on CF cards and backups. Licence: GPL-3.0-only; distribution: download. Listed by altstrument; repo not read by us yet.
+Desktop app to inspect and edit Octatrack projects, patterns, parts and sample pools on CF cards and backups. Licence: GPL-3.0-only; distribution: download. Listed by altstrument; repo not read by us yet. v0.50.0: the Parts and Scenes editors reload single values or whole groups from the saved Part, with pinned values and undo (user guide, 2026-11-11).
 
 _Related: builds on `ot-tools-io` (README: built with ot-tools-io) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
@@ -236,13 +236,13 @@ Rust crate for reading and writing the Octatrack's binary project/bank/marker fi
 
 _Sources: GitHub search 2026-11-02, README_
 
-### STEP VIEW (Octatrack MIDI step editor)
+### STEP VIEW (Octatrack step editor)
 
-A step editor and piano-roll pitch view for the eight MIDI tracks (MIXER + MIDI): all tracks at 32 steps a row, one track's 64 steps, notes with VEL and LEN per step. Found by GitHub search 2026-11-08. 2026-11-11: the Split view also shows the audio tracks (each step's trig and its p-locks), and Pages with the audio tracks shows the cursor track's page values beside that page's SETUP.
+A step editor and piano-roll pitch view for the eight MIDI tracks (MIXER + MIDI): all tracks at 32 steps a row, one track's 64 steps, notes with VEL and LEN per step. Found by GitHub search 2026-11-08. 2026-11-11: the Split view also shows the audio tracks (each step's trig and its p-locks), and Pages with the audio tracks shows the cursor track's page values beside that page's SETUP. 2026-11-12 (README): works on both sides, the 8 audio tracks and the 8 MIDI tracks (MIDI switches); YES opens a lock window with every p-lock on a step (Pitch stays MIDI only).
 
 _Related: mod for `octabam` (README: a module for octabam) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-08, README, README (2026-11-11)_
+_Sources: GitHub search 2026-11-08, README, README (2026-11-11), README (2026-11-12)_
 
 ### octabam2elemod (octabam modules as elekloader mods)
 

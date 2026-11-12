@@ -217,9 +217,10 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Cause:** stock reuses the sample the track had when it was last selected.
 - **Workaround:** reselect the track first; fixed by OCTAMAX 2f.
 - **Test tip:** when a mod changes a track's sample, reselect the track before you judge the editor.
-- **Found by:** OCTAMAX (seen on a unit; fix confirmed on an MKII 2026-11-07)
+- **Same gap, second path:** with the audio editor open, a pattern change to a pattern on another Part (in the same bank, or a bank pick with BANK AUTO PTN 1) or a Part change leaves the editor on the previous Part's sample while the trigs already play the new one, until it is closed and reopened. Track select publishes the slot to the editor (`0x40083c64`); the pattern-change and Part-change handlers (`0x40062120`, `0x400621a6`) do not. OCTAMAX 2i publishes there too.
+- **Found by:** OCTAMAX (seen on a unit; fixes confirmed on an MKII 2026-11-07 (2f) and 2026-11-11 (2i))
 - **Status:** open in stock; fixed by a mod
-- **Evidence:** `[hw]` {octamax-notes}
+- **Evidence:** `[hw]` {octamax-notes} {octamax-2i}
 
 ## Analog Rytm
 

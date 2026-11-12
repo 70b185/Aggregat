@@ -120,6 +120,11 @@ Notes in the repo mark each claim `[verified]` or `[inferred]` - copy that conve
 - Digiwerk's spring-reverb builds lost their sound on the unit (locks on USB MULTI/MIDI; a stop one or two minutes after a pattern stop); the cause is open and the spring is shelved ([I68](../INCIDENTS.md#i68-spring-reverb-builds-lost-their-sound-on-a-digitone-ii-no-cause-found-offline)). `[hw]` {dn2-cfw-sp02}
 - **Stock DSP fault parks (OS 1.12):** on a fault the stock DSP code idles at `0x1c07c7` or `0x1c1431`. Digiwerk's EEEM build jumps from there to a routine that fills the codec buffers with a square wave whose pitch names the fault, so a fault on the unit is heard rather than silent. `[doc]` {dn2-cfw-mr03}
 
+## armio R023-R027: the SEM filter and a DSP overload (2026-11) {armio-r027}
+- **R027** adds a seventh filter type, SEM (an Oberheim-style state-variable model from Faust's library: TYPE 0 low-pass, 63 notch, 126 high-pass, 127 band-pass), on every machine, with its computed response drawn on the FILTER page. The values derived from Elektron data for that graph are computed in the browser from the user's own OS file. Owner-tested, not instrumented. `[hw]` (owner)
+- **R023/R024 overloaded the DSP and broke USB audio** (I74); R025 runs the right-hand effects chain only for sampler voices. USB audio is untested since. `[hw]`
+- **After a USB update** the unit can stay on SUCCESS! REBOOTING; a power cycle then boots the new OS (rule A23). `[doc]`
+
 ## Stock intro (OS 1.11 and 1.12)
 The intro works as on the Digitakt II: its own task at priority 7 above the main OS, scene tables, one current-entry pointer (1.12 `0x42c4cacc`, 1.11 `0x42c4bacc`). All addresses and the swap point are in [`digitakt-2.md`](digitakt-2.md#the-stock-intro-and-boot-screens-digikit-finding-117-dt2-117-and-dn2-111112-digikit-f117). digikit's boot screens and REC safe mode are emulator-only on the DN2 so far. `[doc]` {digikit-f117}
 
@@ -129,6 +134,7 @@ Digitone II reached Overbridge streaming with OS 1.10 (plugin followed later). `
 
 ## Control from outside
 SysEx/MIDI facts, the SYXGRID format map (45 mappings, confidence levels) and digitone-syx-toolkit are in [`../common/sysex-and-midi.md`](../common/sysex-and-midi.md). elekloader supports Digitone II 1.12 as experimental (whole builds, linkable mods, SHARC mods, selectable synth/filter mods; UI events and remote input checked on a unit; README 3016dca, 2026-11-08). {elekloader-main}
+OpenBridge (Donmanouche) is a Linux VST3 plugin and standalone app that implements Overbridge for the Digitone II (42 USB audio channels, every sound parameter, mixer, +Drive presets); it needs OS 1.12 or later, because older OS versions do not answer its mixer and FX messages. `[doc]` {openbridge-dn2}
 
 ## Gaps
 `docs/flashing.md`, `docs/mainos-image.md`, `docs/parameter-table-growth.md`, dn2mk2 `docs/SAFETY.md`, and the skill's "hardware rules the emulators cannot check" are the next reads (see `../MINING.md`).

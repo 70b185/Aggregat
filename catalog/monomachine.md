@@ -2,16 +2,16 @@
 
 # Monomachine
 
-Data last verified: 2026-11-11
+Data last verified: 2026-11-12
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **OP-XY MNMD** (mmockett) | emulator | - | v1.3.2 (tag, 2026-11-12) | v1.3.2 | 2026-11-12 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **Mono Chorus CLAP** (nerazin) | tool | - | 0.3.0 (2026-11-10) | - | 2026-11-10 | [repo](https://github.com/nerazin/mono-chorus-clap) |
 | **ems-monomachine-firmware** (June Kiff (emuyia)) | mod | - | 26B09-beta (2026-11-09): ARP p-locks, trig conditions to 8:8 plus PRE/NEI, microtiming, multi-trig edit, page transpose, BBOX sample manager (SDS and a compressed format shared with compatible Machinedrum firmware), DPRO>SBOX machine; 1.32B | 26910-release | 2026-11-09 | [repo](https://github.com/emuyia/ems-monomachine-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-06 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
-| **OP-XY MNMD** (mmockett) | emulator | - | - | v1.3.1 | 2026-11-01 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **BSP Machinedrum** (ABarracu87) | tool | - | - | v0.3.5 | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
 | **Monomachine Lab** (Jick238) | emulator | - | Monomachine OS 1.32B (user-supplied) | v0.1.4 | 2026-10-21 | [repo](https://github.com/Jick238/monomachine-lab) |
 | **C7** (sata1000000) | editor | - | - | v0.1.0 | 2026-10-10 | [repo](https://github.com/sata1000000/C7) |
@@ -67,7 +67,7 @@ _Sources: GitHub search 2026-11-02, README_
 
 ### OP-XY MNMD
 
-Machinedrum and Monomachine engines written from scratch (not an emulation of the chips) for the Teenage Engineering OP-XY on the Open-XY SDK. MIT.
+Machinedrum and Monomachine engines written from scratch (not an emulation of the chips) for the Teenage Engineering OP-XY on the Open-XY SDK. MIT. v1.3.2 (README 2026-11-12) gives each MD KIT key its own pan, level, filter, sample-rate reduction and FX sends with step locks (needs OP-XY SDK 1.10).
 
 _Related: uses tool `gearmulator-md-mm` (README: checked against gearmulator-md-mm) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 

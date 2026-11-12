@@ -2,11 +2,11 @@
 
 # Syntakt
 
-Data last verified: 2026-11-11
+Data last verified: 2026-11-12
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **Synfact** (GSM1980) | mod | - | main (2026-11-10), untagged; core-st 1.8.0 (stereo tracks and stereo samples), sample-manager-st 1.2, samplers-st 1.3; Syntakt OS 1.41 | - | 2026-11-10 | [repo](https://github.com/GSM1980/synfact-dev) · [homepage](https://synfact.app) · [old release repo](https://github.com/GSM1980/Synfact-release) · [release copy](https://github.com/nrdsrfr/synfact-release) |
+| **Synfact** (GSM1980) | mod | - | main (2026-11-11), untagged, changelog 1.9; core-st 1.8.0 (stereo tracks and stereo samples), sample-manager-st 1.2, samplers-st 1.4 (lighter PCM, stereo engine on the EMAC), arp-st 1.9, poly-st 1.5; Syntakt OS 1.41 | - | 2026-11-11 | [repo](https://github.com/GSM1980/synfact-dev) · [homepage](https://synfact.app) · [old release repo](https://github.com/GSM1980/Synfact-release) · [release copy](https://github.com/nrdsrfr/synfact-release) |
 | **SynCrackd** (Vuulgaris) | mod | - | Syntakt OS 1.42 | v0.1.2 | 2026-11-03 | [repo](https://github.com/Vuulgaris/syncrackd) |
 | **elkflash** (Iced-Cream) | tool | - | - | - | 2026-11-02 | [repo](https://github.com/Iced-Cream/elkflash) |
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | - | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |

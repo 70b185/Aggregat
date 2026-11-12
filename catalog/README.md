@@ -2,14 +2,14 @@
 
 # Index by device
 
-Data last verified: 2026-11-11. Repo fingerprints: see state/CHANGES.md
+Data last verified: 2026-11-12. Repo fingerprints: see state/CHANGES.md
 
 | Device | Verified | Unverified candidates | Requests / resources |
 |---|---|---|---|
 | [Digitakt (MKI)](digitakt.md) | 59 | 0 | 3 |
 | [Digitakt II](digitakt-2.md) | 44 | 1 | 1 |
 | [Digitone (MKI) / Digitone Keys](digitone.md) | 60 | 0 | 2 |
-| [Digitone II](digitone-2.md) | 31 | 1 | 2 |
+| [Digitone II](digitone-2.md) | 32 | 1 | 2 |
 | [Syntakt](syntakt.md) | 16 | 0 | 1 |
 | [Analog Heat (MKI, MKII, +FX)](analog-heat.md) | 4 | 1 | 1 |
 | [Octatrack (MKI, MKII)](octatrack.md) | 28 | 1 | 0 |

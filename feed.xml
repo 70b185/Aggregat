@@ -16,6 +16,13 @@
     <summary>A Linux (x86_64) implementation of Overbridge for the Digitone II, as a VST3 plugin and a standalone app (JUCE): 42 channels of USB audio out and 8 in with clock-drift compensation, every sound parameter of the 16 tracks readable and editable with DAW automation, a mixer, and a …</summary>
   </entry>
   <entry>
+    <title>Update 2026-11-12: seventeen change reports folded, OpenBridge added, I73-I78, A54, H25, O24/O25, S19</title>
+    <link href="https://github.com/70b185/Aggregat/commit/5b45def7e4cf15574c4f6aa78af72da5ccd92b0e"/>
+    <id>https://70b185.github.io/Aggregat/#commit-5b45def7e4cf</id>
+    <updated>2026-11-12T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>Agent foundation: stable fact ids, address index, context packs, AGENTS.md, llms.txt, MCP server</title>
     <link href="https://github.com/70b185/Aggregat/commit/c046776058dbc2704310e9f9e4d10164e90112f3"/>
     <id>https://70b185.github.io/Aggregat/#commit-c046776058db</id>
@@ -448,13 +455,5 @@
     <updated>2026-11-07T00:00:00Z</updated>
     <category term="project"/>
     <summary>Open-hardware battery base using the original side mounting points and the left battery input: editable CAD, STEP/STL, parts list, build guide and printable fit gauges. No working physical prototype validated yet. Found by GitHub search 2026-11-07.</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: Elektron Project Companion (Tool, Analog Rytm, Digitakt II)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=elektron-project-companion"/>
-    <id>https://70b185.github.io/Aggregat/#project-elektron-project-companion</id>
-    <updated>2026-11-07T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>Windows editor for arranging live sets from local project backups: place patterns in banks A-H and export a new project for Transfer. Rytm MKII: .arprj and whole-project .syx (patterns, kits, sound locks, sample references). Digitakt II: .dt2prj project image v4 (patterns with …</summary>
   </entry>
 </feed>

@@ -31,6 +31,13 @@
     <category term="update"/>
   </entry>
   <entry>
+    <title>Update 2026-11-12 (evening): eight change reports folded, Digi CMI added, I79</title>
+    <link href="https://github.com/70b185/Aggregat/commit/0cefa1d2da99e35c183258c0f8c9c920bab31145"/>
+    <id>https://70b185.github.io/Aggregat/#commit-0cefa1d2da99</id>
+    <updated>2026-11-12T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>Agent foundation: stable fact ids, address index, context packs, AGENTS.md, llms.txt, MCP server</title>
     <link href="https://github.com/70b185/Aggregat/commit/c046776058dbc2704310e9f9e4d10164e90112f3"/>
     <id>https://70b185.github.io/Aggregat/#commit-c046776058db</id>
@@ -447,13 +454,5 @@
     <updated>2026-11-07T00:00:00Z</updated>
     <category term="project"/>
     <summary>Organises a sample library (through Fourier Samples), exports it per device profile and syncs it to a sampler without breaking the projects on it: backs up projects, works out which samples they use, plans uploads and deletions and carries them out resumably; never deletes a …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: MUTINY (modular sequencers for Digitone mk1) (Mod, Digitone)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=mutiny"/>
-    <id>https://70b185.github.io/Aggregat/#project-mutiny</id>
-    <updated>2026-11-07T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>Three generative sequencers on the synth tracks: a Euclidean rhythm, a Turing Machine and a TB-303-style acid line, played from the encoders; YES writes what you hear into the pattern as ordinary trigs. The author tested it for about an hour on one Digitone mk1 (OS 1.44). Found …</summary>
   </entry>
 </feed>

@@ -160,3 +160,9 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | synfact mod changelogs and READMEs (arp 1.9, poly 1.5, samplers 1.4) | diff | projects.yml (the Unicorn EMAC pitfall is already in syntakt.md and octatrack.md) |
 | op-xy-mnmd README v1.3.2, machinemodule-mpc tags, octatrack-manager v0.50.0 docs, octatrack-step-view README, elkbench config example, sample-shepherd CLI docs | diff | projects.yml (sample-shepherd daily log left out) |
 | altstrument data folder (version bumps only), dn2-tools-depattern, dnx, spokes (code only) | report | nothing to fold |
+| dn2mk2 FIRMWARE.md v0.50, ROADMAP, docs/gate-speed.md | diff + new file | common/toolchain-and-emulators.md, projects.yml |
+| elekloader core-a4mk2 README 0.6, ADAPTING, DEVICES, FORMAT, CORES, AGENTS | diff | devices/analog-four-keys.md, common/memory-maps.md, projects.yml |
+| elkbench docs/emulator-timing.md, README, config example | diff + new file | common/toolchain-and-emulators.md, RESEARCH-MAP G4, projects.yml |
+| modwerk changelogs 2026-11-11/12, README, new module READMEs and TESTING (crossfader, live-looper, amiga); the sdk/octabam to sdk/octatrack move read as a rename | diff | devices/octatrack.md, INCIDENTS I79, AGENT-RULES A34, projects.yml (own_mods) |
+| octabam HOOKS ui_tick, hooks-reload remix; octatrack-step-view README; OpenBridge README; altstrument data (sidecar 0.4.4, model27, octatrack-manager, digikit, dn2mk2 patcher) | diff | devices/octatrack.md, projects.yml |
+| octatrack-step-view README (later the same day: lengths at the row end) | diff | projects.yml |

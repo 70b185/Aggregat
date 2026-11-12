@@ -13,7 +13,15 @@
     <id>https://70b185.github.io/Aggregat/#project-openbridge-digitone-2</id>
     <updated>2026-11-12T00:00:00Z</updated>
     <category term="project"/>
-    <summary>A Linux (x86_64) implementation of Overbridge for the Digitone II, as a VST3 plugin and a standalone app (JUCE): 42 channels of USB audio out and 8 in with clock-drift compensation, every sound parameter of the 16 tracks readable and editable with DAW automation, a mixer, and a …</summary>
+    <summary>A Linux (x86_64) implementation of Overbridge for the Digitone II, as a VST3 plugin (JUCE; the standalone app was dropped on 2026-11-12): 42 channels of USB audio out and 8 in with clock-drift compensation, every sound parameter of the 16 tracks readable and editable with DAW …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Digi CMI (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digicmi"/>
+    <id>https://70b185.github.io/Aggregat/#project-digicmi</id>
+    <updated>2026-11-12T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A Fairlight CMI-style polyphonic sample instrument as an elekloader mod: machine CMI on track 1 turns tracks 2-8 into its voices and plays one sample across the keyboard, from trigs, chords or MIDI. Forked from Digi Poly 2.1 (digi1_mods), whose polyphony, voice borrowing and …</summary>
   </entry>
   <entry>
     <title>Update 2026-11-12: seventeen change reports folded, OpenBridge added, I73-I78, A54, H25, O24/O25, S19</title>
@@ -152,7 +160,7 @@
     <id>https://70b185.github.io/Aggregat/#project-dn2-tools-depattern</id>
     <updated>2026-11-10T00:00:00Z</updated>
     <category term="project"/>
-    <summary>Browser tools (Chrome or Edge, Web MIDI) for the dn2mk2 Digitone II mod: DN2 Sample Import sends WAV files and folders to the mod's sampler over USB (replace all, choose slots, or add), plus tools for its recorder and the Machinedrum PERC machine. Hosted on GitHub Pages; the …</summary>
+    <summary>Browser tools (Chrome or Edge, Web MIDI) for the dn2mk2 Digitone II mod: DN2 Sample Import sends WAV files and folders to the mod's sampler over USB (replace all, choose slots, or add), plus tools for its recorder and the Machinedrum PERC machine. 2026-11-12 (9fb8d22, via …</summary>
   </entry>
   <entry>
     <title>New in the catalogue: Digisophie-DN (SOPHIE for the Digitone) (Mod, Digitone)</title>
@@ -447,13 +455,5 @@
     <updated>2026-11-07T00:00:00Z</updated>
     <category term="project"/>
     <summary>Three generative sequencers on the synth tracks: a Euclidean rhythm, a Turing Machine and a TB-303-style acid line, played from the encoders; YES writes what you hear into the pattern as ordinary trigs. The author tested it for about an hour on one Digitone mk1 (OS 1.44). Found …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: Model:Samples battery base (Mod, Model:Samples)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=model-samples-battery-base"/>
-    <id>https://70b185.github.io/Aggregat/#project-model-samples-battery-base</id>
-    <updated>2026-11-07T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>Open-hardware battery base using the original side mounting points and the left battery input: editable CAD, STEP/STL, parts list, build guide and printable fit gauges. No working physical prototype validated yet. Found by GitHub search 2026-11-07.</summary>
   </entry>
 </feed>

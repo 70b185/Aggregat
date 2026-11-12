@@ -3,7 +3,7 @@
 
 Every address that a fact names, per device, in address order. One line per address; the facts that name it follow, best evidence first. Two facts at the same address with different claims are worth a look: they may be a conflict (add it to [CONFLICTS.md](CONFLICTS.md)) or a RAM range two projects both use (rule area G8 in the [research map](../research/RESEARCH-MAP.md)). Addresses differ between OS versions; the fact text says which.
 
-Data checked 2026-11-12, research snapshot `df802cc8259f`.
+Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 
 ## Digitakt (MKI) (49 addresses)
 
@@ -719,7 +719,7 @@ Data checked 2026-11-12, research snapshot `df802cc8259f`.
 | `0x80010000` | [doc] [hw] [analog-heat.md:43](../hardware/devices/analog-heat.md#L43) Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo) |
 | `0xfc0b0000` | [doc] [overbridge-usb.md:6](../hardware/common/overbridge-usb.md#L6) Digitone II (digikit finding 42, static, DT2 1.16) |
 
-## Octatrack (MKI, MKII) (72 addresses)
+## Octatrack (MKI, MKII) (75 addresses)
 
 | Address | Facts |
 |---|---|
@@ -749,6 +749,7 @@ Data checked 2026-11-12, research snapshot `df802cc8259f`.
 | `0x40031406` | [emu] [octatrack.md:154](../hardware/devices/octatrack.md#L154) Modwerk and octabam findings (2026-11-12) |
 | `0x40031944` | [emu] [octatrack.md:154](../hardware/devices/octatrack.md#L154) Modwerk and octabam findings (2026-11-12) |
 | `0x40053498` | [emu] [octatrack.md:154](../hardware/devices/octatrack.md#L154) Modwerk and octabam findings (2026-11-12) |
+| `0x40056c28` | [emu] [octatrack.md:165](../hardware/devices/octatrack.md#L165) Modwerk and octabam findings (2026-11-12) |
 | `0x40061e40` | [hw] [octatrack.md:134](../hardware/devices/octatrack.md#L134) octabam and octamax findings (2026-11-10) |
 | `0x400626ba` | [hw] [octatrack.md:134](../hardware/devices/octatrack.md#L134) octabam and octamax findings (2026-11-10) |
 | `0x4009eec8` | [emu] [octatrack.md:155](../hardware/devices/octatrack.md#L155) Modwerk and octabam findings (2026-11-12) |
@@ -758,7 +759,9 @@ Data checked 2026-11-12, research snapshot `df802cc8259f`.
 | `0x400c0000` | [hw] [octatrack.md:49](../hardware/devices/octatrack.md#L49) Memory and code placement |
 | `0x400c45b0` | [doc] [memory-maps.md:98](../hardware/common/memory-maps.md#L98) Details per device |
 | `0x400c4702` | [doc] [memory-maps.md:98](../hardware/common/memory-maps.md#L98) Details per device |
+| `0x400d1ce0` | [doc] [octatrack.md:162](../hardware/devices/octatrack.md#L162) Modwerk and octabam findings (2026-11-12) |
 | `0x400d24e0` | [doc] [memory-maps.md:98](../hardware/common/memory-maps.md#L98) Details per device |
+| `0x400d2cdf` | [doc] [octatrack.md:162](../hardware/devices/octatrack.md#L162) Modwerk and octabam findings (2026-11-12) |
 | `0x400d2ce0` | [doc] [memory-maps.md:98](../hardware/common/memory-maps.md#L98) Details per device |
 | `0x400d2e52` | [hw] [octatrack.md:118](../hardware/devices/octatrack.md#L118) Where code and data may go: KYOTI's cave ledger (OS 1.40C, `reference/kb/caves.md`) |
 | `0x400d5f00` | [hw] [octatrack.md:118](../hardware/devices/octatrack.md#L118) Where code and data may go: KYOTI's cave ledger (OS 1.40C, `reference/kb/caves.md`) |
@@ -881,7 +884,7 @@ Data checked 2026-11-12, research snapshot `df802cc8259f`.
 | `0xec07000c` | [doc] [analog-rytm.md:11](../hardware/devices/analog-rytm.md#L11) Platform (MKII, OS 1.74) |
 | `0xfc05c000` | [doc] [analog-rytm.md:19](../hardware/devices/analog-rytm.md#L19) Flash and recovery |
 
-## Analog Four / Analog Keys (16 addresses)
+## Analog Four / Analog Keys (30 addresses)
 
 | Address | Facts |
 |---|---|
@@ -891,14 +894,28 @@ Data checked 2026-11-12, research snapshot `df802cc8259f`.
 | `0x00380000` | [doc] [memory-maps.md:101](../hardware/common/memory-maps.md#L101) Details per device |
 | `0x00400000` | [doc] [memory-maps.md:101](../hardware/common/memory-maps.md#L101) Details per device |
 | `0x40000000` | [hw] [analog-four-keys.md:28](../hardware/devices/analog-four-keys.md#L28) Silicon and memory |
+| `0x4003da46` | [doc] [analog-four-keys.md:89](../hardware/devices/analog-four-keys.md#L89) elekloader's core on the MKII (core-a4mk2 0.6, OS 1.56) |
+| `0x4003daf0` | [doc] [analog-four-keys.md:89](../hardware/devices/analog-four-keys.md#L89) elekloader's core on the MKII (core-a4mk2 0.6, OS 1.56) |
+| `0x4003df98` | [doc] [analog-four-keys.md:88](../hardware/devices/analog-four-keys.md#L88) elekloader's core on the MKII (core-a4mk2 0.6, OS 1.56) |
+| `0x4003ecbe` | [doc] [analog-four-keys.md:89](../hardware/devices/analog-four-keys.md#L89) elekloader's core on the MKII (core-a4mk2 0.6, OS 1.56) |
+| `0x40098b36` | [doc] [analog-four-keys.md:90](../hardware/devices/analog-four-keys.md#L90) elekloader's core on the MKII (core-a4mk2 0.6, OS 1.56) |
+| `0x400a5b74` | [doc] [analog-four-keys.md:89](../hardware/devices/analog-four-keys.md#L89) elekloader's core on the MKII (core-a4mk2 0.6, OS 1.56) |
+| `0x400a5bba` | [doc] [analog-four-keys.md:88](../hardware/devices/analog-four-keys.md#L88) elekloader's core on the MKII (core-a4mk2 0.6, OS 1.56) |
+| `0x400a771a` | [doc] [analog-four-keys.md:89](../hardware/devices/analog-four-keys.md#L89) elekloader's core on the MKII (core-a4mk2 0.6, OS 1.56) |
+| `0x400a77e4` | [doc] [analog-four-keys.md:89](../hardware/devices/analog-four-keys.md#L89) elekloader's core on the MKII (core-a4mk2 0.6, OS 1.56) |
+| `0x401ff54c` | [doc] [analog-four-keys.md:90](../hardware/devices/analog-four-keys.md#L90) elekloader's core on the MKII (core-a4mk2 0.6, OS 1.56) |
 | `0x40226958` | [untagged] [analog-four-keys.md:66](../hardware/devices/analog-four-keys.md#L66) The bootstrap is inside MAIN OS (MK1) - never write into it |
 | `0x40226960` | [untagged] [analog-four-keys.md:66](../hardware/devices/analog-four-keys.md#L66) The bootstrap is inside MAIN OS (MK1) - never write into it |
 | `0x40233a30` | [untagged] [analog-four-keys.md:66](../hardware/devices/analog-four-keys.md#L66) The bootstrap is inside MAIN OS (MK1) - never write into it |
 | `0x40253000` | [doc] [memory-maps.md:101](../hardware/common/memory-maps.md#L101) Details per device |
+| `0x4045c8c2` | [doc] [analog-four-keys.md:88](../hardware/devices/analog-four-keys.md#L88) elekloader's core on the MKII (core-a4mk2 0.6, OS 1.56) |
 | `0x41872230` | [doc] [memory-maps.md:101](../hardware/common/memory-maps.md#L101) Details per device |
 | `0x42872230` | [doc] [memory-maps.md:101](../hardware/common/memory-maps.md#L101) Details per device |
 | `0x43ffffff` | [hw] [analog-four-keys.md:28](../hardware/devices/analog-four-keys.md#L28) Silicon and memory |
 | `0x448b6d50` | [doc] [memory-maps.md:101](../hardware/common/memory-maps.md#L101) Details per device |
+| `0x45650000` | [hw] [analog-four-keys.md:87](../hardware/devices/analog-four-keys.md#L87) elekloader's core on the MKII (core-a4mk2 0.6, OS 1.56) |
+| `0x47be0000` | [hw] [analog-four-keys.md:87](../hardware/devices/analog-four-keys.md#L87) elekloader's core on the MKII (core-a4mk2 0.6, OS 1.56) |
+| `0x47c00000` | [hw] [analog-four-keys.md:87](../hardware/devices/analog-four-keys.md#L87) elekloader's core on the MKII (core-a4mk2 0.6, OS 1.56) |
 | `0x60000000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
 | `0x60042000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
 

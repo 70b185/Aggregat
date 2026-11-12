@@ -83,6 +83,12 @@ Projects: [../../catalog/analog-four-keys.md](../../catalog/analog-four-keys.md)
 - Read from SPI flash `0x300000`, 3,670 B, magic `RBOW`, the Rytm's checksum rule, **one copy only** (the Rytm keeps two). It holds analog (oscillator levels, PWM, filter), CV-out and keyboard trims. `[doc]`
 - **Never write that flash range from a mod**: a lost record means a recalibration. A missing record shows "MISSING CAL". `[doc]`
 
+## elekloader's core on the MKII (core-a4mk2 0.6, OS 1.56) {elekloader-core-a4}
+- **Mods' area `0x45650000-0x47C00000` (37.7 MB)** from core-a4mk2 0.6: the gap above the OS's fixed buffers, from its first 64 KB boundary. ddr-canary saw no word change there on a unit through normal use (Overbridge included) and a power cycle (21 Oct 2026). Builds with core 0.5 or older keep the 128 KB at `0x47BE0000`. The flash budget, not RAM, limits a payload. `[hw]`
+- **The modified mark:** stock marks the project modified with `0x400a5bba(model, 1)` and keeps the mark in byte `0x4045c8c2`; a load reads it (`0x4003df98`) and asks ANY CHANGES WILL BE LOST or SAVE ... BEFORE LOADING. Stock sets it on every page or track key and after every load; only a save clears it. `[doc]`
+- **Every whole save of the live project** ends in `0x400a771a(model, slot, progress)` (file save at `0x400a77e4`); on success it makes the slot active (`0x400a5b74`) and clears the mark. Callers: the save job `0x4003da46` (front-panel saves through `0x4003ecbe`) and the load job `0x4003daf0` (CREATE NEW, then save, for an empty slot; no panel action reaches it on 1.56). `[doc]`
+- **Brain::key (`0x40098b36`) drops the view controller's answer**, so a mod cannot tell whether a view took a key, only that stock had it. LEVEL / DATA is encoder 10, or 11 on an Analog Keys (bit 20 of the boot word `0x401ff54c`). `[doc]`
+
 ## Open
 - Which analog quantity each calibration table trims (inferred from strings only).
 - TX slots 0-2, 6, 7 and RX 6/7 on the MKII.

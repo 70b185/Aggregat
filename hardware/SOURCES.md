@@ -363,3 +363,9 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | model27-solid | durchgemacht/model27 `notes/71-solid.md`, `notes/73-track-fx-crush.md` section 21, `notes/65-level-c-claims-check.md` section 17 and README (release 0.60; read 2026-11-12) | https://github.com/durchgemacht/model27/blob/main/notes/71-solid.md |
 | whiplash-ref | hejijunhao/whiplash `docs/digitakt-ii/reference.md`, CHANGELOG (0.3.0-0.8.0) and `docs/testing/clock-jitter.md` (read 2026-11-12) | https://github.com/hejijunhao/whiplash/blob/main/docs/digitakt-ii/reference.md |
 | openbridge-dn2 | Donmanouche/OpenBridge-Digitone-2 README (read 2026-11-12) | https://github.com/Donmanouche/OpenBridge-Digitone-2 |
+| dn2mk2-v050 | dn2mk2-firmware `FIRMWARE.md` (v0.50 LEVEL) and `docs/ROADMAP.md` (read 2026-11-12) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/FIRMWARE.md |
+| dn2mk2-gatespeed | dn2mk2-firmware `docs/gate-speed.md` (where the release gate's emulator time goes; read 2026-11-12) | https://github.com/De-Pattern/dn2mk2-firmware/blob/main/docs/gate-speed.md |
+| elkbench-timing | Iced-Cream/elkbench `docs/emulator-timing.md` (analog-emu unit timing and the CPU gate; read 2026-11-12) | https://github.com/Iced-Cream/elkbench/blob/main/docs/emulator-timing.md |
+| elekloader-core-a4 | elekloader `mods/core-a4mk2/README.md` and `docs/ADAPTING.md` (core-a4mk2 0.6, A4 MKII OS 1.56; read 2026-11-12) | https://github.com/elekloader/elekloader/blob/main/mods/core-a4mk2/README.md |
+| octabam-hooks | sambanks/octabam `modules/hooks/README.md` and `docs/specs/HOOKS.md` (the `ui_tick` chain; read 2026-11-12) | https://github.com/sambanks/octabam/blob/main/modules/hooks/README.md |
+| modwerk-1112 | repeat98/modwerk `changelog/2026-11-11-*` and `2026-11-12-*` (Octatrack card builder retired, CPU budget, DELAY table guard, new modules; read 2026-11-12) | https://github.com/repeat98/modwerk/tree/main/changelog |

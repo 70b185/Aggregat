@@ -11,7 +11,7 @@ elekloader's device profiles are the most systematic public record of "where is 
 | Octatrack MKI/MKII | 1.40C | core built and run on an MKII (3 Oct 2026), not yet on an MKI | audio arena bottom pages `0x40a955e0-0x41495de0` (10 MB, up to 1,707 pages) | container at `0x4000`, must end below `0x200000` | not stated |
 | Model:Cycles / Samples | 1.13 | builds run on both units | `0x47E00000-0x47E40000` (256 KB) | container at `0x20000`, below `0x1E0000` (1.75 MB; stock 0.70 MB) | FUNC at power-on, TRIG 4, 5-pin MIDI |
 | Analog Rytm MKII | 1.73, 1.74 | core-ar2 0.2 on 1.73 and 0.3+ on 1.74 run on a unit | `0x47BE0000-0x47C00000` (128 KB) | `flash_limit 0x300000` | STARTUP menu (FUNC), TRIG 4, MIDI DIN |
-| Analog Four MKII | 1.56 | proof of concept; several builds run on a unit | `0x47BE0000-0x47C00000` (128 KB) plus `0x456472C0-0x47BE0000` (37.6 MB) unused | `flash_limit 0x300000` | STARTUP menu (FUNC), TRIG 4, MIDI DIN |
+| Analog Four MKII | 1.56 | proof of concept; several builds run on a unit | `0x47BE0000-0x47C00000` (128 KB) with older cores; core-a4mk2 0.6 uses `0x45650000-0x47C00000` (37.7 MB, checked untouched on a unit with ddr-canary) | `flash_limit 0x300000` | STARTUP menu (FUNC), TRIG 4, MIDI DIN |
 The page does not mention Analog Heat or any other planned device. `[doc]` {elekloader-devices}
 
 ## Platform facts from the firmware itself (Digitakt II / Digitone II, digikit finding 08 and 59)

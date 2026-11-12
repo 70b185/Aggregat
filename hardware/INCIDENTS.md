@@ -618,6 +618,16 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** A40, G8
 - **Fact:** [devices/octatrack.md](devices/octatrack.md#modwerk-and-octabam-findings-2026-11-12)
 
+### I79. Three FM Synth tracks beside a busy pattern froze an Octatrack
+- **Unit:** Octatrack MKII, OS 1.40C (Modwerk development base, the owner's unit), 2026-11-12
+- **Seen:** three tracks of FM Synth 0.1.2, a machine rendered on the ColdFire, beside a busy eight-track pattern froze the unit.
+- **Cause:** the CPU-rendered machines were not counted against any budget, so nothing stopped the load from passing the frame (measured by the fix, not traced further).
+- **Fix:** the base prices each CPU machine, refuses a pick over the limit (CPU FULL) and drops voices at the frame guard; the same set then played on a development build. A busy project may now drop FM Synth notes.
+- **Status:** fixed on a development build; the release base was not run on a unit.
+- **Evidence:** `[hw]` {modwerk-1112}
+- **Rule:** A25, A34
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#modwerk-and-octabam-findings-2026-11-12)
+
 ## E. Emulator or toolchain disagreed with the unit
 
 ### I36. The emulator undercounted DSP time by 2x to 12x

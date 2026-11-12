@@ -32,8 +32,6 @@ Original notes:
 - Every entry needs at least one source and a verification date.
 
 ## Project (from the review on 2026-11-11, after the elektronmods.com post)
-- Keep GitHub's traffic numbers: GitHub keeps views, clones and referrers for 14 days only. A scheduled workflow could append them to `state/traffic.json` daily; it needs a fine-grained token with the repository's Administration (read) permission as a secret, because the default `GITHUB_TOKEN` cannot read traffic. Clone counts are mostly our own automation (check-updates, PR checks, agent sessions), so views and unique visitors are the numbers to watch.
-- Website visitors: GitHub Pages has no statistics. A cookieless counter (e.g. GoatCounter) would show whether the forum post brought people.
-- Create the beginner issues: `python3 scripts/good_first_issues.py` (check the list), then `--create`.
+- ~~Create the beginner issues~~ Done 2026-11-12 (label `good first test`); H5 and H24 held back on purpose, see `NOT_FOR_NEWCOMERS` in the script. Visitor tracking: decided against on 2026-11-12; GitHub's own traffic page is enough.
 - Release assets instead of commits for the database: `export/aggregat.sqlite` (2 MB) has been committed about 70 times since 2026-10-31. Building it in the workflow and attaching it to a rolling release would keep the history small; the website and MCP server would need the new URL.
 - Shorter entry for musicians: the README and the website lead with many links; a musician needs "pick your device, see its mods" first.

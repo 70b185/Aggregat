@@ -2,11 +2,14 @@
 """Turn stock tests and small file tasks into "good first test" issues in this repository (never in other repos).
 
   python3 scripts/good_first_issues.py             dry run: print what would be created
-  python3 scripts/good_first_issues.py --create    create the missing issues with gh (needs `gh auth login`)
+  python3 scripts/good_first_issues.py --create    create the missing issues with `gh api` (needs `gh auth login`)
 
 Picks: every open stock hypothesis (HYPOTHESES.md section 1: stock OS, no flashing) and every open task with effort S
 that needs only files, a PDF or reading. An issue is skipped when one with the same "[H1]" / "[T13]" prefix exists
 (open or closed), so the script can run again after the research map changes. Reads export/aggregat.sqlite.
+
+Hypotheses in NOT_FOR_NEWCOMERS stay open in HYPOTHESES.md but get no issue: the issue text promises a test without
+risk, which they cannot keep. Uses the REST API (`gh api`), not `gh issue`, which needs GraphQL.
 """
 from pathlib import Path
 import json
@@ -19,6 +22,12 @@ REPO = "70b185/Aggregat"
 LABEL, LABEL_COLOR = "good first test", "7057ff"
 FORM = f"https://github.com/{REPO}/issues/new?template=test-result.yml"
 
+# Stock hypotheses that are not a risk-free first test. Key: id; value: why (printed in the dry run).
+NOT_FOR_NEWCOMERS = {
+    "H5": "needs a unit that already runs a modified OS build",
+    "H24": "the test deliberately hangs the unit; needs a backup and a throwaway project",
+}
+
 
 def candidates():
     con = sqlite3.connect(ROOT / "export" / "aggregat.sqlite")
@@ -27,6 +36,8 @@ def candidates():
     tasks = con.execute("SELECT * FROM tasks WHERE status='open' AND effort='S' ORDER BY CAST(SUBSTR(id,2) AS INT)").fetchall()
     out = []
     for h in hyps:
+        if h["id"] in NOT_FOR_NEWCOMERS:
+            continue
         out.append({"key": h["id"], "title": f"[{h['id']}] Stock test ({h['devices']}): {h['inference'][:80].rstrip()}…",
                     "body": "\n".join([
                         "**A test on the stock OS: no flashing, no risk to your unit beyond normal use.**", "",
@@ -50,10 +61,14 @@ def candidates():
     return out
 
 
+def gh_api(*args):
+    r = subprocess.run(["gh", "api", *args], capture_output=True, text=True, check=True)
+    return r.stdout
+
+
 def existing_prefixes():
-    r = subprocess.run(["gh", "issue", "list", "-R", REPO, "--state", "all", "--limit", "500", "--json", "title"],
-                       capture_output=True, text=True, check=True)
-    return {t["title"].split("]")[0] + "]" for t in json.loads(r.stdout) if t["title"].startswith("[")}
+    out = gh_api("--paginate", f"repos/{REPO}/issues?state=all&per_page=100", "--jq", ".[] | select(.pull_request == null) | .title")
+    return {t.split("]")[0] + "]" for t in out.splitlines() if t.startswith("[")}
 
 
 def main():
@@ -61,19 +76,23 @@ def main():
     create = "--create" in sys.argv
     have = existing_prefixes() if create else set()
     if create:
-        subprocess.run(["gh", "label", "create", LABEL, "-R", REPO, "--color", LABEL_COLOR, "--force",
-                        "--description", "A stock test or small file task; good for newcomers"], check=True)
+        labels = gh_api("--paginate", f"repos/{REPO}/labels?per_page=100", "--jq", ".[].name").splitlines()
+        if LABEL not in labels:
+            gh_api("-X", "POST", f"repos/{REPO}/labels", "-f", f"name={LABEL}", "-f", f"color={LABEL_COLOR}",
+                   "-f", "description=A stock test or small file task; good for newcomers")
     for it in items:
         if f"[{it['key']}]" in have:
             print(f"skip  {it['key']} (issue exists)")
             continue
         if create:
-            subprocess.run(["gh", "issue", "create", "-R", REPO, "--title", it["title"], "--body", it["body"], "--label", LABEL],
-                           check=True)
-            print(f"made  {it['key']}")
+            num = gh_api("-X", "POST", f"repos/{REPO}/issues", "-f", f"title={it['title']}", "-f", f"body={it['body']}",
+                         "-f", f"labels[]={LABEL}", "--jq", ".number").strip()
+            print(f"made  {it['key']} as #{num}")
         else:
             print(f"would create: {it['title']}")
     if not create:
+        for k, why in NOT_FOR_NEWCOMERS.items():
+            print(f"held back: [{k}] {why}")
         print(f"\n{len(items)} issues. Run with --create to open them in {REPO} (never in other repos).")
 
 

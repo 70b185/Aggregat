@@ -127,7 +127,7 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **Filter+ (13 filter types)** (mod, released, tested: unit, base OS Digitakt mk1 OS 1.54; Digitone mk1 / Keys OS 1.44) https://github.com/DigiAlchemydsp/FILTER-PLUS
 - **Filter-FX (seven filter effects)** (mod, active, tested: unit, base OS Digitakt mk1; Digitone mk1 / Keys) https://github.com/DigiAlchemydsp/Filter-FX
 - **Flex+ (FlexBus machine)** (mod, active, tested: partly, base OS Digitone mk1 / Keys OS 1.44 (core-dn1 4.0 + machines 0.2); Digitakt mk1 OS 1.54 (core 4.0 + machine-pages 1.1)) https://github.com/DigiAlchemydsp/Flex-Plus
-- **LFOX** (mod, unreachable, tested: not-stated, base OS Digitone mk1) https://github.com/x2k77m1/lfox
+- **LFOX** (mod, active, tested: unit, base OS Digitone mk1 / Keys OS 1.44 only; elekloader core-dn1 4.0) https://github.com/x2k77m1/lfox
 - **MIDI LOOPBACK (Digitone mk1)** (mod, wip, tested: emulator, base OS Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased)) https://github.com/irpina/digiloop
 - **MUTINY (modular sequencers for Digitone mk1)** (mod, active, tested: unit, base OS Digitone mk1 OS 1.44) https://github.com/mbaumannn/mutiny
 - **OB-1 (elektrob-1)** (mod, wip, tested: partly, base OS Digitakt mk1, Digitone mk1 / Keys) https://github.com/simonjohansson/elektrob-1

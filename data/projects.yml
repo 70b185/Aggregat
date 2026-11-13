@@ -3684,19 +3684,27 @@ projects:
     devices:
     - digitone
     repo: https://github.com/x2k77m1/lfox
-    status: "unreachable"
-    tested: not-stated
-    base_os: Digitone mk1
-    version: v1.0b (tag, 2026-11-02; v1.0a before)
-    last_activity: '2026-11-02'
-    notes: "A third LFO for the Digitone mk1 with its own page and all stock LFO controls (the LFO key cycles LFO1, LFO2, LFOX). GPL. Created 2026-11-01. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read."
+    license: "GPL-2.0-or-later"
+    status: active
+    tested: unit
+    tested_note: "README: load measured over USB on a Digitone mk1, OS 1.44 (about +6 points of CPU and DSP while armed, none at its defaults)"
+    base_os: "Digitone mk1 / Keys OS 1.44 only; elekloader core-dn1 4.0"
+    version: v1.0c (tag, 2026-11-05; v1.0b and v1.0a before)
+    last_activity: '2026-11-05'
+    notes: "A third LFO for the Digitone mk1 with its own page and all stock LFO controls (the LFO key cycles LFO1, LFO2, LFOX), computed by the firmware's own LFO routine run a second time each block. Its settings are saved with the project, not the sound; it also modulates parameters that machine mods read themselves (machines-dn1, SAY IT). Builds beside machines and digitables. GPL-2.0-or-later. Created 2026-11-01. Found by GitHub search 2026-11-02. The repo did not answer from 2026-11-02 and is public again (seen 2026-11-13, 4 commits); 1.0c added the page's gestures, copy and paste between LFO pages and the destination list."
     features:
       - "a third LFO with its own page"
       - "all stock LFO controls; the LFO key cycles LFO1, LFO2, LFOX"
+      - "settings saved with the project"
+      - "copy and paste between LFOX and LFO1 or LFO2"
+      - "also modulates machine mods' own parameters"
     sources:
     - GitHub search 2026-11-02
     - README
     - "README (2026-11-11)"
+    - "README, mod.json (2026-11-13)"
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'README: an .elemod for elekloader with core-dn1 4.0'}
   - id: sayit
     name: SAY IT
     author: x2k77m1
@@ -4837,16 +4845,17 @@ projects:
     - model-cycles
     repo: https://github.com/durchgemacht/cycles-mod-standard
     license: "MIT"
-    status: unreachable
+    status: active
     base_os: Model:Cycles OS 1.13
-    version: draft 0.7
-    last_activity: '2026-10-30'
-    notes: Repo offline since 2026-11-07, taken offline by its author together with the other public repos of the same account (check_updates 2026-11-08). Draft standard for Model:Cycles mods (machine contract, extension points, per-mod manifests, clash checks
+    version: draft 0.9 (2026-11-12)
+    last_activity: '2026-11-12'
+    notes: Repo was offline from 2026-11-07 (taken offline by its author together with the other public repos of the same account) and is public again (seen 2026-11-13; draft 0.8 added a knob's picture as a claim, draft 0.9 withdraws a machine's own values and adds the MACHINES switches). Draft standard for Model:Cycles mods (machine contract, extension points, per-mod manifests, clash checks
       over saved slots, key combos and display). Implemented in model27, tested on a unit for machines and one delay
       effect. Useful reading for anyone designing a mod format. MIT.
     sources:
     - GitHub search 2026-11-02
     - README
+    - "README (2026-11-13)"
     relations:
     - {type: describes, id: model27, evidence: 'README: implemented in model27'}
     - {type: cites, id: modded-cycles, evidence: 'README: everything here was read in the code of Modded-Cycles'}

@@ -19,6 +19,7 @@ Data last verified: 2026-11-13
 | **digitakt-digitone-mcp** (jamiew) | tool | - | v0.5.2 | v0.5.2 | 2026-11-07 | [repo](https://github.com/jamiew/digitakt-digitone-mcp) |
 | **SEND FX (Digitone mk1)** (irpina) | mod | - | Digitone mk1 / Keys OS 1.43 and 1.44 | v0.2 | 2026-11-07 | [repo](https://github.com/irpina/digisendfx) |
 | **DigiArp MIDI (DA27)** (aleks-karachevtsev) | mod | - | DA27 0.9-dev11 (experimental beta); Digitone mk1 OS 1.44; elekloader core 4.1.1 + seq-events 0.1 | v0.9.0-beta | 2026-11-07 | [repo](https://github.com/aleks-karachevtsev/Digitone-MIDI-Arpeggiator) |
+| **LFOX** (x2k77m1) | mod | - | v1.0c (tag, 2026-11-05; v1.0b and v1.0a before); Digitone mk1 / Keys OS 1.44 only; elekloader core-dn1 4.0 | v1.0c | 2026-11-05 | [repo](https://github.com/x2k77m1/lfox) |
 | **CHOKE GROUPS (Digitone mk1)** (irpina) | mod | - | choke 0.1, no release yet; Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 3.1 or later | v0.2 | 2026-11-05 | [repo](https://github.com/irpina/digichoke) |
 | **PROGRAM CHANGE -> SOUND (Digitone mk1)** (irpina) | mod | - | 0.1, no release yet; Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased) | v0.2 | 2026-11-05 | [repo](https://github.com/irpina/digipcsound) |
 | **MIDI LOOPBACK (Digitone mk1)** (irpina) | mod | - | loopback 0.1, no release yet; Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased) | v0.2 | 2026-11-05 | [repo](https://github.com/irpina/digiloop) |
@@ -27,7 +28,6 @@ Data last verified: 2026-11-13
 | **CTRL+ / USER CFG (Digitone mk1)** (DigiAlchemydsp) | mod | - | usercfg 0.6a (README); Digitone mk1 / Keys OS 1.44; core-dn1 4.0 | v0.6a | 2026-11-04 | [repo](https://github.com/DigiAlchemydsp/CTRL-PLUS) |
 | **Filter+ (13 filter types)** (DigiAlchemydsp) | mod | - | 1.0 (2026-11-02); Digitakt mk1 OS 1.54; Digitone mk1 / Keys OS 1.44 | v1.0 | 2026-11-02 | [repo](https://github.com/DigiAlchemydsp/FILTER-PLUS) |
 | **DRUM+ (FM drum machine for Digitone mk1)** (DigiAlchemydsp) | mod | - | 1.0 (2026-11-02); Digitone mk1 / Keys OS 1.44 (elekloader core-dn1 4.0 and machines companion 0.2) | v1.0.1 | 2026-11-02 | [repo](https://github.com/DigiAlchemydsp/DRUM-PLUS) |
-| **LFOX** (x2k77m1) | mod | repo unreachable | v1.0b (tag, 2026-11-02; v1.0a before); Digitone mk1 | v1.0b | 2026-11-02 | [repo](https://github.com/x2k77m1/lfox) |
 | **DIGISEQ (Digitone)** (ClaidArremer) | mod | - | 0.2 (2026-10-26), Digitone mk1/Keys OS 1.43/1.44; CHANGELOG.md added 2026-11-02; Digitone mk1 / Keys | - | 2026-11-02 | [repo](https://github.com/ClaidArremer/digitone-digiseq) |
 | **PUMP (Digitone)** (ClaidArremer) | mod | - | 2.12 (2026-11-02): FUNC + YES is the stock TEMP SAVE again; 2.11 reversed REL to match the stock compressor; Digitone mk1 / Keys | - | 2026-11-02 | [repo](https://github.com/ClaidArremer/digitone-pump) |
 | **elkflash** (Iced-Cream) | tool | - | - | - | 2026-11-02 | [repo](https://github.com/Iced-Cream/elkflash) |
@@ -309,9 +309,11 @@ _Sources: GitHub search 2026-11-02, README_
 
 ### LFOX
 
-A third LFO for the Digitone mk1 with its own page and all stock LFO controls (the LFO key cycles LFO1, LFO2, LFOX). GPL. Created 2026-11-01. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the GitHub repo no longer answers (deleted, renamed or private); details here are from the earlier read.
+A third LFO for the Digitone mk1 with its own page and all stock LFO controls (the LFO key cycles LFO1, LFO2, LFOX), computed by the firmware's own LFO routine run a second time each block. Its settings are saved with the project, not the sound; it also modulates parameters that machine mods read themselves (machines-dn1, SAY IT). Builds beside machines and digitables. GPL-2.0-or-later. Created 2026-11-01. Found by GitHub search 2026-11-02. The repo did not answer from 2026-11-02 and is public again (seen 2026-11-13, 4 commits); 1.0c added the page's gestures, copy and paste between LFO pages and the destination list.
 
-_Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
+_Related: mod for `elekloader` (README: an .elemod for elekloader with core-dn1 4.0) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-02, README, README (2026-11-11), README, mod.json (2026-11-13)_
 
 ### SAY IT
 

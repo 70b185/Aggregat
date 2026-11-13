@@ -21,6 +21,7 @@ Needs: git, PyYAML.  No GitHub API, no token.
 from __future__ import annotations
 
 import argparse
+import os
 import concurrent.futures as cf
 import datetime as dt
 import fnmatch
@@ -40,29 +41,44 @@ GH = re.compile(r"^https://github\.com/([^/]+)/([^/#?]+?)(?:\.git)?/?$")
 
 
 def git(*args, cwd=None, timeout=180):
-    r = subprocess.run(["git", *args], cwd=cwd, capture_output=True, text=True, timeout=timeout)
+    r = subprocess.run(["git", *args], cwd=cwd, capture_output=True, text=True, timeout=timeout,
+                       env={**os.environ, "GIT_TERMINAL_PROMPT": "0"})
     if r.returncode:
         raise RuntimeError(r.stderr.strip()[:300])
     return r.stdout
 
 
 def load_targets():
+    """Return (targets, gone): the repos to poll, and the GitHub repos of entries marked unreachable."""
     watch = yaml.safe_load((ROOT / "data" / "watch.yml").read_text(encoding="utf-8"))
     default, overrides = watch["default_watch"], watch.get("overrides") or {}
-    targets = {}
+    targets, gone = {}, {}
     for f in ("projects.yml", "candidates.yml"):
         p = ROOT / "data" / f
         if not p.exists():
             continue
         for e in (yaml.safe_load(p.read_text(encoding="utf-8")) or {}).get("projects") or []:
             repo = (e.get("repo") or "").strip()
-            # Repos we already know are gone (deleted or private) are not polled daily;
-            # set their status back to something else to watch them again.
-            if GH.match(repo) and str(e.get("status", "")).lower() != "unreachable":
+            # Repos we already know are gone (deleted or private) are not polled in full; one cheap
+            # ls-remote per run tells whether they are back (reported as "back online"). Set their
+            # status back to something else to watch them again.
+            if not GH.match(repo):
+                continue
+            if str(e.get("status", "")).lower() == "unreachable":
+                gone[e["id"]] = repo
+            else:
                 targets[e["id"]] = {"repo": repo, "watch": overrides.get(e["id"], default), "kind": "project"}
     for d in watch.get("directories") or []:
         targets[d["id"]] = {"repo": d["repo"], "watch": d["watch"], "kind": "directory"}
-    return targets
+    return targets, gone
+
+
+def is_back(repo):
+    """True when a repo catalogued as unreachable answers again with at least one commit."""
+    try:
+        return bool(git("ls-remote", repo, "HEAD", timeout=60).strip())
+    except Exception:
+        return False
 
 
 def remote_state(repo):
@@ -140,19 +156,21 @@ def main():
     ap.add_argument("--workers", type=int, default=8)
     a = ap.parse_args()
 
-    targets = load_targets()
+    targets, gone = load_targets()
     if a.only:
         targets = {k: v for k, v in targets.items() if k in a.only}
+        gone = {k: v for k, v in gone.items() if k in a.only}
     state = json.loads(STATE.read_text()) if STATE.exists() else {}
 
     with cf.ThreadPoolExecutor(a.workers) as ex:
         results = list(ex.map(lambda kv: check(kv[0], kv[1], state.get(kv[0]), a.diff), sorted(targets.items())))
+        back = [k for k, ok in zip(sorted(gone), ex.map(lambda k: is_back(gone[k]), sorted(gone))) if ok]
 
     now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     by = {s: [r for r in results if r["status"] == s] for s in ("changed", "code-only", "new", "error", "unchanged")}
     lines = [f"# Change report {now}", "",
              f"changed {len(by['changed'])} | code-only {len(by['code-only'])} | new {len(by['new'])} | "
-             f"errors {len(by['error'])} | unchanged {len(by['unchanged'])}", ""]
+             f"errors {len(by['error'])} | unchanged {len(by['unchanged'])} | back online {len(back)}", ""]
     for r in by["changed"]:
         bits = []
         if r["new_tags"]:
@@ -165,7 +183,10 @@ def main():
         lines.append("- new baseline: " + ", ".join(r["id"] for r in by["new"]))
     for r in by["error"]:
         lines.append(f"- ERROR {r['id']} {r['repo']}: {r['error']}")
-    if not (by["changed"] or by["code-only"] or by["error"]):
+    for k in back:
+        lines.append(f"- BACK ONLINE {k} {gone[k]}: catalogued as unreachable, answers again; reread it, set its "
+                     "status and fields from the README, then store a baseline with --only")
+    if not (by["changed"] or by["code-only"] or by["error"] or back):
         lines.append("Nothing to do.")
     report = "\n".join(lines) + "\n"
     print(report)

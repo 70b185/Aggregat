@@ -638,16 +638,16 @@
   ]
  },
  "cycles-mod-standard": {
-  "checked": "2026-11-02 22:12 UTC",
+  "checked": "2026-11-13 08:57 UTC",
   "files": {
-   "APPLYING.md": "2646b8827b5f",
+   "APPLYING.md": "ac82a772b965",
    "LICENSE": "b3b0e3d45970",
-   "README.md": "c38451a52318",
-   "STANDARD.md": "cfa92df0715f"
+   "README.md": "f7309b1b3cd0",
+   "STANDARD.md": "c0687aaaea63"
   },
-  "head": "591d0bf044ab4d884888a6aced4e891f071f8fe3",
+  "head": "cf4a177c746aa2681247f28fca65079dcf8446b1",
   "repo": "https://github.com/durchgemacht/cycles-mod-standard",
-  "seen": "2026-11-06 18:26 UTC",
+  "seen": "2026-11-13 08:57 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -5907,17 +5907,18 @@
   ]
  },
  "lfox": {
-  "checked": "2026-11-02 15:00 UTC",
+  "checked": "2026-11-13 08:57 UTC",
   "files": {
    "LICENSE": "9efa6fbc9628",
-   "README.md": "180619f622d2"
+   "README.md": "9bfedd190ebf"
   },
-  "head": "e1fb24434128254d13b3c31c9f0983848b40e815",
+  "head": "265f212c51a0bd87e6c05873c6b86e1b905c6c4f",
   "repo": "https://github.com/x2k77m1/lfox",
-  "seen": "2026-11-02 15:00 UTC",
+  "seen": "2026-11-13 08:57 UTC",
   "tags": [
    "v1.0a",
-   "v1.0b"
+   "v1.0b",
+   "v1.0c"
   ],
   "watch": [
    "*.md",

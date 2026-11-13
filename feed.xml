@@ -31,6 +31,13 @@
     <category term="update"/>
   </entry>
   <entry>
+    <title>Revive repos that come back online: LFOX and Cycles Mod Standard listed again</title>
+    <link href="https://github.com/70b185/Aggregat/commit/26ef306de45abef2ad9128cfbbfd4d16a1e6e750"/>
+    <id>https://70b185.github.io/Aggregat/#commit-26ef306de45a</id>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>New in the catalogue: OpenBridge - Digitone II (Tool, Digitone II)</title>
     <link href="https://70b185.github.io/Aggregat/?p=openbridge-digitone-2"/>
     <id>https://70b185.github.io/Aggregat/#project-openbridge-digitone-2</id>
@@ -436,23 +443,16 @@
     <category term="update"/>
   </entry>
   <entry>
-    <title>Website: neutral monospaced design (variant 3 "Mono") and a device bar</title>
-    <link href="https://github.com/70b185/Aggregat/commit/990eee6b8e5b44dfba8a63b81894c2497da5a402"/>
-    <id>https://70b185.github.io/Aggregat/#commit-990eee6b8e5b</id>
+    <title>Rework MODS.md and add seven new mods with a tested field</title>
+    <link href="https://github.com/70b185/Aggregat/commit/c002a68439de0fc5817919340227e52d402a3b4f"/>
+    <id>https://70b185.github.io/Aggregat/#commit-c002a68439de</id>
     <updated>2026-11-08T00:00:00Z</updated>
     <category term="update"/>
   </entry>
   <entry>
-    <title>Update 2026-11-08: durchgemacht's repos offline, mutiny v0.2.1</title>
-    <link href="https://github.com/70b185/Aggregat/commit/50a49ce39bbf7219c7a95b148572247b06b25709"/>
-    <id>https://70b185.github.io/Aggregat/#commit-50a49ce39bbf</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Scope: every Elektron device with custom firmware; elekloader on all its devices</title>
-    <link href="https://github.com/70b185/Aggregat/commit/17f4eee813ff9a9ba4dcfd9f7317fe80054e235b"/>
-    <id>https://70b185.github.io/Aggregat/#commit-17f4eee813ff</id>
+    <title>Add a Mods tab to the website; list every known usable mod in MODS.md</title>
+    <link href="https://github.com/70b185/Aggregat/commit/bfadedcacca07797cf563f53ed89122e3242e723"/>
+    <id>https://70b185.github.io/Aggregat/#commit-bfadedcacca0</id>
     <updated>2026-11-08T00:00:00Z</updated>
     <category term="update"/>
   </entry>

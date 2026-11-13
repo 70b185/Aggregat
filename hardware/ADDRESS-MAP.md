@@ -3,9 +3,9 @@
 
 Every address that a fact names, per device, in address order. One line per address; the facts that name it follow, best evidence first. Two facts at the same address with different claims are worth a look: they may be a conflict (add it to [CONFLICTS.md](CONFLICTS.md)) or a RAM range two projects both use (rule area G8 in the [research map](../research/RESEARCH-MAP.md)). Addresses differ between OS versions; the fact text says which.
 
-Data checked 2026-11-12, research snapshot `03aca0b85d95`.
+Data checked 2026-11-13, research snapshot `dd6ecb49e2f2`.
 
-## Digitakt (MKI) (49 addresses)
+## Digitakt (MKI) (50 addresses)
 
 | Address | Facts |
 |---|---|
@@ -27,9 +27,9 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x400721e6` | [doc] [digitakt.md:77](../hardware/devices/digitakt.md#L77) elekloader core 4.1-4.3 and compatibility (2026-11-10) |
 | `0x4007629a` | [doc] [digitakt.md:18](../hardware/devices/digitakt.md#L18) Memory and code placement (core 2.x, elekloader) |
 | `0x400763b4` | [doc] [digitakt.md:30](../hardware/devices/digitakt.md#L30) Render path, injection point and key tables (digigrain's platform skills, OS 1.53, Ghidra plus digiemu) |
-| `0x40077428` | [doc] [digitakt.md:20](../hardware/devices/digitakt.md#L20) Memory and code placement (core 2.x, elekloader) |
+| `0x40077428` | [emu] [hw] [digitakt.md:86](../hardware/devices/digitakt.md#L86) Digi CMI on the unit (OS 1.54, 2026-11-12)<br>[doc] [digitakt.md:20](../hardware/devices/digitakt.md#L20) Memory and code placement (core 2.x, elekloader) |
 | `0x40077eb2` | [doc] [digitakt.md:82](../hardware/devices/digitakt.md#L82) Modwerk Digi Perform (OS 1.53/1.54, 2026-11-11) |
-| `0x400784c8` | [doc] [digitakt.md:20](../hardware/devices/digitakt.md#L20) Memory and code placement (core 2.x, elekloader) |
+| `0x400784c8` | [emu] [hw] [digitakt.md:86](../hardware/devices/digitakt.md#L86) Digi CMI on the unit (OS 1.54, 2026-11-12)<br>[doc] [digitakt.md:20](../hardware/devices/digitakt.md#L20) Memory and code placement (core 2.x, elekloader) |
 | `0x4009e928` | [doc] [memory-maps.md:95](../hardware/common/memory-maps.md#L95) Details per device |
 | `0x400d4180` | [doc] [digitakt.md:28](../hardware/devices/digitakt.md#L28) Render path, injection point and key tables (digigrain's platform skills, OS 1.53, Ghidra plus digiemu) |
 | `0x400d53dc` | [doc] [digitakt.md:76](../hardware/devices/digitakt.md#L76) elekloader core 4.1-4.3 and compatibility (2026-11-10) |
@@ -58,12 +58,13 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x8000f700` | [doc] [digitakt.md:24](../hardware/devices/digitakt.md#L24) Render path, injection point and key tables (digigrain's platform skills, OS 1.53, Ghidra plus digiemu) |
 | `0x80010000` | [doc] [digitakt.md:24](../hardware/devices/digitakt.md#L24) Render path, injection point and key tables (digigrain's platform skills, OS 1.53, Ghidra plus digiemu) |
 | `0xfc07000c` | [doc] [digitakt.md:13](../hardware/devices/digitakt.md#L13) Where the audio runs (Digiwerk prior-art survey, 2026-10) |
+| `0xfc080004` | [emu] [hw] [digitakt.md:86](../hardware/devices/digitakt.md#L86) Digi CMI on the unit (OS 1.54, 2026-11-12) |
 
-## Digitakt II (230 addresses)
+## Digitakt II (252 addresses)
 
 | Address | Facts |
 |---|---|
-| `0x00010000` | [?] [doc] [memory-maps.md:20](../hardware/common/memory-maps.md#L20) Digitone II, digikit finding 08 and 59)<br>[untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
+| `0x00010000` | [?] [doc] [memory-maps.md:20](../hardware/common/memory-maps.md#L20) Digitone II, digikit finding 08 and 59)<br>[doc] [digitakt-2.md:207](../hardware/devices/digitakt-2.md#L207) USB take-over failures and card speed (digikit, 2026-11-13)<br>[untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
 | `0x00010101` | [hw] [digitakt-2-dsp-optimizing.md:79](../hardware/devices/digitakt-2-dsp-optimizing.md#L79) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
 | `0x00015acc` | [doc] [hw] [digitakt-2.md:187](../hardware/devices/digitakt-2.md#L187) Project and kit storage (digikit finding 121, DT2 1.17) |
 | `0x00015c00` | [doc] [hw] [digitakt-2.md:187](../hardware/devices/digitakt-2.md#L187) Project and kit storage (digikit finding 121, DT2 1.17) |
@@ -117,6 +118,7 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x00b86014` | [doc] [digitakt-2-sharc-measured.md:24](../hardware/devices/digitakt-2-sharc-measured.md#L24) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0x00b863ca` | [hw] [digitakt-2-sharc-measured.md:25](../hardware/devices/digitakt-2-sharc-measured.md#L25) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0x00b863df` | [hw] [digitakt-2-sharc-measured.md:25](../hardware/devices/digitakt-2-sharc-measured.md#L25) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
+| `0x01000000` | [doc] [digitakt-2.md:210](../hardware/devices/digitakt-2.md#L210) USB take-over failures and card speed (digikit, 2026-11-13) |
 | `0x02df017f` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
 | `0x02df0180` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
 | `0x02df1000` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
@@ -140,6 +142,11 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x400015a0` | [doc] [digitakt-2.md:197](../hardware/devices/digitakt-2.md#L197) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x400016d2` | [doc] [digitakt-2.md:197](../hardware/devices/digitakt-2.md#L197) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x40003ca6` | [doc] [digitakt-2.md:28](../hardware/devices/digitakt-2.md#L28) Bootstrap/recovery facts |
+| `0x40005e14` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x40006af8` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x40006bc6` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x40006d1c` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x40006d2c` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB take-over failures and card speed (digikit, 2026-11-13) |
 | `0x4002e90c` | [doc] [digitakt-2.md:191](../hardware/devices/digitakt-2.md#L191) UI surfaces for mods (digikit finding 122, DT2 1.17) |
 | `0x4002e912` | [emu] [digitakt-2.md:56](../hardware/devices/digitakt-2.md#L56) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator) |
 | `0x400308e0` | [doc] [digitakt-2.md:191](../hardware/devices/digitakt-2.md#L191) UI surfaces for mods (digikit finding 122, DT2 1.17) |
@@ -178,12 +185,25 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x4011ffda` | [hw] [digitakt-2-sharc-measured.md:74](../hardware/devices/digitakt-2-sharc-measured.md#L74) 8. Measuring on the unit without a debugger |
 | `0x40120006` | [hw] [digitakt-2-sharc-measured.md:74](../hardware/devices/digitakt-2-sharc-measured.md#L74) 8. Measuring on the unit without a debugger |
 | `0x40121d2a` | [hw] [digitakt-2-sharc-measured.md:74](../hardware/devices/digitakt-2-sharc-measured.md#L74) 8. Measuring on the unit without a debugger |
+| `0x4012c87a` | [doc] [digitakt-2.md:207](../hardware/devices/digitakt-2.md#L207) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012c88e` | [doc] [digitakt-2.md:207](../hardware/devices/digitakt-2.md#L207) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012c89c` | [doc] [digitakt-2.md:207](../hardware/devices/digitakt-2.md#L207) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012ca60` | [doc] [digitakt-2.md:207](../hardware/devices/digitakt-2.md#L207) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012ca74` | [doc] [digitakt-2.md:207](../hardware/devices/digitakt-2.md#L207) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012ca82` | [doc] [digitakt-2.md:207](../hardware/devices/digitakt-2.md#L207) USB take-over failures and card speed (digikit, 2026-11-13) |
 | `0x4012ca8a` | [doc] [digitakt-2.md:197](../hardware/devices/digitakt-2.md#L197) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x4012e1b6` | [doc] [digitakt-2.md:207](../hardware/devices/digitakt-2.md#L207) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012e1ca` | [doc] [digitakt-2.md:207](../hardware/devices/digitakt-2.md#L207) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012e1d8` | [doc] [digitakt-2.md:207](../hardware/devices/digitakt-2.md#L207) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012e39c` | [doc] [digitakt-2.md:207](../hardware/devices/digitakt-2.md#L207) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012e3b0` | [doc] [digitakt-2.md:207](../hardware/devices/digitakt-2.md#L207) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012e3be` | [doc] [digitakt-2.md:207](../hardware/devices/digitakt-2.md#L207) USB take-over failures and card speed (digikit, 2026-11-13) |
 | `0x4012e3c4` | [doc] [digitakt-2.md:197](../hardware/devices/digitakt-2.md#L197) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x40133646` | [emu] [digitakt-2.md:64](../hardware/devices/digitakt-2.md#L64) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:146](../hardware/devices/digitakt-2.md#L146) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0x40139342` | [emu] [digitakt-2.md:56](../hardware/devices/digitakt-2.md#L56) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator) |
 | `0x401393c6` | [emu] [digitakt-2.md:56](../hardware/devices/digitakt-2.md#L56) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator) |
 | `0x40153c70` | [doc] [digitakt-2.md:179](../hardware/devices/digitakt-2.md#L179) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
+| `0x40155c34` | [doc] [digitakt-2.md:210](../hardware/devices/digitakt-2.md#L210) USB take-over failures and card speed (digikit, 2026-11-13) |
 | `0x40156f6c` | [doc] [digitakt-2.md:179](../hardware/devices/digitakt-2.md#L179) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
 | `0x40157078` | [doc] [digitakt-2.md:179](../hardware/devices/digitakt-2.md#L179) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
 | `0x4015813c` | [doc] [digitakt-2.md:197](../hardware/devices/digitakt-2.md#L197) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
@@ -195,7 +215,7 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x4015b1e8` | [doc] [digitakt-2.md:197](../hardware/devices/digitakt-2.md#L197) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x4015b3aa` | [doc] [digitakt-2.md:179](../hardware/devices/digitakt-2.md#L179) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
 | `0x4015b846` | [doc] [digitakt-2.md:197](../hardware/devices/digitakt-2.md#L197) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x4015b868` | [doc] [digitakt-2.md:197](../hardware/devices/digitakt-2.md#L197) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x4015b868` | [doc] [digitakt-2.md:197](../hardware/devices/digitakt-2.md#L197) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)<br>[doc] [digitakt-2.md:210](../hardware/devices/digitakt-2.md#L210) USB take-over failures and card speed (digikit, 2026-11-13) |
 | `0x4015b92a` | [doc] [digitakt-2.md:197](../hardware/devices/digitakt-2.md#L197) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x40200000` | [doc] [memory-maps.md:94](../hardware/common/memory-maps.md#L94) Details per device |
 | `0x4021e5d2` | [hw] [digitakt-2-sharc-measured.md:74](../hardware/devices/digitakt-2-sharc-measured.md#L74) 8. Measuring on the unit without a debugger |
@@ -237,6 +257,8 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x46f39c40` | [emu] [digitakt-2.md:63](../hardware/devices/digitakt-2.md#L63) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:145](../hardware/devices/digitakt-2.md#L145) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0x46f4deb0` | [doc] [digitakt-2.md:197](../hardware/devices/digitakt-2.md#L197) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x46f4ded0` | [doc] [digitakt-2.md:182](../hardware/devices/digitakt-2.md#L182) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
+| `0x46f63ed0` | [doc] [digitakt-2.md:210](../hardware/devices/digitakt-2.md#L210) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x47d73ed0` | [doc] [digitakt-2.md:210](../hardware/devices/digitakt-2.md#L210) USB take-over failures and card speed (digikit, 2026-11-13) |
 | `0x47e28470` | [emu] [digitakt-2.md:146](../hardware/devices/digitakt-2.md#L146) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)<br>[doc] [memory-maps.md:96](../hardware/common/memory-maps.md#L96) Details per device |
 | `0x47e8b000` | [doc] [digitakt-2.md:163](../hardware/devices/digitakt-2.md#L163) Three Digitakt II mod routes side by side (T21, 2026-11-02) |
 | `0x47f00000` | [doc] [memory-maps.md:96](../hardware/common/memory-maps.md#L96) Details per device<br>[doc] [digitakt-2.md:163](../hardware/devices/digitakt-2.md#L163) Three Digitakt II mod routes side by side (T21, 2026-11-02) |
@@ -292,6 +314,7 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0xfc08c000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc090000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc0b0000` | [doc] [overbridge-usb.md:6](../hardware/common/overbridge-usb.md#L6) Digitone II (digikit finding 42, static, DT2 1.16) |
+| `0xfc0b0170` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB take-over failures and card speed (digikit, 2026-11-13) |
 | `0xffffffff` | [hw] [dt2-dn2-sharc-crosscheck.md:14](../hardware/common/dt2-dn2-sharc-crosscheck.md#L14) 1. Shown on both units `[hw]`<br>[hw] [digitakt-2-dsp-optimizing.md:85](../hardware/devices/digitakt-2-dsp-optimizing.md#L85) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)<br>[emu] [hw] [digitakt-2-sharc-measured.md:46](../hardware/devices/digitakt-2-sharc-measured.md#L46) 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator) |
 
 ## Digitone (MKI) / Digitone Keys (31 addresses)
@@ -330,7 +353,7 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x60042000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
 | `0xa50ce100` | [untagged] [digitone.md:45](../hardware/devices/digitone.md#L45) Caches at startup (digitone-arp-mod, OS 1.44, emulator trace and the NXP manual) |
 
-## Digitone II (285 addresses)
+## Digitone II (305 addresses)
 
 | Address | Facts |
 |---|---|
@@ -340,7 +363,7 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x00040000` | [hw] [digitone-2-internals.md:91](../hardware/devices/digitone-2-internals.md#L91) Hardware map and budgets (OS 1.12 unless noted)<br>[emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59)<br>[emu] [digitone-2.md:69](../hardware/devices/digitone-2.md#L69) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06)<br>[untagged] [os-update-protocol.md:25](../hardware/common/os-update-protocol.md#L25) Acknowledgement and buffering |
 | `0x00048000` | [emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59)<br>[emu] [digitone-2.md:69](../hardware/devices/digitone-2.md#L69) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
 | `0x00050000` | [emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59) |
-| `0x00080000` | [hw] [digitone-2-internals.md:91](../hardware/devices/digitone-2-internals.md#L91) Hardware map and budgets (OS 1.12 unless noted)<br>[?] [doc] [memory-maps.md:20](../hardware/common/memory-maps.md#L20) Digitone II, digikit finding 08 and 59)<br>[doc] [digitone-2-internals.md:199](../hardware/devices/digitone-2-internals.md#L199) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image)<br>[doc] [digitone-2-machines-sampler-sharc.md:29](../hardware/devices/digitone-2-machines-sampler-sharc.md#L29) B. Linking DSP code (elekloader sharc-dn2, OS 1.12)<br>[untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
+| `0x00080000` | [hw] [digitone-2-internals.md:91](../hardware/devices/digitone-2-internals.md#L91) Hardware map and budgets (OS 1.12 unless noted)<br>[?] [doc] [memory-maps.md:20](../hardware/common/memory-maps.md#L20) Digitone II, digikit finding 08 and 59)<br>[doc] [digitone-2-internals.md:206](../hardware/devices/digitone-2-internals.md#L206) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image)<br>[doc] [digitone-2-machines-sampler-sharc.md:29](../hardware/devices/digitone-2-machines-sampler-sharc.md#L29) B. Linking DSP code (elekloader sharc-dn2, OS 1.12)<br>[untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
 | `0x000cc100` | [hw] [digitone-2.md:37](../hardware/devices/digitone-2.md#L37) Architecture |
 | `0x000fffff` | [doc] [digitone-2-internals.md:96](../hardware/devices/digitone-2-internals.md#L96) Hardware map and budgets (OS 1.12 unless noted)<br>[doc] [digitone-2-machines-sampler-sharc.md:29](../hardware/devices/digitone-2-machines-sampler-sharc.md#L29) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x00100000` | [doc] [hw] [firmware-container.md:34](../hardware/common/firmware-container.md#L34) Sections<br>[doc] [digitone-2-internals.md:96](../hardware/devices/digitone-2-internals.md#L96) Hardware map and budgets (OS 1.12 unless noted)<br>[doc] [digitone-2-machines-sampler-sharc.md:29](../hardware/devices/digitone-2-machines-sampler-sharc.md#L29) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
@@ -349,17 +372,27 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x001c12e2` | [doc] [digitone-2-machines-sampler-sharc.md:6](../hardware/devices/digitone-2-machines-sampler-sharc.md#L6) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) |
 | `0x001c1431` | [doc] [digitone-2.md:121](../hardware/devices/digitone-2.md#L121) Hardware test evidence |
 | `0x001c1738` | [hw] [digitone-2-internals.md:102](../hardware/devices/digitone-2-internals.md#L102) Audio/DSP side |
-| `0x001c244d` | [doc] [digitone-2-machines-sampler-sharc.md:24](../hardware/devices/digitone-2-machines-sampler-sharc.md#L24) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
+| `0x001c244d` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12)<br>[doc] [digitone-2-machines-sampler-sharc.md:24](../hardware/devices/digitone-2-machines-sampler-sharc.md#L24) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x001c2712` | [hw] [digitone-2-internals.md:102](../hardware/devices/digitone-2-internals.md#L102) Audio/DSP side |
 | `0x001c4ecf` | [emu] [digitone-2-internals.md:62](../hardware/devices/digitone-2-internals.md#L62) How much of a Digitakt II is inside a Digitone II (dnfw `dt2-machine-port.md`, DN2 1.11 vs DT2 1.16) |
 | `0x001c4f81` | [emu] [digitone-2-internals.md:62](../hardware/devices/digitone-2-internals.md#L62) How much of a Digitakt II is inside a Digitone II (dnfw `dt2-machine-port.md`, DN2 1.11 vs DT2 1.16) |
 | `0x001c642a` | [doc] [digitone-2-internals.md:60](../hardware/devices/digitone-2-internals.md#L60) How much of a Digitakt II is inside a Digitone II (dnfw `dt2-machine-port.md`, DN2 1.11 vs DT2 1.16) |
+| `0x001c8ef1` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x001c91ad` | [emu] [digitone-2-internals.md:63](../hardware/devices/digitone-2-internals.md#L63) How much of a Digitakt II is inside a Digitone II (dnfw `dt2-machine-port.md`, DN2 1.11 vs DT2 1.16) |
 | `0x001cc740` | [hw] [digitone-2-internals.md:91](../hardware/devices/digitone-2-internals.md#L91) Hardware map and budgets (OS 1.12 unless noted) |
+| `0x001cdb56` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x001f7000` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x00200000` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device<br>[doc] [digitone-2-machines-sampler-sharc.md:29](../hardware/devices/digitone-2-machines-sampler-sharc.md#L29) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x00202000` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
+| `0x0024f320` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
+| `0x0024fa20` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
+| `0x00250020` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
+| `0x00250160` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
+| `0x002505a0` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
+| `0x002533e0` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
+| `0x002547a0` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x002567c0` | [doc] [digitone-2-internals.md:105](../hardware/devices/digitone-2-internals.md#L105) Audio/DSP side |
+| `0x00259f68` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x00261a10` | [doc] [digitone-2-internals.md:105](../hardware/devices/digitone-2-internals.md#L105) Audio/DSP side |
 | `0x00266220` | [hw] [dt2-dn2-sharc-crosscheck.md:28](../hardware/common/dt2-dn2-sharc-crosscheck.md#L28) 3. Firmware-level, one device only: check before relying on it |
 | `0x00267220` | [hw] [dt2-dn2-sharc-crosscheck.md:28](../hardware/common/dt2-dn2-sharc-crosscheck.md#L28) 3. Firmware-level, one device only: check before relying on it |
@@ -370,8 +403,10 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x002c3460` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
 | `0x002c39d0` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
 | `0x002c4460` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
+| `0x002d08b8` | [doc] [digitone-2-internals.md:173](../hardware/devices/digitone-2-internals.md#L173) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
+| `0x002dd0b0` | [doc] [digitone-2-internals.md:173](../hardware/devices/digitone-2-internals.md#L173) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x002dd52c` | [doc] [digitone-2-internals.md:52](../hardware/devices/digitone-2-internals.md#L52) The ColdFire-to-DSP frame and the panel (Digiwerk T3.2, T3.3, T2.1, T2.4b/c; DN2 1.12) |
-| `0x002dd600` | [doc] [digitone-2-internals.md:52](../hardware/devices/digitone-2-internals.md#L52) The ColdFire-to-DSP frame and the panel (Digiwerk T3.2, T3.3, T2.1, T2.4b/c; DN2 1.12) |
+| `0x002dd600` | [doc] [digitone-2-internals.md:52](../hardware/devices/digitone-2-internals.md#L52) The ColdFire-to-DSP frame and the panel (Digiwerk T3.2, T3.3, T2.1, T2.4b/c; DN2 1.12)<br>[doc] [digitone-2-internals.md:173](../hardware/devices/digitone-2-internals.md#L173) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x002de000` | [doc] [digitone-2-machines-sampler-sharc.md:25](../hardware/devices/digitone-2-machines-sampler-sharc.md#L25) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x002df000` | [doc] [digitone-2-machines-sampler-sharc.md:25](../hardware/devices/digitone-2-machines-sampler-sharc.md#L25) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x002e0000` | [doc] [digitone-2-machines-sampler-sharc.md:25](../hardware/devices/digitone-2-machines-sampler-sharc.md#L25) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
@@ -400,6 +435,12 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x00700000` | [doc] [digitone-2-machines-sampler-sharc.md:35](../hardware/devices/digitone-2-machines-sampler-sharc.md#L35) C. dn2mk2 sampler and +Drive layout (OS 1.11; most numbers are version-specific, v0.13-v0.31) |
 | `0x007fffff` | [doc] [digitone-2-internals.md:70](../hardware/devices/digitone-2-internals.md#L70) The three ColdFire <-> SHARC layers (dnfw `audio-dma.md`, `dsp-control-block.md`, lalzart cross-check) |
 | `0x00800000` | [hw] [digitone-2-os111-reference.md:32](../hardware/devices/digitone-2-os111-reference.md#L32) Free memory<br>[doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
+| `0x00b80345` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
+| `0x00b80c39` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
+| `0x00b81368` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
+| `0x00b82342` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
+| `0x00b8251b` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
+| `0x00b8265b` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x00b836bc` | [hw] [digitone-2-internals.md:102](../hardware/devices/digitone-2-internals.md#L102) Audio/DSP side |
 | `0x00b8482c` | [hw] [digitone-2-internals.md:102](../hardware/devices/digitone-2-internals.md#L102) Audio/DSP side |
 | `0x00b84d5c` | [hw] [digitone-2-internals.md:102](../hardware/devices/digitone-2-internals.md#L102) Audio/DSP side |
@@ -448,8 +489,8 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x2838489a` | [doc] [digitone-2-machines-sampler-sharc.md:23](../hardware/devices/digitone-2-machines-sampler-sharc.md#L23) B. Linking DSP code (elekloader sharc-dn2, OS 1.12)<br>[doc] [digitone-2-machines-sampler-sharc.md:24](../hardware/devices/digitone-2-machines-sampler-sharc.md#L24) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x283848a0` | [doc] [digitone-2-machines-sampler-sharc.md:23](../hardware/devices/digitone-2-machines-sampler-sharc.md#L23) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x2839bffc` | [doc] [digitone-2-machines-sampler-sharc.md:7](../hardware/devices/digitone-2-machines-sampler-sharc.md#L7) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) |
-| `0x40000000` | [hw] [digitone-2-internals.md:148](../hardware/devices/digitone-2-internals.md#L148) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11)<br>[hw] [digitone-2.md:37](../hardware/devices/digitone-2.md#L37) Architecture<br>[doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59)<br>[doc] [digitone-2-internals.md:199](../hardware/devices/digitone-2-internals.md#L199) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
-| `0x40000008` | [doc] [digitone-2-internals.md:199](../hardware/devices/digitone-2-internals.md#L199) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
+| `0x40000000` | [hw] [digitone-2-internals.md:148](../hardware/devices/digitone-2-internals.md#L148) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11)<br>[hw] [digitone-2.md:37](../hardware/devices/digitone-2.md#L37) Architecture<br>[doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59)<br>[doc] [digitone-2-internals.md:206](../hardware/devices/digitone-2-internals.md#L206) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
+| `0x40000008` | [doc] [digitone-2-internals.md:206](../hardware/devices/digitone-2-internals.md#L206) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
 | `0x40000400` | [doc] [firmware-container.md:37](../hardware/common/firmware-container.md#L37) Sections<br>[doc] [digitone-2-internals.md:73](../hardware/devices/digitone-2-internals.md#L73) Image identity<br>[doc] [digitone-2.md:33](../hardware/devices/digitone-2.md#L33) Architecture |
 | `0x40000410` | [hw] [digitone-2-internals.md:124](../hardware/devices/digitone-2-internals.md#L124) More from dnfw's notes (read 2026-11-02)<br>[doc] [digitone-2-internals.md:73](../hardware/devices/digitone-2-internals.md#L73) Image identity |
 | `0x40000458` | [hw] [digitone-2-internals.md:124](../hardware/devices/digitone-2-internals.md#L124) More from dnfw's notes (read 2026-11-02) |
@@ -459,10 +500,11 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x40000554` | [hw] [digitone-2.md:37](../hardware/devices/digitone-2.md#L37) Architecture |
 | `0x40000568` | [doc] [digitone-2.md:80](../hardware/devices/digitone-2.md#L80) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
 | `0x40001000` | [doc] [digitone-2-internals.md:133](../hardware/devices/digitone-2-internals.md#L133) Disassembly pitfalls (agents will hit these) |
-| `0x400187ea` | [doc] [digitone-2-internals.md:216](../hardware/devices/digitone-2-internals.md#L216) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
+| `0x400187ea` | [doc] [digitone-2-internals.md:223](../hardware/devices/digitone-2-internals.md#L223) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
 | `0x40025982` | [doc] [digitone-2-internals.md:69](../hardware/devices/digitone-2-internals.md#L69) The three ColdFire <-> SHARC layers (dnfw `audio-dma.md`, `dsp-control-block.md`, lalzart cross-check) |
 | `0x40025e0a` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x40025e9e` | [hw] [digitone-2-internals.md:53](../hardware/devices/digitone-2-internals.md#L53) The ColdFire-to-DSP frame and the panel (Digiwerk T3.2, T3.3, T2.1, T2.4b/c; DN2 1.12) |
+| `0x400275b0` | [emu] [digitone-2-internals.md:170](../hardware/devices/digitone-2-internals.md#L170) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x40027ac0` | [doc] [hw] [digitone-2-os111-firmware-map.md:68](../hardware/devices/digitone-2-os111-firmware-map.md#L68) Build pipeline (`cfmod.py`, `dspblocks.py`, `zcache.py`) |
 | `0x40027bbe` | [doc] [digitone-2-os111-reference.md:76](../hardware/devices/digitone-2-os111-reference.md#L76) Emulator coverage (skill's view) |
 | `0x4002c854` | [doc] [digitone-2-internals.md:145](../hardware/devices/digitone-2-internals.md#L145) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
@@ -477,8 +519,8 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x400469fe` | [emu] [digitone-2.md:69](../hardware/devices/digitone-2.md#L69) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
 | `0x4004b6d6` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
 | `0x4004b786` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
-| `0x4005f9b6` | [doc] [digitone-2-internals.md:216](../hardware/devices/digitone-2-internals.md#L216) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
-| `0x40060dde` | [doc] [digitone-2-internals.md:216](../hardware/devices/digitone-2-internals.md#L216) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
+| `0x4005f9b6` | [doc] [digitone-2-internals.md:223](../hardware/devices/digitone-2-internals.md#L223) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
+| `0x40060dde` | [doc] [digitone-2-internals.md:223](../hardware/devices/digitone-2-internals.md#L223) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
 | `0x4006efcc` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only) |
 | `0x4006f004` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only) |
 | `0x4007e020` | [hw] [digitone-2.md:37](../hardware/devices/digitone-2.md#L37) Architecture |
@@ -504,13 +546,14 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x400e1494` | [emu] [digitone-2.md:69](../hardware/devices/digitone-2.md#L69) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
 | `0x4011e318` | [emu] [sysex-and-midi.md:126](../hardware/common/sysex-and-midi.md#L126) DN2 1.12) `[doc]` |
 | `0x4011e598` | [emu] [sysex-and-midi.md:126](../hardware/common/sysex-and-midi.md#L126) DN2 1.12) `[doc]` |
-| `0x4011ed4a` | [emu] [digitone-2-internals.md:180](../hardware/devices/digitone-2-internals.md#L180) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12) |
+| `0x4011ed4a` | [emu] [digitone-2-internals.md:187](../hardware/devices/digitone-2-internals.md#L187) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12) |
 | `0x4011fc8c` | [emu] [sysex-and-midi.md:126](../hardware/common/sysex-and-midi.md#L126) DN2 1.12) `[doc]` |
 | `0x4011ff0c` | [emu] [sysex-and-midi.md:126](../hardware/common/sysex-and-midi.md#L126) DN2 1.12) `[doc]` |
 | `0x4012c4b2` | [hw] [digitone-2.md:99](../hardware/devices/digitone-2.md#L99) Sample memory (dn2mk2) |
 | `0x4012c53e` | [hw] [digitone-2.md:99](../hardware/devices/digitone-2.md#L99) Sample memory (dn2mk2) |
 | `0x4012c544` | [hw] [digitone-2.md:99](../hardware/devices/digitone-2.md#L99) Sample memory (dn2mk2) |
 | `0x40132148` | [doc] [digitone-2-internals.md:145](../hardware/devices/digitone-2-internals.md#L145) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
+| `0x40134490` | [emu] [digitone-2-internals.md:170](../hardware/devices/digitone-2-internals.md#L170) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x401f7400` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x401f83a4` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only)<br>[doc] [digitone-2.md:78](../hardware/devices/digitone-2.md#L78) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
 | `0x40200000` | [hw] [digitone-2-internals.md:92](../hardware/devices/digitone-2-internals.md#L92) Hardware map and budgets (OS 1.12 unless noted) |
@@ -532,9 +575,9 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x40312000` | [hw] [memory-maps.md:36](../hardware/common/memory-maps.md#L36) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11) |
 | `0x4316e854` | [doc] [dt2-dn2-limits-and-audio-chain.md:21](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L21) 1. Machines and parameters (ColdFire) |
 | `0x44000000` | [doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
-| `0x445ff870` | [doc] [digitone-2-internals.md:217](../hardware/devices/digitone-2-internals.md#L217) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
-| `0x44600ca0` | [doc] [digitone-2-internals.md:110](../hardware/devices/digitone-2-internals.md#L110) MIDI side findings<br>[doc] [digitone-2-internals.md:217](../hardware/devices/digitone-2-internals.md#L217) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
-| `0x4460f4b8` | [doc] [digitone-2-internals.md:217](../hardware/devices/digitone-2-internals.md#L217) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only)<br>[doc] [digitone-2-internals.md:218](../hardware/devices/digitone-2-internals.md#L218) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
+| `0x445ff870` | [doc] [digitone-2-internals.md:224](../hardware/devices/digitone-2-internals.md#L224) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
+| `0x44600ca0` | [doc] [digitone-2-internals.md:110](../hardware/devices/digitone-2-internals.md#L110) MIDI side findings<br>[doc] [digitone-2-internals.md:224](../hardware/devices/digitone-2-internals.md#L224) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
+| `0x4460f4b8` | [doc] [digitone-2-internals.md:224](../hardware/devices/digitone-2-internals.md#L224) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only)<br>[doc] [digitone-2-internals.md:225](../hardware/devices/digitone-2-internals.md#L225) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
 | `0x4461b6c0` | [hw] [digitone-2.md:99](../hardware/devices/digitone-2.md#L99) Sample memory (dn2mk2) |
 | `0x446478e0` | [doc] [digitone-2-internals.md:145](../hardware/devices/digitone-2-internals.md#L145) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
 | `0x4464abf0` | [doc] [memory-maps.md:39](../hardware/common/memory-maps.md#L39) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11)<br>[doc] [memory-maps.md:57](../hardware/common/memory-maps.md#L57) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
@@ -544,8 +587,8 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x46700000` | [doc] [memory-maps.md:39](../hardware/common/memory-maps.md#L39) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11)<br>[doc] [memory-maps.md:57](../hardware/common/memory-maps.md#L57) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[doc] [digitone-2-os111-reference.md:30](../hardware/devices/digitone-2-os111-reference.md#L30) Free memory |
 | `0x46701300` | [doc] [memory-maps.md:57](../hardware/common/memory-maps.md#L57) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
 | `0x46701340` | [doc] [memory-maps.md:57](../hardware/common/memory-maps.md#L57) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
-| `0x46708000` | [doc] [emu] [digitone-2-internals.md:179](../hardware/devices/digitone-2-internals.md#L179) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12)<br>[doc] [memory-maps.md:57](../hardware/common/memory-maps.md#L57) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[doc] [digitone-2-os111-reference.md:30](../hardware/devices/digitone-2-os111-reference.md#L30) Free memory |
-| `0x46709340` | [doc] [emu] [digitone-2-internals.md:179](../hardware/devices/digitone-2-internals.md#L179) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12) |
+| `0x46708000` | [doc] [emu] [digitone-2-internals.md:186](../hardware/devices/digitone-2-internals.md#L186) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12)<br>[doc] [memory-maps.md:57](../hardware/common/memory-maps.md#L57) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[doc] [digitone-2-os111-reference.md:30](../hardware/devices/digitone-2-os111-reference.md#L30) Free memory |
+| `0x46709340` | [doc] [emu] [digitone-2-internals.md:186](../hardware/devices/digitone-2-internals.md#L186) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12) |
 | `0x4670c000` | [doc] [memory-maps.md:39](../hardware/common/memory-maps.md#L39) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11) |
 | `0x46710000` | [emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[doc] [memory-maps.md:57](../hardware/common/memory-maps.md#L57) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
 | `0x4671a000` | [emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
@@ -563,7 +606,7 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x47fe0000` | [emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[doc] [memory-maps.md:39](../hardware/common/memory-maps.md#L39) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11) |
 | `0x47ffffcc` | [emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
 | `0x47ffffff` | [hw] [digitone-2.md:37](../hardware/devices/digitone-2.md#L37) Architecture<br>[doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
-| `0x48000000` | [emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[doc] [emu] [digitone-2-internals.md:179](../hardware/devices/digitone-2-internals.md#L179) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12)<br>[doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59)<br>[untagged] [digitone-2-internals.md:6](../hardware/devices/digitone-2-internals.md#L6) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
+| `0x48000000` | [emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[doc] [emu] [digitone-2-internals.md:186](../hardware/devices/digitone-2-internals.md#L186) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12)<br>[doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59)<br>[untagged] [digitone-2-internals.md:6](../hardware/devices/digitone-2-internals.md#L6) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
 | `0x4e6c0000` | [untagged] [digitone-2-internals.md:8](../hardware/devices/digitone-2-internals.md#L8) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
 | `0x4e6e7100` | [hw] [digitone-2.md:37](../hardware/devices/digitone-2.md#L37) Architecture |
 | `0x4e709340` | [untagged] [digitone-2-internals.md:8](../hardware/devices/digitone-2-internals.md#L8) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
@@ -572,8 +615,8 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x60042000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
 | `0x80000000` | [doc] [digitone-2-internals.md:73](../hardware/devices/digitone-2-internals.md#L73) Image identity<br>[untagged] [digitone-2-internals.md:7](../hardware/devices/digitone-2-internals.md#L7) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
 | `0x80000018` | [doc] [dt2-dn2-limits-and-audio-chain.md:73](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L73) 5. The DT2 audio chain per block (planar floats, 32 L then 32 R; voice blocks mono)<br>[doc] [digitone-2-machines-sampler-sharc.md:7](../hardware/devices/digitone-2-machines-sampler-sharc.md#L7) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) |
-| `0x800003fc` | [doc] [digitone-2-internals.md:73](../hardware/devices/digitone-2-internals.md#L73) Image identity<br>[doc] [digitone-2-internals.md:132](../hardware/devices/digitone-2-internals.md#L132) Disassembly pitfalls (agents will hit these)<br>[doc] [digitone-2-internals.md:197](../hardware/devices/digitone-2-internals.md#L197) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
-| `0x80000404` | [doc] [digitone-2-internals.md:197](../hardware/devices/digitone-2-internals.md#L197) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
+| `0x800003fc` | [doc] [digitone-2-internals.md:73](../hardware/devices/digitone-2-internals.md#L73) Image identity<br>[doc] [digitone-2-internals.md:132](../hardware/devices/digitone-2-internals.md#L132) Disassembly pitfalls (agents will hit these)<br>[doc] [digitone-2-internals.md:204](../hardware/devices/digitone-2-internals.md#L204) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
+| `0x80000404` | [doc] [digitone-2-internals.md:204](../hardware/devices/digitone-2-internals.md#L204) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
 | `0x80002510` | [hw] [digitone-2-internals.md:53](../hardware/devices/digitone-2-internals.md#L53) The ColdFire-to-DSP frame and the panel (Digiwerk T3.2, T3.3, T2.1, T2.4b/c; DN2 1.12) |
 | `0x8000357c` | [hw] [digitone-2-internals.md:92](../hardware/devices/digitone-2-internals.md#L92) Hardware map and budgets (OS 1.12 unless noted) |
 | `0x80005366` | [doc] [digitone-2-internals.md:69](../hardware/devices/digitone-2-internals.md#L69) The three ColdFire <-> SHARC layers (dnfw `audio-dma.md`, `dsp-control-block.md`, lalzart cross-check) |
@@ -581,12 +624,12 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x800053a4` | [emu] [digitone-2-internals.md:39](../hardware/devices/digitone-2-internals.md#L39) The ColdFire-to-DSP frame and the panel (Digiwerk T3.2, T3.3, T2.1, T2.4b/c; DN2 1.12) |
 | `0x80005e40` | [doc] [digitone-2-os111-reference.md:50](../hardware/devices/digitone-2-os111-reference.md#L50) ColdFire-to-DSP frame (per voice, big-endian halfwords; the DSP swaps halves of each 32-bit word) |
 | `0x80005e60` | [emu] [digitone-2-internals.md:39](../hardware/devices/digitone-2-internals.md#L39) The ColdFire-to-DSP frame and the panel (Digiwerk T3.2, T3.3, T2.1, T2.4b/c; DN2 1.12) |
-| `0x800065e6` | [doc] [digitone-2-internals.md:197](../hardware/devices/digitone-2-internals.md#L197) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
-| `0x80006603` | [doc] [digitone-2-internals.md:197](../hardware/devices/digitone-2-internals.md#L197) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
-| `0x80006614` | [doc] [digitone-2-internals.md:197](../hardware/devices/digitone-2-internals.md#L197) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
+| `0x800065e6` | [doc] [digitone-2-internals.md:204](../hardware/devices/digitone-2-internals.md#L204) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
+| `0x80006603` | [doc] [digitone-2-internals.md:204](../hardware/devices/digitone-2-internals.md#L204) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
+| `0x80006614` | [doc] [digitone-2-internals.md:204](../hardware/devices/digitone-2-internals.md#L204) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
 | `0x80008000` | [untagged] [digitone-2-internals.md:7](../hardware/devices/digitone-2-internals.md#L7) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
 | `0x8000f980` | [hw] [digitone-2-internals.md:95](../hardware/devices/digitone-2-internals.md#L95) Hardware map and budgets (OS 1.12 unless noted)<br>[untagged] [digitone-2-internals.md:7](../hardware/devices/digitone-2-internals.md#L7) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
-| `0x80010000` | [hw] [digitone-2-internals.md:95](../hardware/devices/digitone-2-internals.md#L95) Hardware map and budgets (OS 1.12 unless noted)<br>[doc] [digitone-2-internals.md:197](../hardware/devices/digitone-2-internals.md#L197) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image)<br>[untagged] [digitone-2-internals.md:7](../hardware/devices/digitone-2-internals.md#L7) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
+| `0x80010000` | [hw] [digitone-2-internals.md:95](../hardware/devices/digitone-2-internals.md#L95) Hardware map and budgets (OS 1.12 unless noted)<br>[doc] [digitone-2-internals.md:204](../hardware/devices/digitone-2-internals.md#L204) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image)<br>[untagged] [digitone-2-internals.md:7](../hardware/devices/digitone-2-internals.md#L7) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
 | `0x8005912c` | [doc] [dt2-dn2-limits-and-audio-chain.md:73](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L73) 5. The DT2 audio chain per block (planar floats, 32 L then 32 R; voice blocks mono) |
 | `0x80459388` | [doc] [dt2-dn2-limits-and-audio-chain.md:73](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L73) 5. The DT2 audio chain per block (planar floats, 32 L then 32 R; voice blocks mono) |
 | `0x8052db90` | [emu] [digitone-2-internals.md:63](../hardware/devices/digitone-2-internals.md#L63) How much of a Digitakt II is inside a Digitone II (dnfw `dt2-machine-port.md`, DN2 1.11 vs DT2 1.16) |
@@ -601,7 +644,7 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x9d22b9c8` | [hw] [dt2-dn2-sharc-crosscheck.md:36](../hardware/common/dt2-dn2-sharc-crosscheck.md#L36) 4. Different on the two devices |
 | `0xa0000000` | [hw] [dt2-dn2-sharc-crosscheck.md:36](../hardware/common/dt2-dn2-sharc-crosscheck.md#L36) 4. Different on the two devices<br>[hw] [digitone-2-machines-sampler-sharc.md:72](../hardware/devices/digitone-2-machines-sampler-sharc.md#L72) Reading a DSP stop, and what the silicon enforces (dnfw, DN2 1.11) |
 | `0xa50ce100` | [hw] [digitone-2.md:37](../hardware/devices/digitone-2.md#L37) Architecture |
-| `0xdebb20e3` | [doc] [digitone-2-internals.md:199](../hardware/devices/digitone-2-internals.md#L199) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
+| `0xdebb20e3` | [doc] [digitone-2-internals.md:206](../hardware/devices/digitone-2-internals.md#L206) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
 | `0xec070000` | [emu] [sysex-and-midi.md:131](../hardware/common/sysex-and-midi.md#L131) DN2 1.11)<br>[doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xec074000` | [emu] [sysex-and-midi.md:131](../hardware/common/sysex-and-midi.md#L131) DN2 1.11) |
 | `0xec090000` | [untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
@@ -719,7 +762,7 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x80010000` | [doc] [hw] [analog-heat.md:43](../hardware/devices/analog-heat.md#L43) Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo) |
 | `0xfc0b0000` | [doc] [overbridge-usb.md:6](../hardware/common/overbridge-usb.md#L6) Digitone II (digikit finding 42, static, DT2 1.16) |
 
-## Octatrack (MKI, MKII) (75 addresses)
+## Octatrack (MKI, MKII) (83 addresses)
 
 | Address | Facts |
 |---|---|
@@ -737,6 +780,7 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x4000050c` | [doc] [memory-maps.md:98](../hardware/common/memory-maps.md#L98) Details per device |
 | `0x40005178` | [?] [hw] [octatrack.md:161](../hardware/devices/octatrack.md#L161) Modwerk and octabam findings (2026-11-12) |
 | `0x40009094` | [hw] [octatrack.md:141](../hardware/devices/octatrack.md#L141) octabam and octamax findings (2026-11-10) |
+| `0x4000aad0` | [hw] [octatrack.md:168](../hardware/devices/octatrack.md#L168) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
 | `0x4000ab26` | [?] [hw] [octatrack.md:135](../hardware/devices/octatrack.md#L135) octabam and octamax findings (2026-11-10) |
 | `0x4000f450` | [emu] [octatrack.md:148](../hardware/devices/octatrack.md#L148) octabam findings (2026-11-11) |
 | `0x400128a8` | [hw] [octatrack.md:147](../hardware/devices/octatrack.md#L147) octabam findings (2026-11-11) |
@@ -749,9 +793,15 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x40031406` | [emu] [octatrack.md:154](../hardware/devices/octatrack.md#L154) Modwerk and octabam findings (2026-11-12) |
 | `0x40031944` | [emu] [octatrack.md:154](../hardware/devices/octatrack.md#L154) Modwerk and octabam findings (2026-11-12) |
 | `0x40053498` | [emu] [octatrack.md:154](../hardware/devices/octatrack.md#L154) Modwerk and octabam findings (2026-11-12) |
+| `0x40054c5c` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
+| `0x40054c80` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
+| `0x40055548` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
+| `0x40055670` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
+| `0x40055676` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
 | `0x40056c28` | [emu] [octatrack.md:165](../hardware/devices/octatrack.md#L165) Modwerk and octabam findings (2026-11-12) |
 | `0x40061e40` | [hw] [octatrack.md:134](../hardware/devices/octatrack.md#L134) octabam and octamax findings (2026-11-10) |
 | `0x400626ba` | [hw] [octatrack.md:134](../hardware/devices/octatrack.md#L134) octabam and octamax findings (2026-11-10) |
+| `0x4007e998` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
 | `0x4009eec8` | [emu] [octatrack.md:155](../hardware/devices/octatrack.md#L155) Modwerk and octabam findings (2026-11-12) |
 | `0x400a2d82` | [emu] [hw] [octatrack.md:149](../hardware/devices/octatrack.md#L149) octabam findings (2026-11-11) |
 | `0x400a95c0` | [doc] [hw] [octatrack.md:40](../hardware/devices/octatrack.md#L40) OS format, update and recovery |
@@ -778,6 +828,7 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x40a955e0` | [hw] [octatrack.md:112](../hardware/devices/octatrack.md#L112) Debugging on the unit by writing a log to the CF card (OctaMax, MKII, OS 1.40C) |
 | `0x40af0000` | [hw] [octatrack.md:140](../hardware/devices/octatrack.md#L140) octabam and octamax findings (2026-11-10) |
 | `0x40af0600` | [hw] [octatrack.md:140](../hardware/devices/octatrack.md#L140) octabam and octamax findings (2026-11-10) |
+| `0x460d1694` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
 | `0x46c7dede` | [emu] [octatrack.md:154](../hardware/devices/octatrack.md#L154) Modwerk and octabam findings (2026-11-12) |
 | `0x46c8d18c` | [doc] [octatrack.md:103](../hardware/devices/octatrack.md#L103) From KYOTI (Zac-Kyoti/octatrack-kyoti-fw, OS 1.40C) |
 | `0x80000000` | [hw] [octatrack.md:140](../hardware/devices/octatrack.md#L140) octabam and octamax findings (2026-11-10)<br>[doc] [octatrack.md:102](../hardware/devices/octatrack.md#L102) From KYOTI (Zac-Kyoti/octatrack-kyoti-fw, OS 1.40C)<br>[doc] [octatrack.md:111](../hardware/devices/octatrack.md#L111) Debugging on the unit by writing a log to the CF card (OctaMax, MKII, OS 1.40C) |
@@ -799,7 +850,7 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x90000000` | [hw] [octatrack.md:13](../hardware/devices/octatrack.md#L13) Silicon |
 | `0xfff80000` | [hw] [octatrack.md:147](../hardware/devices/octatrack.md#L147) octabam findings (2026-11-11) |
 
-## Analog Rytm (MKI, MKII) (80 addresses)
+## Analog Rytm (MKI, MKII) (88 addresses)
 
 | Address | Facts |
 |---|---|
@@ -807,13 +858,13 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x00010000` | [doc] [analog-rytm.md:20](../hardware/devices/analog-rytm.md#L20) Flash and recovery |
 | `0x0001fff8` | [doc] [analog-rytm.md:45](../hardware/devices/analog-rytm.md#L45) 1.74) |
 | `0x00040000` | [doc] [analog-rytm.md:20](../hardware/devices/analog-rytm.md#L20) Flash and recovery<br>[doc] [analog-rytm.md:84](../hardware/devices/analog-rytm.md#L84) More from the MKII mod and research projects (rytm-mods-src OS 1.73, analog-rytm-mkii-research OS 1.72) |
-| `0x0007a000` | [emu] [analog-rytm.md:138](../hardware/devices/analog-rytm.md#L138) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
-| `0x0007c000` | [emu] [analog-rytm.md:138](../hardware/devices/analog-rytm.md#L138) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x0007a000` | [emu] [analog-rytm.md:140](../hardware/devices/analog-rytm.md#L140) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x0007c000` | [emu] [analog-rytm.md:140](../hardware/devices/analog-rytm.md#L140) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x0007ffff` | [doc] [analog-rytm.md:19](../hardware/devices/analog-rytm.md#L19) Flash and recovery |
 | `0x00080000` | [doc] [analog-rytm.md:19](../hardware/devices/analog-rytm.md#L19) Flash and recovery |
 | `0x000ec074` | [doc] [analog-rytm.md:11](../hardware/devices/analog-rytm.md#L11) Platform (MKII, OS 1.74) |
 | `0x001f2bb0` | [doc] [memory-maps.md:100](../hardware/common/memory-maps.md#L100) Details per device |
-| `0x001f9f32` | [emu] [analog-rytm.md:136](../hardware/devices/analog-rytm.md#L136) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x001f9f32` | [emu] [analog-rytm.md:138](../hardware/devices/analog-rytm.md#L138) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x00300000` | [doc] [memory-maps.md:100](../hardware/common/memory-maps.md#L100) Details per device |
 | `0x00380000` | [doc] [memory-maps.md:100](../hardware/common/memory-maps.md#L100) Details per device |
 | `0x00400000` | [doc] [memory-maps.md:100](../hardware/common/memory-maps.md#L100) Details per device |
@@ -825,15 +876,22 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x40009216` | [emu] [analog-rytm.md:103](../hardware/devices/analog-rytm.md#L103) Modwerk Rytm modules and stock behaviour (OS 1.74, 2026-11-10) |
 | `0x4007154c` | [doc] [analog-rytm.md:70](../hardware/devices/analog-rytm.md#L70) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x400734f2` | [doc] [analog-rytm.md:121](../hardware/devices/analog-rytm.md#L121) +Drive mods loaded at boot (elekloader drive-loader-ar2 0.4, core-ar2 0.12, OS 1.74) |
+| `0x4009df72` | [hw] [analog-rytm.md:135](../hardware/devices/analog-rytm.md#L135) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
+| `0x4009e39e` | [hw] [analog-rytm.md:135](../hardware/devices/analog-rytm.md#L135) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x400a005e` | [doc] [analog-rytm.md:117](../hardware/devices/analog-rytm.md#L117) +Drive mods loaded at boot (elekloader drive-loader-ar2 0.4, core-ar2 0.12, OS 1.74) |
 | `0x400a0336` | [emu] [analog-rytm.md:129](../hardware/devices/analog-rytm.md#L129) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
-| `0x400a7d04` | [doc] [analog-rytm.md:141](../hardware/devices/analog-rytm.md#L141) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x400a7d04` | [doc] [analog-rytm.md:143](../hardware/devices/analog-rytm.md#L143) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x400a88ea` | [emu] [analog-rytm.md:130](../hardware/devices/analog-rytm.md#L130) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
-| `0x400b2bfe` | [doc] [analog-rytm.md:140](../hardware/devices/analog-rytm.md#L140) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
-| `0x400b6d6c` | [doc] [analog-rytm.md:141](../hardware/devices/analog-rytm.md#L141) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
-| `0x400b786c` | [doc] [analog-rytm.md:141](../hardware/devices/analog-rytm.md#L141) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x400b2bfe` | [doc] [analog-rytm.md:142](../hardware/devices/analog-rytm.md#L142) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x400b6d6c` | [doc] [analog-rytm.md:143](../hardware/devices/analog-rytm.md#L143) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x400b739c` | [hw] [analog-rytm.md:135](../hardware/devices/analog-rytm.md#L135) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
+| `0x400b786c` | [doc] [analog-rytm.md:143](../hardware/devices/analog-rytm.md#L143) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x400b8192` | [hw] [analog-rytm.md:135](../hardware/devices/analog-rytm.md#L135) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x400bdc5e` | [doc] [analog-rytm.md:72](../hardware/devices/analog-rytm.md#L72) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x400bde1c` | [doc] [analog-rytm.md:72](../hardware/devices/analog-rytm.md#L72) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
+| `0x400d2004` | [emu] [analog-rytm.md:134](../hardware/devices/analog-rytm.md#L134) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
+| `0x400d20ee` | [emu] [analog-rytm.md:134](../hardware/devices/analog-rytm.md#L134) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
+| `0x400d253a` | [hw] [analog-rytm.md:135](../hardware/devices/analog-rytm.md#L135) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x400df664` | [doc] [analog-rytm.md:72](../hardware/devices/analog-rytm.md#L72) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x400fbbe8` | [emu] [analog-rytm.md:131](../hardware/devices/analog-rytm.md#L131) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x401009e0` | [doc] [analog-rytm.md:119](../hardware/devices/analog-rytm.md#L119) +Drive mods loaded at boot (elekloader drive-loader-ar2 0.4, core-ar2 0.12, OS 1.74) |
@@ -841,7 +899,7 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x401197f4` | [hw] [analog-rytm.md:73](../hardware/devices/analog-rytm.md#L73) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x4011aa4c` | [hw] [analog-rytm.md:73](../hardware/devices/analog-rytm.md#L73) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x40120cfa` | [emu] [analog-rytm.md:130](../hardware/devices/analog-rytm.md#L130) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
-| `0x4013f1c8` | [doc] [analog-rytm.md:140](../hardware/devices/analog-rytm.md#L140) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x4013f1c8` | [doc] [analog-rytm.md:142](../hardware/devices/analog-rytm.md#L142) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x401c03c8` | [emu] [analog-rytm.md:131](../hardware/devices/analog-rytm.md#L131) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x401c03f8` | [emu] [analog-rytm.md:131](../hardware/devices/analog-rytm.md#L131) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x401c0410` | [emu] [analog-rytm.md:131](../hardware/devices/analog-rytm.md#L131) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
@@ -853,13 +911,14 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x4028c770` | [doc] [analog-rytm.md:45](../hardware/devices/analog-rytm.md#L45) 1.74) |
 | `0x40291138` | [doc] [analog-rytm.md:68](../hardware/devices/analog-rytm.md#L68) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x402a1b84` | [doc] [analog-rytm.md:45](../hardware/devices/analog-rytm.md#L45) 1.74) |
-| `0x405c8e10` | [emu] [analog-rytm.md:138](../hardware/devices/analog-rytm.md#L138) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
-| `0x405c8e84` | [emu] [analog-rytm.md:138](../hardware/devices/analog-rytm.md#L138) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
-| `0x405c8f0f` | [emu] [analog-rytm.md:138](../hardware/devices/analog-rytm.md#L138) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
-| `0x405c8f10` | [emu] [analog-rytm.md:138](../hardware/devices/analog-rytm.md#L138) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
-| `0x405c8f20` | [emu] [analog-rytm.md:136](../hardware/devices/analog-rytm.md#L136) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x405c8e10` | [emu] [analog-rytm.md:140](../hardware/devices/analog-rytm.md#L140) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x405c8e84` | [emu] [analog-rytm.md:140](../hardware/devices/analog-rytm.md#L140) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x405c8f0f` | [emu] [analog-rytm.md:140](../hardware/devices/analog-rytm.md#L140) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x405c8f10` | [emu] [analog-rytm.md:140](../hardware/devices/analog-rytm.md#L140) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x405c8f20` | [emu] [analog-rytm.md:138](../hardware/devices/analog-rytm.md#L138) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x417e32b8` | [doc] [analog-rytm.md:77](../hardware/devices/analog-rytm.md#L77) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x417e381c` | [doc] [analog-rytm.md:70](../hardware/devices/analog-rytm.md#L70) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
+| `0x41942350` | [hw] [analog-rytm.md:135](../hardware/devices/analog-rytm.md#L135) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x419a4888` | [emu] [analog-rytm.md:130](../hardware/devices/analog-rytm.md#L130) Modwerk Rytm findings (OS 1.74, 2026-11-11)<br>[doc] [analog-rytm.md:77](../hardware/devices/analog-rytm.md#L77) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x41ad0000` | [hw] [analog-rytm.md:16](../hardware/devices/analog-rytm.md#L16) Platform (MKII, OS 1.74) |
 | `0x428a0000` | [doc] [analog-rytm.md:56](../hardware/devices/analog-rytm.md#L56) 1.74) |
@@ -873,9 +932,9 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x800063c0` | [hw] [analog-rytm.md:73](../hardware/devices/analog-rytm.md#L73) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x800067c4` | [doc] [analog-rytm.md:68](../hardware/devices/analog-rytm.md#L68) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x8000e508` | [doc] [hw] [analog-rytm.md:104](../hardware/devices/analog-rytm.md#L104) Modwerk Rytm modules and stock behaviour (OS 1.74, 2026-11-10)<br>[doc] [analog-rytm.md:68](../hardware/devices/analog-rytm.md#L68) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
-| `0x8000e57c` | [doc] [analog-rytm.md:140](../hardware/devices/analog-rytm.md#L140) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x8000e57c` | [doc] [analog-rytm.md:142](../hardware/devices/analog-rytm.md#L142) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x8000e5b0` | [emu] [analog-rytm.md:130](../hardware/devices/analog-rytm.md#L130) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
-| `0x8000f774` | [doc] [analog-rytm.md:140](../hardware/devices/analog-rytm.md#L140) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x8000f774` | [doc] [analog-rytm.md:142](../hardware/devices/analog-rytm.md#L142) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x8000fd50` | [doc] [hw] [analog-rytm.md:124](../hardware/devices/analog-rytm.md#L124) Queued trigs: what a mod can see before a trig fires (Modwerk, OS 1.74, read from the code) |
 | `0x8000fe54` | [doc] [hw] [analog-rytm.md:124](../hardware/devices/analog-rytm.md#L124) Queued trigs: what a mod can see before a trig fires (Modwerk, OS 1.74, read from the code) |
 | `0xa50ce100` | [hw] [analog-rytm.md:12](../hardware/devices/analog-rytm.md#L12) Platform (MKII, OS 1.74) |
@@ -919,7 +978,7 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x60000000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
 | `0x60042000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
 
-## Model:Cycles (23 addresses)
+## Model:Cycles (40 addresses)
 
 | Address | Facts |
 |---|---|
@@ -927,7 +986,16 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x4000b274` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x4000b568` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x4000b942` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x40019c84` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x40019e7a` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4001d05e` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4001d0fc` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4001d180` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
 | `0x4005a8ce` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x400a3052` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a63ac` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a6426` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a7ab8` | [doc] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
 | `0x400a7d4a` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x400a9252` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x400a9430` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
@@ -935,26 +1003,43 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x40109048` | [doc] [model-cycles-samples.md:87](../hardware/devices/model-cycles-samples.md#L87) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x4010dce0` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x4011d84c` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x4012024c` | [doc] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
 | `0x4016cae8` | [doc] [model-cycles-samples.md:92](../hardware/devices/model-cycles-samples.md#L92) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x40200000` | [doc] [memory-maps.md:99](../hardware/common/memory-maps.md#L99) Details per device |
+| `0x40fb5a04` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
 | `0x40fe4c90` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x40fe4c9c` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x40fe4cb4` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
 | `0x43000000` | [doc] [model-cycles-samples.md:45](../hardware/devices/model-cycles-samples.md#L45) Free space and payloads<br>[doc] [model-cycles-samples.md:92](../hardware/devices/model-cycles-samples.md#L92) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x43009680` | [doc] [model-cycles-samples.md:92](../hardware/devices/model-cycles-samples.md#L92) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x46700000` | [doc] [model-cycles-samples.md:45](../hardware/devices/model-cycles-samples.md#L45) Free space and payloads |
 | `0x47e00000` | [doc] [memory-maps.md:99](../hardware/common/memory-maps.md#L99) Details per device |
 | `0x47e40000` | [doc] [memory-maps.md:99](../hardware/common/memory-maps.md#L99) Details per device |
+| `0x800015ae` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x8000eae0` | [doc] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x8000eee4` | [doc] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x8000f2e8` | [doc] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
 | `0x8000f700` | [doc] [memory-maps.md:99](../hardware/common/memory-maps.md#L99) Details per device |
 | `0x80010000` | [doc] [memory-maps.md:99](../hardware/common/memory-maps.md#L99) Details per device |
 | `0xfc07000c` | [doc] [model-cycles-samples.md:78](../hardware/devices/model-cycles-samples.md#L78) A load governor that works, and one that didn't (Supermodel notes 30 and 36, Model:Cycles OS 1.13) |
 
-## Model:Samples (17 addresses)
+## Model:Samples (34 addresses)
 
 | Address | Facts |
 |---|---|
 | `0x4000b274` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x4000b568` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x4000b942` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x40019c84` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x40019e7a` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4001d05e` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4001d0fc` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4001d180` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
 | `0x4005a8ce` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x400a3052` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a63ac` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a6426` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a7ab8` | [doc] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
 | `0x400a7d4a` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x400a9252` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x400a9430` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
@@ -962,11 +1047,19 @@ Data checked 2026-11-12, research snapshot `03aca0b85d95`.
 | `0x40109048` | [doc] [model-cycles-samples.md:87](../hardware/devices/model-cycles-samples.md#L87) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x4010dce0` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x4011d84c` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x4012024c` | [doc] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
 | `0x4016cae8` | [doc] [model-cycles-samples.md:92](../hardware/devices/model-cycles-samples.md#L92) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x40fb5a04` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
 | `0x40fe4c90` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x40fe4c9c` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x40fe4cb4` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
 | `0x43000000` | [doc] [model-cycles-samples.md:45](../hardware/devices/model-cycles-samples.md#L45) Free space and payloads<br>[doc] [model-cycles-samples.md:92](../hardware/devices/model-cycles-samples.md#L92) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x43009680` | [doc] [model-cycles-samples.md:92](../hardware/devices/model-cycles-samples.md#L92) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x46700000` | [doc] [model-cycles-samples.md:45](../hardware/devices/model-cycles-samples.md#L45) Free space and payloads |
+| `0x800015ae` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x8000eae0` | [doc] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x8000eee4` | [doc] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x8000f2e8` | [doc] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
 | `0xfc07000c` | [doc] [model-cycles-samples.md:78](../hardware/devices/model-cycles-samples.md#L78) A load governor that works, and one that didn't (Supermodel notes 30 and 36, Model:Cycles OS 1.13) |
 
 ## Machinedrum (incl. UW) (12 addresses)

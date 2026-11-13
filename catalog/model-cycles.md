@@ -2,14 +2,14 @@
 
 # Model:Cycles
 
-Data last verified: 2026-11-12
+Data last verified: 2026-11-13
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **elekloader** (pina (irpina)) | loader | - | v0.10.0 (tag 2026-11-09): ships each device's newest core (DT1 4.1, DN1 5.2.1, DT2 1.0, DN2 0.3, AR2 0.11, A4 0.5, OT 0.8, MC 0.3, MS 0.1). main since: DT1 core 4.2/4.3 and DN1 5.3 (live-note and MIDI CC events), core-dn2 0.4 (MIDI CC event, DSP post words), core-ar2 0.12 (spare table entries for +Drive mods), SDK mono machines and MIDI CCs, DT2 sharc_raw (raw section-7 loads and relocatable DSP objects); 2026-11-11 the Analog Rytm MKII Drive Loader (drive-loader-ar2 0.4: mods linked from the +Drive at boot, a MODS page, the web page's +Drive view over Web MIDI) and core-a4 renamed core-a4mk2; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.10.0 | 2026-11-12 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/elekloader/elekloader/releases) · [shop](https://elekloader.github.io/shop/) · [shop repo](https://github.com/elekloader/shop) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
-| **model27** (durchgemacht, 18nelli18) | mod | - | release 0.60 (2026-11-11, beta): sixteen cards in the web flasher; new SOLID card (0.59), a struck-sound machine with eight modes (string, membrane, marimba, bar, bell, glass), and Track FX on MIDI CC 74/71/75/76 and NRPN 1:20-1:23 (fltslot 0.12). 0.56 added CHORD Tables and a Wavetables page; 1.13 | - | 2026-11-11 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
+| **model27** (durchgemacht, 18nelli18) | mod | - | release 0.61 (2026-11-12, beta): SAMPLE (Cycles One-Shot 0.16) plays the sample under the PRESET browser's cursor from the pad and the TRIG keys, and with the pad held the track's trigs play it too. Release 0.60 (2026-11-11): sixteen cards in the web flasher; new SOLID card (0.59), a struck-sound machine with eight modes (string, membrane, marimba, bar, bell, glass), and Track FX on MIDI CC 74/71/75/76 and NRPN 1:20-1:23 (fltslot 0.12). 0.56 added CHORD Tables and a Wavetables page; 1.13 | - | 2026-11-12 | [repo](https://github.com/durchgemacht/model27) · [homepage](https://durchgemacht.github.io/model27/flasher/) |
 | **CyclesEmu (Model:Cycles engine as plug-ins)** (Jackherz) | tool | - | - | v1.0 | 2026-11-10 | [repo](https://github.com/Jackherz/model-cycles-plugin) |
 | **SPOKES** (A.V.) | tool | - | main @ f712595 (2026-11-09); 1.13 | - | 2026-11-09 | [repo](https://github.com/AveyCole/SPOKES) · [homepage](https://aveycole.github.io/SPOKES/) |
 | **Supermodel Edition** (A.V., 18nelli18) | mod | - | 3.06 (2026-11-06; 2026-11-08 fixes to the Optional edition's machine exclusions); 1.13 | wavetable-pack | 2026-11-08 | [repo](https://github.com/AveyCole/Supermodel) · [homepage](https://aveycole.github.io/Supermodel/flasher-supermodel-909/) |
@@ -20,7 +20,7 @@ Data last verified: 2026-11-12
 | **Motor:Cycles (rhythmic-noise firmware)** (nzimas) | mod | - | v1.0.0-rc18 (tag); Model:Cycles OS 1.13 | v1.0.0-rc18 | 2026-11-03 | [repo](https://github.com/nzimas/motorcycles) · [web patcher](https://nzimas.github.io/motorcycles/install.html) |
 | **BIAS (six-oscillator percussion machine)** (100demons) | mod | - | Model:Cycles OS 1.13 | - | 2026-11-03 | [repo](https://github.com/100demons/bias) · [web patcher](https://100demons.github.io/cycles-engines/flasher/) |
 | **Elek View (screen viewer in the browser)** (BlueSGL) | tool | - | main @ 29fc485 (2026-11-02) | - | 2026-11-02 | [repo](https://github.com/BlueSGL/Elek_View) · [web app](https://bluesgl.github.io/Elek_View/) · [forum](https://elektronmods.com/thread-93-elek-view-see-your-devices-screens-in-a-browser-via-webmidi) |
-| **Cycles One-Shot** (durchgemacht) | mod | repo unreachable | machine 0.13 (2026-11-02, on main; newest tag v0.12): Start and Length act on the note that plays; tested in a model27 build, in digiemu and on a Model:Cycles; 1.13 | v0.15 | 2026-11-02 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
+| **Cycles One-Shot** (durchgemacht) | mod | repo unreachable | v0.16 (tag, commit a376832, as model27's PROVENANCE pins it on 2026-11-12; the repo itself is still not reachable): browser preview on the pad and TRIG keys. Earlier: machine 0.13 (2026-11-02): Start and Length act on the note that plays; tested in a model27 build, in digiemu and on a Model:Cycles; 1.13 | v0.15 | 2026-11-02 | [repo](https://github.com/durchgemacht/cycles-one-shot) |
 | **Vladiktron Spoke** (imaf6971) | emulator | - | v0.1.0 (2026-10-30); 1.13 | v0.1.0 | 2026-10-30 | [repo](https://github.com/imaf6971/vladiktron-spoke) |
 | **Cycles Engines** (100demons) | loader | - | Model:Cycles OS 1.13 only | phase-5 | 2026-10-30 | [repo](https://github.com/100demons/cycles-engines) |
 | **Cycles Mod Standard** (durchgemacht) | research | repo unreachable | draft 0.7; Model:Cycles OS 1.13 | - | 2026-10-30 | [repo](https://github.com/durchgemacht/cycles-mod-standard) |
@@ -126,7 +126,7 @@ Repo was offline 2026-11-07 to 11-09 (check_updates 2026-11-08); public again on
 
 _Related: fork of `modded-cycles` (own README: beta fork of Modded Cycles 1.55); cites `digiemu` (README credits digiemu); cites `elektroid` (README credits: the Elektron Transfer update protocol behind fast USB flashing); bundles `elektron-model-tweaks` (README: includes drumkilla's tweaks (latching mute, trig preview)); cites `octamax` (README credits: reverse-engineering method); cites `octa-bt-pt` (README credits: reverse-engineering and patching); cites `model-tg` (README: its CPU page built as Model-TG's System page); cites `ms-multi-output` (README credits: the original 6-channel USB mod); bundles `cycles-control-all-config` (README: Modded-Cycles 1.55 plus the Control All Config mod); bundles `cycles-one-shot` (README: the SAMPLE machine of Cycles One-Shot) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01), README (2026-11-11), README (2026-11-12)_
+_Sources: altstrument (2026-11-01), README (2026-11-11), README (2026-11-12), README, notes/60 section 24 (2026-11-13)_
 
 ### plaits-on-models
 

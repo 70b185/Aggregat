@@ -166,3 +166,11 @@ Updated as the "read everything" pass proceeds (started 2026-10-31; paused when 
 | modwerk changelogs 2026-11-11/12, README, new module READMEs and TESTING (crossfader, live-looper, amiga); the sdk/octabam to sdk/octatrack move read as a rename | diff | devices/octatrack.md, INCIDENTS I79, AGENT-RULES A34, projects.yml (own_mods) |
 | octabam HOOKS ui_tick, hooks-reload remix; octatrack-step-view README; OpenBridge README; altstrument data (sidecar 0.4.4, model27, octatrack-manager, digikit, dn2mk2 patcher) | diff | devices/octatrack.md, projects.yml |
 | octatrack-step-view README (later the same day: lengths at the row end) | diff | projects.yml |
+| digicmi CHANGELOG, README, CLAUDE.md, mod.json (0.19-0.26) | diff | devices/digitakt.md, INCIDENTS I81, AGENT-RULES A34, projects.yml |
+| digikit findings 120/123 (update), 126 (new), sdhc-large and usb-bulk READMEs, storage and port TOMLs, MODULE-AUTHORING and the SDK/runtime design docs (runtime 0.6.0), handover | diff + new file | devices/digitakt-2.md, INCIDENTS I80, AGENT-RULES A55, projects.yml |
+| dn2mk2 FIRMWARE.md v0.51/v0.52, releases, mnm-trim, flex-design, stereo-assessment, leds, ROADMAP, HANDOFF-second-firmware (private repo names left out) | diff + new files | devices/digitone-2-internals.md, projects.yml (dn2mk2, dn2-rift) |
+| model27 README, notes/14, 60 section 24, 66 section 37, 73, PROVENANCE, REGISTRY | diff | devices/model-cycles-samples.md, projects.yml (model27, cycles-one-shot) |
+| modwerk changelog 2026-11-12 machine stack, ADD_A_MACHINE, MACHINE_RECIPE, Improved SMPL 0.5.0 README, TESTING and verification, Rytm machine README | diff + new file | devices/analog-rytm.md, projects.yml (own_mods) |
+| octabam frame-guard README (new), TRAPS, FAILURE_MODES, MIDI_SCENES, midi-scenes README, remix READMEs | diff + new files | devices/octatrack.md, INCIDENTS I82, AGENT-RULES A56, projects.yml |
+| mpc-tributary README, AGENTS, CAPTURE.md; octatrack-step-view README; OP-XY-MNMD README, DEVICE, SCREEN; sample-shepherd README and docs | diff | projects.yml |
+| new repos femifleming/AERIA-OS (README, aeria-os/HARDWARE.md start, aeria-fx/STATUS.md) and De-Pattern/DN2-Rift (README, docs/rift.md) | blobless clone, text only | projects.yml (aeria-os, dn2-rift) |

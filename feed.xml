@@ -4,9 +4,25 @@
   <link href="https://70b185.github.io/Aggregat/"/>
   <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
   <id>https://70b185.github.io/Aggregat/</id>
-  <updated>2026-11-12T00:00:00Z</updated>
+  <updated>2026-11-13T00:00:00Z</updated>
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>New in the catalogue: RIFT (second Digitone II firmware) (Mod, Digitone II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=dn2-rift"/>
+    <id>https://70b185.github.io/Aggregat/#project-dn2-rift</id>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A second Digitone II firmware by the dn2mk2 author, separate from that mod: no Machinedrum or Monomachine machines, starting with one engine, FASCIA (two exciters into two coupled modal bodies, TZFM, ring and frequency shift, a spectral morph, a low-pass gate). Its first commit …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: AERIA OS (Mod, Octatrack)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=aeria-os"/>
+    <id>https://70b185.github.io/Aggregat/#project-aeria-os</id>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>An operating system of its own for the Octatrack MKII, not a patch of Elektron's OS: a weather-driven multi-effect on inputs A-D (up to seven effects whose knobs the chosen weather moves) and an 8-track sequencer groovebox (sampler, sub, FM, noise, Karplus-Strong and polyphonic …</summary>
+  </entry>
   <entry>
     <title>New in the catalogue: OpenBridge - Digitone II (Tool, Digitone II)</title>
     <link href="https://70b185.github.io/Aggregat/?p=openbridge-digitone-2"/>
@@ -413,16 +429,9 @@
     <category term="update"/>
   </entry>
   <entry>
-    <title>Rework MODS.md and add seven new mods with a tested field</title>
-    <link href="https://github.com/70b185/Aggregat/commit/c002a68439de0fc5817919340227e52d402a3b4f"/>
-    <id>https://70b185.github.io/Aggregat/#commit-c002a68439de</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Add a Mods tab to the website; list every known usable mod in MODS.md</title>
-    <link href="https://github.com/70b185/Aggregat/commit/bfadedcacca07797cf563f53ed89122e3242e723"/>
-    <id>https://70b185.github.io/Aggregat/#commit-bfadedcacca0</id>
+    <title>Website: neutral monospaced design (variant 3 "Mono") and a device bar</title>
+    <link href="https://github.com/70b185/Aggregat/commit/990eee6b8e5b44dfba8a63b81894c2497da5a402"/>
+    <id>https://70b185.github.io/Aggregat/#commit-990eee6b8e5b</id>
     <updated>2026-11-08T00:00:00Z</updated>
     <category term="update"/>
   </entry>
@@ -446,13 +455,5 @@
     <id>https://70b185.github.io/Aggregat/#commit-0bd11631bfd2</id>
     <updated>2026-11-08T00:00:00Z</updated>
     <category term="update"/>
-  </entry>
-  <entry>
-    <title>New in the catalogue: sample-shepherd (Tool, Digitakt II)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=sample-shepherd"/>
-    <id>https://70b185.github.io/Aggregat/#project-sample-shepherd</id>
-    <updated>2026-11-07T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>Organises a sample library (through Fourier Samples), exports it per device profile and syncs it to a sampler without breaking the projects on it: backs up projects, works out which samples they use, plans uploads and deletions and carries them out resumably; never deletes a …</summary>
   </entry>
 </feed>

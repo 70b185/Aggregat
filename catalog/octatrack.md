@@ -2,15 +2,16 @@
 
 # Octatrack (MKI, MKII)
 
-Data last verified: 2026-11-12
+Data last verified: 2026-11-13
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **octabam** (Sam Banks, Contributors credited per module) | mod | - | v0.4 (tag 2026-11-04, the web builder's patch; adds SHATTER and SIDECHAIN_COMPRESSOR). Unreleased (2026-11-10): WAVE moved from a DSP effect to a ColdFire machine (wavecf), new XF CURVE, KEYBUS and SC KEYBUS BRIDGE, a leaner demand-loader copier; 2026-11-11 DRUMMER by djib (a FLEX track's sliced drum loop played as a drummer: styles, humanisation, breaks on the crossfader; run on the author's MKII) and CX OSC reworked into a Buchla-style complex oscillator capped at six tracks; 2026-11-12 DRUMMER gains a NEXT page with on-beat orders (stop, resume, fill, style, break), and djib's FREE LOOP (MIDI-pedal looper, CC 90-93 per track, transport CCs 83-89, run in the author's rig on an MKII 5-10 Nov) is documented; a stray recording after power-on is guarded (I78); HOOKS chains the UI tick so FREE LOOP and RELOAD_FROM_PROJECT work together (emulator only); 1.40C | v0.4 | 2026-11-13 | [repo](https://github.com/sambanks/octabam) · [homepage](https://modwerk.app/) |
+| **AERIA OS** (sadnoise (femifleming)) | mod | - | beta (one commit, 2026-11-13; manual of 165 pages attached to the beta release); Octatrack MKII only; replaces the OS (Elektron's bootloader and Startup Menu stay untouched); the install file is built from the user's own copy of the official OS file, OS 1.40C | v0.9.1-beta | 2026-11-13 | [repo](https://github.com/femifleming/AERIA-OS) |
 | **elekloader** (pina (irpina)) | loader | - | v0.10.0 (tag 2026-11-09): ships each device's newest core (DT1 4.1, DN1 5.2.1, DT2 1.0, DN2 0.3, AR2 0.11, A4 0.5, OT 0.8, MC 0.3, MS 0.1). main since: DT1 core 4.2/4.3 and DN1 5.3 (live-note and MIDI CC events), core-dn2 0.4 (MIDI CC event, DSP post words), core-ar2 0.12 (spare table entries for +Drive mods), SDK mono machines and MIDI CCs, DT2 sharc_raw (raw section-7 loads and relocatable DSP objects); 2026-11-11 the Analog Rytm MKII Drive Loader (drive-loader-ar2 0.4: mods linked from the +Drive at boot, a MODS page, the web page's +Drive view over Web MIDI) and core-a4 renamed core-a4mk2; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.10.0 | 2026-11-12 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/elekloader/elekloader/releases) · [shop](https://elekloader.github.io/shop/) · [shop repo](https://github.com/elekloader/shop) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | - | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-12 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
-| **octabam** (Sam Banks, Contributors credited per module) | mod | - | v0.4 (tag 2026-11-04, the web builder's patch; adds SHATTER and SIDECHAIN_COMPRESSOR). Unreleased (2026-11-10): WAVE moved from a DSP effect to a ColdFire machine (wavecf), new XF CURVE, KEYBUS and SC KEYBUS BRIDGE, a leaner demand-loader copier; 2026-11-11 DRUMMER by djib (a FLEX track's sliced drum loop played as a drummer: styles, humanisation, breaks on the crossfader; run on the author's MKII) and CX OSC reworked into a Buchla-style complex oscillator capped at six tracks; 2026-11-12 DRUMMER gains a NEXT page with on-beat orders (stop, resume, fill, style, break), and djib's FREE LOOP (MIDI-pedal looper, CC 90-93 per track, transport CCs 83-89, run in the author's rig on an MKII 5-10 Nov) is documented; a stray recording after power-on is guarded (I78); HOOKS chains the UI tick so FREE LOOP and RELOAD_FROM_PROJECT work together (emulator only); 1.40C | v0.4 | 2026-11-12 | [repo](https://github.com/sambanks/octabam) · [homepage](https://modwerk.app/) |
 | **STEP VIEW (Octatrack step editor)** (Slingdinger) | mod | - | Octatrack MKI/MKII OS 1.40C | - | 2026-11-12 | [repo](https://github.com/Slingdinger/octatrack-step-view) |
 | **OCTAMAX** (Maxolydian (mxldyn)) | mod | - | OCTAMAX_2i (2026-11-11; the audio editor follows pattern, bank and Part changes, SB17); 1.40C | dual256-v1 | 2026-11-11 | [repo](https://github.com/mxldyn/octamax) |
 | **Octatrack Manager** (David Ferlay) | tool | - | v0.50.0 (2026-11-11); Projects saved on OS 1.40 or later | v0.50.0 | 2026-11-11 | [repo](https://github.com/davidferlay/octatrack-manager) · [homepage](https://davidferlay.github.io/octatrack-manager/) |
@@ -56,7 +57,7 @@ _Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
 
 _Related: cites `elekloader` (README mentions elekloader (porting from it / hosted loader)); cites `octabam` (README: porting from octabam is part of the module guide) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: gearnews, dubspot, forum thread 36, changelog (2026-11-11), module READMEs (2026-11-12)_
+_Sources: gearnews, dubspot, forum thread 36, changelog (2026-11-11), module READMEs (2026-11-12), changelog, verification 2026-11-12, sample-rate README (2026-11-13)_
 
 ### ems-octakit
 
@@ -90,11 +91,11 @@ _Sources: altstrument (2026-11-01)_
 
 ### octabam
 
-Modular Octatrack OS 1.40C "remixer": bus and track effects, FM synth machine, 255 kits, USB audio/MIDI, stock bug fixes. Base of Modwerk. Licence: MIT; distribution: patch-your-own. Listed by altstrument; README, CHANGELOG and contributing docs read 2026-11-10. 2026-11-03: new midi-follow module (docs/site/usage/midi-follow.md, a test remix); not read further. 2026-11-10: WAVE (wavecf) is a 4-voice wavetable machine on the ColdFire, reduced from CHOMPI WAVE, heard on an MKII in builds W1-W6 (I58); XF CURVE offers 13 crossfader curves, run on a contributor's MKII on 2026-11-06; KEYBUS publishes each track's block peak for side-chain keys (make check only); a demand-loader soak with STEM REC froze an MKII (I57, open).
+Modular Octatrack OS 1.40C "remixer": bus and track effects, FM synth machine, 255 kits, USB audio/MIDI, stock bug fixes. Base of Modwerk. Licence: MIT; distribution: patch-your-own. Listed by altstrument; README, CHANGELOG and contributing docs read 2026-11-10. 2026-11-03: new midi-follow module (docs/site/usage/midi-follow.md, a test remix); not read further. 2026-11-10: WAVE (wavecf) is a 4-voice wavetable machine on the ColdFire, reduced from CHOMPI WAVE, heard on an MKII in builds W1-W6 (I58); XF CURVE offers 13 crossfader curves, run on a contributor's MKII on 2026-11-06; KEYBUS publishes each track's block peak for side-chain keys (make check only); a demand-loader soak with STEM REC froze an MKII (I57, open). 2026-11-12/13: new FRAME GUARD module holds a late frame interrupt out of a window in which the DSP's frame exchange stalls at START or a program change (I82); with it 32 first STARTs and 192 program changes ran clean on an MKII with a 20-channel USB capture. MIDI SCENES: CLEAR, COPY and PASTE SCENE act on the MIDI and audio locks together in either track mode, and a scene held across the MIDI key shows its locks as a fresh press does.
 
 _Related: cites `elektron-firmware-tool` (README credits); bundles `ems-octakit` (README: module table lists OCTAKIT from emuyia/ems-octakit); bundles `midisc` (README: module table lists MIDI SCENES from bkkbrls-del/midisc); bundles `octa-bt-pt` (README: module table lists LOFI AMF FIX from bryantysinger/octa-bt-pt); bundles `octatrick` (README: module table lists DIRECT JUMP from timhastie/octatrick-modules); bundles `octemu` (README: module table lists USB from markandrus/octemu); fork of `octamax` (README: began as a fork of mxldyn/octamax) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: altstrument (2026-11-01), README (2026-11-11), README (2026-11-12)_
+_Sources: altstrument (2026-11-01), README (2026-11-11), README (2026-11-12), README, frame-guard README, TRAPS (2026-11-13)_
 
 ### OctaChainer 2
 
@@ -238,11 +239,11 @@ _Sources: GitHub search 2026-11-02, README_
 
 ### STEP VIEW (Octatrack step editor)
 
-A step editor and piano-roll pitch view for the eight MIDI tracks (MIXER + MIDI): all tracks at 32 steps a row, one track's 64 steps, notes with VEL and LEN per step. Found by GitHub search 2026-11-08. 2026-11-11: the Split view also shows the audio tracks (each step's trig and its p-locks), and Pages with the audio tracks shows the cursor track's page values beside that page's SETUP. 2026-11-12 (README): works on both sides, the 8 audio tracks and the 8 MIDI tracks (MIDI switches); YES opens a lock window with every p-lock on a step (Pitch stays MIDI only). Later on 2026-11-12: each row of the Tracks view shows only that track's own steps, with its length at the row's end (briefly a separate lengths view).
+A step editor and piano-roll pitch view for the eight MIDI tracks (MIXER + MIDI): all tracks at 32 steps a row, one track's 64 steps, notes with VEL and LEN per step. Found by GitHub search 2026-11-08. 2026-11-11: the Split view also shows the audio tracks (each step's trig and its p-locks), and Pages with the audio tracks shows the cursor track's page values beside that page's SETUP. 2026-11-12 (README): works on both sides, the 8 audio tracks and the 8 MIDI tracks (MIDI switches); YES opens a lock window with every p-lock on a step (Pitch stays MIDI only). Later on 2026-11-12: each row of the Tracks view shows only that track's own steps, with its length at the row's end (briefly a separate lengths view). 2026-11-13 (README): every row follows its own track while playing; Pages shows the cursor step's parameters underneath in the lock window's five columns; a note window for MIDI steps; FX SETUP locks through a patch to octabam's PLOCKS P2; the newest parts (lock-window layout, FX SETUP locks) are emulator-only so far.
 
 _Related: mod for `octabam` (README: a module for octabam) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-08, README, README (2026-11-11), README (2026-11-12)_
+_Sources: GitHub search 2026-11-08, README, README (2026-11-11), README (2026-11-12), README (2026-11-13)_
 
 ### octabam2elemod (octabam modules as elekloader mods)
 
@@ -251,6 +252,14 @@ octabam's Octatrack modules repackaged as elekloader mods, so they can be picked
 _Related: mod for `elekloader` (elekloader web/catalog.json lists its .elemod files); vendors `octabam` (file names: octabam-<module>-363861e.elemod) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: elekloader mod shop catalog 2026-11-08, README (2026-11-11)_
+
+### AERIA OS
+
+An operating system of its own for the Octatrack MKII, not a patch of Elektron's OS: a weather-driven multi-effect on inputs A-D (up to seven effects whose knobs the chosen weather moves) and an 8-track sequencer groovebox (sampler, sub, FM, noise, Karplus-Strong and polyphonic MIDI machines, p-locks, ratchets, per-track cellular automata), plus LFOs, a Lorenz attractor and boids as modulators. ColdFire part in C, effects in hand-written DSP56300 assembly. Installing it removes the stock OS until it is reinstalled from the card; both keep their saved data in the same battery-backed SRAM, so back up before switching. The build uses the Modwerk SDK's tools (not included); aeria-os/HARDWARE.md and AUDIO.md map the MKII for writing an OS from scratch, largely from octabam's and Modwerk's documents. Some effect folders (head, tap) are marked as someone else's work. Made with Claude Code (README). Found by GitHub search 2026-11-13.
+
+_Related: uses tool `modwerk` (README: the build uses tools from the Modwerk SDK and its Docker image); cites `octabam` (aeria-os/HARDWARE.md: facts sourced from octabam docs and emulator) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
+
+_Sources: state/NEW.md 2026-11-13, README (2026-11-13), aeria-os/HARDWARE.md, aeria-fx/STATUS.md_
 
 ### Octacloudz
 

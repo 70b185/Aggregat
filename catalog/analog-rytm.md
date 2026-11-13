@@ -2,7 +2,7 @@
 
 # Analog Rytm (MKI, MKII)
 
-Data last verified: 2026-11-12
+Data last verified: 2026-11-13
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
@@ -54,7 +54,7 @@ _Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
 
 _Related: cites `elekloader` (README mentions elekloader (porting from it / hosted loader)); cites `octabam` (README: porting from octabam is part of the module guide) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: gearnews, dubspot, forum thread 36, changelog (2026-11-11), module READMEs (2026-11-12)_
+_Sources: gearnews, dubspot, forum thread 36, changelog (2026-11-11), module READMEs (2026-11-12), changelog, verification 2026-11-12, sample-rate README (2026-11-13)_
 
 ### analog-rytm-mkii-research
 

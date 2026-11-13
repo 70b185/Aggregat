@@ -628,6 +628,36 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) �
 - **Rule:** A25, A34
 - **Fact:** [devices/octatrack.md](devices/octatrack.md#modwerk-and-octabam-findings-2026-11-12)
 
+### I80. A USB mode take-over left a Digitakt II off the bus until a power cycle
+- **Unit:** Digitakt II, OS 1.17 (digikit's Fast USB, core/usb-bulk take-over from USB AUDIO/MIDI to USB MIDI and back), 2026-11-12 and 2026-11-13; a Mac host
+- **Seen:** in a loop of take-overs and releases, cycles 1-4 were clean (the host saw the device leave and come back within about 1.5 s). In cycle 5 the host saw no disconnect after TAKEOVER, the device answered nothing at its USB address, and a cable replug did not bring it back; only a power cycle did. With a fix (below) cycles 1-10 were clean and cycle 11 failed the same way, again on TAKEOVER, never on RELEASE. Separately, after about 15 quick take-overs on a Digitone II the host's MIDI connection went stale while the unit was fine; a replug cured that one.
+- **Cause (static reading, none proven):** the stock mode switch stops the controller with no lock; most likely the detach never reached the line (the controller stopped while the external ULPI PHY was suspended or busy), or the PHY was left in a state the stock restart does not undo. The stock firmware writes no PHY register itself.
+- **Fix:** digikit holds the restart for 2 s, parks the PHY's line (function control through ULPI_VIEWPORT) while the controller is stopped and spaces switches at least 3.5 s apart. That made the failure rarer, not absent, so the take-over is off by default since 2026-11-13; with USB CONFIG set to USB MIDI (no switch) the fast transfer was fully reliable.
+- **Status:** worked around (off by default); cause open.
+- **Evidence:** `[hw]` (cause `[?]`) {digikit-f123-hw}
+- **Rule:** A55
+- **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md#usb-take-over-failures-and-card-speed-digikit-2026-11-13-digikit-f123-hw-digikit-f126)
+
+### I81. Released notes that never ended raised a Digitakt's audio load and made the UI lag
+- **Unit:** Digitakt (mk1), OS 1.54 (Digi CMI 0.25, elekloader core 4.3), 2026-11-12
+- **Seen:** the mod's own CPU meter read 86 % after boot and 94 % after playing, with every note silent; the UI lagged on every page.
+- **Cause (shown in digiemu):** 0.25 gave each new MIDI note a free voice, so released notes piled up on all eight voices, and each kept looping silently for good: the AMP envelope settles near -135 dB and never reaches zero, so the voice was never switched off. digiemu counted only about 1 % more render instructions for the pile-up; the extra 8 % on the unit is likely memory and cache traffic of six streaming samples, which the emulator does not model.
+- **Fix:** 0.26 ends a released voice once it falls below -72 dB and switches it off as after boot; in digiemu six released voices were all off within 450 steps. Not yet re-checked on the unit.
+- **Status:** fixed in the emulator; unit re-test open.
+- **Evidence:** `[hw]` (load and lag) / `[emu]` (cause) {digicmi-026}
+- **Rule:** A34
+- **Fact:** [devices/digitakt.md](devices/digitakt.md#digi-cmi-on-the-unit-os-154-2026-11-12-digicmi-026)
+
+### I82. A frame interrupt entering about 150 µs late stopped an Octatrack's DSP frame exchange
+- **Unit:** Octatrack MKII, OS 1.40C (octabam builds and an octabam control image, a computer recording the USB audio), 2026-11-12
+- **Seen:** at the first START after boot, or at a program change, the sequencer held step 1 and the DSP stopped taking frames while panel and USB still answered; a power cycle cleared it. With a USB capture open, 5 of 8 first STARTs stalled (4 or 20 channels alike) and 1 in 27 program changes; without a capture, 0 of 13 first STARTs and 0 of 64 program changes.
+- **Cause (measured timing, DSP side inferred):** at START and at a program change one frame interrupt runs 475-585 µs (a frame is 362.8 µs), so the next one enters late. A log of entry times showed: 128-149 µs late, the unit catches up; 155-223 µs late, it skips one frame and runs on; both stalls entered 149 and 155 µs late. A USB capture adds 25-30 µs to the START frame and moved it onto that boundary; adding 60 µs to every frame interrupt without a capture moved it past and caused no stall. Inferred: the ColdFire's transfer chain is still sending when the DSP starts its next frame.
+- **Fix:** octabam's FRAME GUARD holds an entry 110-190 µs late until it is 190 µs late, so the DSP skips one frame cleanly; with it 32 first STARTs and 192 program changes ran without a stall at 20 channels. A first version mis-reduced the lateness after a skip and still stalled in a long program-change soak; corrected 2026-11-13. Not measured: what the skipped frame does to sounding audio; an MKI.
+- **Status:** guarded; on a test image with extra load, 7 of 16 STARTs froze the whole unit 8.2 s later (not seen on shipping images, open).
+- **Evidence:** `[hw]` (timing) / `[?]` (DSP-side mechanism) {octabam-frameguard}
+- **Rule:** A56
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#frame-interrupt-timing-and-midi-scenes-octabam-2026-11-13-octabam-frameguard)
+
 ## E. Emulator or toolchain disagreed with the unit
 
 ### I36. The emulator undercounted DSP time by 2x to 12x

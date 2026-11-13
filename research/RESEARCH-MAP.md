@@ -4,7 +4,7 @@
 
 The aim: whoever starts a research session (alone or with an AI agent) starts where the community's knowledge ends, instead of re-deriving what is already settled. Every line points to where the details and sources are. Phase 1 devices first (Digitakt MKI/II, Digitone MKI/II, Syntakt, Analog Heat); phase 2 follows.
 
-Last reviewed: 2026-11-03. Details and sources: [hardware/](../hardware/README.md) (rules A1-A53 and sections B-G, [INCIDENTS.md](../hardware/INCIDENTS.md), device files, [CONFLICTS.md](../hardware/CONFLICTS.md)). Projects: [MODS.md](../catalog/MODS.md), [DEV-TOOLS.md](../catalog/DEV-TOOLS.md).
+Last reviewed: 2026-11-03. Details and sources: [hardware/](../hardware/README.md) (rules A1-A56 and sections B-G, [INCIDENTS.md](../hardware/INCIDENTS.md), device files, [CONFLICTS.md](../hardware/CONFLICTS.md)). Projects: [MODS.md](../catalog/MODS.md), [DEV-TOOLS.md](../catalog/DEV-TOOLS.md).
 
 ## How to read the status column
 
@@ -97,7 +97,7 @@ table (unit, OS, what happened, evidence tag, link to the details).
 | # | Goal | Where it stands | What would move it |
 |---|---|---|---|
 | G1 | **Every device has a recovery path somebody has actually used** | ✅ DN2, DT mk1, Octatrack, A4/Rytm MK1; 🟢 DT2 (one report, OS 1.16); documented for Syntakt (SyntHack) and Heat +FX (official). 🟢 Digitone mk1 (one report, OS 1.44). Every phase-1 device now has a used or official recovery path. | T1; test H16 |
-| G2 | **An honest load/headroom measure per device** (rules A25, A34, A37) | ✅ DT2 (idle-task measure on a unit), DN2 (elekloader busy meter, with the "busy is not headroom" caveat). ❓ Syntakt (two readings conflict, O3). ⬜ Heat +FX, Digitone mk1 voice CPU. | T4, T9, T10; tests H15, H17 |
+| G2 | **An honest load/headroom measure per device** (rules A25, A34, A37) | ✅ DT2 (idle-task measure on a unit), DN2 (elekloader busy meter, with the "busy is not headroom" caveat). 🟢 DT mk1: Digi CMI's render meter (PIT0 timer) read about 85 % right after boot on OS 1.54, nearly all stock render (2026-11-12). ❓ Syntakt (two readings conflict, O3). ⬜ Heat +FX, Digitone mk1 voice CPU. | T4, T9, T10; tests H15, H17 |
 | G3 | **Shared-silicon knowledge transfers between devices** | At least six phase-1 boxes use MCF5441x-family ColdFires (DT, DN, DT2, DN2, Syntakt, Heat +FX); DT2 and DN2 share the SHARC and 85 % of its functions. Many rules were found on one box and are only assumed for the others (e.g. A39 USB, A28 cache write-back). | T3, T12, T19; tests H7, H12-H15, H17 |
 | G4 | **Emulators you can trust for more than "it boots"** | ✅ known gaps: no memory stalls (device cycles ~2x emulator), no pipeline model, EMAC fractional-mode bugs in stock Unicorn. 🟢 CPU readings: analog-emu's unit timing comes within about 3.6 points of the Rytm MKII for 9 of 11 builds when the Overbridge stream is emulated too (elkbench, 2026-11-12). ❓ digikit: real-time DSP audio. | T14 |
 | G5 | **Mods that survive OS updates** | Every mod pins one OS version; address translation between versions was done ad hoc; since 2026-11-11 `scripts/anchor_translate.py` does it from two user-supplied images (T6, T8). Good news for DSP work: the SHARC sections are **byte-identical** between DT2 1.16 and 1.17 and between DN2 1.11 and 1.12 (digikit finding 53), so only the ColdFire side moves. | T6, T8 |

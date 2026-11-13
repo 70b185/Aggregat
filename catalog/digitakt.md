@@ -2,13 +2,13 @@
 
 # Digitakt (MKI)
 
-Data last verified: 2026-11-12
+Data last verified: 2026-11-13
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **elekloader** (pina (irpina)) | loader | - | v0.10.0 (tag 2026-11-09): ships each device's newest core (DT1 4.1, DN1 5.2.1, DT2 1.0, DN2 0.3, AR2 0.11, A4 0.5, OT 0.8, MC 0.3, MS 0.1). main since: DT1 core 4.2/4.3 and DN1 5.3 (live-note and MIDI CC events), core-dn2 0.4 (MIDI CC event, DSP post words), core-ar2 0.12 (spare table entries for +Drive mods), SDK mono machines and MIDI CCs, DT2 sharc_raw (raw section-7 loads and relocatable DSP objects); 2026-11-11 the Analog Rytm MKII Drive Loader (drive-loader-ar2 0.4: mods linked from the +Drive at boot, a MODS page, the web page's +Drive view over Web MIDI) and core-a4 renamed core-a4mk2; Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed | v0.10.0 | 2026-11-12 | [repo](https://github.com/elekloader/elekloader) · [web app](https://irpina.github.io/elekloader/) · [releases](https://github.com/elekloader/elekloader/releases) · [shop](https://elekloader.github.io/shop/) · [shop repo](https://github.com/elekloader/shop) · [forum](https://elektronmods.com/thread-30-elekloader-a-mod-loader-for-elektron-devices) |
 | **Modwerk (formerly Octamod)** (not named in sources (SDK repo owner repeat98)) | loader | - | Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing | - | 2026-11-12 | [repo](https://github.com/repeat98/modwerk) · [web app](https://modwerk.app/) · [forum](https://elektronmods.com/thread-36-octamod-app-central-hub-for-all-octatrack-mods) |
-| **Digi CMI** (neutronrabbit) | mod | - | 0.18; Digitakt mk1 OS 1.54 (1.53 untested); elekloader core 4.3 and machine-pages 1.10 | v0.18 | 2026-11-12 | [repo](https://github.com/neutronrabbit/digicmi) |
+| **Digi CMI** (neutronrabbit) | mod | - | 0.26 (tag, 2026-11-12): released voices that faded below -72 dB are switched off (0.25 left them running on the unit); 0.22-0.25 added a CPU meter, zero-crossing loop points, RETRO as a dial (16 bit 48/44.1 kHz, 8 bit 32-8 kHz), automatic pitch detection for TIME and free voices for new MIDI notes; LFIN and the ROOT selector are gone; Digitakt mk1 OS 1.54 (1.53 untested); elekloader core 4.3 and machine-pages 1.10 | v0.26 | 2026-11-12 | [repo](https://github.com/neutronrabbit/digicmi) |
 | **elkbench (hardware tests as an MCP server)** (Iced-Cream) | tool | - | - | - | 2026-11-12 | [repo](https://github.com/Iced-Cream/elkbench) |
 | **Sidecar (Digitakt mod)** (trigcondition) | mod | - | mod 0.3 (2026-11-10); Digitakt mk1 | - | 2026-11-10 | [repo](https://github.com/trigcondition/sidecar-digitakt) |
 | **Sidecar | Expander** (trigcondition) | mod | - | Sidecar 0.4.4 with Rytm firmware 0.4.4 (2026-11-10): a held step's locks on the SRC view, the pads' octave keys on the SEQ and ARP pages, one NO leaves a page, the CONNECTED screen when the Rytm boots after the Sidecar; the A4 mod stays 0.12, Sidecar Mini 0.1.0; Analog Rytm MKII OS 1.73 (Rytm side is an elekloader module) | v0.2.0 | 2026-11-10 | [repo](https://github.com/trigcondition/sidecar-expander) · [firmware repo](https://github.com/trigcondition/sidecar-firmware) |
@@ -88,7 +88,7 @@ _Sources: forum thread 30, GitHub release v0.4.0, gearnews, dubspot_
 
 _Related: cites `elekloader` (README mentions elekloader (porting from it / hosted loader)); cites `octabam` (README: porting from octabam is part of the module guide) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: gearnews, dubspot, forum thread 36, changelog (2026-11-11), module READMEs (2026-11-12)_
+_Sources: gearnews, dubspot, forum thread 36, changelog (2026-11-11), module READMEs (2026-11-12), changelog, verification 2026-11-12, sample-rate README (2026-11-13)_
 
 ### elektron-firmware-tool
 
@@ -214,11 +214,11 @@ _Sources: GitHub README, lapin-list, README (2026-11-11)_
 
 ### Digi CMI
 
-A Fairlight CMI-style polyphonic sample instrument as an elekloader mod: machine CMI on track 1 turns tracks 2-8 into its voices and plays one sample across the keyboard, from trigs, chords or MIDI. Forked from Digi Poly 2.1 (digi1_mods), whose polyphony, voice borrowing and kit storage it keeps. Conflicts with Digi Poly, dt8poly, DIGISLICER, Digi EQ and Digi Matrix (same patch sites or sound slots). Kits saved with CMI load that track as ONESHOT on the stock OS. The author names Claude as coding assistant. Found by GitHub search 2026-11-12.
+A Fairlight CMI-style polyphonic sample instrument as an elekloader mod: machine CMI on track 1 turns tracks 2-8 into its voices and plays one sample across the keyboard, from trigs, chords or MIDI. Forked from Digi Poly 2.1 (digi1_mods), whose polyphony, voice borrowing and kit storage it keeps. Conflicts with Digi Poly, dt8poly, DIGISLICER, Digi EQ and Digi Matrix (same patch sites or sound slots). Kits saved with CMI load that track as ONESHOT on the stock OS. The author names Claude as coding assistant. Found by GitHub search 2026-11-12. 2026-11-12 (0.19-0.26): the meter shows the whole audio engine's peak load; on the unit it read about 85 % right after boot, and the author's instruction count in digiemu puts about 98 % of that in the stock render, so the UI gets what is left. Projects saved with 0.14-0.22's RETRO switch on open at 8 bit 8 kHz.
 
 _Related: builds on `digi1-mods` (README: forked from Digi Poly 2.1 by gdeo607 and the digi1_mods authors); mod for `elekloader` (README: an elekloader mod); uses tool `digiemu` (README: tests measured in digiemu on OS 1.54) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: state/NEW.md 2026-11-12, README (2026-11-12)_
+_Sources: state/NEW.md 2026-11-12, README (2026-11-12), README (2026-11-13), CHANGELOG 0.19-0.26 (2026-11-13)_
 
 ### digislicer
 

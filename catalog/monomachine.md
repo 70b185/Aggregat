@@ -2,13 +2,13 @@
 
 # Monomachine
 
-Data last verified: 2026-11-13
+Data last verified: 2026-11-14
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **OP-XY MNMD** (mmockett) | emulator | - | v1.3.4 (tag, 2026-11-13) | v1.3.4 | 2026-11-13 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
+| **OP-XY MNMD** (mmockett) | emulator | - | v1.3.6 (tag, 2026-11-13): MD KIT builds into one firmware with Hexagon's Moth; v1.3.5: the synths play at one loudness, MD KIT raises its quieter machines by up to 6 dB | v1.3.6 | 2026-11-13 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **Mono Chorus CLAP** (nerazin) | tool | - | 0.3.0 (2026-11-10) | - | 2026-11-10 | [repo](https://github.com/nerazin/mono-chorus-clap) |
 | **ems-monomachine-firmware** (June Kiff (emuyia)) | mod | - | 26B09-beta (2026-11-09): ARP p-locks, trig conditions to 8:8 plus PRE/NEI, microtiming, multi-trig edit, page transpose, BBOX sample manager (SDS and a compressed format shared with compatible Machinedrum firmware), DPRO>SBOX machine; 1.32B | 26910-release | 2026-11-09 | [repo](https://github.com/emuyia/ems-monomachine-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-06 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |

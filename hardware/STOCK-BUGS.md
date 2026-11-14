@@ -27,7 +27,7 @@ pin: Digitakt II 1.17 (improvements only), Digitone II 1.12 (improvements only),
 version is therefore probably also in the newest one; that is an inference until someone checks.
 
 Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatrack](#octatrack) ·
-[Model:Cycles](#modelcycles) · [Monomachine](#monomachine) · [Looks like a bug, is not](#looks-like-a-bug-is-not)
+[Analog Rytm](#analog-rytm) · [Model:Cycles](#modelcycles) · [Monomachine](#monomachine) · [Analog Four](#analog-four) · [Looks like a bug, is not](#looks-like-a-bug-is-not)
 
 ## Digitone II
 
@@ -94,6 +94,18 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Found by:** dn2_firmware_explore (seen on a unit)
 - **Status:** open in stock; fixed by a mod
 - **Evidence:** `[hw]` {dn2-firmware-explore}
+
+### SB20. Each USB controller reset leaks a timer slot (DT2/DN2, static reading)
+- **Device and OS:** Digitakt II OS 1.17, Digitone II OS 1.12
+- **Area:** USB, timers
+- **Symptom:** none reported on a unit. Each run of the stock controller-reset path (`0x40006ada` -> `0x40007104`) takes one of 16 shared timer slots and does not give it back; the reset also spins on USBCMD.RST with no bound.
+- **Trigger:** the firmware's PHY viewport watchdog firing, or a mod calling the reset path.
+- **Cause:** read in the image by digikit, not cross-checked.
+- **Workaround:** do not call the reset path repeatedly from a mod.
+- **Test tip:** count free timer slots before and after forced resets on a unit.
+- **Found by:** digikit
+- **Status:** open, unconfirmed
+- **Evidence:** `[doc]` {digikit-f123-bulk}
 
 ## Digitone mk1
 
@@ -222,6 +234,18 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Status:** open in stock; fixed by a mod
 - **Evidence:** `[hw]` {octamax-notes} {octamax-2i}
 
+### SB22. One Part byte outside its stock range drops the whole bank at power-on
+- **Device and OS:** Octatrack MKII, OS 1.40C
+- **Area:** battery RAM restore, Parts
+- **Symptom:** after a restart all eight tracks of the bank read STATIC with no trigs and default FX; the next restart restores the bank with the byte reset to 0.
+- **Trigger:** a byte in a Part record outside the range stock's Part check accepts (a mod's packed value of 0x80 or more).
+- **Cause:** the boot's battery restore runs stock's Part check and drops the bank when it repairs a byte.
+- **Workaround:** store only values stock accepts in stock records (rule A60).
+- **Test tip:** after any mod that stores bytes in Parts, save, restart twice and check the bank.
+- **Found by:** Modwerk (VECTOR, I95)
+- **Status:** stock behaviour
+- **Evidence:** `[hw]` (restart with no module) / `[emu]` (stock check called directly) {modwerk-vector}
+
 ## Analog Rytm
 
 ### SB18. Edits to hidden FX words overwrite the delay's saved TIME (latent)
@@ -247,6 +271,18 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Found by:** elekloader (Drive Loader development)
 - **Status:** stock behaviour
 - **Evidence:** `[doc]` {elekloader-drive}
+
+### SB21. The Rytm MKI's in-OS upgrade decodes into a 2 MiB buffer without a bound check
+- **Device and OS:** Analog Rytm MKI, OS 1.74
+- **Area:** OS update
+- **Symptom:** not seen; an image that decodes past 2 MiB would overrun the buffer.
+- **Trigger:** an update image larger than the fixed decode buffer.
+- **Cause:** a fixed buffer with no size check (elekloader's profile, static reading).
+- **Workaround:** keep an image at or below `0x1F0000` bytes (elekloader's limit).
+- **Test tip:** check the size in the build, as for SB3 on the Digitone II.
+- **Found by:** elekloader
+- **Status:** open in stock
+- **Evidence:** `[doc]` {elekloader-ar1}
 
 ## Model:Cycles
 
@@ -275,6 +311,20 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Found by:** ems-monomachine-firmware
 - **Status:** open in stock; fixed by a custom firmware
 - **Evidence:** `[doc]` {ems-fw}
+
+## Analog Four
+
+### SB23. The MKII can hang on its own restart after writing a new OS
+- **Device and OS:** Analog Four MKII, OS 1.56 (the running OS does the update)
+- **Area:** OS update, restart
+- **Symptom:** the unit sits on SUCCESS! REBOOTING, stays on USB, and every MIDI call to it blocks until it leaves USB.
+- **Trigger:** a flash that stock 1.56 runs; seen twice in about 30 flashes.
+- **Cause:** the restart masks every interrupt and then waits for a serial queue that only those interrupts drain (elkflash's reading).
+- **Workaround:** power-cycle by hand; the new OS is already written. Do not reflash, and do not take a screenshot over MIDI.
+- **Test tip:** watch the USB node: units leave USB 16-32 s after the commit; one still there after 45 s has stalled.
+- **Found by:** elkflash
+- **Status:** open
+- **Evidence:** `[hw]` {elkflash-stall} (I103)
 
 ## Looks like a bug, is not
 

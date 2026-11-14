@@ -22,7 +22,7 @@ results by hand, with credit to this project. Taking part is voluntary and can s
 
 | | |
 |---|---|
-| Aggregat state | research map reviewed 2026-11-03, snapshot `dd6ecb49e2f2` |
+| Aggregat state | research map reviewed 2026-11-03, snapshot `a1b74d9c7699` |
 | Copied on | <date you copied it> |
 
 ## What we work on
@@ -49,7 +49,7 @@ emulator, `doc` = read in code or documents.
 
 ---
 
-# Copied state: Aggregat research, snapshot `dd6ecb49e2f2` (research map reviewed 2026-11-03)
+# Copied state: Aggregat research, snapshot `a1b74d9c7699` (research map reviewed 2026-11-03)
 
 ## Goals (copied from Aggregat)
 
@@ -119,7 +119,6 @@ emulator, `doc` = read in code or documents.
 | # | Topic |
 |---|---|
 | O20 | DT2/DN2 stock intro frame rate |
-| O21 | Latest Digitakt mk1 core for Tone+FX |
 | O22 | Has octabam's WAVE (wavecf) run on an Octatrack? |
 | O23 | Octatrack boot fill of internal SRAM; meaning of `0x80000003` |
 | O1 | Syntakt OS signing |
@@ -140,3 +139,4 @@ emulator, `doc` = read in code or documents.
 | O15 | DN2 stock DSP load at idle |
 | O24 | Digitakt II NRPN numbers (OS 1.17) |
 | O25 | Digitakt II LED colour byte (OS 1.17) |
+| O26 | DN2 FM Tone spare records' MIDI CCs |

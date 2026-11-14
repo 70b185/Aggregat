@@ -125,6 +125,16 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** A39
 - **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md#usb-transfer-speed-on-the-units-digikit-2026-11-11-digikit-usbfast)
 
+### I103. Stock Analog Four MKII 1.56 hung on its own restart after writing a new OS
+- **Unit:** Analog Four MKII, stock OS 1.56 running the update (elkflash test runs), reported 2026-11-13
+- **Seen:** the unit stayed on SUCCESS! REBOOTING and on USB, and every MIDI call to it blocked; twice in about 30 flashes.
+- **Cause (read from the stock code by elkflash's author):** the restart masks every interrupt and then waits for a serial queue that only those interrupts drain.
+- **Fix:** power-cycle by hand; the new OS is already written and boots. elkflash 0.7 detects the stall from the USB node (exit code 5) and elkbench refuses further commands to that unit until a watched power cycle.
+- **Status:** stock bug, open (SB23).
+- **Evidence:** `[hw]` {elkflash-stall}
+- **Rule:** A23
+- **Fact:** [devices/analog-four-keys.md](devices/analog-four-keys.md)
+
 ## M. Mods that failed on a unit
 
 ### I10. Byte-wise reads of uncached DMA buffers stalled the sequencer
@@ -602,9 +612,9 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Unit:** Digitakt (mk1), OS 1.53/1.54 (Modwerk's Digi Perform 0.1.2 and 0.1.3), 2026-11-11
 - **Seen:** after SAVE PROJECT and a power cycle the mod's knob assignments were gone; LOAD PROJECT brought them back.
 - **Cause (shown in the emulator):** after SAVE PROJECT, a cold boot came back with the sound records' spare bytes cleared, and a stock parameter written straight into the kit was lost too; LOAD PROJECT kept both. So the cold-boot path restores from another copy than the saved project file.
-- **Fix:** none yet (0.1.3 behaves the same).
-- **Status:** open.
-- **Evidence:** `[hw]` (power cycle) / `[emu]` (cause) {modwerk-digiperform}
+- **Fix:** 0.1.4 (2026-11-13) also writes the data into the working image (`0x406490e8` on 1.54, `0x406480e8` on 1.53), which the unit saves at power-off; the author confirmed on a unit (OS 1.53) that assignments survive a power cycle.
+- **Status:** fixed.
+- **Evidence:** `[hw]` {modwerk-digiperform}
 - **Rule:** E5, C9
 - **Fact:** [devices/digitakt.md](devices/digitakt.md#modwerk-digi-perform-os-153154-2026-11-11-modwerk-digiperform)
 
@@ -633,19 +643,20 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Seen:** in a loop of take-overs and releases, cycles 1-4 were clean (the host saw the device leave and come back within about 1.5 s). In cycle 5 the host saw no disconnect after TAKEOVER, the device answered nothing at its USB address, and a cable replug did not bring it back; only a power cycle did. With a fix (below) cycles 1-10 were clean and cycle 11 failed the same way, again on TAKEOVER, never on RELEASE. Separately, after about 15 quick take-overs on a Digitone II the host's MIDI connection went stale while the unit was fine; a replug cured that one.
 - **Cause (static reading, none proven):** the stock mode switch stops the controller with no lock; most likely the detach never reached the line (the controller stopped while the external ULPI PHY was suspended or busy), or the PHY was left in a state the stock restart does not undo. The stock firmware writes no PHY register itself.
 - **Fix:** digikit holds the restart for 2 s, parks the PHY's line (function control through ULPI_VIEWPORT) while the controller is stopped and spaces switches at least 3.5 s apart. That made the failure rarer, not absent, so the take-over is off by default since 2026-11-13; with USB CONFIG set to USB MIDI (no switch) the fast transfer was fully reliable.
-- **Status:** worked around (off by default); cause open.
-- **Evidence:** `[hw]` (cause `[?]`) {digikit-f123-hw}
+- **Later (2026-11-14):** over longer runs failures also came on release; the line stayed at SE0 and after a controller reset VBUS-valid read 0. The USB clock comes from the ULPI PHY, so a PHY link that dies at the stop freezes the controller's USB side; why the stop kills it is open. Parking the PHY made failures about ten times more frequent (1 in 15 against 1 in 76 to 1 in 200), and neither the stock controller reset nor a stop/hold/restart revives it. digikit deleted the take-over and now adds a bulk OUT endpoint to USB AUDIO/MIDI at boot, with no mode switch (ran on a DT2 and a DN2, 2026-11-13).
+- **Status:** avoided (take-over deleted); cause open.
+- **Evidence:** `[hw]` (cause `[?]`) {digikit-f123-hw} {digikit-f123-bulk}
 - **Rule:** A55
 - **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md#usb-take-over-failures-and-card-speed-digikit-2026-11-13-digikit-f123-hw-digikit-f126)
 
 ### I81. Released notes that never ended raised a Digitakt's audio load and made the UI lag
 - **Unit:** Digitakt (mk1), OS 1.54 (Digi CMI 0.25, elekloader core 4.3), 2026-11-12
 - **Seen:** the mod's own CPU meter read 86 % after boot and 94 % after playing, with every note silent; the UI lagged on every page.
-- **Cause (shown in digiemu):** 0.25 gave each new MIDI note a free voice, so released notes piled up on all eight voices, and each kept looping silently for good: the AMP envelope settles near -135 dB and never reaches zero, so the voice was never switched off. digiemu counted only about 1 % more render instructions for the pile-up; the extra 8 % on the unit is likely memory and cache traffic of six streaming samples, which the emulator does not model.
-- **Fix:** 0.26 ends a released voice once it falls below -72 dB and switches it off as after boot; in digiemu six released voices were all off within 450 steps. Not yet re-checked on the unit.
+- **Cause (shown in digiemu):** 0.25 gave each new MIDI note a free voice, so released notes piled up on all eight voices, and each kept looping silently for good: the envelope value it read (`fw_amp_env`, in fact the filter envelope, S20) settles near -135 dB, so the voice was never switched off. digiemu counted only about 1 % more render instructions for the pile-up; the extra 8 % on the unit is likely memory and cache traffic of six streaming samples, which the emulator does not model.
+- **Fix:** 0.26 ended a released voice below -72 dB of that value, which cut sounding notes and was withdrawn (I89); 0.30 switches a voice off by the real amp envelope (below -90 dB for 64 blocks). Not yet re-checked on the unit.
 - **Status:** fixed in the emulator; unit re-test open.
-- **Evidence:** `[hw]` (load and lag) / `[emu]` (cause) {digicmi-026}
-- **Rule:** A34
+- **Evidence:** `[hw]` (load and lag) / `[emu]` (cause) {digicmi-026} {digicmi-037}
+- **Rule:** A34, A59
 - **Fact:** [devices/digitakt.md](devices/digitakt.md#digi-cmi-on-the-unit-os-154-2026-11-12-digicmi-026)
 
 ### I82. A frame interrupt entering about 150 Âµs late stopped an Octatrack's DSP frame exchange
@@ -657,6 +668,166 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` (timing) / `[?]` (DSP-side mechanism) {octabam-frameguard}
 - **Rule:** A56
 - **Fact:** [devices/octatrack.md](devices/octatrack.md#frame-interrupt-timing-and-midi-scenes-octabam-2026-11-13-octabam-frameguard)
+
+### I83. Reading the CF card from a mod's UI tick froze an Octatrack
+- **Unit:** Octatrack MKII, OS 1.40C with the Modwerk base and the AERIA module (v31), 2026-11-11
+- **Seen:** starting a video screensaver that streamed a file from the card stopped the audio frames (the base logged a stall); the unit dropped off USB and needed a power cycle.
+- **Cause (from the log, the author's own diagnosis):** the player read the card from AERIA's UI tick; stock does its card work in its own card task.
+- **Fix:** v32 switched the player off (plan: read in the card task, or preload the file into RAM); starting the screensaver no longer stalls.
+- **Status:** worked around.
+- **Evidence:** `[hw]` (freeze) / `[?]` (mechanism) {aeria-log}
+- **Rule:** A57
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I85. A delay effect left the next effect in its DSP slot silent
+- **Unit:** Octatrack MKII, AERIA OS builds of 2026-11-13
+- **Seen:** loading TAPE or BBD on core 1 into a slot that had just held PT2399 silenced the output for good while the DSP still answered; step tests had checked only that the DSP answered.
+- **Cause (not found):** moving PT2399 to another block of core 1's X memory (`X:$2000`) stopped it.
+- **Fix:** a build that survived 12 rounds of the trigger and 30 random swaps; PT2399 shares memory with BBD, HAIL and AURORA, so those pairs are refused; BBD removed in v0.9.3.
+- **Status:** worked around; cause `[?]`.
+- **Evidence:** `[hw]` {aeria-log} {aeria-changelog}
+- **Rule:** A58
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I86. An own engine filled the output half that was about to play: late samples on the analog outputs only
+- **Unit:** Octatrack MKII, AERIA OS, 2026-11-12
+- **Seen:** a rasp on the analog outputs: at 35 % DSP load 3 samples in every 16 left main, cue and phones 32 samples late. USB recordings were clean because they are tapped earlier. Found with white noise through a loopback cable.
+- **Cause (found on the unit):** the engine wrote into the half of its output DMA buffer that was about to play.
+- **Fix:** the engine fills the other half; noise through the loop then arrived with one delay at all 16 positions.
+- **Status:** fixed.
+- **Evidence:** `[hw]` {aeria-log}
+- **Rule:** A58
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I87. FLEX played the track's buffer on every trig, ignoring BUF locks
+- **Unit:** Digitone II, OS 1.11, dn2mk2 v0.52 (a tester's unit), reported 2026-11-12/13
+- **Seen:** a trig with BUF locked to another buffer played the track's BUF; FLEX REC's PAGE moved the screen's page while the green page LED stayed where stock had it (photos).
+- **Cause (from the reports, then reproduced in the gate):** the BUF lock never reached the voice; the page LEDs were never claimed because FLEX REC turns its own page without passing PAGE to stock.
+- **Fix:** v0.53: a locked step's voice gets the locked buffer, and FLEX REC lights page LEDs 42-49 in stock's scheme; new gate steps fail on the build before.
+- **Status:** fixed in v0.53, gated in the emulator; unit confirmation asked of testers.
+- **Evidence:** `[hw]` (user report) / `[emu]` (gate) {dn2mk2-v053}
+- **Rule:** A19
+- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md)
+
+### I88. Turned knobs did not reach the sample being previewed
+- **Unit:** Model:Cycles, OS 1.13, model27 with SAMPLE (Cycles One-Shot 0.16), 2026-11-12/13
+- **Seen:** with the PRESET browser open, each new preview note played the sound as it was when the cursor arrived.
+- **Cause (read in OS 1.13):** the OS copies the browser's sound into its own preview buffer (two take turns), and preview notes read that copy, not the sound the mod handed out.
+- **Fix:** One-Shot 0.17 writes the track's knobs (not the key) into the buffer that holds the copy on each tick.
+- **Status:** fixed; flashed on the unit 2026-11-13.
+- **Evidence:** `[hw]` {model27-sample017}
+- **Rule:** A64
+- **Fact:** [devices/model-cycles-samples.md](devices/model-cycles-samples.md)
+
+### I89. A voice switch-off keyed to the filter envelope cut sounding notes on a Digitakt
+- **Unit:** Digitakt (mk1), OS 1.54 (Digi CMI 0.26, elekloader core 4.3), 2026-11-12
+- **Seen:** with a long release, a key held for a while and then released stopped dead, with SUS and with HOLD.
+- **Cause (measured in digiemu, then found by disassembly):** 0.26 ended a released voice when the core export `fw_amp_env` fell below -72 dB, but that value is the filter envelope; it fell to -135 dB while the output stayed constant (S20).
+- **Fix:** 0.28 removed the switch-off; 0.30 switches a voice off only after the real amp envelope (`0x4199ed64 + 8v`) stays below -90 dB for 64 blocks.
+- **Status:** fixed in the emulator; unit re-test open.
+- **Evidence:** `[hw]` (dead stops) / `[emu]` (cause and fix) {digicmi-037}
+- **Rule:** A59
+- **Fact:** [devices/digitakt.md](devices/digitakt.md)
+
+### I90. A Digitakt froze when a mod's engine was switched while notes sounded
+- **Unit:** Digitakt (mk1), OS 1.54 (Digi CMI 0.30), 2026-11-13
+- **Seen:** the unit froze when ENG was switched (sample to time synth or back) with notes sounding.
+- **Cause (not confirmed; not reproduced in digiemu, which does not run in real time):** likely audio overload; the meter already reads 85-94 % and the time synth cost about 1,160 instructions per voice per block.
+- **Fix:** 0.31 cut the time synth's cost by about a third.
+- **Status:** open; not re-tested on the unit.
+- **Evidence:** `[hw]` (freeze) / `[?]` (cause) {digicmi-037}
+- **Rule:** A34, A44
+- **Fact:** [devices/digitakt.md](devices/digitakt.md)
+
+### I91. A per-sample division made a Digitakt's UI crawl
+- **Unit:** Digitakt (mk1), OS 1.54 (Digi CMI 0.31), 2026-11-13
+- **Seen:** with RETRO on the UI slowed right down while playing, in both engines.
+- **Cause (from the code):** a remainder (`rems.l`, about 20-35 cycles) on every output sample of every voice; digiemu's instruction profile counted each as one instruction.
+- **Fix:** 0.32 truncates once per held value and skips voices that are off (divisions from about 48 to 16 per voice per block).
+- **Status:** fixed in the emulator; unit re-test open.
+- **Evidence:** `[hw]` (lag) / `[emu]` (fix) {digicmi-037}
+- **Rule:** A34
+- **Fact:** [devices/digitakt.md](devices/digitakt.md)
+
+### I92. A release path passed every emulator test but stopped notes dead in the mode the user played
+- **Unit:** Digitakt (mk1), OS 1.54 (Digi CMI 0.34), 2026-11-13
+- **Seen:** with SUS, a held MIDI note stopped dead on release.
+- **Cause (reproduced in digiemu once tested in ping-pong):** the voice's end flag (voice + `0x29`) stays set in ping-pong, so on release the gain stage ramped to 0 while the playhead ran on; earlier tests used FWD.L and checked only the playhead.
+- **Fix:** 0.36 clears the flag when the voice leaves the loop.
+- **Status:** fixed in the emulator; unit re-test open.
+- **Evidence:** `[hw]` (seen) / `[emu]` (cause) {digicmi-037}
+- **Rule:** A59, A31
+- **Fact:** [devices/digitakt.md](devices/digitakt.md)
+
+### I93. A recorder mod's startup reservation blocked project load and save on a Digitakt II
+- **Unit:** Digitakt II, OS 1.16 (dt2-machine-lab combined Sketch + Capicola + ARP build), reported 2026-11-04
+- **Seen:** right after power-on, before any recording, project load and save failed.
+- **Cause (reproduced on the guard instructions in the emulator):** the buffer setup at startup set the reservation ownership flag even with no audio, and both project entry guards refuse while it is set.
+- **Fix:** a candidate that leaves the buffer keys out of the pool during save, rebuilds empty reservations after load, and lets stock's recovery save to slot 128 through.
+- **Status:** fixed in a coupled emulator run; not on a unit.
+- **Evidence:** `[hw]` (user report) / `[emu]` (cause and fix) {dt2-lab-sketch}
+- **Rule:** C9
+- **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md)
+
+### I94. An OS 1.17 rebuild of a recorder mod hid its buffers in a project saved with its OS 1.16 version
+- **Unit:** Digitakt II, OS 1.17 (dt2-machine-lab Sketch trial R1), 2026-11-12
+- **Seen:** SONG opened SKETCH, but the buffer entries were unavailable in a project used before with the OS 1.16 Sketch; a new project worked.
+- **Cause (from the source; the project file was not inspected):** the 1.16 version can leave identity markers in sample rows H124-H127; R1 needs them empty and hides the buffers when the reservation fails.
+- **Fix:** none yet; use a new project.
+- **Status:** open.
+- **Evidence:** `[hw]` (user report) / `[?]` (cause) {dt2-lab-sketch}
+- **Rule:** C9, E3
+- **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md)
+
+### I95. One byte a mod stored made stock drop a whole Octatrack bank at restart
+- **Unit:** Octatrack MKII, OS 1.40C, Modwerk VECTOR 0.2.5-0.3.1, the owner's unit, 2026-11-13 (after a user report)
+- **Seen:** after saving and a restart all eight tracks read STATIC with no trigs and default FX; a second restart brought the bank back with the byte reset to 00.
+- **Cause (reproduced in ot_emu with stock's check, then on the unit):** VECTOR packed SPAN into a byte's top bits, so SPAN 8-12 stored 0x80 or more; stock's Part check counts that as bad, and at boot the battery restore runs before the base has its modules back, so VECTOR's wrapper around the check did not apply (SB22).
+- **Fix:** 0.3.2 moves SPAN's top bit to a free bit of the next byte and rewrites old bytes; the bank stayed intact on restart.
+- **Status:** fixed; a power cycle on the flashed base not tested.
+- **Evidence:** `[hw]` {modwerk-vector}
+- **Rule:** A60, E3
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I96. Every effect pick was refused with NO ROOM after a restart
+- **Unit:** Octatrack MKII, OS 1.40C (Modwerk base, 20 modules), three starts, 2026-11-12
+- **Seen:** Tape Echo on T4 FX2 was refused although it needs no delay buffer; removing and re-adding Air Chorus on T5 cleared it.
+- **Cause (from the code, not read on the unit):** a restore makes all modules live in one pass and the board binds Sidechain's key-bus slot on a later tick, so Air Chorus's buffer took the block before the key bus was counted and every later pick failed.
+- **Fix:** the base counts live controllers that no slot holds yet; host-tested only.
+- **Status:** fixed in source; not run on a unit.
+- **Evidence:** `[hw]` (seen) / `[doc]` (cause) {modwerk-ot-noroom}
+- **Rule:** G8
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I97. Four software drum voices overran an Analog Rytm's audio block
+- **Unit:** Analog Rytm MKII, OS 1.74 (Modwerk BD ANALOG rig builds), 2026-11-05..11
+- **Seen:** 909 voices hit together every 125 ms: four gave sample jumps locked to one place in the block, six lost hits and 6 dB of level; once the USB audio stream then delivered only zeros until a replug.
+- **Cause (measured on the unit):** the stock block already takes about two thirds of its time, and the unit costs about three times the emulator's instruction count (EMAC latency, cache refills).
+- **Fix:** voices hand-scheduled in assembly; BD ANALOG offered on three tracks only.
+- **Status:** limited by design.
+- **Evidence:** `[hw]` {modwerk-rytm-analogbd}
+- **Rule:** A34
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)
+
+### I99. The first note after a RAM load was near silent on a Rytm
+- **Unit:** Analog Rytm MKII, OS 1.74 (Modwerk development base, with and without Improved AMP), 2026-11-11
+- **Seen:** about -62 dBFS instead of -12.4 dBFS in 7 of 12 boots with the module and 3 of 11 without; the amp envelope ran on time but the sample did not sound.
+- **Cause (unknown):** a boot from flash was not tried.
+- **Fix:** waiting 3 s before the first note (0 of 7).
+- **Status:** open.
+- **Evidence:** `[hw]` {modwerk-rytm-amp}
+- **Rule:** A40
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)
+
+### I101. SRC labels read ERR with Digi Perform beside CC Names
+- **Unit:** Digitakt (mk1), OS 1.53/1.54 (Digi Perform 0.1.3 and the author's 5.0e build), 2026-11-13
+- **Seen:** SRC labels read ERR.
+- **Cause (from the code):** CC Names' hook at `0x40030daa` reads d2; Digi Perform called that site as plain C with d2 unset.
+- **Fix:** 0.1.4 sets d2 and a4 as stock's caller does; checked in the emulator.
+- **Status:** fixed.
+- **Evidence:** `[hw]` {modwerk-digiperform}
+- **Rule:** A62
+- **Fact:** [devices/digitakt.md](devices/digitakt.md)
 
 ## E. Emulator or toolchain disagreed with the unit
 
@@ -780,6 +951,26 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** C4, C2
 - **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md#dn2mk2-findings-v045-v048-os-111-2026-11-11)
 
+### I84. Uninitialised shared-window memory crashed DSP core 1 on a cold boot; the emulator starts it at zero
+- **Unit:** Octatrack MKII, AERIA OS bring-up builds, 2026-11-11
+- **Seen:** after a cold boot core 1 sent one report and crashed; a crashed core 1 then blocked a DSP reload over USB until a power cycle.
+- **Cause (found on the unit):** core 1's slot table in the shared window held random values at power-on; the emulator zeroes that memory.
+- **Fix:** core 1 clears its table before it starts.
+- **Status:** fixed.
+- **Evidence:** `[hw]` {aeria-log}
+- **Rule:** C10
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I98. MIDI hits on a software voice were silent on a Rytm; the emulator could not show it
+- **Unit:** Analog Rytm MKII, OS 1.74 (BD ANALOG development builds), 2026-11-05
+- **Seen:** 39 of 40 MIDI hits were silent.
+- **Cause (found on the unit, then from stock's code):** a MIDI trig sets the voice timer to a start tick of 0-15 or later, but the base took a hit only when it read 0; rytm-emu does not trigger track 1 from pads or MIDI, so only sequencer trigs had been tested.
+- **Fix:** the voice waits for the scheduled tick, as stock BD CLASSIC does (`0x40110a06`).
+- **Status:** fixed.
+- **Evidence:** `[hw]` / `[emu]` {modwerk-rytm-analogbd}
+- **Rule:** C10
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)
+
 ## R. Recovery and transfer links
 
 ### I43. Recovery stalled at ~80 %: the MIDI link, not the image
@@ -851,3 +1042,23 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` {modwerk-syntiz}
 - **Rule:** A23
 - **Fact:** [devices/octatrack.md](devices/octatrack.md#modwerk-and-octabam-findings-2026-11-12)
+
+### I100. A Windows PC could not open the Octatrack's vendor interface
+- **Unit:** Octatrack MKII with the Modwerk base and a Windows 11 PC, 2026-11-12/13, after member reports
+- **Seen:** with `DeviceInterfaceGUIDs` missing from the interface's registry key the USB bridge could not open the unit; a replug did not help.
+- **Cause (found on the PC):** Windows writes that value only at an interface's first setup; why it was missing on members' PCs is unknown.
+- **Fix:** the base reports `bcdDevice` 0x0101, which made Windows write the value again.
+- **Status:** fixed by hand on one PC; not confirmed on an affected member's PC.
+- **Evidence:** `[hw]` {modwerk-win-usb}
+- **Rule:** A63
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I102. A repacked stock image ran on an Analog Rytm MKI, and stock came back over USB and DIN
+- **Unit:** Analog Rytm MKI, OS 1.74 (elekloader's new ELE2 writer), reported 2026-11-13
+- **Seen:** stock 1.74 rebuilt by the writer (version field EL01) was flashed with Transfer, booted and played; the stock file then restored the unit over USB and, from the startup menu, over DIN.
+- **Cause (planned test):** a null repack before any mod, the first check of a new file writer.
+- **Fix:** none needed.
+- **Status:** passed.
+- **Evidence:** `[hw]` {elekloader-ar1}
+- **Rule:** A2, A6
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)

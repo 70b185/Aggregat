@@ -72,6 +72,7 @@ Projects: [../../catalog/analog-four-keys.md](../../catalog/analog-four-keys.md)
 ## OS update and recovery
 - **Normal:** send the `.syx` with Transfer over USB; this runs inside the installed OS.
 - **Recovery:** hold FUNC at power-on, choose `4 ... OS UPGRADE` (TRIG 4), then send the stock `.syx` over **DIN MIDI** (Transfer's legacy OS-upgrade mode). It is served by the bootstrap in flash. Rule A36 holds. `[hw]` {a4mods}
+- **Stock MKII 1.56 can hang on its own restart after writing a new OS:** it masks every interrupt and then waits for a serial queue that only those interrupts drain. The unit sits on SUCCESS! REBOOTING, stays on USB, and every MIDI call to it blocks until it leaves USB. Seen twice in about 30 flashes that stock 1.56 ran; the new OS is already written, so a power cycle boots it. Power-cycle by hand, do not reflash, and read the screen before (a screenshot over MIDI would hang). elkflash 0.7 tells this from the USB node alone (exit code 5) (SB23, I103). `[hw]` {elkflash-stall}
 - Builds that keep version 1.56 make going back a same-version reinstall. Kits saved on the modded OS load on stock (stock ignores the extra fields). `[hw]` {a4mods}
 - **MKII update in the emulator** (`[emu]` {analog-emu-a4}):
   - The OS saves its working state to the card, erases 17 x 64 KB from flash `0x80000` and programs the container page by page, then resets.

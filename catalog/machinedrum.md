@@ -2,13 +2,14 @@
 
 # Machinedrum (incl. UW)
 
-Data last verified: 2026-11-13
+Data last verified: 2026-11-14
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
-| **OP-XY MNMD** (mmockett) | emulator | - | v1.3.4 (tag, 2026-11-13) | v1.3.4 | 2026-11-13 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
+| **OP-XY MNMD** (mmockett) | emulator | - | v1.3.6 (tag, 2026-11-13): MD KIT builds into one firmware with Hexagon's Moth; v1.3.5: the synths play at one loudness, MD KIT raises its quieter machines by up to 6 dB | v1.3.6 | 2026-11-13 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
+| **mds-harness (Machinedrum user machine harness)** (bento909) | tool | - | - | - | 2026-11-13 | [repo](https://github.com/bento909/mds-harness) |
 | **Machinemodule for MPC OS** (sd88me) | emulator | - | v1.0.5 (tag, 2026-11-12) | v1.0.5 | 2026-11-12 | [repo](https://github.com/sd88me/mpc-vst-machinedrum) · [move port](https://github.com/sd88me/schwung-machinemodule) · [monomodule mpc](https://github.com/sd88me/mpc-vst-monomodule) |
 | **DBX-DR (dark drone for MDX)** (MonCalamari) | mod | - | Machinedrum MKI/MKII running MDX X.20 (MDS 1.1) | drone-v0.5 | 2026-11-07 | [repo](https://github.com/MonCalamari/DBX-DR) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.0 (2026-11-06): Monomachine AUTO RECEIVE (an incoming dump opens SYSEX RECV and is taken without a confirm; off by default; Undo restores the kit); Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-06 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
@@ -223,3 +224,11 @@ Single-voice drone USR machine: three detuned saws and a square sub into saturat
 _Related: mod for `mdx` (README: a USR machine for the Machinedrum running MDX X.20) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-07, README, README (2026-11-11)_
+
+### mds-harness (Machinedrum user machine harness)
+
+Development harness for MDS 1.1 Machinedrum user machines: loads a .mds package into the dsp56300 emulator core and renders or plays it from a browser page (knobs, a 16-step sequencer, p-locks, a simulated neighbour track, saved renders), and exports an installable .syx through mds-tools' certifier. Built and run only on Windows with MinGW. GPL-3.0. Found by GitHub search 2026-11-14; README read.
+
+_Related: uses tool `mds-tools` (README: the same dsp56300 core as mds-tools; EXPORT .SYX runs its certifier); builds on `mds` (README: MDS 1.1 user machines) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
+
+_Sources: state/NEW.md 2026-11-14, README (2026-11-13)_

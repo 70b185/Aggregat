@@ -9,6 +9,17 @@ checked: 2026-10-31
 
 projects:
   # ------------------------------------------------------------- Digitakt (mk1)
+  - id: glide-digitakt
+    name: GLIDE (Digitakt)
+    author: ClaidArremer
+    kind: mod
+    devices: [digitakt]
+    repo: https://github.com/ClaidArremer/digitakt-glide
+    status: unverified
+    notes: >
+      The repo has no commits yet (checked 2026-11-14). Repo description only: Digitone-style portamento and legato
+      for the Digitakt mk1 (OS 1.54), set per track on the TRIG page, as an elekloader mod. Found by GitHub search
+      2026-11-14.
 
   # ------------------------------------------------------------- Digitone (mk1)
 
@@ -18,6 +29,16 @@ projects:
 
   # ------------------------------------------------------------- Model:Cycles
   # ------------------------------------------------------------- Octatrack
+  - id: ot-dpo-acid
+    name: ot-dpo-4ms-ensemble-folding-acid-style
+    author: seren-a
+    kind: mod
+    devices: [octatrack]
+    repo: https://github.com/seren-a/ot-dpo-4ms-ensemble-folding-acid-style
+    status: unverified
+    notes: >
+      Only a one-line README and a licence so far (checked 2026-11-14): an attempt to bring complex oscillators and
+      acid filters to the Octatrack. No code, OS or loader named yet. Found by GitHub search 2026-11-14.
   - id: octacloudz
     name: Octacloudz
     author: davidecaldarola1-ship-it

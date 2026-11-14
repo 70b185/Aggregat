@@ -2,7 +2,7 @@
 
 # Project families
 
-Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-13. Edit the `relations:` field in `data/projects.yml`.
+Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-14. Edit the `relations:` field in `data/projects.yml`.
 
 | Relation | Meaning |
 |---|---|
@@ -34,7 +34,7 @@ Devices: Model:Cycles, Model:Samples. [repo](https://github.com/18nelli18/Modded
 - **dn2_firmware_explore** (angellinares) - builds on **elektron-firmware-tool** (README credit: container, transport, codec and integrity work stands on it). [repo](https://github.com/angellinares/dn2_firmware_explore)
 - **elektron-firmware-tool** (mischa85) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/mischa85/elektron-firmware-tool)
 - **elektron-model-tweaks** (drumkilla) - builds on **elektron-firmware-tool** (README: building scripts are based on elektron-firmware-tool); builds on **ms-multi-output** (README: based on ms-multi-output by Scott Metoyer). [repo](https://github.com/drumkilla/elektron-model-tweaks)
-- **Modded Cycles Techno Edition** (mbreilly (m_reilly)) - builds on **Modded Cycles** (README credits: build toolchain, per-track filter, machine list, MACRO and ACID ports); bundles **model909** (README credits: the 909 kick, toms, rim and clap from DMDaudio/model909); bundles **elektron-model-tweaks** (README credits: scrolling names and the mtlib toolkit); builds on **ms-multi-output** (README credits: the original 6-channel USB audio mod). [repo](https://github.com/mbreilly/Modded_f-king_cycles)
+- **Modded Cycles Techno Edition** (mbreilly (m_reilly)) - builds on **Modded Cycles** (README credits: build toolchain, per-track filter, machine list, MACRO and ACID ports); bundles **model909** (README credits: the 909 kick, toms, rim and clap from DMDaudio/model909); bundles **elektron-model-tweaks** (README credits: scrolling names and the mtlib toolkit); builds on **ms-multi-output** (README credits: the original 6-channel USB audio mod). [repo](https://github.com/mbreilly/Modded_cycles_techno_edition)
 - **Model-TG** (TinyGregAudio) - bundles **elektron-model-tweaks** (README: includes drumkilla's tweaks (latching mute, trig preview)). [repo](https://github.com/TinyGregAudio/Model-TG)
 - **model27** (durchgemacht, 18nelli18) - fork of **Modded Cycles** (own README: beta fork of Modded Cycles 1.55); bundles **elektron-model-tweaks** (README: includes drumkilla's tweaks (latching mute, trig preview)); bundles **Control All Config** (README: Modded-Cycles 1.55 plus the Control All Config mod); bundles **Cycles One-Shot** (README: the SAMPLE machine of Cycles One-Shot). [repo](https://github.com/durchgemacht/model27)
 - **model909** (DMDaudio) - builds on **Modded Cycles** (README: built on Modded-Cycles and Model-TG); builds on **Model-TG** (README: Model-TG is ticked with model909). [repo](https://github.com/DMDaudio/model909)
@@ -107,6 +107,14 @@ Devices: Analog Rytm (MKI, MKII). [repo](https://github.com/gdeo607/rytm1_mods)
 - **rytm-mods-src** (MrScruff (published with permission by Iced-Cream)) - linked to **rytm1_mods** through another member of this family. [repo](https://github.com/Iced-Cream/rytm-mods-src)
 - **rytm2_mods** (Iced-Cream) - port of **rytm-mods-src** (README: ported to elemod). [repo](https://github.com/Iced-Cream/rytm2_mods)
 
+## PUMP (Digitakt) (ClaidArremer)
+
+Devices: Digitakt (MKI). [repo](https://github.com/ClaidArremer/digitakt-pump)
+
+- **GESTALT (Digitakt)** (ClaidArremer) - builds on **PUMP (Digitakt)** (README: GESTALT takes the place of PUMP for Digitakt). [repo](https://github.com/ClaidArremer/digitakt-gestalt)
+- **GESTALT (Digitone)** (ClaidArremer) - fork of **PUMP (Digitone)** (git history: the 8 commits of digitone-pump up to 2.10 plus one of its own (GESTALT 5.2)); variant of **GESTALT (Digitakt)** (same author, Digitone build). [repo](https://github.com/ClaidArremer/digitone-gestalt)
+- **PUMP (Digitone)** (ClaidArremer) - variant of **PUMP (Digitakt)** (same author, Digitone build). [repo](https://github.com/ClaidArremer/digitone-pump)
+
 ## Sidecar | Expander (trigcondition)
 
 Devices: Analog Rytm (MKI, MKII), Digitakt (MKI), Analog Four / Analog Keys. [repo](https://github.com/trigcondition/sidecar-expander)
@@ -128,6 +136,13 @@ Devices: Digitakt II. [repo](https://github.com/heavylight-industries/keyframer-
 
 - **dt2-capicola (Capicola time stretch for STRETCH/REPITCH/SLICE/GRID)** (hy3na-k1ng) - builds on **Frame Lab (keyframer-lab)** (same Capicola keyframe engine by Heavylight Industries). [repo](https://github.com/hy3na-k1ng/dt2-capicola)
 - **dt2-machine-lab** (lalzart) - bundles **dt2-capicola (Capicola time stretch for STRETCH/REPITCH/SLICE/GRID)** (machines/capicola-reddit/upstream keeps its 66 files byte-exact). [repo](https://github.com/lalzart/dt2-machine-lab)
+
+## MDS (Machine Dump Standard) (Justin Mammarella)
+
+Devices: Machinedrum (incl. UW). [repo](https://github.com/jmamma/MDS)
+
+- **mds-harness (Machinedrum user machine harness)** (bento909) - builds on **MDS (Machine Dump Standard)** (README: MDS 1.1 user machines). [repo](https://github.com/bento909/mds-harness)
+- **mds-tools (MDS packer and certifier)** (Justin Mammarella) - builds on **MDS (Machine Dump Standard)** (README: tools for the MDS specification). [repo](https://github.com/jmamma/mds-tools)
 
 ## Monomodule (shnolk)
 
@@ -179,12 +194,6 @@ Devices: Analog Rytm (MKI, MKII). [repo](https://github.com/bsp2/libanalogrytm)
 
 - **rytm-rs / rytm-sys** (alisomay) - builds on **libanalogrytm** (README). [repo](https://github.com/alisomay/rytm-rs)
 
-## MDS (Machine Dump Standard) (Justin Mammarella)
-
-Devices: Machinedrum (incl. UW). [repo](https://github.com/jmamma/MDS)
-
-- **mds-tools (MDS packer and certifier)** (Justin Mammarella) - builds on **MDS (Machine Dump Standard)** (README: tools for the MDS specification). [repo](https://github.com/jmamma/mds-tools)
-
 ## Modwerk (formerly Octamod) (not named in sources (SDK repo owner repeat98))
 
 Devices: Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II, Analog Rytm (MKI, MKII), Octatrack (MKI, MKII). [repo](https://github.com/repeat98/modwerk)
@@ -196,12 +205,6 @@ Devices: Digitakt (MKI), Digitone (MKI) / Digitone Keys, Digitakt II, Analog Ryt
 Devices: Octatrack (MKI, MKII). [repo](https://github.com/jhw/ot-tools-io)
 
 - **Octatrack Manager** (David Ferlay) - builds on **ot-tools-io** (README: built with ot-tools-io). [repo](https://github.com/davidferlay/octatrack-manager)
-
-## PUMP (Digitakt) (ClaidArremer)
-
-Devices: Digitakt (MKI). [repo](https://github.com/ClaidArremer/digitakt-pump)
-
-- **PUMP (Digitone)** (ClaidArremer) - variant of **PUMP (Digitakt)** (same author, Digitone build). [repo](https://github.com/ClaidArremer/digitone-pump)
 
 ## SyntHack OS (upstream) (Angelo-politek)
 
@@ -215,7 +218,7 @@ Drawn by GitHub from the lineage relations (fork, copy, port, variant, builds on
 
 <!-- relation-graph:start - generated by scripts/build.py from data/projects.yml, do not edit by hand -->
 
-118 entries with 129 relations. Colour: licence family (green permissive, blue copyleft, yellow public domain, grey none stated or not recorded).
+121 entries with 133 relations. Colour: licence family (green permissive, blue copyleft, yellow public domain, grey none stated or not recorded).
 
 ```mermaid
 flowchart LR
@@ -246,6 +249,7 @@ flowchart LR
     n_dtdump["dtdump<br/>not recorded"]:::none
     n_elk_herd["elk-herd<br/>BSD-2-Clause (per other projects)"]:::permissive
     n_keyframer_lab["Frame Lab (keyframer-lab)<br/>AGPL"]:::copyleft
+    n_gestalt_digitakt["GESTALT (Digitakt)<br/>GPL-2.0-or-later"]:::copyleft
     n_mezclando["Mezclando<br/>GPL-3.0-or-later"]:::copyleft
     n_pump_digitakt["PUMP (Digitakt)<br/>GPL"]:::copyleft
     n_screendump["screendump<br/>MIT"]:::permissive
@@ -262,6 +266,7 @@ flowchart LR
     n_dn2_tools_depattern["DN2 Tools (dn2mk2 browser tools)<br/>not stated"]:::none
     n_dn2_cfw["dn2-cfw<br/>not recorded"]:::none
     n_dn2_firmware_explore["dn2_firmware_explore<br/>AGPL-3.0-or-later"]:::copyleft
+    n_gestalt_digitone["GESTALT (Digitone)<br/>GPL-2.0-or-later"]:::copyleft
     n_overtone["Overtone<br/>not recorded"]:::none
     n_pump_digitone["PUMP (Digitone)<br/>GPL"]:::copyleft
     n_dn2_rift["RIFT<br/>AGPL-3.0"]:::copyleft
@@ -324,6 +329,7 @@ flowchart LR
     n_machinemodule_desktop["MachineModule (desktop)<br/>AGPL-3.0"]:::copyleft
     n_machinemodule_mpc["Machinemodule for MPC OS<br/>AGPL-3.0"]:::copyleft
     n_mds["MDS (Machine Dump Standard)<br/>not stated"]:::none
+    n_mds_harness["mds-harness<br/>GPL-3.0"]:::copyleft
     n_mds_tools["mds-tools<br/>GPL"]:::copyleft
     n_mmodule["MoDule (MD Drums)<br/>GPL"]:::copyleft
     n_moduledrum["ModuleDrum<br/>AGPL-3.0"]:::copyleft
@@ -613,6 +619,14 @@ flowchart LR
   %% evidence: README: browser tools for the Digitone II mod; same author
   n_dn2_rift -- "builds on" --> n_dn2mk2
   %% evidence: docs/rift.md: the infrastructure from dn2mk2-firmware e06993e (v0.51)
+  n_gestalt_digitakt -- "builds on" --> n_pump_digitakt
+  %% evidence: README: GESTALT takes the place of PUMP for Digitakt
+  n_gestalt_digitone -- "fork of" --> n_pump_digitone
+  %% evidence: git history: the 8 commits of digitone-pump up to 2.10 plus one of its own (GESTALT 5.2)
+  n_gestalt_digitone -- "variant of" --> n_gestalt_digitakt
+  %% evidence: same author, Digitone build
+  n_mds_harness -- "builds on" --> n_mds
+  %% evidence: README: MDS 1.1 user machines
   classDef permissive fill:#d9f2e3,stroke:#2b7a4b,color:#10301e
   classDef copyleft fill:#dde7fb,stroke:#3460b0,color:#13254a
   classDef public-domain fill:#f9ecc8,stroke:#a07410,color:#3d2c05

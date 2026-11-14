@@ -4,7 +4,7 @@
 
 Software for using and managing the devices - editors, sample and project managers, Overbridge audio, screen mirrors, control from a computer or an AI agent. **None of these change the firmware.**
 
-Data last verified: 2026-11-13. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
+Data last verified: 2026-11-14. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
 
 
 The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds), [DEV-TOOLS.md](DEV-TOOLS.md) (development tools). Hardware knowledge for writing mods: [hardware/](../hardware/README.md).
@@ -12,9 +12,9 @@ The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds),
 
 | Project | Kind | Devices | What it is | Note | Version / OS | Links |
 |---|---|---|---|---|---|---|
-| **OpenBridge - Digitone II** (Donmanouche) | tool | Digitone II | A Linux (x86_64) implementation of Overbridge for the Digitone II, as a VST3 plugin (JUCE; the standalone app was dropped on 2026-11-12): 42 channels of USB audio out … | - | 0.1 (.deb and tar.gz in the README) | [repo](https://github.com/Donmanouche/OpenBridge-Digitone-2) |
-| **Tributary** (stampman3000-jpg) | tool | Digitone II | An Overwitch rework that plays Overbridge USB audio on Akai MPC standalone tracks; heard on a Digitone II, holding ~4 ms behind the newest USB sample. | - | v1.2.3 (tag, 2026-11-12) | [repo](https://github.com/stampman3000-jpg/mpc-tributary) |
+| **Tributary** (stampman3000-jpg) | tool | Digitone II | An Overwitch rework that plays Overbridge USB audio on Akai MPC standalone tracks; heard on a Digitone II, holding ~4 ms behind the newest USB sample. | - | v1.2.4 (tag, 2026-11-13): the plugin holds about 11 ms of … | [repo](https://github.com/stampman3000-jpg/mpc-tributary) |
 | **sample-shepherd** (julesyoungberg) <br>_uses elektroid_ | tool | Digitakt II | Organises a sample library (through Fourier Samples), exports it per device profile and syncs it to a sampler without breaking the projects on it: backs up projects, … | - | - | [repo](https://github.com/julesyoungberg/sample-shepherd) |
+| **OpenBridge - Digitone II** (Donmanouche) | tool | Digitone II | A Linux (x86_64) implementation of Overbridge for the Digitone II, as a VST3 plugin (JUCE; the standalone app was dropped on 2026-11-12): 42 channels of USB audio out … | - | 0.1 (.deb and tar.gz in the README) | [repo](https://github.com/Donmanouche/OpenBridge-Digitone-2) |
 | **DN2 Tools (dn2mk2 browser tools)** (De-Pattern) <br>_same project as dn2mk2_ | tool | Digitone II | Browser tools (Chrome or Edge, Web MIDI) for the dn2mk2 Digitone II mod: DN2 Sample Import sends WAV files and folders to the mod's sampler over USB (replace all, … | - | - | [repo](https://github.com/De-Pattern/dn2mk2) |
 | **Octatrack Manager** (David Ferlay) <br>_builds on ot-tools-io_ | tool | Octatrack (MKI, MKII) | Desktop app to inspect and edit Octatrack projects, patterns, parts and sample pools on CF cards and backups. | - | v0.50.0 (2026-11-11) | [repo](https://github.com/davidferlay/octatrack-manager) · [homepage](https://davidferlay.github.io/octatrack-manager/) |
 | **Whiplash (agent plays a Digitakt II)** (hejijunhao) | tool | Digitakt II | A Hermes Agent plugin that jams on a Digitakt II over USB MIDI: starts patterns by genre or mood, changes sounds live by CC/NRPN, mutes tracks (optionally the unit's … | - | 0.8.0 (pyproject, 2026-11-11; releases 0.3.0-0.8.0 since … | [repo](https://github.com/hejijunhao/whiplash) |

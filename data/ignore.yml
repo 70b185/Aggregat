@@ -286,3 +286,4 @@ ignore:
   - nerazin/mono-delay-clap   # a desktop CLAP effect for Bitwig modelled on the Monomachine delay; no device, firmware or mod
   - DavidDudson/overbridge    # multi-repo workspaces for Claude Code sessions; the name is the only link to Elektron
   - Jackherz/modwerk   # fork of repeat98/modwerk without commits of its own (2026-11-12); the description names the Tonverk
+  - irpina/dirtyloader   # an elekloader-style mod patcher for the Dirtywave M8, not an Elektron device (2026-11-14)

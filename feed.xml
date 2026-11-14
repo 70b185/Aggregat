@@ -4,9 +4,49 @@
   <link href="https://70b185.github.io/Aggregat/"/>
   <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
   <id>https://70b185.github.io/Aggregat/</id>
-  <updated>2026-11-13T00:00:00Z</updated>
+  <updated>2026-11-14T00:00:00Z</updated>
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>New in the catalogue: OT MODS (Hteah) (Mod, Octatrack)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=ot-mods-hteah"/>
+    <id>https://70b185.github.io/Aggregat/#project-ot-mods-hteah</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Firmware mods for the Octatrack MKI built on octabam, installed by building the OS from Elektron's 1.40C file on your own computer. Two builds: full (with REC THRESHOLD, MUTE MODES, TAPE ECHO, MINI VERB and ATA WRITE GUARD by other octabam authors) and samplers only. …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: mds-harness (Machinedrum user machine harness) (Tool, Machinedrum)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=mds-harness"/>
+    <id>https://70b185.github.io/Aggregat/#project-mds-harness</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Development harness for MDS 1.1 Machinedrum user machines: loads a .mds package into the dsp56300 emulator core and renders or plays it from a browser page (knobs, a 16-step sequencer, p-locks, a simulated neighbour track, saved renders), and exports an installable .syx through …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: MASHUP (Digitakt) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=mashup-digitakt"/>
+    <id>https://70b185.github.io/Aggregat/#project-mashup-digitakt</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Performance repeats from an always-on buffer of the master mix: with MASHUP mode on (FUNC + SAMPLING) the 16 trig keys play the last few seconds back in time while the sequencer runs on underneath. elekloader mod (id mashup-dt). GPL-2.0-or-later. Found by GitHub search …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: GESTALT (Digitone) (Mod, Digitone)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=gestalt-digitone"/>
+    <id>https://70b185.github.io/Aggregat/#project-gestalt-digitone</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Continues PUMP for Digitone in a repo of its own: it carries PUMP's history (2.8-2.10) plus one commit with GESTALT 5.x, which puts a sine wavefolder before the compressor; the mod id is still pump. The old repo digitone-pump is still online at 2.12. elekloader mod. …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: GESTALT (Digitakt) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=gestalt-digitakt"/>
+    <id>https://70b185.github.io/Aggregat/#project-gestalt-digitakt</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Master chain in place of the Digitakt's stock compressor: RADS, a Geiger Counter-style wave-table destruction, into the PUMP levelling compressor, on every output. Replaces PUMP for Digitakt (use one or the other). elekloader mod (id gestalt-dt). GPL-2.0-or-later. Found by …</summary>
+  </entry>
   <entry>
     <title>New in the catalogue: RIFT (second Digitone II firmware) (Mod, Digitone II)</title>
     <link href="https://70b185.github.io/Aggregat/?p=dn2-rift"/>
@@ -420,40 +460,5 @@
     <updated>2026-11-08T00:00:00Z</updated>
     <category term="project"/>
     <summary>One added machine with fourteen melodic two-operator FM models in the manner of the Yamaha OPL2 ('90s SoundBlaster). Source package for the Cycles Engines flasher. Found by GitHub search 2026-11-07.</summary>
-  </entry>
-  <entry>
-    <title>Add EUC+ (joesciii): generated melodies for the Digitakt II Euclid sequencer</title>
-    <link href="https://github.com/70b185/Aggregat/commit/dae31952fe5d8519c3fc93bf88eaabd2aea1aa4f"/>
-    <id>https://70b185.github.io/Aggregat/#commit-dae31952fe5d</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Update 2026-11-08 evening: digikit boot screens, Rytm storage, I53-I54</title>
-    <link href="https://github.com/70b185/Aggregat/commit/c85f263e8a62ecbe970cba03f968e02bdef9e16a"/>
-    <id>https://70b185.github.io/Aggregat/#commit-c85f263e8a62</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>DN2 DT2 firmware research (armio): Digitone II only</title>
-    <link href="https://github.com/70b185/Aggregat/commit/c5ecc4884c18e61c010a9b75ef9c4af3e84404e3"/>
-    <id>https://70b185.github.io/Aggregat/#commit-c5ecc4884c18</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Rework MODS.md and add seven new mods with a tested field</title>
-    <link href="https://github.com/70b185/Aggregat/commit/c002a68439de0fc5817919340227e52d402a3b4f"/>
-    <id>https://70b185.github.io/Aggregat/#commit-c002a68439de</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Add a Mods tab to the website; list every known usable mod in MODS.md</title>
-    <link href="https://github.com/70b185/Aggregat/commit/bfadedcacca07797cf563f53ed89122e3242e723"/>
-    <id>https://70b185.github.io/Aggregat/#commit-bfadedcacca0</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="update"/>
   </entry>
 </feed>

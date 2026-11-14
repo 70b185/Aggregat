@@ -27,7 +27,7 @@ static map; it is where every platform below lives. Stock's DMA buffers sit just
 
 | start | end | user | use | OS | evidence |
 |---|---|---|---|---|---|
-| `0x402fd000` | `0x466b84d0` | stock | cleared at reset: data, BSS, the 32 MiB heap `0x4464abf0-0x4664abf0` | 1.12 | `[doc]` {dn2-cfw-t13} {elekloader-dn2-device} |
+| `0x402fd000` | `0x466b84d0` | stock | cleared at reset: data, BSS, the 32 MiB heap `0x4464bbf0-0x4664bbf0` (1.11: `0x4464abf0`, S22) | 1.12 | `[doc]` {dn2-cfw-t13} {elekloader-dn2-device} |
 | `0x466b8000` | `0x46701340` | stock | DMA section, including the MMC bounce buffer `0x466f1300-0x46701300` that carries every project save and load | 1.11 | `[doc]` {dnfw-mem-regions} {dn2-cfw-prior} |
 | `0x466c0000` | `0x46709340` | stock | DMA buffers, including a 64 KB MMC bounce buffer | 1.12 | `[doc]` {dn2-cfw-t13} {elekloader-dn2-profile} |
 | `0x47fe0000` | `0x48000000` | stock | stack reserve, 128 KiB below the reset SP `0x48000000` (convention of dnfw and digikit; the stack's real depth is unmeasured) | both | `[doc]` {dnfw-mem-regions} {dn2-cfw-t19} |
@@ -35,6 +35,9 @@ static map; it is where every platform below lives. Stock's DMA buffers sit just
 | `0x4670a000` | `0x4670f000` | dnfw | Waverider pages chunk | 1.11 | `[doc]` {dnfw-mem-regions} {dn2mk2-ram} |
 | `0x46710000` | `0x46740000` | dnfw | the platform's data window (runtime of data chunks) | 1.11 | `[doc]` {dnfw-mem-regions} {dn2-caves} |
 | `0x46740000` | `0x467a0000` | dnfw | lfowaves, envelope (chunks at `0x46740000`, `0x46750000`, `0x46780000`; 11,716 B) | 1.11 | `[doc]` {dnfw-mem-regions} |
+| `0x46790000` | `0x467904ac` | dnfw | directjump code (1,196 B; inside the lfowaves span above, whose chunks end lower) | 1.11 | `[doc]` {dnfw-mem-regions} {dnfw-directjump} |
+| `0x467e8000` | `0x467e8140` | dnfw | bootscreen (320 B) on 1.12, moved out of 1.12's DMA section | 1.12 | `[doc]` {dnfw-mem-regions} {dnfw-osport} |
+| `0x405cd8ae` | `0x405cd8c2` | dnfw | mod switches in spare bytes of the stock settings block (reloadconfirm `+0`, arpscale `+1`, directjump `+0x13`; early degreetranspose builds `+2..+0x12`) | 1.11 | `[doc]` {dnfw-directjump} |
 | `0x467a0000` | `0x467a0910` | dnfw | arpmodes (2,320 B) | 1.11 | `[doc]` {dnfw-mem-regions} |
 | `0x467a8000` | `0x467a8688` | dnfw | arpscale (1,672 B) | 1.11 | `[doc]` {dnfw-mem-regions} |
 | `0x467b0000` | `0x467b0104` | dnfw | lfolength (260 B; at `0x467f8000` until 2026-10-15) | 1.11 | `[doc]` {dnfw-mem-regions} |
@@ -114,6 +117,7 @@ The reset copies `0x40312000-0x4031ff60` to SRAM and clears `0x40312000-0x47e284
 | `0x47e8b000` | ? | All-in-One (digitakt-ii-research) | zoom and Musical WAVE code | 1.17 | `[doc]` {dt2-aio-src} |
 | `0x47e91000` | ? | All-in-One (digitakt-ii-research) | One-Shot Zoom V11 code | 1.17 | `[doc]` {dt2-aio-src} |
 | `0x47e8b000` | `0x47e9b000` | dt2-machine-lab | opt-in 64 KiB | 1.16 | `[doc]` {dt2-lab-cpu} |
+| `0x47e8b000` | `0x47fe0000` | dt2-machine-lab (Sketch OS 1.17) | placed by digikit inside `cf.expansion`; exact range not published | 1.17 | `[doc]` {dt2-lab-sketch} |
 | `0x47f00000` | `0x47f40000` | elekloader | core-dt2 and every elekloader mod (digitakt2-perform's among them) | 1.17 | `[doc]` {elekloader-dt2-profile} {dt2-perform} |
 | `0x47fe0000` | `0x47fe1000` | digikit | keep area: crash and hang records that survive a soft reset | both | `[doc]` {digikit-f46} |
 | `0x406658c0` | `0x4066d8c0` | stock | 32 KiB scratch of the +Drive close (firmware-owned) | 1.17 | `[doc]` {digikit-f124} |
@@ -149,3 +153,16 @@ DSP56300 X-memory words, written `$xxxx` in the projects' notes.
 | `0x2840` | `0x2841` | octabam / Modwerk | core-1 load counter | 1.40C | `[doc]` {modwerk-analogbd} |
 | `0x2841` | `0x3201` | Modwerk (Analog BD 0.1.7) | 909 tables and voices | 1.40C | `[doc]` {modwerk-analogbd} |
 
+## Octatrack battery RAM (`octatrack`)
+
+| start | end | user | use | OS | evidence |
+|---|---|---|---|---|---|
+| `0x100ff800` | `0x100ff900` | Modwerk | crash record (end: where the next record starts) | 1.40C | `[doc]` {modwerk-ot-driving} |
+| `0x100ff900` | `0x100ffb30` | Modwerk | DSP stall record | 1.40C | `[doc]` {modwerk-ot-driving} |
+| `0x100ffb30` | ? | Modwerk | timings of the 128 frames before a stall | 1.40C | `[doc]` {modwerk-ot-driving} |
+
+## Analog Rytm MKI DDR (`analog-rytm`)
+
+| start | end | user | use | OS | evidence |
+|---|---|---|---|---|---|
+| `0x47be0000` | `0x47c00000` | elekloader | mods' area reserved by the MKI profile; no core uses it yet (a canary read back unchanged on a unit) | 1.74 | `[hw]` {elekloader-ar1} |

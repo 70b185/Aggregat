@@ -170,5 +170,37 @@ Five projects (octabam, octalab, midisc, octemu, ems-octakit, KYOTI) cut code in
 - **Open:** on a test image with 60 µs added to every frame interrupt and a 20-channel capture (the frame interrupt at 91 % of the ColdFire), 7 of 16 STARTs froze the whole unit 8.2 s later, at the pattern's wrap; not seen on shipping images. `[hw]`
 - **Scene lock view (stock):** the audio pages draw scene locks from a view byte `0x460d1694` (1 scene A, 2 scene B), set only by the hold-and-turn paths and the scene press handlers `0x40054c80` (A) and `0x40054c5c` (B), which return at once in MIDI mode; the MIDI key's handler (`0x40055548`-`0x40055676`, tail `jmp 0x4007e998` at `0x40055670`) does not set it. So a scene held while switching from the MIDI to the audio tracks shows no locks on stock; octabam's MIDI SCENES hooks the tail to fix that. `[emu]` {octabam-msc}
 
+## AERIA OS findings (own OS on the MKII, 2026-11-09..13) {aeria-log}
+- **Audio codec:** the converter on one MKII board was read as a Cirrus Logic CS42432 (marking read off the board). `[hw]` (one unit)
+- **Stock does not set up the codec over SPI;** its only SPI traffic is the real-time clock (stock's code traced, every hardware write logged in octabam's emulator). `[emu]`
+- **The analog outputs stayed silent under an own DSP program** that copied every DSP register write stock makes; inputs worked. Bisecting put the switch-on in a ~40 ms slice of stock's start-up where its frame exchange with the DSP begins, and the outputs came alive once the engine used a DMA-driven audio ring restarted by a DMA interrupt, as stock does. `[hw]` What actually un-mutes them is `[?]`: the CHANGELOG names the codec's DAC mute, the log the DMA ring. {aeria-changelog}
+- **DSP memory per core:** a probe on core 0 measured 48K words of private Y and 36K words of private X (core 1 assumed the same). `[hw]`
+- **Running code from the shared window costs about 2x,** and the two cores slow each other there. Moving AERIA's engine into core 0's private P memory cut its worst case from ~700 to ~370 instructions a sample and a sequencer stress test from 89 % to 50 % of core 0. `[hw]` {aeria-changelog}
+- **Shared-window memory is not zeroed at a cold boot,** unlike in the emulator; core 1 ran a garbage effect from an uninitialised slot table and crashed (I84). Clear any table there before use. `[hw]`
+- **A crashed core 1 blocks a DSP reload over USB;** only a power cycle clears it. A memory probe that wrote past the end of core 1's private memory did the same. `[hw]`
+- **Feeding sample audio to the DSP word by word over the host port starved it** (about 4,000 frames a second instead of 44,100); taking the data by interrupt, later by DMA sorted once a frame, held full rate. `[hw]`
+
+## Modwerk findings (2026-11-12/13) {modwerk-1113} {modwerk-perf}
+- **Stall frames:** Modwerk's base keeps the 128 frames (46 ms) before a DSP stall in battery RAM at `0x100ffb30`, next to its crash record `0x100ff800` and stall record `0x100ff900`: for each frame the gap to the one before (363 µs on time) and how long the frame interrupt before it ran. `[doc]` {modwerk-ot-driving}
+- **Older Modwerk stalls are ambiguous:** stalls at a high frame-interrupt share (24 Oct, POLY8 + FM Synth + USB recording; 10 Nov, FM Synth beside eight FLEX tracks) kept no entry times, so they cannot be told apart from the late-entry stall (I82). `[hw]` (stalls) / `[?]` (cause)
+- **Busy-unit refusal:** the base refuses a module machine or effect pick while the CPU meter stands at 85 % or more over its last four seconds; stock machines and effects are never refused. In diagnostics from 32 units, a five-minute window at 85 % or more had a UI-tick gap over 100 ms more often than not; under 65 %, one window in twenty did. `[hw]` (field)
+- **Judge panel lag by the CPU meter, not the frame guard's share:** on an MKII, Euclid on one track raised the guard's share by 10 points but the CPU meter by only 2.5. `[hw]`
+- **Read battery RAM once a frame:** one read of the current Part index `0x100b14cf` costs about 0.5 µs; modules that read it at every site for every track added about 8 points of frame interrupt while installed on no track (MKII, 2026-11-10). `[hw]`
+- **Windows keeps an interface's first setup:** WinUSB opens the vendor interface (`VID_1935&PID_0002&MI_01`) only while `DeviceInterfaceGUIDs` is under its Device Parameters key; Windows writes it once, and a replug at the same `bcdDevice` did not bring it back. A new device revision (stock 0x0001 -> 0x0101) made Windows write it again (I100). `[hw]` {modwerk-win-usb}
+- **RAM-boot restarts and USB:** a twin RAM-booted through a serve session kept running but dropped off USB until a power cycle (2026-11-13); the clean-restart figure rests on 20 boots. `[hw]` {modwerk-ot-driving}
+- **Remote keys wait for a whole panel report:** a USB key spliced between a fader report's two bytes left TRIG keys held or lost a FUNC release; the base now queues keys and sends them only when the panel parser expects a report's first byte. `[emu]` / `[hw]` {modwerk-ot-driving}
+- **One Part byte outside its stock range drops a whole bank at power-on** (SB22, I95): the battery restore checks Parts before any loader restores its modules. `[hw]` {modwerk-vector}
+
+## Stock OS facts from elekloader's core-ot 0.9-0.40 (OS 1.40C, static reading and emulator probes, 2026-11-13) {elekloader-core-ot-events}
+- **Settings record:** stock copies the battery-RAM settings record (`0x100fff00`, 100 bytes) to the live settings at `0x80000070` at boot and in two panel actions. `[doc]`
+- **Pattern validator:** stock checks and clamps every pattern at boot's restore (before any mod's data is back) and at every bank load; a mod that keeps values in pattern bytes stock does not know must restore them after the check. `[doc]`
+- **LFOs:** 19 waves (TRI to RND, then T1-T8); the LFO step runs in the frame interrupt for each of a track's three LFOs (24 calls a frame); phase `0`-`0x7fffff` over a cycle. The EMAC accumulator is live there, so hooked code must not use it. `[doc]`
+- **Playback increment:** each STATIC, FLEX and PICKUP track gets a Q26 increment every frame (`0x04000000` plays at the sample's own speed); elekloader's sites sit beside octabam REPITCH's at `0x40004100`. `[doc]`
+- **Interrupts and timers:** the frame interrupt is vector `0x41`; the UI task ticks 60 times a second with 32 timer slots. A stock routine that returns a pointer answers in d0, while GCC expects a0. `[doc]`
+- **Card and engine:** the CF card's dispatcher issues 22-byte command records (ATA command byte at +5); the engine task runs stock jobs 0-45 (job 16 is the sample editor's render/commit). `[doc]`
+- **Panel:** the LED map is 17 bytes, one bit per LED; stock rewrites its bits at every flush, so a mod sets its LEDs again at each flush. `[doc]`
+- **Sequencer timing:** each track's length check and the master pattern's wrap run in the sequencer's tick, a timer interrupt, so code hooked there must stay a few dozen instructions. `[doc]`
+- **SEQUENCER menu rows:** octabam's SCALE QUANTIZER v1.0 and elekloader's seqrows-ot patch the same seven places in PROJECT > CONTROL > SEQUENCER and refuse each other. `[doc]`
+
 ## Gaps
 NOR use above the OS image, the trig dispatch source, the MKI vs MKII hardware differences beyond the CPU marking.

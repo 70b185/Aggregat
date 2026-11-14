@@ -2,13 +2,13 @@
 
 # Syntakt
 
-Data last verified: 2026-11-13
+Data last verified: 2026-11-14
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **elkflash** (Iced-Cream) | tool | - | 0.7.0 (2026-11-13): on Windows, --wait tells a unit that stalls on its restart after a flash from the USB node alone (exit code 5), and usb-cycle watches a hand power cycle | - | 2026-11-13 | [repo](https://github.com/Iced-Cream/elkflash) |
 | **Synfact** (GSM1980) | mod | - | main (2026-11-11), untagged, changelog 1.9; core-st 1.8.0 (stereo tracks and stereo samples), sample-manager-st 1.2, samplers-st 1.4 (lighter PCM, stereo engine on the EMAC), arp-st 1.9, poly-st 1.5; Syntakt OS 1.41 | - | 2026-11-11 | [repo](https://github.com/GSM1980/synfact-dev) · [homepage](https://synfact.app) · [old release repo](https://github.com/GSM1980/Synfact-release) · [release copy](https://github.com/nrdsrfr/synfact-release) |
 | **SynCrackd** (Vuulgaris) | mod | - | Syntakt OS 1.42 | v0.1.2 | 2026-11-03 | [repo](https://github.com/Vuulgaris/syncrackd) |
-| **elkflash** (Iced-Cream) | tool | - | - | - | 2026-11-02 | [repo](https://github.com/Iced-Cream/elkflash) |
 | **analog-emu (rytm-emu)** (trigcondition) | emulator | - | Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42 | - | 2026-11-01 | [repo](https://github.com/trigcondition/analog-emu) |
 | **Elektron-Screen-Tool** (Fadedlimes) | tool | - | - | - | 2026-10-30 | [repo](https://github.com/Fadedlimes/elektron-screen-tool) |
 | **syntakt-machine45-research** (Humgic) | research | - | main @ 9511030 (2026-10-28), no tagged releases; Syntakt OS 1.41 | - | 2026-10-28 | [repo](https://github.com/Humgic/syntakt-machine45-research) |
@@ -144,11 +144,11 @@ _Sources: GitHub search 2026-11-02, README_
 
 ### elkflash
 
-Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). MIT. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the first Ping on a new port is retried up to 3 times (3 s each) before giving up, before anything is written.
+Command-line flasher that sends an Elektron OS .syx over USB with the MIDI RPC OS-upgrade commands (as Transfer and Elektroid do). MIT. Found by GitHub search 2026-11-02; README start read. 2026-11-02: the first Ping on a new port is retried up to 3 times (3 s each) before giving up, before anything is written. 2026-11-13 (README 0.7): stock Analog Four MKII 1.56 can hang on its own restart after writing the new OS (twice in about 30 flashes; SB23, I103): power-cycle it by hand, do not reflash.
 
 _Related: cites `elektroid` (catalogue notes: uses the MIDI RPC OS-upgrade commands as Elektroid does); uses tool `analog-emu` (README: built or checked in trigcondition/analog-emu) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-13)_
 
 ### Elektron Emu (joshklomp)
 

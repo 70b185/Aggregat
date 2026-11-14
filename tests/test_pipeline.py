@@ -197,7 +197,7 @@ def test_ram_tenancy_parsed(repo):
     rows = con.execute('SELECT device, start, "end", user FROM ram_tenancy').fetchall()
     con.close()
     assert len(rows) > 30
-    assert {r[0] for r in rows} == {"digitone-2", "digitakt-2", "model-cycles", "octatrack"}
+    assert {r[0] for r in rows} == {"digitone-2", "digitakt-2", "model-cycles", "octatrack", "analog-rytm"}
     assert all(e is None or e > s for _, s, e, _ in rows)
     assert any(u == "elekloader" and s == 0x47F00000 for _, s, _, u in rows)
 

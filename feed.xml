@@ -48,6 +48,13 @@
     <summary>Master chain in place of the Digitakt's stock compressor: RADS, a Geiger Counter-style wave-table destruction, into the PUMP levelling compressor, on every output. Replaces PUMP for Digitakt (use one or the other). elekloader mod (id gestalt-dt). GPL-2.0-or-later. Found by …</summary>
   </entry>
   <entry>
+    <title>Update 2026-11-14: 22 change reports folded, five repos added, I83-I103, SB20-SB23, A57-A64</title>
+    <link href="https://github.com/70b185/Aggregat/commit/a9906b6a10d6704aacd4dbec228a562d194567aa"/>
+    <id>https://70b185.github.io/Aggregat/#commit-a9906b6a10d6</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>New in the catalogue: RIFT (second Digitone II firmware) (Mod, Digitone II)</title>
     <link href="https://70b185.github.io/Aggregat/?p=dn2-rift"/>
     <id>https://70b185.github.io/Aggregat/#project-dn2-rift</id>
@@ -452,13 +459,5 @@
     <updated>2026-11-08T00:00:00Z</updated>
     <category term="project"/>
     <summary>MIDI arpeggiator for the Digitone mk1's MIDI tracks A-D, each with its own settings, controlled from the stock ARP page and step editor: tempo sync, recorded MIDI trigs, the stock modes plus UP TWICE, DOWN TWICE and UP/DOWN REPEAT. Known issues and test results are documented. …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: BLAST (OPL2-style FM) (Mod, Model:Cycles)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=blast"/>
-    <id>https://70b185.github.io/Aggregat/#project-blast</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>One added machine with fourteen melodic two-operator FM models in the manner of the Yamaha OPL2 ('90s SoundBlaster). Source package for the Cycles Engines flasher. Found by GitHub search 2026-11-07.</summary>
   </entry>
 </feed>

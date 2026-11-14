@@ -64,6 +64,13 @@
     <summary>Master chain in place of the Digitakt's stock compressor: RADS, a Geiger Counter-style wave-table destruction, into the PUMP levelling compressor, on every output. Replaces PUMP for Digitakt (use one or the other). elekloader mod (id gestalt-dt). GPL-2.0-or-later. Found by …</summary>
   </entry>
   <entry>
+    <title>Update 2026-11-14 (second pass): 9 change reports folded, GLIDE and TERRAIN added, I104-I107, SB24, A65</title>
+    <link href="https://github.com/70b185/Aggregat/commit/a9f891d205dc6b168f5bf3108c4407c2e82077d1"/>
+    <id>https://70b185.github.io/Aggregat/#commit-a9f891d205dc</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>Update 2026-11-14: 22 change reports folded, five repos added, I83-I103, SB20-SB23, A57-A64</title>
     <link href="https://github.com/70b185/Aggregat/commit/a9906b6a10d6704aacd4dbec228a562d194567aa"/>
     <id>https://70b185.github.io/Aggregat/#commit-a9906b6a10d6</id>
@@ -451,13 +458,5 @@
     <updated>2026-11-08T00:00:00Z</updated>
     <category term="project"/>
     <summary>Adds Torso T-1-style generated melodies to the stock Euclidean sequencer: each Euclid hit gets a note from a pool of scale degrees in the pattern's KB SCALE and ROOT NOTE, moved by a phrase shape and a seeded, lockable random sequence. Own NOTES and RANDOM pages opened from the …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: ESOTERIKA (four Digitone voices) (Mod, Digitone)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=esoterika"/>
-    <id>https://70b185.github.io/Aggregat/#project-esoterika</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>Four extra Digitone mk1 voices - RUIN, XTAL, VOID and CREPUS - as separate elekloader mods plus a combined ESOTERIKA file. Found in the elekloader mod shop catalogue 2026-11-08.</summary>
   </entry>
 </feed>

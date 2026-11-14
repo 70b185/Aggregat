@@ -73,6 +73,7 @@ Titles only; full text in [AGENT-RULES.md](https://github.com/70b185/Aggregat/bl
 - **A62** When you call a stock routine at a site other mods hook, set every register stock's own caller sets, not only the C arguments. [hw]
 - **A63** When a USB interface's host-side setup can go stale on Windows, change `bcdDevice` with the release that needs it. [hw]
 - **A64** When you hand the OS a structure, find out whether it copies it before use; later changes must go to the copy it reads. [hw]
+- **A65** Judge a load budget by the playing load and include the new module's own cost. [hw]
 
 ## 2. Rules that name the Digitakt (MKI)
 
@@ -113,7 +114,7 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **analog-emu (rytm-emu)** (emulator, wip, tested: not stated, base OS Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42) https://github.com/trigcondition/analog-emu
 - **digiemu** (emulator, stable, tested: not stated, base OS firmware from the forum's firmware list; one user reports it needs 1.43) https://github.com/elekloader/digiemu
 - **elekloader** (loader, active, tested: unit, base OS Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Rytm MKI 1.74 (experimental: whole builds, no core yet); Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed) https://github.com/elekloader/elekloader
-- **Modwerk (formerly Octamod)** (loader, active, tested: partly, base OS Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing) https://github.com/repeat98/modwerk
+- **Modwerk (formerly Octamod)** (loader, active, tested: partly, base OS Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (preview, downloads off); Digitone II research ongoing) https://github.com/repeat98/modwerk
 - **Digi CMI** (mod, active, tested: partly, base OS Digitakt mk1 OS 1.54 (1.53 untested); elekloader core 4.3 and machine-pages 1.10) https://github.com/neutronrabbit/digicmi
 - **digi1_mods** (mod, wip, tested: partly, base OS Digitakt mk1 OS 1.53) https://github.com/gdeo607/digi1_mods
 - **DigiCandy** (mod, wip, tested: unit, base OS Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43) https://github.com/DigiAlchemydsp/DigiCandy
@@ -139,7 +140,7 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **Filter-FX (seven filter effects)** (mod, active, tested: unit, base OS Digitakt mk1; Digitone mk1 / Keys) https://github.com/DigiAlchemydsp/Filter-FX
 - **Flex+ (FlexBus machine)** (mod, active, tested: partly, base OS Digitone mk1 / Keys OS 1.44 (core-dn1 4.0 + machines 0.2); Digitakt mk1 OS 1.54 (core 4.0 + machine-pages 1.1)) https://github.com/DigiAlchemydsp/Flex-Plus
 - **GESTALT (Digitakt)** (mod, wip, tested: not-stated, base OS Digitakt mk1 OS 1.53/1.54, elekloader core 4.1) https://github.com/ClaidArremer/digitakt-gestalt
-- **GLIDE (Digitakt)** (mod, unverified, tested: not stated) https://github.com/ClaidArremer/digitakt-glide
+- **GLIDE (Digitakt)** (mod, wip, tested: unit, base OS Digitakt mk1 OS 1.53 and 1.54) https://github.com/ClaidArremer/digitakt-glide
 - **MASHUP (Digitakt)** (mod, wip, tested: emulator, base OS Digitakt mk1 OS 1.54, elekloader core 4.1) https://github.com/ClaidArremer/digitakt-mashup
 - **MIDI Expression for the Digitakt (Digi-Expression)** (mod, wip, tested: emulator, base OS Digitakt MKI OS 1.54) https://github.com/tekomelu/Digi-Expression
 - **ModelDigi (Model D oscillators)** (mod, active, tested: not-stated, base OS Digitakt mk1 OS 1.54 (FAST AUDIO on)) https://github.com/simonjohansson/ModelDigi

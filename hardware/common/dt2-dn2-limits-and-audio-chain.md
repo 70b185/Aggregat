@@ -40,6 +40,8 @@ Addresses are for these exact OS versions only (rule C1).
 - DN2 has 16 voice slots chosen at note-on, not tied to tracks, so it has no fixed stereo pair. DT2 has 32 voices: even = L, odd = R. `[doc]`
 - digikit's run-time limits (its own, not the firmware's): 8 modules, 4 FX slots, 512 KiB (DT2) / 320 KiB (DN2) DSP area in 64-byte granules, 64 KiB per module file. The firmware would allow about 900 / 450 KiB. Every limit was filled in the emulator and the next module was refused with a clean error. `[emu]` {digikit-f57}
 
+- **digikit's planning budget (2026-11-14):** a selection must fit 85 % of the 666,667-cycle block after the stock baseline, with emulator instruction counts projected to cycles by a high factor: that leaves 194,244 instructions per block on the DT2 and 92,796 on the DN2 (12,140 and 5,799 per voice at 16 voices). These are planning instructions, not the cycles measured free on a unit, so do not compare them with the `[hw]` headroom figures directly. On DN2 1.12 the whole DSP ran 332,039 instructions per block in the emulator with one note playing (stock baseline 334,529); the DT2 stock baseline is about 211,000. `[doc]` / `[emu]` {digikit-budget}
+
 ## 4. SHARC calling convention of the stock code (selcc emits the same)
 - Call: `CALL (linked, delayed)` (Type 25a). Prologue `I7 = MODIFY(I7, -N)`, saves to `DM(I6 - n)`. Return `I12 = DM(I6, M7); JUMP (M14, I12) (DB)` with `RFRAME` in the delay slot.
 - Arguments R4, R8, R12, then the stack (`DM(I6, M6)`). Result in R0 (F0; R0:R1 for 64-bit). Render kernels return nothing and write through pointers.

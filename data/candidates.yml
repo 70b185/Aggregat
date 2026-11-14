@@ -9,18 +9,6 @@ checked: 2026-10-31
 
 projects:
   # ------------------------------------------------------------- Digitakt (mk1)
-  - id: glide-digitakt
-    name: GLIDE (Digitakt)
-    author: ClaidArremer
-    kind: mod
-    devices: [digitakt]
-    repo: https://github.com/ClaidArremer/digitakt-glide
-    status: unverified
-    notes: >
-      The repo has no commits yet (checked 2026-11-14). Repo description only: Digitone-style portamento and legato
-      for the Digitakt mk1 (OS 1.54), set per track on the TRIG page, as an elekloader mod. Found by GitHub search
-      2026-11-14.
-
   # ------------------------------------------------------------- Digitone (mk1)
 
   # ------------------------------------------------------------- Digitakt II / Digitone II
@@ -47,7 +35,7 @@ projects:
     repo: https://github.com/davidecaldarola1-ship-it/Octacloudz
     status: unverified
     notes: >
-      The repo exists but has no commits yet (checked 2026-11-11; check_updates reports it as empty). Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds.
+      The repo exists but has no commits yet (checked 2026-11-14; check_updates reports it as empty). Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds.
       No README yet, so OS, loader, licence and tests are unknown. Found by GitHub search 2026-11-08.
     sources: [GitHub search 2026-11-08]
 

@@ -73,6 +73,7 @@ Titles only; full text in [AGENT-RULES.md](https://github.com/70b185/Aggregat/bl
 - **A62** When you call a stock routine at a site other mods hook, set every register stock's own caller sets, not only the C arguments. [hw]
 - **A63** When a USB interface's host-side setup can go stale on Windows, change `bcdDevice` with the release that needs it. [hw]
 - **A64** When you hand the OS a structure, find out whether it copies it before use; later changes must go to the copy it reads. [hw]
+- **A65** Judge a load budget by the playing load and include the new module's own cost. [hw]
 
 ## 3. Recovery and flashing
 

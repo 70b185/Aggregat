@@ -103,6 +103,11 @@ Each item failed on a unit and passed in the emulator. `[hw]`
 
 - **Screen dump (ems-monomachine-firmware 26B09):** the request `F0 00 20 3C 03 00 64 F7` returns 16 SysEx chunks of 7-bit-packed data, 64 bytes each once decoded: the native LCD bitmap, 128x64, 1 bit, column-major, bottom to top, MSB first. Whether stock 1.32B answers it is not stated. The firmware is now compressed, so boot is slower. `[doc]` {ems-mnm-changelog}
 
+- **MIDI Stop is a pause on the MM (OS 1.32B):** after MIDI Stop (`0xFC`) the step is held and Continue resumes; while paused, LOAD SONG (SysEx `0x6C`) is silently ignored, while load pattern (`0x57`) and set status (`0x71`) still work. One press of the panel's STOP clears it. The factory global has TRANSPORT IN = IGNORE, so SPP, Continue and Start do nothing until it is set to ACCEPT. `[emu]` {mdmm-091}
+- **MM factory data:** the factory kits, patterns and songs are stored packed inside the OS image and unpacked when the OS starts with empty patch RAM: two fresh boots gave identical data, 128 kits, 128 patterns and 24 songs. The stock FACTORY RESET (early startup menu, item 3) also resets the globals and the DigiPRO user waveforms and cannot be undone. `[emu]` / `[doc]` {mdmm-091}
+- **Dump sets:** the MD answers as product id 2 (64 kits, 128 patterns, 32 songs), the MM as product id 3 (128 kits, 128 patterns, 24 songs); a freshly booted emulated MM needs about 9 s after MIDI is ready before it takes dumps, and a real MM accepts dumps only on its SYSEX RECV screen. `[emu]` / `[doc]` {mdmm-091}
+- **Machinedrum 1.63: live recording dead after an SDS sample arrives** (SB24): the RECEIVING SAMPLE screen unlinks the main screen's objects and puts them back without restoring the list head (head cell at RAM `0x28092c`); a restart clears it. `[emu]` {mdmm-091}
+
 ## Open
 - The Monomachine's clocks and DSP budgets on a unit (only the emulator's board model exists).
 - The Machinedrum's hardware wait states per area (only two areas measured).

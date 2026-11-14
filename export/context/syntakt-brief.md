@@ -73,6 +73,7 @@ Titles only; full text in [AGENT-RULES.md](https://github.com/70b185/Aggregat/bl
 - **A62** When you call a stock routine at a site other mods hook, set every register stock's own caller sets, not only the C arguments. [hw]
 - **A63** When a USB interface's host-side setup can go stale on Windows, change `bcdDevice` with the release that needs it. [hw]
 - **A64** When you hand the OS a structure, find out whether it copies it before use; later changes must go to the copy it reads. [hw]
+- **A65** Judge a load budget by the playing load and include the new module's own cost. [hw]
 
 ## 2. Rules that name the Syntakt
 
@@ -93,6 +94,7 @@ Titles only; full text in [AGENT-RULES.md](https://github.com/70b185/Aggregat/bl
 - **I62** A safe-boot trial crashed every boot. Cause: the boot's eMMC accessor table had no write function, so marking the bank TRYING called address 0; the record never changed, so every boot retried the same bank. The unit tests had replaced exactly this piece with doubles. Fix: core 1.7.1 adds the write function, storage fails closed on a table without one, and an end-to-end test through the production loader reproduces the crash. Rules: C8.
 - **I63** A mod's memory window broke the BASE/WDTH filter. Cause: the stock base-width filter reads Q31 poles from a 508-entry table with a zero tail and indexes up to 1023; Synfact's companion window sat in that tail, so BASE+WDTH of 128 or more read code as poles. Fix: core 1.7.2 bounds the index to 508. Rules: A43.
 - **I64** A chorus running from DDR overloaded the Syntakt's MAIN CPU. Cause: all chorus code ran from DDR; about 5.4 KB of code was fetched per block. Fix: 0.2 moved the hot code and kernels into MAIN SRAM (0.2 KB fetched per block). Rules: A34.
+- **I104** A development core put its module binder in boot storage that startup wipes. Cause: to free room in the resident reserve, the module binder had been moved into the storage appended after the MAIN image. Startup clears and reuses that storage once the resident copy is done, so the call from the machine loader jumped into wiped memory. The opcode audit and host tests passed because neither modelled the clearing, and the test fixtures filled the event lists directly instead of calling the binder. Fix: core 1.8.1.1 puts the binder and dispatcher back in resident memory; the builder now refuses startup entries that are not resident, and a new emulator test clears the appended storage and reproduces the exception at the same address as a negative control. 1.8.1.1 boots and plays on the unit. A failed bank may stay marked TRYING, so send it again and check the versions in System Info. Rules: A42,C8.
 - **I46** Syntakt startup-menu recovery tested over DIN. Cause: test. Fix: — Rules: A11,A36.
 
 ## 6. Open conflicts (sources disagree)

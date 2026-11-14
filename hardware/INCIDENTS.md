@@ -603,7 +603,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Seen:** an Undo of the module install while tracks used SYNTIZ ended in the loader's `needs-recovery` state. The unit stayed in recovery, and the loader's own `recover` was refused even after the tracks were set back to STATIC.
 - **Cause:** not traced in the source; the module's README now says to remove it only while no track in the Part uses it.
 - **Fix:** a power cycle brought the unit back.
-- **Status:** open; documented as a usage rule.
+- **Status:** open; documented as a usage rule. A similar case on 2026-11-14: after FLEX tracks played through FM Synth 0.1.2's wrapper in a 16-module set, a rollback was refused as needs-recovery although no track named a module machine; a power cycle was needed again {modwerk-1114}.
 - **Evidence:** `[hw]` {modwerk-syntiz}
 - **Rule:** A54
 - **Fact:** [devices/octatrack.md](devices/octatrack.md#modwerk-and-octabam-findings-2026-11-12)
@@ -829,6 +829,36 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** A62
 - **Fact:** [devices/digitakt.md](devices/digitakt.md)
 
+### I104. A development core put its module binder in boot storage that startup wipes
+- **Unit:** Syntakt, OS 1.41 (Synfact development core "1.8.1", withdrawn; not the released core 1.8.1), 2026-11-12
+- **Seen:** after loading the core and bank and restarting, startup stopped with exception V04 at `0x40347BC2` (return address `0x46006410`).
+- **Cause (read from the code, then reproduced in the emulator):** to free room in the resident reserve, the module binder had been moved into the storage appended after the MAIN image. Startup clears and reuses that storage once the resident copy is done, so the call from the machine loader jumped into wiped memory. The opcode audit and host tests passed because neither modelled the clearing, and the test fixtures filled the event lists directly instead of calling the binder.
+- **Fix:** core 1.8.1.1 puts the binder and dispatcher back in resident memory; the builder now refuses startup entries that are not resident, and a new emulator test clears the appended storage and reproduces the exception at the same address as a negative control. 1.8.1.1 boots and plays on the unit. A failed bank may stay marked TRYING, so send it again and check the versions in System Info.
+- **Status:** fixed.
+- **Evidence:** `[hw]` {synfact-main-opt}
+- **Rule:** A42, C8
+- **Fact:** [devices/syntakt.md](devices/syntakt.md)
+
+### I105. Module picks accepted while stopped stalled the DSP once the unit played
+- **Unit:** Octatrack MKII, OS 1.40C (Modwerk development base, 29 modules, the owner's unit), 2026-11-13
+- **Seen:** Euclid, Mini Verb, LOFI2 and Tape Echo were accepted while the unit was stopped at about 70 % CPU; playing then reached 95-97 %, and after about 12 s the DSP frames stopped (stall record after a 473 Âµs frame interrupt).
+- **Cause (measured on the unit):** the busy-unit guard judged the stopped load, which is 15-25 points below the playing load, and did not count the picked machine's own cost.
+- **Fix:** the guard now adds the machine's price and judges a stopped unit by its last playing load ("WAS BUSY PLAYING").
+- **Status:** fixed.
+- **Evidence:** `[hw]` {modwerk-1114}
+- **Rule:** A65
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I107. An Octatrack left USB during a USB Audio recording on a module trial
+- **Unit:** Octatrack MKII, OS 1.40C (Modwerk development base with Amiga 0.2.0, the owner's unit), 2026-11-13
+- **Seen:** 231 s into a timed RAM trial with a USB Audio recording running, the unit dropped off USB and did not come back; no crash or stall record was written. Amiga 0.1.0 once did the same while recording.
+- **Cause:** unknown (the module, the recording or the development base); six recordings on 2026-11-14 ended normally.
+- **Fix:** none yet.
+- **Status:** open.
+- **Evidence:** `[hw]` {modwerk-1114}
+- **Rule:** C11
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
 ## E. Emulator or toolchain disagreed with the unit
 
 ### I36. The emulator undercounted DSP time by 2x to 12x
@@ -970,6 +1000,16 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` / `[emu]` {modwerk-rytm-analogbd}
 - **Rule:** C10
 - **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)
+
+### I106. A UI pointer the emulator filled stayed 0 on a Digitakt II
+- **Unit:** Digitakt II, OS 1.17 (Modwerk's Track Names, first build, the author's unit), 2026-11-13
+- **Seen:** the module loaded but never recognised the Internal Mixer, so no track names were drawn; in digikit's emulator it worked.
+- **Cause (shown on the unit):** the module found the mixer through the view controller's page-set pointer at `+0x9c`, which was non-zero in the emulator and 0 on the unit.
+- **Fix:** 0.1.3 recognises the mixer from the frame the OS has just drawn; about 2 h on the unit with core 1.0.
+- **Status:** fixed.
+- **Evidence:** `[hw]` {modwerk-dt2-tracknames}
+- **Rule:** C10
+- **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md)
 
 ## R. Recovery and transfer links
 

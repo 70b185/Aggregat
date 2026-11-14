@@ -6,10 +6,10 @@ Data last verified: 2026-11-14. Repo fingerprints: see state/CHANGES.md
 
 | Device | Verified | Unverified candidates | Requests / resources |
 |---|---|---|---|
-| [Digitakt (MKI)](digitakt.md) | 62 | 1 | 3 |
+| [Digitakt (MKI)](digitakt.md) | 63 | 0 | 3 |
 | [Digitakt II](digitakt-2.md) | 44 | 1 | 1 |
 | [Digitone (MKI) / Digitone Keys](digitone.md) | 61 | 0 | 2 |
-| [Digitone II](digitone-2.md) | 33 | 1 | 2 |
+| [Digitone II](digitone-2.md) | 34 | 1 | 2 |
 | [Syntakt](syntakt.md) | 16 | 0 | 1 |
 | [Analog Heat (MKI, MKII, +FX)](analog-heat.md) | 4 | 1 | 1 |
 | [Octatrack (MKI, MKII)](octatrack.md) | 30 | 2 | 0 |

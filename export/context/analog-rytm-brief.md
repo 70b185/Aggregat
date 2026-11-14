@@ -73,6 +73,7 @@ Titles only; full text in [AGENT-RULES.md](https://github.com/70b185/Aggregat/bl
 - **A62** When you call a stock routine at a site other mods hook, set every register stock's own caller sets, not only the C arguments. [hw]
 - **A63** When a USB interface's host-side setup can go stale on Windows, change `bcdDevice` with the release that needs it. [hw]
 - **A64** When you hand the OS a structure, find out whether it copies it before use; later changes must go to the copy it reads. [hw]
+- **A65** Judge a load budget by the playing load and include the new module's own cost. [hw]
 
 ## 2. Rules that name the Analog Rytm (MKI, MKII)
 
@@ -117,7 +118,7 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **analog-emu (rytm-emu)** (emulator, wip, tested: not stated, base OS Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42) https://github.com/trigcondition/analog-emu
 - **sidecar-emu (Sidecar emulator)** (emulator, wip, tested: not stated) https://github.com/Iced-Cream/sidecar-emu
 - **elekloader** (loader, active, tested: unit, base OS Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Rytm MKI 1.74 (experimental: whole builds, no core yet); Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed) https://github.com/elekloader/elekloader
-- **Modwerk (formerly Octamod)** (loader, active, tested: partly, base OS Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing) https://github.com/repeat98/modwerk
+- **Modwerk (formerly Octamod)** (loader, active, tested: partly, base OS Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (preview, downloads off); Digitone II research ongoing) https://github.com/repeat98/modwerk
 - **Analog Rytm MK1 OS 1.74 mods** (mod, wip, tested: partly, base OS Analog Rytm MK1, OS 1.74) https://github.com/hugz202/AE-analog-rytm-mods
 - **analoghealth** (mod, wip, tested: unit, base OS Rytm MKII 1.74, A4 MKII 1.56) https://github.com/Iced-Cream/analoghealth
 - **Chopshop** (mod, active, tested: partly, base OS 1.73 (Rytm), 1.56 (Keys); not 1.74) https://github.com/bandersong/chopshop

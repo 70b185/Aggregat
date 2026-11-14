@@ -1,4 +1,4 @@
-# RAM tenancy: who uses which memory (Digitone II, Digitakt II, Model:Cycles, Octatrack)
+# RAM tenancy: who uses which memory (Digitone II, Digitakt II, Model:Cycles, Octatrack, Analog Rytm, Syntakt)
 
 Task T23 of the [research map](../research/RESEARCH-MAP.md), first full pass 2026-11-11. Every mod platform puts its code and
 data in RAM that stock leaves alone, and each picked its own addresses. This page lists every range we could find, so a
@@ -166,3 +166,13 @@ DSP56300 X-memory words, written `$xxxx` in the projects' notes.
 | start | end | user | use | OS | evidence |
 |---|---|---|---|---|---|
 | `0x47be0000` | `0x47c00000` | elekloader | mods' area reserved by the MKI profile; no core uses it yet (a canary read back unchanged on a unit) | 1.74 | `[hw]` {elekloader-ar1} |
+
+## Syntakt MAIN SRAM (`syntakt`)
+
+Synfact's optional mods share two windows of CPU #1's internal SRAM. The source says exclusive use has not been proven
+on hardware; samplers checks its code there every 60 UI ticks and falls back to DDR on a mismatch.
+
+| start | end | user | use | OS | evidence |
+|---|---|---|---|---|---|
+| `0x800077c0` | `0x80008000` | Synfact | Chorus window; when Chorus is absent and the window is zero, samplers' stereo code takes all 2,112 bytes | 1.41 | `[doc]` {synfact-main-opt} |
+| `0x8000fc20` | `0x8000ff94` | Synfact | Chorus window; without Chorus the samplers' stereo mix kernel uses 790 of its 884 bytes | 1.41 | `[doc]` {synfact-main-opt} |

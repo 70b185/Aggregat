@@ -136,5 +136,8 @@ Digitone II reached Overbridge streaming with OS 1.10 (plugin followed later). `
 SysEx/MIDI facts, the SYXGRID format map (45 mappings, confidence levels) and digitone-syx-toolkit are in [`../common/sysex-and-midi.md`](../common/sysex-and-midi.md). elekloader supports Digitone II 1.12 as experimental (whole builds, linkable mods, SHARC mods, selectable synth/filter mods; UI events and remote input checked on a unit; README 3016dca, 2026-11-08). {elekloader-main}
 OpenBridge (Donmanouche) is a Linux VST3 plugin and standalone app that implements Overbridge for the Digitone II (42 USB audio channels, every sound parameter, mixer, +Drive presets); it needs OS 1.12 or later, because older OS versions do not answer its mixer and FX messages. `[doc]` {openbridge-dn2}
 
+## The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) {dn2mk2-namescreen}
+- The NAME screen is a generic view class, `NameView`, not part of project or preset saving: its constructor takes a title, the starting name, two ints, a flag, another string and a `std::function` that receives the result (name and an int, likely YES/NO). Its RTTI name is at `0x4021f7b4`, its key-hint strings from `0x4021f71a`, and its code around `0x4010e000..0x4010e700`. So a mod could in principle open it with its own name and take the result back; calling it from C needs libstdc++'s old (COW) string and `std::function` layouts. Not tried yet. `[doc]`
+
 ## Gaps
 `docs/flashing.md`, `docs/mainos-image.md`, `docs/parameter-table-growth.md`, dn2mk2 `docs/SAFETY.md`, and the skill's "hardware rules the emulators cannot check" are the next reads (see `../MINING.md`).

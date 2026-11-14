@@ -287,3 +287,4 @@ ignore:
   - DavidDudson/overbridge    # multi-repo workspaces for Claude Code sessions; the name is the only link to Elektron
   - Jackherz/modwerk   # fork of repeat98/modwerk without commits of its own (2026-11-12); the description names the Tonverk
   - irpina/dirtyloader   # an elekloader-style mod patcher for the Dirtywave M8, not an Elektron device (2026-11-14)
+  - Spunkmeyer77/MONO2K-M4L   # a Max for Live port of MONO2K (an M-VAVE FM-1 instrument in the Monomachine style); no Elektron device (2026-11-14)

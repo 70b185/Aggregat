@@ -231,5 +231,11 @@ Clock (1.000 GHz, 666,667 cycles/block), FreeRTOS task map, free reply words, mi
 ## Pre-send render hook proposal (Modwerk, OS 1.17, emulator) {modwerk-dt2-presend}
 - Modwerk's proposal guards the SHARC send-driver entry `0x1c18a6` (short-word PC), displacing one 6-byte instruction and resuming at `0x1c18a9`; the stock caller is at `0x1c3090`. Track buses start at DM `0x252df8`, 256 bytes a track, 32 floats per channel. A sidechain prototype (16 sources x 16 destinations) ran 9,060 SHARC instructions a block in digikit's emulator; with the hook off the PCM was byte-identical to stock. Not on a unit. `[emu]`
 
+## Track Names, the first Modwerk library module (OS 1.17, 2026-11-13/14) {modwerk-dt2-tracknames}
+- **UI pointers the emulator fills can stay 0 on the unit:** the view controller's page-set pointer at `+0x9c` was non-zero in digikit's emulator and 0 on a Digitakt II, so the first build never recognised the mixer on hardware. Find a screen from the frame the OS has just drawn instead (I106). `[hw]`
+- **Track names** from SETUP > RENAME are stored per pattern in the kit, 16 bytes per track at kit + `0x38` + t x `0x450`, and are saved with the project. `[emu]`
+- **Faint lines along a pop-up's top and bottom edges** are the OLED's own row crosstalk: they show with the stock OS too, so they are not a mod bug. `[hw]`
+- **Modwerk's DT2 project archive** (module settings in the last 48 bytes of the serialized kit records) survived a project saved on a modded build and reopened on official OS 1.17 on a user's unit. `[hw]`
+
 ## Gaps
 Memory map beyond the numbers above, DSP memory, machine API, parameter-table layout: not collected yet (see `../MINING.md`).

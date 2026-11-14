@@ -8,6 +8,14 @@
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
   <entry>
+    <title>New in the catalogue: TERRAIN for Digitone II (Mod, Digitone II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=terrain-dn2"/>
+    <id>https://70b185.github.io/Aggregat/#project-terrain-dn2</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Unofficial custom OS for the Digitone II that adds TERRAIN, a wave-terrain synth machine (module "terreno"), plus quality-of-life mods. Built in the browser from the user's own OS 1.12 file: a patch list copies bytes from the user's sections 3 and 7 and inserts the project's …</summary>
+  </entry>
+  <entry>
     <title>New in the catalogue: OT MODS (Hteah) (Mod, Octatrack)</title>
     <link href="https://70b185.github.io/Aggregat/?p=ot-mods-hteah"/>
     <id>https://70b185.github.io/Aggregat/#project-ot-mods-hteah</id>
@@ -30,6 +38,14 @@
     <updated>2026-11-14T00:00:00Z</updated>
     <category term="project"/>
     <summary>Performance repeats from an always-on buffer of the master mix: with MASHUP mode on (FUNC + SAMPLING) the 16 trig keys play the last few seconds back in time while the sequencer runs on underneath. elekloader mod (id mashup-dt). GPL-2.0-or-later. Found by GitHub search …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: GLIDE (Digitakt) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=glide-digitakt"/>
+    <id>https://70b185.github.io/Aggregat/#project-glide-digitakt</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Digitone-style portamento and legato for every audio track of the Digitakt mk1, on the TRIG page's two blank knobs (G PORT, H LEG). Both are trig parameters, kept in the pattern and p-lockable; they reuse the MIDI chord-note fields NOT3 and NOT4, which audio tracks never play, …</summary>
   </entry>
   <entry>
     <title>New in the catalogue: GESTALT (Digitone) (Mod, Digitone)</title>
@@ -443,21 +459,5 @@
     <updated>2026-11-08T00:00:00Z</updated>
     <category term="project"/>
     <summary>Four extra Digitone mk1 voices - RUIN, XTAL, VOID and CREPUS - as separate elekloader mods plus a combined ESOTERIKA file. Found in the elekloader mod shop catalogue 2026-11-08.</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: SEND FX (Digitone mk1) (Mod, Digitone)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=digisendfx"/>
-    <id>https://70b185.github.io/Aggregat/#project-digisendfx</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>More from the Digitone mk1's own send effects and master drive: LUSH, a new bucket-brigade-style chorus in place of the stock one (VIBE, DRIFT, TONE, SAT, FDBK), two LFOs that move any chorus, delay, reverb or drive parameter (free or synced), and SHORT delay times. Written …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: DigiArp MIDI (DA27) (Mod, Digitone)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=digiarp-midi"/>
-    <id>https://70b185.github.io/Aggregat/#project-digiarp-midi</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>MIDI arpeggiator for the Digitone mk1's MIDI tracks A-D, each with its own settings, controlled from the stock ARP page and step editor: tempo sync, recorded MIDI trigs, the stock modes plus UP TWICE, DOWN TWICE and UP/DOWN REPEAT. Known issues and test results are documented. …</summary>
   </entry>
 </feed>

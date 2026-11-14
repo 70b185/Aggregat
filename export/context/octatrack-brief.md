@@ -73,6 +73,7 @@ Titles only; full text in [AGENT-RULES.md](https://github.com/70b185/Aggregat/bl
 - **A62** When you call a stock routine at a site other mods hook, set every register stock's own caller sets, not only the C arguments. [hw]
 - **A63** When a USB interface's host-side setup can go stale on Windows, change `bcdDevice` with the release that needs it. [hw]
 - **A64** When you hand the OS a structure, find out whether it copies it before use; later changes must go to the copy it reads. [hw]
+- **A65** Judge a load budget by the playing load and include the new module's own cost. [hw]
 
 ## 2. Rules that name the Octatrack (MKI, MKII)
 
@@ -127,6 +128,8 @@ Titles only; full text in [AGENT-RULES.md](https://github.com/70b185/Aggregat/bl
 - **I86** An own engine filled the output half that was about to play: late samples on the analog outputs only. Cause: the engine wrote into the half of its output DMA buffer that was about to play. Fix: the engine fills the other half; noise through the loop then arrived with one delay at all 16 positions. Rules: A58.
 - **I95** One byte a mod stored made stock drop a whole Octatrack bank at restart. Cause: VECTOR packed SPAN into a byte's top bits, so SPAN 8-12 stored 0x80 or more; stock's Part check counts that as bad, and at boot the battery restore runs before the base has its modules back, so VECTOR's wrapper around the check did not apply (SB22). Fix: 0.3.2 moves SPAN's top bit to a free bit of the next byte and rewrites old bytes; the bank stayed intact on restart. Rules: A60,E3.
 - **I96** Every effect pick was refused with NO ROOM after a restart. Cause: a restore makes all modules live in one pass and the board binds Sidechain's key-bus slot on a later tick, so Air Chorus's buffer took the block before the key bus was counted and every later pick failed. Fix: the base counts live controllers that no slot holds yet; host-tested only. Rules: G8.
+- **I105** Module picks accepted while stopped stalled the DSP once the unit played. Cause: the busy-unit guard judged the stopped load, which is 15-25 points below the playing load, and did not count the picked machine's own cost. Fix: the guard now adds the machine's price and judges a stopped unit by its last playing load ("WAS BUSY PLAYING"). Rules: A65.
+- **I107** An Octatrack left USB during a USB Audio recording on a module trial. Cause: unknown (the module, the recording or the development base); six recordings on 2026-11-14 ended normally. Fix: none yet. Rules: C11.
 - **I84** Uninitialised shared-window memory crashed DSP core 1 on a cold boot; the emulator starts it at zero. Cause: core 1's slot table in the shared window held random values at power-on; the emulator zeroes that memory. Fix: core 1 clears its table before it starts. Rules: C10.
 - **I76** A loader base update over USB said Done but did not stick. Cause: unknown. Fix: update again and check the base version after the reboot. Rules: A23.
 - **I100** A Windows PC could not open the Octatrack's vendor interface. Cause: Windows writes that value only at an interface's first setup; why it was missing on members' PCs is unknown. Fix: the base reports `bcdDevice` 0x0101, which made Windows write the value again. Rules: A63.
@@ -148,7 +151,7 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **octa-panel** (emulator, active, tested: not stated, base OS 1.40C) https://github.com/timhastie/octa-panel
 - **octemu** (emulator, active, tested: not stated, base OS 1.40C) https://github.com/markandrus/octemu
 - **elekloader** (loader, active, tested: unit, base OS Digitakt mk1 1.53/1.54; Digitone mk1 + Keys 1.43/1.44; Digitakt II 1.17 (experimental); Digitone II 1.12 (experimental); Octatrack MKI/MKII 1.40C; Model:Cycles/Samples 1.13; Analog Rytm MKII 1.74; Analog Rytm MKI 1.74 (experimental: whole builds, no core yet); Analog Four MKII 1.56 (proof of concept). Analog Heat: not listed) https://github.com/elekloader/elekloader
-- **Modwerk (formerly Octamod)** (loader, active, tested: partly, base OS Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (experimental); Digitakt II / Digitone II research ongoing) https://github.com/repeat98/modwerk
+- **Modwerk (formerly Octamod)** (loader, active, tested: partly, base OS Digitakt 1.53/1.54; Digitone 1.43/1.44; Digitakt II 1.17 (preview, downloads off); Digitone II research ongoing) https://github.com/repeat98/modwerk
 - **aCiDtRacK modules** (mod, wip, tested: unit, base OS Octatrack MKI OS 1.40C via octabam) https://github.com/braikomarko-hub/acidtrack-modules
 - **AERIA OS** (mod, beta, tested: unit, base OS Octatrack MKII only; replaces the OS (Elektron's bootloader and Startup Menu stay untouched); the install file is built from the user's own copy of the official OS file, OS 1.40C) https://github.com/femifleming/AERIA-OS
 - **ems-octakit** (mod, active, tested: not-stated, base OS 1.40C) https://github.com/emuyia/ems-octakit

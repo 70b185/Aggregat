@@ -326,9 +326,21 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Status:** open
 - **Evidence:** `[hw]` {elkflash-stall} (I103)
 
+### SB24. Live recording records nothing after a sample arrives by SDS
+- **Device and OS:** Machinedrum, OS 1.63
+- **Area:** sample receive, live recording
+- **Symptom:** after any sample is received over SDS, live recording records no TRIG key and no knob lock until the machine restarts.
+- **Trigger:** one SDS sample transfer, then live recording.
+- **Cause:** the RECEIVING SAMPLE screen takes the main screen's objects out of a linked list and puts them back without restoring the list head (head cell at RAM `0x28092c`; unlink `0x213450`, append `0x2134ac`), found by bisecting RAM in the emulator.
+- **Workaround:** restart the machine after sending samples, before live recording.
+- **Found by:** mdmm (B-133)
+- **Status:** open; seen on the unmodified OS in the emulator, a real unit "very likely" the same but not tried.
+- **Evidence:** `[emu]` {mdmm-091}
+
 ## Looks like a bug, is not
 
 These trip tests but are hardware or design, not defects:
+- **Monomachine 1.32B: MIDI Stop is a pause**, and LOAD SONG is silently ignored until the panel's STOP is pressed ([machinedrum-monomachine.md](devices/machinedrum-monomachine.md)).
 - **Memory is not cleared at power-on:** DSP DDR on the Digitone II can hold a NaN that silences a feedback path
   ([I8](INCIDENTS.md#i8-power-on-ddr-holds-garbage-often-a-nan)); the Rytm's mod regions are not cleared either.
   Initialise everything you read.

@@ -73,6 +73,7 @@ Titles only; full text in [AGENT-RULES.md](https://github.com/70b185/Aggregat/bl
 - **A62** When you call a stock routine at a site other mods hook, set every register stock's own caller sets, not only the C arguments. [hw]
 - **A63** When a USB interface's host-side setup can go stale on Windows, change `bcdDevice` with the release that needs it. [hw]
 - **A64** When you hand the OS a structure, find out whether it copies it before use; later changes must go to the copy it reads. [hw]
+- **A65** Judge a load budget by the playing load and include the new module's own cost. [hw]
 
 ## 2. Rules that name the Digitone II
 
@@ -204,6 +205,7 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **macro-mode (digi_macro)** (mod, wip, tested: partly, base OS Digitakt II OS 1.17 or Digitone II OS 1.12, exactly (the build checks the file's checksum)) https://github.com/toonst/digi_macro
 - **Overtone** (mod, released, tested: unit, base OS Digitone II OS 1.12 only (patcher refuses any other file); NOT compatible with dn2mk2 (OS 1.11)) https://github.com/complex-ping/overtone
 - **RIFT (second Digitone II firmware)** (mod, pre-release, tested: emulator, base OS Digitone II OS 1.11 only (infrastructure from dn2mk2-firmware v0.51); the patcher also needs the user's own Digitakt II OS 1.17 and Machinedrum UW OS 1.63 files) https://github.com/De-Pattern/DN2-Rift
+- **TERRAIN for Digitone II** (mod, wip, tested: not-stated, base OS Digitone II OS 1.12 only (the builder refuses any other file by SHA-256)) https://github.com/ycmdynp9vw-coder/terrain-dn2
 - **x0x (808/909 kick machines)** (mod, wip, tested: not-stated, base OS Digitakt mk1 1.54; Digitone mk1 1.44; Digitone II 1.12 (Digitakt II not supported)) https://github.com/simonjohansson/x0x
 
 ## Fact files for this device

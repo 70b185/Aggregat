@@ -22,7 +22,7 @@ results by hand, with credit to this project. Taking part is voluntary and can s
 
 | | |
 |---|---|
-| Aggregat state | research map reviewed 2026-11-03, snapshot `a1b74d9c7699` |
+| Aggregat state | research map reviewed 2026-11-03, snapshot `02c9d855c11c` |
 | Copied on | <date you copied it> |
 
 ## What we work on
@@ -49,7 +49,7 @@ emulator, `doc` = read in code or documents.
 
 ---
 
-# Copied state: Aggregat research, snapshot `a1b74d9c7699` (research map reviewed 2026-11-03)
+# Copied state: Aggregat research, snapshot `02c9d855c11c` (research map reviewed 2026-11-03)
 
 ## Goals (copied from Aggregat)
 
@@ -139,4 +139,5 @@ emulator, `doc` = read in code or documents.
 | O15 | DN2 stock DSP load at idle |
 | O24 | Digitakt II NRPN numbers (OS 1.17) |
 | O25 | Digitakt II LED colour byte (OS 1.17) |
+| O27 | DT2/DN2 FX slots a module runtime offers |
 | O26 | DN2 FM Tone spare records' MIDI CCs |

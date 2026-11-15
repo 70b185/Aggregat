@@ -2,7 +2,7 @@
 
 # Machinedrum (incl. UW)
 
-Data last verified: 2026-11-14
+Data last verified: 2026-11-15
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 

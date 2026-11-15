@@ -859,6 +859,26 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) �
 - **Rule:** C11
 - **Fact:** [devices/octatrack.md](devices/octatrack.md)
 
+### I108. A demand load during play stalled an Octatrack's DSP until the copy moved to the frame's end
+- **Unit:** Octatrack MKII, OS 1.40C (octabam, 11 test images with FRAME GUARD and a 20-channel USB capture), 2026-11-12..15
+- **Seen:** a program change to a demand effect that was not loaded (SPECTRUM, SIDECHAIN_COMPRESSOR) stopped the audio in about two runs of three; panel and USB still answered, and a power cycle cleared it.
+- **Cause (partly found on the unit):** DSP core B reached P:`$268` in its first track and stopped, and core A waited at P:`$a3` for good. Frame overrun, the copy alone, its destination, the stack and a stale X word were ruled out; the mechanism is unknown (the emulator port runs one core and cannot show it).
+- **Fix:** the loader's copy (DLCOPY) moved from the frame head (P:`0x76`) to the frame end (P:`0x342`); 12 of 12 runs with 251 loads were clean on 2026-11-15.
+- **Status:** fixed for this case; one stall without loader activity (a 564 µs program-change frame, the next entry 205 µs late) and one whole-unit freeze stay open. May explain part of I57.
+- **Evidence:** `[hw]` {octabam-1115}
+- **Rule:** A66, A56
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#findings-2026-11-1415-kyoti-reload-octabam-dlcopy-modwerk)
+
+### I109. A module restarted an Octatrack with an illegal instruction its cache still held
+- **Unit:** Octatrack MKII, OS 1.40C (Modwerk development twin with an earlier build of Amiga 0.3.0 and a base change under test), 2026-11-14
+- **Seen:** about 90 s into a RAM trial the unit restarted; crash record 12 shows an illegal instruction at the first instruction of the module's sample-list function.
+- **Cause (open):** the code was present in the cache but read as zeros through the uncached alias. The same package on a twin without the base change ran clean, so the base change is suspected.
+- **Fix:** none yet; Amiga 0.3.0's later RAM trial rolled back clean.
+- **Status:** open.
+- **Evidence:** `[hw]` {modwerk-1115}
+- **Rule:** C11
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#findings-2026-11-1415-kyoti-reload-octabam-dlcopy-modwerk)
+
 ## E. Emulator or toolchain disagreed with the unit
 
 ### I36. The emulator undercounted DSP time by 2x to 12x

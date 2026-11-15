@@ -90,7 +90,15 @@ Projects: [../../catalog/analog-four-keys.md](../../catalog/analog-four-keys.md)
 - **Every whole save of the live project** ends in `0x400a771a(model, slot, progress)` (file save at `0x400a77e4`); on success it makes the slot active (`0x400a5b74`) and clears the mark. Callers: the save job `0x4003da46` (front-panel saves through `0x4003ecbe`) and the load job `0x4003daf0` (CREATE NEW, then save, for an empty slot; no panel action reaches it on 1.56). `[doc]`
 - **Brain::key (`0x40098b36`) drops the view controller's answer**, so a mod cannot tell whether a view took a key, only that stock had it. LEVEL / DATA is encoder 10, or 11 on an Analog Keys (bit 20 of the boot word `0x401ff54c`). `[doc]`
 
+## elekloader's std1 checks on the MKII (core-a4mk2 0.7, OS 1.56, 2026-11-12/13) {elekloader-1115}
+- **Load:** about 73 % CPU idle with analoghealth and about 74 % while all six tracks play; the heap stayed flat. Any idle-event handler makes analoghealth read 100 %, because the core's idle loop replaces stock's idle spin. `[hw]`
+- **MIDI:** clock out gives 4 sequencer ticks per clock, and the ticks run while stopped too; program changes reach stock (which then selects the pattern) only with PROG CH RECEIVE on; a knob's CC goes out on both ports; a track's notes reach a mod's sequencer-MIDI event only with its SEND MIDI on. Encoder turns under 32 counts make no step. `[hw]`
+- **Voices:** trigs on the six tracks start voices 0-5; a held keyboard note keeps its track's trig from playing. `[hw]` / `[emu]`
+- **Screen:** 128 x 64 pixels; a LED holds 2 bits, a colour index through a LED slot table and palette, so a lit LED can read 0 (key and LED ids are emulator-only). `[hw]` (screen) / `[doc]` (LEDs)
+- **After a fault:** stock's crash printer writes to the front panel's UART; nothing answers USB afterwards, and a power cycle loses RAM. `[doc]`
+- A frame-check build that copied voice 2's analog frame words over voice 1's silenced track 1; 0.3 rebuilds stock's words and writes only when they match. `[?]` (unit or emulator not stated)
+
 ## Open
 - Which analog quantity each calibration table trims (inferred from strings only).
 - TX slots 0-2, 6, 7 and RX 6/7 on the MKII.
-- A4 MKII load figures under its own OS (only the MK1 has been measured).
+- A4 MKII load figures under its own OS: partly answered (about 73-74 % with elekloader's core and analoghealth, 2026-11-12); stock alone not measured.

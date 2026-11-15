@@ -10,7 +10,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "100demons/blast": {
   "full_name": "100demons/blast",
@@ -23,7 +23,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "100demons/cycles-engines": {
   "full_name": "100demons/cycles-engines",
@@ -36,7 +36,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "100demons/cycles-mods": {
   "full_name": "100demons/cycles-mods",
@@ -49,7 +49,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "100demons/feral": {
   "full_name": "100demons/feral",
@@ -62,7 +62,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "100demons/punch": {
   "full_name": "100demons/punch",
@@ -75,7 +75,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "18nelli18/modded-cycles": {
   "full_name": "18nelli18/Modded-Cycles",
@@ -88,7 +88,20 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
+ },
+ "a1o1/trig-seedr": {
+  "full_name": "a1o1/trig-seedr",
+  "created": "2026-11-14",
+  "pushed": "2026-11-14",
+  "stars": 0,
+  "forks": 0,
+  "language": "C",
+  "fork": false,
+  "license": "GPL-2.0",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-15"
  },
  "abarracu87/bsp-machinedrum": {
   "full_name": "ABarracu87/bsp-machinedrum",
@@ -101,7 +114,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "acidreff/machinemodule": {
   "full_name": "AcidReff/MachineModule",
@@ -114,7 +127,7 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "aleks-karachevtsev/digitone-midi-arpeggiator": {
   "full_name": "aleks-karachevtsev/Digitone-MIDI-Arpeggiator",
@@ -127,7 +140,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "alexandrubelc/rebirth2octatrack": {
   "full_name": "alexandrubelc/rebirth2octatrack",
@@ -140,7 +153,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "alez22/digirta": {
   "full_name": "Alez22/digirta",
@@ -153,7 +166,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "alez22/digistring": {
   "full_name": "Alez22/digistring",
@@ -166,7 +179,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "algonormative/analog-rytm-agent-bridge": {
   "full_name": "algonormative/analog-rytm-agent-bridge",
@@ -179,7 +192,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "alina-sul/kitsmith": {
   "full_name": "Alina-sul/kitsmith",
@@ -192,7 +205,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "alisomay/rytm-rs": {
   "full_name": "alisomay/rytm-rs",
@@ -205,7 +218,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "angellinares/dn2_firmware_explore": {
   "full_name": "angellinares/dn2_firmware_explore",
@@ -218,7 +231,7 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "angelo-politek/synthack-os": {
   "full_name": "Angelo-politek/Synthack-OS",
@@ -231,7 +244,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "armio/dn2-dt2-firmware-research": {
   "full_name": "armio/dn2-dt2-firmware-research",
@@ -244,7 +257,7 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "aveycole/spokes": {
   "full_name": "AveyCole/SPOKES",
@@ -257,7 +270,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "aveycole/supermodel": {
   "full_name": "AveyCole/Supermodel",
@@ -270,7 +283,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "bandersong/chopshop": {
   "full_name": "bandersong/chopshop",
@@ -283,7 +296,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "bartbral/mcl-chromatic-a-tool": {
   "full_name": "BartBral/MCL-Chromatic-A-tool",
@@ -296,7 +309,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "bento909/mds-harness": {
   "full_name": "bento909/mds-harness",
@@ -309,7 +322,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "bezronczek/syntakt-firmware-workbench": {
   "full_name": "Bezronczek/syntakt-firmware-workbench",
@@ -322,7 +335,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "bkkbrls-del/midisc": {
   "full_name": "bkkbrls-del/midisc",
@@ -335,7 +348,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "bkkbrls-del/midisc-patcher": {
   "full_name": "bkkbrls-del/midisc-patcher",
@@ -348,7 +361,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "bluesgl/elek_view": {
   "full_name": "BlueSGL/Elek_View",
@@ -361,7 +374,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "braikomarko-hub/acidtrack-modules": {
   "full_name": "braikomarko-hub/acidtrack-modules",
@@ -374,7 +387,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "bryantysinger/octa-bt-pt": {
   "full_name": "bryantysinger/octa-bt-pt",
@@ -387,7 +400,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "bsp2/libanalogrytm": {
   "full_name": "bsp2/libanalogrytm",
@@ -400,7 +413,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "buzzijose-hub/rytmrandomizer": {
   "full_name": "buzzijose-hub/RytmRandomizer",
@@ -413,7 +426,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "bynicoheuser/modded-cycles": {
   "full_name": "byNicoHeuser/Modded-Cycles",
@@ -426,7 +439,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "c0remusic/mmodule": {
   "full_name": "c0remusic/MModule",
@@ -439,7 +452,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "ceredmeat/digitakt-led-colors": {
   "full_name": "ceredmeat/DIGITAKT-LED-COLORS",
@@ -452,7 +465,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "claidarremer/digitakt-digiseq": {
   "full_name": "ClaidArremer/digitakt-digiseq",
@@ -465,7 +478,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "claidarremer/digitakt-digisnake": {
   "full_name": "ClaidArremer/digitakt-digisnake",
@@ -492,7 +505,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "claidarremer/digitakt-gestalt": {
   "full_name": "ClaidArremer/digitakt-gestalt",
@@ -505,7 +518,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "claidarremer/digitakt-glide": {
   "full_name": "ClaidArremer/digitakt-glide",
@@ -518,7 +531,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "claidarremer/digitakt-mashup": {
   "full_name": "ClaidArremer/digitakt-mashup",
@@ -531,7 +544,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "claidarremer/digitakt-pump": {
   "full_name": "ClaidArremer/digitakt-pump",
@@ -544,7 +557,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "claidarremer/digitone-digiseq": {
   "full_name": "ClaidArremer/digitone-digiseq",
@@ -557,7 +570,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "claidarremer/digitone-digisnake": {
   "full_name": "ClaidArremer/digitone-digisnake",
@@ -584,7 +597,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "claidarremer/digitone-gestalt": {
   "full_name": "ClaidArremer/digitone-gestalt",
@@ -597,7 +610,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "claidarremer/digitone-pump": {
   "full_name": "ClaidArremer/digitone-pump",
@@ -610,7 +623,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "claptom-music/elektron-project-companion": {
   "full_name": "Claptom-music/elektron-project-companion",
@@ -623,7 +636,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "complex-ping/digitone-2-modding-skill": {
   "full_name": "complex-ping/digitone-2-modding-skill",
@@ -636,7 +649,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "complex-ping/overtone": {
   "full_name": "complex-ping/overtone",
@@ -649,7 +662,7 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "dagargo/elektroid": {
   "full_name": "dagargo/elektroid",
@@ -662,7 +675,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "dagargo/overwitch": {
   "full_name": "dagargo/overwitch",
@@ -675,7 +688,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "daguilarc/digitakt_reorder": {
   "full_name": "daguilarc/digitakt_reorder",
@@ -688,7 +701,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "davidferlay/octatrack-manager": {
   "full_name": "davidferlay/octatrack-manager",
@@ -701,12 +714,12 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "de-pattern/dn2-rift": {
   "full_name": "De-Pattern/DN2-Rift",
   "created": "2026-11-12",
-  "pushed": "2026-11-14",
+  "pushed": "2026-11-15",
   "stars": 0,
   "forks": 0,
   "language": "Python",
@@ -714,7 +727,7 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "de-pattern/dn2mk2": {
   "full_name": "De-Pattern/dn2mk2",
@@ -727,12 +740,12 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "de-pattern/dn2mk2-firmware": {
   "full_name": "De-Pattern/dn2mk2-firmware",
   "created": "2026-10-28",
-  "pushed": "2026-11-14",
+  "pushed": "2026-11-15",
   "stars": 15,
   "forks": 2,
   "language": "Python",
@@ -740,7 +753,7 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "devilfish707/octaplay": {
   "full_name": "devilfish707/Octaplay",
@@ -753,7 +766,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "digialchemydsp/ctrl-plus": {
   "full_name": "DigiAlchemydsp/CTRL-PLUS",
@@ -766,7 +779,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "digialchemydsp/digialchemy-gamepack-1": {
   "full_name": "DigiAlchemydsp/DigiAlchemy-GamePack-1",
@@ -779,7 +792,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "digialchemydsp/digicandy": {
   "full_name": "DigiAlchemydsp/DigiCandy",
@@ -792,7 +805,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "digialchemydsp/digifilter": {
   "full_name": "DigiAlchemydsp/DigiFilter",
@@ -805,7 +818,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "digialchemydsp/digisplash": {
   "full_name": "DigiAlchemydsp/DigiSplash",
@@ -818,7 +831,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "digialchemydsp/drum-plus": {
   "full_name": "DigiAlchemydsp/DRUM-PLUS",
@@ -831,7 +844,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "digialchemydsp/esoterika": {
   "full_name": "DigiAlchemydsp/ESOTERIKA",
@@ -844,7 +857,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "digialchemydsp/filter-fx": {
   "full_name": "DigiAlchemydsp/Filter-FX",
@@ -857,7 +870,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "digialchemydsp/filter-plus": {
   "full_name": "DigiAlchemydsp/FILTER-PLUS",
@@ -870,7 +883,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "digialchemydsp/flex-plus": {
   "full_name": "DigiAlchemydsp/Flex-Plus",
@@ -883,7 +896,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "digialchemydsp/ringtone": {
   "full_name": "DigiAlchemydsp/RingTone",
@@ -896,7 +909,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "digialchemydsp/tone-fx": {
   "full_name": "DigiAlchemydsp/Tone-FX",
@@ -909,7 +922,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "digitaktplus/trig-pages": {
   "full_name": "digitaktplus/trig-pages",
@@ -922,7 +935,7 @@
   "license": "GPL-2.0",
   "owner_type": "Organization",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "dmdaudio/model909": {
   "full_name": "DMDaudio/model909",
@@ -935,7 +948,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "dmdaudio/plaits-on-models": {
   "full_name": "DMDaudio/plaits-on-models",
@@ -948,7 +961,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "donmanouche/openbridge-digitone-2": {
   "full_name": "Donmanouche/OpenBridge-Digitone-2",
@@ -961,7 +974,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "droelfdroelf/dtdump": {
   "full_name": "droelfdroelf/dtdump",
@@ -974,7 +987,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "drumkilla/elektron-model-tweaks": {
   "full_name": "drumkilla/elektron-model-tweaks",
@@ -987,7 +1000,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "durchgemacht/1-bit-editor": {
   "full_name": "durchgemacht/1-Bit-Editor",
@@ -1028,7 +1041,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "durchgemacht/cycles-one-shot": {
   "full_name": "durchgemacht/cycles-one-shot",
@@ -1055,12 +1068,12 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "eleklabs/digikit": {
   "full_name": "ElekLabs/digikit",
   "created": "2026-09-08",
-  "pushed": "2026-11-14",
+  "pushed": "2026-11-15",
   "stars": 54,
   "forks": 16,
   "language": "Rust",
@@ -1068,7 +1081,7 @@
   "license": "AGPL-3.0",
   "owner_type": "Organization",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "elekloader/digiemu": {
   "full_name": "elekloader/digiemu",
@@ -1081,7 +1094,7 @@
   "license": "GPL-2.0",
   "owner_type": "Organization",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "elekloader/digihealth": {
   "full_name": "elekloader/digihealth",
@@ -1094,12 +1107,12 @@
   "license": "GPL-2.0",
   "owner_type": "Organization",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "elekloader/elekloader": {
   "full_name": "elekloader/elekloader",
   "created": "2026-09-26",
-  "pushed": "2026-11-14",
+  "pushed": "2026-11-15",
   "stars": 128,
   "forks": 23,
   "language": "Python",
@@ -1107,7 +1120,20 @@
   "license": "GPL-2.0",
   "owner_type": "Organization",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
+ },
+ "elekloader/telos": {
+  "full_name": "elekloader/telos",
+  "created": "2026-11-14",
+  "pushed": "2026-11-14",
+  "stars": 1,
+  "forks": 0,
+  "language": "C",
+  "fork": false,
+  "license": "GPL-2.0",
+  "owner_type": "Organization",
+  "archived": false,
+  "seen": "2026-11-15"
  },
  "emnyeca/digitone-syx-toolkit": {
   "full_name": "emnyeca/digitone-syx-toolkit",
@@ -1120,7 +1146,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "emuyia/ems-machinedrum-firmware": {
   "full_name": "emuyia/ems-machinedrum-firmware",
@@ -1133,7 +1159,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "emuyia/ems-monomachine-firmware": {
   "full_name": "emuyia/ems-monomachine-firmware",
@@ -1146,7 +1172,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "emuyia/ems-octakit": {
   "full_name": "emuyia/ems-octakit",
@@ -1159,7 +1185,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": true,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "endlea/digimod": {
   "full_name": "endlea/digimod",
@@ -1172,7 +1198,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "etcetc000/kitbasher": {
   "full_name": "etcetc000/kitbasher",
@@ -1185,7 +1211,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "ethernet8023/rytm-fw-re": {
   "full_name": "ethernet8023/rytm-fw-re",
@@ -1198,7 +1224,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "fadedlimes/digisplash-ii": {
   "full_name": "Fadedlimes/digisplash-ii",
@@ -1211,7 +1237,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "fadedlimes/elektron-screen-tool": {
   "full_name": "Fadedlimes/elektron-screen-tool",
@@ -1224,7 +1250,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "fadedlimes/my-personal-digitakt-ii-reverse-engeneering-knowledge-base": {
   "full_name": "Fadedlimes/My-personal-Digitakt-II-reverse-engeneering-knowledge-base",
@@ -1237,7 +1263,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "feamster/digitakt-midi-mcp": {
   "full_name": "feamster/digitakt-midi-mcp",
@@ -1250,7 +1276,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "femifleming/aeria-os": {
   "full_name": "femifleming/aeria-os",
@@ -1263,7 +1289,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "firestormaudio/coldfire-rs": {
   "full_name": "FirestormAudio/coldfire-rs",
@@ -1276,7 +1302,7 @@
   "license": "Apache-2.0",
   "owner_type": "Organization",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "freeze157-prog/digipools": {
   "full_name": "freeze157-prog/digipools",
@@ -1289,7 +1315,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "gdeo607/digi1_mods": {
   "full_name": "gdeo607/digi1_mods",
@@ -1302,7 +1328,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "gdeo607/digi2core": {
   "full_name": "gdeo607/Digi2Core",
@@ -1315,7 +1341,7 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "gdeo607/digi2digiseq": {
   "full_name": "gdeo607/Digi2Digiseq",
@@ -1328,7 +1354,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "gdeo607/digi2elixirpotionsdrum": {
   "full_name": "gdeo607/Digi2ElixirPotionsDRUM",
@@ -1341,7 +1367,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "gdeo607/digi2macroosc": {
   "full_name": "gdeo607/Digi2MacroOSC",
@@ -1354,7 +1380,7 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "gdeo607/digi2sophie": {
   "full_name": "gdeo607/Digi2Sophie",
@@ -1367,7 +1393,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "gdeo607/digi2string": {
   "full_name": "gdeo607/Digi2String",
@@ -1380,7 +1406,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "gdeo607/rytm1_mods": {
   "full_name": "gdeo607/rytm1_mods",
@@ -1393,7 +1419,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "genosdk/analog-rytm-mkii-research": {
   "full_name": "genosdk/analog-rytm-mkii-research",
@@ -1406,7 +1432,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "gsm1980/synfact-dev": {
   "full_name": "GSM1980/synfact-dev",
@@ -1419,7 +1445,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "heavylight-industries/keyframer-lab": {
   "full_name": "heavylight-industries/keyframer-lab",
@@ -1432,12 +1458,12 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "hejijunhao/whiplash": {
   "full_name": "hejijunhao/whiplash",
   "created": "2026-11-05",
-  "pushed": "2026-11-11",
+  "pushed": "2026-11-15",
   "stars": 0,
   "forks": 0,
   "language": "Python",
@@ -1445,7 +1471,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "hillzeealex/digitakt-mods": {
   "full_name": "hillzeealex/digitakt-mods",
@@ -1458,7 +1484,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "horhik/diginular": {
   "full_name": "Horhik/diginular",
@@ -1471,7 +1497,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "hteah/ot-mods": {
   "full_name": "Hteah/ot-mods",
@@ -1484,7 +1510,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "hugz202/ae-analog-four-mods": {
   "full_name": "hugz202/AE-analog-four-mods",
@@ -1497,7 +1523,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "hugz202/ae-analog-rytm-mods": {
   "full_name": "hugz202/AE-analog-rytm-mods",
@@ -1510,7 +1536,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "humgic/syntakt-machine45-research": {
   "full_name": "Humgic/syntakt-machine45-research",
@@ -1523,7 +1549,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "iced-cream/analoghealth": {
   "full_name": "Iced-Cream/analoghealth",
@@ -1536,7 +1562,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "iced-cream/elkbench": {
   "full_name": "Iced-Cream/elkbench",
@@ -1549,7 +1575,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "iced-cream/elkflash": {
   "full_name": "Iced-Cream/elkflash",
@@ -1562,7 +1588,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "iced-cream/rytm-mods-boot-report": {
   "full_name": "Iced-Cream/rytm-mods-boot-report",
@@ -1575,7 +1601,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "iced-cream/rytm-mods-src": {
   "full_name": "Iced-Cream/rytm-mods-src",
@@ -1588,7 +1614,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "iced-cream/rytm2_mods": {
   "full_name": "Iced-Cream/rytm2_mods",
@@ -1601,7 +1627,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "iced-cream/sidecar-emu": {
   "full_name": "Iced-Cream/sidecar-emu",
@@ -1614,7 +1640,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "imaf6971/vladiktron-spoke": {
   "full_name": "imaf6971/vladiktron-spoke",
@@ -1627,7 +1653,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digiarpmenu": {
   "full_name": "irpina/digiarpmenu",
@@ -1640,7 +1666,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digichoke": {
   "full_name": "irpina/digichoke",
@@ -1653,7 +1679,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digihalo": {
   "full_name": "irpina/digihalo",
@@ -1666,7 +1692,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digihoard": {
   "full_name": "irpina/digihoard",
@@ -1679,7 +1705,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digiloop": {
   "full_name": "irpina/digiloop",
@@ -1692,7 +1718,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digineighbor": {
   "full_name": "irpina/digineighbor",
@@ -1705,7 +1731,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digipcsound": {
   "full_name": "irpina/digipcsound",
@@ -1718,7 +1744,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digiprism": {
   "full_name": "irpina/digiprism",
@@ -1731,7 +1757,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digireel": {
   "full_name": "irpina/digireel",
@@ -1744,7 +1770,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digiscreen": {
   "full_name": "irpina/digiscreen",
@@ -1757,7 +1783,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digisendfx": {
   "full_name": "irpina/digisendfx",
@@ -1770,7 +1796,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digislicer": {
   "full_name": "irpina/digislicer",
@@ -1783,7 +1809,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digisolo": {
   "full_name": "irpina/digisolo",
@@ -1796,7 +1822,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digiswarm": {
   "full_name": "irpina/digiswarm",
@@ -1809,7 +1835,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digitables": {
   "full_name": "irpina/digitables",
@@ -1822,7 +1848,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digitide": {
   "full_name": "irpina/digitide",
@@ -1835,7 +1861,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/digitriad": {
   "full_name": "irpina/digitriad",
@@ -1848,7 +1874,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "irpina/octabam2elemod": {
   "full_name": "irpina/octabam2elemod",
@@ -1861,7 +1887,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "jackherz/model-cycles-plugin": {
   "full_name": "Jackherz/model-cycles-plugin",
@@ -1874,7 +1900,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "jakobbak/screendump": {
   "full_name": "jakobbak/screendump",
@@ -1887,7 +1913,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "jamiew/digitakt-digitone-mcp": {
   "full_name": "jamiew/digitakt-digitone-mcp",
@@ -1900,7 +1926,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "janne808/machinedrum-kit": {
   "full_name": "janne808/machinedrum-kit",
@@ -1913,7 +1939,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "jguzak/digi_battery": {
   "full_name": "JGuzak/digi_battery",
@@ -1926,7 +1952,7 @@
   "license": "CC0-1.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "jhw/ot-tools-io": {
   "full_name": "jhw/ot-tools-io",
@@ -1939,7 +1965,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "jick238/monomachine-lab": {
   "full_name": "Jick238/monomachine-lab",
@@ -1952,7 +1978,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "jmamma/mds": {
   "full_name": "jmamma/MDS",
@@ -1965,7 +1991,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "jmamma/mds-tools": {
   "full_name": "jmamma/mds-tools",
@@ -1978,7 +2004,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "joelanders/gearmulator-md-mm": {
   "full_name": "joelanders/gearmulator-md-mm",
@@ -1991,7 +2017,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "joesciii/eucplus": {
   "full_name": "joesciii/eucplus",
@@ -2004,7 +2030,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "joshklomp/emu-elektron": {
   "full_name": "joshklomp/emu-elektron",
@@ -2017,7 +2043,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "julesyoungberg/sample-shepherd": {
   "full_name": "julesyoungberg/sample-shepherd",
@@ -2030,7 +2056,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "k-x420/moduledrum": {
   "full_name": "K-X420/ModuleDrum",
@@ -2043,20 +2069,20 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "kaidrange/octachainer2": {
   "full_name": "KaiDrange/OctaChainer2",
   "created": "2026-07-06",
   "pushed": "2026-09-25",
-  "stars": 7,
+  "stars": 8,
   "forks": 1,
   "language": "C++",
   "fork": false,
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "karigardarsson/digitakt-ii-research": {
   "full_name": "karigardarsson/digitakt-ii-research",
@@ -2069,7 +2095,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "karigardarsson/synthack-os": {
   "full_name": "karigardarsson/Synthack-OS",
@@ -2082,7 +2108,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "karlalex732-dotcom/vampire-manga-os-for-elektron-digitakt-og-and-digitone-og": {
   "full_name": "karlalex732-dotcom/VAMPIRE-MANGA-OS-for-Elektron-Digitakt-OG-and-Digitone-OG",
@@ -2095,7 +2121,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "kg4zow/model-cycles": {
   "full_name": "kg4zow/model-cycles",
@@ -2108,7 +2134,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "kimasendorf/elektron-analog-four-sound-sysex": {
   "full_name": "kimasendorf/elektron-analog-four-sound-sysex",
@@ -2121,7 +2147,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "lalzart/digitakt-ii-firmware-research-public": {
   "full_name": "lalzart/digitakt-ii-firmware-research-public",
@@ -2134,7 +2160,7 @@
   "license": "CC0-1.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "lalzart/dt2-machine-lab": {
   "full_name": "lalzart/dt2-machine-lab",
@@ -2147,7 +2173,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "legsmechanical/schwung-monomodule": {
   "full_name": "legsmechanical/schwung-monomodule",
@@ -2160,7 +2186,7 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "lucioic/mezclando": {
   "full_name": "Lucioic/mezclando",
@@ -2173,7 +2199,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "lucykowal/digigrain": {
   "full_name": "lucykowal/digigrain",
@@ -2186,7 +2212,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "luizvarela/elektron-sample-prep": {
   "full_name": "luizvarela/elektron-sample-prep",
@@ -2199,7 +2225,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "malthelm/model-samples-battery-base": {
   "full_name": "malthelm/model-samples-battery-base",
@@ -2212,7 +2238,7 @@
   "license": "CERN-OHL-P-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "markandrus/octemu": {
   "full_name": "markandrus/octemu",
@@ -2225,7 +2251,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "mbaumannn/mutiny": {
   "full_name": "mbaumannn/mutiny",
@@ -2238,7 +2264,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "mbreilly/modded_cycles_techno_edition": {
   "full_name": "mbreilly/Modded_cycles_techno_edition",
@@ -2251,7 +2277,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "mischa85/elektron-firmware-tool": {
   "full_name": "mischa85/elektron-firmware-tool",
@@ -2264,7 +2290,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "mk3stn3r/digitakteditor": {
   "full_name": "mk3stn3r/digitaktEditor",
@@ -2277,7 +2303,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "mmockett/op-xy-mnmd": {
   "full_name": "mmockett/OP-XY-MNMD",
@@ -2290,7 +2316,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "moncalamari/dbx-dr": {
   "full_name": "MonCalamari/DBX-DR",
@@ -2303,7 +2329,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "moncalamari/dbx-k2": {
   "full_name": "MonCalamari/DBX-K2",
@@ -2316,7 +2342,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "mtalikka/dt-fm": {
   "full_name": "mtalikka/DT-FM",
@@ -2329,7 +2355,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "murdenihcam/murdenihcam-usr-machines": {
   "full_name": "murdenihcam/murdenihcam-usr-machines",
@@ -2342,7 +2368,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "mxldyn/octamax": {
   "full_name": "mxldyn/octamax",
@@ -2355,7 +2381,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "mzero/elk-herd": {
   "full_name": "mzero/elk-herd",
@@ -2368,7 +2394,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "naturarum/dn2-cfw": {
   "full_name": "naturarum/dn2-cfw",
@@ -2381,7 +2407,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "nerazin/mono-chorus-clap": {
   "full_name": "nerazin/mono-chorus-clap",
@@ -2394,7 +2420,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "neutronrabbit/digicmi": {
   "full_name": "neutronrabbit/digicmi",
@@ -2407,12 +2433,12 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "noiseandmatter/dnx": {
   "full_name": "NoiseAndMatter/DNX",
   "created": "2026-09-07",
-  "pushed": "2026-11-11",
+  "pushed": "2026-11-14",
   "stars": 16,
   "forks": 3,
   "language": "TypeScript",
@@ -2420,7 +2446,7 @@
   "license": "AGPL-3.0",
   "owner_type": "Organization",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "nordseele/octadraw": {
   "full_name": "nordseele/octadraw",
@@ -2433,7 +2459,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "nordseele/otype": {
   "full_name": "nordseele/otype",
@@ -2446,7 +2472,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "nzimas/digirust": {
   "full_name": "nzimas/digirust",
@@ -2459,7 +2485,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "nzimas/motorcycles": {
   "full_name": "nzimas/motorcycles",
@@ -2472,7 +2498,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "octplane/digitakt-ii-splash-screens": {
   "full_name": "octplane/digitakt-ii-splash-screens",
@@ -2485,7 +2511,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "pgstath/trackpatterns": {
   "full_name": "pgstath/TrackPatterns",
@@ -2498,7 +2524,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "plentyofnames/plock": {
   "full_name": "plentyofnames/plock",
@@ -2511,7 +2537,7 @@
   "license": null,
   "owner_type": "Organization",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "radekdymacz/mdmm": {
   "full_name": "radekdymacz/mdmm",
@@ -2524,7 +2550,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "radiohagen/octatrack-modules": {
   "full_name": "radiohagen/octatrack-modules",
@@ -2537,7 +2563,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "repeat98/modwerk": {
   "full_name": "repeat98/modwerk",
@@ -2550,7 +2576,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "robertfrombadlistener/cyclesbridge": {
   "full_name": "robertfrombadlistener/CyclesBridge",
@@ -2563,7 +2589,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "roblg/ghidra-dsp56300": {
   "full_name": "roblg/ghidra-dsp56300",
@@ -2576,7 +2602,7 @@
   "license": "Apache-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "rumorismo/elektron-mods": {
   "full_name": "rumorismo/Elektron-Mods",
@@ -2589,7 +2615,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "rxuting/sy-fm4": {
   "full_name": "Rxuting/sy-fm4",
@@ -2602,7 +2628,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "sambanks/midisc": {
   "full_name": "sambanks/midisc",
@@ -2615,20 +2641,20 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "sambanks/octabam": {
   "full_name": "sambanks/octabam",
   "created": "2026-08-07",
-  "pushed": "2026-11-14",
-  "stars": 308,
+  "pushed": "2026-11-15",
+  "stars": 311,
   "forks": 56,
   "language": "Python",
   "fork": false,
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "samplesandsnacks/machinedrum-rasp": {
   "full_name": "SamplesAndSnacks/machinedrum-rasp",
@@ -2641,7 +2667,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "sata1000000/c7": {
   "full_name": "sata1000000/C7",
@@ -2654,7 +2680,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "scotblock/digitone-arp-mod": {
   "full_name": "scotblock/digitone-arp-mod",
@@ -2667,7 +2693,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "scottmetoyer/ms-multi-output": {
   "full_name": "scottmetoyer/ms-multi-output",
@@ -2680,7 +2706,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "sd88me/mpc-vst-machinedrum": {
   "full_name": "sd88me/mpc-vst-machinedrum",
@@ -2693,7 +2719,7 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "shnolk/monomodule": {
   "full_name": "shnolk/monomodule",
@@ -2706,7 +2732,7 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "sid366/maschine-md-mm-combined": {
   "full_name": "sid366/maschine-md-mm-combined",
@@ -2719,7 +2745,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "simonjohansson/digitone-2-mod-hack": {
   "full_name": "simonjohansson/digitone-2-mod-hack",
@@ -2732,7 +2758,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "simonjohansson/elektrob-1": {
   "full_name": "simonjohansson/elektrob-1",
@@ -2745,7 +2771,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "simonjohansson/modeldigi": {
   "full_name": "simonjohansson/ModelDigi",
@@ -2758,7 +2784,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "simonjohansson/x0x": {
   "full_name": "simonjohansson/x0x",
@@ -2771,7 +2797,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "sinedied/sympakt": {
   "full_name": "sinedied/sympakt",
@@ -2784,12 +2810,12 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "slingdinger/octatrack-step-view": {
   "full_name": "Slingdinger/octatrack-step-view",
   "created": "2026-11-07",
-  "pushed": "2026-11-14",
+  "pushed": "2026-11-15",
   "stars": 0,
   "forks": 0,
   "language": "Assembly",
@@ -2797,7 +2823,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "smoothdeveloper/fsdsp56k": {
   "full_name": "smoothdeveloper/fsdsp56k",
@@ -2810,7 +2836,7 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "snugsound/octalib": {
   "full_name": "snugsound/OctaLib",
@@ -2823,7 +2849,7 @@
   "license": "Unlicense",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "soejrd/digisophie": {
   "full_name": "soejrd/digisophie",
@@ -2836,7 +2862,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "soejrd/digitakt-sidecar": {
   "full_name": "soejrd/digitakt-sidecar",
@@ -2849,7 +2875,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "soejrd/mdkit": {
   "full_name": "soejrd/mdkit",
@@ -2862,7 +2888,7 @@
   "license": "CC0-1.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "stampman3000-jpg/mpc-tributary": {
   "full_name": "stampman3000-jpg/mpc-tributary",
@@ -2875,7 +2901,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "stampman3000-jpg/rytm-builder": {
   "full_name": "stampman3000-jpg/rytm-builder",
@@ -2888,7 +2914,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "sumedho/digirequests": {
   "full_name": "sumedho/digirequests",
@@ -2901,7 +2927,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "talachan12/elektron-model-machinedrum": {
   "full_name": "Talachan12/Elektron-Model-Machinedrum",
@@ -2914,7 +2940,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "tekomelu/digi-expression": {
   "full_name": "tekomelu/Digi-Expression",
@@ -2927,7 +2953,7 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "theremoteviewer/octa-passos": {
   "full_name": "theremoteviewer/octa-passos",
@@ -2940,7 +2966,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "timhastie/octa-panel": {
   "full_name": "timhastie/octa-panel",
@@ -2953,7 +2979,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "timhastie/octatrick": {
   "full_name": "timhastie/octatrick",
@@ -2966,7 +2992,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "tinygregaudio/model-tg": {
   "full_name": "TinyGregAudio/Model-TG",
@@ -2979,7 +3005,7 @@
   "license": "NOASSERTION",
   "owner_type": "Organization",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "tkawamu0622-cmd/model-cycles-web-editor": {
   "full_name": "tkawamu0622-cmd/model-cycles-web-editor",
@@ -2992,7 +3018,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "tonyrewin/reslicer-digitakt": {
   "full_name": "tonyrewin/reslicer-digitakt",
@@ -3005,7 +3031,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "toonst/digi_macro": {
   "full_name": "toonst/digi_macro",
@@ -3018,7 +3044,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "toonst/digitakt2-perform": {
   "full_name": "toonst/digitakt2-perform",
@@ -3031,7 +3057,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "trigcondition/analog-emu": {
   "full_name": "trigcondition/analog-emu",
@@ -3044,7 +3070,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "trigcondition/sidecar-digitakt": {
   "full_name": "trigcondition/sidecar-digitakt",
@@ -3057,7 +3083,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "trigcondition/sidecar-expander": {
   "full_name": "trigcondition/sidecar-expander",
@@ -3070,7 +3096,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "trigcondition/sidecar-mods": {
   "full_name": "trigcondition/sidecar-mods",
@@ -3083,7 +3109,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "triode-the-andrewsarchus/takt1ccname": {
   "full_name": "triode-the-andrewsarchus/takt1ccname",
@@ -3096,7 +3122,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "vuulgaris/syncrackd": {
   "full_name": "Vuulgaris/syncrackd",
@@ -3109,7 +3135,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "waftlord/mddt": {
   "full_name": "waftlord/mddt",
@@ -3122,7 +3148,7 @@
   "license": "Apache-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "water-feature/taktone": {
   "full_name": "water-feature/taktone",
@@ -3135,7 +3161,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "x2k77m1/digisophie-dn": {
   "full_name": "x2k77m1/digisophie-dn",
@@ -3148,7 +3174,7 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "x2k77m1/lfox": {
   "full_name": "x2k77m1/lfox",
@@ -3161,7 +3187,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "x2k77m1/phreakoid": {
   "full_name": "x2k77m1/phreakoid",
@@ -3174,7 +3200,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "x2k77m1/sampletone": {
   "full_name": "x2k77m1/sampletone",
@@ -3187,7 +3213,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "x2k77m1/sayit": {
   "full_name": "x2k77m1/sayit",
@@ -3200,7 +3226,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "x2k77m1/vawt": {
   "full_name": "x2k77m1/VAWT",
@@ -3213,7 +3239,7 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "xerydian/elektron-emu": {
   "full_name": "xerydian/elektron-emu",
@@ -3226,7 +3252,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "xrcstrecords/syxgrid-digitone-ii": {
   "full_name": "xrcstrecords/syxgrid-digitone-ii",
@@ -3239,7 +3265,7 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "ycmdynp9vw-coder/terrain-dn2": {
   "full_name": "ycmdynp9vw-coder/terrain-dn2",
@@ -3252,12 +3278,12 @@
   "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "zac-kyoti/octatrack-kyoti-fw": {
   "full_name": "Zac-Kyoti/octatrack-kyoti-fw",
   "created": "2026-09-01",
-  "pushed": "2026-11-14",
+  "pushed": "2026-11-15",
   "stars": 18,
   "forks": 3,
   "language": "Python",
@@ -3265,7 +3291,7 @@
   "license": "NOASSERTION",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "zhelnov/dt_song_mgmt": {
   "full_name": "zhelnov/dt_song_mgmt",
@@ -3278,7 +3304,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "zooloo303/digi-roll": {
   "full_name": "zooloo303/digi-roll",
@@ -3291,7 +3317,7 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  },
  "zooloo303/digi-roll-studio": {
   "full_name": "zooloo303/digi-roll-studio",
@@ -3304,6 +3330,6 @@
   "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-14"
+  "seen": "2026-11-15"
  }
 }

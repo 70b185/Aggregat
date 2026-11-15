@@ -4,7 +4,7 @@
 
 Pairs of facts from different files under `hardware/` that overlap strongly in wording or cite the same addresses. Each is a candidate for keeping the fact in one file and linking to it from the other. Some pairs are intentional (a summary file pointing at a device file); some are two independent sources agreeing, which is worth keeping as a second confirmation. Pairs where one fact links to the other file count as consolidated and are left out. Score = shared content words / words of the shorter fact.
 
-58 candidate pairs at score >= 0.45 or with two shared addresses.
+59 candidate pairs at score >= 0.45 or with two shared addresses.
 
 | Score | Fact A | Fact B | Shared addresses |
 |---|---|---|---|
@@ -15,6 +15,7 @@ Pairs of facts from different files under `hardware/` that overlap strongly in w
 | 0.60 | `devices/digitakt-2-dsp-optimizing.md:28` The last 11 instructions of every DO loop are 48-bit, and the loop end is an instruction ([rule A45](AGENT-RULES.md)). The other code can be compressed. … | `devices/digitakt-2.md:48` A second SHARC stop on a real DT2: `fx/freqshift` on the send route froze the unit at boot; the emulator showed nothing (findings 77, 91). Two causes were … | - |
 | 0.60 | `devices/digitone-2-internals.md:157` A vendor bulk interface fits beside USB MIDI. In USB MIDI mode the port uses EP0 and EP1 only, so a patched configuration descriptor can add an interface with … | `common/overbridge-usb.md:8` In USB AUDIO/MIDI mode on the DT2/DN2 EP2 OUT is unused; digikit adds a bulk OUT interface there at boot. `[hw]` {digikit-f123-bulk} | - |
 | 0.58 | `devices/digitone-2-internals.md:102` DSP effect entry points (SHARC, 1.12): chorus `0xb84d5c`, delay `0xb8482c`, reverb `0xb836bc`, compressor `0xb8541d`; FX bus `0x1c1738`; render `0x1c2712`; … | `common/toolchain-and-emulators.md:28` `tools/sharcvm` (dn2-cfw) interprets the stock DSP handler to render chorus/delay/reverb/master compressor offline. `[doc]` {dn2-cfw} | - |
+| 0.57 | `devices/digitakt-2.md:242` digikit's Shot sample machine costs about 5,057 (DT2) / 5,266 (DN2) instructions per 32-frame block; 16 voices use 91 % of the DN2 headroom. `[emu]` | `common/dt2-dn2-limits-and-audio-chain.md:43` digikit's planning budget (2026-11-14): a selection must fit 85 % of the 666,667-cycle block after the stock baseline, with emulator instruction counts … | - |
 | 0.57 | `devices/digitone-2-os111-firmware-map.md:57` LOOP-ISA: last 11 instructions of a hardware loop (all of a short loop) must be legacy 48-bit ISA - stock 1.11 obeys it in all 286 loops ([rule … | `common/agent-workflow.md:22` Do not call a root cause certain until the hardware agrees. | - |
 | 0.57 | `devices/digitone-2.md:108` The ~80% recovery-path stall once reported for dn2_firmware_explore's own images was the MIDI link: stock 1.10E stalled on the same route. Details: … | `common/firmware-container.md:37` `MAIN OS` loads at `0x40000400` on both DN1 and DN2 (as stated by dn2_firmware_explore). `[doc]` {dn2-firmware-explore} | - |
 | 0.57 | `common/firmware-container.md:37` `MAIN OS` loads at `0x40000400` on both DN1 and DN2 (as stated by dn2_firmware_explore). `[doc]` {dn2-firmware-explore} | `common/recovery.md:24` Settled (2026-09-11): the ~80% stall that dn2_firmware_explore reported for its own images in the recovery path was the MIDI link, not the image. Stock 1.10E … | - |

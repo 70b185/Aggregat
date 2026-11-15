@@ -141,7 +141,7 @@ The area where Model:Cycles mods place added machines; the Syntakt engine ports 
 
 | start | end | user | use | OS | evidence |
 |---|---|---|---|---|---|
-| `0x43000000` | `0x43003eb0` | model27 | SOLID machine when it is the only added machine (13,216 B code + 2,832 B variables; end is our sum) | 1.13 | `[doc]` {model27-solid} |
+| `0x43000000` | `0x43003eb0` | model27 | SOLID machine when it is the only added machine (13,216 B code + 2,832 B variables; end is our sum; release 0.64 grows SOLID's image part to 20,512 B, so the end moves) | 1.13 | `[doc]` {model27-solid} {model27-perform} |
 | `0x43009680` | ? | model27 | SOLID as machine 7, beside SAMPLE | 1.13 | `[doc]` {model27-solid} |
 
 ## Octatrack DSP X memory (`octatrack`)
@@ -152,6 +152,10 @@ DSP56300 X-memory words, written `$xxxx` in the projects' notes.
 |---|---|---|---|---|---|
 | `0x2840` | `0x2841` | octabam / Modwerk | core-1 load counter | 1.40C | `[doc]` {modwerk-analogbd} |
 | `0x2841` | `0x3201` | Modwerk (Analog BD 0.1.7) | 909 tables and voices | 1.40C | `[doc]` {modwerk-analogbd} |
+| `0x2900` | `0x3d55` | octabam (DLCOPY) | demand-loader staging; doorbell word at `0x2900` = `0xa55a` (overlaps Analog BD's range above in a different build) | 1.40C | `[doc]` {octabam-1115} |
+| `0x3dc0` | `0x3e3f` | octabam (DLCOPY) | guard state words and base cells | 1.40C | `[doc]` {octabam-1115} |
+| `0x3f00` | `0x3f4f` | octabam (DLCOPY) | stub tables | 1.40C | `[doc]` {octabam-1115} |
+| `0x3fd0` | `0x3fea` | octabam (DLCOPY) | reverb trampoline words, guard scratch, the copier's saved b | 1.40C | `[doc]` {octabam-1115} |
 
 ## Octatrack battery RAM (`octatrack`)
 

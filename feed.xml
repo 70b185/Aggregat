@@ -4,9 +4,25 @@
   <link href="https://70b185.github.io/Aggregat/"/>
   <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
   <id>https://70b185.github.io/Aggregat/</id>
-  <updated>2026-11-14T00:00:00Z</updated>
+  <updated>2026-11-15T00:00:00Z</updated>
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>New in the catalogue: trig-seedr (Mod, Analog Rytm)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=trig-seedr"/>
+    <id>https://70b185.github.io/Aggregat/#project-trig-seedr</id>
+    <updated>2026-11-15T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Offline pattern algorithms as an elekloader mod, opened as a third TRIG page after EUCLIDEAN: generate rhythms, notes, accents, trig conditions, retrigs and sample locks for a track, audition takes with undo, apply groove timing and velocity, and rotate a track or the whole …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: telos (elekloader OS) (Loader, Digitone, Octatrack)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=telos"/>
+    <id>https://70b185.github.io/Aggregat/#project-telos</id>
+    <updated>2026-11-15T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>An elekloader build that is flashed once and then links more mods at every boot from a store on the unit, so new mods need no new firmware: .elemod files go over USB (SysEx with the non-commercial id 0x7D, each file read back and checked by CRC-32), and a MODS (TELOS) page at …</summary>
+  </entry>
   <entry>
     <title>New in the catalogue: TERRAIN for Digitone II (Mod, Digitone II)</title>
     <link href="https://70b185.github.io/Aggregat/?p=terrain-dn2"/>
@@ -442,21 +458,5 @@
     <updated>2026-11-08T00:00:00Z</updated>
     <category term="project"/>
     <summary>Seven filter-based effect modes per track: VOWEL, BANK, FOLD, CRUSH, RING, PHASER and FLANGER. Found in the elekloader mod shop catalogue 2026-11-08.</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: FERAL (nine noisy models) (Mod, Model:Cycles)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=feral"/>
-    <id>https://70b185.github.io/Aggregat/#project-feral</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>One added machine with nine noisy, unpredictable synthesis models, light on the processor; COLOR and SWEEP as macros. Source package for the Cycles Engines flasher. Found by GitHub search 2026-11-07.</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: EUC+ (melodies for the Euclidean sequencer) (Mod, Digitakt II)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=eucplus"/>
-    <id>https://70b185.github.io/Aggregat/#project-eucplus</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>Adds Torso T-1-style generated melodies to the stock Euclidean sequencer: each Euclid hit gets a note from a pool of scale degrees in the pattern's KB SCALE and ROOT NOTE, moved by a phrase shape and a seeded, lockable random sequence. Own NOTES and RANDOM pages opened from the …</summary>
   </entry>
 </feed>

@@ -1,6 +1,6 @@
 # Aggregat
 
-> Index and agent knowledge base for community firmware, mods and tools on Elektron devices: 275 projects, 1320 hardware facts with evidence tags, 118 rules for agents, 107 incidents on real units and 24 bugs in Elektron's own OS. Metadata only, no firmware. CC0.
+> Index and agent knowledge base for community firmware, mods and tools on Elektron devices: 277 projects, 1352 hardware facts with evidence tags, 119 rules for agents, 109 incidents on real units and 24 bugs in Elektron's own OS. Metadata only, no firmware. CC0.
 
 Everything is second-hand; re-check addresses against the cited source. Evidence: [hw] real unit, [emu] emulator only, [doc] stated without a test, [?] inferred. Safety rules A1-A49 apply to every flash.
 

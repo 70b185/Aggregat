@@ -237,5 +237,9 @@ Clock (1.000 GHz, 666,667 cycles/block), FreeRTOS task map, free reply words, mi
 - **Faint lines along a pop-up's top and bottom edges** are the OLED's own row crosstalk: they show with the stock OS too, so they are not a mod bug. `[hw]`
 - **Modwerk's DT2 project archive** (module settings in the last 48 bytes of the serialized kit records) survived a project saved on a modded build and reopened on official OS 1.17 on a user's unit. `[hw]`
 
+## USB MIDI callbacks and Shot's cost (digikit handover, 2026-11-15) {digikit-1115}
+- The function at `0x4000434a` stores two USB MIDI callbacks into .bss slots: `0x409659d0` / `0x409659d4` on the Digitakt II (1.17), `0x4058f218` / `0x4058f21c` on the Digitone II 1.12. USB MIDI that arrives before they are set leaves the link dead while the CPU runs (an emulator-only failure in digikit's tests). `[doc]`
+- digikit's Shot sample machine costs about 5,057 (DT2) / 5,266 (DN2) instructions per 32-frame block; 16 voices use 91 % of the DN2 headroom. `[emu]`
+
 ## Gaps
 Memory map beyond the numbers above, DSP memory, machine API, parameter-table layout: not collected yet (see `../MINING.md`).

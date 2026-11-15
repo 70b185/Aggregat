@@ -93,6 +93,9 @@ Listings: {alt-digitone}. Layout used by the effect mods: code and state share t
 - **Tone+FX** packages: core-dn1-2.0a, digimeter-1.1, digieq-1.0, digiring-1.0, digifold-1.0, digifilter-1.0 (per-voice BP/BP2/COMB/TRASH on up to 4 voices), digictl-1.3; master order ring -> EQ -> fold; DSP shared with the FM voices, "dropouts" possible with several COMB/TRASH voices; verify downloads with `SHA256SUMS`; emulator-tested only. `[emu]` {tonefx-readme}
 - Memory facts for planning: the Digitone mk1 OS clears `0x4028E000-0x43229E60`; mod RAM area `0x43EC0000-0x44000000` (1.25 MB, core 4.0); see [`../common/memory-maps.md`](../common/memory-maps.md).
 
+## telos store on the +Drive (elekloader telos 0.2, OS 1.43/1.44) {telos-readme}
+- telos keeps flashed-once mods in 2 MB of raw +Drive sectors from sector `0x380000`. Per its README every stock card access is below sector `0x180000`, FORMAT +DRIVE erases only below that, and the smallest eMMC part the firmware accepts ends at `0x3A4000`; the area is no project slot and never shows in Transfer. The directory is kept twice with a sequence number and CRC-32, so a cut write leaves the older copy. Mods link at core-dn1's card-ready event, before the project and the UI task exist. Ran on a Digitone mk1 with OS 1.44. `[hw]` (run) / `[doc]` (sector claims)
+
 ## Notes
 - digihealth 1.1 brings SYSTEM INFO only; FAST AUDIO is not ported to Digitone. {digihealth}
 - DigiSplash and DigiCandy support Digitone mk1 + Keys at OS 1.43. {digisplash} {digicandy}

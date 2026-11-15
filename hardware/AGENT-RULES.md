@@ -178,6 +178,8 @@ Wrap nested loops in `.NOCOMPRESS`, and check the rule on the disassembly (A41),
 
 **A65. Judge a load budget by the playing load and include the new module's own cost.** A stopped unit reads far below a playing one (Octatrack MKII stock: about 45 % stopped, 60-75 % playing), so a check made while stopped lets through picks that overload the unit at PLAY. Use the last playing load and add the price of what is being added. `[hw]` {modwerk-1114} Incident: [I105](INCIDENTS.md#i105-module-picks-accepted-while-stopped-stalled-the-dsp-once-the-unit-played).
 
+**A66. On a DSP that waits on a second core, put long work at the end of the frame, not at its head.** On the Octatrack MKII core B has no idle: its frame head is a word-by-word handshake with core A. octabam's demand-load copy at the frame head stalled the DSP in about two runs of three during play; the same copy at the frame end ran clean 12 of 12 times. `[hw]` {octabam-1115} Incident: [I108](INCIDENTS.md#i108-a-demand-load-during-play-stalled-an-octatracks-dsp-until-the-copy-moved-to-the-frames-end).
+
 ## B. Legal / distribution
 
 **B1. Never include, commit or publish Elektron firmware** (original or modified), dumps or decompressed code.

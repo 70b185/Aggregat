@@ -24,6 +24,13 @@
     <summary>An elekloader build that is flashed once and then links more mods at every boot from a store on the unit, so new mods need no new firmware: .elemod files go over USB (SysEx with the non-commercial id 0x7D, each file read back and checked by CRC-32), and a MODS (TELOS) page at …</summary>
   </entry>
   <entry>
+    <title>Update 2026-11-15: 14 change reports folded, telos and trig-seedr added, I108-I109, A66, O27</title>
+    <link href="https://github.com/70b185/Aggregat/commit/b7eac8a58ee6c99212166a5a4c0e507d2d212cbb"/>
+    <id>https://70b185.github.io/Aggregat/#commit-b7eac8a58ee6</id>
+    <updated>2026-11-15T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>New in the catalogue: TERRAIN for Digitone II (Mod, Digitone II)</title>
     <link href="https://70b185.github.io/Aggregat/?p=terrain-dn2"/>
     <id>https://70b185.github.io/Aggregat/#project-terrain-dn2</id>
@@ -450,13 +457,5 @@
     <updated>2026-11-08T00:00:00Z</updated>
     <category term="project"/>
     <summary>Routes the audio inputs or internal tracks into a track, with a low-CPU pitch shifter and an oscilloscope on the machine page. Found by GitHub search 2026-11-07. 1.1: internal tracks are now tapped after the source track's filter and AMP (a track picking itself is silent), …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: Filter-FX (seven filter effects) (Mod, Digitakt, Digitone)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=filter-fx"/>
-    <id>https://70b185.github.io/Aggregat/#project-filter-fx</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>Seven filter-based effect modes per track: VOWEL, BANK, FOLD, CRUSH, RING, PHASER and FLANGER. Found in the elekloader mod shop catalogue 2026-11-08.</summary>
   </entry>
 </feed>

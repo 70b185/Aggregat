@@ -1,6 +1,15 @@
-# Change report 2026-11-15 06:34 UTC
+# Change report 2026-11-15 12:46 UTC
 
-changed 0 | code-only 2 | new 0 | errors 1 | unchanged 256 | back online 0
+changed 9 | code-only 2 | new 0 | errors 1 | unchanged 247 | back online 0
 
+- **digicmi** (project) https://github.com/neutronrabbit/digicmi: tags +v0.40,v0.41 ~CHANGELOG.md ~CLAUDE.md ~mods/digicmi/mod.json
+- **digikit** (project) https://github.com/ElekLabs/digikit: +docs/findings/130-sharc-interrupt-save-set.md +sdk/dsp/REGISTERS.md ~.agents/skills/digikit-module/references/dsp-recipes.md ~devices/digitakt-ii.toml ~devices/digitone-ii.toml ~docs/DEVELOPMENT.md ~docs/FINDINGS.md ~docs/INSTRUMENTATION.md ~docs/LAYOUT.md ~docs/MODULE-AUTHORING.md ~docs/TESTING.md ~docs/design/module-sdk.md ~docs/findings/07-emulator.md ~docs/findings/46-digikit-debug.md ~docs/plans/firmware-decls-and-sdk.md ~docs/plans/profiling.md ~docs/plans/runtime-and-services.md ~docs/plans/sdk-runtime-roadmap.md ~docs/plans/sdk.md ~docs/plans/test-architecture.md ~docs/sharc/style.md ~modules/core/adapters/dsp-voice/README.md ~modules/tools/debug/README.md ~packages/dksharc/README.md ~sdk/dsp/README.md
+- **dn2-firmware-explore** (project) https://github.com/angellinares/dn2_firmware_explore: +docs/mods-page.md +docs/sendloop.md ~README.md ~docs/mods-compatibility.md
+- **dn2mk2** (project) https://github.com/De-Pattern/dn2mk2-firmware: tags +v0.54 +releases/v0.54.md ~FIRMWARE.md ~docs/name-screen.md
+- **model27** (project) https://github.com/durchgemacht/model27: ~docs/AGENTS.md ~tools/AGENTS.md
+- **octabam** (project) https://github.com/sambanks/octabam: +docs/contributing/COLDFIRE_FORMS.md +docs/site/usage/remote.md +modules/remote/README.md +remixes/test/remote/README.md ~AGENTS.md ~README.md ~THIRD_PARTY.md ~docs/README.md ~docs/contributing/FAILURE_MODES.md ~docs/contributing/HARDWARE_TESTING.md ~docs/contributing/TESTING.md ~docs/contributing/TOOLING.md ~docs/contributing/TRAPS.md ~docs/firmware/STORAGE.md ~docs/site/usage/drummer.md ~docs/site/usage/pages.md ~docs/site/usage/reload-from-project.md ~docs/site/usage/resonator.md ~docs/specs/EVENTS.md ~docs/specs/HOOKS.md ~docs/specs/STORE.md ~modules/drummer/README.fr.md ~modules/drummer/README.md ~modules/events/README.md ~modules/pages/README.md ~modules/reload-from-project/README.md ~modules/remix-switch/README.md ~modules/resonator/README.md ~modules/usb/README.md ~remixes/test/README.md ~tools/ghidra/README.md
+- **octatrack-step-view** (project) https://github.com/Slingdinger/octatrack-step-view: ~README.md
+- **overtone** (project) https://github.com/complex-ping/overtone: tags +v1.5 ~README.md
+- **trig-seedr** (project) https://github.com/a1o1/trig-seedr: +CLAUDE.md +docs/design-v1.md +docs/dev-environment.md +docs/plan-v1.md +docs/status/0.1.md +docs/status/0.2.md +docs/status/0.5.md +docs/status/README.md ~CONTRIBUTING.md ~README.md ~docs/requirements.md ~site/src/content/docs/getting-started/introduction.md ~site/src/content/docs/using/generator.md ~site/src/content/docs/using/pages.md ~tools/README.md
 - code-only (HEAD moved, no watched file or tag changed): dn2-tools-depattern, spokes
 - ERROR octacloudz https://github.com/davidecaldarola1-ship-it/Octacloudz: repo is empty (no commits yet)

@@ -22,7 +22,7 @@ results by hand, with credit to this project. Taking part is voluntary and can s
 
 | | |
 |---|---|
-| Aggregat state | research map reviewed 2026-11-03, snapshot `02c9d855c11c` |
+| Aggregat state | research map reviewed 2026-11-03, snapshot `7d18e113fd32` |
 | Copied on | <date you copied it> |
 
 ## What we work on
@@ -49,7 +49,7 @@ emulator, `doc` = read in code or documents.
 
 ---
 
-# Copied state: Aggregat research, snapshot `02c9d855c11c` (research map reviewed 2026-11-03)
+# Copied state: Aggregat research, snapshot `7d18e113fd32` (research map reviewed 2026-11-03)
 
 ## Goals (copied from Aggregat)
 
@@ -98,6 +98,7 @@ emulator, `doc` = read in code or documents.
 | H23 | G7 | The ~4 KB cut in long MidiRpc LIST replies is in the stock reply router, not in a mod: an unpaged listing of a 256-entry table store on a modded DN2 came back as 3,997 bytes, correct up to entry 125 and garbage after; pages of 64 were clean. | DN2 | On stock, list a +Drive folder with more than 130 entries in one unpaged request (DNX or Elektroid) and compare the reply length and the tail with a paged listing. Until settled, page listings at 64 entries or fewer. |
 | H24 | G7 | The Digitakt II and Digitone II hang on LOAD TO PROJECT of a +Drive file that is not a sample, as the Analog Rytm MKII does (SB19), since their sample browsers list every file too. | DT2, DN2 | Back up first. On a throwaway project, put a small non-audio file on the +Drive with Elektroid, LOAD TO PROJECT, note what happens; then power-cycle, delete the file and run CREATE NEW before the next OS update. |
 | H25 | G7 | The Digitakt II on OS 1.17 answers midi.guide's NRPN numbers (track mute 1:108, track level 1:110, pattern mute 1:109, master overdrive 2:50), not the manual's (1:101, 1:100, 1:104, 2:37) (O24). | DT2 | On a throwaway project, send each NRPN pair from a DAW or a MIDI tool on the auto channel with value 0 and then 127, and watch which parameter moves on the screen. |
+| H26 | G7 | On a stock Analog Rytm MKII (OS 1.74) the first note right after a boot can be silent. | Analog Rytm MKII | Power the stock unit on, wait for the main screen, play one pad or trig once and note whether it sounds; repeat over ten boots. |
 | H6 | G8 | The DT2's SHARC DDR above the sample pool window (`0x9d22b9c8` up to `0xa0000000`, about 46 MB) is never written by stock, as the DN2's tail `0x80531000-0xa0000000` is not. | DT2 | dnfw's method: fill the range with a pattern at boot, then scan it during heavy playback, pattern and kit changes, FX extremes, sample loads and a save. Expect a reserved top part for Capicola builds only. |
 | H7 | G3 | The DT2's ColdFire runs the same FreeRTOS layout as the DN2: higher priority numbers run first, prio 0 never runs, prio 1 is the idle loop; the main task's stack is barely used. | DT2 | With the USB probe: find the ready table and the running-task pointer, sample them 60 times. |
 | H8 | G8 | The DN2's digikit flash cave `0x402fb7a8` (2,136 B on 1.11) keeps its bytes through a cold boot, as the DT2's `0x403117c4` does. | DN2 | A canary in the cave, read back after a cold boot and after playback. Combine with H9. |
@@ -140,4 +141,7 @@ emulator, `doc` = read in code or documents.
 | O24 | Digitakt II NRPN numbers (OS 1.17) |
 | O25 | Digitakt II LED colour byte (OS 1.17) |
 | O27 | DT2/DN2 FX slots a module runtime offers |
+| O28 | Model:Cycles song tempo address (OS 1.13) |
+| O29 | CRC of a block in stock's 0x51 OS upgrade write |
+| O30 | Octatrack PLAYING byte |
 | O26 | DN2 FM Tone spare records' MIDI CCs |

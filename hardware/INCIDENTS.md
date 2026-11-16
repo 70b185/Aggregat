@@ -879,6 +879,36 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** C11
 - **Fact:** [devices/octatrack.md](devices/octatrack.md#findings-2026-11-1415-kyoti-reload-octabam-dlcopy-modwerk)
 
+### I110. A remote-commanded REMIX SWITCH boot stopped on the boot screen
+- **Unit:** Octatrack MKII, OS 1.40C (octabam image N1 with REMOTE), 2026-11-15
+- **Seen:** REMOTE's command 3 booted a `.RMX` file through REMIX SWITCH's YES path; the unit reset, showed the boot screen and did not come back on USB within 150 s. A power cycle recovered it.
+- **Cause (unknown):** it was the first boot after flashing, after a project load, panel PLAY, MIDI START, two program changes, STOP and commands 1, 2 and 4. The next nine commanded boots all came back in 7-8 s, two of them after the same sequence.
+- **Fix:** none; seen once.
+- **Status:** open.
+- **Evidence:** `[hw]` {octabam-1116}
+- **Rule:** A2, A40
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#octabam-remote-and-more-stock-sites-os-140c-2026-11-1416-octabam-1116)
+
+### I111. A mod's own SysEx report cut a stock pattern dump on an Analog Rytm
+- **Unit:** Analog Rytm MKII, OS 1.73 and 1.74 (Sidecar's Rytm firmware before 0.5.0), reported in the 0.5.0 notes, 2026-11-13..16
+- **Seen:** FILL ended with NO ANSWER and SONG fetches needed retries; in an emulator test 2 of 8 multi-part 0x54 pattern dumps were cut by the mod's fx-in report.
+- **Cause (shown in the emulator):** a stock multi-part dump releases the MIDI lock between its parts while its SysEx state at `0x413db244` stays set; the mod's try-send took the lock in such a gap and put its own message inside the dump.
+- **Fix:** 0.5.0 sends only while `0x413db244` is zero, checked before the try-lock and again while holding the lock, with the wait bounded at 2 s.
+- **Status:** fixed in 0.5.0 (emulator).
+- **Evidence:** `[emu]` (cut and fix) / `[doc]` (symptom) {sidecar-mods-1116}
+- **Rule:** F8
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md#sidecar-050-and-rytm-firmware-050-mkii-os-174-2026-11-16-sidecar-0516-sidecar-mods-1116)
+
+### I113. A previewed sample played to its end however short the key press (Model:Cycles)
+- **Unit:** Model:Cycles, OS 1.13 (model27 with SAMPLE, Cycles One-Shot 0.17), found 2026-11-15
+- **Seen:** with the sequencer stopped and GATE on, a sample previewed from the browser by a TRIG key or the pad played whole, however short the press.
+- **Cause (shown in the emulator, envelope run block by block):** the mod sent the note-off at once; the OS chained it with the note into one batch, and the amp envelope ignores an end that comes in the trig's own block, so with GATE on the note stayed in hold. The project's notes had claimed the preview no longer held, without a check.
+- **Fix:** One-Shot 0.18 / model27 0.66 records the note and raises the voice's end flag (+0x3c) in the first block without a trig, and hooks both releases (pad `0x4001d0fc`, TRIG keys `0x40019c84`); flashed from the live page 2026-11-15: taps stay short, held keys sound until let go.
+- **Status:** fixed.
+- **Evidence:** `[hw]` {model27-chips}
+- **Rule:** A67, A31
+- **Fact:** [devices/model-cycles-samples.md](devices/model-cycles-samples.md#pads-preview-notes-and-the-shared-sine-model27-notes-60-and-66-main-os-113-2026-11-12-model27-preview)
+
 ## E. Emulator or toolchain disagreed with the unit
 
 ### I36. The emulator undercounted DSP time by 2x to 12x
@@ -1030,6 +1060,16 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` {modwerk-dt2-tracknames}
 - **Rule:** C10
 - **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md)
+
+### I112. The compiler merged two stores and broke a step move (trig-seedr, emulator)
+- **Unit:** none (analog-emu), trig-seedr 0.4.0 for Analog Rytm MKII OS 1.74, 2026-11-15
+- **Seen:** a moved step lost its note and velocity and corrupted the step before it.
+- **Cause (found in the emulator and the compiler output):** Homebrew m68k-elf-gcc 16.2 at -O2 miscompiled a struct copy followed by stores to its fields; with store merging one 4-byte store landed 6 bytes early.
+- **Fix:** from 0.4.1 every ColdFire build (the mod, core-ar2, the device checks) uses `-fno-store-merging`. 0.4.0 had passed every emulator check, so the same fault may sit in code the checks do not reach.
+- **Status:** fixed in 0.4.1; not run on a unit.
+- **Evidence:** `[emu]` {trig-seedr-1116}
+- **Rule:** A41
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md#step-records-locks-and-the-stock-write-routines-trig-seedr-mkii-os-174-analog-emu-only-2026-11-14-trig-seedr-notes)
 
 ## R. Recovery and transfer links
 

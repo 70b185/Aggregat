@@ -48,6 +48,7 @@ with 25 models. Every model and each optimisation was flashed step by step on th
    - filled delay slots;
    - software pipelining of short loops;
    - SIMD pairing only for compute, with data in registers.
+- **Current Selache fork (pin 967c1d1e) build rules:** a plain `.SECTION/DM` is laid out in 40-bit words, so digikit assembles DM data as `/DM/BW`; the assembler may set a DO loop's fast-loop F1 bit by itself, so turn that off and write `(F)` where it is meant; `Rn = Fm` is not a plain transfer, use `Rn = PASS Fm`; an undefined name (for example a register SHARC+ lacks) silently becomes an external symbol. The earlier assembler wrote 77 transfers without their width modifiers. `[doc]` {digikit-1116}
 - **Lazy clear:** skipping a large memory clear at init is exact only if the write-before-read structure is proven per delay line. It removed one model's 70k-cycle spike on the model-change block.
 
 ## 5. Practical numbers
@@ -73,26 +74,32 @@ A probe module ran 143 items on a real Digitakt II, then the same probe on a rea
 | L2 loads/stores, sequential or warm | 1.09 | 1.0 |
 | L1 and DDR sequential loads | 1.0 | 1.0 |
 | **48 loads over 6 lines 16 KiB apart (one cache set)** | **58.4 per load** (~58 cycles per miss) | 1.02 |
-| system register read | 2-5; IMASK/IRPTL 27, TPERIOD 22 | 2 |
+| system register read | 2-5; IMASK/IRPTL 27, CMMR_PWR_L1_SD_CTL 28 (the TPERIOD value was withdrawn 2026-11-16: never read; SHL1C_CFG, SHL1C_CFG2 and range-register costs now unverified) | 2 |
 - **L2 data is cached by a 16 KiB cache that maps lines 16 KiB apart to the same set.** Buffers spaced at 16 KiB multiples thrash it, so pad or interleave them. Branches and calls are expensive: unroll small loops into hardware loops, avoid calls in per-sample code, and fill delay slots.
 - One block measured 666,582 cycles median on DT2 (666,784 on DN2), jittering by ±2.7 % (sd 0.5 %); the emulator does not jitter. With `digikit/remote` and `digikit/debug` loaded, a DN2 showed DSP 57 % average (61 % peak) and ColdFire 26 %.
 - Registers read on silicon (DT2 and DN2 alike):
   - IMASK `0x8040801b`, MODE2 `0x42000021`, SHDBG_REVID `0x20`, CMMR_SYSCTL `0x6004`, SHL1C_CFG `0x00010101`, SHL1C_CFG2 `0xf0`;
   - **two non-cacheable ranges: `0x200fa000-0x200fe000` and `0x28240000-0x283a0000`**, with exclusive end addresses. SHL1C_CFG2 `0xf0` enables ranges 2 and 3 with `RRnSEL = 1` (non-cacheable); L2 and DDR outside them are cached ([finding 103, section 4](https://github.com/ElekLabs/digikit/blob/main/docs/findings/103-dsp-facts-on-a-digitakt-ii.md#4-registers-read-on-silicon-d));
-  - the core timer period differs per device (DT2 `0x0025f280`, DN2 `0x00268538`).
+  - withdrawn 2026-11-16: the per-device core timer periods reported here were I0/I1 reads. The old assembler encoded the probe's TPERIOD, TCOUNT, MMASK and LIRPTL reads as other registers, so none of them was measured; of the probe's ID words only OSPID differs (DT2 `0x00224601`, DN2 `0x07674700`). {digikit-1116}
 
 **Float and saturation rules the chip follows** (some contradict the PRM):
 - A float ALU operation with a NaN input returns `0xFFFFFFFF` with AI set and **AN clear**. Inf - inf also returns `0xFFFFFFFF`. The float multiplier's invalid result (NaN operand, inf x 0) is `0x7FFFFFFF` with MI set and MN clear.
 - **The sticky bits (AIS, AVS, AUS, AOS) latch on every float ALU operation**, so a NaN once produced leaves a mark you can read.
 - FIX of ±0.5 returns 0 and sets AUS.
 - **With MODE1.ALUSAT, fixed add/sub/neg/abs saturate** to `0x7FFFFFFF` / `0x80000000`. The short compute forms (Type 2c), the multifunction ALU halves and the dual add/subtract may still wrap; this is unmeasured.
-- Reading an MR word into a register **keeps** the multiplier flags (the PRM says it clears them).
+- Open again (2026-11-16): whether reading an MR word into a register keeps the multiplier flags. The probe's `MRF = R1 * R2 (SSFR)` was assembled without the rounding modifier, so its MV flag proves nothing; the "float multiply with parallel add" item measured only a plain multiply (see CONFLICTS S10). {digikit-1116}
 - The RECIPS/RSQRTS seeds come from two 128-entry tables, all measured; the low 15 mantissa bits are zero. Stock's divide helper uses RECIPS plus Newton steps, so the last bit of a division depends on the exact seed.
 
 **Diagnostic reply publication** ([finding 101](https://github.com/ElekLabs/digikit/blob/main/docs/findings/101-module-step-word-on-hardware.md)): the DSP's SPI2 is a slave and its transmit DMA walks two descriptors. Timing of the suspected overlap between DMA and diagnostic writes on silicon remains unmeasured. {digikit-f101}
 - On a real DT2 (OS 1.17), digikit's diagnostic word 25 arrived as 0 in 3,995 of 4,000 collected records. The old scheme delivered every second record in the emulator. `[hw]` {digikit-f101}
 - **Digikit's own `core/fx` and `core/dsp-voice` diagnostic clears overwrote the previous block's reply word.** Removing those clears restored delivery in the DN2 1.12 emulator; this does not identify stock firmware as the writer or establish silicon DMA timing. `[emu]` {digikit-f101}
 - **Keep hook diagnostics in a static word and copy it into the reply at the block tail, after all module calls.** The revised design clears the static word rather than either reply record and passes the emulator regression; finding 101 says it had not yet run on a real DT2. A mark stored in the call that hangs the DSP cannot reach a tail that never runs, so the fault record retains the last completed block's mark. `[emu]` {digikit-f101}
+
+## 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) {digikit-1116}
+- **Three pieces of stock code:** a vector stub, the wrapper `0x1c02a4`-`0x1c066b` (byte-identical on both images, 968 words, return label `0x1c04b7`; it calls the handler through the table at `0x2404b0` with `JUMP (M13, I12) (DB)` at `0x1c04b1`) and a return stub. SEC vector stub DT2 `0x1c0b7b` / DN2 `0x1c0acd`, generic stub `0x1c0b1e` / `0x1c0a70`, return stub `0x1c0be5` / `0x1c0b37`: the DN2 stubs sit `0xae` lower. `[doc]` (both images' bytes, two decoders)
+- **What is saved:** the stubs save R4, R8, R12, I6, I7, I12, B6, B7, PX and PCSTK; the wrapper saves the DAG, status, loop-stack and MR/MS registers and zeroes L0-L5 and L8-L15 for the handler. It picks its path by MODE1 bit 16 (RND32) of the interrupted code: with RND32 set it saves only R0-R2, R4 and S0-S15 and relies on the handler to keep the C callee-saved registers; with RND32 clear it saves R1-R15. `[doc]`
+- **Never write these in module DSP code, not even with a save and restore:** B7, L6, L7, M5, M6, M7, M13, IMASK, IMASKP, IRPTL, MMASK, TPERIOD, TCOUNT, FLAGS. The stock interrupt code may read them at any instruction, so an interrupt between the save and the restore sees the changed value. The wrapper needs a valid linear stack in I7 (L6 = L7 = 0) and M5 = 0, M6 = 1, M7 = -1, M13 = 0. digikit's `sdk/dsp/REGISTERS.md` generates one contract from this (classes clobber, keep, stack, never_write). `[doc]`
+- **Finding 103 was partly withdrawn (2026-11-16):** the old assembler mis-encoded several probe instructions, so the silicon run read MMASK as IMASKP, TPERIOD and TCOUNT as I0 and I1, LIRPTL (which SHARC+ lacks) as IMASK, and the cycle-counter reads of records 118-135 as LCNTR reads; it also dropped SSFR's rounding modifier and turned the dual multiply-plus-add into a plain multiply. The values listed in section 6 that came from these items are void; the non-cacheable ranges, REVID, IMASK, MODE2, the 59 value items and the block cycle counts stand (A41). `[doc]`
 
 ## What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static) {digikit-f72}
 Instruction counts come from the listings, with no stalls modelled. Use them as a style reference and a lower bound. `[doc]`

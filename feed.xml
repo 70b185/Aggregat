@@ -4,9 +4,57 @@
   <link href="https://70b185.github.io/Aggregat/"/>
   <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
   <id>https://70b185.github.io/Aggregat/</id>
-  <updated>2026-11-15T00:00:00Z</updated>
+  <updated>2026-11-16T00:00:00Z</updated>
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>New in the catalogue: SuperSAW-OT (Mod, Octatrack)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=supersaw-ot"/>
+    <id>https://70b185.github.io/Aggregat/#project-supersaw-ot</id>
+    <updated>2026-11-16T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A detuned-saw track machine for one Octatrack audio track, for the Modwerk runtime, with six controls (tune, detune, mix, one to seven oscillators, width, level). A public source snapshot and test evidence only: no module or firmware, not ready to install. Before a first unit …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: ms-vis (Model:Samples visualizer) (Tool, Model:Samples)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=ms-vis"/>
+    <id>https://70b185.github.io/Aggregat/#project-ms-vis</id>
+    <updated>2026-11-16T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>An audio-reactive visualizer in one HTML page (Three.js and Web MIDI) that follows the Model:Samples' notes, CCs, clock and program changes; presets, projector mode and video recording. Nothing is sent to the device. Found by GitHub search 2026-11-16.</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Digitone mods (Drum Mode) (Mod, Digitone)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digitone-drum-mode"/>
+    <id>https://70b185.github.io/Aggregat/#project-digitone-drum-mode</id>
+    <updated>2026-11-16T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Mods for the Digitone mk1 on elekloader. Drum Mode turns a MIDI track into an 8-lane drum sequencer on the track's own MIDI channel. The repo also holds a build recipe for aleks-karachevtsev's DigiArp MIDI (no code of it). The build shows OS version DRM1 on the unit. Found by …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: DigiArp (Digitakt arpeggiator and melody engine) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digiarp-dt1"/>
+    <id>https://70b185.github.io/Aggregat/#project-digiarp-dt1</id>
+    <updated>2026-11-16T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>An elekloader module that turns a source trig into an arpeggio or an evolving phrase, for audio tracks (ONESHOT only) and MIDI tracks; opened with FUNC + TRIG. The repo holds a README, the module and a source archive with licences and test reports. Declared conflicts: DigiPoly, …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: a4mk1-mpe (MPE for the Analog Four MK1) (Mod, Analog Four / Analog Keys)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=a4mk1-mpe"/>
+    <id>https://70b185.github.io/Aggregat/#project-a4mk1-mpe</id>
+    <updated>2026-11-16T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A mod (id 0013-mpe) for hugz202's A4 MK1 build framework that adds MPE to poly mode: Lower Zone with channel 1 as manager and channels 2-5 as the four voices, member bend range 48 semitones. Live only while poly mode is on and the active track is a poly voice; otherwise …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: a4mk1-arplocks (ARP page p-locks) (Mod, Analog Four / Analog Keys)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=a4mk1-arplocks"/>
+    <id>https://70b185.github.io/Aggregat/#project-a4mk1-arplocks</id>
+    <updated>2026-11-16T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A mod (id 0015-arp-locks) for hugz202's A4 MK1 build framework: the user builds a patched OS from their own stock 1.56 file; no Elektron files are shipped. ARP values go into the free lock slots 101-108 of each step, which the pattern already saves; the arpeggiator reads a …</summary>
+  </entry>
   <entry>
     <title>New in the catalogue: trig-seedr (Mod, Analog Rytm)</title>
     <link href="https://70b185.github.io/Aggregat/?p=trig-seedr"/>
@@ -411,51 +459,5 @@
     <id>https://70b185.github.io/Aggregat/#commit-9e0fe8f61abe</id>
     <updated>2026-11-09T00:00:00Z</updated>
     <category term="update"/>
-  </entry>
-  <entry>
-    <title>Drop the elekloader fork by simonjohansson: no changes of its own</title>
-    <link href="https://github.com/70b185/Aggregat/commit/73080dcb0eabd2f79c9b023609ee07cbc82ee2e7"/>
-    <id>https://70b185.github.io/Aggregat/#commit-73080dcb0eab</id>
-    <updated>2026-11-09T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>digimod: credit the original authors of its ported mods</title>
-    <link href="https://github.com/70b185/Aggregat/commit/4846784b7ac8c24c9af4cc032d76e832c7e8148f"/>
-    <id>https://70b185.github.io/Aggregat/#commit-4846784b7ac8</id>
-    <updated>2026-11-09T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>New in the catalogue: PUNCH (OPL2-style FM percussion) (Mod, Model:Cycles)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=punch"/>
-    <id>https://70b185.github.io/Aggregat/#project-punch</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>One added machine with twelve two-operator FM percussion engines with extended ratios. Source package for the Cycles Engines flasher. Found by GitHub search 2026-11-07.</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: STEP VIEW (Octatrack step editor) (Mod, Octatrack)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=octatrack-step-view"/>
-    <id>https://70b185.github.io/Aggregat/#project-octatrack-step-view</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>A step editor and piano-roll pitch view for the eight MIDI tracks (MIXER + MIDI): all tracks at 32 steps a row, one track's 64 steps, notes with VEL and LEN per step. Found by GitHub search 2026-11-08. 2026-11-11: the Split view also shows the audio tracks (each step's trig and …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: octabam2elemod (octabam modules as elekloader mods) (Mod, Octatrack)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=octabam2elemod"/>
-    <id>https://70b185.github.io/Aggregat/#project-octabam2elemod</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>octabam's Octatrack modules repackaged as elekloader mods, so they can be picked in the elekloader mod shop. Found in the elekloader mod shop catalogue 2026-11-08.</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: Flex+ (FlexBus machine) (Mod, Digitone, Digitakt)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=flex-plus"/>
-    <id>https://70b185.github.io/Aggregat/#project-flex-plus</id>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>Routes the audio inputs or internal tracks into a track, with a low-CPU pitch shifter and an oscilloscope on the machine page. Found by GitHub search 2026-11-07. 1.1: internal tracks are now tapped after the source track's filter and AMP (a track picking itself is silent), …</summary>
   </entry>
 </feed>

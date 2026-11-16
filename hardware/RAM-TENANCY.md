@@ -37,6 +37,7 @@ static map; it is where every platform below lives. Stock's DMA buffers sit just
 | `0x46740000` | `0x467a0000` | dnfw | lfowaves, envelope (chunks at `0x46740000`, `0x46750000`, `0x46780000`; 11,716 B) | 1.11 | `[doc]` {dnfw-mem-regions} |
 | `0x46790000` | `0x467904ac` | dnfw | directjump code (1,196 B; inside the lfowaves span above, whose chunks end lower) | 1.11 | `[doc]` {dnfw-mem-regions} {dnfw-directjump} |
 | `0x467e8000` | `0x467e8140` | dnfw | bootscreen (320 B) on 1.12, moved out of 1.12's DMA section | 1.12 | `[doc]` {dnfw-mem-regions} {dnfw-osport} |
+| `0x46798000` | ? | dnfw | MODS page: code, then a count and 32 B per row (at most 64 rows); in every dnfw build (inside the lfowaves span above) | 1.11 | `[doc]` {dn2fe-sendloop} |
 | `0x405cd8ae` | `0x405cd8c2` | dnfw | mod switches in spare bytes of the stock settings block (reloadconfirm `+0`, arpscale `+1`, directjump `+0x13`; early degreetranspose builds `+2..+0x12`) | 1.11 | `[doc]` {dnfw-directjump} |
 | `0x467a0000` | `0x467a0910` | dnfw | arpmodes (2,320 B) | 1.11 | `[doc]` {dnfw-mem-regions} |
 | `0x467a8000` | `0x467a8688` | dnfw | arpscale (1,672 B) | 1.11 | `[doc]` {dnfw-mem-regions} |
@@ -143,6 +144,8 @@ The area where Model:Cycles mods place added machines; the Syntakt engine ports 
 |---|---|---|---|---|---|
 | `0x43000000` | `0x43003eb0` | model27 | SOLID machine when it is the only added machine (13,216 B code + 2,832 B variables; end is our sum; release 0.64 grows SOLID's image part to 20,512 B, so the end moves) | 1.13 | `[doc]` {model27-solid} {model27-perform} |
 | `0x43009680` | ? | model27 | SOLID as machine 7, beside SAMPLE | 1.13 | `[doc]` {model27-solid} |
+| `0x43000000` | ? | model27 | CHIPS code when it is the only added machine (image payload 15,776 B, code 7,846 B, tables about 2 KB) | 1.13 | `[doc]` {model27-chips} |
+| `0x43036000` | `0x430363e0` | model27 | CHIPS variables when it is the only added machine (992 B for six voices; end is our sum) | 1.13 | `[doc]` {model27-chips} |
 
 ## Octatrack DSP X memory (`octatrack`)
 
@@ -170,6 +173,15 @@ DSP56300 X-memory words, written `$xxxx` in the projects' notes.
 | start | end | user | use | OS | evidence |
 |---|---|---|---|---|---|
 | `0x47be0000` | `0x47c00000` | elekloader | mods' area reserved by the MKI profile; no core uses it yet (a canary read back unchanged on a unit) | 1.74 | `[hw]` {elekloader-ar1} |
+
+## Analog Rytm MKII DDR and SRAM (`analog-rytm`)
+
+| start | end | user | use | OS | evidence |
+|---|---|---|---|---|---|
+| `0x47be0000` | `0x47c00000` | elekloader (core-ar2) / Modwerk / Sidecar | the shared 128 KiB mod area (Sidecar's rui_key at `0x47bedd14` lies inside) | 1.74 | `[hw]` {modwerk-rytm-link} {sidecar-mods-1116} |
+| `0x47bfffbc` | `0x47c00000` | Modwerk development link | RAM-boot diagnostics in the top 68 B of the mod area (the top 8 B are reset marks); development bases only; nothing checks that a set leaves these bytes free | 1.74 | `[hw]` {modwerk-rytm-link} |
+| `0x403c8b00` | `0x403c8b20` | Modwerk development link | RAM-boot mailbox written over the header of stock's upload buffer just before the software reset (transient) | 1.74 | `[hw]` {modwerk-rytm-link} |
+| `0x8000f774` | ? | Sidecar 0.5.0 | adds offsets to the effective sound words (index 26 + 42 x track + word) every audio block; another mod that writes these words after stage A collides | 1.73/1.74 | `[emu]` {sidecar-mods-1116} |
 
 ## Syntakt MAIN SRAM (`syntakt`)
 

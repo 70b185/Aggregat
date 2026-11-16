@@ -96,6 +96,10 @@ Listings: {alt-digitone}. Layout used by the effect mods: code and state share t
 ## telos store on the +Drive (elekloader telos 0.2, OS 1.43/1.44) {telos-readme}
 - telos keeps flashed-once mods in 2 MB of raw +Drive sectors from sector `0x380000`. Per its README every stock card access is below sector `0x180000`, FORMAT +DRIVE erases only below that, and the smallest eMMC part the firmware accepts ends at `0x3A4000`; the area is no project slot and never shows in Transfer. The directory is kept twice with a sequence number and CRC-32, so a cut write leaves the older copy. Mods link at core-dn1's card-ready event, before the project and the UI task exist. Ran on a Digitone mk1 with OS 1.44. `[hw]` (run) / `[doc]` (sector claims)
 
+## core-dn1 5.4 and the stock shadow for +Drive mods (elekloader, OS 1.43/1.44, 2026-11-15) {elekloader-1116}
+- core-dn1 5.4 adds what a +Drive loader (TELOS) needs, with no new patch site: `core_param_install`, `core_stock_info` and `core_tasks`. `core_stock_info` copies the OS image to `0x44200000` before the OS runs. `[doc]`
+- The build descriptor (ABI 1.2) carries the stock bytes of every range the flashed build writes, plus a region claim for each region a flashed mod claims. TELOS's linker refuses a +Drive mod site that is not stock on the unit or sits over the flashed build or another mod, writes a site only when no task is stopped in it, and refuses a region that overlaps another or lies outside a free area (link codes 21-28). `[doc]`
+
 ## Notes
 - digihealth 1.1 brings SYSTEM INFO only; FAST AUDIO is not ported to Digitone. {digihealth}
 - DigiSplash and DigiCandy support Digitone mk1 + Keys at OS 1.43. {digisplash} {digicandy}

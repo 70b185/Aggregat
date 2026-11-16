@@ -2,12 +2,13 @@
 
 # Machinedrum (incl. UW)
 
-Data last verified: 2026-11-15
+Data last verified: 2026-11-16
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **murdenihcam USR machines** (murdenihcam) | mod | - | main (2026-11-15): RAM-GR 0.5; MDX X.20 B | - | 2026-11-15 | [repo](https://github.com/murdenihcam/murdenihcam-usr-machines) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.1 (2026-11-13): Monomachine factory reset from your own ROM; the host's Stop is a real stop on the MM, so LOAD SONG works after it; Knob 1-8 as host parameters; several ROM images in one folder; Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-14 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
 | **OP-XY MNMD** (mmockett) | emulator | - | v1.3.6 (tag, 2026-11-13): MD KIT builds into one firmware with Hexagon's Moth; v1.3.5: the synths play at one loudness, MD KIT raises its quieter machines by up to 6 dB | v1.3.6 | 2026-11-13 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **mds-harness (Machinedrum user machine harness)** (bento909) | tool | - | - | - | 2026-11-13 | [repo](https://github.com/bento909/mds-harness) |
@@ -24,7 +25,6 @@ Data last verified: 2026-11-15
 | **machinedrum-kit** (Janne Heikkarainen) | research | - | main @ 4ea4729 (2026-10-19); Machinedrum SPS-1UW OS 1.63 (supplied by you) | - | 2026-10-19 | [repo](https://github.com/janne808/machinedrum-kit) |
 | **Machinedrum USR machines (RASP, KOOK, SMSH...)** (SamplesAndSnacks) | mod | - | Machinedrum with MDX X.20 | - | 2026-10-18 | [repo](https://github.com/SamplesAndSnacks/machinedrum-rasp) |
 | **MachineModule (desktop)** (AcidReff) | emulator | - | 0.4.6 (native Apple Silicon JIT) | v0.4.6 | 2026-10-16 | [repo](https://github.com/AcidReff/MachineModule) |
-| **murdenihcam USR machines** (murdenihcam) | mod | - | main @ ab92ccf (2026-10-15); MDX X.20 B | - | 2026-10-15 | [repo](https://github.com/murdenihcam/murdenihcam-usr-machines) |
 | **C7** (sata1000000) | editor | - | - | v0.1.0 | 2026-10-10 | [repo](https://github.com/sata1000000/C7) |
 | **ems-machinedrum-firmware** (June Kiff (emuyia)) | mod | - | 26A09-beta (2026-10-09) | 26A09-beta | 2026-10-09 | [repo](https://github.com/emuyia/ems-machinedrum-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
 | **MDS (Machine Dump Standard)** (Justin Mammarella) | library | - | main @ c446179 (2026-10-09); MDX 2.0 (X.20 or later) | - | 2026-10-09 | [repo](https://github.com/jmamma/MDS) |
@@ -103,9 +103,9 @@ _Sources: altstrument (2026-11-01)_
 
 ### murdenihcam USR machines
 
-Four user-machine families for MDX X.20 B: slicer, time stretcher, granulator, modulation effect. Licence: unspecified; distribution: download. Listed by altstrument.
+Four user-machine families for MDX X.20 B: slicer, time stretcher, granulator, modulation effect. Licence: unspecified; distribution: download. Listed by altstrument. 2026-11-16 (RAM MACHINES README): seven machines now, three of them RAM machines that work on live recorded audio; RAM-GR 0.5 freezes the whole slot (about 1.4 s) in HOLD and costs 5,258 cycles on an MKII, 5,918 on an MKI (9 and 8 tracks); only 4 RAM machines can play per pattern on an MKII, 2 on an MKI. The author says the machines were tested a lot; no unit log is published.
 
-_Sources: altstrument (2026-11-01), README (2026-11-11)_
+_Sources: altstrument (2026-11-01), README (2026-11-11), RAM MACHINES README (2026-11-16)_
 
 ### MoDule (MD Drums)
 

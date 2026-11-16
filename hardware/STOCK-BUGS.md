@@ -286,6 +286,17 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 
 ## Model:Cycles
 
+### SB25. FX-track lock indexes 38-41 read past their table and share rows with 18-21
+- **Device and OS:** Analog Rytm MKII, OS 1.74
+- **Area:** parameter locks on the FX track
+- **Symptom:** the FX track's sound-index-to-row-type table has 38 entries (`0x401c5b4c`), but indexes 38..41 are looked up anyway; they read on into the next table (`0x401c5be4[0..3]`) and get row types 9..12, the same rows as indexes 18..21.
+- **Trigger:** a lock on one of the FX track's parameters 38-41.
+- **Cause:** the selector (`0x400075c8`/`0x40007602`) picks the table by "track == 12" alone and does not check the index against the FX table's length.
+- **Workaround:** a mod that writes FX-track locks should treat 38-41 and 18-21 as one row each.
+- **Found by:** trig-seedr (firmware notes for OS 1.74)
+- **Status:** open; seen in the emulator only.
+- **Evidence:** `[emu]` {trig-seedr-1116}
+
 ### SB15. A random exception while browsing (filesystem block cache)
 - **Device and OS:** Model:Cycles, OS 1.13
 - **Area:** storage, UI

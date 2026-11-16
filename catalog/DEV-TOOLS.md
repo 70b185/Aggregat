@@ -4,7 +4,7 @@
 
 For people (and agents) who build mods: toolchains, emulators, firmware unpackers, protocol libraries and research write-ups. Pair this with [hardware/](../hardware/README.md), which collects the rules and device facts.
 
-Data last verified: 2026-11-15. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
+Data last verified: 2026-11-16. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
 
 
 The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds), [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians). Hardware knowledge for writing mods: [hardware/](../hardware/README.md).
@@ -67,8 +67,8 @@ The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds),
 
 | Project | Devices | What it is | Note | Version / OS | Links |
 |---|---|---|---|---|---|
-| **dt2-machine-lab** (lalzart) <br>_bundles dt2-capicola; uses digikit_ | Digitakt II | Local source, builds and offline tests for custom Digitakt II machines. | - | Digitakt II OS 1.16 (profiles/dt2-1.16); validated host … | [repo](https://github.com/lalzart/dt2-machine-lab) |
 | **dn2_firmware_explore** (angellinares) <br>_builds on elektron-firmware-tool; cites digihealth; uses digikit; cites dn2-cfw; cites octabam; cites octa-bt-pt; cites dn2mk2_ | Digitone II | Tools to inspect, modify and rebuild Digitone firmware (dnfw, CLI and browser), plus 17 mods for Digitone II 1.11 (Waverider wavetable machine, LFO4, arp modes, LFO … | - | directjump (2026-11-11/12, by w-winter); lfo4 1.0.6 (1.0.7 … | [repo](https://github.com/angellinares/dn2_firmware_explore) |
+| **dt2-machine-lab** (lalzart) <br>_bundles dt2-capicola; uses digikit_ | Digitakt II | Local source, builds and offline tests for custom Digitakt II machines. | - | Digitakt II OS 1.16 (profiles/dt2-1.16); validated host … | [repo](https://github.com/lalzart/dt2-machine-lab) |
 | **Cycles Mod Standard** (durchgemacht) <br>_describes model27; cites modded-cycles_ | Model:Cycles | Repo was offline from 2026-11-07 (taken offline by its author together with the other public repos of the same account) and is public again (seen 2026-11-13; draft 0.8 … | - | draft 0.9 (2026-11-12) | [repo](https://github.com/durchgemacht/cycles-mod-standard) |
 | **dn2-cfw** (naturarum) <br>_vendors code from digikit; vendors code from elekloader; cites elektron-firmware-tool; cites syntakt-firmware-workbench; cites octabam; vendors code from digitakt-ii-research_ | Digitone II | Public lab notebook: notes, tools and new effects, no Elektron firmware included. | - | Digiwerk v0.3.0 (2026-11-04): multitrack USB audio (USB … | [repo](https://github.com/naturarum/dn2-cfw) |
 | **Model:Samples battery base** (malthelm) | Model:Samples | Open-hardware battery base using the original side mounting points and the left battery input: editable CAD, STEP/STL, parts list, build guide and printable fit gauges. | - | v0.6.0 experimental CAD release | [repo](https://github.com/malthelm/model-samples-battery-base) |

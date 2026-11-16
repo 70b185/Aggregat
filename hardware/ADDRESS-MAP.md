@@ -3,12 +3,14 @@
 
 Every address that a fact names, per device, in address order. One line per address; the facts that name it follow, best evidence first. Two facts at the same address with different claims are worth a look: they may be a conflict (add it to [CONFLICTS.md](CONFLICTS.md)) or a RAM range two projects both use (rule area G8 in the [research map](../research/RESEARCH-MAP.md)). Addresses differ between OS versions; the fact text says which.
 
-Data checked 2026-11-15, research snapshot `02c9d855c11c`.
+Data checked 2026-11-16, research snapshot `7d18e113fd32`.
 
-## Digitakt (MKI) (66 addresses)
+## Digitakt (MKI) (77 addresses)
 
 | Address | Facts |
 |---|---|
+| `0x40000000` | [doc] [digitakt.md:99](../hardware/devices/digitakt.md#L99) Digi CMI on the unit (OS 1.54, 2026-11-12) |
+| `0x40000400` | [doc] [digitakt.md:99](../hardware/devices/digitakt.md#L99) Digi CMI on the unit (OS 1.54, 2026-11-12) |
 | `0x40000438` | [doc] [digitakt.md:13](../hardware/devices/digitakt.md#L13) Where the audio runs (Digiwerk prior-art survey, 2026-10) |
 | `0x40000538` | [doc] [digitakt.md:20](../hardware/devices/digitakt.md#L20) Memory and code placement (core 2.x, elekloader) |
 | `0x4000a770` | [doc] [digitakt.md:20](../hardware/devices/digitakt.md#L20) Memory and code placement (core 2.x, elekloader) |
@@ -27,6 +29,14 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x400721e6` | [doc] [digitakt.md:77](../hardware/devices/digitakt.md#L77) elekloader core 4.1-4.3 and compatibility (2026-11-10)<br>[doc] [digitakt.md:82](../hardware/devices/digitakt.md#L82) elekloader core 4.1-4.3 and compatibility (2026-11-10) |
 | `0x40073304` | [emu] [digitakt.md:96](../hardware/devices/digitakt.md#L96) Digi CMI on the unit (OS 1.54, 2026-11-12) |
 | `0x40074c60` | [emu] [digitakt.md:97](../hardware/devices/digitakt.md#L97) Digi CMI on the unit (OS 1.54, 2026-11-12) |
+| `0x400758b8` | [emu] [digitakt.md:100](../hardware/devices/digitakt.md#L100) Digi CMI on the unit (OS 1.54, 2026-11-12) |
+| `0x40075ea2` | [emu] [digitakt.md:100](../hardware/devices/digitakt.md#L100) Digi CMI on the unit (OS 1.54, 2026-11-12) |
+| `0x40075eac` | [emu] [digitakt.md:100](../hardware/devices/digitakt.md#L100) Digi CMI on the unit (OS 1.54, 2026-11-12) |
+| `0x40075efa` | [emu] [digitakt.md:100](../hardware/devices/digitakt.md#L100) Digi CMI on the unit (OS 1.54, 2026-11-12) |
+| `0x40075f00` | [emu] [digitakt.md:100](../hardware/devices/digitakt.md#L100) Digi CMI on the unit (OS 1.54, 2026-11-12) |
+| `0x40075f8c` | [emu] [digitakt.md:100](../hardware/devices/digitakt.md#L100) Digi CMI on the unit (OS 1.54, 2026-11-12) |
+| `0x40076164` | [emu] [digitakt.md:100](../hardware/devices/digitakt.md#L100) Digi CMI on the unit (OS 1.54, 2026-11-12) |
+| `0x40076234` | [emu] [digitakt.md:100](../hardware/devices/digitakt.md#L100) Digi CMI on the unit (OS 1.54, 2026-11-12) |
 | `0x4007629a` | [doc] [digitakt.md:18](../hardware/devices/digitakt.md#L18) Memory and code placement (core 2.x, elekloader) |
 | `0x400763b4` | [doc] [digitakt.md:30](../hardware/devices/digitakt.md#L30) Render path, injection point and key tables (digigrain's platform skills, OS 1.53, Ghidra plus digiemu) |
 | `0x40077428` | [emu] [hw] [digitakt.md:92](../hardware/devices/digitakt.md#L92) Digi CMI on the unit (OS 1.54, 2026-11-12)<br>[doc] [digitakt.md:20](../hardware/devices/digitakt.md#L20) Memory and code placement (core 2.x, elekloader) |
@@ -71,17 +81,18 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x800032c4` | [doc] [digitakt.md:30](../hardware/devices/digitakt.md#L30) Render path, injection point and key tables (digigrain's platform skills, OS 1.53, Ghidra plus digiemu) |
 | `0x80003360` | [doc] [digitakt.md:24](../hardware/devices/digitakt.md#L24) Render path, injection point and key tables (digigrain's platform skills, OS 1.53, Ghidra plus digiemu) |
 | `0x80008000` | [doc] [digitakt.md:24](../hardware/devices/digitakt.md#L24) Render path, injection point and key tables (digigrain's platform skills, OS 1.53, Ghidra plus digiemu) |
+| `0x8000edc4` | [emu] [digitakt.md:100](../hardware/devices/digitakt.md#L100) Digi CMI on the unit (OS 1.54, 2026-11-12) |
 | `0x8000f700` | [doc] [digitakt.md:24](../hardware/devices/digitakt.md#L24) Render path, injection point and key tables (digigrain's platform skills, OS 1.53, Ghidra plus digiemu) |
 | `0x80010000` | [doc] [digitakt.md:24](../hardware/devices/digitakt.md#L24) Render path, injection point and key tables (digigrain's platform skills, OS 1.53, Ghidra plus digiemu) |
 | `0xfc07000c` | [doc] [digitakt.md:13](../hardware/devices/digitakt.md#L13) Where the audio runs (Digiwerk prior-art survey, 2026-10) |
 | `0xfc080004` | [emu] [hw] [digitakt.md:92](../hardware/devices/digitakt.md#L92) Digi CMI on the unit (OS 1.54, 2026-11-12) |
 
-## Digitakt II (275 addresses)
+## Digitakt II (290 addresses)
 
 | Address | Facts |
 |---|---|
 | `0x00010000` | [?] [doc] [memory-maps.md:20](../hardware/common/memory-maps.md#L20) Digitone II, digikit finding 08 and 59)<br>[doc] [digitakt-2.md:220](../hardware/devices/digitakt-2.md#L220) USB take-over failures and card speed (digikit, 2026-11-13)<br>[untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
-| `0x00010101` | [hw] [digitakt-2-dsp-optimizing.md:79](../hardware/devices/digitakt-2-dsp-optimizing.md#L79) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
+| `0x00010101` | [hw] [digitakt-2-dsp-optimizing.md:80](../hardware/devices/digitakt-2-dsp-optimizing.md#L80) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
 | `0x00015acc` | [doc] [hw] [digitakt-2.md:188](../hardware/devices/digitakt-2.md#L188) Project and kit storage (digikit finding 121, DT2 1.17) |
 | `0x00015c00` | [doc] [hw] [digitakt-2.md:188](../hardware/devices/digitakt-2.md#L188) Project and kit storage (digikit finding 121, DT2 1.17) |
 | `0x00019200` | [emu] [hw] [digitakt-2-sharc-measured.md:46](../hardware/devices/digitakt-2-sharc-measured.md#L46) 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator) |
@@ -93,7 +104,17 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x00050000` | [emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59) |
 | `0x00080000` | [?] [doc] [memory-maps.md:20](../hardware/common/memory-maps.md#L20) Digitone II, digikit finding 08 and 59)<br>[doc] [digitakt-2.md:120](../hardware/devices/digitakt-2.md#L120) Architecture map from static analysis and simulation (lalzart, OS 1.15C)<br>[untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
 | `0x00100000` | [doc] [hw] [firmware-container.md:34](../hardware/common/firmware-container.md#L34) Sections |
-| `0x001c06ba` | [doc] [dt2-dn2-limits-and-audio-chain.md:50](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L50) 4. SHARC calling convention of the stock code (selcc emits the same)<br>[doc] [dt2-dn2-sharc-crosscheck.md:15](../hardware/common/dt2-dn2-sharc-crosscheck.md#L15) 1. Shown on both units `[hw]`<br>[doc] [digitakt-2-dsp-optimizing.md:112](../hardware/devices/digitakt-2-dsp-optimizing.md#L112) What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static) |
+| `0x001c02a4` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
+| `0x001c04b1` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
+| `0x001c04b7` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
+| `0x001c066b` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
+| `0x001c06ba` | [doc] [dt2-dn2-limits-and-audio-chain.md:50](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L50) 4. SHARC calling convention of the stock code (selcc emits the same)<br>[doc] [dt2-dn2-sharc-crosscheck.md:15](../hardware/common/dt2-dn2-sharc-crosscheck.md#L15) 1. Shown on both units `[hw]`<br>[doc] [digitakt-2-dsp-optimizing.md:119](../hardware/devices/digitakt-2-dsp-optimizing.md#L119) What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static) |
+| `0x001c0a70` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
+| `0x001c0acd` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
+| `0x001c0b1e` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
+| `0x001c0b37` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
+| `0x001c0b7b` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
+| `0x001c0be5` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
 | `0x001c18a6` | [emu] [digitakt-2.md:232](../hardware/devices/digitakt-2.md#L232) Pre-send render hook proposal (Modwerk, OS 1.17, emulator) |
 | `0x001c18a9` | [emu] [digitakt-2.md:232](../hardware/devices/digitakt-2.md#L232) Pre-send render hook proposal (Modwerk, OS 1.17, emulator) |
 | `0x001c3090` | [emu] [digitakt-2.md:232](../hardware/devices/digitakt-2.md#L232) Pre-send render hook proposal (Modwerk, OS 1.17, emulator) |
@@ -102,20 +123,20 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x001c74cd` | [doc] [digitakt-2.md:208](../hardware/devices/digitakt-2.md#L208) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x001c7775` | [hw] [digitakt-2-sharc-measured.md:25](../hardware/devices/digitakt-2-sharc-measured.md#L25) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0x001c9d6b` | [doc] [digitakt-2.md:208](../hardware/devices/digitakt-2.md#L208) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x001ccbd8` | [doc] [digitakt-2-dsp-optimizing.md:112](../hardware/devices/digitakt-2-dsp-optimizing.md#L112) What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static) |
+| `0x001ccbd8` | [doc] [digitakt-2-dsp-optimizing.md:119](../hardware/devices/digitakt-2-dsp-optimizing.md#L119) What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static) |
+| `0x00224601` | [hw] [digitakt-2-dsp-optimizing.md:80](../hardware/devices/digitakt-2-dsp-optimizing.md#L80) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
+| `0x002404b0` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
 | `0x002412cc` | [emu] [digitakt-2-sharc-measured.md:40](../hardware/devices/digitakt-2-sharc-measured.md#L40) 5. STRETCH machine contract (measured in the emulator, used on the unit)<br>[emu] [digitakt-2.md:157](../hardware/devices/digitakt-2.md#L157) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0x002506ec` | [hw] [digitakt-2-sharc-measured.md:42](../hardware/devices/digitakt-2-sharc-measured.md#L42) 5. STRETCH machine contract (measured in the emulator, used on the unit) |
 | `0x00252d50` | [emu] [digitakt-2-sharc-measured.md:40](../hardware/devices/digitakt-2-sharc-measured.md#L40) 5. STRETCH machine contract (measured in the emulator, used on the unit) |
 | `0x00252df8` | [emu] [digitakt-2.md:232](../hardware/devices/digitakt-2.md#L232) Pre-send render hook proposal (Modwerk, OS 1.17, emulator) |
 | `0x002558dc` | [hw] [digitakt-2-sharc-measured.md:42](../hardware/devices/digitakt-2-sharc-measured.md#L42) 5. STRETCH machine contract (measured in the emulator, used on the unit) |
 | `0x00257810` | [emu] [hw] [digitakt-2-sharc-measured.md:51](../hardware/devices/digitakt-2-sharc-measured.md#L51) 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator)<br>[emu] [digitakt-2.md:157](../hardware/devices/digitakt-2.md#L157) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
-| `0x0025f280` | [hw] [digitakt-2-dsp-optimizing.md:79](../hardware/devices/digitakt-2-dsp-optimizing.md#L79) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
 | `0x00261ca4` | [hw] [digitakt-2-sharc-measured.md:34](../hardware/devices/digitakt-2-sharc-measured.md#L34) 4. The ColdFire <-> SHARC reply record |
 | `0x00266220` | [hw] [dt2-dn2-sharc-crosscheck.md:28](../hardware/common/dt2-dn2-sharc-crosscheck.md#L28) 3. Firmware-level, one device only: check before relying on it<br>[hw] [digitakt-2-sharc-measured.md:34](../hardware/devices/digitakt-2-sharc-measured.md#L34) 4. The ColdFire <-> SHARC reply record<br>[hw] [digitakt-2-sharc-measured.md:35](../hardware/devices/digitakt-2-sharc-measured.md#L35) 4. The ColdFire <-> SHARC reply record |
 | `0x00267220` | [hw] [dt2-dn2-sharc-crosscheck.md:28](../hardware/common/dt2-dn2-sharc-crosscheck.md#L28) 3. Firmware-level, one device only: check before relying on it<br>[hw] [digitakt-2-sharc-measured.md:34](../hardware/devices/digitakt-2-sharc-measured.md#L34) 4. The ColdFire <-> SHARC reply record |
 | `0x00268220` | [emu] [digitakt-2.md:157](../hardware/devices/digitakt-2.md#L157) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0x00268240` | [emu] [digitakt-2.md:157](../hardware/devices/digitakt-2.md#L157) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
-| `0x00268538` | [hw] [digitakt-2-dsp-optimizing.md:79](../hardware/devices/digitakt-2-dsp-optimizing.md#L79) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
 | `0x002ca2e8` | [doc] [digitakt-2-sharc-measured.md:24](../hardware/devices/digitakt-2-sharc-measured.md#L24) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0x002ca3e0` | [doc] [digitakt-2-sharc-measured.md:24](../hardware/devices/digitakt-2-sharc-measured.md#L24) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0x002ca3e8` | [doc] [digitakt-2-sharc-measured.md:24](../hardware/devices/digitakt-2-sharc-measured.md#L24) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
@@ -132,7 +153,7 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x005ee980` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x00800000` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
 | `0x00b80000` | [hw] [digitakt-2-sharc-measured.md:25](../hardware/devices/digitakt-2-sharc-measured.md#L25) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
-| `0x00b81368` | [doc] [digitakt-2-dsp-optimizing.md:112](../hardware/devices/digitakt-2-dsp-optimizing.md#L112) What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static) |
+| `0x00b81368` | [doc] [digitakt-2-dsp-optimizing.md:119](../hardware/devices/digitakt-2-dsp-optimizing.md#L119) What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static) |
 | `0x00b85af7` | [hw] [digitakt-2-sharc-measured.md:25](../hardware/devices/digitakt-2-sharc-measured.md#L25) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0x00b85b6b` | [hw] [digitakt-2-sharc-measured.md:25](../hardware/devices/digitakt-2-sharc-measured.md#L25) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0x00b86014` | [doc] [digitakt-2-sharc-measured.md:24](../hardware/devices/digitakt-2-sharc-measured.md#L24) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
@@ -143,6 +164,7 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x02df0180` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
 | `0x02df1000` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
 | `0x02e1a000` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
+| `0x07674700` | [hw] [digitakt-2-dsp-optimizing.md:80](../hardware/devices/digitakt-2-dsp-optimizing.md#L80) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
 | `0x19000400` | [emu] [digitakt-2.md:152](../hardware/devices/digitakt-2.md#L152) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0x20000000` | [hw] [digitakt-2-sharc-measured.md:25](../hardware/devices/digitakt-2-sharc-measured.md#L25) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0x2001ab7c` | [hw] [dt2-dn2-sharc-crosscheck.md:30](../hardware/common/dt2-dn2-sharc-crosscheck.md#L30) 3. Firmware-level, one device only: check before relying on it<br>[hw] [digitakt-2-sharc-measured.md:55](../hardware/devices/digitakt-2-sharc-measured.md#L55) 6. Memory rules learned the hard way |
@@ -150,13 +172,14 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x20088400` | [hw] [dt2-dn2-sharc-crosscheck.md:30](../hardware/common/dt2-dn2-sharc-crosscheck.md#L30) 3. Firmware-level, one device only: check before relying on it |
 | `0x200b0000` | [hw] [dt2-dn2-sharc-crosscheck.md:30](../hardware/common/dt2-dn2-sharc-crosscheck.md#L30) 3. Firmware-level, one device only: check before relying on it |
 | `0x200f5a74` | [hw] [dt2-dn2-sharc-crosscheck.md:30](../hardware/common/dt2-dn2-sharc-crosscheck.md#L30) 3. Firmware-level, one device only: check before relying on it<br>[hw] [memory-maps.md:91](../hardware/common/memory-maps.md#L91) Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02)<br>[hw] [digitakt-2-sharc-measured.md:55](../hardware/devices/digitakt-2-sharc-measured.md#L55) 6. Memory rules learned the hard way<br>[?] [dt2-dn2-limits-and-audio-chain.md:35](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L35) 2. Memory |
-| `0x200fa000` | [hw] [dt2-dn2-sharc-crosscheck.md:30](../hardware/common/dt2-dn2-sharc-crosscheck.md#L30) 3. Firmware-level, one device only: check before relying on it<br>[hw] [memory-maps.md:91](../hardware/common/memory-maps.md#L91) Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02)<br>[hw] [digitakt-2-dsp-optimizing.md:79](../hardware/devices/digitakt-2-dsp-optimizing.md#L79) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)<br>[hw] [digitakt-2-sharc-measured.md:55](../hardware/devices/digitakt-2-sharc-measured.md#L55) 6. Memory rules learned the hard way |
-| `0x200fe000` | [hw] [digitakt-2-dsp-optimizing.md:79](../hardware/devices/digitakt-2-dsp-optimizing.md#L79) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)<br>[hw] [digitakt-2-sharc-measured.md:55](../hardware/devices/digitakt-2-sharc-measured.md#L55) 6. Memory rules learned the hard way |
+| `0x200fa000` | [hw] [dt2-dn2-sharc-crosscheck.md:30](../hardware/common/dt2-dn2-sharc-crosscheck.md#L30) 3. Firmware-level, one device only: check before relying on it<br>[hw] [memory-maps.md:91](../hardware/common/memory-maps.md#L91) Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02)<br>[hw] [digitakt-2-dsp-optimizing.md:80](../hardware/devices/digitakt-2-dsp-optimizing.md#L80) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)<br>[hw] [digitakt-2-sharc-measured.md:55](../hardware/devices/digitakt-2-sharc-measured.md#L55) 6. Memory rules learned the hard way |
+| `0x200fe000` | [hw] [digitakt-2-dsp-optimizing.md:80](../hardware/devices/digitakt-2-dsp-optimizing.md#L80) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)<br>[hw] [digitakt-2-sharc-measured.md:55](../hardware/devices/digitakt-2-sharc-measured.md#L55) 6. Memory rules learned the hard way |
 | `0x20100000` | [hw] [digitakt-2-sharc-measured.md:55](../hardware/devices/digitakt-2-sharc-measured.md#L55) 6. Memory rules learned the hard way |
-| `0x28240000` | [hw] [digitakt-2-dsp-optimizing.md:79](../hardware/devices/digitakt-2-dsp-optimizing.md#L79) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
-| `0x283a0000` | [hw] [digitakt-2-dsp-optimizing.md:79](../hardware/devices/digitakt-2-dsp-optimizing.md#L79) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
+| `0x28240000` | [hw] [digitakt-2-dsp-optimizing.md:80](../hardware/devices/digitakt-2-dsp-optimizing.md#L80) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
+| `0x283a0000` | [hw] [digitakt-2-dsp-optimizing.md:80](../hardware/devices/digitakt-2-dsp-optimizing.md#L80) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
 | `0x30ffe000` | [emu] [hw] [digitakt-2-sharc-measured.md:46](../hardware/devices/digitakt-2-sharc-measured.md#L46) 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator) |
 | `0x40000000` | [doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
+| `0x40000410` | [emu] [digitakt-2.md:245](../hardware/devices/digitakt-2.md#L245) ColdFire task switches, main-OS entry and the bus timer (digikit findings 07 and 132, DT2 1.17 and DN2 1.12) |
 | `0x40000538` | [doc] [memory-maps.md:88](../hardware/common/memory-maps.md#L88) Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02) |
 | `0x4000053e` | [doc] [memory-maps.md:88](../hardware/common/memory-maps.md#L88) Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02) |
 | `0x400015a0` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
@@ -199,6 +222,8 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x400db9e0` | [doc] [toolchain-and-emulators.md:83](../hardware/common/toolchain-and-emulators.md#L83) More emulators and directory snapshots (2026-10-31) |
 | `0x400df66c` | [doc] [digitakt-2.md:187](../hardware/devices/digitakt-2.md#L187) Project and kit storage (digikit finding 121, DT2 1.17) |
 | `0x400df95a` | [doc] [digitakt-2.md:187](../hardware/devices/digitakt-2.md#L187) Project and kit storage (digikit finding 121, DT2 1.17) |
+| `0x400e6546` | [emu] [digitakt-2.md:246](../hardware/devices/digitakt-2.md#L246) ColdFire task switches, main-OS entry and the bus timer (digikit findings 07 and 132, DT2 1.17 and DN2 1.12) |
+| `0x400e7f1a` | [emu] [digitakt-2.md:246](../hardware/devices/digitakt-2.md#L246) ColdFire task switches, main-OS entry and the bus timer (digikit findings 07 and 132, DT2 1.17 and DN2 1.12) |
 | `0x4010331a` | [doc] [digitakt-2.md:203](../hardware/devices/digitakt-2.md#L203) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x40104dc2` | [doc] [digitakt-2.md:203](../hardware/devices/digitakt-2.md#L203) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x40111cda` | [doc] [digitakt-2.md:199](../hardware/devices/digitakt-2.md#L199) UI surfaces for mods (digikit finding 122, DT2 1.17) |
@@ -279,7 +304,7 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x4099d5c4` | [doc] [digitakt-2.md:203](../hardware/devices/digitakt-2.md#L203) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x41776c9c` | [doc] [digitakt-2.md:187](../hardware/devices/digitakt-2.md#L187) Project and kit storage (digikit finding 121, DT2 1.17) |
 | `0x41776cb8` | [doc] [digitakt-2.md:187](../hardware/devices/digitakt-2.md#L187) Project and kit storage (digikit finding 121, DT2 1.17) |
-| `0x42000021` | [hw] [digitakt-2-dsp-optimizing.md:79](../hardware/devices/digitakt-2-dsp-optimizing.md#L79) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
+| `0x42000021` | [hw] [digitakt-2-dsp-optimizing.md:80](../hardware/devices/digitakt-2-dsp-optimizing.md#L80) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
 | `0x426532b8` | [doc] [digitakt-2.md:187](../hardware/devices/digitakt-2.md#L187) Project and kit storage (digikit finding 121, DT2 1.17) |
 | `0x42c4bacc` | [doc] [digitakt-2.md:136](../hardware/devices/digitakt-2.md#L136) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
 | `0x42c4cacc` | [doc] [digitakt-2.md:136](../hardware/devices/digitakt-2.md#L136) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
@@ -310,8 +335,8 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x4fffffff` | [doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
 | `0x60000000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
 | `0x60042000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
-| `0x7fffffff` | [hw] [digitakt-2-dsp-optimizing.md:85](../hardware/devices/digitakt-2-dsp-optimizing.md#L85) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)<br>[hw] [digitakt-2-dsp-optimizing.md:88](../hardware/devices/digitakt-2-dsp-optimizing.md#L88) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
-| `0x80000000` | [hw] [digitakt-2-dsp-optimizing.md:88](../hardware/devices/digitakt-2-dsp-optimizing.md#L88) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
+| `0x7fffffff` | [hw] [digitakt-2-dsp-optimizing.md:86](../hardware/devices/digitakt-2-dsp-optimizing.md#L86) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)<br>[hw] [digitakt-2-dsp-optimizing.md:89](../hardware/devices/digitakt-2-dsp-optimizing.md#L89) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
+| `0x80000000` | [hw] [digitakt-2-dsp-optimizing.md:89](../hardware/devices/digitakt-2-dsp-optimizing.md#L89) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
 | `0x80000018` | [doc] [dt2-dn2-limits-and-audio-chain.md:75](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L75) 5. The DT2 audio chain per block (planar floats, 32 L then 32 R; voice blocks mono) |
 | `0x80000432` | [doc] [digitakt-2.md:28](../hardware/devices/digitakt-2.md#L28) Bootstrap/recovery facts |
 | `0x80001bd0` | [doc] [digitakt-2.md:28](../hardware/devices/digitakt-2.md#L28) Bootstrap/recovery facts |
@@ -324,7 +349,7 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x8000f100` | [doc] [memory-maps.md:96](../hardware/common/memory-maps.md#L96) Details per device |
 | `0x80010000` | [doc] [memory-maps.md:96](../hardware/common/memory-maps.md#L96) Details per device |
 | `0x8005912c` | [doc] [dt2-dn2-limits-and-audio-chain.md:75](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L75) 5. The DT2 audio chain per block (planar floats, 32 L then 32 R; voice blocks mono) |
-| `0x8040801b` | [hw] [digitakt-2-dsp-optimizing.md:79](../hardware/devices/digitakt-2-dsp-optimizing.md#L79) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
+| `0x8040801b` | [hw] [digitakt-2-dsp-optimizing.md:80](../hardware/devices/digitakt-2-dsp-optimizing.md#L80) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
 | `0x80459388` | [doc] [dt2-dn2-limits-and-audio-chain.md:75](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L75) 5. The DT2 audio chain per block (planar floats, 32 L then 32 R; voice blocks mono) |
 | `0x8045b3c0` | [hw] [digitakt-2-sharc-measured.md:56](../hardware/devices/digitakt-2-sharc-measured.md#L56) 6. Memory rules learned the hard way |
 | `0x80531000` | [hw] [dt2-dn2-sharc-crosscheck.md:36](../hardware/common/dt2-dn2-sharc-crosscheck.md#L36) 4. Different on the two devices |
@@ -349,14 +374,15 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0xfc04c000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc050000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc05c000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
+| `0xfc07000c` | [hw] [digitakt-2.md:247](../hardware/devices/digitakt-2.md#L247) ColdFire task switches, main-OS entry and the bus timer (digikit findings 07 and 132, DT2 1.17 and DN2 1.12) |
 | `0xfc080000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc08c000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc090000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc0b0000` | [doc] [overbridge-usb.md:6](../hardware/common/overbridge-usb.md#L6) Digitone II (digikit finding 42, static, DT2 1.16) |
 | `0xfc0b0170` | [doc] [digitakt-2.md:213](../hardware/devices/digitakt-2.md#L213) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0xffffffff` | [hw] [dt2-dn2-sharc-crosscheck.md:14](../hardware/common/dt2-dn2-sharc-crosscheck.md#L14) 1. Shown on both units `[hw]`<br>[hw] [digitakt-2-dsp-optimizing.md:85](../hardware/devices/digitakt-2-dsp-optimizing.md#L85) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)<br>[emu] [hw] [digitakt-2-sharc-measured.md:46](../hardware/devices/digitakt-2-sharc-measured.md#L46) 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator) |
+| `0xffffffff` | [hw] [dt2-dn2-sharc-crosscheck.md:14](../hardware/common/dt2-dn2-sharc-crosscheck.md#L14) 1. Shown on both units `[hw]`<br>[hw] [digitakt-2-dsp-optimizing.md:86](../hardware/devices/digitakt-2-dsp-optimizing.md#L86) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)<br>[emu] [hw] [digitakt-2-sharc-measured.md:46](../hardware/devices/digitakt-2-sharc-measured.md#L46) 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator) |
 
-## Digitone (MKI) / Digitone Keys (34 addresses)
+## Digitone (MKI) / Digitone Keys (35 addresses)
 
 | Address | Facts |
 |---|---|
@@ -388,6 +414,7 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x43eb0000` | [doc] [memory-maps.md:95](../hardware/common/memory-maps.md#L95) Details per device |
 | `0x43ec0000` | [doc] [digitone.md:94](../hardware/devices/digitone.md#L94) Effect mods and the `bulk` area (altstrument 2026-10-31 lists five Digitone mk1 mods; elektronmods 19 Digitone entries) |
 | `0x44000000` | [doc] [digitone.md:94](../hardware/devices/digitone.md#L94) Effect mods and the `bulk` area (altstrument 2026-10-31 lists five Digitone mk1 mods; elektronmods 19 Digitone entries) |
+| `0x44200000` | [doc] [digitone.md:100](../hardware/devices/digitone.md#L100) core-dn1 5.4 and the stock shadow for +Drive mods (elekloader, OS 1.43/1.44, 2026-11-15) |
 | `0x47baf640` | [doc] [hw] [digitone.md:39](../hardware/devices/digitone.md#L39) Writing your own engine for the second ColdFire (taktone-extended's contract) |
 | `0x47c00000` | [doc] [hw] [digitone.md:39](../hardware/devices/digitone.md#L39) Writing your own engine for the second ColdFire (taktone-extended's contract) |
 | `0x48000000` | [doc] [hw] [digitone.md:18](../hardware/devices/digitone.md#L18) The board and the second ColdFire (taktone, DN1 1.43 with DT1 1.53/1.54 applications)<br>[doc] [hw] [digitone.md:39](../hardware/devices/digitone.md#L39) Writing your own engine for the second ColdFire (taktone-extended's contract)<br>[doc] [memory-maps.md:95](../hardware/common/memory-maps.md#L95) Details per device |
@@ -395,7 +422,7 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x60042000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
 | `0xa50ce100` | [untagged] [digitone.md:45](../hardware/devices/digitone.md#L45) Caches at startup (digitone-arp-mod, OS 1.44, emulator trace and the NXP manual) |
 
-## Digitone II (327 addresses)
+## Digitone II (328 addresses)
 
 | Address | Facts |
 |---|---|
@@ -655,6 +682,7 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x4670c000` | [doc] [memory-maps.md:39](../hardware/common/memory-maps.md#L39) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11) |
 | `0x46710000` | [emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[doc] [memory-maps.md:57](../hardware/common/memory-maps.md#L57) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
 | `0x4671a000` | [emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
+| `0x46798000` | [emu] [digitone-2-internals.md:243](../hardware/devices/digitone-2-internals.md#L243) Frame send loop, MODS page and the ColdFire task switches (dnfw sendloop and MODS page, OS 1.11; digikit finding 132, OS 1.12) |
 | `0x467c8000` | [doc] [digitone-2-os111-reference.md:30](../hardware/devices/digitone-2-os111-reference.md#L30) Free memory |
 | `0x467e8000` | [doc] [emu] [digitone-2-internals.md:201](../hardware/devices/digitone-2-internals.md#L201) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12) |
 | `0x467f0000` | [doc] [memory-maps.md:39](../hardware/common/memory-maps.md#L39) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11) |
@@ -827,7 +855,7 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x80010000` | [doc] [hw] [analog-heat.md:43](../hardware/devices/analog-heat.md#L43) Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo) |
 | `0xfc0b0000` | [doc] [overbridge-usb.md:6](../hardware/common/overbridge-usb.md#L6) Digitone II (digikit finding 42, static, DT2 1.16) |
 
-## Octatrack (MKI, MKII) (107 addresses)
+## Octatrack (MKI, MKII) (138 addresses)
 
 | Address | Facts |
 |---|---|
@@ -850,6 +878,7 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x100fff00` | [doc] [octatrack.md:198](../hardware/devices/octatrack.md#L198) Stock OS facts from elekloader's core-ot 0.9-0.40 (OS 1.40C, static reading and emulator probes, 2026-11-13) |
 | `0x40000000` | [hw] [octatrack.md:9](../hardware/devices/octatrack.md#L9) Silicon |
 | `0x4000050c` | [doc] [memory-maps.md:98](../hardware/common/memory-maps.md#L98) Details per device |
+| `0x40000c3c` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x40004100` | [doc] [hw] [octatrack.md:191](../hardware/devices/octatrack.md#L191) Modwerk findings (2026-11-12/13)<br>[doc] [octatrack.md:201](../hardware/devices/octatrack.md#L201) Stock OS facts from elekloader's core-ot 0.9-0.40 (OS 1.40C, static reading and emulator probes, 2026-11-13) |
 | `0x40005178` | [?] [hw] [octatrack.md:161](../hardware/devices/octatrack.md#L161) Modwerk and octabam findings (2026-11-12) |
 | `0x40009094` | [hw] [octatrack.md:141](../hardware/devices/octatrack.md#L141) octabam and octamax findings (2026-11-10) |
@@ -861,13 +890,21 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x400166b8` | [hw] [octatrack.md:107](../hardware/devices/octatrack.md#L107) Debugging on the unit by writing a log to the CF card (OctaMax, MKII, OS 1.40C) |
 | `0x4001677c` | [hw] [octatrack.md:107](../hardware/devices/octatrack.md#L107) Debugging on the unit by writing a log to the CF card (OctaMax, MKII, OS 1.40C) |
 | `0x40016864` | [hw] [octatrack.md:107](../hardware/devices/octatrack.md#L107) Debugging on the unit by writing a log to the CF card (OctaMax, MKII, OS 1.40C) |
+| `0x4001fc9c` | [hw] [octatrack.md:220](../hardware/devices/octatrack.md#L220) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x4001ff2c` | [emu] [hw] [octatrack.md:224](../hardware/devices/octatrack.md#L224) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x4001ffe4` | [emu] [hw] [octatrack.md:224](../hardware/devices/octatrack.md#L224) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x40020628` | [doc] [hw] [octatrack.md:40](../hardware/devices/octatrack.md#L40) OS format, update and recovery |
 | `0x400206f4` | [doc] [hw] [octatrack.md:40](../hardware/devices/octatrack.md#L40) OS format, update and recovery |
+| `0x4002bf38` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x4002cb52` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x40031406` | [emu] [octatrack.md:154](../hardware/devices/octatrack.md#L154) Modwerk and octabam findings (2026-11-12) |
 | `0x40031944` | [emu] [octatrack.md:154](../hardware/devices/octatrack.md#L154) Modwerk and octabam findings (2026-11-12) |
+| `0x40039df4` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x40040e14` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x4004a908` | [doc] [octatrack.md:214](../hardware/devices/octatrack.md#L214) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
 | `0x4004a9c4` | [doc] [octatrack.md:214](../hardware/devices/octatrack.md#L214) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
 | `0x4004a9d0` | [doc] [octatrack.md:214](../hardware/devices/octatrack.md#L214) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
+| `0x40052e98` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x40053498` | [emu] [octatrack.md:154](../hardware/devices/octatrack.md#L154) Modwerk and octabam findings (2026-11-12) |
 | `0x40054c5c` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
 | `0x40054c80` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
@@ -875,22 +912,41 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x40055670` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
 | `0x40055676` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
 | `0x40056c28` | [emu] [octatrack.md:165](../hardware/devices/octatrack.md#L165) Modwerk and octabam findings (2026-11-12) |
+| `0x40058a64` | [emu] [octatrack.md:226](../hardware/devices/octatrack.md#L226) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x4006036e` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x40061e40` | [hw] [octatrack.md:134](../hardware/devices/octatrack.md#L134) octabam and octamax findings (2026-11-10) |
 | `0x400626ba` | [hw] [octatrack.md:134](../hardware/devices/octatrack.md#L134) octabam and octamax findings (2026-11-10) |
+| `0x40063660` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x400636bc` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x4006370c` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x4007c0d0` | [emu] [octatrack.md:226](../hardware/devices/octatrack.md#L226) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x4007e998` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
+| `0x4007eb18` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x4007eb34` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x40080640` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x40084dc8` | [emu] [octatrack.md:228](../hardware/devices/octatrack.md#L228) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x4008ee74` | [doc] [octatrack.md:214](../hardware/devices/octatrack.md#L214) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
 | `0x4008f180` | [doc] [octatrack.md:214](../hardware/devices/octatrack.md#L214) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
 | `0x40090504` | [doc] [octatrack.md:214](../hardware/devices/octatrack.md#L214) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
 | `0x400905d4` | [doc] [octatrack.md:214](../hardware/devices/octatrack.md#L214) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
 | `0x400909d8` | [doc] [octatrack.md:214](../hardware/devices/octatrack.md#L214) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
-| `0x400917c8` | [doc] [octatrack.md:214](../hardware/devices/octatrack.md#L214) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
+| `0x400917c8` | [emu] [octatrack.md:228](../hardware/devices/octatrack.md#L228) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16)<br>[doc] [octatrack.md:214](../hardware/devices/octatrack.md#L214) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
+| `0x40098300` | [hw] [octatrack.md:220](../hardware/devices/octatrack.md#L220) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x40098bff` | [hw] [octatrack.md:220](../hardware/devices/octatrack.md#L220) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x4009c3d4` | [hw] [octatrack.md:222](../hardware/devices/octatrack.md#L222) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x4009c4d4` | [hw] [octatrack.md:222](../hardware/devices/octatrack.md#L222) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x4009eec8` | [emu] [octatrack.md:155](../hardware/devices/octatrack.md#L155) Modwerk and octabam findings (2026-11-12) |
 | `0x400a12b8` | [emu] [octatrack.md:210](../hardware/devices/octatrack.md#L210) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
 | `0x400a2d82` | [emu] [hw] [octatrack.md:149](../hardware/devices/octatrack.md#L149) octabam findings (2026-11-11) |
 | `0x400a539c` | [emu] [octatrack.md:210](../hardware/devices/octatrack.md#L210) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
 | `0x400a53e6` | [emu] [octatrack.md:210](../hardware/devices/octatrack.md#L210) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
 | `0x400a95c0` | [doc] [hw] [octatrack.md:40](../hardware/devices/octatrack.md#L40) OS format, update and recovery |
+| `0x400abf28` | [emu] [hw] [octatrack.md:224](../hardware/devices/octatrack.md#L224) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x400b970c` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x400bcd90` | [hw] [octatrack.md:134](../hardware/devices/octatrack.md#L134) octabam and octamax findings (2026-11-10) |
+| `0x400bf2b4` | [emu] [octatrack.md:226](../hardware/devices/octatrack.md#L226) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x400bf628` | [emu] [octatrack.md:226](../hardware/devices/octatrack.md#L226) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x400bfa36` | [emu] [octatrack.md:226](../hardware/devices/octatrack.md#L226) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x400c0000` | [hw] [octatrack.md:49](../hardware/devices/octatrack.md#L49) Memory and code placement |
 | `0x400c45b0` | [doc] [memory-maps.md:98](../hardware/common/memory-maps.md#L98) Details per device |
 | `0x400c4702` | [doc] [memory-maps.md:98](../hardware/common/memory-maps.md#L98) Details per device |
@@ -914,6 +970,7 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x40af0000` | [hw] [octatrack.md:140](../hardware/devices/octatrack.md#L140) octabam and octamax findings (2026-11-10) |
 | `0x40af0600` | [hw] [octatrack.md:140](../hardware/devices/octatrack.md#L140) octabam and octamax findings (2026-11-10) |
 | `0x460d1694` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
+| `0x460e76a0` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x46107959` | [emu] [octatrack.md:210](../hardware/devices/octatrack.md#L210) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
 | `0x46107969` | [emu] [octatrack.md:210](../hardware/devices/octatrack.md#L210) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
 | `0x46107979` | [emu] [octatrack.md:210](../hardware/devices/octatrack.md#L210) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
@@ -928,6 +985,8 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x800018de` | [?] [hw] [octatrack.md:161](../hardware/devices/octatrack.md#L161) Modwerk and octabam findings (2026-11-12) |
 | `0x80003c60` | [hw] [octatrack.md:134](../hardware/devices/octatrack.md#L134) octabam and octamax findings (2026-11-10) |
 | `0x80004000` | [doc] [octatrack.md:102](../hardware/devices/octatrack.md#L102) From KYOTI (Zac-Kyoti/octatrack-kyoti-fw, OS 1.40C) |
+| `0x800065b8` | [hw] [octatrack.md:222](../hardware/devices/octatrack.md#L222) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x800065bb` | [hw] [octatrack.md:222](../hardware/devices/octatrack.md#L222) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x800065bd` | [hw] [octatrack.md:141](../hardware/devices/octatrack.md#L141) octabam and octamax findings (2026-11-10) |
 | `0x800065bf` | [hw] [octatrack.md:141](../hardware/devices/octatrack.md#L141) octabam and octamax findings (2026-11-10) |
 | `0x80006964` | [hw] [octatrack.md:140](../hardware/devices/octatrack.md#L140) octabam and octamax findings (2026-11-10) |
@@ -939,7 +998,7 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x90000000` | [hw] [octatrack.md:13](../hardware/devices/octatrack.md#L13) Silicon |
 | `0xfff80000` | [hw] [octatrack.md:147](../hardware/devices/octatrack.md#L147) octabam findings (2026-11-11) |
 
-## Analog Rytm (MKI, MKII) (122 addresses)
+## Analog Rytm (MKI, MKII) (201 addresses)
 
 | Address | Facts |
 |---|---|
@@ -948,35 +1007,63 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x0001fff8` | [doc] [analog-rytm.md:45](../hardware/devices/analog-rytm.md#L45) 1.74) |
 | `0x0001ffff` | [doc] [analog-rytm.md:64](../hardware/devices/analog-rytm.md#L64) 1.74) |
 | `0x00040000` | [doc] [analog-rytm.md:20](../hardware/devices/analog-rytm.md#L20) Flash and recovery<br>[doc] [analog-rytm.md:88](../hardware/devices/analog-rytm.md#L88) More from the MKII mod and research projects (rytm-mods-src OS 1.73, analog-rytm-mkii-research OS 1.72) |
+| `0x000401bf` | [doc] [emu] [analog-rytm.md:167](../hardware/devices/analog-rytm.md#L167) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x00040288` | [doc] [emu] [analog-rytm.md:167](../hardware/devices/analog-rytm.md#L167) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x00040290` | [doc] [emu] [analog-rytm.md:167](../hardware/devices/analog-rytm.md#L167) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
 | `0x0007a000` | [emu] [analog-rytm.md:157](../hardware/devices/analog-rytm.md#L157) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x0007c000` | [emu] [analog-rytm.md:157](../hardware/devices/analog-rytm.md#L157) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x0007ffff` | [doc] [analog-rytm.md:19](../hardware/devices/analog-rytm.md#L19) Flash and recovery |
 | `0x00080000` | [doc] [analog-rytm.md:19](../hardware/devices/analog-rytm.md#L19) Flash and recovery |
 | `0x000ec074` | [doc] [analog-rytm.md:11](../hardware/devices/analog-rytm.md#L11) Platform (MKII, OS 1.74) |
+| `0x001c8b00` | [hw] [analog-rytm.md:178](../hardware/devices/analog-rytm.md#L178) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
 | `0x001f0000` | [doc] [analog-rytm.md:64](../hardware/devices/analog-rytm.md#L64) 1.74) |
 | `0x001f2bb0` | [doc] [memory-maps.md:100](../hardware/common/memory-maps.md#L100) Details per device |
 | `0x001f9f32` | [emu] [analog-rytm.md:155](../hardware/devices/analog-rytm.md#L155) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x00300000` | [doc] [memory-maps.md:100](../hardware/common/memory-maps.md#L100) Details per device |
 | `0x00380000` | [doc] [memory-maps.md:100](../hardware/common/memory-maps.md#L100) Details per device |
+| `0x003c8700` | [hw] [analog-rytm.md:178](../hardware/devices/analog-rytm.md#L178) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
 | `0x00400000` | [doc] [memory-maps.md:100](../hardware/common/memory-maps.md#L100) Details per device |
 | `0x07020000` | [doc] [analog-rytm.md:10](../hardware/devices/analog-rytm.md#L10) Platform (MKII, OS 1.74)<br>[doc] [analog-rytm.md:86](../hardware/devices/analog-rytm.md#L86) More from the MKII mod and research projects (rytm-mods-src OS 1.73, analog-rytm-mkii-research OS 1.72) |
 | `0x3ff80008` | [doc] [analog-rytm.md:19](../hardware/devices/analog-rytm.md#L19) Flash and recovery |
 | `0x40000000` | [hw] [analog-rytm.md:12](../hardware/devices/analog-rytm.md#L12) Platform (MKII, OS 1.74)<br>[doc] [hw] [analog-rytm.md:144](../hardware/devices/analog-rytm.md#L144) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13)<br>[doc] [analog-rytm.md:9](../hardware/devices/analog-rytm.md#L9) Platform (MKII, OS 1.74) |
 | `0x40000400` | [hw] [analog-rytm.md:12](../hardware/devices/analog-rytm.md#L12) Platform (MKII, OS 1.74)<br>[doc] [analog-rytm.md:9](../hardware/devices/analog-rytm.md#L9) Platform (MKII, OS 1.74)<br>[doc] [analog-rytm.md:63](../hardware/devices/analog-rytm.md#L63) 1.74)<br>[doc] [analog-rytm.md:94](../hardware/devices/analog-rytm.md#L94) More from the MKII mod and research projects (rytm-mods-src OS 1.73, analog-rytm-mkii-research OS 1.72) |
+| `0x400008c6` | [hw] [analog-rytm.md:178](../hardware/devices/analog-rytm.md#L178) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
+| `0x400013b2` | [doc] [emu] [analog-rytm.md:184](../hardware/devices/analog-rytm.md#L184) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
+| `0x4000275a` | [emu] [analog-rytm.md:198](../hardware/devices/analog-rytm.md#L198) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x40002ab6` | [emu] [analog-rytm.md:198](../hardware/devices/analog-rytm.md#L198) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x40002c14` | [doc] [emu] [analog-rytm.md:167](../hardware/devices/analog-rytm.md#L167) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14)<br>[emu] [analog-rytm.md:198](../hardware/devices/analog-rytm.md#L198) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
 | `0x400071a6` | [emu] [analog-rytm.md:107](../hardware/devices/analog-rytm.md#L107) Modwerk Rytm modules and stock behaviour (OS 1.74, 2026-11-10) |
+| `0x400075c8` | [emu] [analog-rytm.md:171](../hardware/devices/analog-rytm.md#L171) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x40007602` | [emu] [analog-rytm.md:171](../hardware/devices/analog-rytm.md#L171) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
 | `0x40009216` | [emu] [analog-rytm.md:107](../hardware/devices/analog-rytm.md#L107) Modwerk Rytm modules and stock behaviour (OS 1.74, 2026-11-10) |
 | `0x40037a56` | [hw] [analog-rytm.md:168](../hardware/devices/analog-rytm.md#L168) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x40037b9c` | [hw] [analog-rytm.md:185](../hardware/devices/analog-rytm.md#L185) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
 | `0x40037bea` | [hw] [analog-rytm.md:168](../hardware/devices/analog-rytm.md#L168) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x4004dc14` | [hw] [analog-rytm.md:178](../hardware/devices/analog-rytm.md#L178) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
+| `0x4006f1fa` | [emu] [hw] [analog-rytm.md:182](../hardware/devices/analog-rytm.md#L182) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
 | `0x4007154c` | [doc] [analog-rytm.md:74](../hardware/devices/analog-rytm.md#L74) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x400734f2` | [doc] [analog-rytm.md:125](../hardware/devices/analog-rytm.md#L125) +Drive mods loaded at boot (elekloader drive-loader-ar2 0.4, core-ar2 0.12, OS 1.74) |
 | `0x4007e020` | [doc] [hw] [analog-rytm.md:144](../hardware/devices/analog-rytm.md#L144) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
+| `0x40081c28` | [doc] [emu] [analog-rytm.md:184](../hardware/devices/analog-rytm.md#L184) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
+| `0x40081dac` | [doc] [emu] [analog-rytm.md:184](../hardware/devices/analog-rytm.md#L184) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
+| `0x40082184` | [emu] [analog-rytm.md:194](../hardware/devices/analog-rytm.md#L194) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x400821f0` | [emu] [analog-rytm.md:194](../hardware/devices/analog-rytm.md#L194) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x40082fce` | [doc] [analog-rytm.md:195](../hardware/devices/analog-rytm.md#L195) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x40083dd8` | [doc] [emu] [analog-rytm.md:184](../hardware/devices/analog-rytm.md#L184) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
+| `0x4009afa0` | [emu] [analog-rytm.md:193](../hardware/devices/analog-rytm.md#L193) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x4009b00c` | [emu] [analog-rytm.md:193](../hardware/devices/analog-rytm.md#L193) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
 | `0x4009df72` | [hw] [analog-rytm.md:139](../hardware/devices/analog-rytm.md#L139) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x4009e39e` | [hw] [analog-rytm.md:139](../hardware/devices/analog-rytm.md#L139) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
+| `0x4009e790` | [emu] [analog-rytm.md:193](../hardware/devices/analog-rytm.md#L193) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x4009e7fc` | [emu] [analog-rytm.md:193](../hardware/devices/analog-rytm.md#L193) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x4009f404` | [hw] [analog-rytm.md:178](../hardware/devices/analog-rytm.md#L178) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
 | `0x400a005e` | [doc] [analog-rytm.md:121](../hardware/devices/analog-rytm.md#L121) +Drive mods loaded at boot (elekloader drive-loader-ar2 0.4, core-ar2 0.12, OS 1.74) |
 | `0x400a0336` | [emu] [analog-rytm.md:133](../hardware/devices/analog-rytm.md#L133) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x400a7d04` | [doc] [analog-rytm.md:160](../hardware/devices/analog-rytm.md#L160) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x400a86b4` | [hw] [analog-rytm.md:168](../hardware/devices/analog-rytm.md#L168) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
 | `0x400a88ea` | [emu] [analog-rytm.md:134](../hardware/devices/analog-rytm.md#L134) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
+| `0x400ac646` | [emu] [analog-rytm.md:172](../hardware/devices/analog-rytm.md#L172) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x400ac86e` | [emu] [analog-rytm.md:169](../hardware/devices/analog-rytm.md#L169) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
 | `0x400b2bfe` | [doc] [analog-rytm.md:159](../hardware/devices/analog-rytm.md#L159) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x400b6d6c` | [doc] [analog-rytm.md:160](../hardware/devices/analog-rytm.md#L160) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x400b739c` | [hw] [analog-rytm.md:139](../hardware/devices/analog-rytm.md#L139) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
@@ -984,15 +1071,19 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x400b8192` | [hw] [analog-rytm.md:139](../hardware/devices/analog-rytm.md#L139) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x400bdc5e` | [doc] [analog-rytm.md:76](../hardware/devices/analog-rytm.md#L76) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x400bde1c` | [doc] [analog-rytm.md:76](../hardware/devices/analog-rytm.md#L76) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
-| `0x400c0000` | [emu] [analog-rytm.md:167](../hardware/devices/analog-rytm.md#L167) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x400c0000` | [doc] [emu] [analog-rytm.md:167](../hardware/devices/analog-rytm.md#L167) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
 | `0x400c03d6` | [emu] [analog-rytm.md:164](../hardware/devices/analog-rytm.md#L164) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
-| `0x400c058c` | [emu] [analog-rytm.md:164](../hardware/devices/analog-rytm.md#L164) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
-| `0x400c05e2` | [emu] [analog-rytm.md:164](../hardware/devices/analog-rytm.md#L164) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x400c058c` | [emu] [analog-rytm.md:164](../hardware/devices/analog-rytm.md#L164) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14)<br>[emu] [analog-rytm.md:170](../hardware/devices/analog-rytm.md#L170) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x400c05e2` | [emu] [analog-rytm.md:164](../hardware/devices/analog-rytm.md#L164) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14)<br>[emu] [analog-rytm.md:170](../hardware/devices/analog-rytm.md#L170) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x400c0624` | [emu] [analog-rytm.md:169](../hardware/devices/analog-rytm.md#L169) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x400c0670` | [emu] [analog-rytm.md:170](../hardware/devices/analog-rytm.md#L170) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x400c070a` | [emu] [analog-rytm.md:169](../hardware/devices/analog-rytm.md#L169) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14)<br>[emu] [analog-rytm.md:170](../hardware/devices/analog-rytm.md#L170) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
 | `0x400c0776` | [emu] [analog-rytm.md:164](../hardware/devices/analog-rytm.md#L164) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
 | `0x400c07f0` | [emu] [analog-rytm.md:164](../hardware/devices/analog-rytm.md#L164) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
 | `0x400c086a` | [emu] [analog-rytm.md:164](../hardware/devices/analog-rytm.md#L164) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x400c0b18` | [emu] [analog-rytm.md:169](../hardware/devices/analog-rytm.md#L169) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
 | `0x400c1d7a` | [emu] [analog-rytm.md:164](../hardware/devices/analog-rytm.md#L164) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
-| `0x400c2482` | [emu] [analog-rytm.md:164](../hardware/devices/analog-rytm.md#L164) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x400c2482` | [emu] [analog-rytm.md:164](../hardware/devices/analog-rytm.md#L164) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14)<br>[emu] [analog-rytm.md:169](../hardware/devices/analog-rytm.md#L169) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
 | `0x400c2620` | [emu] [analog-rytm.md:164](../hardware/devices/analog-rytm.md#L164) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
 | `0x400d2004` | [emu] [analog-rytm.md:138](../hardware/devices/analog-rytm.md#L138) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x400d20ee` | [emu] [analog-rytm.md:138](../hardware/devices/analog-rytm.md#L138) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
@@ -1007,41 +1098,78 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x4010d342` | [doc] [emu] [analog-rytm.md:149](../hardware/devices/analog-rytm.md#L149) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
 | `0x4010d3b2` | [doc] [emu] [analog-rytm.md:149](../hardware/devices/analog-rytm.md#L149) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
 | `0x4010d3da` | [doc] [emu] [analog-rytm.md:149](../hardware/devices/analog-rytm.md#L149) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
+| `0x4010d434` | [doc] [emu] [analog-rytm.md:184](../hardware/devices/analog-rytm.md#L184) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
+| `0x4010da24` | [doc] [emu] [analog-rytm.md:184](../hardware/devices/analog-rytm.md#L184) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
 | `0x40110a06` | [hw] [analog-rytm.md:146](../hardware/devices/analog-rytm.md#L146) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
 | `0x401197f4` | [hw] [analog-rytm.md:77](../hardware/devices/analog-rytm.md#L77) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x4011aa4c` | [hw] [analog-rytm.md:77](../hardware/devices/analog-rytm.md#L77) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
+| `0x4011ddbe` | [emu] [analog-rytm.md:193](../hardware/devices/analog-rytm.md#L193) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x4011de2a` | [emu] [analog-rytm.md:193](../hardware/devices/analog-rytm.md#L193) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
 | `0x4011e4c2` | [doc] [hw] [analog-rytm.md:142](../hardware/devices/analog-rytm.md#L142) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
-| `0x4011f60a` | [doc] [hw] [analog-rytm.md:142](../hardware/devices/analog-rytm.md#L142) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
+| `0x4011f59e` | [emu] [analog-rytm.md:192](../hardware/devices/analog-rytm.md#L192) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x4011f60a` | [doc] [hw] [analog-rytm.md:142](../hardware/devices/analog-rytm.md#L142) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13)<br>[emu] [analog-rytm.md:192](../hardware/devices/analog-rytm.md#L192) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x4011fb56` | [doc] [emu] [analog-rytm.md:184](../hardware/devices/analog-rytm.md#L184) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
 | `0x40120cfa` | [emu] [analog-rytm.md:134](../hardware/devices/analog-rytm.md#L134) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
+| `0x40120fae` | [emu] [analog-rytm.md:193](../hardware/devices/analog-rytm.md#L193) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x40120fb4` | [emu] [analog-rytm.md:193](../hardware/devices/analog-rytm.md#L193) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x4012101a` | [emu] [analog-rytm.md:193](../hardware/devices/analog-rytm.md#L193) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x40121020` | [emu] [analog-rytm.md:193](../hardware/devices/analog-rytm.md#L193) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
 | `0x4012129a` | [doc] [hw] [analog-rytm.md:142](../hardware/devices/analog-rytm.md#L142) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
 | `0x401216c2` | [doc] [hw] [analog-rytm.md:142](../hardware/devices/analog-rytm.md#L142) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
 | `0x4013f1c8` | [doc] [analog-rytm.md:159](../hardware/devices/analog-rytm.md#L159) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x4017f83e` | [emu] [analog-rytm.md:194](../hardware/devices/analog-rytm.md#L194) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x401bf0fc` | [emu] [analog-rytm.md:197](../hardware/devices/analog-rytm.md#L197) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x401bf100` | [emu] [analog-rytm.md:197](../hardware/devices/analog-rytm.md#L197) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x401bf1d2` | [emu] [analog-rytm.md:197](../hardware/devices/analog-rytm.md#L197) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x401bf3ac` | [emu] [analog-rytm.md:197](../hardware/devices/analog-rytm.md#L197) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x401bf3b0` | [emu] [analog-rytm.md:197](../hardware/devices/analog-rytm.md#L197) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x401bf482` | [emu] [analog-rytm.md:197](../hardware/devices/analog-rytm.md#L197) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x401bfb2c` | [emu] [analog-rytm.md:172](../hardware/devices/analog-rytm.md#L172) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
 | `0x401c03c8` | [emu] [analog-rytm.md:135](../hardware/devices/analog-rytm.md#L135) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x401c03f8` | [emu] [analog-rytm.md:135](../hardware/devices/analog-rytm.md#L135) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x401c0410` | [emu] [analog-rytm.md:135](../hardware/devices/analog-rytm.md#L135) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x401c0418` | [emu] [analog-rytm.md:135](../hardware/devices/analog-rytm.md#L135) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
-| `0x401c5000` | [emu] [analog-rytm.md:167](../hardware/devices/analog-rytm.md#L167) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x401c5000` | [doc] [emu] [analog-rytm.md:167](../hardware/devices/analog-rytm.md#L167) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x401c5b4c` | [emu] [analog-rytm.md:171](../hardware/devices/analog-rytm.md#L171) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x401c5be4` | [emu] [analog-rytm.md:171](../hardware/devices/analog-rytm.md#L171) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x401c5c7c` | [emu] [analog-rytm.md:171](../hardware/devices/analog-rytm.md#L171) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
+| `0x401c5d24` | [emu] [analog-rytm.md:171](../hardware/devices/analog-rytm.md#L171) Step records, locks and the stock write routines (trig-seedr, MKII OS 1.74, analog-emu only, 2026-11-14) |
 | `0x401db6f8` | [emu] [hw] [analog-rytm.md:150](../hardware/devices/analog-rytm.md#L150) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
 | `0x401e3420` | [emu] [analog-rytm.md:135](../hardware/devices/analog-rytm.md#L135) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x401ee61c` | [doc] [emu] [analog-rytm.md:149](../hardware/devices/analog-rytm.md#L149) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
+| `0x40200000` | [hw] [analog-rytm.md:178](../hardware/devices/analog-rytm.md#L178) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
 | `0x402543d0` | [hw] [analog-rytm.md:58](../hardware/devices/analog-rytm.md#L58) 1.74) |
 | `0x40257d70` | [doc] [analog-rytm.md:76](../hardware/devices/analog-rytm.md#L76) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
+| `0x40287b68` | [doc] [emu] [analog-rytm.md:184](../hardware/devices/analog-rytm.md#L184) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
+| `0x40287b6c` | [doc] [emu] [analog-rytm.md:184](../hardware/devices/analog-rytm.md#L184) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
+| `0x402882d8` | [emu] [analog-rytm.md:197](../hardware/devices/analog-rytm.md#L197) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x40288638` | [emu] [analog-rytm.md:197](../hardware/devices/analog-rytm.md#L197) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x4028a318` | [doc] [emu] [analog-rytm.md:184](../hardware/devices/analog-rytm.md#L184) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
+| `0x4028ab18` | [doc] [emu] [analog-rytm.md:184](../hardware/devices/analog-rytm.md#L184) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
 | `0x4028c768` | [doc] [analog-rytm.md:45](../hardware/devices/analog-rytm.md#L45) 1.74) |
 | `0x4028c770` | [doc] [analog-rytm.md:45](../hardware/devices/analog-rytm.md#L45) 1.74) |
+| `0x40290428` | [emu] [analog-rytm.md:197](../hardware/devices/analog-rytm.md#L197) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x40290788` | [emu] [analog-rytm.md:197](../hardware/devices/analog-rytm.md#L197) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
 | `0x40291138` | [doc] [analog-rytm.md:72](../hardware/devices/analog-rytm.md#L72) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x402a1b84` | [doc] [analog-rytm.md:45](../hardware/devices/analog-rytm.md#L45) 1.74) |
+| `0x403c8b00` | [hw] [analog-rytm.md:178](../hardware/devices/analog-rytm.md#L178) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
 | `0x405c8e10` | [emu] [analog-rytm.md:157](../hardware/devices/analog-rytm.md#L157) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x405c8e84` | [emu] [analog-rytm.md:157](../hardware/devices/analog-rytm.md#L157) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x405c8f0f` | [emu] [analog-rytm.md:157](../hardware/devices/analog-rytm.md#L157) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x405c8f10` | [emu] [analog-rytm.md:157](../hardware/devices/analog-rytm.md#L157) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
 | `0x405c8f20` | [emu] [analog-rytm.md:155](../hardware/devices/analog-rytm.md#L155) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
-| `0x417e32b8` | [doc] [analog-rytm.md:81](../hardware/devices/analog-rytm.md#L81) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
+| `0x412558e3` | [emu] [analog-rytm.md:194](../hardware/devices/analog-rytm.md#L194) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x413db244` | [emu] [analog-rytm.md:198](../hardware/devices/analog-rytm.md#L198) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x417e32b8` | [emu] [hw] [analog-rytm.md:182](../hardware/devices/analog-rytm.md#L182) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15)<br>[doc] [analog-rytm.md:81](../hardware/devices/analog-rytm.md#L81) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x417e381c` | [doc] [analog-rytm.md:74](../hardware/devices/analog-rytm.md#L74) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
+| `0x418d1340` | [emu] [analog-rytm.md:194](../hardware/devices/analog-rytm.md#L194) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
 | `0x41942350` | [hw] [analog-rytm.md:139](../hardware/devices/analog-rytm.md#L139) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
 | `0x419a4888` | [emu] [analog-rytm.md:134](../hardware/devices/analog-rytm.md#L134) Modwerk Rytm findings (OS 1.74, 2026-11-11)<br>[doc] [analog-rytm.md:81](../hardware/devices/analog-rytm.md#L81) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
 | `0x41ad0000` | [hw] [analog-rytm.md:16](../hardware/devices/analog-rytm.md#L16) Platform (MKII, OS 1.74) |
 | `0x428a0000` | [doc] [analog-rytm.md:56](../hardware/devices/analog-rytm.md#L56) 1.74) |
 | `0x42ac5fb0` | [doc] [hw] [analog-rytm.md:128](../hardware/devices/analog-rytm.md#L128) Queued trigs: what a mod can see before a trig fires (Modwerk, OS 1.74, read from the code) |
+| `0x42f9210c` | [emu] [analog-rytm.md:194](../hardware/devices/analog-rytm.md#L194) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x42f92110` | [emu] [analog-rytm.md:194](../hardware/devices/analog-rytm.md#L194) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
 | `0x47be0000` | [hw] [analog-rytm.md:65](../hardware/devices/analog-rytm.md#L65) 1.74) |
 | `0x47c00000` | [hw] [analog-rytm.md:65](../hardware/devices/analog-rytm.md#L65) 1.74) |
 | `0x47fff000` | [doc] [analog-rytm.md:123](../hardware/devices/analog-rytm.md#L123) +Drive mods loaded at boot (elekloader drive-loader-ar2 0.4, core-ar2 0.12, OS 1.74) |
@@ -1052,12 +1180,21 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x80000000` | [doc] [analog-rytm.md:10](../hardware/devices/analog-rytm.md#L10) Platform (MKII, OS 1.74) |
 | `0x80000590` | [doc] [memory-maps.md:100](../hardware/common/memory-maps.md#L100) Details per device |
 | `0x800063c0` | [hw] [analog-rytm.md:77](../hardware/devices/analog-rytm.md#L77) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
-| `0x800067c4` | [doc] [analog-rytm.md:72](../hardware/devices/analog-rytm.md#L72) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
+| `0x800067b0` | [emu] [analog-rytm.md:196](../hardware/devices/analog-rytm.md#L196) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x800067b8` | [emu] [analog-rytm.md:192](../hardware/devices/analog-rytm.md#L192) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x800067c4` | [emu] [analog-rytm.md:192](../hardware/devices/analog-rytm.md#L192) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16)<br>[doc] [analog-rytm.md:72](../hardware/devices/analog-rytm.md#L72) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
+| `0x800067de` | [emu] [analog-rytm.md:192](../hardware/devices/analog-rytm.md#L192) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
 | `0x80006bf8` | [doc] [hw] [analog-rytm.md:142](../hardware/devices/analog-rytm.md#L142) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
 | `0x8000e508` | [doc] [hw] [analog-rytm.md:108](../hardware/devices/analog-rytm.md#L108) Modwerk Rytm modules and stock behaviour (OS 1.74, 2026-11-10)<br>[doc] [analog-rytm.md:72](../hardware/devices/analog-rytm.md#L72) Mod machines in hidden slots (MKII OS 1.74, elekloader core-ar2 0.5; Modwerk's SDK guide, 2026-11-05) |
+| `0x8000e53c` | [emu] [analog-rytm.md:192](../hardware/devices/analog-rytm.md#L192) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
 | `0x8000e57c` | [doc] [analog-rytm.md:159](../hardware/devices/analog-rytm.md#L159) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
-| `0x8000e5b0` | [emu] [analog-rytm.md:134](../hardware/devices/analog-rytm.md#L134) Modwerk Rytm findings (OS 1.74, 2026-11-11) |
-| `0x8000f774` | [doc] [analog-rytm.md:159](../hardware/devices/analog-rytm.md#L159) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x8000e5b0` | [emu] [analog-rytm.md:134](../hardware/devices/analog-rytm.md#L134) Modwerk Rytm findings (OS 1.74, 2026-11-11)<br>[doc] [emu] [analog-rytm.md:184](../hardware/devices/analog-rytm.md#L184) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
+| `0x8000ea3c` | [emu] [analog-rytm.md:192](../hardware/devices/analog-rytm.md#L192) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x8000ecac` | [emu] [analog-rytm.md:192](../hardware/devices/analog-rytm.md#L192) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x8000ee84` | [emu] [analog-rytm.md:192](../hardware/devices/analog-rytm.md#L192) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
+| `0x8000eeec` | [doc] [emu] [analog-rytm.md:184](../hardware/devices/analog-rytm.md#L184) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
+| `0x8000f774` | [emu] [analog-rytm.md:192](../hardware/devices/analog-rytm.md#L192) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16)<br>[doc] [analog-rytm.md:159](../hardware/devices/analog-rytm.md#L159) Where a MKII mod can keep its own data (rytm-mods-src `re/subsystems`, OS 1.73, checked in 1.74 by byte match; static plus rytm-emu, nothing on a unit) |
+| `0x8000fce8` | [emu] [analog-rytm.md:192](../hardware/devices/analog-rytm.md#L192) Sidecar 0.5.0 and Rytm firmware 0.5.0 (MKII OS 1.74, 2026-11-16) |
 | `0x8000fd50` | [doc] [hw] [analog-rytm.md:128](../hardware/devices/analog-rytm.md#L128) Queued trigs: what a mod can see before a trig fires (Modwerk, OS 1.74, read from the code) |
 | `0x8000fe54` | [doc] [hw] [analog-rytm.md:128](../hardware/devices/analog-rytm.md#L128) Queued trigs: what a mod can see before a trig fires (Modwerk, OS 1.74, read from the code)<br>[emu] [hw] [analog-rytm.md:150](../hardware/devices/analog-rytm.md#L150) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
 | `0xa50ce100` | [hw] [analog-rytm.md:12](../hardware/devices/analog-rytm.md#L12) Platform (MKII, OS 1.74) |
@@ -1065,6 +1202,7 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0xec070004` | [doc] [analog-rytm.md:11](../hardware/devices/analog-rytm.md#L11) Platform (MKII, OS 1.74) |
 | `0xec07000c` | [doc] [analog-rytm.md:11](../hardware/devices/analog-rytm.md#L11) Platform (MKII, OS 1.74) |
 | `0xfc05c000` | [doc] [analog-rytm.md:19](../hardware/devices/analog-rytm.md#L19) Flash and recovery |
+| `0xffffffff` | [hw] [analog-rytm.md:181](../hardware/devices/analog-rytm.md#L181) Modwerk development link and test runner (MKII OS 1.74, 2026-11-14/15) |
 
 ## Analog Four / Analog Keys (30 addresses)
 
@@ -1101,125 +1239,171 @@ Data checked 2026-11-15, research snapshot `02c9d855c11c`.
 | `0x60000000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
 | `0x60042000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
 
-## Model:Cycles (58 addresses)
+## Model:Cycles (81 addresses)
 
 | Address | Facts |
 |---|---|
+| `0x20000000` | [emu] [hw] [model-cycles-samples.md:114](../hardware/devices/model-cycles-samples.md#L114) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x40000000` | [emu] [hw] [model-cycles-samples.md:114](../hardware/devices/model-cycles-samples.md#L114) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
 | `0x40000400` | [doc] [memory-maps.md:99](../hardware/common/memory-maps.md#L99) Details per device |
-| `0x40009252` | [doc] [model-cycles-samples.md:108](../hardware/devices/model-cycles-samples.md#L108) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40009600` | [doc] [model-cycles-samples.md:108](../hardware/devices/model-cycles-samples.md#L108) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40009630` | [doc] [model-cycles-samples.md:108](../hardware/devices/model-cycles-samples.md#L108) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x4000b274` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x4000b568` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x4000b942` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x40019c84` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x40019e7a` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x4001b22a` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x4001d05e` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x4001d0fc` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x4001d180` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x40055c38` | [doc] [model-cycles-samples.md:107](../hardware/devices/model-cycles-samples.md#L107) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40055cd6` | [doc] [model-cycles-samples.md:107](../hardware/devices/model-cycles-samples.md#L107) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40058a0a` | [doc] [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x40059534` | [doc] [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x4005a8ce` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x4005b2ae` | [doc] [model-cycles-samples.md:108](../hardware/devices/model-cycles-samples.md#L108) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40070dea` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x4007240c` | [hw] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x400a3052` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x400a63ac` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x400a6426` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x400a7ab8` | [doc] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x400a7d4a` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x400a9252` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x400a9430` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x400a967a` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x400d1bb8` | [doc] [model-cycles-samples.md:106](../hardware/devices/model-cycles-samples.md#L106) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x400ffe30` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40109048` | [doc] [model-cycles-samples.md:87](../hardware/devices/model-cycles-samples.md#L87) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x4010dce0` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x4011d84c` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x4012024c` | [doc] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x4016cae8` | [doc] [model-cycles-samples.md:92](../hardware/devices/model-cycles-samples.md#L92) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x40009252` | [doc] [model-cycles-samples.md:119](../hardware/devices/model-cycles-samples.md#L119) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40009600` | [doc] [model-cycles-samples.md:119](../hardware/devices/model-cycles-samples.md#L119) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40009630` | [doc] [model-cycles-samples.md:119](../hardware/devices/model-cycles-samples.md#L119) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x4000a66a` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x4000a6b0` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x4000a70e` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x4000b274` | [doc] [emu] [model-cycles-samples.md:86](../hardware/devices/model-cycles-samples.md#L86) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x4000b568` | [doc] [emu] [model-cycles-samples.md:86](../hardware/devices/model-cycles-samples.md#L86) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x4000b942` | [doc] [emu] [model-cycles-samples.md:86](../hardware/devices/model-cycles-samples.md#L86) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x40019c84` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12)<br>[doc] [model-cycles-samples.md:106](../hardware/devices/model-cycles-samples.md#L106) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x40019d10` | [doc] [model-cycles-samples.md:106](../hardware/devices/model-cycles-samples.md#L106) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x40019e7a` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4001b22a` | [doc] [model-cycles-samples.md:121](../hardware/devices/model-cycles-samples.md#L121) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x4001d05e` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4001d0fc` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4001d180` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4001d818` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x40055c38` | [doc] [model-cycles-samples.md:118](../hardware/devices/model-cycles-samples.md#L118) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40055cd6` | [doc] [model-cycles-samples.md:118](../hardware/devices/model-cycles-samples.md#L118) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40058a0a` | [doc] [hw] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x40059534` | [doc] [hw] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4005a8ce` | [doc] [emu] [model-cycles-samples.md:86](../hardware/devices/model-cycles-samples.md#L86) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x4005b2ae` | [doc] [model-cycles-samples.md:119](../hardware/devices/model-cycles-samples.md#L119) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40070dea` | [doc] [model-cycles-samples.md:121](../hardware/devices/model-cycles-samples.md#L121) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40071c10` | [emu] [model-cycles-samples.md:112](../hardware/devices/model-cycles-samples.md#L112) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x4007240c` | [hw] [model-cycles-samples.md:120](../hardware/devices/model-cycles-samples.md#L120) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40092116` | [emu] [hw] [model-cycles-samples.md:105](../hardware/devices/model-cycles-samples.md#L105) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a3052` | [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a63ac` | [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a6426` | [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a7ab8` | [doc] [model-cycles-samples.md:104](../hardware/devices/model-cycles-samples.md#L104) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a7d4a` | [doc] [model-cycles-samples.md:90](../hardware/devices/model-cycles-samples.md#L90) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x400a7d96` | [emu] [hw] [model-cycles-samples.md:105](../hardware/devices/model-cycles-samples.md#L105) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a9252` | [emu] [hw] [model-cycles-samples.md:105](../hardware/devices/model-cycles-samples.md#L105) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12)<br>[doc] [model-cycles-samples.md:90](../hardware/devices/model-cycles-samples.md#L90) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x400a92ee` | [emu] [hw] [model-cycles-samples.md:105](../hardware/devices/model-cycles-samples.md#L105) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a9430` | [doc] [model-cycles-samples.md:90](../hardware/devices/model-cycles-samples.md#L90) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x400a967a` | [doc] [model-cycles-samples.md:90](../hardware/devices/model-cycles-samples.md#L90) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x400d1bb8` | [doc] [model-cycles-samples.md:117](../hardware/devices/model-cycles-samples.md#L117) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x400fd108` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x400fd134` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x400fd170` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x400fd1d8` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x400fd240` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x400ffe30` | [doc] [model-cycles-samples.md:121](../hardware/devices/model-cycles-samples.md#L121) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40109048` | [doc] [model-cycles-samples.md:88](../hardware/devices/model-cycles-samples.md#L88) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x4010dce0` | [doc] [emu] [model-cycles-samples.md:86](../hardware/devices/model-cycles-samples.md#L86) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x4010eca0` | [doc] [model-cycles-samples.md:111](../hardware/devices/model-cycles-samples.md#L111) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x4011d84c` | [doc] [model-cycles-samples.md:90](../hardware/devices/model-cycles-samples.md#L90) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x4012024c` | [doc] [model-cycles-samples.md:104](../hardware/devices/model-cycles-samples.md#L104) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4012142c` | [doc] [model-cycles-samples.md:111](../hardware/devices/model-cycles-samples.md#L111) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x40140ab0` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x4014120c` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x40141b08` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x401429ec` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x40143d28` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x4016cae8` | [doc] [model-cycles-samples.md:93](../hardware/devices/model-cycles-samples.md#L93) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x40200000` | [doc] [memory-maps.md:99](../hardware/common/memory-maps.md#L99) Details per device |
-| `0x406fa040` | [doc] [model-cycles-samples.md:106](../hardware/devices/model-cycles-samples.md#L106) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x409c9c80` | [doc] [model-cycles-samples.md:106](../hardware/devices/model-cycles-samples.md#L106) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40a7863c` | [doc] [model-cycles-samples.md:107](../hardware/devices/model-cycles-samples.md#L107) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40a7887c` | [doc] [model-cycles-samples.md:107](../hardware/devices/model-cycles-samples.md#L107) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40a78888` | [doc] [model-cycles-samples.md:107](../hardware/devices/model-cycles-samples.md#L107) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40fb5a04` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x40fe4c90` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x40fe4c9c` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x40fe4cb4` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x43000000` | [doc] [model-cycles-samples.md:45](../hardware/devices/model-cycles-samples.md#L45) Free space and payloads<br>[doc] [model-cycles-samples.md:92](../hardware/devices/model-cycles-samples.md#L92) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x43009680` | [doc] [model-cycles-samples.md:92](../hardware/devices/model-cycles-samples.md#L92) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x46700000` | [doc] [model-cycles-samples.md:45](../hardware/devices/model-cycles-samples.md#L45) Free space and payloads |
+| `0x406fa040` | [doc] [model-cycles-samples.md:117](../hardware/devices/model-cycles-samples.md#L117) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x409c9c80` | [doc] [model-cycles-samples.md:117](../hardware/devices/model-cycles-samples.md#L117) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40a7863c` | [doc] [model-cycles-samples.md:118](../hardware/devices/model-cycles-samples.md#L118) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40a7887c` | [doc] [model-cycles-samples.md:118](../hardware/devices/model-cycles-samples.md#L118) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40a78888` | [doc] [model-cycles-samples.md:118](../hardware/devices/model-cycles-samples.md#L118) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40fb5a04` | [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x40fe4c90` | [doc] [model-cycles-samples.md:90](../hardware/devices/model-cycles-samples.md#L90) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x40fe4c9c` | [doc] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x40fe4cb4` | [doc] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x43000000` | [doc] [model-cycles-samples.md:46](../hardware/devices/model-cycles-samples.md#L46) Free space and payloads<br>[doc] [model-cycles-samples.md:93](../hardware/devices/model-cycles-samples.md#L93) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x43009680` | [doc] [model-cycles-samples.md:93](../hardware/devices/model-cycles-samples.md#L93) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x46700000` | [doc] [model-cycles-samples.md:46](../hardware/devices/model-cycles-samples.md#L46) Free space and payloads |
 | `0x47e00000` | [doc] [memory-maps.md:99](../hardware/common/memory-maps.md#L99) Details per device |
 | `0x47e40000` | [doc] [memory-maps.md:99](../hardware/common/memory-maps.md#L99) Details per device |
-| `0x800015ae` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12)<br>[doc] [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x8000eae0` | [doc] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x8000eee4` | [doc] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x8000f2e8` | [doc] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x800015ae` | [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12)<br>[doc] [hw] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x8000eae0` | [doc] [model-cycles-samples.md:104](../hardware/devices/model-cycles-samples.md#L104) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x8000eee4` | [doc] [model-cycles-samples.md:104](../hardware/devices/model-cycles-samples.md#L104) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x8000f2e8` | [doc] [model-cycles-samples.md:104](../hardware/devices/model-cycles-samples.md#L104) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
 | `0x8000f700` | [doc] [memory-maps.md:99](../hardware/common/memory-maps.md#L99) Details per device |
 | `0x80010000` | [doc] [memory-maps.md:99](../hardware/common/memory-maps.md#L99) Details per device |
-| `0xfc07000c` | [doc] [model-cycles-samples.md:78](../hardware/devices/model-cycles-samples.md#L78) A load governor that works, and one that didn't (Supermodel notes 30 and 36, Model:Cycles OS 1.13) |
+| `0xfc07000c` | [doc] [model-cycles-samples.md:79](../hardware/devices/model-cycles-samples.md#L79) A load governor that works, and one that didn't (Supermodel notes 30 and 36, Model:Cycles OS 1.13) |
 
-## Model:Samples (52 addresses)
+## Model:Samples (75 addresses)
 
 | Address | Facts |
 |---|---|
-| `0x40009252` | [doc] [model-cycles-samples.md:108](../hardware/devices/model-cycles-samples.md#L108) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40009600` | [doc] [model-cycles-samples.md:108](../hardware/devices/model-cycles-samples.md#L108) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40009630` | [doc] [model-cycles-samples.md:108](../hardware/devices/model-cycles-samples.md#L108) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x4000b274` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x4000b568` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x4000b942` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x40019c84` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x40019e7a` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x4001b22a` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x4001d05e` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x4001d0fc` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x4001d180` | [doc] [model-cycles-samples.md:99](../hardware/devices/model-cycles-samples.md#L99) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x40055c38` | [doc] [model-cycles-samples.md:107](../hardware/devices/model-cycles-samples.md#L107) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40055cd6` | [doc] [model-cycles-samples.md:107](../hardware/devices/model-cycles-samples.md#L107) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40058a0a` | [doc] [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x40059534` | [doc] [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x4005a8ce` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x4005b2ae` | [doc] [model-cycles-samples.md:108](../hardware/devices/model-cycles-samples.md#L108) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40070dea` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x4007240c` | [hw] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x400a3052` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x400a63ac` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x400a6426` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x400a7ab8` | [doc] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x400a7d4a` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x400a9252` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x400a9430` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x400a967a` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x400d1bb8` | [doc] [model-cycles-samples.md:106](../hardware/devices/model-cycles-samples.md#L106) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x400ffe30` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40109048` | [doc] [model-cycles-samples.md:87](../hardware/devices/model-cycles-samples.md#L87) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x4010dce0` | [doc] [emu] [model-cycles-samples.md:85](../hardware/devices/model-cycles-samples.md#L85) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x4011d84c` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x4012024c` | [doc] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x4016cae8` | [doc] [model-cycles-samples.md:92](../hardware/devices/model-cycles-samples.md#L92) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x406fa040` | [doc] [model-cycles-samples.md:106](../hardware/devices/model-cycles-samples.md#L106) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x409c9c80` | [doc] [model-cycles-samples.md:106](../hardware/devices/model-cycles-samples.md#L106) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40a7863c` | [doc] [model-cycles-samples.md:107](../hardware/devices/model-cycles-samples.md#L107) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40a7887c` | [doc] [model-cycles-samples.md:107](../hardware/devices/model-cycles-samples.md#L107) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40a78888` | [doc] [model-cycles-samples.md:107](../hardware/devices/model-cycles-samples.md#L107) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
-| `0x40fb5a04` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x40fe4c90` | [doc] [model-cycles-samples.md:89](../hardware/devices/model-cycles-samples.md#L89) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x40fe4c9c` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x40fe4cb4` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x43000000` | [doc] [model-cycles-samples.md:45](../hardware/devices/model-cycles-samples.md#L45) Free space and payloads<br>[doc] [model-cycles-samples.md:92](../hardware/devices/model-cycles-samples.md#L92) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x43009680` | [doc] [model-cycles-samples.md:92](../hardware/devices/model-cycles-samples.md#L92) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
-| `0x46700000` | [doc] [model-cycles-samples.md:45](../hardware/devices/model-cycles-samples.md#L45) Free space and payloads |
-| `0x800015ae` | [hw] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12)<br>[doc] [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x8000eae0` | [doc] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x8000eee4` | [doc] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x8000f2e8` | [doc] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0xfc07000c` | [doc] [model-cycles-samples.md:78](../hardware/devices/model-cycles-samples.md#L78) A load governor that works, and one that didn't (Supermodel notes 30 and 36, Model:Cycles OS 1.13) |
+| `0x20000000` | [emu] [hw] [model-cycles-samples.md:114](../hardware/devices/model-cycles-samples.md#L114) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x40000000` | [emu] [hw] [model-cycles-samples.md:114](../hardware/devices/model-cycles-samples.md#L114) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x40009252` | [doc] [model-cycles-samples.md:119](../hardware/devices/model-cycles-samples.md#L119) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40009600` | [doc] [model-cycles-samples.md:119](../hardware/devices/model-cycles-samples.md#L119) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40009630` | [doc] [model-cycles-samples.md:119](../hardware/devices/model-cycles-samples.md#L119) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x4000a66a` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x4000a6b0` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x4000a70e` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x4000b274` | [doc] [emu] [model-cycles-samples.md:86](../hardware/devices/model-cycles-samples.md#L86) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x4000b568` | [doc] [emu] [model-cycles-samples.md:86](../hardware/devices/model-cycles-samples.md#L86) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x4000b942` | [doc] [emu] [model-cycles-samples.md:86](../hardware/devices/model-cycles-samples.md#L86) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x40019c84` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12)<br>[doc] [model-cycles-samples.md:106](../hardware/devices/model-cycles-samples.md#L106) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x40019d10` | [doc] [model-cycles-samples.md:106](../hardware/devices/model-cycles-samples.md#L106) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x40019e7a` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4001b22a` | [doc] [model-cycles-samples.md:121](../hardware/devices/model-cycles-samples.md#L121) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x4001d05e` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4001d0fc` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4001d180` | [doc] [model-cycles-samples.md:100](../hardware/devices/model-cycles-samples.md#L100) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4001d818` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x40055c38` | [doc] [model-cycles-samples.md:118](../hardware/devices/model-cycles-samples.md#L118) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40055cd6` | [doc] [model-cycles-samples.md:118](../hardware/devices/model-cycles-samples.md#L118) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40058a0a` | [doc] [hw] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x40059534` | [doc] [hw] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4005a8ce` | [doc] [emu] [model-cycles-samples.md:86](../hardware/devices/model-cycles-samples.md#L86) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x4005b2ae` | [doc] [model-cycles-samples.md:119](../hardware/devices/model-cycles-samples.md#L119) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40070dea` | [doc] [model-cycles-samples.md:121](../hardware/devices/model-cycles-samples.md#L121) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40071c10` | [emu] [model-cycles-samples.md:112](../hardware/devices/model-cycles-samples.md#L112) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x4007240c` | [hw] [model-cycles-samples.md:120](../hardware/devices/model-cycles-samples.md#L120) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40092116` | [emu] [hw] [model-cycles-samples.md:105](../hardware/devices/model-cycles-samples.md#L105) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a3052` | [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a63ac` | [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a6426` | [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a7ab8` | [doc] [model-cycles-samples.md:104](../hardware/devices/model-cycles-samples.md#L104) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a7d4a` | [doc] [model-cycles-samples.md:90](../hardware/devices/model-cycles-samples.md#L90) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x400a7d96` | [emu] [hw] [model-cycles-samples.md:105](../hardware/devices/model-cycles-samples.md#L105) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a9252` | [emu] [hw] [model-cycles-samples.md:105](../hardware/devices/model-cycles-samples.md#L105) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12)<br>[doc] [model-cycles-samples.md:90](../hardware/devices/model-cycles-samples.md#L90) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x400a92ee` | [emu] [hw] [model-cycles-samples.md:105](../hardware/devices/model-cycles-samples.md#L105) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x400a9430` | [doc] [model-cycles-samples.md:90](../hardware/devices/model-cycles-samples.md#L90) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x400a967a` | [doc] [model-cycles-samples.md:90](../hardware/devices/model-cycles-samples.md#L90) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x400d1bb8` | [doc] [model-cycles-samples.md:117](../hardware/devices/model-cycles-samples.md#L117) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x400fd108` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x400fd134` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x400fd170` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x400fd1d8` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x400fd240` | [doc] [model-cycles-samples.md:109](../hardware/devices/model-cycles-samples.md#L109) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x400ffe30` | [doc] [model-cycles-samples.md:121](../hardware/devices/model-cycles-samples.md#L121) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40109048` | [doc] [model-cycles-samples.md:88](../hardware/devices/model-cycles-samples.md#L88) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x4010dce0` | [doc] [emu] [model-cycles-samples.md:86](../hardware/devices/model-cycles-samples.md#L86) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x4010eca0` | [doc] [model-cycles-samples.md:111](../hardware/devices/model-cycles-samples.md#L111) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x4011d84c` | [doc] [model-cycles-samples.md:90](../hardware/devices/model-cycles-samples.md#L90) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x4012024c` | [doc] [model-cycles-samples.md:104](../hardware/devices/model-cycles-samples.md#L104) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x4012142c` | [doc] [model-cycles-samples.md:111](../hardware/devices/model-cycles-samples.md#L111) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x40140ab0` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x4014120c` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x40141b08` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x401429ec` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x40143d28` | [doc] [model-cycles-samples.md:110](../hardware/devices/model-cycles-samples.md#L110) Knob value display, fonts and CHIPS (model27 notes/83, OS 1.13, 2026-11-16) |
+| `0x4016cae8` | [doc] [model-cycles-samples.md:93](../hardware/devices/model-cycles-samples.md#L93) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x406fa040` | [doc] [model-cycles-samples.md:117](../hardware/devices/model-cycles-samples.md#L117) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x409c9c80` | [doc] [model-cycles-samples.md:117](../hardware/devices/model-cycles-samples.md#L117) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40a7863c` | [doc] [model-cycles-samples.md:118](../hardware/devices/model-cycles-samples.md#L118) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40a7887c` | [doc] [model-cycles-samples.md:118](../hardware/devices/model-cycles-samples.md#L118) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40a78888` | [doc] [model-cycles-samples.md:118](../hardware/devices/model-cycles-samples.md#L118) Kits, patterns and Perform Kit (model27 notes 71 and 81, Model:Cycles OS 1.13, 2026-11-14) |
+| `0x40fb5a04` | [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x40fe4c90` | [doc] [model-cycles-samples.md:90](../hardware/devices/model-cycles-samples.md#L90) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x40fe4c9c` | [doc] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x40fe4cb4` | [doc] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x43000000` | [doc] [model-cycles-samples.md:46](../hardware/devices/model-cycles-samples.md#L46) Free space and payloads<br>[doc] [model-cycles-samples.md:93](../hardware/devices/model-cycles-samples.md#L93) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x43009680` | [doc] [model-cycles-samples.md:93](../hardware/devices/model-cycles-samples.md#L93) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
+| `0x46700000` | [doc] [model-cycles-samples.md:46](../hardware/devices/model-cycles-samples.md#L46) Free space and payloads |
+| `0x800015ae` | [hw] [model-cycles-samples.md:102](../hardware/devices/model-cycles-samples.md#L102) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12)<br>[doc] [hw] [model-cycles-samples.md:103](../hardware/devices/model-cycles-samples.md#L103) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x8000eae0` | [doc] [model-cycles-samples.md:104](../hardware/devices/model-cycles-samples.md#L104) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x8000eee4` | [doc] [model-cycles-samples.md:104](../hardware/devices/model-cycles-samples.md#L104) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0x8000f2e8` | [doc] [model-cycles-samples.md:104](../hardware/devices/model-cycles-samples.md#L104) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
+| `0xfc07000c` | [doc] [model-cycles-samples.md:79](../hardware/devices/model-cycles-samples.md#L79) A load governor that works, and one that didn't (Supermodel notes 30 and 36, Model:Cycles OS 1.13) |
 
 ## Machinedrum (incl. UW) (13 addresses)
 
@@ -1263,6 +1447,7 @@ Pairs of ranges in [RAM-TENANCY.md](RAM-TENANCY.md) that overlap on the same OS.
 
 | Device | Memory | OS | Kind | Range | Range |
 |---|---|---|---|---|---|
+| Analog Rytm (MKI, MKII) | MKII DDR and SRAM | 1.74 | two users | elekloader (core-ar2) / Modwerk / Sidecar `0x47be0000-0x47c00000` | Modwerk development link `0x47bfffbc-0x47c00000` |
 | Digitakt II | ColdFire RAM | 1.16 | two users | digikit `0x47e8b000-0x47fe0000` | dt2-machine-lab `0x47e8b000-0x47e9b000` |
 | Digitakt II | ColdFire RAM | 1.17 | inside stock's own memory | stock `0x40312000-0x47e28470` | stock / digikit `0x4066d8c0-0x406758c0` |
 | Digitakt II | ColdFire RAM | 1.17 | two users | All-in-One (digitakt-ii-research) `0x47e8b000-?` | dt2-machine-lab (Sketch OS 1.17) `0x47e8b000-0x47fe0000` |

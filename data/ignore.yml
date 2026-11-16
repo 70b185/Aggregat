@@ -288,3 +288,12 @@ ignore:
   - Jackherz/modwerk   # fork of repeat98/modwerk without commits of its own (2026-11-12); the description names the Tonverk
   - irpina/dirtyloader   # an elekloader-style mod patcher for the Dirtywave M8, not an Elektron device (2026-11-14)
   - Spunkmeyer77/MONO2K-M4L   # a Max for Live port of MONO2K (an M-VAVE FM-1 instrument in the Monomachine style); no Elektron device (2026-11-14)
+  - Quixotic7/FIZZ   # a groovebox firmware for the M-VAVE FM-1, not an Elektron device (2026-11-16)
+  - Quixotic7/evilgenius   # a SID groovebox firmware for the M-VAVE FM-1, not an Elektron device (2026-11-16)
+  - romainguerif/songverk   # a Web MIDI song mode for the Tonverk; Tonverk tools are not catalogued until a Tonverk mod exists (altstrument, 2026-11-16)
+  - Grandsummoner/subtraktor   # a browser kit builder for the Tonverk; Tonverk not in scope yet (altstrument, 2026-11-16)
+  - Ma94xx/TonverkBridge   # an Android USB audio app for the Tonverk; Tonverk not in scope yet (altstrument, 2026-11-16)
+  - enshtein/tonverk-link   # a read-only SD card project lister for the Tonverk; Tonverk not in scope yet (altstrument, 2026-11-16)
+  - andreiiterate/Toverk_sfz_converter   # an .elmulti/SFZ converter for the Tonverk; Tonverk not in scope yet (altstrument, 2026-11-16)
+  - spacejam/tv7   # renders DX7 patches into Tonverk multisamples; Tonverk not in scope yet (altstrument, 2026-11-16)
+  - spacejam/tv7-js   # browser version of tv7 for the Tonverk; Tonverk not in scope yet (altstrument, 2026-11-16)

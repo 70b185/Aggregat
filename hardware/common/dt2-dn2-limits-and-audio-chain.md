@@ -46,7 +46,7 @@ Addresses are for these exact OS versions only (rule C1).
 - Call: `CALL (linked, delayed)` (Type 25a). Prologue `I7 = MODIFY(I7, -N)`, saves to `DM(I6 - n)`. Return `I12 = DM(I6, M7); JUMP (M14, I12) (DB)` with `RFRAME` in the delay slot.
 - Arguments R4, R8, R12, then the stack (`DM(I6, M6)`). Result in R0 (F0; R0:R1 for 64-bit). Render kernels return nothing and write through pointers.
 - Callee-saved: R3, R5-R7, R9-R11, R13-R15, I0-I3, I5, M1-M3, B3.
-- **Constant registers that voice code never writes: M5 = 0, M6 = 1, M7 = -1, M13 = 0, M14 = 1, M15 = -1.** Indirect jumps use DAG2 (`JUMP (M13, I12)` relies on M13 = 0).
+- **Constant registers that voice code never writes: M5 = 0, M6 = 1, M7 = -1, M13 = 0, M14 = 1, M15 = -1.** Indirect jumps use DAG2 (`JUMP (M13, I12)` relies on M13 = 0). The stock interrupt code also reads B7, L6 and L7 (a valid linear stack in I7, L6 = L7 = 0) and IMASK, IMASKP, IRPTL, MMASK, TPERIOD, TCOUNT and FLAGS at any instruction; never write them, even with a save and restore (digikit finding 130, [digitakt-2-dsp-optimizing.md section 7](../devices/digitakt-2-dsp-optimizing.md)). `[doc]` {digikit-1116}
 - The exception is the float divide `0x1c06ba` (plain CALL, R4/R8 in, F0 out). `[doc]`
 - Parameters: the ColdFire smooths them (one-pole) before the frame. The DSP converts s16 to float once per block (scale 1/32512) and ramps per sample by (new - old)/32 inside a block (/64 in DN2 FM operators).
 - DT2 sample machines and DN2 FM TONE render 64 samples at 96 kHz and decimate to 32 with a half-band filter.

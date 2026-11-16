@@ -56,6 +56,13 @@
     <summary>A mod (id 0015-arp-locks) for hugz202's A4 MK1 build framework: the user builds a patched OS from their own stock 1.56 file; no Elektron files are shipped. ARP values go into the free lock slots 101-108 of each step, which the pattern already saves; the arpeggiator reads a …</summary>
   </entry>
   <entry>
+    <title>Update 2026-11-16: 19 change reports folded, 6 repos added, 9 ignored, I110-I113, A67-A68, F8, SB25, O28-O30, H26</title>
+    <link href="https://github.com/70b185/Aggregat/commit/6c9b24a7a824d4a52efd7f26535937b7917f1d35"/>
+    <id>https://70b185.github.io/Aggregat/#commit-6c9b24a7a824</id>
+    <updated>2026-11-16T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>New in the catalogue: trig-seedr (Mod, Analog Rytm)</title>
     <link href="https://70b185.github.io/Aggregat/?p=trig-seedr"/>
     <id>https://70b185.github.io/Aggregat/#project-trig-seedr</id>
@@ -450,13 +457,6 @@
     <title>Group each platform's own mods into one entry, like any collection</title>
     <link href="https://github.com/70b185/Aggregat/commit/bb933ed656712e89fd292f259f3bbf1f69d254bd"/>
     <id>https://70b185.github.io/Aggregat/#commit-bb933ed65671</id>
-    <updated>2026-11-09T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Loaders show their own mods: own_mods replaces also_mod</title>
-    <link href="https://github.com/70b185/Aggregat/commit/9e0fe8f61abe24767650397a8d126c85b0f2764a"/>
-    <id>https://70b185.github.io/Aggregat/#commit-9e0fe8f61abe</id>
     <updated>2026-11-09T00:00:00Z</updated>
     <category term="update"/>
   </entry>

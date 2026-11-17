@@ -48,6 +48,13 @@
     <summary>Elekloader mod that stores delay and reverb locks in sound slots 48-51 of each step (unused by audio machines, but used by machine-pages machines with extra values) and applies the active lock about 1,500 times a second; the higher track wins when two lock the same knob. 0.1 …</summary>
   </entry>
   <entry>
+    <title>Update 2026-11-17: 21 change reports folded, 5 repos added, 1 candidate, I114-I136, SB26-SB27, O31-O32, S23, H27-H40, A69-A71</title>
+    <link href="https://github.com/70b185/Aggregat/commit/54ab2c84424dd20949b73ae934a1c7555da08f62"/>
+    <id>https://70b185.github.io/Aggregat/#commit-54ab2c84424d</id>
+    <updated>2026-11-17T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>New in the catalogue: SuperSAW-OT (Mod, Octatrack)</title>
     <link href="https://70b185.github.io/Aggregat/?p=supersaw-ot"/>
     <id>https://70b185.github.io/Aggregat/#project-supersaw-ot</id>
@@ -455,13 +462,6 @@
     <title>Update 2026-11-10: change reports of 11-09 and 11-10 folded, I55-I66, SB17-SB18</title>
     <link href="https://github.com/70b185/Aggregat/commit/ea694d1c51929aaf7fe9091a0db36b7e8c5acabc"/>
     <id>https://70b185.github.io/Aggregat/#commit-ea694d1c5192</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Fold the 10 Nov afternoon changes; Action reports without moving baselines</title>
-    <link href="https://github.com/70b185/Aggregat/commit/5fe9651abc34db8e0d20b4c8e26d7990b3e35358"/>
-    <id>https://70b185.github.io/Aggregat/#commit-5fe9651abc34</id>
     <updated>2026-11-10T00:00:00Z</updated>
     <category term="update"/>
   </entry>

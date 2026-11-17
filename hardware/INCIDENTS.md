@@ -135,6 +135,26 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** A23
 - **Fact:** [devices/analog-four-keys.md](devices/analog-four-keys.md)
 
+### I114. Stock MidiRpc requests were lost while the boot intro still ran
+- **Unit:** none (digikit's emulator, Digitakt II OS 1.17), found 2026-11-16
+- **Seen:** a storage device test failed with "no reply to MidiRpc 11" right after a module install had restarted the device.
+- **Cause (shown in the emulator):** digikit's runtime answered at once after the restart, but the firmware was still on its boot intro, which drops stock MidiRpc requests. A boot race, not storage code.
+- **Fix:** after `restart()` the host's first stock RPC waits for the stock service with a read-only probe (up to about 30 s); a write is never resent. Planned: a firmware-ready event (FW_READY) logged on the first UI-loop pass after boot, so tests and tools wait on firmware state.
+- **Status:** fixed in digikit's host (branch `fix/rpc-after-install`); not checked on a unit (stock test H27).
+- **Evidence:** `[emu]` {digikit-1117}
+- **Rule:** C12
+- **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md#card-concurrency-upload-phases-and-hot-reload-facts-digikit-findings-133-135-dt2-117-and-dn2-112-2026-11-1617-digikit-f133-digikit-f134-digikit-f135-digikit-1117)
+
+### I131. An overloaded Rytm overwrote its own UI messages and lost live-recorded hits
+- **Unit:** Analog Rytm MKII, OS 1.74, the author's unit with a Modwerk development base and 13 modules (BD ANALOG playing), image LQ05, 2026-11-16
+- **Seen:** during RTRG + pad holds of 10-30 s in live recording the unit became very laggy and hits were lost. Test counters: stock's UI queue held 1,931 messages, past its 1024 slots; the module itself dropped none of its 63 hits and freed all its slots once the sequencer stopped.
+- **Cause (read in the OS 1.74 disassembly):** stock's UI queue send has no full check, so past 1024 waiting messages it overwrites unread ones (pad pressure, keys, a mod's events). The load (BD ANALOG voices, stock pad pressure at 200-290 messages a second) was past what the UI task can serve.
+- **Fix:** none in stock. Live Rec Retrig Fix 0.2.2 frees its slots only after the UI task has taken its message, and drops only its own events past 126 waiting; with lighter load (LQ04, BD ANALOG alone) 145 hits, 0 dropped.
+- **Status:** stock behaviour, open (SB27).
+- **Evidence:** `[hw]` {modwerk-rytm-1116}
+- **Rule:** A50
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md#modwerk-findings-mkii-and-mki-os-174-2026-11-1617-modwerk-rytm-1116-modwerk-1117)
+
 ## M. Mods that failed on a unit
 
 ### I10. Byte-wise reads of uncached DMA buffers stalled the sequencer
@@ -867,7 +887,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Status:** fixed for this case; one stall without loader activity (a 564 Âµs program-change frame, the next entry 205 Âµs late) and one whole-unit freeze stay open. May explain part of I57.
 - **Evidence:** `[hw]` {octabam-1115}
 - **Rule:** A66, A56
-- **Fact:** [devices/octatrack.md](devices/octatrack.md#findings-2026-11-1415-kyoti-reload-octabam-dlcopy-modwerk)
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#findings-2026-11-1415-kyoti-reload-octabam-dlcopy-modwerk-kyoti-reload-clyps-octabam-1115-modwerk-1115)
 
 ### I109. A module restarted an Octatrack with an illegal instruction its cache still held
 - **Unit:** Octatrack MKII, OS 1.40C (Modwerk development twin with an earlier build of Amiga 0.3.0 and a base change under test), 2026-11-14
@@ -877,7 +897,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Status:** open.
 - **Evidence:** `[hw]` {modwerk-1115}
 - **Rule:** C11
-- **Fact:** [devices/octatrack.md](devices/octatrack.md#findings-2026-11-1415-kyoti-reload-octabam-dlcopy-modwerk)
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#findings-2026-11-1415-kyoti-reload-octabam-dlcopy-modwerk-kyoti-reload-clyps-octabam-1115-modwerk-1115)
 
 ### I110. A remote-commanded REMIX SWITCH boot stopped on the boot screen
 - **Unit:** Octatrack MKII, OS 1.40C (octabam image N1 with REMOTE), 2026-11-15
@@ -908,6 +928,176 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` {model27-chips}
 - **Rule:** A67, A31
 - **Fact:** [devices/model-cycles-samples.md](devices/model-cycles-samples.md#pads-preview-notes-and-the-shared-sine-model27-notes-60-and-66-main-os-113-2026-11-12-model27-preview)
+
+### I115. ARP pages stayed blank or lost their keys after permanent mute (Syntakt)
+- **Unit:** Syntakt, OS 1.41 (Synfact arp-st 1.9.1 to 1.10.3 on core 1.8.1, the owner's unit), 2026-11-15/16
+- **Seen:** after FUNC + BANK mute and TRIG navigation the ARP pages were empty (1.9.1, 1.9.2), or the screen drew without the blue step keys until FUNC/TRK/BANK was pressed (1.10.2), or normal opening was blank (1.10.3); with 1.10.4 the sequence mute -> ARP -> first TRIG -> close mute -> ARP still left screen and keys absent.
+- **Cause (reproduced in Unicorn with the native routines):** several, each hidden by a test double: the opening guard did not know MainScreen's six normal child views; a view pushed by the mod is composed and ticked synchronously before the push returns, so the mod's tick closed its own new view; and stock's deferred view cleanup (`0x40100ea4`) clears its pending flag after the visibility call, losing a close raised by a tick during that call, so a closed view stayed in the list and blocked ARP.
+- **Fix:** ARP 1.10.4 selects its page before the push; core 1.8.2 clears the flag before the visibility call (same 18-byte window). Tests now run the native push, compose, tick and cleanup instead of stubs.
+- **Status:** fixed in the emulator; the owner's panel confirmation is outstanding.
+- **Evidence:** `[hw]` (symptoms) / `[emu]` (causes) {synfact-1117}
+- **Rule:** C8
+- **Fact:** [devices/syntakt.md](devices/syntakt.md#synfact-findings-sequencer-kit-slots-views-mixer-os-141-2026-11-1416-synfact-1117)
+
+### I116. A step-order mod missed two readers of its state (Syntakt)
+- **Unit:** Syntakt, OS 1.41 (Synfact playhead-st builds 2 and 9, the owner's unit), 2026-11-15/16
+- **Seen:** build 2 played the steps backwards, but the trig LEDs' playhead still ran forwards; build 9's per-track modes came back after a project save and power cycle, but not after a power cycle without a save.
+- **Cause (found on the unit, then in the code):** the trig LEDs read the step through their own accessor `0x4008b734`, not the patched sequencer sites; and a power cycle without a save restores kits from their mirror slots, which are only re-encoded when `KitActive::kitChanged` (`0x40172250`) runs after a native kit edit.
+- **Fix:** build 3 patches the accessor as a fifth site; build 10 calls `kitChanged` for the playing kit after each mode change (checked in Unicorn, not yet on the unit).
+- **Status:** LEDs fixed on the unit; mirrors fixed in the emulator only.
+- **Evidence:** `[hw]` {synfact-1117}
+- **Rule:** E5, A31
+- **Fact:** [devices/syntakt.md](devices/syntakt.md#synfact-findings-sequencer-kit-slots-views-mixer-os-141-2026-11-1416-synfact-1117)
+
+### I118. Card-loaded mods copied stock bytes the flashed build had already patched (Digitone mk1, Octatrack)
+- **Unit:** none (digiemu, Digitone mk1 OS 1.44; ot_emu, Octatrack OS 1.40C), TELOS poc and 0.1, 2026-11-14/15
+- **Seen:** on the Digitone, Tone+FX and Mutiny loaded from the store crashed the emulated unit; on the Octatrack, stock parts of the shop's DIRECT JUMP, QUANTIZER and the USB IO mods would have been wrong.
+- **Cause (found in the emulators):** a loader that fills a mod's replayed stock instructions from the running OS reads the flashed core's or companions' patches instead; the OS also changes some image data before the load point (1,238 bytes on the Digitone from `0x4018fefc`; Octatrack data in `0x400b9000..0x400e2324`).
+- **Fix:** the build descriptor carries a stock shadow of every range the flashed build writes (ABI 1.2), and the core keeps a copy of the OS image made before the OS runs.
+- **Status:** fixed in the emulators; the Digitone poc loaded each mod kind on a unit on 2026-11-15 (OS 1.44).
+- **Evidence:** `[emu]` (crash) / `[hw]` (later loads) {telos-ot-1117}
+- **Rule:** A69
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#telos-and-dspload-ot-boot-order-card-mount-run-time-dsp-code-os-140c-2026-11-1416-telos-ot-1117-elekloader-1117)
+
+### I119. A DIRECT JUMP jump popped with SILENCE TRACKS on; the emulator's inferred fix did not help
+- **Unit:** Octatrack MKI, OS 1.40C (DIRECT JUMP V7.2 standalone `140C_KDJC6`, then KYOTI with Clyps), 2026-11-14..15
+- **Seen:** with CONTROL > SEQUENCER > SILENCE TRACKS on, a jump to a pattern on another Part (OT DEMO A05 -> A03) popped while a sample rang; stock's CHAIN AFTER 2 change did not. V7.2.1 (queue T8's master restart in the switch frame), whose cause was inferred in an emulator that streams no samples, left the pop unchanged on the unit and was reverted.
+- **Cause (render with real audio in octabam's ot_emu):** at a switch the engine hard-kills each silenced voice (`0x40006820`), with no declicked release. Stock's change lands on step 0, where most tracks trigger and restart in the same frame; the jump lands mid-pattern, so a ringing track with no trig there is simply cut.
+- **Fix:** V7.2.2 calls stock's note-off `0x40008f84(t)` for every track the switch will silence, about a tick before it (the DSP's own fade). The author: "the pattern change pop seems to be fixed" (2026-11-15).
+- **Status:** fixed; stock probably pops the same way in the rarer case (H32).
+- **Evidence:** `[hw]` (pop, fix) / `[emu]` (mechanism) {kyoti-1117}
+- **Rule:** C4, A58
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#kyoti-v18-clyps-and-direct-jump-v73-os-140c-2026-11-1316-kyoti-1117-kyoti-clyps-scope)
+
+### I121. Hiding a window by unlinking it let stock build SETUP inside it
+- **Unit:** Octatrack MKI, OS 1.40C (KYOTI with Clyps, build CL35), 2026-11-15
+- **Seen:** peeking at a parameter page from Clyps drew a SETUP page 1 px off with stray pixels; [FUNC] + page locked SETUP and a second hold toggled it back.
+- **Cause (read from the code):** Clyps hid its window by unlinking it; the window manager `0x4005829c` finds a free slot by the linked bit (`+32` bit 5), so a SETUP window opened during the peek was built into Clyps' own slot. A plain press of the current page also reached stock, which toggles SETUP. The UI gate missed it: its screen shots were stock's page layer only, never the composed screen.
+- **Fix:** CL36 hides the window by its visible bit (`+32` bit 0) and brings it to the front (`0x400117b4`) on return; CL37/CL38 also hide the SETUP window's edges and re-push Clyps' key layers after a peek. The gate now compares the screen as composed (`0x40013abc` into `[0x400b9710]`). Passed on the unit in KYOTI V1.8C (2026-11-15).
+- **Status:** fixed.
+- **Evidence:** `[hw]` {kyoti-1117}
+- **Rule:** A50
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#kyoti-v18-clyps-and-direct-jump-v73-os-140c-2026-11-1316-kyoti-1117-kyoti-clyps-scope)
+
+### I122. Redirecting one stock painter drew half track tabs and a stray mark
+- **Unit:** Octatrack MKI, OS 1.40C (Clyps CLYPT, CLYPW), 2026-10-31
+- **Seen:** for a multi-track group the main screen's tab followed the group only in its upper half; the next build showed a stray `!` beside the machine glyph.
+- **Cause (write watch in the emulator):** three routines paint each tab, each with its own active-track test (`0x4004bd48` lower half, `0x4003fed8` upper half, `0x40044804` status mark); the first probe had listed the other writers too, but only one was redirected. Renders that called a painter alone did not show the mark.
+- **Fix:** all three tests redirected (CLYPX, all good on the unit the same day); renders now call the whole per-pass routine `0x40052200`.
+- **Status:** fixed.
+- **Evidence:** `[hw]` {kyoti-clyps-scope}
+- **Rule:** A31
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#kyoti-v18-clyps-and-direct-jump-v73-os-140c-2026-11-1316-kyoti-1117-kyoti-clyps-scope)
+
+### I123. A byte read of a long flag hid the MIDI tracks
+- **Unit:** Octatrack MKI, OS 1.40C (Clyps CLYP6), 2026-10-25
+- **Seen:** on the MIDI side Clyps showed and loaded the audio tracks.
+- **Cause (read from the code):** the "MIDI tracks shown" flag `0x80000012` is a long; a byte read returns its high byte, always 0. The emulator gate passed because its fixture project loaded with the audio tracks shown. RELOAD_FROM_PROJECT's `rl3_arm_n` has the same byte read (reported, status not stated).
+- **Fix:** read as a long (CLYP7); a gate scenario on a project that loads with the MIDI tracks shown.
+- **Status:** fixed in Clyps; open in RELOAD_FROM_PROJECT as far as the source says.
+- **Evidence:** `[hw]` {kyoti-clyps-scope}
+- **Rule:** D13
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#kyoti-v18-clyps-and-direct-jump-v73-os-140c-2026-11-1316-kyoti-1117-kyoti-clyps-scope)
+
+### I124. A flashed image carried another build's OS VERSION name
+- **Unit:** Octatrack MKI, OS 1.40C (DIRECT JUMP V7.2.2), 2026-11-15
+- **Seen:** the unit flashed with the file reported as `140C_KDJC9` read `140C_KDJ7`.
+- **Cause (found in the build scripts):** a later composite build re-ran the base builder without a name and rewrote the same output file; the code (mainos) was the intended one, the name and the reported syx hashes were not. The card `.bin` is ELUP-obfuscated, so the name cannot be read there.
+- **Fix:** build the composite without rebuilding the base, and check the "OS VERSION will read" line and the syx hash against a fresh named build before reporting.
+- **Status:** fixed in the procedure; three earlier reported hashes were relabelled.
+- **Evidence:** `[hw]` {kyoti-1117}
+- **Rule:** A6
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#kyoti-v18-clyps-and-direct-jump-v73-os-140c-2026-11-1316-kyoti-1117-kyoti-clyps-scope)
+
+### I125. A bit-exact sub oscillator sounded as buzz and crackle on the unit (model27 MAXSAW, Model:Cycles)
+- **Unit:** Model:Cycles, OS 1.13 (model27 MAXSAW 0.1, the first Sub), 2026-11-16
+- **Seen:** with Sub on, often no weight below the note, but artefacts in the mids and highs, crackle and a short noise.
+- **Cause (measured on the unit, recordings against the host core):** the device did what the design said: Sub shifted the centre's naive sawtooth two octaves down, which brings as many overtones as fundamental (its reset every 15 ms a buzz), and the pitch-tracked high-pass moved down with it and let 4-8 dB more aliasing through. Recordings matched the host core within 0.6 dB in third-octave bands, so every proof (interpreter, Unicorn bit-exact) had passed.
+- **Fix:** a listening page of seven sub variants; the maintainer chose an extra naive sawtooth two octaves down through a 2-pole low-pass at the note, added after the high-pass (MAXSAW 0.2); on the unit "sub klingt jetzt gut" (the sub sounds good now). Released in 0.69, flashed from the page with every card.
+- **Status:** fixed.
+- **Evidence:** `[hw]` {model27-maxsaw}
+- **Rule:** A58
+- **Fact:** [devices/model-cycles-samples.md](devices/model-cycles-samples.md#maxsaw-punch-and-the-output-stage-model27-notes84-modelcycles-os-113-2026-11-16-model27-maxsaw)
+
+### I127. YES changed a track at once with RECORD off (trig-seedr 0.5.0, Analog Rytm MKII)
+- **Unit:** Analog Rytm MKII, OS 1.74 (trig-seedr 0.5.0/0.5.1 under elekloader core-ar2 0.13), first hardware pass 2026-11-16
+- **Seen:** every feature worked, but YES on a track wrote real trigs at once, with RECORD off, unlike every other trig edit on the Rytm; leaving the track or pattern kept an unapplied take.
+- **Cause (by design):** the mod must write stored trigs to be heard (stock's Euclidean mode plays a separate pattern and never touches stored trigs), and 0.5.0 treated leaving as keeping.
+- **Fix:** 0.5.1 "generate and apply": YES writes only with grid recording on (flag byte `0x417e320c`), FUNC + YES is the only way a take stays, and changing track or pattern, closing or turning RECORD off restores the original (NOT APPLIED). 0.6.0 played on the unit: works. 0.7.0 adds a pending-take dot and makes YES after a revert bring the same take back.
+- **Status:** fixed (0.7.0 not yet on a unit).
+- **Evidence:** `[hw]` {trig-seedr-1117}
+- **Rule:** C11 (a usability fault, no safety rule)
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md#trig-seedr-05-07-grid-recording-lock-lanes-redraw-cost-and-first-unit-passes-mkii-os-174-2026-11-16-trig-seedr-1117)
+
+### I129. An Octatrack restore left out the same module at nearly every start
+- **Unit:** Octatrack (model not stated), Modwerk base `f6422fa6`, a saved set of 12 modules (Mini Verb, Tape Echo, TapeHead, E-Verb, BBD Delay, LOFI2, Scale Quantizer, FM Synth, Play Modes, POLY8, Deja Vu, SC Ringmod), field diagnostics 2026-11-12..16
+- **Seen:** at six of seven starts the power-on restore loaded 11 modules and refused SC Ringmod for module memory; at the seventh it refused Tape Echo (no free handle). A sync from the site then added the missing module and all 12 ran.
+- **Cause (unknown):** a set the unit accepts at a sync does not always fit again at the restore; not reproduced.
+- **Fix:** none yet; Modwerk plans to restore that set in the emulator.
+- **Status:** open.
+- **Evidence:** `[hw]` (field records) {modwerk-ot-beta-1116}
+- **Rule:** C11
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#modwerk-findings-2026-11-1617-modwerk-1117-modwerk-ot-kits-modwerk-ot-midiscenes-modwerk-ot-beta-1116)
+
+### I130. A timed module trial could not roll back while the module's window was open
+- **Unit:** Octatrack MKII, OS 1.40C, development twin of Modwerk base 0.7.5 (`7db3251b`), Tuner 0.1.0-experimental USB package, 2026-11-16
+- **Seen:** with Tuner's window left open, the trial's automatic Undo at 45 s was refused; the host gave up after 3 s of retries (`needs-recovery`), the module stayed live and the window kept drawing.
+- **Cause (by design, from the base's refusal code):** base 0.7.5 refuses to remove, replace or undo a module while stock's window manager or input layer still names its memory (`RUNTIME_UI_OPEN`); the timed trial's rollback had no path for it.
+- **Fix:** after NO closed the window, `device -- recover` rolled the trial back; a second trial with the window closed rolled back at once. The site's handling of a trial that ends with a window open is not yet tested.
+- **Status:** worked around; open for the site's sync dialog.
+- **Evidence:** `[hw]` {modwerk-1117}
+- **Rule:** A54, A2
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#modwerk-findings-2026-11-1617-modwerk-1117-modwerk-ot-kits-modwerk-ot-midiscenes-modwerk-ot-beta-1116)
+
+### I132. A rate mod silenced the Rytm's sample preview
+- **Unit:** Analog Rytm MKII, OS 1.74, Improved SMPL 0.5.0-experimental (Modwerk), reported as issue #1591, fixed 2026-11-16
+- **Seen:** FUNC + YES in a sample list played nothing.
+- **Cause (shown in rytm-emu):** stock's preview routine `0x400a0dac` puts the sample in slot 129 with TUN and FIN at rest (`0x4000`); the mod read FIN at rest as RATE 0 and scaled the step to 0.
+- **Fix:** 0.5.1 plays any voice whose sample slot is 128 or above at 1x, forward. The author's unit (SU02, from RAM): previews at RATE 0, +63, -64 and with an LFO on RATE all at normal speed.
+- **Status:** fixed in 0.5.1.
+- **Evidence:** `[emu]` (cause) / `[hw]` (fix) {modwerk-rytm-1116}
+- **Rule:** C11
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md#modwerk-findings-mkii-and-mki-os-174-2026-11-1617-modwerk-rytm-1116-modwerk-1117)
+
+### I133. FLEX's MUTE SRC left tracks muted until a power cycle (dn2mk2)
+- **Unit:** Digitone II, OS 1.11 (dn2mk2 v0.55/v0.56), tester report 2026-11-15
+- **Seen:** with MUTE ON the SRC track was muted as soon as a take existed, even while recording; some tracks could not be unmuted (stock unmute did not bring them back) until a power cycle.
+- **Cause (found in the coupled emulator):** the mute followed the existence of a take, not whether the FLEX track was playing. DSP play positions could not tell when a FLEX note ends, because a FLEX voice's take keeps looping silently after its release.
+- **Fix:** v0.57 mutes the SRC only while a FLEX voice has its note on (frame trigger words 34/36, bit per voice) and its LEVEL is above 0, with a 300-frame (about 0.2 s) hold; stopping or muting the FLEX track or MUTE OFF gives the SRC back. Gated in the coupled emulator (`mute`, `flexplay`).
+- **Status:** fixed in v0.57 (emulator); no unit result yet. Remaining: a long gap between FLEX notes un-mutes the source.
+- **Evidence:** `[hw]` (symptom, tester) / `[emu]` (fix) {dn2mk2-v057}
+- **Rule:** A8
+- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md#rift-v04-organ-and-dn2mk2-v057-flexmute-os-111-2026-11-16-dn2-rift-v04-dn2mk2-v057)
+
+### I134. A held-key view stayed on after the key was released (Digitakt LED colours)
+- **Unit:** Digitakt MKI, OS 1.54 (ledcolors 0.4), fixed 2026-11-16
+- **Seen:** holding TRK shows every track's colour on the trigs; that view could stay on after TRK was let go, usually after TRK + a trig or a long hold.
+- **Cause (the author's statement):** the mod missed TRK's release (it did not read the release the way the firmware does).
+- **Fix:** 0.5 reads TRK's release as the firmware does, and as a safety net ends the view 2 s after the last TRK key, colour change or track change. 0.5 tested on a unit by the author.
+- **Status:** fixed in 0.5.
+- **Evidence:** `[hw]` (fix tested; where the fault was seen is not stated) {ledcolors-1117}
+- **Rule:** C11
+- **Fact:** [devices/digitakt.md](devices/digitakt.md#led-colours-mod-on-the-unit-os-154-2026-11-16-ledcolors-1117)
+
+### I135. FASCIA with BEND up and DAMP near 0 decays unevenly and drops voices (RIFT)
+- **Unit:** Digitone II, OS 1.11 (RIFT v0.3/v0.4), owner's report 2026-11-15
+- **Seen:** some hits sustain, others decay short, and now and then a voice cuts out.
+- **Cause (suspected by the project):** BEND's glide can feed a long-ringing body.
+- **Fix:** none yet; workaround BEND 10 or less, or raise DAMP. A fix is planned.
+- **Status:** open.
+- **Evidence:** `[?]` (owner's report; the notes do not say unit or emulator, likely a unit) {dn2-rift-v04}
+- **Rule:** C11
+- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md#rift-v04-organ-and-dn2mk2-v057-flexmute-os-111-2026-11-16-dn2-rift-v04-dn2mk2-v057)
+
+### I136. One held key with the sequencer stopped played a run of different notes (DigiArp MIDI, Digitone mk1)
+- **Unit:** Digitone mk1, OS 1.44 (DigiArp MIDI DA27 beta), the author's known issue; investigated by morriess 2026-11-14
+- **Seen:** sometimes one held key, sequencer stopped, plays a repeating run of different notes on a MIDI track.
+- **Cause (unknown):** ruled out: hook arguments, interleaved DIN bytes (the send routine masks interrupts), release with a different note, ARP page vs engine bytes, the engine maths. Suspects: sequencer notes left after STOP; a release path (release-all `0x4003bc0e`) that bypasses the note-off hook; the worker sharing RTOS priority 1 with a stock task, making timing cases likelier on a unit than in the emulator.
+- **Fix:** none known; a proposed guard clears the track's engine notes while stopped with no keys held.
+- **Status:** open (morriess removed its notes from the repo on 2026-11-16; DigiArp now lives in the elekloader Mod Shop).
+- **Evidence:** `[hw]` (author's known issue) / `[doc]` (analysis) {drummode-1117}
+- **Rule:** C11
+- **Fact:** [devices/digitone.md](devices/digitone.md#drum-mode-and-digiarp-notes-leds-record-modes-pages-os-144-2026-11-1416-drummode-1117)
 
 ## E. Emulator or toolchain disagreed with the unit
 
@@ -1070,6 +1260,46 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[emu]` {trig-seedr-1116}
 - **Rule:** A41
 - **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md#step-records-locks-and-the-stock-write-routines-trig-seedr-mkii-os-174-analog-emu-only-2026-11-14-trig-seedr-notes)
+
+### I117. Two ColdFire instruction forms where GCC and ot_emu disagree (Octatrack, emulator)
+- **Unit:** none (octabam's ot_emu), TELOS 0.1 for Octatrack OS 1.40C, 2026-11-14
+- **Seen:** the boot linker misbehaved in the emulator until two code patterns were removed.
+- **Cause (found in the emulator and the compiler output):** for `move.b (a0)+,(0,a0,a1)` GCC assumes the destination uses the old a0 and ot_emu the new one; for a byte push to `-(sp)` GCC assumes SP moves by 1 and ot_emu by 2.
+- **Fix:** `dl_memcpy` kept out of line and `-fno-ipa-sra`, so neither form is in the build.
+- **Status:** avoided; which reading the ColdFire takes is not checked on a unit (H29).
+- **Evidence:** `[emu]` {telos-ot-1117}
+- **Rule:** A42
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#telos-and-dspload-ot-boot-order-card-mount-run-time-dsp-code-os-140c-2026-11-1416-telos-ot-1117-elekloader-1117)
+
+### I120. A landing on the boundary tick was exact in the emulator and sometimes a step off on the unit
+- **Unit:** Octatrack MKI, OS 1.40C (KYOTI with Clyps, CL25), 2026-11-12
+- **Seen:** with DIRECT JUMP on, a loaded sequence now and then came in one step off and fell into phase at the next step.
+- **Cause (from the report and the code; the emulator's exact clock never shows it):** CL25 landed on the boundary tick and purged the old boundary event only if its fire time was at or after the sample clock; on the unit that clock runs in audio frames, so the comparison flipped by a frame and the old step stayed. Tick-level oracles in the emulator had passed.
+- **Fix:** CL26 lands a tick before the boundary (ahead 2) and purges a full tick ahead (measured margin: one tick in every purge); RELOAD_FROM_PROJECT and DIRECT JUMP V7.1 took the same rule. CL29 "timing correct" on the unit.
+- **Status:** fixed.
+- **Evidence:** `[hw]` {kyoti-1117}
+- **Rule:** A70
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#kyoti-v18-clyps-and-direct-jump-v73-os-140c-2026-11-1316-kyoti-1117-kyoti-clyps-scope)
+
+### I126. Two lock lanes on one parameter lost one lane's locks (trig-seedr, emulator)
+- **Unit:** none (analog-emu), trig-seedr 0.5 for Analog Rytm MKII OS 1.74, found 2026-11-16 by the host fuzzer and the emulator sample
+- **Seen:** a recipe with lane 1 at 100 % on the sample slot and lane 2 left on the sample slot too: the emulated Rytm stored lane 2's value (the original locks) and lane 1's new locks were lost, with no error; the host reference showed a lock on every trig.
+- **Cause (shown in the emulator):** the Rytm keeps one lock per parameter and step; the second write replaced the first.
+- **Fix:** 0.6.0 refuses such a recipe (SETTING OUT OF RANGE, nothing written) and LOCK's PARM skips the other lane's parameter; host test `test_found_lanes`.
+- **Status:** fixed before any unit ran it.
+- **Evidence:** `[emu]` {trig-seedr-1117}
+- **Rule:** A71
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md#trig-seedr-05-07-grid-recording-lock-lanes-redraw-cost-and-first-unit-passes-mkii-os-174-2026-11-16-trig-seedr-1117)
+
+### I128. Idle CPU cost overstated five times: an instruction budget read as one second (trig-seedr, analog-emu)
+- **Unit:** none (analog-emu), trig-seedr 0.4-0.5 for Analog Rytm MKII OS 1.74, found 2026-11-16 (status M2.3)
+- **Seen:** the screen's idle cost was reported as 7.8 % and 9 % of the CPU and planned around.
+- **Cause (found in the emulator's options):** `dtboot --instr 1000M` at the default `--ips 200M` runs 5 emulated seconds; the count was divided by one second.
+- **Fix:** measured again per emulated second: 1.9 %, then 0.25 % after redrawing only on change; F10's status file carries a correction.
+- **Status:** corrected.
+- **Evidence:** `[emu]` {trig-seedr-1117}
+- **Rule:** C10
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md#trig-seedr-05-07-grid-recording-lock-lanes-redraw-cost-and-first-unit-passes-mkii-os-174-2026-11-16-trig-seedr-1117)
 
 ## R. Recovery and transfer links
 

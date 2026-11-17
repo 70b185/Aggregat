@@ -2,12 +2,13 @@
 
 # Machinedrum (incl. UW)
 
-Data last verified: 2026-11-16
+Data last verified: 2026-11-17
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **Machinedrum WebLoader (MDX user machines)** (gerdtanck) | tool | - | untagged (2026-11-16); Machinedrum running MDX X.20 | - | 2026-11-16 | [repo](https://github.com/gerdtanck/WebLoader) · [homepage](https://gerdtanck.github.io/WebLoader/) |
 | **murdenihcam USR machines** (murdenihcam) | mod | - | main (2026-11-15): RAM-GR 0.5; MDX X.20 B | - | 2026-11-15 | [repo](https://github.com/murdenihcam/murdenihcam-usr-machines) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.1 (2026-11-13): Monomachine factory reset from your own ROM; the host's Stop is a real stop on the MM, so LOAD SONG works after it; Knob 1-8 as host parameters; several ROM images in one folder; Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-14 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
 | **OP-XY MNMD** (mmockett) | emulator | - | v1.3.6 (tag, 2026-11-13): MD KIT builds into one firmware with Hexagon's Moth; v1.3.5: the synths play at one loudness, MD KIT raises its quieter machines by up to 6 dB | v1.3.6 | 2026-11-13 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
@@ -224,6 +225,14 @@ Single-voice drone USR machine: three detuned saws and a square sub into saturat
 _Related: mod for `mdx` (README: a USR machine for the Machinedrum running MDX X.20) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-07, README, README (2026-11-11)_
+
+### Machinedrum WebLoader (MDX user machines)
+
+Mobile-first web page (German UI) that loads MDS user machines onto a Machinedrum running MDX X.20 over WebMIDI: a library of 71 machines with PNG descriptions (dbx, murdenihcam, waftlord folders, unchanged originals), a slot view and a load queue, plus a dry run without a device. Ships no firmware or ROM files; protocol sources are pinned in toolchain.lock.json. Found by GitHub search 2026-11-17.
+
+_Related: mod for `mdx` (README: loads user machines on MDX X.20); bundles `murdenihcam-usr-machines` (CREDITS: 13 murdenihcam machines in the library) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
+
+_Sources: GitHub search 2026-11-17, README (2026-11-17), CREDITS.md_
 
 ### mds-harness (Machinedrum user machine harness)
 

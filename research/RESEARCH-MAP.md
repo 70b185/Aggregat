@@ -28,7 +28,7 @@ This page is the one place where the research of all projects comes together.
 |---|---|---|
 | **Goals** (G1-G8) | What the whole community gains, beyond any single mod | [Shared goals](#shared-goals-worth-more-than-any-single-mod) below |
 | **Open questions** | Status ❓/⬜ per device; disagreements between projects (O1-O19) | the device tables below; [CONFLICTS.md](../hardware/CONFLICTS.md) |
-| **Experiments** | Tasks that need research (T1-T24) and inferred facts that need one test on a unit (H1-H26) | [Shared to-do](#shared-to-do); [HYPOTHESES.md](../hardware/HYPOTHESES.md) |
+| **Experiments** | Tasks that need research (T1-T24) and inferred facts that need one test on a unit (H1-H40) | [Shared to-do](#shared-to-do); [HYPOTHESES.md](../hardware/HYPOTHESES.md) |
 | **Results** | Facts with evidence tags and sources; rules distilled from them | [hardware/devices/](../hardware/README.md), [AGENT-RULES.md](../hardware/AGENT-RULES.md) |
 | **Incidents** (I1-I66) | What went wrong or was tested on real units, the cause and how it was found, and the rule it taught (rule C11: every failure becomes an incident, every general lesson a rule) | [INCIDENTS.md](../hardware/INCIDENTS.md) |
 | **Stock bugs** (SB1-SB18) | Bugs in Elektron's own OS that projects found while testing, with trigger, workaround and a test tip (rule C12: reproduce on stock before you blame your mod) | [STOCK-BUGS.md](../hardware/STOCK-BUGS.md), [report form](https://github.com/70b185/Aggregat/issues/new?template=stock-bug.yml) |
@@ -37,7 +37,7 @@ Each goal below lists the questions, tasks and tests that move it. A result goes
 
 ## Help with a test (no flashing needed)
 
-Own a **Digitakt II, Digitakt, Digitone II, Analog Heat (+FX/MKII) or Model:Cycles**? These take minutes with the stock OS and a computer:
+Own a **Digitakt II, Digitakt, Digitone II, Analog Heat (+FX/MKII), Model:Cycles, Analog Rytm MKII or Octatrack**? These take minutes with the stock OS and a computer:
 - **H1** read your unit's three ids (USB in each mode, Elektroid's device info);
 - **H2** do unsaved edits survive a power cycle (DT2, DT1)?
 - **H3** where does a received pattern land (DT2, DT1)?
@@ -49,6 +49,13 @@ Own a **Digitakt II, Digitakt, Digitone II, Analog Heat (+FX/MKII) or Model:Cycl
 - **H24** does your DT2 or DN2 hang when you LOAD TO PROJECT a +Drive file that is not a sample (back up first)?
 - **H25** which NRPN numbers does your DT2 answer for track mute, track level, pattern mute and master overdrive (manual or midi.guide)?
 - **H26** is the first note after a power-on silent on your stock Analog Rytm MKII (OS 1.74)?
+- **H27** does your DT2 or DN2 drop a Transfer file listing started while the boot intro still plays?
+- **H31** does a pasted Octatrack track keep the copied LFO designer shape, or play the destination's?
+- **H32** does your stock Octatrack pop at a Part-changing pattern change with SILENCE TRACKS on?
+- **H33** does stock show a brief "new settings on the old sound" when a pattern change on another Part retriggers a ringing track?
+- **H34** does any GLOBAL menu of your Analog Rytm MKII (OS 1.74) show the OS version, or only the boot screen?
+- **H37** does your DT2 keep running when a USB MIDI host stops reading a large SysEx reply?
+- **H40** what do Invert and Clear do to a custom LFO design on your Octatrack?
 
 Report with the **[Test result](https://github.com/70b185/Aggregat/issues/new?template=test-result.yml)** issue template. Details and the probe and build tests for people who flash: [HYPOTHESES.md](../hardware/HYPOTHESES.md).
 

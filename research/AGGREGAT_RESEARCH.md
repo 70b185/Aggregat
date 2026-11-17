@@ -22,7 +22,7 @@ results by hand, with credit to this project. Taking part is voluntary and can s
 
 | | |
 |---|---|
-| Aggregat state | research map reviewed 2026-11-03, snapshot `7d18e113fd32` |
+| Aggregat state | research map reviewed 2026-11-03, snapshot `36d3d5c23653` |
 | Copied on | <date you copied it> |
 
 ## What we work on
@@ -49,7 +49,7 @@ emulator, `doc` = read in code or documents.
 
 ---
 
-# Copied state: Aggregat research, snapshot `7d18e113fd32` (research map reviewed 2026-11-03)
+# Copied state: Aggregat research, snapshot `36d3d5c23653` (research map reviewed 2026-11-03)
 
 ## Goals (copied from Aggregat)
 
@@ -99,6 +99,14 @@ emulator, `doc` = read in code or documents.
 | H24 | G7 | The Digitakt II and Digitone II hang on LOAD TO PROJECT of a +Drive file that is not a sample, as the Analog Rytm MKII does (SB19), since their sample browsers list every file too. | DT2, DN2 | Back up first. On a throwaway project, put a small non-audio file on the +Drive with Elektroid, LOAD TO PROJECT, note what happens; then power-cycle, delete the file and run CREATE NEW before the next OS update. |
 | H25 | G7 | The Digitakt II on OS 1.17 answers midi.guide's NRPN numbers (track mute 1:108, track level 1:110, pattern mute 1:109, master overdrive 2:50), not the manual's (1:101, 1:100, 1:104, 2:37) (O24). | DT2 | On a throwaway project, send each NRPN pair from a DAW or a MIDI tool on the auto channel with value 0 and then 127, and watch which parameter moves on the screen. |
 | H26 | G7 | On a stock Analog Rytm MKII (OS 1.74) the first note right after a boot can be silent. | Analog Rytm MKII | Power the stock unit on, wait for the main screen, play one pad or trig once and note whether it sounds; repeat over ten boots. |
+| H27 | G7 | A Digitakt II or Digitone II drops stock MidiRpc / Transfer requests while its boot intro still plays, and answers them once the main screen is up (digikit's emulator, 2026-11-16; I114). | DT2, DN2 | Power on with Elektron Transfer (or another MidiRpc tool) connected and start a file listing as soon as USB appears; note whether the request fails or hangs during the intro and works after it. |
+| H31 | G6 | Stock TRACK COPY / PASTE on the Octatrack does not carry the LFO designer (SB26). | Octatrack | On T1 set an LFO WAVE to the designer, draw an obvious shape, aim it at volume with high depth; give T2 a different designer; GRID REC copy T1, paste onto T2: does T2 follow T1's shape? |
+| H32 | G8 | With SILENCE TRACKS on, stock also pops at a Part-changing pattern change when a ringing track has no trig on the new pattern's step 0 (the hard kill `0x40006820`; I119). | Octatrack | OT DEMO, SILENCE TRACKS on: let a sample ring on T4, T5 or T7, change A05 -> A03 with CHAIN AFTER 2; listen for a pop; repeat with SILENCE TRACKS off. |
+| H33 | G8 | The brief "new settings on the old sound" heard at a FULL load (Clyps) is stock's single sound path per track, not the mod: a retriggered voice fades through a path that already carries the new Part. | Octatrack | Stock [PTN] + trig between two patterns on different Parts with clearly different settings on one track and a sample ringing up to the change; the same blip on stock settles it. |
+| H34 | G4 | On Analog Rytm MKII OS 1.74 the OS version field of a flashed build shows only on the boot screen; no GLOBAL menu shows it (trig-seedr's corrected check 1). | Analog Rytm MKII | Boot a stock 1.74 unit, look through GLOBAL > SYSTEM for an OS INFO entry; note what the boot screen shows. |
+| H36 | G1 | The Rytm MKI boot-flash writers lie at `0x40096A6C-0x40096B3E` and BOOTSTRAP UPGRADE ends at `0x4011AA7A` in OS 1.74; the upgrade buffer is `0x40366570` (2 MiB; SB21). | Analog Rytm MKI | Static: disassemble the stock MKI 1.74 image at those addresses and check the callers of the erase and program routines. No flashing needed. |
+| H37 | G7 | The Digitakt II's stock USB MIDI transmit path (OS 1.17) waits indefinitely for buffer space when the host stops reading. | DT2 | Send a SysEx request whose reply is large, keep the port open but stop reading, and watch whether the UI and sequencer keep running. |
+| H40 | G7 | Octatrack stock LFO-design Invert maps v to -1 - v and Clear sets all steps to 0 and stepped. | Octatrack | Invert and clear a custom LFO on the unit, save, and read the Part's 16 values and interpolation mask. |
 | H6 | G8 | The DT2's SHARC DDR above the sample pool window (`0x9d22b9c8` up to `0xa0000000`, about 46 MB) is never written by stock, as the DN2's tail `0x80531000-0xa0000000` is not. | DT2 | dnfw's method: fill the range with a pattern at boot, then scan it during heavy playback, pattern and kit changes, FX extremes, sample loads and a save. Expect a reserved top part for Capicola builds only. |
 | H7 | G3 | The DT2's ColdFire runs the same FreeRTOS layout as the DN2: higher priority numbers run first, prio 0 never runs, prio 1 is the idle loop; the main task's stack is barely used. | DT2 | With the USB probe: find the ready table and the running-task pointer, sample them 60 times. |
 | H8 | G8 | The DN2's digikit flash cave `0x402fb7a8` (2,136 B on 1.11) keeps its bytes through a cold boot, as the DT2's `0x403117c4` does. | DN2 | A canary in the cave, read back after a cold boot and after playback. Combine with H9. |
@@ -106,6 +114,7 @@ emulator, `doc` = read in code or documents.
 | H10 | G8 | DN2 L2 `0x200918c0-0x200c2000` is not written by stock in normal use (O19). | DN2 | A canary or a write watch over the range during playback, pattern changes and a save (T24). |
 | H11 | G8 | DN2 RAM `0x46700000-0x46701300` is written by stock only when a +Drive transfer is over 60,672 bytes (S17: project save and load reach it). | DN2 | A canary at `0x46700000`, read back after loading a large sample or project from +Drive. |
 | H12 | G3 | Direct hook writes may race reply publication on a DN2. Digikit measured 3,995 of 4,000 zero diagnostic words on a DT2; its own diagnostic clears overwrote the previous block's record in the DN2 emulator. Silicon DMA timing remains unmeasured. | DN2 | Compare a hook's direct counter writes with static-word publication at block tail, without clearing prior reply records; count arrivals on the ColdFire side. |
+| H28 | G4 | On a project load, `write_live_project` (DT2 `0x400df95a`) and `fx_array.load` (`0x400daf54`) run in the project-load task (stack `0x4039beac` + `0x4000`), not in the UI task (stack `0x4096775c` + `0x28000`); finding 135 shows reachability only. | DT2 (DN2 at its own addresses) | PC probe at those addresses logging A7 and SR while a project loads; A7 in the first range = project task. |
 | H13 | G3 | SIMD loads or stores into L2 byte space hang the DN2's DSP as they hang the DT2's (same core, same IMASK). | DN2 | A one-variable probe image with one SIMD L2 access behind a key press; recovery by power cycle. |
 | H14 | G3 | The SHARC's IIR0/FIR0 accelerators compute on the DT2 exactly as measured on the DN2 (output from stored word 5, FIR sums in pairs, INIDX/OUTIDX written the other way round). | DT2 | Port the accelprobe image to the DT2 and compare the 76 result words. |
 | H15 | G2, G3 | On the DN2, a single late DSP block is a one-block dropout that recovers, as on the DT2; the "silence until power cycle" reports came from sustained overload. | DN2 | Provoke single late blocks (a burn loop on a key press) and count them on the DSP side; then hold an overload for seconds. |
@@ -114,6 +123,11 @@ emulator, `doc` = read in code or documents.
 | H20 | G8 | DT2 OS 1.17 saves only the kits the user changed, so a module's own kit data that changes by itself is lost unless a stock parameter of that kit changes too. | DT2 | Modwerk publishes a unit procedure: change only module data, save, power-cycle, reload. |
 | H21 | G8 | The Octatrack stall after a PROJECT > SYSTEM walk on Modwerk builds is Modwerk's DSP stall watchdog firing while stock itself holds the frames (USB DISK MODE), not a stock fault. | Octatrack | Make the same walk on a unit with nothing installed, then with the watchdog off. |
 | H22 | G1, G8 | The total freeze in octabam's demand-loader soak (I57) is the ColdFire spinning in one of the frame interrupt's waits that have no time limit, after the DSP stopped taking host words. | Octatrack | Add time limits (with a counter) to both waits and repeat the 118-switch soak. |
+| H29 | G1 | On the Octatrack's ColdFire (MCF5445x), a byte push to `-(sp)` moves SP by 2 and `move.b (a0)+,(0,a0,a1)` uses the incremented a0, as ot_emu models it (GCC assumes otherwise; I117). | Octatrack (any ColdFire device) | Run a tiny probe that executes both forms and logs SP and the written address to the card or a battery-RAM word. |
+| H30 | G1 | The Octatrack comes back up normally from a ColdFire soft reset (RCR `0xFC0A0000` = `0x80`) started on the engine task; stock never restarts itself. | Octatrack | Trigger the reset from a minimal mod on a unit with a known recovery path; check boot, card mount and project load. |
+| H35 | G8 | Clocking an Octatrack on a USB-MIDI mod base (Modwerk, octabam) from USB and DIN at once doubles the tempo and saves it into the project, because the base passes every USB clock tick to stock's clock handler without checking for DIN clock. | Octatrack | Send 120 BPM clock on DIN and USB together for 30 s; read the tempo, then reload the project. |
+| H38 | G7 | The Digitone mk1 trig-key LED palette indices 2 dark, 3 red, 5 dim red, 20 white, 21 dim white (from digiemu's copy of the panel's colour table) give those colours on a unit. | Digitone mk1 | Set each index with the setter `0x40016e62` on a unit and compare with the stock trig and dim-white LEDs. |
+| H39 | G7 | On a Digitone mk1 (OS 1.44), a mod page inserted right after MIDI page 20 (MIDI Source) breaks FUNC + push A (CHAN enable) on a unit too, as measured in digiemu. | Digitone mk1 | Build with the extra page after 20, try FUNC + push A on a MIDI track's SRC page. |
 
 ## Open conflicts between projects
 
@@ -145,3 +159,5 @@ emulator, `doc` = read in code or documents.
 | O29 | CRC of a block in stock's 0x51 OS upgrade write |
 | O30 | Octatrack PLAYING byte |
 | O26 | DN2 FM Tone spare records' MIDI CCs |
+| O31 | Lowest safe word for code in the Octatrack DSP window |
+| O32 | Octatrack track record: where the trigless-trig mask sits |

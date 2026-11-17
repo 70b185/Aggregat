@@ -146,6 +146,8 @@ The area where Model:Cycles mods place added machines; the Syntakt engine ports 
 | `0x43009680` | ? | model27 | SOLID as machine 7, beside SAMPLE | 1.13 | `[doc]` {model27-solid} |
 | `0x43000000` | ? | model27 | CHIPS code when it is the only added machine (image payload 15,776 B, code 7,846 B, tables about 2 KB) | 1.13 | `[doc]` {model27-chips} |
 | `0x43036000` | `0x430363e0` | model27 | CHIPS variables when it is the only added machine (992 B for six voices; end is our sum) | 1.13 | `[doc]` {model27-chips} |
+| `0x43000000` | `0x43002162` | model27 | MAXSAW code when it is the only added machine (8,546 B in release 0.69; end is our sum; image payload 16,468 B) | 1.13 | `[doc]` {model27-maxsaw} |
+| `0x43036000` | `0x43036344` | model27 | MAXSAW variables when it is the only added machine (836 B, among them 92 B of state a track and a 128-byte shared buffer; end is our sum) | 1.13 | `[doc]` {model27-maxsaw} |
 
 ## Octatrack DSP X memory (`octatrack`)
 
@@ -159,6 +161,19 @@ DSP56300 X-memory words, written `$xxxx` in the projects' notes.
 | `0x3dc0` | `0x3e3f` | octabam (DLCOPY) | guard state words and base cells | 1.40C | `[doc]` {octabam-1115} |
 | `0x3f00` | `0x3f4f` | octabam (DLCOPY) | stub tables | 1.40C | `[doc]` {octabam-1115} |
 | `0x3fd0` | `0x3fea` | octabam (DLCOPY) | reverb trampoline words, guard scratch, the copier's saved b | 1.40C | `[doc]` {octabam-1115} |
+| `0x28f0` | `0x28f4` | elekloader (dspload-ot 0.2) | core 1's kept registers for the copier | 1.40C | `[emu]` {elekloader-1117} |
+| `0x2900` | `0x2db2` | elekloader (dspload-ot 0.2) | core 1's staging for run-time DSP code; doorbell `0xa55a` at `0x2900` (the same layout as octabam's DLCOPY, so the two cannot share a build) | 1.40C | `[emu]` {elekloader-1117} |
+| `0x33da3` | `0x34000` | elekloader (dspload-ot 0.2; TELOS card mods) | shared window (P/X/Y aliased): four slot pairs at `0x33da3`, code gap `P:0x33dab..0x33fff` (597 words); a reverb past its default knobs can reach it | 1.40C | `[emu]` {elekloader-1117} |
+
+## Octatrack ColdFire DDR (`octatrack`)
+
+The sample arena (6,144-byte pages, 14,602 of them) starts at `0x40a955e0`; DRAM units take its first pages, and the
+MEMORY page does not show the loss.
+
+| start | end | user | use | OS | evidence |
+|---|---|---|---|---|---|
+| `0x40a955e0` | `0x40aa5de0` | KYOTI | KYOTI V1.8: RELOAD_FROM_PROJECT and DIRECT JUMP DRAM units, 11 arena pages (end is our sum) | 1.40C | `[doc]` {kyoti-1117} |
+| `0x40a955e0` | `0x41498de0` | KYOTI | KYOTI V1.8C and the CLYPS image: Clyps and DIRECT JUMP code (32,496 B) plus Clyps' buffers (every bank's originals, temp saves, Part shadow), 1,709 arena pages (end is our sum) | 1.40C | `[doc]` {kyoti-1117} {kyoti-clyps-scope} |
 
 ## Octatrack battery RAM (`octatrack`)
 
@@ -167,6 +182,11 @@ DSP56300 X-memory words, written `$xxxx` in the projects' notes.
 | `0x100ff800` | `0x100ff900` | Modwerk | crash record (end: where the next record starts) | 1.40C | `[doc]` {modwerk-ot-driving} |
 | `0x100ff900` | `0x100ffb30` | Modwerk | DSP stall record | 1.40C | `[doc]` {modwerk-ot-driving} |
 | `0x100ffb30` | ? | Modwerk | timings of the 128 frames before a stall | 1.40C | `[doc]` {modwerk-ot-driving} |
+| `0x100f85a0` | ? | Modwerk Kits / octabam KITS | Kits' battery record (`KCS1`, RESID); same address in octabam | 1.40C | `[hw]` {modwerk-ot-kits} |
+| `0x100f9800` | `0x100fbf00` | Modwerk MIDI Scenes | current bank's packed MIDI scene locks (`SCS2`, 9,984 B) | 1.40C | `[hw]` {modwerk-ot-midiscenes} |
+| `0x100fbdf0` | `0x100ffe00` | octabam MIDI SCENES | power-cycle copy of the MIDI scene locks (16,400 B; per Modwerk's notes, under Modwerk's own records) | 1.40C | `[doc]` {modwerk-ot-midiscenes} |
+| `0x100fbf00` | ? | Modwerk Kits | Kits' pattern assignments (ASSIGN), moved from octabam's `0x100ffe00` | 1.40C | `[doc]` {modwerk-ot-kits} |
+| `0x100ffd40` | ? | Modwerk base 0.7.3+ | machine map (each machine's module and name); covers octabam KITS' ASSIGN at `0x100ffe00` | 1.40C | `[doc]` {modwerk-1117} |
 
 ## Analog Rytm MKI DDR (`analog-rytm`)
 

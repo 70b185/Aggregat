@@ -246,6 +246,18 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Status:** stock behaviour
 - **Evidence:** `[hw]` (restart with no module) / `[emu]` (stock check called directly) {modwerk-vector}
 
+### SB26. Probable: TRACK COPY / PASTE leaves the LFO designer behind
+- **Device and OS:** Octatrack, OS 1.40C
+- **Area:** UI, Parts
+- **Symptom (expected):** a pasted track whose LFO WAVE is the designer plays the destination track's designer shape, not the copied one; seen only when pasting to another track or into a pattern on another Part.
+- **Trigger:** GRID REC copy of a track with a designer LFO, paste onto another track.
+- **Cause:** TRACK COPY `0x40029754` copies the record plus six Part blocks into clipboard `+0x91f..+0x9a1`; the designer (`+0x1702+16t`, slope `+0x1782+2t`) is not among them (read from stock code).
+- **Workaround:** none yet; KYOTI names a fix (TRACK_PASTE_DESIGNER_FIX, about 60-100 bytes) if it is confirmed.
+- **Test tip:** stock test H31 in [HYPOTHESES.md](HYPOTHESES.md).
+- **Found by:** octatrack-kyoti-fw ("candidate stock bug", read from the code, not yet seen on a unit)
+- **Status:** unconfirmed
+- **Evidence:** `[doc]` {kyoti-clyps-scope}
+
 ## Analog Rytm
 
 ### SB18. Edits to hidden FX words overwrite the delay's saved TIME (latent)
@@ -277,14 +289,12 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Area:** OS update
 - **Symptom:** not seen; an image that decodes past 2 MiB would overrun the buffer.
 - **Trigger:** an update image larger than the fixed decode buffer.
-- **Cause:** a fixed buffer with no size check (elekloader's profile, static reading).
+- **Cause:** a fixed buffer with no size check (elekloader's profile, static reading). Modwerk's MKI research names the buffer `0x40366570` (2 MiB; reported, still to be checked on a 1.74 image, H36) and notes that the startup menu's MIDI DIN recovery survives an overrun. {modwerk-1117}
 - **Workaround:** keep an image at or below `0x1F0000` bytes (elekloader's limit).
 - **Test tip:** check the size in the build, as for SB3 on the Digitone II.
 - **Found by:** elekloader
 - **Status:** open in stock
 - **Evidence:** `[doc]` {elekloader-ar1}
-
-## Model:Cycles
 
 ### SB25. FX-track lock indexes 38-41 read past their table and share rows with 18-21
 - **Device and OS:** Analog Rytm MKII, OS 1.74
@@ -296,6 +306,20 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Found by:** trig-seedr (firmware notes for OS 1.74)
 - **Status:** open; seen in the emulator only.
 - **Evidence:** `[emu]` {trig-seedr-1116}
+
+### SB27. The UI queue overwrites unread messages when more than 1024 wait
+- **Device and OS:** Analog Rytm MKII, OS 1.74
+- **Area:** UI task, message queue
+- **Symptom:** under heavy load the panel lags and key, pad pressure and other UI messages are lost.
+- **Trigger:** more than 1024 messages waiting in the UI queue (seen with 13 mods and BD ANALOG voices playing, plus pad pressure at 200-290 messages a second during a held pad).
+- **Cause:** the queue is a ring of 1024 pointers; its send updates the write index and count with interrupts masked but never checks for a full ring (read in the OS 1.74 disassembly).
+- **Workaround:** keep audio-block load low enough that the UI task keeps up; a mod that posts to the queue keeps its own bounded pool and counts only its own waiting events.
+- **Test tip:** read the queue's read index and count (Modwerk's test counters) while holding a pad with RTRG under load.
+- **Found by:** Modwerk (Live Rec Retrig Fix 0.2.2 testing; overflow counted on a unit, I131)
+- **Status:** stock behaviour
+- **Evidence:** `[hw]` (overflow counted on a unit) / `[doc]` (no full check, from the disassembly) {modwerk-rytm-1116}
+
+## Model:Cycles
 
 ### SB15. A random exception while browsing (filesystem block cache)
 - **Device and OS:** Model:Cycles, OS 1.13

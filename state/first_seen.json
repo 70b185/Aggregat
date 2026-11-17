@@ -83,6 +83,7 @@
  "digiswarm": "2026-11-02",
  "digitables": "2026-10-31",
  "digitakt-digitone-mcp": "2026-11-01",
+ "digitakt-fx-locks": "2026-11-17",
  "digitakt-ii-research": "2026-10-31",
  "digitakt-ii-splash-screens": "2026-11-01",
  "digitakt-led-colors": "2026-11-06",
@@ -98,8 +99,10 @@
  "digitone-2-pattern-manager": "2026-11-03",
  "digitone-arp-mod": "2026-11-01",
  "digitone-drum-mode": "2026-11-16",
+ "digitone-ii-haddersbadders": "2026-11-17",
  "digitone-syx-toolkit": "2026-10-31",
  "digitriad": "2026-11-01",
+ "digiwave": "2026-11-17",
  "directjump-digitakt": "2026-11-01",
  "directjump-digitone": "2026-11-01",
  "dn-deobfuscator": "2026-10-31",
@@ -165,6 +168,7 @@
  "machinemodule-mpc": "2026-11-02",
  "maschine-md-mm": "2026-11-02",
  "mashup-digitakt": "2026-11-14",
+ "md-webloader": "2026-11-17",
  "mddt": "2026-11-02",
  "mdkit": "2026-11-02",
  "mdmm": "2026-11-01",
@@ -267,6 +271,7 @@
  "synfact": "2026-11-01",
  "syntakt-firmware-workbench": "2026-10-31",
  "syntakt-machine45-research": "2026-10-31",
+ "syntakt-performance-mods": "2026-11-17",
  "synthack-os": "2026-10-31",
  "synthack-os-upstream": "2026-10-31",
  "syxgrid": "2026-10-31",
@@ -283,5 +288,6 @@
  "vawt": "2026-11-01",
  "vladiktron-spoke": "2026-11-01",
  "whiplash": "2026-11-06",
- "x0x": "2026-11-03"
+ "x0x": "2026-11-03",
+ "zibens": "2026-11-17"
 }

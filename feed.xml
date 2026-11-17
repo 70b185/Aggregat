@@ -4,9 +4,49 @@
   <link href="https://70b185.github.io/Aggregat/"/>
   <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
   <id>https://70b185.github.io/Aggregat/</id>
-  <updated>2026-11-16T00:00:00Z</updated>
+  <updated>2026-11-17T00:00:00Z</updated>
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>New in the catalogue: ZIBENS (drum-synth machine) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=zibens"/>
+    <id>https://70b185.github.io/Aggregat/#project-zibens</id>
+    <updated>2026-11-17T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Elekloader machine mod (machine 34) laid out like a four-voice drum synth. Voices run at 24 kHz and are filled out to 48 kHz; a track costs nothing once sound and echoes have died. Page 2 uses sound slots 46-52, so FX Locks and Deja Vu RND destinations must not be used on a …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Syntakt Performance Mods (JOG page, PERFORM DJ filter) (Mod, Syntakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=syntakt-performance-mods"/>
+    <id>https://70b185.github.io/Aggregat/#project-syntakt-performance-mods</id>
+    <updated>2026-11-17T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Performance mods built from the user's own official Syntakt OS file: a desktop builder (Python/Tk, Windows launchers), a browser builder (the same builder ported to JavaScript, the firmware tool compiled to WebAssembly, byte-identical output in the tests) and an add-on that …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Machinedrum WebLoader (MDX user machines) (Tool, Machinedrum)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=md-webloader"/>
+    <id>https://70b185.github.io/Aggregat/#project-md-webloader</id>
+    <updated>2026-11-17T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Mobile-first web page (German UI) that loads MDS user machines onto a Machinedrum running MDX X.20 over WebMIDI: a library of 71 machines with PNG descriptions (dbx, murdenihcam, waftlord folders, unchanged originals), a slot view and a load queue, plus a dry run without a …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: DIGIWAVE (PPG-style wavetable machine) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digiwave"/>
+    <id>https://70b185.github.io/Aggregat/#project-digiwave</id>
+    <updated>2026-11-17T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Elekloader machine mod (machine 33): two wavetable oscillators and a sub per track, 26 tables of 16 waves of 128 8-bit samples (22 made in the PPG manner, 4 from the Jomox Alphabase wave file, which the table generator needs and the repo does not include). The Digitakt's …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: FX Locks (delay and reverb locks, Digitakt) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digitakt-fx-locks"/>
+    <id>https://70b185.github.io/Aggregat/#project-digitakt-fx-locks</id>
+    <updated>2026-11-17T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Elekloader mod that stores delay and reverb locks in sound slots 48-51 of each step (unused by audio machines, but used by machine-pages machines with extra values) and applies the active lock about 1,500 times a second; the higher track wins when two lock the same knob. 0.1 …</summary>
+  </entry>
   <entry>
     <title>New in the catalogue: SuperSAW-OT (Mod, Octatrack)</title>
     <link href="https://70b185.github.io/Aggregat/?p=supersaw-ot"/>
@@ -29,7 +69,7 @@
     <id>https://70b185.github.io/Aggregat/#project-digitone-drum-mode</id>
     <updated>2026-11-16T00:00:00Z</updated>
     <category term="project"/>
-    <summary>Mods for the Digitone mk1 on elekloader. Drum Mode turns a MIDI track into an 8-lane drum sequencer on the track's own MIDI channel. The repo also holds a build recipe for aleks-karachevtsev's DigiArp MIDI (no code of it). The build shows OS version DRM1 on the unit. Found by …</summary>
+    <summary>Mods for the Digitone mk1 on elekloader. Drum Mode turns a MIDI track into an 8-lane drum sequencer on the track's own MIDI channel. Found by GitHub search 2026-11-16. 2026-11-17: Drum Mode 0.8 (build shows OS version DRM8) adds grid editing per lane in GRID RECORDING, per-lane …</summary>
   </entry>
   <entry>
     <title>New in the catalogue: DigiArp (Digitakt arpeggiator and melody engine) (Mod, Digitakt)</title>
@@ -423,41 +463,6 @@
     <link href="https://github.com/70b185/Aggregat/commit/5fe9651abc34db8e0d20b4c8e26d7990b3e35358"/>
     <id>https://70b185.github.io/Aggregat/#commit-5fe9651abc34</id>
     <updated>2026-11-10T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Fold the evening changes; fresh search finds nothing new</title>
-    <link href="https://github.com/70b185/Aggregat/commit/5ad09d8df22c0857f84813b9e86a8abf4347dfb9"/>
-    <id>https://70b185.github.io/Aggregat/#commit-5ad09d8df22c</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Add gdeo607's Digi2 family for the Digitakt II; I67</title>
-    <link href="https://github.com/70b185/Aggregat/commit/41d79b1ccba4985c83c7fe93e19de4dab9d91315"/>
-    <id>https://70b185.github.io/Aggregat/#commit-41d79b1ccba4</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Triage state/NEW.md: 8 new entries, 29 ignored, 1 candidate</title>
-    <link href="https://github.com/70b185/Aggregat/commit/2f73f412561988da58f04296736574a53c26cade"/>
-    <id>https://70b185.github.io/Aggregat/#commit-2f73f4125619</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Drop the model27 copy (nicolai-creates/model27): no changes of its own</title>
-    <link href="https://github.com/70b185/Aggregat/commit/becdae7cfd9d3fb88c1e7a4a94cb309a0c346866"/>
-    <id>https://70b185.github.io/Aggregat/#commit-becdae7cfd9d</id>
-    <updated>2026-11-09T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Group each platform's own mods into one entry, like any collection</title>
-    <link href="https://github.com/70b185/Aggregat/commit/bb933ed656712e89fd292f259f3bbf1f69d254bd"/>
-    <id>https://70b185.github.io/Aggregat/#commit-bb933ed65671</id>
-    <updated>2026-11-09T00:00:00Z</updated>
     <category term="update"/>
   </entry>
 </feed>

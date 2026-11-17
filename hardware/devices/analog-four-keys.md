@@ -98,6 +98,19 @@ Projects: [../../catalog/analog-four-keys.md](../../catalog/analog-four-keys.md)
 - **After a fault:** stock's crash printer writes to the front panel's UART; nothing answers USB afterwards, and a power cycle loses RAM. `[doc]`
 - A frame-check build that copied voice 2's analog frame words over voice 1's silenced track 1; 0.3 rebuilds stock's words and writes only when they match. `[?]` (unit or emulator not stated)
 
+## ARP locks and MPE on the A4 MK1 (OS 1.56, ClaidArremer, 2026-11-15/16) {a4mk1-arplocks-1117}
+Addresses as the mods' registry files state them for A4 MK1 OS 1.56 (hugz202's build framework). The mods are
+reported hardware-verified on an A4 MK1; the 2026-11-16 switch rework does not say so.
+- **Free per-step lock slots 101-108:** the pattern already saves them and clears them the stock way, so ARP p-locks need no new storage. Stock writes p-locks through a temporary sound that has room only for sound parameters, so locks of ARP values must be written and shown straight from the pattern's lock words (0015 v0.1 went through the stock routines and never stored them). `[doc]`
+- **The arpeggiator reads its settings through five `adda.l #0x4096ff52`** (its track-data base); 0015 detours them to a per-track copy with the locked values in. `[doc]`
+- **Empty knobs on the ARP page:** knobs I and J have descriptor ids 9 and 10 with stock value 0; 0015 puts knob J on the blank placeholder parameter id 277 (`0x115`), a 4-byte patch at `0x40195050` (expect `00000000`). The knob draw's graphic call at `0x400231ec` (6 bytes, `20522f0c2f0b`) draws LEGATO's on/off switch for graphic id 15. `[doc]`
+- **Kit-saved mod bytes:** `0006-fx-slot` saves the FX track's spare storage with the kit; 0013-mpe's kit switch is byte 52 there (nonzero = on). The removed SLD switch used byte 26 + 6t + 5 for track t. `[doc]`
+
+## elekloader's lock service and 0.8 events on the MKII (core-a4mk2 0.5-0.8, OS 1.56, 2026-11-05/16) {elekloader-1117}
+- **Mod parameter p-locks work beside stock's:** set, copied, cleared, saved, loaded and played with Param Slide, RANDOMIZE, CONTROL IN, poly locks, another kit layout and an NRPN with a trig held; the value read matched stock's engine copy of a stock parameter on synth, FX and CV tracks. Not yet checked: track clear, SysEx dump out and in, a kit change's and CREATE NEW's clear of locks, a fine parameter, a sound-locked trig's pool sound. `[hw]`
+- **Audio interrupt frame:** vector 191 (`0x401013be`); its only exit uses a frame of `0xec` bytes (the Rytm's is `0xb4`). The Rytm's menu-item routines match on the A4 with addresses masked (`OP_NEW` `0x400653b8`, `ITEM_CTOR` `0x4005c7c4`, `MENU_ADD` `0x4005bffa`); the A4 has no manager for the Rytm's function-pointer type, and `0x40164940` is the only one with that code. `[doc]`
+- **0.8 on a unit (2026-11-16):** the track-key event and the voice and SOUND SETUP events ran with two test mods. `[hw]`
+
 ## Open
 - Which analog quantity each calibration table trims (inferred from strings only).
 - TX slots 0-2, 6, 7 and RX 6/7 on the MKII.

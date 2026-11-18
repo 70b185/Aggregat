@@ -39,6 +39,13 @@
     <category term="update"/>
   </entry>
   <entry>
+    <title>Update 2026-11-18 (afternoon): 2 change reports folded, no new repos</title>
+    <link href="https://github.com/70b185/Aggregat/commit/24733f66ddc092a50c53c1d7567d52b8ff13600f"/>
+    <id>https://70b185.github.io/Aggregat/#commit-24733f66ddc0</id>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>Update 2026-11-18: 27 change reports folded, 3 repos added, 2 candidates, 5 ignored, I137-I152, SB28-SB30, O33-O36, H41-H52, A72-A78</title>
     <link href="https://github.com/70b185/Aggregat/commit/03660e90eec56024521bdc1b71df602f6f95ff3c"/>
     <id>https://70b185.github.io/Aggregat/#commit-03660e90eec5</id>
@@ -455,13 +462,5 @@
     <updated>2026-11-10T00:00:00Z</updated>
     <category term="project"/>
     <summary>SOPHIE metallic percussion for the Digitakt II: Matt Estela's Sophie for Schwung, with PIPE and BOOM from soejrd's Sophie for Digitakt; FM and phase modulation with oscillator feedback, pitch sweep, bit crusher, drive and a resonant ring. Needs Digi2Core 2.6.1 or later. …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: Digi2MacroOSC (MACRO) (Mod, Digitakt II)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=digi2macroosc"/>
-    <id>https://70b185.github.io/Aggregat/#project-digi2macroosc</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>MACRO, a macro-oscillator machine (type 11): 25 synthesis models and four DX7 patch banks after Emilie Gillet's Plaits, with a graphical model selector and HARM, TIMBRE, MORPH and MIX. Its DSP object is built from digikit's Plaits module. The README still names core-dt2 2.4, …</summary>
   </entry>
 </feed>

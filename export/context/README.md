@@ -10,8 +10,8 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | Digitakt (MKI) | [digitakt-brief.md](digitakt-brief.md) | ~6,194 | [digitakt.md](digitakt.md) | ~18,086 | 88 | 3 | 0 |
 | Digitakt II | [digitakt-2-brief.md](digitakt-2-brief.md) | ~10,347 | [digitakt-2.md](digitakt-2.md) | ~69,340 | 383 | 22 | 1 |
 | Digitone (MKI) / Digitone Keys | [digitone-brief.md](digitone-brief.md) | ~5,968 | [digitone.md](digitone.md) | ~16,418 | 70 | 4 | 1 |
-| Digitone II | [digitone-2-brief.md](digitone-2-brief.md) | ~14,489 | [digitone-2.md](digitone-2.md) | ~92,128 | 460 | 33 | 6 |
-| Syntakt | [syntakt-brief.md](syntakt-brief.md) | ~5,998 | [syntakt.md](syntakt.md) | ~25,940 | 132 | 11 | 0 |
+| Digitone II | [digitone-2-brief.md](digitone-2-brief.md) | ~14,489 | [digitone-2.md](digitone-2.md) | ~92,131 | 460 | 33 | 6 |
+| Syntakt | [syntakt-brief.md](syntakt-brief.md) | ~6,012 | [syntakt.md](syntakt.md) | ~25,954 | 132 | 11 | 0 |
 | Analog Heat (MKI, MKII, +FX) | [analog-heat-brief.md](analog-heat-brief.md) | ~3,378 | [analog-heat.md](analog-heat.md) | ~15,951 | 88 | 0 | 0 |
 | Octatrack (MKI, MKII) | [octatrack-brief.md](octatrack-brief.md) | ~11,794 | [octatrack.md](octatrack.md) | ~43,708 | 217 | 48 | 13 |
 | Analog Rytm (MKI, MKII) | [analog-rytm-brief.md](analog-rytm-brief.md) | ~6,494 | [analog-rytm.md](analog-rytm.md) | ~35,559 | 186 | 18 | 6 |

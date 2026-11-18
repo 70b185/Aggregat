@@ -557,17 +557,17 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x00010000` | [?] [doc] [memory-maps.md:20](../hardware/common/memory-maps.md#L20) Digitone II, digikit finding 08 and 59)<br>[untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
 | `0x00038000` | [doc] [digitone-2-internals.md:115](../hardware/devices/digitone-2-internals.md#L115) +Drive and storage (digikit findings 14, 23-24, 35, 43-47) |
 | `0x0003e000` | [doc] [digitone-2-internals.md:115](../hardware/devices/digitone-2-internals.md#L115) +Drive and storage (digikit findings 14, 23-24, 35, 43-47) |
-| `0x00040000` | [hw] [digitone-2-internals.md:91](../hardware/devices/digitone-2-internals.md#L91) Hardware map and budgets (OS 1.12 unless noted)<br>[emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59)<br>[emu] [digitone-2.md:69](../hardware/devices/digitone-2.md#L69) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06)<br>[untagged] [os-update-protocol.md:25](../hardware/common/os-update-protocol.md#L25) Acknowledgement and buffering |
-| `0x00048000` | [emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59)<br>[emu] [digitone-2.md:69](../hardware/devices/digitone-2.md#L69) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
+| `0x00040000` | [hw] [digitone-2-internals.md:91](../hardware/devices/digitone-2-internals.md#L91) Hardware map and budgets (OS 1.12 unless noted)<br>[emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59)<br>[emu] [digitone-2.md:78](../hardware/devices/digitone-2.md#L78) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06)<br>[untagged] [os-update-protocol.md:25](../hardware/common/os-update-protocol.md#L25) Acknowledgement and buffering |
+| `0x00048000` | [emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59)<br>[emu] [digitone-2.md:78](../hardware/devices/digitone-2.md#L78) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
 | `0x00050000` | [emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59) |
 | `0x00080000` | [hw] [digitone-2-internals.md:91](../hardware/devices/digitone-2-internals.md#L91) Hardware map and budgets (OS 1.12 unless noted)<br>[?] [doc] [memory-maps.md:20](../hardware/common/memory-maps.md#L20) Digitone II, digikit finding 08 and 59)<br>[doc] [memory-maps.md:111](../hardware/common/memory-maps.md#L111) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18)<br>[doc] [digitone-2-internals.md:220](../hardware/devices/digitone-2-internals.md#L220) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image)<br>[doc] [digitone-2-machines-sampler-sharc.md:29](../hardware/devices/digitone-2-machines-sampler-sharc.md#L29) B. Linking DSP code (elekloader sharc-dn2, OS 1.12)<br>[untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
-| `0x000cc100` | [hw] [digitone-2.md:37](../hardware/devices/digitone-2.md#L37) Architecture |
+| `0x000cc100` | [hw] [digitone-2.md:46](../hardware/devices/digitone-2.md#L46) Architecture |
 | `0x000fffff` | [doc] [digitone-2-internals.md:96](../hardware/devices/digitone-2-internals.md#L96) Hardware map and budgets (OS 1.12 unless noted)<br>[doc] [digitone-2-machines-sampler-sharc.md:29](../hardware/devices/digitone-2-machines-sampler-sharc.md#L29) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x00100000` | [doc] [hw] [firmware-container.md:34](../hardware/common/firmware-container.md#L34) Sections<br>[doc] [digitone-2-internals.md:96](../hardware/devices/digitone-2-internals.md#L96) Hardware map and budgets (OS 1.12 unless noted)<br>[doc] [digitone-2-machines-sampler-sharc.md:29](../hardware/devices/digitone-2-machines-sampler-sharc.md#L29) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x001c06ba` | [doc] [dt2-dn2-limits-and-audio-chain.md:50](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L50) 4. SHARC calling convention of the stock code (selcc emits the same)<br>[doc] [dt2-dn2-sharc-crosscheck.md:15](../hardware/common/dt2-dn2-sharc-crosscheck.md#L15) 1. Shown on both units `[hw]` |
-| `0x001c07c7` | [doc] [digitone-2.md:121](../hardware/devices/digitone-2.md#L121) Hardware test evidence |
+| `0x001c07c7` | [doc] [digitone-2.md:130](../hardware/devices/digitone-2.md#L130) Hardware test evidence |
 | `0x001c12e2` | [doc] [digitone-2-machines-sampler-sharc.md:6](../hardware/devices/digitone-2-machines-sampler-sharc.md#L6) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) |
-| `0x001c1431` | [doc] [digitone-2.md:121](../hardware/devices/digitone-2.md#L121) Hardware test evidence |
+| `0x001c1431` | [doc] [digitone-2.md:130](../hardware/devices/digitone-2.md#L130) Hardware test evidence |
 | `0x001c1738` | [hw] [digitone-2-internals.md:102](../hardware/devices/digitone-2-internals.md#L102) Audio/DSP side |
 | `0x001c244d` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12)<br>[doc] [digitone-2-machines-sampler-sharc.md:24](../hardware/devices/digitone-2-machines-sampler-sharc.md#L24) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x001c2712` | [hw] [digitone-2-internals.md:102](../hardware/devices/digitone-2-internals.md#L102) Audio/DSP side |
@@ -581,7 +581,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x001f7000` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x00200000` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device<br>[doc] [digitone-2-machines-sampler-sharc.md:29](../hardware/devices/digitone-2-machines-sampler-sharc.md#L29) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x00202000` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
-| `0x00241298` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x00241298` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x0024f320` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x0024fa20` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x00250020` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
@@ -590,17 +590,17 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x002533e0` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x002547a0` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x002567c0` | [doc] [digitone-2-internals.md:105](../hardware/devices/digitone-2-internals.md#L105) Audio/DSP side |
-| `0x00257898` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x002578b8` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x00257ee8` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x00257898` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x002578b8` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x00257ee8` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x00259f68` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
-| `0x0025b868` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x0025ced8` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x0025b868` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x0025ced8` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x00261a10` | [doc] [digitone-2-internals.md:105](../hardware/devices/digitone-2-internals.md#L105) Audio/DSP side |
 | `0x00266220` | [hw] [dt2-dn2-sharc-crosscheck.md:28](../hardware/common/dt2-dn2-sharc-crosscheck.md#L28) 3. Firmware-level, one device only: check before relying on it |
 | `0x00267220` | [hw] [dt2-dn2-sharc-crosscheck.md:28](../hardware/common/dt2-dn2-sharc-crosscheck.md#L28) 3. Firmware-level, one device only: check before relying on it |
 | `0x00268438` | [doc] [digitone-2-machines-sampler-sharc.md:24](../hardware/devices/digitone-2-machines-sampler-sharc.md#L24) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
-| `0x00268ca8` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x00268ca8` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x0026ef88` | [doc] [digitone-2-machines-sampler-sharc.md:65](../hardware/devices/digitone-2-machines-sampler-sharc.md#L65) Reading a DSP stop, and what the silicon enforces (dnfw, DN2 1.11) |
 | `0x0026ef94` | [doc] [digitone-2-machines-sampler-sharc.md:65](../hardware/devices/digitone-2-machines-sampler-sharc.md#L65) Reading a DSP stop, and what the silicon enforces (dnfw, DN2 1.11) |
 | `0x002c29d0` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
@@ -661,8 +661,8 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x08000000` | [doc] [memory-maps.md:35](../hardware/common/memory-maps.md#L35) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11) |
 | `0x10000000` | [emu] [digitone-2-internals.md:165](../hardware/devices/digitone-2-internals.md#L165) dn2mk2 v0.49 FLEX (OS 1.11, 2026-11-11) |
 | `0x20000000` | [doc] [digitone-2-machines-sampler-sharc.md:6](../hardware/devices/digitone-2-machines-sampler-sharc.md#L6) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11)<br>[doc] [digitone-2-machines-sampler-sharc.md:7](../hardware/devices/digitone-2-machines-sampler-sharc.md#L7) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) |
-| `0x20004a36` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x20017358` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x20004a36` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x20017358` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x2001ab7c` | [hw] [dt2-dn2-sharc-crosscheck.md:30](../hardware/common/dt2-dn2-sharc-crosscheck.md#L30) 3. Firmware-level, one device only: check before relying on it |
 | `0x2001e880` | [doc] [digitone-2-machines-sampler-sharc.md:7](../hardware/devices/digitone-2-machines-sampler-sharc.md#L7) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) |
 | `0x2001e888` | [doc] [digitone-2-machines-sampler-sharc.md:7](../hardware/devices/digitone-2-machines-sampler-sharc.md#L7) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) |
@@ -693,46 +693,46 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x282dd600` | [doc] [digitone-2-machines-sampler-sharc.md:23](../hardware/devices/digitone-2-machines-sampler-sharc.md#L23) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x282dda00` | [doc] [digitone-2-machines-sampler-sharc.md:23](../hardware/devices/digitone-2-machines-sampler-sharc.md#L23) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x282dde00` | [doc] [digitone-2-machines-sampler-sharc.md:23](../hardware/devices/digitone-2-machines-sampler-sharc.md#L23) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
-| `0x283801b4` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x283801b4` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x283825c4` | [doc] [digitone-2-machines-sampler-sharc.md:7](../hardware/devices/digitone-2-machines-sampler-sharc.md#L7) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) |
-| `0x28383e3c` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x2838489a` | [doc] [digitone-2-machines-sampler-sharc.md:23](../hardware/devices/digitone-2-machines-sampler-sharc.md#L23) B. Linking DSP code (elekloader sharc-dn2, OS 1.12)<br>[doc] [digitone-2-machines-sampler-sharc.md:24](../hardware/devices/digitone-2-machines-sampler-sharc.md#L24) B. Linking DSP code (elekloader sharc-dn2, OS 1.12)<br>[doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x28383e3c` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x2838489a` | [doc] [digitone-2-machines-sampler-sharc.md:23](../hardware/devices/digitone-2-machines-sampler-sharc.md#L23) B. Linking DSP code (elekloader sharc-dn2, OS 1.12)<br>[doc] [digitone-2-machines-sampler-sharc.md:24](../hardware/devices/digitone-2-machines-sampler-sharc.md#L24) B. Linking DSP code (elekloader sharc-dn2, OS 1.12)<br>[doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x283848a0` | [doc] [digitone-2-machines-sampler-sharc.md:23](../hardware/devices/digitone-2-machines-sampler-sharc.md#L23) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
-| `0x28393a7e` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x28393cbe` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x28393fa4` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x28395024` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x2839554c` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x283956c0` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x28395ff6` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x2839b6ac` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x28393a7e` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x28393cbe` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x28393fa4` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x28395024` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x2839554c` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x283956c0` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x28395ff6` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x2839b6ac` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x2839bffc` | [doc] [digitone-2-machines-sampler-sharc.md:7](../hardware/devices/digitone-2-machines-sampler-sharc.md#L7) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) |
-| `0x40000000` | [hw] [digitone-2-internals.md:148](../hardware/devices/digitone-2-internals.md#L148) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11)<br>[hw] [digitone-2.md:37](../hardware/devices/digitone-2.md#L37) Architecture<br>[doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59)<br>[doc] [digitone-2-internals.md:220](../hardware/devices/digitone-2-internals.md#L220) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
+| `0x40000000` | [hw] [digitone-2-internals.md:148](../hardware/devices/digitone-2-internals.md#L148) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11)<br>[hw] [digitone-2.md:46](../hardware/devices/digitone-2.md#L46) Architecture<br>[doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59)<br>[doc] [digitone-2-internals.md:220](../hardware/devices/digitone-2-internals.md#L220) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
 | `0x40000008` | [doc] [digitone-2-internals.md:220](../hardware/devices/digitone-2-internals.md#L220) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
-| `0x40000400` | [doc] [firmware-container.md:37](../hardware/common/firmware-container.md#L37) Sections<br>[doc] [digitone-2-internals.md:73](../hardware/devices/digitone-2-internals.md#L73) Image identity<br>[doc] [digitone-2.md:33](../hardware/devices/digitone-2.md#L33) Architecture |
+| `0x40000400` | [doc] [firmware-container.md:37](../hardware/common/firmware-container.md#L37) Sections<br>[doc] [digitone-2-internals.md:73](../hardware/devices/digitone-2-internals.md#L73) Image identity<br>[doc] [digitone-2.md:42](../hardware/devices/digitone-2.md#L42) Architecture |
 | `0x40000410` | [hw] [digitone-2-internals.md:124](../hardware/devices/digitone-2-internals.md#L124) More from dnfw's notes (read 2026-11-02)<br>[doc] [digitone-2-internals.md:73](../hardware/devices/digitone-2-internals.md#L73) Image identity |
 | `0x40000458` | [hw] [digitone-2-internals.md:124](../hardware/devices/digitone-2-internals.md#L124) More from dnfw's notes (read 2026-11-02) |
 | `0x400004e8` | [untagged] [digitone-2-internals.md:6](../hardware/devices/digitone-2-internals.md#L6) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
 | `0x40000538` | [doc] [memory-maps.md:88](../hardware/common/memory-maps.md#L88) Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02)<br>[doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device |
 | `0x4000053e` | [doc] [memory-maps.md:88](../hardware/common/memory-maps.md#L88) Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02) |
-| `0x40000554` | [hw] [digitone-2.md:37](../hardware/devices/digitone-2.md#L37) Architecture |
-| `0x40000568` | [doc] [digitone-2.md:80](../hardware/devices/digitone-2.md#L80) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
+| `0x40000554` | [hw] [digitone-2.md:46](../hardware/devices/digitone-2.md#L46) Architecture |
+| `0x40000568` | [doc] [digitone-2.md:89](../hardware/devices/digitone-2.md#L89) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
 | `0x40001000` | [doc] [digitone-2-internals.md:133](../hardware/devices/digitone-2-internals.md#L133) Disassembly pitfalls (agents will hit these) |
-| `0x400015a0` | [doc] [digitone-2.md:144](../hardware/devices/digitone-2.md#L144) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x400016d2` | [doc] [digitone-2.md:144](../hardware/devices/digitone-2.md#L144) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x4000436e` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x400043e2` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40005764` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x400059aa` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40005a86` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40006bac` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40006bc6` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40006c52` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40016480` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x400167a4` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4001683a` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4001704e` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40018118` | [doc] [digitone-2-internals.md:276](../hardware/devices/digitone-2-internals.md#L276) SYN page draw method (TERRAIN v63e, OS 1.12, 2026-11-16)<br>[doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400015a0` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x400016d2` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4000436e` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400043e2` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40005764` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400059aa` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40005a86` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40006bac` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40006bc6` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40006c52` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40016480` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400167a4` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4001683a` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4001704e` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40018118` | [doc] [digitone-2-internals.md:276](../hardware/devices/digitone-2-internals.md#L276) SYN page draw method (TERRAIN v63e, OS 1.12, 2026-11-16)<br>[doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x400187ea` | [doc] [digitone-2-internals.md:237](../hardware/devices/digitone-2-internals.md#L237) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
 | `0x40025982` | [doc] [digitone-2-internals.md:69](../hardware/devices/digitone-2-internals.md#L69) The three ColdFire <-> SHARC layers (dnfw `audio-dma.md`, `dsp-control-block.md`, lalzart cross-check) |
 | `0x40025e0a` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
@@ -744,41 +744,41 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x4002e464` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device<br>[doc] [digitone-2-internals.md:111](../hardware/devices/digitone-2-internals.md#L111) MIDI side findings |
 | `0x4002e4ca` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device |
 | `0x4002e688` | [doc] [digitone-2-machines-sampler-sharc.md:45](../hardware/devices/digitone-2-machines-sampler-sharc.md#L45) D. dn2mk2 emulator notes (digikit via patched Unicorn) |
-| `0x4002e902` | [doc] [digitone-2.md:145](../hardware/devices/digitone-2.md#L145) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x4002ed34` | [doc] [digitone-2.md:145](../hardware/devices/digitone-2.md#L145) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x4002f17e` | [doc] [digitone-2.md:145](../hardware/devices/digitone-2.md#L145) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4002e902` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4002ed34` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4002f17e` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
 | `0x4002f20c` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device<br>[doc] [digitone-2-internals.md:111](../hardware/devices/digitone-2-internals.md#L111) MIDI side findings |
 | `0x4002f256` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device |
 | `0x40034ba6` | [hw] [digitone-2-internals.md:256](../hardware/devices/digitone-2-internals.md#L256) dn2mk2 v0.58 SCALES: KB SETUP scale tables and the chord-MODE crash (OS 1.11, 2026-11-17) |
-| `0x4003e426` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4003e426` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x4003f0ec` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
 | `0x4003f106` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
-| `0x400469e2` | [emu] [digitone-2.md:69](../hardware/devices/digitone-2.md#L69) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
-| `0x400469fe` | [emu] [digitone-2.md:69](../hardware/devices/digitone-2.md#L69) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
+| `0x400469e2` | [emu] [digitone-2.md:78](../hardware/devices/digitone-2.md#L78) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
+| `0x400469fe` | [emu] [digitone-2.md:78](../hardware/devices/digitone-2.md#L78) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
 | `0x4004b6d6` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
 | `0x4004b786` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
-| `0x4005928a` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4005928a` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x4005f9b6` | [doc] [digitone-2-internals.md:237](../hardware/devices/digitone-2-internals.md#L237) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
 | `0x40060dde` | [doc] [digitone-2-internals.md:237](../hardware/devices/digitone-2-internals.md#L237) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
-| `0x40065ae8` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40065ae8` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x4006efcc` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only) |
 | `0x4006f004` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only) |
-| `0x4007e020` | [hw] [digitone-2.md:37](../hardware/devices/digitone-2.md#L37) Architecture |
+| `0x4007e020` | [hw] [digitone-2.md:46](../hardware/devices/digitone-2.md#L46) Architecture |
 | `0x400987a2` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device |
 | `0x4009ff88` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device |
-| `0x400c257c` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only)<br>[doc] [digitone-2.md:80](../hardware/devices/digitone-2.md#L80) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
-| `0x400c2c4e` | [doc] [digitone-2.md:79](../hardware/devices/digitone-2.md#L79) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
+| `0x400c257c` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only)<br>[doc] [digitone-2.md:89](../hardware/devices/digitone-2.md#L89) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
+| `0x400c2c4e` | [doc] [digitone-2.md:88](../hardware/devices/digitone-2.md#L88) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
 | `0x400cd20c` | [doc] [hw] [firmware-container.md:34](../hardware/common/firmware-container.md#L34) Sections |
-| `0x400cd5f2` | [doc] [digitone-2.md:145](../hardware/devices/digitone-2.md#L145) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x400cec02` | [doc] [digitone-2.md:145](../hardware/devices/digitone-2.md#L145) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x400cd5f2` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x400cec02` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
 | `0x400cec98` | [hw] [digitone-2-internals.md:124](../hardware/devices/digitone-2-internals.md#L124) More from dnfw's notes (read 2026-11-02) |
-| `0x400cef28` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x400cf08c` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400cef28` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400cf08c` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x400cf0e2` | [hw] [digitone-2-internals.md:124](../hardware/devices/digitone-2-internals.md#L124) More from dnfw's notes (read 2026-11-02) |
 | `0x400cf4b0` | [doc] [digitone-2-machines-sampler-sharc.md:30](../hardware/devices/digitone-2-machines-sampler-sharc.md#L30) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
-| `0x400cf7f2` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x400d56c6` | [doc] [digitone-2.md:145](../hardware/devices/digitone-2.md#L145) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x400d5996` | [doc] [digitone-2.md:145](../hardware/devices/digitone-2.md#L145) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x400cf7f2` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400d56c6` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x400d5996` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
 | `0x400d9e10` | [doc] [emu] [digitone-2-internals.md:176](../hardware/devices/digitone-2-internals.md#L176) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x400da406` | [doc] [emu] [digitone-2-internals.md:176](../hardware/devices/digitone-2-internals.md#L176) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x400da6e6` | [doc] [emu] [digitone-2-internals.md:176](../hardware/devices/digitone-2-internals.md#L176) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
@@ -788,63 +788,63 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x400db1f6` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x400db22c` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x400db32e` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
-| `0x400dc634` | [doc] [digitone-2.md:79](../hardware/devices/digitone-2.md#L79) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
+| `0x400dc634` | [doc] [digitone-2.md:88](../hardware/devices/digitone-2.md#L88) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
 | `0x400dc978` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only) |
 | `0x400dca5a` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only) |
 | `0x400dd2b2` | [doc] [digitone-2-internals.md:184](../hardware/devices/digitone-2-internals.md#L184) RIFT v0.1 (dn2mk2 without Machinedrum/Monomachine, OS 1.11, 2026-11-13) |
 | `0x400dea6a` | [hw] [digitone-2-internals.md:129](../hardware/devices/digitone-2-internals.md#L129) More from dnfw's notes (read 2026-11-02) |
-| `0x400df57a` | [emu] [digitone-2.md:69](../hardware/devices/digitone-2.md#L69) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
-| `0x400e1494` | [emu] [digitone-2.md:69](../hardware/devices/digitone-2.md#L69) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
-| `0x400f2494` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400df57a` | [emu] [digitone-2.md:78](../hardware/devices/digitone-2.md#L78) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
+| `0x400e1494` | [emu] [digitone-2.md:78](../hardware/devices/digitone-2.md#L78) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
+| `0x400f2494` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x400fa11e` | [doc] [emu] [digitone-2-internals.md:178](../hardware/devices/digitone-2-internals.md#L178) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x400fa6be` | [doc] [emu] [digitone-2-internals.md:178](../hardware/devices/digitone-2-internals.md#L178) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
-| `0x4010e000` | [doc] [digitone-2.md:140](../hardware/devices/digitone-2.md#L140) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
-| `0x4010e700` | [doc] [digitone-2.md:140](../hardware/devices/digitone-2.md#L140) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
+| `0x4010e000` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
+| `0x4010e700` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
 | `0x4011e318` | [emu] [sysex-and-midi.md:128](../hardware/common/sysex-and-midi.md#L128) DN2 1.12) `[doc]` |
 | `0x4011e598` | [emu] [sysex-and-midi.md:128](../hardware/common/sysex-and-midi.md#L128) DN2 1.12) `[doc]` |
 | `0x4011ed4a` | [emu] [digitone-2-internals.md:200](../hardware/devices/digitone-2-internals.md#L200) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12) |
 | `0x4011fc8c` | [emu] [sysex-and-midi.md:128](../hardware/common/sysex-and-midi.md#L128) DN2 1.12) `[doc]` |
 | `0x4011ff0c` | [emu] [sysex-and-midi.md:128](../hardware/common/sysex-and-midi.md#L128) DN2 1.12) `[doc]` |
-| `0x4012c4b2` | [hw] [digitone-2.md:99](../hardware/devices/digitone-2.md#L99) Sample memory (dn2mk2) |
-| `0x4012c53e` | [hw] [digitone-2.md:99](../hardware/devices/digitone-2.md#L99) Sample memory (dn2mk2) |
-| `0x4012c544` | [hw] [digitone-2.md:99](../hardware/devices/digitone-2.md#L99) Sample memory (dn2mk2) |
-| `0x4012c5ae` | [doc] [digitone-2.md:151](../hardware/devices/digitone-2.md#L151) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4012c5bc` | [doc] [digitone-2.md:151](../hardware/devices/digitone-2.md#L151) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4012c794` | [doc] [digitone-2.md:151](../hardware/devices/digitone-2.md#L151) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4012c7a2` | [doc] [digitone-2.md:151](../hardware/devices/digitone-2.md#L151) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4012c87a` | [doc] [digitone-2.md:144](../hardware/devices/digitone-2.md#L144) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x4012c88e` | [doc] [digitone-2.md:151](../hardware/devices/digitone-2.md#L151) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4012c89c` | [doc] [digitone-2.md:151](../hardware/devices/digitone-2.md#L151) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4012ca60` | [doc] [digitone-2.md:144](../hardware/devices/digitone-2.md#L144) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x4012ca74` | [doc] [digitone-2.md:151](../hardware/devices/digitone-2.md#L151) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4012ca82` | [doc] [digitone-2.md:151](../hardware/devices/digitone-2.md#L151) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012c4b2` | [hw] [digitone-2.md:108](../hardware/devices/digitone-2.md#L108) Sample memory (dn2mk2) |
+| `0x4012c53e` | [hw] [digitone-2.md:108](../hardware/devices/digitone-2.md#L108) Sample memory (dn2mk2) |
+| `0x4012c544` | [hw] [digitone-2.md:108](../hardware/devices/digitone-2.md#L108) Sample memory (dn2mk2) |
+| `0x4012c5ae` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012c5bc` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012c794` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012c7a2` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012c87a` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4012c88e` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012c89c` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012ca60` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4012ca74` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012ca82` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x40132148` | [doc] [digitone-2-internals.md:145](../hardware/devices/digitone-2-internals.md#L145) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
 | `0x401328c4` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
-| `0x40134490` | [emu] [digitone-2-internals.md:170](../hardware/devices/digitone-2-internals.md#L170) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12)<br>[doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40134490` | [emu] [digitone-2-internals.md:170](../hardware/devices/digitone-2-internals.md#L170) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12)<br>[doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x401344dc` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
-| `0x4013464c` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4013492c` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40136544` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4013464c` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4013492c` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40136544` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x40138992` | [emu] [digitone-2-internals.md:177](../hardware/devices/digitone-2-internals.md#L177) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x401389dc` | [emu] [digitone-2-internals.md:177](../hardware/devices/digitone-2-internals.md#L177) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x40139104` | [doc] [memory-maps.md:111](../hardware/common/memory-maps.md#L111) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
 | `0x4013ac54` | [doc] [memory-maps.md:111](../hardware/common/memory-maps.md#L111) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
-| `0x4019e83a` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4019e83a` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x401f7400` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
-| `0x401f83a4` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only)<br>[doc] [digitone-2.md:78](../hardware/devices/digitone-2.md#L78) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
+| `0x401f83a4` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only)<br>[doc] [digitone-2.md:87](../hardware/devices/digitone-2.md#L87) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
 | `0x40200000` | [hw] [digitone-2-internals.md:92](../hardware/devices/digitone-2-internals.md#L92) Hardware map and budgets (OS 1.12 unless noted) |
 | `0x402008cc` | [doc] [emu] [digitone-2-internals.md:178](../hardware/devices/digitone-2-internals.md#L178) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x40200b09` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x40200b2e` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x40201cb0` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
-| `0x4021f71a` | [doc] [digitone-2.md:140](../hardware/devices/digitone-2.md#L140) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
-| `0x4021f7b4` | [doc] [digitone-2.md:140](../hardware/devices/digitone-2.md#L140) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
-| `0x402875b0` | [doc] [digitone-2.md:150](../hardware/devices/digitone-2.md#L150) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40287af0` | [doc] [digitone-2.md:150](../hardware/devices/digitone-2.md#L150) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4021f71a` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
+| `0x4021f7b4` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
+| `0x402875b0` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40287af0` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x40288306` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only) |
 | `0x4028da6e` | [doc] [digitone-2-os111-reference.md:57](../hardware/devices/digitone-2-os111-reference.md#L57) ColdFire hook rules |
 | `0x4028ea02` | [doc] [digitone-2-os111-reference.md:57](../hardware/devices/digitone-2-os111-reference.md#L57) ColdFire hook rules |
-| `0x4029ef80` | [doc] [digitone-2.md:150](../hardware/devices/digitone-2.md#L150) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4029ef80` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x4029f554` | [doc] [memory-maps.md:23](../hardware/common/memory-maps.md#L23) Digitone II, digikit finding 08 and 59) |
 | `0x402a0dec` | [doc] [hw] [digitone-2-os111-firmware-map.md:68](../hardware/devices/digitone-2-os111-firmware-map.md#L68) Build pipeline (`cfmod.py`, `dspblocks.py`, `zcache.py`) |
 | `0x402b4a24` | [doc] [memory-maps.md:23](../hardware/common/memory-maps.md#L23) Digitone II, digikit finding 08 and 59) |
@@ -855,26 +855,26 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x40305000` | [untagged] [digitone-2-internals.md:7](../hardware/devices/digitone-2-internals.md#L7) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
 | `0x4030c980` | [untagged] [digitone-2-internals.md:7](../hardware/devices/digitone-2-internals.md#L7) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
 | `0x40312000` | [hw] [memory-maps.md:36](../hardware/common/memory-maps.md#L36) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11) |
-| `0x40386e48` | [doc] [digitone-2.md:145](../hardware/devices/digitone-2.md#L145) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x4058e280` | [doc] [digitone-2.md:150](../hardware/devices/digitone-2.md#L150) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4058e2a8` | [doc] [digitone-2.md:150](../hardware/devices/digitone-2.md#L150) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4058f280` | [doc] [digitone-2.md:150](../hardware/devices/digitone-2.md#L150) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4058f2a8` | [doc] [digitone-2.md:150](../hardware/devices/digitone-2.md#L150) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4059e1c0` | [doc] [digitone-2.md:145](../hardware/devices/digitone-2.md#L145) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x4059e214` | [doc] [digitone-2.md:145](../hardware/devices/digitone-2.md#L145) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x40386e48` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4058e280` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4058e2a8` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4058f280` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4058f2a8` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4059e1c0` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4059e214` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
 | `0x405cd8ae` | [doc] [hw] [digitone-2-internals.md:179](../hardware/devices/digitone-2-internals.md#L179) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x405cd8af` | [doc] [hw] [digitone-2-internals.md:179](../hardware/devices/digitone-2-internals.md#L179) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x405cd8c1` | [doc] [hw] [digitone-2-internals.md:179](../hardware/devices/digitone-2-internals.md#L179) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x405cd95b` | [doc] [hw] [digitone-2-internals.md:179](../hardware/devices/digitone-2-internals.md#L179) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
-| `0x40965a38` | [doc] [digitone-2.md:150](../hardware/devices/digitone-2.md#L150) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40965a60` | [doc] [digitone-2.md:150](../hardware/devices/digitone-2.md#L150) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40965a38` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40965a60` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x42c5a91c` | [doc] [emu] [digitone-2-internals.md:176](../hardware/devices/digitone-2-internals.md#L176) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x4316e854` | [doc] [dt2-dn2-limits-and-audio-chain.md:21](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L21) 1. Machines and parameters (ColdFire) |
 | `0x44000000` | [doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
 | `0x445ff870` | [doc] [digitone-2-internals.md:238](../hardware/devices/digitone-2-internals.md#L238) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
 | `0x44600ca0` | [doc] [digitone-2-internals.md:110](../hardware/devices/digitone-2-internals.md#L110) MIDI side findings<br>[doc] [digitone-2-internals.md:238](../hardware/devices/digitone-2-internals.md#L238) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
 | `0x4460f4b8` | [doc] [digitone-2-internals.md:238](../hardware/devices/digitone-2-internals.md#L238) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only)<br>[doc] [digitone-2-internals.md:239](../hardware/devices/digitone-2-internals.md#L239) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
-| `0x4461b6c0` | [hw] [digitone-2.md:99](../hardware/devices/digitone-2.md#L99) Sample memory (dn2mk2) |
+| `0x4461b6c0` | [hw] [digitone-2.md:108](../hardware/devices/digitone-2.md#L108) Sample memory (dn2mk2) |
 | `0x446478e0` | [doc] [digitone-2-internals.md:145](../hardware/devices/digitone-2-internals.md#L145) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
 | `0x4464abf0` | [doc] [memory-maps.md:39](../hardware/common/memory-maps.md#L39) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11)<br>[doc] [memory-maps.md:57](../hardware/common/memory-maps.md#L57) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
 | `0x4464bbf0` | [doc] [emu] [digitone-2-internals.md:201](../hardware/devices/digitone-2-internals.md#L201) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12) |
@@ -900,16 +900,16 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x46900000` | [doc] [memory-maps.md:39](../hardware/common/memory-maps.md#L39) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11)<br>[doc] [memory-maps.md:57](../hardware/common/memory-maps.md#L57) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[doc] [digitone-2-os111-reference.md:30](../hardware/devices/digitone-2-os111-reference.md#L30) Free memory |
 | `0x46a00000` | [doc] [memory-maps.md:39](../hardware/common/memory-maps.md#L39) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11)<br>[doc] [memory-maps.md:58](../hardware/common/memory-maps.md#L58) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
 | `0x46f00000` | [doc] [digitone-2-os111-reference.md:30](../hardware/devices/digitone-2-os111-reference.md#L30) Free memory |
-| `0x47d00000` | [doc] [digitone-2.md:80](../hardware/devices/digitone-2.md#L80) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
-| `0x47e00000` | [doc] [hw] [digitone-2.md:60](../hardware/devices/digitone-2.md#L60) Architecture<br>[doc] [memory-maps.md:58](../hardware/common/memory-maps.md#L58) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
-| `0x47e075a4` | [doc] [hw] [digitone-2.md:60](../hardware/devices/digitone-2.md#L60) Architecture |
+| `0x47d00000` | [doc] [digitone-2.md:89](../hardware/devices/digitone-2.md#L89) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
+| `0x47e00000` | [doc] [hw] [digitone-2.md:69](../hardware/devices/digitone-2.md#L69) Architecture<br>[doc] [memory-maps.md:58](../hardware/common/memory-maps.md#L58) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
+| `0x47e075a4` | [doc] [hw] [digitone-2.md:69](../hardware/devices/digitone-2.md#L69) Architecture |
 | `0x47f00000` | [hw] [digitone-2-internals.md:95](../hardware/devices/digitone-2-internals.md#L95) Hardware map and budgets (OS 1.12 unless noted)<br>[emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[emu] [digitone-2-internals.md:9](../hardware/devices/digitone-2-internals.md#L9) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch)<br>[doc] [memory-maps.md:58](../hardware/common/memory-maps.md#L58) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
 | `0x47fe0000` | [emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[doc] [memory-maps.md:39](../hardware/common/memory-maps.md#L39) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11) |
 | `0x47ffffcc` | [emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
-| `0x47ffffff` | [hw] [digitone-2.md:37](../hardware/devices/digitone-2.md#L37) Architecture<br>[doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
+| `0x47ffffff` | [hw] [digitone-2.md:46](../hardware/devices/digitone-2.md#L46) Architecture<br>[doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
 | `0x48000000` | [emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[doc] [emu] [digitone-2-internals.md:199](../hardware/devices/digitone-2-internals.md#L199) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12)<br>[doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59)<br>[untagged] [digitone-2-internals.md:6](../hardware/devices/digitone-2-internals.md#L6) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
 | `0x4e6c0000` | [untagged] [digitone-2-internals.md:8](../hardware/devices/digitone-2-internals.md#L8) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
-| `0x4e6e7100` | [hw] [digitone-2.md:37](../hardware/devices/digitone-2.md#L37) Architecture |
+| `0x4e6e7100` | [hw] [digitone-2.md:46](../hardware/devices/digitone-2.md#L46) Architecture |
 | `0x4e709340` | [untagged] [digitone-2-internals.md:8](../hardware/devices/digitone-2-internals.md#L8) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
 | `0x4fffffff` | [doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
 | `0x60000000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
@@ -950,7 +950,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x8c000010` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
 | `0x9d22b9c8` | [hw] [dt2-dn2-sharc-crosscheck.md:36](../hardware/common/dt2-dn2-sharc-crosscheck.md#L36) 4. Different on the two devices |
 | `0xa0000000` | [hw] [dt2-dn2-sharc-crosscheck.md:36](../hardware/common/dt2-dn2-sharc-crosscheck.md#L36) 4. Different on the two devices<br>[hw] [digitone-2-machines-sampler-sharc.md:72](../hardware/devices/digitone-2-machines-sampler-sharc.md#L72) Reading a DSP stop, and what the silicon enforces (dnfw, DN2 1.11) |
-| `0xa50ce100` | [hw] [digitone-2.md:37](../hardware/devices/digitone-2.md#L37) Architecture |
+| `0xa50ce100` | [hw] [digitone-2.md:46](../hardware/devices/digitone-2.md#L46) Architecture |
 | `0xdebb20e3` | [doc] [digitone-2-internals.md:220](../hardware/devices/digitone-2-internals.md#L220) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
 | `0xec038000` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
 | `0xec070000` | [emu] [sysex-and-midi.md:133](../hardware/common/sysex-and-midi.md#L133) DN2 1.11)<br>[doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
@@ -970,7 +970,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0xfc08c000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc090000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc0b0000` | [doc] [overbridge-usb.md:6](../hardware/common/overbridge-usb.md#L6) Digitone II (digikit finding 42, static, DT2 1.16) |
-| `0xfc0cc024` | [hw] [digitone-2.md:99](../hardware/devices/digitone-2.md#L99) Sample memory (dn2mk2) |
+| `0xfc0cc024` | [hw] [digitone-2.md:108](../hardware/devices/digitone-2.md#L108) Sample memory (dn2mk2) |
 | `0xffffffff` | [hw] [dt2-dn2-sharc-crosscheck.md:14](../hardware/common/dt2-dn2-sharc-crosscheck.md#L14) 1. Shown on both units `[hw]`<br>[hw] [digitone-2-internals.md:119](../hardware/devices/digitone-2-internals.md#L119) More from dnfw's notes (read 2026-11-02)<br>[hw] [digitone-2-os111-reference.md:33](../hardware/devices/digitone-2-os111-reference.md#L33) Free memory |
 
 ## Syntakt (268 addresses)

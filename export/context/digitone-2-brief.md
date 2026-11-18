@@ -231,6 +231,19 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **TERRAIN for Digitone II** (mod, wip, tested: not-stated, base OS Digitone II OS 1.12 only (the builder refuses any other file by SHA-256)) https://github.com/ycmdynp9vw-coder/terrain-dn2
 - **x0x (808/909 kick machines)** (mod, wip, tested: not-stated, base OS Digitakt mk1 1.54; Digitone mk1 1.44; Digitone II 1.12 (Digitakt II not supported)) https://github.com/simonjohansson/x0x
 
+## Stock OS files (pin your mod to one of these SHA-256 values)
+
+- 1.12: `Digitone_II_OS1.12.syx` `7e5b8a733d4ab1fdf7e5d22757f7d8eddaa3cbf71d0858874a791844c02ceb35` (pinned by 12 catalogued repos)
+- 1.11: `Digitone_II_OS1.11.syx` `2af43e65e3d8390b41c9f66222620f8cce027d73ed87db00c80b440f628472e0` (pinned by 12 catalogued repos)
+- 1.10E: `Digitone_II_OS1.10E.syx` `9881ee5ca4624be2b833e5eb94e294f2f8425371e6729781baccd1c256cac504` (pinned by 4 catalogued repos); another value `4f8184e7b42a82802e67a81f3ff43e02e67d8e3a6ef046e3f4468e77ad89feb5` is also seen, not resolved
+- 1.10C: `Digitone_II_OS1.10C.syx` `8db03f8407fc0cb1adf0d6f828f7b94429226fc07e1289e6d9136462583d30b1` (pinned by 1 catalogued repos)
+- 1.10B: `Digitone_II_OS1.10B.syx` `e8fb540aa62069b8a159458c119148d352ba62a25547c16a6e2c9a3078e66853` (pinned by 1 catalogued repos)
+- 1.10A: `Digitone_II_OS1.10A.syx` `4dcc46fa790c83c7f87a9a72f2c74bed3b7be4f17ce9cff61ab0eb09ff0090cc` (pinned by 1 catalogued repos)
+- 1.00A: `Digitone_II_OS1.00A.syx` `3b0448246a025e4f29649b38fa48e752aa09676fb0eb3d92b9a6793e53d5fc7d` (pinned by 1 catalogued repos)
+- Needs 1.12: digi-macro, digikit, digirust, digitone-2-mod-hack, dn2-cfw, elekloader, modwerk, openbridge-digitone-2, overtone, terrain-dn2, x0x
+- Needs 1.11: digitone-2-modding-skill, dn2-dt2-firmware-research, dn2-firmware-explore, dn2-rift, dn2mk2
+- Details and sources: [hardware/STOCK-OS.md](https://github.com/70b185/Aggregat/blob/master/hardware/STOCK-OS.md)
+
 ## Fact files for this device
 
 - [hardware/common/agent-workflow.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/agent-workflow.md)

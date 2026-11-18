@@ -147,6 +147,18 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **SyntHack OS (upstream)** (mod, beta, tested: unit, base OS Syntakt OS 1.41) https://github.com/Angelo-politek/Synthack-OS
 - **Synthack-OS (Syntakt MAX 1.0, SY FM4 modular builder)** (mod, beta, tested: unit, base OS Syntakt OS 1.41) https://github.com/karigardarsson/Synthack-OS
 
+## Stock OS files (pin your mod to one of these SHA-256 values)
+
+- 1.42: `Syntakt_OS1.42.syx` `ded3c59fdb909eb9e2c3307b30a486452c8fa6947b12c14e0ce35a187b7f37c1` (pinned by 14 catalogued repos)
+- 1.41: `Syntakt_OS1.41.syx` `8e2488f462c4a5656396a895f113bcd415e9900fa8709340dccf45d4cb9ed19e` (pinned by 15 catalogued repos)
+- 1.40A: `Syntakt_OS1.40A.syx` `266a5a3022ff565bf470173147b7f3005b7da8ef80724b6271836818ac2b5828` (pinned by 4 catalogued repos)
+- 1.30B: `Syntakt_OS1.30B.syx` `500a75c42fd45ad8d8365bf6b18e15bf5be2d75a6b357ae673097241c27593ea` (pinned by 1 catalogued repos)
+- 1.30: `Syntakt_OS1.30.syx` `f7c53691883a8b3f675f4f368ca3aea44f6ef91a3f98b727731ccb3909b69f16` (pinned by 1 catalogued repos)
+- Needs 1.42: analog-emu, modded-cycles, syncrackd, synfact, syntakt-performance-mods
+- Needs 1.41: syntakt-firmware-workbench, syntakt-machine45-research, synthack-os, synthack-os-upstream
+- Needs 1.40A: sy-fm4
+- Details and sources: [hardware/STOCK-OS.md](https://github.com/70b185/Aggregat/blob/master/hardware/STOCK-OS.md)
+
 ## Fact files for this device
 
 - [hardware/common/ecosystem-lessons.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/ecosystem-lessons.md)

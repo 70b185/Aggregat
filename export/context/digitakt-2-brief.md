@@ -198,6 +198,16 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **macro-mode (digi_macro)** (mod, wip, tested: partly, base OS Digitakt II OS 1.17 or Digitone II OS 1.12, exactly (the build checks the file's checksum)) https://github.com/toonst/digi_macro
 - **Mezclando (transition mode for Digitakt II)** (mod, active, tested: not-stated, base OS Digitakt II OS 1.17 only) https://github.com/Lucioic/mezclando
 
+## Stock OS files (pin your mod to one of these SHA-256 values)
+
+- 1.17: `Digitakt_II_OS1.17.syx` `26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5` (pinned by 17 catalogued repos)
+- 1.16: `Digitakt_II_OS1.16.syx` `278541e466edcd77d6b3e018a91fb90185932d3c7de224dd3e68294dddf3a9ec` (pinned by 5 catalogued repos)
+- 1.15C: `Digitakt_II_OS1.15C.syx` `62d588456e47194bd56dfee9568fb9dd4521c4ff1e8b5427eb461355532e8c6c` (pinned by 4 catalogued repos); another value `6050317eb616669caf11ed442f0d9df6f4a70bdcb85ee47474df2b0848d6c257` is also seen, not resolved
+- Needs 1.17: digi-macro, digi2core, digi2digiseq, digi2elixir, digi2macroosc, digi2sophie, digi2string, digikit, digisplash-ii, digitakt-ii-research, digitakt-mods-hillzeealex, digitakt2-perform, dn2-rift, dn2mk2, elekloader, eucplus, mezclando, modwerk
+- Needs 1.16: digimod, dn2-dt2-firmware-research, dt2-machine-lab
+- Needs 1.15C: dt2-firmware-research
+- Details and sources: [hardware/STOCK-OS.md](https://github.com/70b185/Aggregat/blob/master/hardware/STOCK-OS.md)
+
 ## Fact files for this device
 
 - [hardware/common/agent-workflow.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/agent-workflow.md)

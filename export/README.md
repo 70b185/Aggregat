@@ -31,6 +31,8 @@ Query tools over the same database for agents: the MCP server in [`../mcp/`](../
 | `facts` | `hardware/devices/*.md`, `hardware/common/*.md` | id, **fid** (stable id, e.g. `digitone-2#3f9a01bc`: a hash of file and text that survives moved lines; cite this one), file, line, section, text, evidence, sources, devices, addresses |
 | `addresses` | the addresses in `facts` | address, value (integer, indexed), fid, file, line, section, devices, evidence: one row per address and fact |
 | `ram_tenancy` | `hardware/RAM-TENANCY.md` | device, space (e.g. "Digitone II ColdFire DDR"), start, end (NULL when only a start is known), user, use, os, evidence, sources |
+| `stock_os` | `data/stock-os.yml` | device, model, os, file, sha256 (indexed), released, sources, pinned_by (catalogue ids whose repo holds the value), pinned_count, other_sha256 (a different value seen for the same file name) |
+| `os_support` | `data/stock-os.yml` | device, project, use (patch, donor, analysis, runs-on), os (versions accepted, newest first), ported (first support of the newest OS), evidence, note |
 | `facts_fts` | FTS5 index over `facts` | text, section, devices |
 | `goals` | goals table in `research/RESEARCH-MAP.md` | id (G1..), goal, status, moved_by |
 | `tasks` | shared to-do in `research/RESEARCH-MAP.md` | id (T1..), task, devices, needs, effort, value, status (open/done) |

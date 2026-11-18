@@ -177,6 +177,13 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **VAWT** (mod, wip, tested: unit, base OS Digitone mk1 / Keys OS 1.43, 1.44) https://github.com/x2k77m1/VAWT
 - **x0x (808/909 kick machines)** (mod, wip, tested: not-stated, base OS Digitakt mk1 1.54; Digitone mk1 1.44; Digitone II 1.12 (Digitakt II not supported)) https://github.com/simonjohansson/x0x
 
+## Stock OS files (pin your mod to one of these SHA-256 values)
+
+- 1.44: `Digitone_and_Digitone_Keys_OS1.44.syx` `d4f200d04484333d82822db7744e6484d0def8f2db8ddf55ee2b780cc13c9659` (pinned by 26 catalogued repos)
+- 1.43: `Digitone_and_Digitone_Keys_OS1.43.syx` `c5a54cc05b921f2e4bd814834c5365c2a5aa01d7772a9a2961fac1c3095bf9aa` (pinned by 18 catalogued repos)
+- 1.42: `Digitone_and_Digitone_Keys_OS1.42.syx` `0de87bf55e6bc48bebef5479e0d054f262fb7a0c7f81052dbd195d38569fdfda` (pinned by 2 catalogued repos)
+- Details and sources: [hardware/STOCK-OS.md](https://github.com/70b185/Aggregat/blob/master/hardware/STOCK-OS.md)
+
 ## Fact files for this device
 
 - [hardware/common/firmware-container.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/firmware-container.md)

@@ -11,6 +11,7 @@ Checks
   - ids unique across both files; every device slug is in data/devices.yml; every relation target exists
   - mods and loaders in projects.yml say what was tested (`tested`)
   - every {source-key} cited in hardware/ resolves in hardware/SOURCES.md
+  - data/stock-os.yml: devices, project ids and source keys exist; SHA-256 values are well formed and unique
   - every rule an incident names exists in hardware/AGENT-RULES.md; incident and stock-bug ids are unique
   - no firmware-like binaries are tracked (the repository holds metadata only)
 Exit code 1 on any error; warnings do not fail.
@@ -98,6 +99,63 @@ def broken_links():
     return out
 
 
+USES = {"patch", "donor", "analysis", "runs-on"}
+
+
+def check_stock_os(devices, ids, known):
+    rel = "data/stock-os.yml"
+    data = load_yaml(rel)
+    if not data.get("pinned_checked"):
+        err(f"{rel}: pinned_checked (the date the pins were counted) is missing")
+    seen = {}
+    for d in data.get("devices") or []:
+        dev = d.get("device")
+        if dev not in devices:
+            err(f"{rel}: unknown device {dev!r}")
+        oses = set()
+        for r in d.get("releases") or []:
+            where = f"{rel} [{dev} {r.get('os')}]"
+            for k in ("os", "file", "sha256", "sources"):
+                if not r.get(k):
+                    err(f"{where}: {k} is missing")
+            for h in (r.get("sha256"), r.get("other_sha256")):
+                if h and not re.fullmatch(r"[0-9a-f]{64}", str(h)):
+                    err(f"{where}: {h!r} is not a lower-case SHA-256")
+            h = r.get("sha256")
+            if h in seen:
+                err(f"{where}: SHA-256 also given for {seen[h]}")
+            seen[h] = f"{dev} {r.get('os')}"
+            key = (r.get("model"), r.get("os"))
+            if key in oses:
+                err(f"{where}: listed twice")
+            oses.add(key)
+            if r.get("released") and not r.get("released_note"):
+                err(f"{where}: a release date needs released_note (where it comes from)")
+            for k in r.get("sources") or []:
+                if k not in known:
+                    err(f"{where}: source key {k!r} is not in hardware/SOURCES.md")
+            for i in r.get("pinned_by") or []:
+                if i not in ids:
+                    err(f"{where}: pinned_by {i!r} is not a catalogue id")
+        versions = {r.get("os") for r in d.get("releases") or []}
+        for s in d.get("support") or []:
+            where = f"{rel} [{dev} support {s.get('id')}]"
+            if s.get("id") not in ids:
+                err(f"{where}: not a catalogue id")
+            if s.get("use") not in USES:
+                err(f"{where}: use must be one of {sorted(USES)}")
+            if not s.get("os") or not s.get("evidence"):
+                err(f"{where}: os and evidence are required")
+            for v in s.get("os") or []:
+                if v not in versions:
+                    err(f"{where}: OS {v!r} has no release entry for {dev}")
+            if s.get("ported"):
+                try:
+                    datetime.date.fromisoformat(str(s["ported"]))
+                except ValueError:
+                    err(f"{where}: ported {s['ported']!r} is not YYYY-MM-DD")
+
+
 def main(sync=False):
     devices = {d["slug"] for d in load_yaml("data/devices.yml")["devices"]}
     proj = load_yaml("data/projects.yml")
@@ -152,6 +210,8 @@ def main(sync=False):
             for k in re.findall(r"(?<![\w$]){([a-z0-9][a-z0-9-]*)}", line):
                 if k not in known:
                     err(f"{f.relative_to(ROOT)}:{n}: source key {{{k}}} is not in hardware/SOURCES.md")
+
+    check_stock_os(devices, ids, known)
 
     # incidents, stock bugs, rules
     rules = set(re.findall(r"^\*\*([A-G]\d+)\.", (ROOT / "hardware" / "AGENT-RULES.md").read_text(encoding="utf-8"), re.M))

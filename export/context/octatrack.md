@@ -220,6 +220,12 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **SuperSAW-OT** (mod, wip, tested: emulator, base OS Octatrack MKII; Modwerk runtime) https://github.com/jokobol/SuperSAW-OT
 - **TrackPatterns** (mod, wip, tested: unit, base OS Octatrack OS 1.40C (octabam / Modwerk module)) https://github.com/pgstath/TrackPatterns
 
+## Stock OS files (pin your mod to one of these SHA-256 values)
+
+- 1.40C: `OCTATRACK_OS1.40C.syx` `0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6` (pinned by 10 catalogued repos)
+- 1.40B: `OCTATRACK_OS1.40B.syx` `68d92d76324af55d63fe9f22a3d5838c7c7a2a76d5bc3f53cfc4709114eb146e` (pinned by 1 catalogued repos)
+- Details and sources: [hardware/STOCK-OS.md](https://github.com/70b185/Aggregat/blob/master/hardware/STOCK-OS.md)
+
 ## Fact files for this device
 
 - [hardware/common/ecosystem-lessons.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/ecosystem-lessons.md)

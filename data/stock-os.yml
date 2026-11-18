@@ -1,0 +1,322 @@
+# Stock OS register: Elektron's own OS files, how to recognise them, and which projects use which version.
+# Source file: edit this, then run scripts/rebuild.py (it writes hardware/STOCK-OS.md). Metadata only: names, hashes,
+# dates. Never commit the files themselves.
+#
+# releases: one entry per OS file. sha256 = SHA-256 of the .syx as the projects named in `sources` publish it.
+#   pinned_by: catalogued projects whose repository holds this exact value, found by searching every reachable
+#   catalogued repo on `pinned_checked` (vendored copies count; a project can pin a file it only uses as a donor).
+#   other_sha256 / other_note: a different value seen for the same file name, not resolved.
+#   released: the date Elektron's release notes show the version (only where we read it), with released_note.
+# support: for devices that got a new OS while mods existed (the three of 2026-10-01), every project that needs a
+#   particular file. use: patch (builds firmware from it) | donor (takes parts of it for another device) | analysis
+#   (emulator, research) | runs-on (the unit must run it; nothing patched). os: versions accepted now, newest first.
+#   ported: when the project first supported the newest OS, if it existed before (evidence: the commit).
+pinned_checked: 2026-11-18
+devices:
+  - device: digitakt-2
+    releases:
+      - os: "1.17"
+        file: Digitakt_II_OS1.17.syx
+        sha256: 26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5
+        released: 2026-10-01
+        released_note: "Elektron's release-notes page, updated that day"
+        sources: [elektron-dt2-notes, digikit-firmware, digitakt-ii-research]
+        pinned_by: [digi2core, digi2digiseq, digi2elixir, digi2macroosc, digi2sophie, digi2string, digikit, digitakt-ii-research, digitakt-mods-hillzeealex, dn2-cfw, dt2-machine-lab, elekloader, elektron-model-tweaks, eucplus, mezclando, modwerk, synfact]
+      - os: "1.16"
+        file: Digitakt_II_OS1.16.syx
+        sha256: 278541e466edcd77d6b3e018a91fb90185932d3c7de224dd3e68294dddf3a9ec
+        sources: [digikit-firmware, digitakt-ii-research, digikit-forks]
+        pinned_by: [digiemu, digikit, digitakt-ii-research, dn2-dt2-firmware-research, dt2-machine-lab]
+      - os: "1.15C"
+        file: Digitakt_II_OS1.15C.syx
+        sha256: 62d588456e47194bd56dfee9568fb9dd4521c4ff1e8b5427eb461355532e8c6c
+        sources: [digikit-firmware, digikit-forks]
+        pinned_by: [digiemu, digikit, digitone-arp-mod, dt2-firmware-research]
+        other_sha256: 6050317eb616669caf11ed442f0d9df6f4a70bdcb85ee47474df2b0848d6c257
+        other_note: "digikit's tools/firmware/authcode.py lists this other value for the same file name, in a note about reproducing the signed trailer; its own firmware README gives the value above. Not resolved."
+    support:
+      - {id: elekloader, use: patch, os: ["1.17"], ported: 2026-10-04, evidence: "commit 827bc68 \"The Digitakt II (OS 1.17): sealed builds, core-dt2 and an example mod\""}
+      - {id: modwerk, use: patch, os: ["1.17"], ported: 2026-10-10, evidence: "commit d6395f87 \"Wire Digitakt II 1.17 build preview\" (merged in #402)", note: "preview; downloads off"}
+      - {id: digikit, use: analysis, os: ["1.17", "1.16", "1.15C"], ported: 2026-10-13, evidence: "commit f75da50b \"Onboard DT2 1.17 and DN2 1.12\"", note: "emulator and toolkit"}
+      - {id: digitakt-ii-research, use: patch, os: ["1.17", "1.16"], ported: 2026-10-17, evidence: "commit 141a7df \"Add Digitakt II OS 1.17 builder support\"", note: "started on 1.16 on 2026-10-14"}
+      - {id: digitakt2-perform, use: patch, os: ["1.17"], evidence: "first commit 2026-10-05"}
+      - {id: digisplash-ii, use: patch, os: ["1.17"], evidence: "first commit 2026-10-02"}
+      - {id: digi2core, use: patch, os: ["1.17"], evidence: "first commit 2026-11-08"}
+      - {id: digi2macroosc, use: patch, os: ["1.17"], evidence: "first commit 2026-11-01"}
+      - {id: digi2elixir, use: patch, os: ["1.17"], evidence: "first commit 2026-10-27"}
+      - {id: digi2string, use: patch, os: ["1.17"], evidence: "first commit 2026-11-09"}
+      - {id: digi2sophie, use: patch, os: ["1.17"], evidence: "first commit 2026-11-09"}
+      - {id: digi2digiseq, use: patch, os: ["1.17"], evidence: "first commit 2026-11-01"}
+      - {id: digi-macro, use: patch, os: ["1.17"], evidence: "first commit 2026-10-28"}
+      - {id: digitakt-mods-hillzeealex, use: patch, os: ["1.17"], evidence: "first commit 2026-10-29"}
+      - {id: mezclando, use: patch, os: ["1.17"], evidence: "first commit 2026-11-04"}
+      - {id: eucplus, use: patch, os: ["1.17"], evidence: "first commit 2026-11-03"}
+      - {id: dt2-machine-lab, use: patch, os: ["1.16"], evidence: "base_os in the catalogue", note: "OS 1.17 work started 2026-11-13 (commit b9628bc), not yet the target"}
+      - {id: digimod, use: patch, os: ["1.16"], evidence: "base_os in the catalogue; first commit 2026-11-05"}
+      - {id: dn2-dt2-firmware-research, use: donor, os: ["1.16"], evidence: "base_os in the catalogue", note: "Digitakt II file as donor for a Digitone II build"}
+      - {id: dn2mk2, use: donor, os: ["1.17", "1.16"], evidence: "base_os in the catalogue", note: "Digitakt II file as donor for the comb filters"}
+      - {id: dn2-rift, use: donor, os: ["1.17"], evidence: "base_os in the catalogue", note: "Digitakt II file as donor"}
+      - {id: dt2-firmware-research, use: analysis, os: ["1.15C"], evidence: "base_os in the catalogue"}
+  - device: digitone-2
+    releases:
+      - os: "1.12"
+        file: Digitone_II_OS1.12.syx
+        sha256: 7e5b8a733d4ab1fdf7e5d22757f7d8eddaa3cbf71d0858874a791844c02ceb35
+        released: 2026-10-01
+        released_note: "Elektron's release-notes page, updated that day; the readme in the zip says 30 Sep 2026"
+        sources: [elektron-dn2-notes, digikit-firmware, dn2-cfw-firmware]
+        pinned_by: [digihealth, digikit, digirust, digitone-2-mod-hack, dn2-cfw, dn2-firmware-explore, elekloader, modwerk, motorcycles, overtone, terrain-dn2, x0x]
+      - os: "1.11"
+        file: Digitone_II_OS1.11.syx
+        sha256: 2af43e65e3d8390b41c9f66222620f8cce027d73ed87db00c80b440f628472e0
+        sources: [digikit-firmware, dn2-cfw-firmware]
+        pinned_by: [digikit, digitone-2-modding-skill, dn2-cfw, dn2-dt2-firmware-research, dn2-firmware-explore, dn2-rift, dn2-tools-depattern, dn2mk2, dnx, dt2-machine-lab, motorcycles, overtone]
+      - os: "1.10E"
+        file: Digitone_II_OS1.10E.syx
+        sha256: 9881ee5ca4624be2b833e5eb94e294f2f8425371e6729781baccd1c256cac504
+        sources: [digikit-firmware, dn2-cfw-firmware]
+        pinned_by: [digiemu, digikit, digitone-arp-mod, dn2-cfw]
+        other_sha256: 4f8184e7b42a82802e67a81f3ff43e02e67d8e3a6ef046e3f4468e77ad89feb5
+        other_note: "digikit's tools/firmware/authcode.py lists this other value for the same file name, in a note about reproducing the signed trailer; its own firmware README and dn2-cfw give the value above. Not resolved."
+      - os: "1.10C"
+        file: Digitone_II_OS1.10C.syx
+        sha256: 8db03f8407fc0cb1adf0d6f828f7b94429226fc07e1289e6d9136462583d30b1
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+      - os: "1.10B"
+        file: Digitone_II_OS1.10B.syx
+        sha256: e8fb540aa62069b8a159458c119148d352ba62a25547c16a6e2c9a3078e66853
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+      - os: "1.10A"
+        file: Digitone_II_OS1.10A.syx
+        sha256: 4dcc46fa790c83c7f87a9a72f2c74bed3b7be4f17ce9cff61ab0eb09ff0090cc
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+      - os: "1.00A"
+        file: Digitone_II_OS1.00A.syx
+        sha256: 3b0448246a025e4f29649b38fa48e752aa09676fb0eb3d92b9a6793e53d5fc7d
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+    support:
+      - {id: elekloader, use: patch, os: ["1.12"], ported: 2026-10-24, evidence: "commit b9006bf \"Add experimental Digitone II OS 1.12 support (#166)\"", note: "experimental"}
+      - {id: digikit, use: analysis, os: ["1.12", "1.11", "1.10E"], ported: 2026-10-13, evidence: "commit f75da50b \"Onboard DT2 1.17 and DN2 1.12\"", note: "emulator and toolkit"}
+      - {id: modwerk, use: analysis, os: ["1.12"], ported: 2026-10-23, evidence: "commit a829d349 \"Digitone II OS 1.12 research and a draft core in the emulator (#808)\"", note: "research only, no downloads"}
+      - {id: dn2-cfw, use: patch, os: ["1.12"], evidence: "first commit 2026-10-12"}
+      - {id: digirust, use: patch, os: ["1.12"], evidence: "first commit 2026-10-12"}
+      - {id: x0x, use: patch, os: ["1.12"], evidence: "first commit 2026-10-26"}
+      - {id: digi-macro, use: patch, os: ["1.12"], evidence: "first commit 2026-10-28"}
+      - {id: overtone, use: patch, os: ["1.12"], evidence: "first commit 2026-10-29"}
+      - {id: terrain-dn2, use: patch, os: ["1.12"], evidence: "first commit 2026-11-14"}
+      - {id: digitone-2-mod-hack, use: patch, os: ["1.12"], evidence: "README pins the 1.12 hash"}
+      - {id: openbridge-digitone-2, use: runs-on, os: ["1.12"], evidence: "base_os in the catalogue", note: "the unit must run 1.12 or later; nothing is patched"}
+      - {id: dn2-firmware-explore, use: patch, os: ["1.11"], evidence: "base_os in the catalogue"}
+      - {id: dn2mk2, use: patch, os: ["1.11"], evidence: "base_os in the catalogue", note: "1.12 users must go back to 1.11"}
+      - {id: dn2-rift, use: patch, os: ["1.11"], evidence: "base_os in the catalogue"}
+      - {id: dn2-dt2-firmware-research, use: patch, os: ["1.11"], evidence: "base_os in the catalogue"}
+      - {id: digitone-2-modding-skill, use: analysis, os: ["1.11"], evidence: "base_os in the catalogue"}
+  - device: syntakt
+    releases:
+      - os: "1.42"
+        file: Syntakt_OS1.42.syx
+        sha256: ded3c59fdb909eb9e2c3307b30a486452c8fa6947b12c14e0ce35a187b7f37c1
+        released: 2026-10-01
+        released_note: "build stamp 2026-09-30, the same day as Digitakt II 1.17 and Digitone II 1.12; a forum user asked for support on 2026-10-01"
+        sources: [digikit-f70, dn2-cfw-firmware, modded-cycles-thread]
+        pinned_by: [analog-emu, chord-keys, digikit, dn2-cfw, modded-cycles, model-machinedrum, model27, modwerk, motorcycles, spokes, supermodel-edition, syncrackd, synfact, syntakt-performance-mods]
+      - os: "1.41"
+        file: Syntakt_OS1.41.syx
+        sha256: 8e2488f462c4a5656396a895f113bcd415e9900fa8709340dccf45d4cb9ed19e
+        sources: [dn2-cfw-firmware]
+        pinned_by: [chord-keys, dn2-cfw, modded-cycles, model-machinedrum, model27, modwerk, motorcycles, spokes, supermodel-edition, synfact, syntakt-firmware-workbench, syntakt-machine45-research, syntakt-performance-mods, synthack-os, synthack-os-upstream]
+      - os: "1.40A"
+        file: Syntakt_OS1.40A.syx
+        sha256: 266a5a3022ff565bf470173147b7f3005b7da8ef80724b6271836818ac2b5828
+        sources: [dn2-cfw-firmware, sy-fm4]
+        pinned_by: [digitakt-ii-research, dn2-cfw, modwerk, sy-fm4]
+      - os: "1.30B"
+        file: Syntakt_OS1.30B.syx
+        sha256: 500a75c42fd45ad8d8365bf6b18e15bf5be2d75a6b357ae673097241c27593ea
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+      - os: "1.30"
+        file: Syntakt_OS1.30.syx
+        sha256: f7c53691883a8b3f675f4f368ca3aea44f6ef91a3f98b727731ccb3909b69f16
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+    support:
+      - {id: synfact, use: patch, os: ["1.42", "1.41"], ported: 2026-11-17, evidence: "commit 276667a \"move to OS 1.42\"", note: "1.41 for core 1.9.0 and older"}
+      - {id: analog-emu, use: analysis, os: ["1.42"], evidence: "Syntakt support added on 1.42, commit 40f8b5b (2026-10-13)", note: "emulator"}
+      - {id: syncrackd, use: patch, os: ["1.42"], evidence: "first commit 2026-10-30"}
+      - {id: syntakt-performance-mods, use: patch, os: ["1.42", "1.41"], evidence: "first commit 2026-11-16"}
+      - {id: synthack-os, use: patch, os: ["1.41"], evidence: "base_os in the catalogue"}
+      - {id: synthack-os-upstream, use: patch, os: ["1.41"], evidence: "base_os in the catalogue"}
+      - {id: syntakt-firmware-workbench, use: patch, os: ["1.41"], evidence: "base_os in the catalogue"}
+      - {id: syntakt-machine45-research, use: analysis, os: ["1.41"], evidence: "base_os in the catalogue"}
+      - {id: sy-fm4, use: patch, os: ["1.40A"], evidence: "base_os in the catalogue"}
+      - {id: modded-cycles, use: donor, os: ["1.42", "1.41"], evidence: "its flasher accepts either file and checks section 7, whose hash is the same in both", note: "Syntakt engine for Model:Cycles; projects built on it carry the same check"}
+  - device: digitakt
+    releases:
+      - os: "1.54"
+        file: Digitakt_OS1.54.syx
+        sha256: f78ba80fa7b1da5fb0e1ff61ad61e9e71aafe79f4364fc49679f3651353e3cf6
+        sources: [dn2-cfw-firmware, elekloader]
+        pinned_by: [digi-expression, digi1-mods, digiarp-dt1, digifilter, digiseq-digitakt, digisophie, digistring, digitakt-fx-locks, digitakt-led-colors, digitakt-mods-hillzeealex, digitakt-sidecar-pi, directjump-digitakt, dn2-cfw, dt-fm, elekloader, elektron-model-tweaks, eucplus, filter-fx, filter-plus, flex-plus, gestalt-digitakt, glide-digitakt, mashup-digitakt, mezclando, modwerk, pump-digitakt, sidecar-digitakt, synfact, taktone, tone-fx, x0x]
+      - os: "1.53"
+        file: Digitakt_OS1.53.syx
+        sha256: 9bdd44bb6102fb25c143cfab97bc92b7a89c463f795d3112dce89771e29bcc92
+        sources: [dn2-cfw-firmware, elekloader]
+        pinned_by: [digi1-mods, digicandy, digiemu, digifilter, digiseq-digitakt, digisophie, digisplash, digistring, digitakt-mods-hillzeealex, digitakt-sidecar-pi, digitone-arp-mod, dn2-cfw, dt-fm, elekloader, elektron-model-tweaks, filter-fx, gestalt-digitakt, glide-digitakt, mezclando, modwerk, pump-digitakt, sidecar-digitakt, synfact, taktone, tone-fx]
+      - os: "1.52A"
+        file: Digitakt_OS1.52A.syx
+        sha256: 01315133041dcdb8b432146190cc74fc8695c47d8466b0f31bd78cef96fa56a4
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+      - os: "1.52"
+        file: Digitakt_OS1.52.syx
+        sha256: 0a8250f799904194cfb5c12b88adef2352f3645f8a5c6e57eb8539998aff1e45
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+  - device: digitone
+    releases:
+      - os: "1.44"
+        file: Digitone_and_Digitone_Keys_OS1.44.syx
+        sha256: d4f200d04484333d82822db7744e6484d0def8f2db8ddf55ee2b780cc13c9659
+        sources: [dn2-cfw-firmware, elekloader]
+        pinned_by: [ctrl-plus, digiarp-midi, digiemu, digifilter, digiseq-digitone, digisophie-dn, digitone-arp-mod, directjump-digitone, dn2-cfw, drum-plus, elekloader, elektron-model-tweaks, elektron-mods-rumorismo, esoterika, filter-fx, filter-plus, flex-plus, gestalt-digitone, mezclando, modwerk, mutiny, pump-digitone, sampletone, synfact, tone-fx, x0x]
+      - os: "1.43"
+        file: Digitone_and_Digitone_Keys_OS1.43.syx
+        sha256: c5a54cc05b921f2e4bd814834c5365c2a5aa01d7772a9a2961fac1c3095bf9aa
+        sources: [dn2-cfw-firmware, elekloader]
+        pinned_by: [digialchemy-gamepack-1, digicandy, digiemu, digiseq-digitone, digisophie-dn, digisplash, digitone-arp-mod, dn2-cfw, elekloader, elektron-model-tweaks, elektron-mods-rumorismo, gestalt-digitone, mezclando, modwerk, pump-digitone, synfact, taktone, tone-fx]
+      - os: "1.42"
+        file: Digitone_and_Digitone_Keys_OS1.42.syx
+        sha256: 0de87bf55e6bc48bebef5479e0d054f262fb7a0c7f81052dbd195d38569fdfda
+        sources: [dn2-cfw-firmware]
+        pinned_by: [digitone-arp-mod, dn2-cfw]
+  - device: octatrack
+    releases:
+      - os: "1.40C"
+        file: OCTATRACK_OS1.40C.syx
+        sha256: 0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6
+        sources: [dn2-cfw-firmware, elekloader]
+        pinned_by: [dn2-cfw, elekloader, elektron-model-tweaks, ems-octakit, mezclando, modwerk, octabam, octamax, octatrack-kyoti-fw, synfact]
+      - os: "1.40B"
+        file: OCTATRACK_OS1.40B.syx
+        sha256: 68d92d76324af55d63fe9f22a3d5838c7c7a2a76d5bc3f53cfc4709114eb146e
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+  - device: analog-rytm
+    releases:
+      - os: "1.74"
+        model: "MKII"
+        file: Analog-Rytm_MKII_OS1.74.syx
+        sha256: cb0f99d620edde994fb860c0e79cc2464e427d06882828cfdfb00fc53700e123
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw, elekloader, mezclando, modwerk, sidecar-expander, sidecar-mods, synfact]
+      - os: "1.73"
+        model: "MKII"
+        file: Analog-Rytm_MKII_OS1.73.syx
+        sha256: 8ad671087ec30433d5407c7380d2396e0915ab931c5d3dd18a78bf284d3d1e52
+        sources: [dn2-cfw-firmware]
+        pinned_by: [chopshop, dn2-cfw, elekloader, mezclando, modwerk, rytm-mods-boot-report, rytm-mods-src, sidecar-expander, sidecar-mods, synfact]
+      - os: "1.71"
+        model: "MKII"
+        file: Analog-Rytm_MKII_OS1.71.syx
+        sha256: d32a8e013d84b04d1abdff9afba3ed0c89b3b84082f8cb5db57a08527168bba9
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+      - os: "1.74"
+        model: "MKI"
+        file: Analog-Rytm_OS1.74.syx
+        sha256: 4f0d59051b4b3ac01f336639918ceb8186e0ae1a1abf2ed9bc028b8718514cff
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw, elekloader, elkflash, modwerk, rytm-mk1-mods-hugz202]
+      - os: "1.73"
+        model: "MKI"
+        file: Analog-Rytm_OS1.73.syx
+        sha256: 9115c3888354bb388f90410e0445cd312bf020593ed99f768a99e475d1d6157c
+        sources: [dn2-cfw-firmware]
+        pinned_by: [chopshop, dn2-cfw, rytm1-mods]
+      - os: "1.71"
+        model: "MKI"
+        file: Analog-Rytm_OS1.71.syx
+        sha256: 46550ad99fa737c3f4596cf52bd7f4194919929253ce8f3532eb16857768ae7d
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+  - device: analog-four-keys
+    releases:
+      - os: "1.56"
+        model: "A4 MKI / Analog Keys"
+        file: Analog-Four_Analog-Keys_OS1.56.syx
+        sha256: cda4459d14bfba40635440ad9dfa8fc183e5317e5e3ffa7116704f307fdf7010
+        sources: [dn2-cfw-firmware]
+        pinned_by: [a4-mk1-mods, chopshop, dn2-cfw, elkflash, modwerk]
+      - os: "1.55D"
+        model: "A4 MKI / Analog Keys"
+        file: Analog-Four_Analog-Keys_OS1.55D.syx
+        sha256: 6449d1a7718371332c48081ca8ac514da76e7ff47613511b2eb00f6d4118582b
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+      - os: "1.55B"
+        model: "A4 MKI / Analog Keys"
+        file: Analog-Four_Analog-Keys_OS1.55B.syx
+        sha256: 80d9ada793aabe35adbd32bab0bad8bd6e937bcdc5008d3d08d2f657cbb5f6a6
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+      - os: "1.56"
+        model: "A4 MKII"
+        file: Analog-Four_MKII_OS1.56.syx
+        sha256: 5aea489db3e747547f71d5e08a2d20253149fe6258defad60306402d2fc23cb5
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw, elekloader, modwerk, sidecar-expander, sidecar-mods]
+  - device: analog-heat
+    releases:
+      - os: "1.02"
+        model: "+FX"
+        file: Analog-Heat+FX_OS1.02.syx
+        sha256: 85abe773c9e2284cd1b2aaaf1f599ec0f800f56f4b34127214fe998f1a2cfe63
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+      - os: "1.22"
+        model: "MKII"
+        file: Analog-Heat_MKII_OS1.22.syx
+        sha256: 5401d6286a9a79366e6ed4bc0e1f9c849aa39c1c035360cccce2e7f78039a35d
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+      - os: "1.22"
+        model: "MKI"
+        file: Analog-Heat_OS1.22.syx
+        sha256: 4473055689e5982df49406a76e818c06dcf82d3831cfb86c587b97b88f33e109
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw]
+  - device: model-cycles
+    releases:
+      - os: "1.13"
+        file: model-cycles_OS1.13.syx
+        sha256: 44fe586269631a0ca7da25a3383fc6733c314809505fc3cc52f1e0ed9800640c
+        sources: [dn2-cfw-firmware]
+        pinned_by: [chord-keys, cycles-engines, cycles-mods-100demons, digiemu, dn2-cfw, elekloader, elektron-model-tweaks, mezclando, modded-cycles, modded-cycles-techno, model-machinedrum, model-tg, model27, model909, modwerk, motorcycles, ms-multi-output, plaits-on-models, spokes, supermodel-edition, synfact]
+  - device: model-samples
+    releases:
+      - os: "1.13"
+        file: model-samples_OS1.13.syx
+        sha256: e11859b68deb7e5e3fe86ab32581212093849c4be5d3950add011eac398a2ce8
+        sources: [dn2-cfw-firmware]
+        pinned_by: [chord-keys, digiemu, dn2-cfw, elekloader, elektron-model-tweaks, mezclando, modded-cycles, model-machinedrum, model27, model909, modwerk, ms-multi-output, plaits-on-models, spokes, supermodel-edition, synfact]
+  - device: machinedrum
+    releases:
+      - os: "1.63"
+        model: "SPS-1UW"
+        file: Elektron_SPS1-1UW_OS1.63.syx
+        sha256: a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw, model-machinedrum, supermodel-edition]
+  - device: monomachine
+    releases:
+      - os: "1.32B"
+        model: "SFX-6/60"
+        file: Elektron_SFX6-60_OS1.32B.syx
+        sha256: fe13c09f661cdba5fe57813240fa1574de1ee0a3ddd7047fc39d0318cba1a710
+        sources: [dn2-cfw-firmware]
+        pinned_by: [dn2-cfw, dn2-rift, dn2mk2, monomodule]

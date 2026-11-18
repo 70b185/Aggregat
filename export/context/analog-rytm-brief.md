@@ -162,6 +162,16 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **Sidecar | Expander: Rytm mods** (mod, active, tested: unit, base OS Analog Rytm MKII OS 1.74 (0.5.0 has no 1.73 build; the tree still builds 1.73); Analog Four MKII (a4/)) https://github.com/trigcondition/sidecar-mods
 - **trig-seedr** (mod, beta, tested: unit, base OS Analog Rytm MKII OS 1.74, elekloader core-ar2 0.13) https://github.com/a1o1/trig-seedr
 
+## Stock OS files (pin your mod to one of these SHA-256 values)
+
+- 1.74 (MKII): `Analog-Rytm_MKII_OS1.74.syx` `cb0f99d620edde994fb860c0e79cc2464e427d06882828cfdfb00fc53700e123` (pinned by 7 catalogued repos)
+- 1.73 (MKII): `Analog-Rytm_MKII_OS1.73.syx` `8ad671087ec30433d5407c7380d2396e0915ab931c5d3dd18a78bf284d3d1e52` (pinned by 10 catalogued repos)
+- 1.71 (MKII): `Analog-Rytm_MKII_OS1.71.syx` `d32a8e013d84b04d1abdff9afba3ed0c89b3b84082f8cb5db57a08527168bba9` (pinned by 1 catalogued repos)
+- 1.74 (MKI): `Analog-Rytm_OS1.74.syx` `4f0d59051b4b3ac01f336639918ceb8186e0ae1a1abf2ed9bc028b8718514cff` (pinned by 5 catalogued repos)
+- 1.73 (MKI): `Analog-Rytm_OS1.73.syx` `9115c3888354bb388f90410e0445cd312bf020593ed99f768a99e475d1d6157c` (pinned by 3 catalogued repos)
+- 1.71 (MKI): `Analog-Rytm_OS1.71.syx` `46550ad99fa737c3f4596cf52bd7f4194919929253ce8f3532eb16857768ae7d` (pinned by 1 catalogued repos)
+- Details and sources: [hardware/STOCK-OS.md](https://github.com/70b185/Aggregat/blob/master/hardware/STOCK-OS.md)
+
 ## Fact files for this device
 
 - [hardware/common/ecosystem-lessons.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/ecosystem-lessons.md)

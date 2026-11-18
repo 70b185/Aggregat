@@ -177,6 +177,14 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **x0x (808/909 kick machines)** (mod, wip, tested: not-stated, base OS Digitakt mk1 1.54; Digitone mk1 1.44; Digitone II 1.12 (Digitakt II not supported)) https://github.com/simonjohansson/x0x
 - **ZIBENS (drum-synth machine)** (mod, wip, tested: not-stated, base OS Digitakt MKI OS 1.54; elekloader core 4.4 and machine-pages) https://github.com/ceredmeat/ZIBENS
 
+## Stock OS files (pin your mod to one of these SHA-256 values)
+
+- 1.54: `Digitakt_OS1.54.syx` `f78ba80fa7b1da5fb0e1ff61ad61e9e71aafe79f4364fc49679f3651353e3cf6` (pinned by 31 catalogued repos)
+- 1.53: `Digitakt_OS1.53.syx` `9bdd44bb6102fb25c143cfab97bc92b7a89c463f795d3112dce89771e29bcc92` (pinned by 25 catalogued repos)
+- 1.52A: `Digitakt_OS1.52A.syx` `01315133041dcdb8b432146190cc74fc8695c47d8466b0f31bd78cef96fa56a4` (pinned by 1 catalogued repos)
+- 1.52: `Digitakt_OS1.52.syx` `0a8250f799904194cfb5c12b88adef2352f3645f8a5c6e57eb8539998aff1e45` (pinned by 1 catalogued repos)
+- Details and sources: [hardware/STOCK-OS.md](https://github.com/70b185/Aggregat/blob/master/hardware/STOCK-OS.md)
+
 ## Fact files for this device
 
 - [hardware/common/firmware-container.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/firmware-container.md)

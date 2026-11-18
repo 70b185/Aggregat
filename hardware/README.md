@@ -18,6 +18,8 @@ published by the authors, and rules.
    Before you place code or data in RAM, check [`RAM-TENANCY.md`](RAM-TENANCY.md) (who uses which range, per OS) and
    [`ADDRESS-MAP.md`](ADDRESS-MAP.md) (every address a fact names, and the overlaps); declare your own ranges there.
 4. Look up the project you build on in [`../catalog/`](../catalog/README.md) (who maintains what, which OS, which state).
+   [`STOCK-OS.md`](STOCK-OS.md) (generated) gives the SHA-256 of every stock OS file the projects publish, which OS
+   version each project needs, and how fast projects moved to the OS of 2026-10-01.
 
 ## Evidence levels (every fact carries one)
 

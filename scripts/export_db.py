@@ -8,6 +8,7 @@ Writes export/aggregat.sqlite and export/aggregat.json from:
   hardware/CONFLICTS.md                                       -> conflicts
   hardware/INCIDENTS.md                                       -> incidents, incident_rules
   hardware/STOCK-BUGS.md                                      -> stock_bugs
+  data/stock-os.yml                                           -> stock_os, os_support
   hardware/devices/*.md, hardware/common/*.md                 -> facts (one row per top-level bullet)
 
 Facts are extracted automatically: each top-level bullet with its sub-bullets is one fact, tagged with the
@@ -369,6 +370,16 @@ for line in (rt.read_text(encoding="utf-8").splitlines() if rt.exists() else [])
                             "end": int(m.group(2), 16) if m.group(2) else None, "user": cells[0], "use": cells[1],
                             "os": cells[2], "evidence": ",".join(sorted(set(EVID.findall(cells[3])))),
                             "sources": ",".join(sorted(set(KEYS.findall(cells[3]))))})
+# stock OS register (data/stock-os.yml): one row per OS file, one per project that needs a version
+_sos = yaml.safe_load((ROOT / "data" / "stock-os.yml").read_text(encoding="utf-8"))
+stock_os = [{"device": d["device"], "model": r.get("model"), "os": r["os"], "file": r["file"], "sha256": r["sha256"],
+             "released": str(r["released"]) if r.get("released") else None, "sources": ",".join(r["sources"]),
+             "pinned_by": ",".join(r.get("pinned_by") or []), "pinned_count": len(r.get("pinned_by") or []),
+             "other_sha256": r.get("other_sha256")} for d in _sos["devices"] for r in d["releases"]]
+os_support = [{"device": d["device"], "project": s["id"], "use": s["use"], "os": ",".join(s["os"]),
+               "ported": str(s["ported"]) if s.get("ported") else None, "evidence": s["evidence"], "note": s.get("note")}
+              for d in _sos["devices"] for s in d.get("support") or []]
+
 snap = ROOT / "research" / "AGGREGAT_RESEARCH.md"
 snapshot = re.search(r"snapshot `([0-9a-f]+)`", snap.read_text(encoding="utf-8")).group(1) if snap.exists() else ""
 
@@ -377,7 +388,8 @@ meta = {"checked": checked, "generator": "scripts/export_db.py",
                    "sources": len(sources), "conflicts": len(conflicts), "facts": len(facts),
                    "goals": len(goals), "tasks": len(tasks), "hypotheses": len(hyps), "research_links": len(links),
                    "participants": len(participants), "incidents": len(incidents), "stock_bugs": len(stock_bugs),
-                   "addresses": len(addresses), "ram_tenancy": len(ram_tenancy)},
+                   "addresses": len(addresses), "ram_tenancy": len(ram_tenancy),
+                   "stock_os": len(stock_os), "os_support": len(os_support)},
         "research_snapshot": snapshot}
 
 # ---------------------------------------------------------------- write SQLite and JSON
@@ -409,6 +421,9 @@ SCHEMA = {
                  "fix TEXT, status TEXT, evidence TEXT, sources TEXT, rules TEXT, fact_file TEXT, devices TEXT",
     "incident_rules": "incident TEXT, rule TEXT",
     "own_mods": "platform TEXT, name TEXT, author TEXT, devices TEXT, version TEXT, path TEXT, tested TEXT, note TEXT, origin TEXT, what TEXT",
+    "stock_os": "device TEXT, model TEXT, os TEXT, file TEXT, sha256 TEXT, released TEXT, sources TEXT, pinned_by TEXT, "
+                "pinned_count INTEGER, other_sha256 TEXT",
+    "os_support": "device TEXT, project TEXT, use TEXT, os TEXT, ported TEXT, evidence TEXT, note TEXT",
     "stock_bugs": "id TEXT PRIMARY KEY, title TEXT, device_os TEXT, area TEXT, symptom TEXT, \"trigger\" TEXT, cause TEXT, "
                   "workaround TEXT, test_tip TEXT, found_by TEXT, status TEXT, evidence TEXT, sources TEXT, incidents TEXT, devices TEXT",
 }
@@ -452,6 +467,9 @@ con.executemany('INSERT INTO stock_bugs VALUES (' + ','.join('?' * len(SB_COLS))
 ins("facts", [{k: f[k] for k in ("id", "fid", "file", "line", "section", "text", "evidence", "sources", "devices", "addresses")} for f in facts])
 ins("addresses", addresses)
 ins("ram_tenancy", ram_tenancy)
+ins("stock_os", stock_os)
+ins("os_support", os_support)
+con.execute("CREATE INDEX stock_os_sha ON stock_os(sha256)")
 con.execute("CREATE INDEX addresses_value ON addresses(value)")
 # full-text search over facts and rules, if this SQLite has FTS5
 try:
@@ -467,7 +485,8 @@ con.close()
     "meta": meta, "devices": devices, "projects": prow, "relations": rrow, "rules": rules,
     "sources": sources, "conflicts": conflicts, "facts": facts,
     "goals": goals, "tasks": tasks, "hypotheses": hyps, "research_links": links, "participants": participants,
-    "incidents": incidents, "incident_rules": incident_rules, "stock_bugs": stock_bugs, "ram_tenancy": ram_tenancy},
+    "incidents": incidents, "incident_rules": incident_rules, "stock_bugs": stock_bugs, "ram_tenancy": ram_tenancy,
+    "stock_os": stock_os, "os_support": os_support},
     ensure_ascii=False, indent=1), encoding="utf-8")
 # the website loads these instead of aggregat.json: core.json (everything but the facts) at start, facts.json only when a
 # tab needs it. Compact separators; aggregat.json above stays the complete file for agents and scripts.
@@ -478,6 +497,7 @@ compact = dict(ensure_ascii=False, separators=(",", ":"))
     "meta": meta, "devices": devices, "projects": prow, "relations": rrow, "rules": rules,
     "sources": sources, "conflicts": conflicts, "goals": goals, "tasks": tasks, "hypotheses": hyps,
     "research_links": links, "participants": participants, "incidents": incidents, "incident_rules": incident_rules,
-    "stock_bugs": stock_bugs, "ram_tenancy": ram_tenancy}, **compact), encoding="utf-8")
+    "stock_bugs": stock_bugs, "ram_tenancy": ram_tenancy, "stock_os": stock_os, "os_support": os_support}, **compact),
+    encoding="utf-8")
 (WEB / "facts.json").write_text(json.dumps(facts, **compact), encoding="utf-8")
 print("export:", meta["counts"])

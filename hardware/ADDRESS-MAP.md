@@ -103,20 +103,20 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 
 | Address | Facts |
 |---|---|
-| `0x00010000` | [?] [doc] [memory-maps.md:20](../hardware/common/memory-maps.md#L20) Digitone II, digikit finding 08 and 59)<br>[doc] [digitakt-2.md:220](../hardware/devices/digitakt-2.md#L220) USB take-over failures and card speed (digikit, 2026-11-13)<br>[untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
+| `0x00010000` | [?] [doc] [memory-maps.md:20](../hardware/common/memory-maps.md#L20) Digitone II, digikit finding 08 and 59)<br>[doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13)<br>[untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
 | `0x00010101` | [hw] [digitakt-2-dsp-optimizing.md:80](../hardware/devices/digitakt-2-dsp-optimizing.md#L80) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
-| `0x00014010` | [doc] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x00015acc` | [doc] [hw] [digitakt-2.md:188](../hardware/devices/digitakt-2.md#L188) Project and kit storage (digikit finding 121, DT2 1.17) |
-| `0x00015c00` | [doc] [hw] [digitakt-2.md:188](../hardware/devices/digitakt-2.md#L188) Project and kit storage (digikit finding 121, DT2 1.17) |
+| `0x00014010` | [doc] [digitakt-2.md:249](../hardware/devices/digitakt-2.md#L249) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x00015acc` | [doc] [hw] [digitakt-2.md:183](../hardware/devices/digitakt-2.md#L183) Project and kit storage (digikit finding 121, DT2 1.17) |
+| `0x00015c00` | [doc] [hw] [digitakt-2.md:183](../hardware/devices/digitakt-2.md#L183) Project and kit storage (digikit finding 121, DT2 1.17) |
 | `0x00019200` | [emu] [hw] [digitakt-2-sharc-measured.md:46](../hardware/devices/digitakt-2-sharc-measured.md#L46) 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator) |
-| `0x0001cef0` | [doc] [hw] [digitakt-2.md:188](../hardware/devices/digitakt-2.md#L188) Project and kit storage (digikit finding 121, DT2 1.17) |
-| `0x0001db60` | [doc] [hw] [digitakt-2.md:188](../hardware/devices/digitakt-2.md#L188) Project and kit storage (digikit finding 121, DT2 1.17) |
-| `0x0001db8c` | [doc] [digitakt-2.md:187](../hardware/devices/digitakt-2.md#L187) Project and kit storage (digikit finding 121, DT2 1.17) |
-| `0x00028000` | [doc] [digitakt-2.md:260](../hardware/devices/digitakt-2.md#L260) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x0001cef0` | [doc] [hw] [digitakt-2.md:183](../hardware/devices/digitakt-2.md#L183) Project and kit storage (digikit finding 121, DT2 1.17) |
+| `0x0001db60` | [doc] [hw] [digitakt-2.md:183](../hardware/devices/digitakt-2.md#L183) Project and kit storage (digikit finding 121, DT2 1.17) |
+| `0x0001db8c` | [doc] [digitakt-2.md:182](../hardware/devices/digitakt-2.md#L182) Project and kit storage (digikit finding 121, DT2 1.17) |
+| `0x00028000` | [doc] [digitakt-2.md:255](../hardware/devices/digitakt-2.md#L255) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
 | `0x00040000` | [emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59)<br>[untagged] [os-update-protocol.md:25](../hardware/common/os-update-protocol.md#L25) Acknowledgement and buffering |
 | `0x00048000` | [emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59) |
 | `0x00050000` | [emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59) |
-| `0x00080000` | [?] [doc] [memory-maps.md:20](../hardware/common/memory-maps.md#L20) Digitone II, digikit finding 08 and 59)<br>[doc] [memory-maps.md:111](../hardware/common/memory-maps.md#L111) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18)<br>[doc] [digitakt-2.md:120](../hardware/devices/digitakt-2.md#L120) Architecture map from static analysis and simulation (lalzart, OS 1.15C)<br>[untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
+| `0x00080000` | [?] [doc] [memory-maps.md:20](../hardware/common/memory-maps.md#L20) Digitone II, digikit finding 08 and 59)<br>[doc] [memory-maps.md:111](../hardware/common/memory-maps.md#L111) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18)<br>[doc] [digitakt-2.md:115](../hardware/devices/digitakt-2.md#L115) Architecture map from static analysis and simulation (lalzart, OS 1.15C)<br>[untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
 | `0x00100000` | [doc] [hw] [firmware-container.md:34](../hardware/common/firmware-container.md#L34) Sections |
 | `0x001c02a4` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
 | `0x001c04b1` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
@@ -129,28 +129,28 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x001c0b37` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
 | `0x001c0b7b` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
 | `0x001c0be5` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
-| `0x001c18a6` | [emu] [digitakt-2.md:232](../hardware/devices/digitakt-2.md#L232) Pre-send render hook proposal (Modwerk, OS 1.17, emulator) |
-| `0x001c18a9` | [emu] [digitakt-2.md:232](../hardware/devices/digitakt-2.md#L232) Pre-send render hook proposal (Modwerk, OS 1.17, emulator) |
-| `0x001c3090` | [emu] [digitakt-2.md:232](../hardware/devices/digitakt-2.md#L232) Pre-send render hook proposal (Modwerk, OS 1.17, emulator) |
+| `0x001c18a6` | [emu] [digitakt-2.md:227](../hardware/devices/digitakt-2.md#L227) Pre-send render hook proposal (Modwerk, OS 1.17, emulator) |
+| `0x001c18a9` | [emu] [digitakt-2.md:227](../hardware/devices/digitakt-2.md#L227) Pre-send render hook proposal (Modwerk, OS 1.17, emulator) |
+| `0x001c3090` | [emu] [digitakt-2.md:227](../hardware/devices/digitakt-2.md#L227) Pre-send render hook proposal (Modwerk, OS 1.17, emulator) |
 | `0x001c3f6a` | [hw] [digitakt-2-sharc-measured.md:25](../hardware/devices/digitakt-2-sharc-measured.md#L25) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0x001c6af1` | [emu] [digitakt-2-sharc-measured.md:39](../hardware/devices/digitakt-2-sharc-measured.md#L39) 5. STRETCH machine contract (measured in the emulator, used on the unit) |
-| `0x001c74cd` | [doc] [digitakt-2.md:208](../hardware/devices/digitakt-2.md#L208) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x001c74cd` | [doc] [digitakt-2.md:203](../hardware/devices/digitakt-2.md#L203) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x001c7775` | [hw] [digitakt-2-sharc-measured.md:25](../hardware/devices/digitakt-2-sharc-measured.md#L25) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
-| `0x001c9d6b` | [doc] [digitakt-2.md:208](../hardware/devices/digitakt-2.md#L208) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x001c9d6b` | [doc] [digitakt-2.md:203](../hardware/devices/digitakt-2.md#L203) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x001ccbd8` | [doc] [digitakt-2-dsp-optimizing.md:119](../hardware/devices/digitakt-2-dsp-optimizing.md#L119) What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static) |
 | `0x00224601` | [hw] [digitakt-2-dsp-optimizing.md:80](../hardware/devices/digitakt-2-dsp-optimizing.md#L80) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
 | `0x002404b0` | [doc] [digitakt-2-dsp-optimizing.md:99](../hardware/devices/digitakt-2-dsp-optimizing.md#L99) 7. How a stock DSP interrupt saves registers, and what module code must never write (digikit findings 130, DT2 1.17 and DN2 1.12) |
-| `0x002412cc` | [emu] [digitakt-2-sharc-measured.md:40](../hardware/devices/digitakt-2-sharc-measured.md#L40) 5. STRETCH machine contract (measured in the emulator, used on the unit)<br>[emu] [digitakt-2.md:157](../hardware/devices/digitakt-2.md#L157) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x002412cc` | [emu] [digitakt-2-sharc-measured.md:40](../hardware/devices/digitakt-2-sharc-measured.md#L40) 5. STRETCH machine contract (measured in the emulator, used on the unit)<br>[emu] [digitakt-2.md:152](../hardware/devices/digitakt-2.md#L152) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0x002506ec` | [hw] [digitakt-2-sharc-measured.md:42](../hardware/devices/digitakt-2-sharc-measured.md#L42) 5. STRETCH machine contract (measured in the emulator, used on the unit) |
 | `0x00252d50` | [emu] [digitakt-2-sharc-measured.md:40](../hardware/devices/digitakt-2-sharc-measured.md#L40) 5. STRETCH machine contract (measured in the emulator, used on the unit) |
-| `0x00252df8` | [emu] [digitakt-2.md:232](../hardware/devices/digitakt-2.md#L232) Pre-send render hook proposal (Modwerk, OS 1.17, emulator) |
+| `0x00252df8` | [emu] [digitakt-2.md:227](../hardware/devices/digitakt-2.md#L227) Pre-send render hook proposal (Modwerk, OS 1.17, emulator) |
 | `0x002558dc` | [hw] [digitakt-2-sharc-measured.md:42](../hardware/devices/digitakt-2-sharc-measured.md#L42) 5. STRETCH machine contract (measured in the emulator, used on the unit) |
-| `0x00257810` | [emu] [hw] [digitakt-2-sharc-measured.md:51](../hardware/devices/digitakt-2-sharc-measured.md#L51) 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator)<br>[emu] [digitakt-2.md:157](../hardware/devices/digitakt-2.md#L157) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x00257810` | [emu] [hw] [digitakt-2-sharc-measured.md:51](../hardware/devices/digitakt-2-sharc-measured.md#L51) 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator)<br>[emu] [digitakt-2.md:152](../hardware/devices/digitakt-2.md#L152) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0x00261ca4` | [hw] [digitakt-2-sharc-measured.md:34](../hardware/devices/digitakt-2-sharc-measured.md#L34) 4. The ColdFire <-> SHARC reply record |
 | `0x00266220` | [hw] [dt2-dn2-sharc-crosscheck.md:28](../hardware/common/dt2-dn2-sharc-crosscheck.md#L28) 3. Firmware-level, one device only: check before relying on it<br>[hw] [digitakt-2-sharc-measured.md:34](../hardware/devices/digitakt-2-sharc-measured.md#L34) 4. The ColdFire <-> SHARC reply record<br>[hw] [digitakt-2-sharc-measured.md:35](../hardware/devices/digitakt-2-sharc-measured.md#L35) 4. The ColdFire <-> SHARC reply record |
 | `0x00267220` | [hw] [dt2-dn2-sharc-crosscheck.md:28](../hardware/common/dt2-dn2-sharc-crosscheck.md#L28) 3. Firmware-level, one device only: check before relying on it<br>[hw] [digitakt-2-sharc-measured.md:34](../hardware/devices/digitakt-2-sharc-measured.md#L34) 4. The ColdFire <-> SHARC reply record |
-| `0x00268220` | [emu] [digitakt-2.md:157](../hardware/devices/digitakt-2.md#L157) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
-| `0x00268240` | [emu] [digitakt-2.md:157](../hardware/devices/digitakt-2.md#L157) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x00268220` | [emu] [digitakt-2.md:152](../hardware/devices/digitakt-2.md#L152) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x00268240` | [emu] [digitakt-2.md:152](../hardware/devices/digitakt-2.md#L152) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0x002ca2e8` | [doc] [digitakt-2-sharc-measured.md:24](../hardware/devices/digitakt-2-sharc-measured.md#L24) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0x002ca3e0` | [doc] [digitakt-2-sharc-measured.md:24](../hardware/devices/digitakt-2-sharc-measured.md#L24) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0x002ca3e8` | [doc] [digitakt-2-sharc-measured.md:24](../hardware/devices/digitakt-2-sharc-measured.md#L24) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
@@ -164,8 +164,8 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x00458000` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
 | `0x005d7fff` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
 | `0x005d8000` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
-| `0x005ee180` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x005ee980` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x005ee180` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x005ee980` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x00800000` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
 | `0x00b80000` | [hw] [digitakt-2-sharc-measured.md:25](../hardware/devices/digitakt-2-sharc-measured.md#L25) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0x00b81368` | [doc] [digitakt-2-dsp-optimizing.md:119](../hardware/devices/digitakt-2-dsp-optimizing.md#L119) What the stock SHARC kernels look like (digikit finding 72, DT2 1.17 and DN2 1.12, static) |
@@ -174,13 +174,13 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x00b86014` | [doc] [digitakt-2-sharc-measured.md:24](../hardware/devices/digitakt-2-sharc-measured.md#L24) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0x00b863ca` | [hw] [digitakt-2-sharc-measured.md:25](../hardware/devices/digitakt-2-sharc-measured.md#L25) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0x00b863df` | [hw] [digitakt-2-sharc-measured.md:25](../hardware/devices/digitakt-2-sharc-measured.md#L25) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
-| `0x01000000` | [doc] [digitakt-2.md:223](../hardware/devices/digitakt-2.md#L223) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x01000000` | [doc] [digitakt-2.md:218](../hardware/devices/digitakt-2.md#L218) USB take-over failures and card speed (digikit, 2026-11-13) |
 | `0x02df017f` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
 | `0x02df0180` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
 | `0x02df1000` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
 | `0x02e1a000` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
 | `0x07674700` | [hw] [digitakt-2-dsp-optimizing.md:80](../hardware/devices/digitakt-2-dsp-optimizing.md#L80) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
-| `0x19000400` | [emu] [digitakt-2.md:152](../hardware/devices/digitakt-2.md#L152) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x19000400` | [emu] [digitakt-2.md:147](../hardware/devices/digitakt-2.md#L147) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0x20000000` | [hw] [digitakt-2-sharc-measured.md:25](../hardware/devices/digitakt-2-sharc-measured.md#L25) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0x2001ab7c` | [hw] [dt2-dn2-sharc-crosscheck.md:30](../hardware/common/dt2-dn2-sharc-crosscheck.md#L30) 3. Firmware-level, one device only: check before relying on it<br>[hw] [digitakt-2-sharc-measured.md:55](../hardware/devices/digitakt-2-sharc-measured.md#L55) 6. Memory rules learned the hard way |
 | `0x2008823c` | [hw] [dt2-dn2-sharc-crosscheck.md:30](../hardware/common/dt2-dn2-sharc-crosscheck.md#L30) 3. Firmware-level, one device only: check before relying on it |
@@ -194,246 +194,246 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x283a0000` | [hw] [digitakt-2-dsp-optimizing.md:80](../hardware/devices/digitakt-2-dsp-optimizing.md#L80) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
 | `0x30ffe000` | [emu] [hw] [digitakt-2-sharc-measured.md:46](../hardware/devices/digitakt-2-sharc-measured.md#L46) 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator) |
 | `0x40000000` | [doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
-| `0x40000410` | [emu] [digitakt-2.md:245](../hardware/devices/digitakt-2.md#L245) ColdFire task switches, main-OS entry and the bus timer (digikit findings 07 and 132, DT2 1.17 and DN2 1.12)<br>[?] [doc] [digitakt-2.md:252](../hardware/devices/digitakt-2.md#L252) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x40000410` | [emu] [digitakt-2.md:240](../hardware/devices/digitakt-2.md#L240) ColdFire task switches, main-OS entry and the bus timer (digikit findings 07 and 132, DT2 1.17 and DN2 1.12)<br>[?] [doc] [digitakt-2.md:247](../hardware/devices/digitakt-2.md#L247) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
 | `0x40000538` | [doc] [memory-maps.md:88](../hardware/common/memory-maps.md#L88) Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02) |
 | `0x4000053e` | [doc] [memory-maps.md:88](../hardware/common/memory-maps.md#L88) Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02) |
-| `0x4000055a` | [doc] [digitakt-2.md:258](../hardware/devices/digitakt-2.md#L258) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x40001398` | [?] [doc] [digitakt-2.md:252](../hardware/devices/digitakt-2.md#L252) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4000141a` | [?] [doc] [digitakt-2.md:252](../hardware/devices/digitakt-2.md#L252) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4000148c` | [?] [doc] [digitakt-2.md:252](../hardware/devices/digitakt-2.md#L252) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x400014fc` | [?] [doc] [digitakt-2.md:252](../hardware/devices/digitakt-2.md#L252) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4000155c` | [?] [doc] [digitakt-2.md:252](../hardware/devices/digitakt-2.md#L252) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x400015a0` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)<br>[?] [doc] [digitakt-2.md:252](../hardware/devices/digitakt-2.md#L252) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x400016d2` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)<br>[?] [doc] [digitakt-2.md:252](../hardware/devices/digitakt-2.md#L252) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4000172a` | [?] [doc] [digitakt-2.md:252](../hardware/devices/digitakt-2.md#L252) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x40001928` | [doc] [digitakt-2.md:260](../hardware/devices/digitakt-2.md#L260) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x40001a10` | [doc] [digitakt-2.md:261](../hardware/devices/digitakt-2.md#L261) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x40001cbe` | [doc] [digitakt-2.md:261](../hardware/devices/digitakt-2.md#L261) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4000055a` | [doc] [digitakt-2.md:253](../hardware/devices/digitakt-2.md#L253) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x40001398` | [?] [doc] [digitakt-2.md:247](../hardware/devices/digitakt-2.md#L247) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4000141a` | [?] [doc] [digitakt-2.md:247](../hardware/devices/digitakt-2.md#L247) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4000148c` | [?] [doc] [digitakt-2.md:247](../hardware/devices/digitakt-2.md#L247) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400014fc` | [?] [doc] [digitakt-2.md:247](../hardware/devices/digitakt-2.md#L247) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4000155c` | [?] [doc] [digitakt-2.md:247](../hardware/devices/digitakt-2.md#L247) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400015a0` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)<br>[?] [doc] [digitakt-2.md:247](../hardware/devices/digitakt-2.md#L247) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400016d2` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)<br>[?] [doc] [digitakt-2.md:247](../hardware/devices/digitakt-2.md#L247) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4000172a` | [?] [doc] [digitakt-2.md:247](../hardware/devices/digitakt-2.md#L247) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x40001928` | [doc] [digitakt-2.md:255](../hardware/devices/digitakt-2.md#L255) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x40001a10` | [doc] [digitakt-2.md:256](../hardware/devices/digitakt-2.md#L256) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x40001cbe` | [doc] [digitakt-2.md:256](../hardware/devices/digitakt-2.md#L256) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
 | `0x40003ca6` | [doc] [digitakt-2.md:28](../hardware/devices/digitakt-2.md#L28) Bootstrap/recovery facts |
-| `0x40004054` | [doc] [digitakt-2.md:217](../hardware/devices/digitakt-2.md#L217) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x400040a6` | [doc] [digitakt-2.md:217](../hardware/devices/digitakt-2.md#L217) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x4000434a` | [doc] [digitakt-2.md:241](../hardware/devices/digitakt-2.md#L241) USB MIDI callbacks and Shot's cost (digikit handover, 2026-11-15) |
-| `0x40005e14` | [doc] [digitakt-2.md:213](../hardware/devices/digitakt-2.md#L213) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x40006ada` | [doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x40006af8` | [doc] [digitakt-2.md:213](../hardware/devices/digitakt-2.md#L213) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x40006bc6` | [doc] [digitakt-2.md:213](../hardware/devices/digitakt-2.md#L213) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x40006c52` | [hw] [digitakt-2.md:218](../hardware/devices/digitakt-2.md#L218) USB take-over failures and card speed (digikit, 2026-11-13)<br>[doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x40006d1c` | [doc] [digitakt-2.md:213](../hardware/devices/digitakt-2.md#L213) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x40006d2c` | [doc] [digitakt-2.md:213](../hardware/devices/digitakt-2.md#L213) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x40007104` | [doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x4001266a` | [doc] [digitakt-2.md:194](../hardware/devices/digitakt-2.md#L194) Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13) |
-| `0x4001282e` | [doc] [digitakt-2.md:194](../hardware/devices/digitakt-2.md#L194) Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13) |
-| `0x40020960` | [doc] [digitakt-2.md:194](../hardware/devices/digitakt-2.md#L194) Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13) |
-| `0x4002e902` | [doc] [digitakt-2.md:260](../hardware/devices/digitakt-2.md#L260) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4002e90c` | [doc] [digitakt-2.md:199](../hardware/devices/digitakt-2.md#L199) UI surfaces for mods (digikit finding 122, DT2 1.17) |
+| `0x40004054` | [doc] [digitakt-2.md:212](../hardware/devices/digitakt-2.md#L212) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x400040a6` | [doc] [digitakt-2.md:212](../hardware/devices/digitakt-2.md#L212) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4000434a` | [doc] [digitakt-2.md:236](../hardware/devices/digitakt-2.md#L236) USB MIDI callbacks and Shot's cost (digikit handover, 2026-11-15) |
+| `0x40005e14` | [doc] [digitakt-2.md:208](../hardware/devices/digitakt-2.md#L208) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x40006ada` | [doc] [digitakt-2.md:210](../hardware/devices/digitakt-2.md#L210) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x40006af8` | [doc] [digitakt-2.md:208](../hardware/devices/digitakt-2.md#L208) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x40006bc6` | [doc] [digitakt-2.md:208](../hardware/devices/digitakt-2.md#L208) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x40006c52` | [hw] [digitakt-2.md:213](../hardware/devices/digitakt-2.md#L213) USB take-over failures and card speed (digikit, 2026-11-13)<br>[doc] [digitakt-2.md:210](../hardware/devices/digitakt-2.md#L210) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x40006d1c` | [doc] [digitakt-2.md:208](../hardware/devices/digitakt-2.md#L208) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x40006d2c` | [doc] [digitakt-2.md:208](../hardware/devices/digitakt-2.md#L208) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x40007104` | [doc] [digitakt-2.md:210](../hardware/devices/digitakt-2.md#L210) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4001266a` | [doc] [digitakt-2.md:189](../hardware/devices/digitakt-2.md#L189) Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13) |
+| `0x4001282e` | [doc] [digitakt-2.md:189](../hardware/devices/digitakt-2.md#L189) Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13) |
+| `0x40020960` | [doc] [digitakt-2.md:189](../hardware/devices/digitakt-2.md#L189) Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13) |
+| `0x4002e902` | [doc] [digitakt-2.md:255](../hardware/devices/digitakt-2.md#L255) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4002e90c` | [doc] [digitakt-2.md:194](../hardware/devices/digitakt-2.md#L194) UI surfaces for mods (digikit finding 122, DT2 1.17) |
 | `0x4002e912` | [emu] [digitakt-2.md:57](../hardware/devices/digitakt-2.md#L57) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator) |
-| `0x4002ec18` | [doc] [digitakt-2.md:267](../hardware/devices/digitakt-2.md#L267) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
-| `0x4002ecd8` | [doc] [digitakt-2.md:267](../hardware/devices/digitakt-2.md#L267) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
-| `0x4002ed34` | [doc] [digitakt-2.md:260](../hardware/devices/digitakt-2.md#L260) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4002f17e` | [doc] [digitakt-2.md:260](../hardware/devices/digitakt-2.md#L260) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x400308e0` | [doc] [digitakt-2.md:199](../hardware/devices/digitakt-2.md#L199) UI surfaces for mods (digikit finding 122, DT2 1.17) |
-| `0x40030e1e` | [doc] [digitakt-2.md:267](../hardware/devices/digitakt-2.md#L267) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
-| `0x40030e66` | [doc] [digitakt-2.md:172](../hardware/devices/digitakt-2.md#L172) DN2 1.12, 2026-11-10) |
-| `0x40030f90` | [doc] [digitakt-2.md:267](../hardware/devices/digitakt-2.md#L267) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
-| `0x4003117c` | [doc] [digitakt-2.md:199](../hardware/devices/digitakt-2.md#L199) UI surfaces for mods (digikit finding 122, DT2 1.17) |
-| `0x400311a2` | [doc] [digitakt-2.md:282](../hardware/devices/digitakt-2.md#L282) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
-| `0x40033280` | [doc] [digitakt-2.md:260](../hardware/devices/digitakt-2.md#L260) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x400337ba` | [doc] [digitakt-2.md:260](../hardware/devices/digitakt-2.md#L260) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x40033d06` | [doc] [digitakt-2.md:260](../hardware/devices/digitakt-2.md#L260) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x40035cca` | [doc] [digitakt-2.md:172](../hardware/devices/digitakt-2.md#L172) DN2 1.12, 2026-11-10) |
-| `0x4003e40e` | [doc] [digitakt-2.md:172](../hardware/devices/digitakt-2.md#L172) DN2 1.12, 2026-11-10) |
-| `0x40041d18` | [doc] [digitakt-2.md:172](../hardware/devices/digitakt-2.md#L172) DN2 1.12, 2026-11-10) |
-| `0x40046c8e` | [emu] [digitakt-2.md:192](../hardware/devices/digitakt-2.md#L192) Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13) |
-| `0x4004923e` | [doc] [digitakt-2.md:267](../hardware/devices/digitakt-2.md#L267) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
-| `0x40049266` | [doc] [digitakt-2.md:267](../hardware/devices/digitakt-2.md#L267) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
-| `0x4005c936` | [doc] [digitakt-2.md:267](../hardware/devices/digitakt-2.md#L267) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
-| `0x4005c950` | [doc] [digitakt-2.md:267](../hardware/devices/digitakt-2.md#L267) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
-| `0x4005da60` | [doc] [digitakt-2.md:268](../hardware/devices/digitakt-2.md#L268) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
-| `0x4005db02` | [doc] [digitakt-2.md:268](../hardware/devices/digitakt-2.md#L268) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
-| `0x4005f8f8` | [doc] [digitakt-2.md:267](../hardware/devices/digitakt-2.md#L267) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
-| `0x4005f920` | [doc] [digitakt-2.md:267](../hardware/devices/digitakt-2.md#L267) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
-| `0x4005fbec` | [doc] [digitakt-2.md:267](../hardware/devices/digitakt-2.md#L267) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
-| `0x4005fcd4` | [doc] [digitakt-2.md:267](../hardware/devices/digitakt-2.md#L267) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
-| `0x40068b96` | [emu] [digitakt-2.md:284](../hardware/devices/digitakt-2.md#L284) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
-| `0x4006de70` | [emu] [digitakt-2.md:284](../hardware/devices/digitakt-2.md#L284) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
-| `0x400c89a4` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x400caff0` | [?] [digitakt-2.md:259](../hardware/devices/digitakt-2.md#L259) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x400cc7ce` | [?] [digitakt-2.md:259](../hardware/devices/digitakt-2.md#L259) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4002ec18` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x4002ecd8` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x4002ed34` | [doc] [digitakt-2.md:255](../hardware/devices/digitakt-2.md#L255) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4002f17e` | [doc] [digitakt-2.md:255](../hardware/devices/digitakt-2.md#L255) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400308e0` | [doc] [digitakt-2.md:194](../hardware/devices/digitakt-2.md#L194) UI surfaces for mods (digikit finding 122, DT2 1.17) |
+| `0x40030e1e` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x40030e66` | [doc] [digitakt-2.md:167](../hardware/devices/digitakt-2.md#L167) DN2 1.12, 2026-11-10) |
+| `0x40030f90` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x4003117c` | [doc] [digitakt-2.md:194](../hardware/devices/digitakt-2.md#L194) UI surfaces for mods (digikit finding 122, DT2 1.17) |
+| `0x400311a2` | [doc] [digitakt-2.md:277](../hardware/devices/digitakt-2.md#L277) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x40033280` | [doc] [digitakt-2.md:255](../hardware/devices/digitakt-2.md#L255) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400337ba` | [doc] [digitakt-2.md:255](../hardware/devices/digitakt-2.md#L255) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x40033d06` | [doc] [digitakt-2.md:255](../hardware/devices/digitakt-2.md#L255) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x40035cca` | [doc] [digitakt-2.md:167](../hardware/devices/digitakt-2.md#L167) DN2 1.12, 2026-11-10) |
+| `0x4003e40e` | [doc] [digitakt-2.md:167](../hardware/devices/digitakt-2.md#L167) DN2 1.12, 2026-11-10) |
+| `0x40041d18` | [doc] [digitakt-2.md:167](../hardware/devices/digitakt-2.md#L167) DN2 1.12, 2026-11-10) |
+| `0x40046c8e` | [emu] [digitakt-2.md:187](../hardware/devices/digitakt-2.md#L187) Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13) |
+| `0x4004923e` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x40049266` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x4005c936` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x4005c950` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x4005da60` | [doc] [digitakt-2.md:263](../hardware/devices/digitakt-2.md#L263) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x4005db02` | [doc] [digitakt-2.md:263](../hardware/devices/digitakt-2.md#L263) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x4005f8f8` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x4005f920` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x4005fbec` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x4005fcd4` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x40068b96` | [emu] [digitakt-2.md:279](../hardware/devices/digitakt-2.md#L279) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x4006de70` | [emu] [digitakt-2.md:279](../hardware/devices/digitakt-2.md#L279) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x400c89a4` | [doc] [digitakt-2.md:257](../hardware/devices/digitakt-2.md#L257) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400caff0` | [?] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400cc7ce` | [?] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
 | `0x400cd20c` | [doc] [hw] [firmware-container.md:34](../hardware/common/firmware-container.md#L34) Sections |
-| `0x400cd5f2` | [?] [digitakt-2.md:259](../hardware/devices/digitakt-2.md#L259) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x400cec02` | [?] [digitakt-2.md:259](../hardware/devices/digitakt-2.md#L259) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x400d1448` | [doc] [digitakt-2.md:134](../hardware/devices/digitakt-2.md#L134) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x400d1832` | [doc] [digitakt-2.md:136](../hardware/devices/digitakt-2.md#L136) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x400d183a` | [emu] [digitakt-2.md:137](../hardware/devices/digitakt-2.md#L137) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x400d18f0` | [doc] [digitakt-2.md:136](../hardware/devices/digitakt-2.md#L136) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x400d346e` | [doc] [digitakt-2.md:261](../hardware/devices/digitakt-2.md#L261) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x400d3920` | [doc] [digitakt-2.md:134](../hardware/devices/digitakt-2.md#L134) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x400d3bae` | [emu] [digitakt-2.md:137](../hardware/devices/digitakt-2.md#L137) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x400d3d0a` | [doc] [digitakt-2.md:136](../hardware/devices/digitakt-2.md#L136) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x400d3d12` | [emu] [digitakt-2.md:137](../hardware/devices/digitakt-2.md#L137) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x400d3dc8` | [doc] [digitakt-2.md:136](../hardware/devices/digitakt-2.md#L136) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x400d56c6` | [doc] [digitakt-2.md:261](../hardware/devices/digitakt-2.md#L261) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x400d5996` | [doc] [digitakt-2.md:261](../hardware/devices/digitakt-2.md#L261) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x400d82f8` | [emu] [hw] [digitakt-2.md:177](../hardware/devices/digitakt-2.md#L177) DN2 1.12, 2026-11-10) |
-| `0x400daf54` | [?] [digitakt-2.md:259](../hardware/devices/digitakt-2.md#L259) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x400db8be` | [doc] [digitakt-2.md:282](../hardware/devices/digitakt-2.md#L282) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x400cd5f2` | [?] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400cec02` | [?] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400d1448` | [doc] [digitakt-2.md:129](../hardware/devices/digitakt-2.md#L129) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x400d1832` | [doc] [digitakt-2.md:131](../hardware/devices/digitakt-2.md#L131) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x400d183a` | [emu] [digitakt-2.md:132](../hardware/devices/digitakt-2.md#L132) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x400d18f0` | [doc] [digitakt-2.md:131](../hardware/devices/digitakt-2.md#L131) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x400d346e` | [doc] [digitakt-2.md:256](../hardware/devices/digitakt-2.md#L256) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400d3920` | [doc] [digitakt-2.md:129](../hardware/devices/digitakt-2.md#L129) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x400d3bae` | [emu] [digitakt-2.md:132](../hardware/devices/digitakt-2.md#L132) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x400d3d0a` | [doc] [digitakt-2.md:131](../hardware/devices/digitakt-2.md#L131) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x400d3d12` | [emu] [digitakt-2.md:132](../hardware/devices/digitakt-2.md#L132) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x400d3dc8` | [doc] [digitakt-2.md:131](../hardware/devices/digitakt-2.md#L131) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x400d56c6` | [doc] [digitakt-2.md:256](../hardware/devices/digitakt-2.md#L256) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400d5996` | [doc] [digitakt-2.md:256](../hardware/devices/digitakt-2.md#L256) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400d82f8` | [emu] [hw] [digitakt-2.md:172](../hardware/devices/digitakt-2.md#L172) DN2 1.12, 2026-11-10) |
+| `0x400daf54` | [?] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400db8be` | [doc] [digitakt-2.md:277](../hardware/devices/digitakt-2.md#L277) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
 | `0x400db9e0` | [doc] [toolchain-and-emulators.md:83](../hardware/common/toolchain-and-emulators.md#L83) More emulators and directory snapshots (2026-10-31) |
-| `0x400dbdca` | [?] [digitakt-2.md:259](../hardware/devices/digitakt-2.md#L259) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x400dbee4` | [doc] [digitakt-2.md:282](../hardware/devices/digitakt-2.md#L282) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
-| `0x400df66c` | [doc] [digitakt-2.md:187](../hardware/devices/digitakt-2.md#L187) Project and kit storage (digikit finding 121, DT2 1.17) |
-| `0x400df932` | [doc] [digitakt-2.md:282](../hardware/devices/digitakt-2.md#L282) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
-| `0x400df95a` | [doc] [digitakt-2.md:187](../hardware/devices/digitakt-2.md#L187) Project and kit storage (digikit finding 121, DT2 1.17)<br>[?] [digitakt-2.md:259](../hardware/devices/digitakt-2.md#L259) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x400df99c` | [doc] [digitakt-2.md:282](../hardware/devices/digitakt-2.md#L282) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
-| `0x400e6546` | [emu] [digitakt-2.md:246](../hardware/devices/digitakt-2.md#L246) ColdFire task switches, main-OS entry and the bus timer (digikit findings 07 and 132, DT2 1.17 and DN2 1.12) |
-| `0x400e7f1a` | [emu] [digitakt-2.md:246](../hardware/devices/digitakt-2.md#L246) ColdFire task switches, main-OS entry and the bus timer (digikit findings 07 and 132, DT2 1.17 and DN2 1.12) |
-| `0x4010331a` | [doc] [digitakt-2.md:203](../hardware/devices/digitakt-2.md#L203) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x40104dc2` | [doc] [digitakt-2.md:203](../hardware/devices/digitakt-2.md#L203) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x40111cda` | [doc] [digitakt-2.md:199](../hardware/devices/digitakt-2.md#L199) UI surfaces for mods (digikit finding 122, DT2 1.17) |
-| `0x40113700` | [emu] [digitakt-2.md:137](../hardware/devices/digitakt-2.md#L137) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x40114d94` | [emu] [digitakt-2.md:137](../hardware/devices/digitakt-2.md#L137) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x40115074` | [emu] [digitakt-2.md:137](../hardware/devices/digitakt-2.md#L137) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x40117c70` | [doc] [digitakt-2.md:199](../hardware/devices/digitakt-2.md#L199) UI surfaces for mods (digikit finding 122, DT2 1.17) |
-| `0x4011a022` | [doc] [digitakt-2.md:270](../hardware/devices/digitakt-2.md#L270) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
-| `0x4011b996` | [doc] [digitakt-2.md:270](../hardware/devices/digitakt-2.md#L270) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x400dbdca` | [?] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400dbee4` | [doc] [digitakt-2.md:277](../hardware/devices/digitakt-2.md#L277) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x400df66c` | [doc] [digitakt-2.md:182](../hardware/devices/digitakt-2.md#L182) Project and kit storage (digikit finding 121, DT2 1.17) |
+| `0x400df932` | [doc] [digitakt-2.md:277](../hardware/devices/digitakt-2.md#L277) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x400df95a` | [doc] [digitakt-2.md:182](../hardware/devices/digitakt-2.md#L182) Project and kit storage (digikit finding 121, DT2 1.17)<br>[?] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400df99c` | [doc] [digitakt-2.md:277](../hardware/devices/digitakt-2.md#L277) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x400e6546` | [emu] [digitakt-2.md:241](../hardware/devices/digitakt-2.md#L241) ColdFire task switches, main-OS entry and the bus timer (digikit findings 07 and 132, DT2 1.17 and DN2 1.12) |
+| `0x400e7f1a` | [emu] [digitakt-2.md:241](../hardware/devices/digitakt-2.md#L241) ColdFire task switches, main-OS entry and the bus timer (digikit findings 07 and 132, DT2 1.17 and DN2 1.12) |
+| `0x4010331a` | [doc] [digitakt-2.md:198](../hardware/devices/digitakt-2.md#L198) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x40104dc2` | [doc] [digitakt-2.md:198](../hardware/devices/digitakt-2.md#L198) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x40111cda` | [doc] [digitakt-2.md:194](../hardware/devices/digitakt-2.md#L194) UI surfaces for mods (digikit finding 122, DT2 1.17) |
+| `0x40113700` | [emu] [digitakt-2.md:132](../hardware/devices/digitakt-2.md#L132) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x40114d94` | [emu] [digitakt-2.md:132](../hardware/devices/digitakt-2.md#L132) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x40115074` | [emu] [digitakt-2.md:132](../hardware/devices/digitakt-2.md#L132) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x40117c70` | [doc] [digitakt-2.md:194](../hardware/devices/digitakt-2.md#L194) UI surfaces for mods (digikit finding 122, DT2 1.17) |
+| `0x4011a022` | [doc] [digitakt-2.md:265](../hardware/devices/digitakt-2.md#L265) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
+| `0x4011b996` | [doc] [digitakt-2.md:265](../hardware/devices/digitakt-2.md#L265) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
 | `0x4011e318` | [emu] [sysex-and-midi.md:128](../hardware/common/sysex-and-midi.md#L128) DN2 1.12) `[doc]` |
 | `0x4011e598` | [emu] [sysex-and-midi.md:128](../hardware/common/sysex-and-midi.md#L128) DN2 1.12) `[doc]` |
-| `0x4011e674` | [emu] [digitakt-2.md:64](../hardware/devices/digitakt-2.md#L64) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:147](../hardware/devices/digitakt-2.md#L147) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
-| `0x4011e87a` | [emu] [digitakt-2.md:64](../hardware/devices/digitakt-2.md#L64) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:147](../hardware/devices/digitakt-2.md#L147) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x4011e674` | [emu] [digitakt-2.md:64](../hardware/devices/digitakt-2.md#L64) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:142](../hardware/devices/digitakt-2.md#L142) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x4011e87a` | [emu] [digitakt-2.md:64](../hardware/devices/digitakt-2.md#L64) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:142](../hardware/devices/digitakt-2.md#L142) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0x4011fc8c` | [emu] [sysex-and-midi.md:128](../hardware/common/sysex-and-midi.md#L128) DN2 1.12) `[doc]` |
 | `0x4011ff0c` | [emu] [sysex-and-midi.md:128](../hardware/common/sysex-and-midi.md#L128) DN2 1.12) `[doc]` |
 | `0x4011ffda` | [hw] [digitakt-2-sharc-measured.md:74](../hardware/devices/digitakt-2-sharc-measured.md#L74) 8. Measuring on the unit without a debugger |
 | `0x40120006` | [hw] [digitakt-2-sharc-measured.md:74](../hardware/devices/digitakt-2-sharc-measured.md#L74) 8. Measuring on the unit without a debugger |
 | `0x40121d2a` | [hw] [digitakt-2-sharc-measured.md:74](../hardware/devices/digitakt-2-sharc-measured.md#L74) 8. Measuring on the unit without a debugger |
-| `0x4012c87a` | [doc] [digitakt-2.md:220](../hardware/devices/digitakt-2.md#L220) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x4012c88e` | [doc] [digitakt-2.md:220](../hardware/devices/digitakt-2.md#L220) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x4012c89c` | [doc] [digitakt-2.md:220](../hardware/devices/digitakt-2.md#L220) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x4012ca60` | [doc] [digitakt-2.md:220](../hardware/devices/digitakt-2.md#L220) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x4012ca74` | [doc] [digitakt-2.md:220](../hardware/devices/digitakt-2.md#L220) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x4012ca82` | [doc] [digitakt-2.md:220](../hardware/devices/digitakt-2.md#L220) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x4012ca8a` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x4012d5ba` | [doc] [digitakt-2.md:251](../hardware/devices/digitakt-2.md#L251) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4012d78e` | [doc] [digitakt-2.md:250](../hardware/devices/digitakt-2.md#L250) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4012e1b6` | [doc] [digitakt-2.md:220](../hardware/devices/digitakt-2.md#L220) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x4012e1ca` | [doc] [digitakt-2.md:220](../hardware/devices/digitakt-2.md#L220) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x4012e1d8` | [doc] [digitakt-2.md:220](../hardware/devices/digitakt-2.md#L220) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x4012e39c` | [doc] [digitakt-2.md:220](../hardware/devices/digitakt-2.md#L220) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x4012e3b0` | [doc] [digitakt-2.md:220](../hardware/devices/digitakt-2.md#L220) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x4012e3be` | [doc] [digitakt-2.md:220](../hardware/devices/digitakt-2.md#L220) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x4012e3c4` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x4012c87a` | [doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012c88e` | [doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012c89c` | [doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012ca60` | [doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012ca74` | [doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012ca82` | [doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012ca8a` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x4012d5ba` | [doc] [digitakt-2.md:246](../hardware/devices/digitakt-2.md#L246) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4012d78e` | [doc] [digitakt-2.md:245](../hardware/devices/digitakt-2.md#L245) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4012e1b6` | [doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012e1ca` | [doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012e1d8` | [doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012e39c` | [doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012e3b0` | [doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012e3be` | [doc] [digitakt-2.md:215](../hardware/devices/digitakt-2.md#L215) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4012e3c4` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x401328c4` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
-| `0x40133646` | [emu] [digitakt-2.md:65](../hardware/devices/digitakt-2.md#L65) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:147](../hardware/devices/digitakt-2.md#L147) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
-| `0x401344dc` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18)<br>[doc] [digitakt-2.md:251](../hardware/devices/digitakt-2.md#L251) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x40136388` | [doc] [digitakt-2.md:282](../hardware/devices/digitakt-2.md#L282) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x40133646` | [emu] [digitakt-2.md:65](../hardware/devices/digitakt-2.md#L65) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:142](../hardware/devices/digitakt-2.md#L142) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x401344dc` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18)<br>[doc] [digitakt-2.md:246](../hardware/devices/digitakt-2.md#L246) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x40136388` | [doc] [digitakt-2.md:277](../hardware/devices/digitakt-2.md#L277) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
 | `0x40139104` | [doc] [memory-maps.md:111](../hardware/common/memory-maps.md#L111) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
 | `0x40139342` | [emu] [digitakt-2.md:57](../hardware/devices/digitakt-2.md#L57) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator) |
 | `0x401393c6` | [emu] [digitakt-2.md:57](../hardware/devices/digitakt-2.md#L57) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator) |
 | `0x4013ac54` | [doc] [memory-maps.md:111](../hardware/common/memory-maps.md#L111) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
-| `0x40153c70` | [doc] [digitakt-2.md:180](../hardware/devices/digitakt-2.md#L180) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
-| `0x40154634` | [emu] [digitakt-2.md:191](../hardware/devices/digitakt-2.md#L191) Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13) |
-| `0x4015463a` | [emu] [digitakt-2.md:191](../hardware/devices/digitakt-2.md#L191) Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13) |
-| `0x40155974` | [doc] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x40155c34` | [doc] [digitakt-2.md:223](../hardware/devices/digitakt-2.md#L223) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x40155f84` | [doc] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x40156f6c` | [doc] [digitakt-2.md:180](../hardware/devices/digitakt-2.md#L180) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
-| `0x40157078` | [doc] [digitakt-2.md:180](../hardware/devices/digitakt-2.md#L180) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
-| `0x40157c68` | [doc] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4015813c` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x401581dc` | [doc] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x40158326` | [doc] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x40158448` | [doc] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4015866a` | [doc] [digitakt-2.md:180](../hardware/devices/digitakt-2.md#L180) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
-| `0x40158810` | [doc] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x401588c0` | [doc] [digitakt-2.md:180](../hardware/devices/digitakt-2.md#L180) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
-| `0x40158902` | [doc] [digitakt-2.md:180](../hardware/devices/digitakt-2.md#L180) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
-| `0x4015a6aa` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x4015b0ee` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x4015b1e8` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)<br>[doc] [digitakt-2.md:253](../hardware/devices/digitakt-2.md#L253) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4015b3aa` | [doc] [digitakt-2.md:180](../hardware/devices/digitakt-2.md#L180) +Drive file writes from mod code (digikit finding 120, DT2 1.17)<br>[doc] [digitakt-2.md:253](../hardware/devices/digitakt-2.md#L253) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4015b846` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x4015b868` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)<br>[doc] [digitakt-2.md:223](../hardware/devices/digitakt-2.md#L223) USB take-over failures and card speed (digikit, 2026-11-13)<br>[doc] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4015b92a` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x401f8a18` | [emu] [digitakt-2.md:284](../hardware/devices/digitakt-2.md#L284) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x40153c70` | [doc] [digitakt-2.md:175](../hardware/devices/digitakt-2.md#L175) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
+| `0x40154634` | [emu] [digitakt-2.md:186](../hardware/devices/digitakt-2.md#L186) Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13) |
+| `0x4015463a` | [emu] [digitakt-2.md:186](../hardware/devices/digitakt-2.md#L186) Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13) |
+| `0x40155974` | [doc] [digitakt-2.md:249](../hardware/devices/digitakt-2.md#L249) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x40155c34` | [doc] [digitakt-2.md:218](../hardware/devices/digitakt-2.md#L218) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x40155f84` | [doc] [digitakt-2.md:249](../hardware/devices/digitakt-2.md#L249) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x40156f6c` | [doc] [digitakt-2.md:175](../hardware/devices/digitakt-2.md#L175) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
+| `0x40157078` | [doc] [digitakt-2.md:175](../hardware/devices/digitakt-2.md#L175) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
+| `0x40157c68` | [doc] [digitakt-2.md:249](../hardware/devices/digitakt-2.md#L249) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4015813c` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x401581dc` | [doc] [digitakt-2.md:249](../hardware/devices/digitakt-2.md#L249) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x40158326` | [doc] [digitakt-2.md:249](../hardware/devices/digitakt-2.md#L249) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x40158448` | [doc] [digitakt-2.md:249](../hardware/devices/digitakt-2.md#L249) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4015866a` | [doc] [digitakt-2.md:175](../hardware/devices/digitakt-2.md#L175) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
+| `0x40158810` | [doc] [digitakt-2.md:249](../hardware/devices/digitakt-2.md#L249) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x401588c0` | [doc] [digitakt-2.md:175](../hardware/devices/digitakt-2.md#L175) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
+| `0x40158902` | [doc] [digitakt-2.md:175](../hardware/devices/digitakt-2.md#L175) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
+| `0x4015a6aa` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x4015b0ee` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x4015b1e8` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)<br>[doc] [digitakt-2.md:248](../hardware/devices/digitakt-2.md#L248) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4015b3aa` | [doc] [digitakt-2.md:175](../hardware/devices/digitakt-2.md#L175) +Drive file writes from mod code (digikit finding 120, DT2 1.17)<br>[doc] [digitakt-2.md:248](../hardware/devices/digitakt-2.md#L248) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4015b846` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x4015b868` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)<br>[doc] [digitakt-2.md:218](../hardware/devices/digitakt-2.md#L218) USB take-over failures and card speed (digikit, 2026-11-13)<br>[doc] [digitakt-2.md:249](../hardware/devices/digitakt-2.md#L249) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4015b92a` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x401f8a18` | [emu] [digitakt-2.md:279](../hardware/devices/digitakt-2.md#L279) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
 | `0x40200000` | [doc] [memory-maps.md:94](../hardware/common/memory-maps.md#L94) Details per device |
 | `0x4021e5d2` | [hw] [digitakt-2-sharc-measured.md:74](../hardware/devices/digitakt-2-sharc-measured.md#L74) 8. Measuring on the unit without a debugger |
 | `0x4022231c` | [emu] [digitakt-2.md:57](../hardware/devices/digitakt-2.md#L57) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator) |
-| `0x4029f048` | [doc] [digitakt-2.md:217](../hardware/devices/digitakt-2.md#L217) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x4029f048` | [doc] [digitakt-2.md:212](../hardware/devices/digitakt-2.md#L212) USB take-over failures and card speed (digikit, 2026-11-13) |
 | `0x4029f554` | [doc] [memory-maps.md:23](../hardware/common/memory-maps.md#L23) Digitone II, digikit finding 08 and 59) |
-| `0x402a1b64` | [doc] [digitakt-2.md:135](../hardware/devices/digitakt-2.md#L135) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x402a1b74` | [doc] [digitakt-2.md:135](../hardware/devices/digitakt-2.md#L135) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x402a1b84` | [doc] [digitakt-2.md:135](../hardware/devices/digitakt-2.md#L135) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x402a1b94` | [doc] [digitakt-2.md:135](../hardware/devices/digitakt-2.md#L135) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x402a1ba4` | [doc] [digitakt-2.md:135](../hardware/devices/digitakt-2.md#L135) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x402b406c` | [emu] [digitakt-2.md:64](../hardware/devices/digitakt-2.md#L64) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:146](../hardware/devices/digitakt-2.md#L146) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x402a1b64` | [doc] [digitakt-2.md:130](../hardware/devices/digitakt-2.md#L130) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x402a1b74` | [doc] [digitakt-2.md:130](../hardware/devices/digitakt-2.md#L130) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x402a1b84` | [doc] [digitakt-2.md:130](../hardware/devices/digitakt-2.md#L130) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x402a1b94` | [doc] [digitakt-2.md:130](../hardware/devices/digitakt-2.md#L130) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x402a1ba4` | [doc] [digitakt-2.md:130](../hardware/devices/digitakt-2.md#L130) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x402b406c` | [emu] [digitakt-2.md:64](../hardware/devices/digitakt-2.md#L64) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:141](../hardware/devices/digitakt-2.md#L141) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0x402b4a24` | [doc] [memory-maps.md:23](../hardware/common/memory-maps.md#L23) Digitone II, digikit finding 08 and 59) |
 | `0x402b62c8` | [emu] [digitakt-2.md:57](../hardware/devices/digitakt-2.md#L57) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator) |
 | `0x402e4f64` | [hw] [digitakt-2-sharc-measured.md:74](../hardware/devices/digitakt-2-sharc-measured.md#L74) 8. Measuring on the unit without a debugger |
 | `0x402e609c` | [hw] [digitakt-2-sharc-measured.md:74](../hardware/devices/digitakt-2-sharc-measured.md#L74) 8. Measuring on the unit without a debugger |
-| `0x403117c4` | [emu] [digitakt-2.md:65](../hardware/devices/digitakt-2.md#L65) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[doc] [digitakt-2.md:164](../hardware/devices/digitakt-2.md#L164) Three Digitakt II mod routes side by side (T21, 2026-11-02) |
-| `0x40312000` | [hw] [memory-maps.md:36](../hardware/common/memory-maps.md#L36) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11)<br>[emu] [digitakt-2.md:65](../hardware/devices/digitakt-2.md#L65) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:147](../hardware/devices/digitakt-2.md#L147) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)<br>[doc] [memory-maps.md:96](../hardware/common/memory-maps.md#L96) Details per device<br>[doc] [digitakt-2.md:164](../hardware/devices/digitakt-2.md#L164) Three Digitakt II mod routes side by side (T21, 2026-11-02) |
+| `0x403117c4` | [emu] [digitakt-2.md:65](../hardware/devices/digitakt-2.md#L65) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[doc] [digitakt-2.md:159](../hardware/devices/digitakt-2.md#L159) Three Digitakt II mod routes side by side (T21, 2026-11-02) |
+| `0x40312000` | [hw] [memory-maps.md:36](../hardware/common/memory-maps.md#L36) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11)<br>[emu] [digitakt-2.md:65](../hardware/devices/digitakt-2.md#L65) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:142](../hardware/devices/digitakt-2.md#L142) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)<br>[doc] [memory-maps.md:96](../hardware/common/memory-maps.md#L96) Details per device<br>[doc] [digitakt-2.md:159](../hardware/devices/digitakt-2.md#L159) Three Digitakt II mod routes side by side (T21, 2026-11-02) |
 | `0x4031be59` | [emu] [digitakt-2.md:65](../hardware/devices/digitakt-2.md#L65) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator) |
 | `0x4031ff60` | [emu] [digitakt-2.md:65](../hardware/devices/digitakt-2.md#L65) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator) |
-| `0x40386e48` | [?] [digitakt-2.md:259](../hardware/devices/digitakt-2.md#L259) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4039be58` | [?] [digitakt-2.md:259](../hardware/devices/digitakt-2.md#L259) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4039beac` | [?] [digitakt-2.md:259](../hardware/devices/digitakt-2.md#L259) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4058f218` | [doc] [digitakt-2.md:241](../hardware/devices/digitakt-2.md#L241) USB MIDI callbacks and Shot's cost (digikit handover, 2026-11-15) |
-| `0x4058f21c` | [doc] [digitakt-2.md:241](../hardware/devices/digitakt-2.md#L241) USB MIDI callbacks and Shot's cost (digikit handover, 2026-11-15) |
-| `0x4058f280` | [doc] [digitakt-2.md:203](../hardware/devices/digitakt-2.md#L203) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x4059e1c0` | [doc] [digitakt-2.md:260](../hardware/devices/digitakt-2.md#L260) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4059e214` | [doc] [digitakt-2.md:260](../hardware/devices/digitakt-2.md#L260) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x405ce898` | [doc] [digitakt-2.md:203](../hardware/devices/digitakt-2.md#L203) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x406658c0` | [doc] [digitakt-2.md:253](../hardware/devices/digitakt-2.md#L253) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4066d8c0` | [doc] [digitakt-2.md:253](../hardware/devices/digitakt-2.md#L253) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x409659d0` | [doc] [digitakt-2.md:241](../hardware/devices/digitakt-2.md#L241) USB MIDI callbacks and Shot's cost (digikit handover, 2026-11-15) |
-| `0x409659d4` | [doc] [digitakt-2.md:241](../hardware/devices/digitakt-2.md#L241) USB MIDI callbacks and Shot's cost (digikit handover, 2026-11-15) |
-| `0x40965a38` | [doc] [digitakt-2.md:203](../hardware/devices/digitakt-2.md#L203) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x40965a40` | [doc] [digitakt-2.md:203](../hardware/devices/digitakt-2.md#L203) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x40966ee8` | [doc] [digitakt-2.md:260](../hardware/devices/digitakt-2.md#L260) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x40966f3c` | [doc] [digitakt-2.md:260](../hardware/devices/digitakt-2.md#L260) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4096775c` | [doc] [digitakt-2.md:260](../hardware/devices/digitakt-2.md#L260) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4099d5c4` | [doc] [digitakt-2.md:203](../hardware/devices/digitakt-2.md#L203) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x41776c9c` | [doc] [digitakt-2.md:187](../hardware/devices/digitakt-2.md#L187) Project and kit storage (digikit finding 121, DT2 1.17) |
-| `0x41776cb8` | [doc] [digitakt-2.md:187](../hardware/devices/digitakt-2.md#L187) Project and kit storage (digikit finding 121, DT2 1.17) |
+| `0x40386e48` | [?] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4039be58` | [?] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4039beac` | [?] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4058f218` | [doc] [digitakt-2.md:236](../hardware/devices/digitakt-2.md#L236) USB MIDI callbacks and Shot's cost (digikit handover, 2026-11-15) |
+| `0x4058f21c` | [doc] [digitakt-2.md:236](../hardware/devices/digitakt-2.md#L236) USB MIDI callbacks and Shot's cost (digikit handover, 2026-11-15) |
+| `0x4058f280` | [doc] [digitakt-2.md:198](../hardware/devices/digitakt-2.md#L198) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x4059e1c0` | [doc] [digitakt-2.md:255](../hardware/devices/digitakt-2.md#L255) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4059e214` | [doc] [digitakt-2.md:255](../hardware/devices/digitakt-2.md#L255) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x405ce898` | [doc] [digitakt-2.md:198](../hardware/devices/digitakt-2.md#L198) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x406658c0` | [doc] [digitakt-2.md:248](../hardware/devices/digitakt-2.md#L248) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4066d8c0` | [doc] [digitakt-2.md:248](../hardware/devices/digitakt-2.md#L248) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x409659d0` | [doc] [digitakt-2.md:236](../hardware/devices/digitakt-2.md#L236) USB MIDI callbacks and Shot's cost (digikit handover, 2026-11-15) |
+| `0x409659d4` | [doc] [digitakt-2.md:236](../hardware/devices/digitakt-2.md#L236) USB MIDI callbacks and Shot's cost (digikit handover, 2026-11-15) |
+| `0x40965a38` | [doc] [digitakt-2.md:198](../hardware/devices/digitakt-2.md#L198) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x40965a40` | [doc] [digitakt-2.md:198](../hardware/devices/digitakt-2.md#L198) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x40966ee8` | [doc] [digitakt-2.md:255](../hardware/devices/digitakt-2.md#L255) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x40966f3c` | [doc] [digitakt-2.md:255](../hardware/devices/digitakt-2.md#L255) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4096775c` | [doc] [digitakt-2.md:255](../hardware/devices/digitakt-2.md#L255) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4099d5c4` | [doc] [digitakt-2.md:198](../hardware/devices/digitakt-2.md#L198) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x41776c9c` | [doc] [digitakt-2.md:182](../hardware/devices/digitakt-2.md#L182) Project and kit storage (digikit finding 121, DT2 1.17) |
+| `0x41776cb8` | [doc] [digitakt-2.md:182](../hardware/devices/digitakt-2.md#L182) Project and kit storage (digikit finding 121, DT2 1.17) |
 | `0x42000021` | [hw] [digitakt-2-dsp-optimizing.md:80](../hardware/devices/digitakt-2-dsp-optimizing.md#L80) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01) |
-| `0x426532b8` | [doc] [digitakt-2.md:187](../hardware/devices/digitakt-2.md#L187) Project and kit storage (digikit finding 121, DT2 1.17) |
-| `0x4293b960` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x4293ba68` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x42c4bacc` | [doc] [digitakt-2.md:136](../hardware/devices/digitakt-2.md#L136) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x42c4cacc` | [doc] [digitakt-2.md:136](../hardware/devices/digitakt-2.md#L136) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x43149550` | [doc] [digitakt-2.md:136](../hardware/devices/digitakt-2.md#L136) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x43153a00` | [doc] [digitakt-2.md:136](../hardware/devices/digitakt-2.md#L136) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x43153a2c` | [doc] [digitakt-2.md:261](../hardware/devices/digitakt-2.md#L261) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x43164f94` | [emu] [digitakt-2.md:283](../hardware/devices/digitakt-2.md#L283) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
-| `0x43164fe0` | [emu] [digitakt-2.md:283](../hardware/devices/digitakt-2.md#L283) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
-| `0x4316501c` | [emu] [digitakt-2.md:283](../hardware/devices/digitakt-2.md#L283) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x426532b8` | [doc] [digitakt-2.md:182](../hardware/devices/digitakt-2.md#L182) Project and kit storage (digikit finding 121, DT2 1.17) |
+| `0x4293b960` | [doc] [digitakt-2.md:257](../hardware/devices/digitakt-2.md#L257) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x4293ba68` | [doc] [digitakt-2.md:257](../hardware/devices/digitakt-2.md#L257) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x42c4bacc` | [doc] [digitakt-2.md:131](../hardware/devices/digitakt-2.md#L131) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x42c4cacc` | [doc] [digitakt-2.md:131](../hardware/devices/digitakt-2.md#L131) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x43149550` | [doc] [digitakt-2.md:131](../hardware/devices/digitakt-2.md#L131) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x43153a00` | [doc] [digitakt-2.md:131](../hardware/devices/digitakt-2.md#L131) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x43153a2c` | [doc] [digitakt-2.md:256](../hardware/devices/digitakt-2.md#L256) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x43164f94` | [emu] [digitakt-2.md:278](../hardware/devices/digitakt-2.md#L278) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x43164fe0` | [emu] [digitakt-2.md:278](../hardware/devices/digitakt-2.md#L278) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x4316501c` | [emu] [digitakt-2.md:278](../hardware/devices/digitakt-2.md#L278) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
 | `0x4316e854` | [doc] [dt2-dn2-limits-and-audio-chain.md:21](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L21) 1. Machines and parameters (ColdFire) |
 | `0x44000000` | [doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
-| `0x445a2e30` | [hw] [digitakt-2.md:141](../hardware/devices/digitakt-2.md#L141) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x44dc8644` | [hw] [digitakt-2.md:141](../hardware/devices/digitakt-2.md#L141) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
-| `0x44e08654` | [emu] [digitakt-2.md:64](../hardware/devices/digitakt-2.md#L64) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:147](../hardware/devices/digitakt-2.md#L147) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
-| `0x44e3feb8` | [doc] [digitakt-2.md:251](../hardware/devices/digitakt-2.md#L251) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x44e3fec0` | [doc] [digitakt-2.md:251](../hardware/devices/digitakt-2.md#L251) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x44e3fec8` | [doc] [digitakt-2.md:251](../hardware/devices/digitakt-2.md#L251) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x44e4ae98` | [doc] [digitakt-2.md:251](../hardware/devices/digitakt-2.md#L251) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x44f2bc68` | [doc] [digitakt-2.md:253](../hardware/devices/digitakt-2.md#L253) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x44f39c40` | [emu] [digitakt-2.md:64](../hardware/devices/digitakt-2.md#L64) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:146](../hardware/devices/digitakt-2.md#L146) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
-| `0x44f5de40` | [emu] [digitakt-2.md:284](../hardware/devices/digitakt-2.md#L284) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
-| `0x46f39c40` | [emu] [digitakt-2.md:64](../hardware/devices/digitakt-2.md#L64) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:146](../hardware/devices/digitakt-2.md#L146) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
-| `0x46f4deb0` | [doc] [digitakt-2.md:205](../hardware/devices/digitakt-2.md#L205) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)<br>[doc] [digitakt-2.md:253](../hardware/devices/digitakt-2.md#L253) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x46f4ded0` | [doc] [digitakt-2.md:183](../hardware/devices/digitakt-2.md#L183) +Drive file writes from mod code (digikit finding 120, DT2 1.17)<br>[doc] [digitakt-2.md:253](../hardware/devices/digitakt-2.md#L253) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x46f63ed0` | [doc] [digitakt-2.md:223](../hardware/devices/digitakt-2.md#L223) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x47d73ed0` | [doc] [digitakt-2.md:223](../hardware/devices/digitakt-2.md#L223) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0x47de3cac` | [doc] [digitakt-2.md:251](../hardware/devices/digitakt-2.md#L251) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x47e28470` | [emu] [digitakt-2.md:147](../hardware/devices/digitakt-2.md#L147) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)<br>[doc] [memory-maps.md:96](../hardware/common/memory-maps.md#L96) Details per device |
-| `0x47e8b000` | [doc] [digitakt-2.md:164](../hardware/devices/digitakt-2.md#L164) Three Digitakt II mod routes side by side (T21, 2026-11-02) |
-| `0x47f00000` | [doc] [memory-maps.md:96](../hardware/common/memory-maps.md#L96) Details per device<br>[doc] [digitakt-2.md:164](../hardware/devices/digitakt-2.md#L164) Three Digitakt II mod routes side by side (T21, 2026-11-02) |
-| `0x47f40000` | [doc] [memory-maps.md:96](../hardware/common/memory-maps.md#L96) Details per device<br>[doc] [digitakt-2.md:164](../hardware/devices/digitakt-2.md#L164) Three Digitakt II mod routes side by side (T21, 2026-11-02) |
-| `0x47fe0000` | [doc] [digitakt-2.md:164](../hardware/devices/digitakt-2.md#L164) Three Digitakt II mod routes side by side (T21, 2026-11-02) |
+| `0x445a2e30` | [hw] [digitakt-2.md:136](../hardware/devices/digitakt-2.md#L136) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x44dc8644` | [hw] [digitakt-2.md:136](../hardware/devices/digitakt-2.md#L136) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
+| `0x44e08654` | [emu] [digitakt-2.md:64](../hardware/devices/digitakt-2.md#L64) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:142](../hardware/devices/digitakt-2.md#L142) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x44e3feb8` | [doc] [digitakt-2.md:246](../hardware/devices/digitakt-2.md#L246) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x44e3fec0` | [doc] [digitakt-2.md:246](../hardware/devices/digitakt-2.md#L246) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x44e3fec8` | [doc] [digitakt-2.md:246](../hardware/devices/digitakt-2.md#L246) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x44e4ae98` | [doc] [digitakt-2.md:246](../hardware/devices/digitakt-2.md#L246) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x44f2bc68` | [doc] [digitakt-2.md:248](../hardware/devices/digitakt-2.md#L248) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x44f39c40` | [emu] [digitakt-2.md:64](../hardware/devices/digitakt-2.md#L64) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:141](../hardware/devices/digitakt-2.md#L141) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x44f5de40` | [emu] [digitakt-2.md:279](../hardware/devices/digitakt-2.md#L279) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x46f39c40` | [emu] [digitakt-2.md:64](../hardware/devices/digitakt-2.md#L64) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:141](../hardware/devices/digitakt-2.md#L141) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x46f4deb0` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)<br>[doc] [digitakt-2.md:248](../hardware/devices/digitakt-2.md#L248) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x46f4ded0` | [doc] [digitakt-2.md:178](../hardware/devices/digitakt-2.md#L178) +Drive file writes from mod code (digikit finding 120, DT2 1.17)<br>[doc] [digitakt-2.md:248](../hardware/devices/digitakt-2.md#L248) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x46f63ed0` | [doc] [digitakt-2.md:218](../hardware/devices/digitakt-2.md#L218) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x47d73ed0` | [doc] [digitakt-2.md:218](../hardware/devices/digitakt-2.md#L218) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0x47de3cac` | [doc] [digitakt-2.md:246](../hardware/devices/digitakt-2.md#L246) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x47e28470` | [emu] [digitakt-2.md:142](../hardware/devices/digitakt-2.md#L142) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)<br>[doc] [memory-maps.md:96](../hardware/common/memory-maps.md#L96) Details per device |
+| `0x47e8b000` | [doc] [digitakt-2.md:159](../hardware/devices/digitakt-2.md#L159) Three Digitakt II mod routes side by side (T21, 2026-11-02) |
+| `0x47f00000` | [doc] [memory-maps.md:96](../hardware/common/memory-maps.md#L96) Details per device<br>[doc] [digitakt-2.md:159](../hardware/devices/digitakt-2.md#L159) Three Digitakt II mod routes side by side (T21, 2026-11-02) |
+| `0x47f40000` | [doc] [memory-maps.md:96](../hardware/common/memory-maps.md#L96) Details per device<br>[doc] [digitakt-2.md:159](../hardware/devices/digitakt-2.md#L159) Three Digitakt II mod routes side by side (T21, 2026-11-02) |
+| `0x47fe0000` | [doc] [digitakt-2.md:159](../hardware/devices/digitakt-2.md#L159) Three Digitakt II mod routes side by side (T21, 2026-11-02) |
 | `0x47ffffff` | [doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
 | `0x48000000` | [doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
-| `0x4e6f9100` | [doc] [digitakt-2.md:209](../hardware/devices/digitakt-2.md#L209) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x4fe69100` | [doc] [digitakt-2.md:209](../hardware/devices/digitakt-2.md#L209) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
-| `0x4fe79340` | [emu] [digitakt-2.md:156](../hardware/devices/digitakt-2.md#L156) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
-| `0x4fe7a340` | [emu] [digitakt-2.md:156](../hardware/devices/digitakt-2.md#L156) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x4e6f9100` | [doc] [digitakt-2.md:204](../hardware/devices/digitakt-2.md#L204) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x4fe69100` | [doc] [digitakt-2.md:204](../hardware/devices/digitakt-2.md#L204) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
+| `0x4fe79340` | [emu] [digitakt-2.md:151](../hardware/devices/digitakt-2.md#L151) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x4fe7a340` | [emu] [digitakt-2.md:151](../hardware/devices/digitakt-2.md#L151) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0x4fffffff` | [doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
 | `0x60000000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
 | `0x60042000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
@@ -444,7 +444,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x80001bd0` | [doc] [digitakt-2.md:28](../hardware/devices/digitakt-2.md#L28) Bootstrap/recovery facts |
 | `0x80001c72` | [doc] [digitakt-2.md:28](../hardware/devices/digitakt-2.md#L28) Bootstrap/recovery facts |
 | `0x8000488c` | [hw] [digitakt-2-sharc-measured.md:34](../hardware/devices/digitakt-2-sharc-measured.md#L34) 4. The ColdFire <-> SHARC reply record<br>[hw] [digitakt-2-sharc-measured.md:36](../hardware/devices/digitakt-2-sharc-measured.md#L36) 4. The ColdFire <-> SHARC reply record |
-| `0x80005b50` | [doc] [digitakt-2.md:199](../hardware/devices/digitakt-2.md#L199) UI surfaces for mods (digikit finding 122, DT2 1.17) |
+| `0x80005b50` | [doc] [digitakt-2.md:194](../hardware/devices/digitakt-2.md#L194) UI surfaces for mods (digikit finding 122, DT2 1.17) |
 | `0x80005e2a` | [doc] [digitakt-2.md:28](../hardware/devices/digitakt-2.md#L28) Bootstrap/recovery facts |
 | `0x80006e80` | [doc] [memory-maps.md:96](../hardware/common/memory-maps.md#L96) Details per device |
 | `0x80008000` | [doc] [memory-maps.md:96](../hardware/common/memory-maps.md#L96) Details per device |
@@ -457,21 +457,21 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x80531000` | [hw] [dt2-dn2-sharc-crosscheck.md:36](../hardware/common/dt2-dn2-sharc-crosscheck.md#L36) 4. Different on the two devices |
 | `0x80a00000` | [hw] [dt2-dn2-sharc-crosscheck.md:36](../hardware/common/dt2-dn2-sharc-crosscheck.md#L36) 4. Different on the two devices |
 | `0x82a00000` | [hw] [dt2-dn2-sharc-crosscheck.md:36](../hardware/common/dt2-dn2-sharc-crosscheck.md#L36) 4. Different on the two devices |
-| `0x8422b9c8` | [hw] [dt2-dn2-sharc-crosscheck.md:36](../hardware/common/dt2-dn2-sharc-crosscheck.md#L36) 4. Different on the two devices<br>[emu] [hw] [digitakt-2-sharc-measured.md:46](../hardware/devices/digitakt-2-sharc-measured.md#L46) 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator)<br>[emu] [digitakt-2.md:152](../hardware/devices/digitakt-2.md#L152) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x8422b9c8` | [hw] [dt2-dn2-sharc-crosscheck.md:36](../hardware/common/dt2-dn2-sharc-crosscheck.md#L36) 4. Different on the two devices<br>[emu] [hw] [digitakt-2-sharc-measured.md:46](../hardware/devices/digitakt-2-sharc-measured.md#L46) 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator)<br>[emu] [digitakt-2.md:147](../hardware/devices/digitakt-2.md#L147) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0x8c000000` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
 | `0x8c00000f` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
 | `0x8c000010` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
-| `0x9d22b9c8` | [hw] [dt2-dn2-sharc-crosscheck.md:36](../hardware/common/dt2-dn2-sharc-crosscheck.md#L36) 4. Different on the two devices<br>[emu] [digitakt-2.md:152](../hardware/devices/digitakt-2.md#L152) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
+| `0x9d22b9c8` | [hw] [dt2-dn2-sharc-crosscheck.md:36](../hardware/common/dt2-dn2-sharc-crosscheck.md#L36) 4. Different on the two devices<br>[emu] [digitakt-2.md:147](../hardware/devices/digitakt-2.md#L147) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0xa0000000` | [hw] [dt2-dn2-sharc-crosscheck.md:36](../hardware/common/dt2-dn2-sharc-crosscheck.md#L36) 4. Different on the two devices |
-| `0xa0000005` | [hw] [digitakt-2.md:216](../hardware/devices/digitakt-2.md#L216) USB take-over failures and card speed (digikit, 2026-11-13) |
-| `0xa50ce100` | [doc] [digitakt-2.md:258](../hardware/devices/digitakt-2.md#L258) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0xa0000005` | [hw] [digitakt-2.md:211](../hardware/devices/digitakt-2.md#L211) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0xa50ce100` | [doc] [digitakt-2.md:253](../hardware/devices/digitakt-2.md#L253) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
 | `0xa5a5a5a5` | [doc] [digitakt-2-sharc-measured.md:24](../hardware/devices/digitakt-2-sharc-measured.md#L24) 2. FreeRTOS on the DT2 SHARC (static, confirmed by a task-switch hook on the unit) |
 | `0xdebb20e3` | [doc] [firmware-container.md:23](../hardware/common/firmware-container.md#L23) Checksums and signing |
 | `0xec038000` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
 | `0xec070000` | [emu] [sysex-and-midi.md:133](../hardware/common/sysex-and-midi.md#L133) DN2 1.11)<br>[doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xec074000` | [emu] [sysex-and-midi.md:133](../hardware/common/sysex-and-midi.md#L133) DN2 1.11) |
 | `0xec090000` | [untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
-| `0xec09000e` | [doc] [digitakt-2.md:214](../hardware/devices/digitakt-2.md#L214) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0xec09000e` | [doc] [digitakt-2.md:209](../hardware/devices/digitakt-2.md#L209) USB take-over failures and card speed (digikit, 2026-11-13) |
 | `0xec094000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59)<br>[doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
 | `0xec0940ff` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
 | `0xedb88320` | [doc] [firmware-container.md:23](../hardware/common/firmware-container.md#L23) Checksums and signing |
@@ -480,17 +480,17 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0xfc04001b` | [doc] [memory-maps.md:22](../hardware/common/memory-maps.md#L22) Digitone II, digikit finding 08 and 59) |
 | `0xfc044000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc048000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
-| `0xfc048042` | [doc] [digitakt-2.md:261](../hardware/devices/digitakt-2.md#L261) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0xfc048042` | [doc] [digitakt-2.md:256](../hardware/devices/digitakt-2.md#L256) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
 | `0xfc04c000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
-| `0xfc04c068` | [doc] [digitakt-2.md:261](../hardware/devices/digitakt-2.md#L261) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0xfc04c068` | [doc] [digitakt-2.md:256](../hardware/devices/digitakt-2.md#L256) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
 | `0xfc050000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc05c000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59)<br>[doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
-| `0xfc07000c` | [hw] [digitakt-2.md:247](../hardware/devices/digitakt-2.md#L247) ColdFire task switches, main-OS entry and the bus timer (digikit findings 07 and 132, DT2 1.17 and DN2 1.12) |
+| `0xfc07000c` | [hw] [digitakt-2.md:242](../hardware/devices/digitakt-2.md#L242) ColdFire task switches, main-OS entry and the bus timer (digikit findings 07 and 132, DT2 1.17 and DN2 1.12) |
 | `0xfc080000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc08c000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc090000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc0b0000` | [doc] [overbridge-usb.md:6](../hardware/common/overbridge-usb.md#L6) Digitone II (digikit finding 42, static, DT2 1.16) |
-| `0xfc0b0170` | [doc] [digitakt-2.md:213](../hardware/devices/digitakt-2.md#L213) USB take-over failures and card speed (digikit, 2026-11-13) |
+| `0xfc0b0170` | [doc] [digitakt-2.md:208](../hardware/devices/digitakt-2.md#L208) USB take-over failures and card speed (digikit, 2026-11-13) |
 | `0xffffffff` | [hw] [dt2-dn2-sharc-crosscheck.md:14](../hardware/common/dt2-dn2-sharc-crosscheck.md#L14) 1. Shown on both units `[hw]`<br>[hw] [digitakt-2-dsp-optimizing.md:86](../hardware/devices/digitakt-2-dsp-optimizing.md#L86) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)<br>[emu] [hw] [digitakt-2-sharc-measured.md:46](../hardware/devices/digitakt-2-sharc-measured.md#L46) 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator) |
 
 ## Digitone (MKI) / Digitone Keys (52 addresses)
@@ -557,17 +557,17 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x00010000` | [?] [doc] [memory-maps.md:20](../hardware/common/memory-maps.md#L20) Digitone II, digikit finding 08 and 59)<br>[untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
 | `0x00038000` | [doc] [digitone-2-internals.md:115](../hardware/devices/digitone-2-internals.md#L115) +Drive and storage (digikit findings 14, 23-24, 35, 43-47) |
 | `0x0003e000` | [doc] [digitone-2-internals.md:115](../hardware/devices/digitone-2-internals.md#L115) +Drive and storage (digikit findings 14, 23-24, 35, 43-47) |
-| `0x00040000` | [hw] [digitone-2-internals.md:91](../hardware/devices/digitone-2-internals.md#L91) Hardware map and budgets (OS 1.12 unless noted)<br>[emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59)<br>[emu] [digitone-2.md:78](../hardware/devices/digitone-2.md#L78) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06)<br>[untagged] [os-update-protocol.md:25](../hardware/common/os-update-protocol.md#L25) Acknowledgement and buffering |
-| `0x00048000` | [emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59)<br>[emu] [digitone-2.md:78](../hardware/devices/digitone-2.md#L78) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
+| `0x00040000` | [hw] [digitone-2-internals.md:91](../hardware/devices/digitone-2-internals.md#L91) Hardware map and budgets (OS 1.12 unless noted)<br>[emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59)<br>[emu] [digitone-2.md:72](../hardware/devices/digitone-2.md#L72) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06)<br>[untagged] [os-update-protocol.md:25](../hardware/common/os-update-protocol.md#L25) Acknowledgement and buffering |
+| `0x00048000` | [emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59)<br>[emu] [digitone-2.md:72](../hardware/devices/digitone-2.md#L72) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
 | `0x00050000` | [emu] [memory-maps.md:25](../hardware/common/memory-maps.md#L25) Digitone II, digikit finding 08 and 59) |
 | `0x00080000` | [hw] [digitone-2-internals.md:91](../hardware/devices/digitone-2-internals.md#L91) Hardware map and budgets (OS 1.12 unless noted)<br>[?] [doc] [memory-maps.md:20](../hardware/common/memory-maps.md#L20) Digitone II, digikit finding 08 and 59)<br>[doc] [memory-maps.md:111](../hardware/common/memory-maps.md#L111) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18)<br>[doc] [digitone-2-internals.md:220](../hardware/devices/digitone-2-internals.md#L220) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image)<br>[doc] [digitone-2-machines-sampler-sharc.md:29](../hardware/devices/digitone-2-machines-sampler-sharc.md#L29) B. Linking DSP code (elekloader sharc-dn2, OS 1.12)<br>[untagged] [os-update-protocol.md:38](../hardware/common/os-update-protocol.md#L38) Validation (before any erase; run up to three times) |
-| `0x000cc100` | [hw] [digitone-2.md:46](../hardware/devices/digitone-2.md#L46) Architecture |
+| `0x000cc100` | [hw] [digitone-2.md:40](../hardware/devices/digitone-2.md#L40) Architecture |
 | `0x000fffff` | [doc] [digitone-2-internals.md:96](../hardware/devices/digitone-2-internals.md#L96) Hardware map and budgets (OS 1.12 unless noted)<br>[doc] [digitone-2-machines-sampler-sharc.md:29](../hardware/devices/digitone-2-machines-sampler-sharc.md#L29) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x00100000` | [doc] [hw] [firmware-container.md:34](../hardware/common/firmware-container.md#L34) Sections<br>[doc] [digitone-2-internals.md:96](../hardware/devices/digitone-2-internals.md#L96) Hardware map and budgets (OS 1.12 unless noted)<br>[doc] [digitone-2-machines-sampler-sharc.md:29](../hardware/devices/digitone-2-machines-sampler-sharc.md#L29) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x001c06ba` | [doc] [dt2-dn2-limits-and-audio-chain.md:50](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L50) 4. SHARC calling convention of the stock code (selcc emits the same)<br>[doc] [dt2-dn2-sharc-crosscheck.md:15](../hardware/common/dt2-dn2-sharc-crosscheck.md#L15) 1. Shown on both units `[hw]` |
-| `0x001c07c7` | [doc] [digitone-2.md:130](../hardware/devices/digitone-2.md#L130) Hardware test evidence |
+| `0x001c07c7` | [doc] [digitone-2.md:124](../hardware/devices/digitone-2.md#L124) Hardware test evidence |
 | `0x001c12e2` | [doc] [digitone-2-machines-sampler-sharc.md:6](../hardware/devices/digitone-2-machines-sampler-sharc.md#L6) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) |
-| `0x001c1431` | [doc] [digitone-2.md:130](../hardware/devices/digitone-2.md#L130) Hardware test evidence |
+| `0x001c1431` | [doc] [digitone-2.md:124](../hardware/devices/digitone-2.md#L124) Hardware test evidence |
 | `0x001c1738` | [hw] [digitone-2-internals.md:102](../hardware/devices/digitone-2-internals.md#L102) Audio/DSP side |
 | `0x001c244d` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12)<br>[doc] [digitone-2-machines-sampler-sharc.md:24](../hardware/devices/digitone-2-machines-sampler-sharc.md#L24) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x001c2712` | [hw] [digitone-2-internals.md:102](../hardware/devices/digitone-2-internals.md#L102) Audio/DSP side |
@@ -581,7 +581,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x001f7000` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x00200000` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device<br>[doc] [digitone-2-machines-sampler-sharc.md:29](../hardware/devices/digitone-2-machines-sampler-sharc.md#L29) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x00202000` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
-| `0x00241298` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x00241298` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x0024f320` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x0024fa20` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x00250020` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
@@ -590,17 +590,17 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x002533e0` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x002547a0` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x002567c0` | [doc] [digitone-2-internals.md:105](../hardware/devices/digitone-2-internals.md#L105) Audio/DSP side |
-| `0x00257898` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x002578b8` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x00257ee8` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x00257898` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x002578b8` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x00257ee8` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x00259f68` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
-| `0x0025b868` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x0025ced8` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x0025b868` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x0025ced8` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x00261a10` | [doc] [digitone-2-internals.md:105](../hardware/devices/digitone-2-internals.md#L105) Audio/DSP side |
 | `0x00266220` | [hw] [dt2-dn2-sharc-crosscheck.md:28](../hardware/common/dt2-dn2-sharc-crosscheck.md#L28) 3. Firmware-level, one device only: check before relying on it |
 | `0x00267220` | [hw] [dt2-dn2-sharc-crosscheck.md:28](../hardware/common/dt2-dn2-sharc-crosscheck.md#L28) 3. Firmware-level, one device only: check before relying on it |
 | `0x00268438` | [doc] [digitone-2-machines-sampler-sharc.md:24](../hardware/devices/digitone-2-machines-sampler-sharc.md#L24) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
-| `0x00268ca8` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x00268ca8` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x0026ef88` | [doc] [digitone-2-machines-sampler-sharc.md:65](../hardware/devices/digitone-2-machines-sampler-sharc.md#L65) Reading a DSP stop, and what the silicon enforces (dnfw, DN2 1.11) |
 | `0x0026ef94` | [doc] [digitone-2-machines-sampler-sharc.md:65](../hardware/devices/digitone-2-machines-sampler-sharc.md#L65) Reading a DSP stop, and what the silicon enforces (dnfw, DN2 1.11) |
 | `0x002c29d0` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
@@ -661,8 +661,8 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x08000000` | [doc] [memory-maps.md:35](../hardware/common/memory-maps.md#L35) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11) |
 | `0x10000000` | [emu] [digitone-2-internals.md:165](../hardware/devices/digitone-2-internals.md#L165) dn2mk2 v0.49 FLEX (OS 1.11, 2026-11-11) |
 | `0x20000000` | [doc] [digitone-2-machines-sampler-sharc.md:6](../hardware/devices/digitone-2-machines-sampler-sharc.md#L6) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11)<br>[doc] [digitone-2-machines-sampler-sharc.md:7](../hardware/devices/digitone-2-machines-sampler-sharc.md#L7) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) |
-| `0x20004a36` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x20017358` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x20004a36` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x20017358` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x2001ab7c` | [hw] [dt2-dn2-sharc-crosscheck.md:30](../hardware/common/dt2-dn2-sharc-crosscheck.md#L30) 3. Firmware-level, one device only: check before relying on it |
 | `0x2001e880` | [doc] [digitone-2-machines-sampler-sharc.md:7](../hardware/devices/digitone-2-machines-sampler-sharc.md#L7) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) |
 | `0x2001e888` | [doc] [digitone-2-machines-sampler-sharc.md:7](../hardware/devices/digitone-2-machines-sampler-sharc.md#L7) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) |
@@ -693,46 +693,46 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x282dd600` | [doc] [digitone-2-machines-sampler-sharc.md:23](../hardware/devices/digitone-2-machines-sampler-sharc.md#L23) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x282dda00` | [doc] [digitone-2-machines-sampler-sharc.md:23](../hardware/devices/digitone-2-machines-sampler-sharc.md#L23) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
 | `0x282dde00` | [doc] [digitone-2-machines-sampler-sharc.md:23](../hardware/devices/digitone-2-machines-sampler-sharc.md#L23) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
-| `0x283801b4` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x283801b4` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x283825c4` | [doc] [digitone-2-machines-sampler-sharc.md:7](../hardware/devices/digitone-2-machines-sampler-sharc.md#L7) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) |
-| `0x28383e3c` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x2838489a` | [doc] [digitone-2-machines-sampler-sharc.md:23](../hardware/devices/digitone-2-machines-sampler-sharc.md#L23) B. Linking DSP code (elekloader sharc-dn2, OS 1.12)<br>[doc] [digitone-2-machines-sampler-sharc.md:24](../hardware/devices/digitone-2-machines-sampler-sharc.md#L24) B. Linking DSP code (elekloader sharc-dn2, OS 1.12)<br>[doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x28383e3c` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x2838489a` | [doc] [digitone-2-machines-sampler-sharc.md:23](../hardware/devices/digitone-2-machines-sampler-sharc.md#L23) B. Linking DSP code (elekloader sharc-dn2, OS 1.12)<br>[doc] [digitone-2-machines-sampler-sharc.md:24](../hardware/devices/digitone-2-machines-sampler-sharc.md#L24) B. Linking DSP code (elekloader sharc-dn2, OS 1.12)<br>[doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x283848a0` | [doc] [digitone-2-machines-sampler-sharc.md:23](../hardware/devices/digitone-2-machines-sampler-sharc.md#L23) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
-| `0x28393a7e` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x28393cbe` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x28393fa4` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x28395024` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x2839554c` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x283956c0` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x28395ff6` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x2839b6ac` | [doc] [digitone-2.md:162](../hardware/devices/digitone-2.md#L162) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x28393a7e` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x28393cbe` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x28393fa4` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x28395024` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x2839554c` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x283956c0` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x28395ff6` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x2839b6ac` | [doc] [digitone-2.md:156](../hardware/devices/digitone-2.md#L156) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x2839bffc` | [doc] [digitone-2-machines-sampler-sharc.md:7](../hardware/devices/digitone-2-machines-sampler-sharc.md#L7) SHARC address map of the boot stream (digikit `docs/SHARC-ADDRESS-MAP.md`, from dn2_firmware_explore, DN2 1.11) |
-| `0x40000000` | [hw] [digitone-2-internals.md:148](../hardware/devices/digitone-2-internals.md#L148) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11)<br>[hw] [digitone-2.md:46](../hardware/devices/digitone-2.md#L46) Architecture<br>[doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59)<br>[doc] [digitone-2-internals.md:220](../hardware/devices/digitone-2-internals.md#L220) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
+| `0x40000000` | [hw] [digitone-2-internals.md:148](../hardware/devices/digitone-2-internals.md#L148) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11)<br>[hw] [digitone-2.md:40](../hardware/devices/digitone-2.md#L40) Architecture<br>[doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59)<br>[doc] [digitone-2-internals.md:220](../hardware/devices/digitone-2-internals.md#L220) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
 | `0x40000008` | [doc] [digitone-2-internals.md:220](../hardware/devices/digitone-2-internals.md#L220) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
-| `0x40000400` | [doc] [firmware-container.md:37](../hardware/common/firmware-container.md#L37) Sections<br>[doc] [digitone-2-internals.md:73](../hardware/devices/digitone-2-internals.md#L73) Image identity<br>[doc] [digitone-2.md:42](../hardware/devices/digitone-2.md#L42) Architecture |
+| `0x40000400` | [doc] [firmware-container.md:37](../hardware/common/firmware-container.md#L37) Sections<br>[doc] [digitone-2-internals.md:73](../hardware/devices/digitone-2-internals.md#L73) Image identity<br>[doc] [digitone-2.md:36](../hardware/devices/digitone-2.md#L36) Architecture |
 | `0x40000410` | [hw] [digitone-2-internals.md:124](../hardware/devices/digitone-2-internals.md#L124) More from dnfw's notes (read 2026-11-02)<br>[doc] [digitone-2-internals.md:73](../hardware/devices/digitone-2-internals.md#L73) Image identity |
 | `0x40000458` | [hw] [digitone-2-internals.md:124](../hardware/devices/digitone-2-internals.md#L124) More from dnfw's notes (read 2026-11-02) |
 | `0x400004e8` | [untagged] [digitone-2-internals.md:6](../hardware/devices/digitone-2-internals.md#L6) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
 | `0x40000538` | [doc] [memory-maps.md:88](../hardware/common/memory-maps.md#L88) Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02)<br>[doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device |
 | `0x4000053e` | [doc] [memory-maps.md:88](../hardware/common/memory-maps.md#L88) Digitakt II: who uses which memory and hook site (compared across six projects, 2026-11-02) |
-| `0x40000554` | [hw] [digitone-2.md:46](../hardware/devices/digitone-2.md#L46) Architecture |
-| `0x40000568` | [doc] [digitone-2.md:89](../hardware/devices/digitone-2.md#L89) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
+| `0x40000554` | [hw] [digitone-2.md:40](../hardware/devices/digitone-2.md#L40) Architecture |
+| `0x40000568` | [doc] [digitone-2.md:83](../hardware/devices/digitone-2.md#L83) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
 | `0x40001000` | [doc] [digitone-2-internals.md:133](../hardware/devices/digitone-2-internals.md#L133) Disassembly pitfalls (agents will hit these) |
-| `0x400015a0` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x400016d2` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x4000436e` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x400043e2` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40005764` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x400059aa` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40005a86` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40006bac` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40006bc6` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40006c52` | [doc] [digitone-2.md:158](../hardware/devices/digitone-2.md#L158) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40016480` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x400167a4` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4001683a` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4001704e` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40018118` | [doc] [digitone-2-internals.md:276](../hardware/devices/digitone-2-internals.md#L276) SYN page draw method (TERRAIN v63e, OS 1.12, 2026-11-16)<br>[doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400015a0` | [doc] [digitone-2.md:147](../hardware/devices/digitone-2.md#L147) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x400016d2` | [doc] [digitone-2.md:147](../hardware/devices/digitone-2.md#L147) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4000436e` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400043e2` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40005764` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400059aa` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40005a86` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40006bac` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40006bc6` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40006c52` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40016480` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400167a4` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4001683a` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4001704e` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40018118` | [doc] [digitone-2-internals.md:276](../hardware/devices/digitone-2-internals.md#L276) SYN page draw method (TERRAIN v63e, OS 1.12, 2026-11-16)<br>[doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x400187ea` | [doc] [digitone-2-internals.md:237](../hardware/devices/digitone-2-internals.md#L237) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
 | `0x40025982` | [doc] [digitone-2-internals.md:69](../hardware/devices/digitone-2-internals.md#L69) The three ColdFire <-> SHARC layers (dnfw `audio-dma.md`, `dsp-control-block.md`, lalzart cross-check) |
 | `0x40025e0a` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
@@ -744,41 +744,41 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x4002e464` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device<br>[doc] [digitone-2-internals.md:111](../hardware/devices/digitone-2-internals.md#L111) MIDI side findings |
 | `0x4002e4ca` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device |
 | `0x4002e688` | [doc] [digitone-2-machines-sampler-sharc.md:45](../hardware/devices/digitone-2-machines-sampler-sharc.md#L45) D. dn2mk2 emulator notes (digikit via patched Unicorn) |
-| `0x4002e902` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x4002ed34` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x4002f17e` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4002e902` | [doc] [digitone-2.md:148](../hardware/devices/digitone-2.md#L148) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4002ed34` | [doc] [digitone-2.md:148](../hardware/devices/digitone-2.md#L148) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4002f17e` | [doc] [digitone-2.md:148](../hardware/devices/digitone-2.md#L148) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
 | `0x4002f20c` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device<br>[doc] [digitone-2-internals.md:111](../hardware/devices/digitone-2-internals.md#L111) MIDI side findings |
 | `0x4002f256` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device |
 | `0x40034ba6` | [hw] [digitone-2-internals.md:256](../hardware/devices/digitone-2-internals.md#L256) dn2mk2 v0.58 SCALES: KB SETUP scale tables and the chord-MODE crash (OS 1.11, 2026-11-17) |
-| `0x4003e426` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4003e426` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x4003f0ec` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
 | `0x4003f106` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
-| `0x400469e2` | [emu] [digitone-2.md:78](../hardware/devices/digitone-2.md#L78) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
-| `0x400469fe` | [emu] [digitone-2.md:78](../hardware/devices/digitone-2.md#L78) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
+| `0x400469e2` | [emu] [digitone-2.md:72](../hardware/devices/digitone-2.md#L72) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
+| `0x400469fe` | [emu] [digitone-2.md:72](../hardware/devices/digitone-2.md#L72) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
 | `0x4004b6d6` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
 | `0x4004b786` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
-| `0x4005928a` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4005928a` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x4005f9b6` | [doc] [digitone-2-internals.md:237](../hardware/devices/digitone-2-internals.md#L237) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
 | `0x40060dde` | [doc] [digitone-2-internals.md:237](../hardware/devices/digitone-2-internals.md#L237) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
-| `0x40065ae8` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40065ae8` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x4006efcc` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only) |
 | `0x4006f004` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only) |
-| `0x4007e020` | [hw] [digitone-2.md:46](../hardware/devices/digitone-2.md#L46) Architecture |
+| `0x4007e020` | [hw] [digitone-2.md:40](../hardware/devices/digitone-2.md#L40) Architecture |
 | `0x400987a2` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device |
 | `0x4009ff88` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device |
-| `0x400c257c` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only)<br>[doc] [digitone-2.md:89](../hardware/devices/digitone-2.md#L89) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
-| `0x400c2c4e` | [doc] [digitone-2.md:88](../hardware/devices/digitone-2.md#L88) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
+| `0x400c257c` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only)<br>[doc] [digitone-2.md:83](../hardware/devices/digitone-2.md#L83) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
+| `0x400c2c4e` | [doc] [digitone-2.md:82](../hardware/devices/digitone-2.md#L82) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
 | `0x400cd20c` | [doc] [hw] [firmware-container.md:34](../hardware/common/firmware-container.md#L34) Sections |
-| `0x400cd5f2` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x400cec02` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x400cd5f2` | [doc] [digitone-2.md:148](../hardware/devices/digitone-2.md#L148) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x400cec02` | [doc] [digitone-2.md:148](../hardware/devices/digitone-2.md#L148) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
 | `0x400cec98` | [hw] [digitone-2-internals.md:124](../hardware/devices/digitone-2-internals.md#L124) More from dnfw's notes (read 2026-11-02) |
-| `0x400cef28` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x400cf08c` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400cef28` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400cf08c` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x400cf0e2` | [hw] [digitone-2-internals.md:124](../hardware/devices/digitone-2-internals.md#L124) More from dnfw's notes (read 2026-11-02) |
 | `0x400cf4b0` | [doc] [digitone-2-machines-sampler-sharc.md:30](../hardware/devices/digitone-2-machines-sampler-sharc.md#L30) B. Linking DSP code (elekloader sharc-dn2, OS 1.12) |
-| `0x400cf7f2` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x400d56c6` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x400d5996` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x400cf7f2` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400d56c6` | [doc] [digitone-2.md:148](../hardware/devices/digitone-2.md#L148) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x400d5996` | [doc] [digitone-2.md:148](../hardware/devices/digitone-2.md#L148) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
 | `0x400d9e10` | [doc] [emu] [digitone-2-internals.md:176](../hardware/devices/digitone-2-internals.md#L176) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x400da406` | [doc] [emu] [digitone-2-internals.md:176](../hardware/devices/digitone-2-internals.md#L176) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x400da6e6` | [doc] [emu] [digitone-2-internals.md:176](../hardware/devices/digitone-2-internals.md#L176) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
@@ -788,63 +788,63 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x400db1f6` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x400db22c` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x400db32e` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
-| `0x400dc634` | [doc] [digitone-2.md:88](../hardware/devices/digitone-2.md#L88) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
+| `0x400dc634` | [doc] [digitone-2.md:82](../hardware/devices/digitone-2.md#L82) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
 | `0x400dc978` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only) |
 | `0x400dca5a` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only) |
 | `0x400dd2b2` | [doc] [digitone-2-internals.md:184](../hardware/devices/digitone-2-internals.md#L184) RIFT v0.1 (dn2mk2 without Machinedrum/Monomachine, OS 1.11, 2026-11-13) |
 | `0x400dea6a` | [hw] [digitone-2-internals.md:129](../hardware/devices/digitone-2-internals.md#L129) More from dnfw's notes (read 2026-11-02) |
-| `0x400df57a` | [emu] [digitone-2.md:78](../hardware/devices/digitone-2.md#L78) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
-| `0x400e1494` | [emu] [digitone-2.md:78](../hardware/devices/digitone-2.md#L78) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
-| `0x400f2494` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x400df57a` | [emu] [digitone-2.md:72](../hardware/devices/digitone-2.md#L72) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
+| `0x400e1494` | [emu] [digitone-2.md:72](../hardware/devices/digitone-2.md#L72) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
+| `0x400f2494` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x400fa11e` | [doc] [emu] [digitone-2-internals.md:178](../hardware/devices/digitone-2-internals.md#L178) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x400fa6be` | [doc] [emu] [digitone-2-internals.md:178](../hardware/devices/digitone-2-internals.md#L178) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
-| `0x4010e000` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
-| `0x4010e700` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
+| `0x4010e000` | [doc] [digitone-2.md:143](../hardware/devices/digitone-2.md#L143) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
+| `0x4010e700` | [doc] [digitone-2.md:143](../hardware/devices/digitone-2.md#L143) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
 | `0x4011e318` | [emu] [sysex-and-midi.md:128](../hardware/common/sysex-and-midi.md#L128) DN2 1.12) `[doc]` |
 | `0x4011e598` | [emu] [sysex-and-midi.md:128](../hardware/common/sysex-and-midi.md#L128) DN2 1.12) `[doc]` |
 | `0x4011ed4a` | [emu] [digitone-2-internals.md:200](../hardware/devices/digitone-2-internals.md#L200) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12) |
 | `0x4011fc8c` | [emu] [sysex-and-midi.md:128](../hardware/common/sysex-and-midi.md#L128) DN2 1.12) `[doc]` |
 | `0x4011ff0c` | [emu] [sysex-and-midi.md:128](../hardware/common/sysex-and-midi.md#L128) DN2 1.12) `[doc]` |
-| `0x4012c4b2` | [hw] [digitone-2.md:108](../hardware/devices/digitone-2.md#L108) Sample memory (dn2mk2) |
-| `0x4012c53e` | [hw] [digitone-2.md:108](../hardware/devices/digitone-2.md#L108) Sample memory (dn2mk2) |
-| `0x4012c544` | [hw] [digitone-2.md:108](../hardware/devices/digitone-2.md#L108) Sample memory (dn2mk2) |
-| `0x4012c5ae` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4012c5bc` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4012c794` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4012c7a2` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4012c87a` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x4012c88e` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4012c89c` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4012ca60` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x4012ca74` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4012ca82` | [doc] [digitone-2.md:160](../hardware/devices/digitone-2.md#L160) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012c4b2` | [hw] [digitone-2.md:102](../hardware/devices/digitone-2.md#L102) Sample memory (dn2mk2) |
+| `0x4012c53e` | [hw] [digitone-2.md:102](../hardware/devices/digitone-2.md#L102) Sample memory (dn2mk2) |
+| `0x4012c544` | [hw] [digitone-2.md:102](../hardware/devices/digitone-2.md#L102) Sample memory (dn2mk2) |
+| `0x4012c5ae` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012c5bc` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012c794` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012c7a2` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012c87a` | [doc] [digitone-2.md:147](../hardware/devices/digitone-2.md#L147) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4012c88e` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012c89c` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012ca60` | [doc] [digitone-2.md:147](../hardware/devices/digitone-2.md#L147) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4012ca74` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4012ca82` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x40132148` | [doc] [digitone-2-internals.md:145](../hardware/devices/digitone-2-internals.md#L145) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
 | `0x401328c4` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
-| `0x40134490` | [emu] [digitone-2-internals.md:170](../hardware/devices/digitone-2-internals.md#L170) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12)<br>[doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40134490` | [emu] [digitone-2-internals.md:170](../hardware/devices/digitone-2-internals.md#L170) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12)<br>[doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x401344dc` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
-| `0x4013464c` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4013492c` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40136544` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4013464c` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4013492c` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40136544` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x40138992` | [emu] [digitone-2-internals.md:177](../hardware/devices/digitone-2-internals.md#L177) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x401389dc` | [emu] [digitone-2-internals.md:177](../hardware/devices/digitone-2-internals.md#L177) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x40139104` | [doc] [memory-maps.md:111](../hardware/common/memory-maps.md#L111) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
 | `0x4013ac54` | [doc] [memory-maps.md:111](../hardware/common/memory-maps.md#L111) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
-| `0x4019e83a` | [doc] [digitone-2.md:161](../hardware/devices/digitone-2.md#L161) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4019e83a` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x401f7400` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
-| `0x401f83a4` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only)<br>[doc] [digitone-2.md:87](../hardware/devices/digitone-2.md#L87) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
+| `0x401f83a4` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only)<br>[doc] [digitone-2.md:81](../hardware/devices/digitone-2.md#L81) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
 | `0x40200000` | [hw] [digitone-2-internals.md:92](../hardware/devices/digitone-2-internals.md#L92) Hardware map and budgets (OS 1.12 unless noted) |
 | `0x402008cc` | [doc] [emu] [digitone-2-internals.md:178](../hardware/devices/digitone-2-internals.md#L178) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x40200b09` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x40200b2e` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x40201cb0` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
-| `0x4021f71a` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
-| `0x4021f7b4` | [doc] [digitone-2.md:149](../hardware/devices/digitone-2.md#L149) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
-| `0x402875b0` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40287af0` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4021f71a` | [doc] [digitone-2.md:143](../hardware/devices/digitone-2.md#L143) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
+| `0x4021f7b4` | [doc] [digitone-2.md:143](../hardware/devices/digitone-2.md#L143) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
+| `0x402875b0` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40287af0` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x40288306` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only) |
 | `0x4028da6e` | [doc] [digitone-2-os111-reference.md:57](../hardware/devices/digitone-2-os111-reference.md#L57) ColdFire hook rules |
 | `0x4028ea02` | [doc] [digitone-2-os111-reference.md:57](../hardware/devices/digitone-2-os111-reference.md#L57) ColdFire hook rules |
-| `0x4029ef80` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4029ef80` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x4029f554` | [doc] [memory-maps.md:23](../hardware/common/memory-maps.md#L23) Digitone II, digikit finding 08 and 59) |
 | `0x402a0dec` | [doc] [hw] [digitone-2-os111-firmware-map.md:68](../hardware/devices/digitone-2-os111-firmware-map.md#L68) Build pipeline (`cfmod.py`, `dspblocks.py`, `zcache.py`) |
 | `0x402b4a24` | [doc] [memory-maps.md:23](../hardware/common/memory-maps.md#L23) Digitone II, digikit finding 08 and 59) |
@@ -855,26 +855,26 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x40305000` | [untagged] [digitone-2-internals.md:7](../hardware/devices/digitone-2-internals.md#L7) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
 | `0x4030c980` | [untagged] [digitone-2-internals.md:7](../hardware/devices/digitone-2-internals.md#L7) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
 | `0x40312000` | [hw] [memory-maps.md:36](../hardware/common/memory-maps.md#L36) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11) |
-| `0x40386e48` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x4058e280` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4058e2a8` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4058f280` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4058f2a8` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x4059e1c0` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
-| `0x4059e214` | [doc] [digitone-2.md:154](../hardware/devices/digitone-2.md#L154) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x40386e48` | [doc] [digitone-2.md:148](../hardware/devices/digitone-2.md#L148) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4058e280` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4058e2a8` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4058f280` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4058f2a8` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4059e1c0` | [doc] [digitone-2.md:148](../hardware/devices/digitone-2.md#L148) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x4059e214` | [doc] [digitone-2.md:148](../hardware/devices/digitone-2.md#L148) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
 | `0x405cd8ae` | [doc] [hw] [digitone-2-internals.md:179](../hardware/devices/digitone-2-internals.md#L179) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x405cd8af` | [doc] [hw] [digitone-2-internals.md:179](../hardware/devices/digitone-2-internals.md#L179) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x405cd8c1` | [doc] [hw] [digitone-2-internals.md:179](../hardware/devices/digitone-2-internals.md#L179) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x405cd95b` | [doc] [hw] [digitone-2-internals.md:179](../hardware/devices/digitone-2-internals.md#L179) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
-| `0x40965a38` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
-| `0x40965a60` | [doc] [digitone-2.md:159](../hardware/devices/digitone-2.md#L159) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40965a38` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x40965a60` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x42c5a91c` | [doc] [emu] [digitone-2-internals.md:176](../hardware/devices/digitone-2-internals.md#L176) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x4316e854` | [doc] [dt2-dn2-limits-and-audio-chain.md:21](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L21) 1. Machines and parameters (ColdFire) |
 | `0x44000000` | [doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
 | `0x445ff870` | [doc] [digitone-2-internals.md:238](../hardware/devices/digitone-2-internals.md#L238) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
 | `0x44600ca0` | [doc] [digitone-2-internals.md:110](../hardware/devices/digitone-2-internals.md#L110) MIDI side findings<br>[doc] [digitone-2-internals.md:238](../hardware/devices/digitone-2-internals.md#L238) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
 | `0x4460f4b8` | [doc] [digitone-2-internals.md:238](../hardware/devices/digitone-2-internals.md#L238) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only)<br>[doc] [digitone-2-internals.md:239](../hardware/devices/digitone-2-internals.md#L239) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
-| `0x4461b6c0` | [hw] [digitone-2.md:108](../hardware/devices/digitone-2.md#L108) Sample memory (dn2mk2) |
+| `0x4461b6c0` | [hw] [digitone-2.md:102](../hardware/devices/digitone-2.md#L102) Sample memory (dn2mk2) |
 | `0x446478e0` | [doc] [digitone-2-internals.md:145](../hardware/devices/digitone-2-internals.md#L145) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
 | `0x4464abf0` | [doc] [memory-maps.md:39](../hardware/common/memory-maps.md#L39) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11)<br>[doc] [memory-maps.md:57](../hardware/common/memory-maps.md#L57) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
 | `0x4464bbf0` | [doc] [emu] [digitone-2-internals.md:201](../hardware/devices/digitone-2-internals.md#L201) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12) |
@@ -900,16 +900,16 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x46900000` | [doc] [memory-maps.md:39](../hardware/common/memory-maps.md#L39) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11)<br>[doc] [memory-maps.md:57](../hardware/common/memory-maps.md#L57) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[doc] [digitone-2-os111-reference.md:30](../hardware/devices/digitone-2-os111-reference.md#L30) Free memory |
 | `0x46a00000` | [doc] [memory-maps.md:39](../hardware/common/memory-maps.md#L39) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11)<br>[doc] [memory-maps.md:58](../hardware/common/memory-maps.md#L58) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
 | `0x46f00000` | [doc] [digitone-2-os111-reference.md:30](../hardware/devices/digitone-2-os111-reference.md#L30) Free memory |
-| `0x47d00000` | [doc] [digitone-2.md:89](../hardware/devices/digitone-2.md#L89) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
-| `0x47e00000` | [doc] [hw] [digitone-2.md:69](../hardware/devices/digitone-2.md#L69) Architecture<br>[doc] [memory-maps.md:58](../hardware/common/memory-maps.md#L58) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
-| `0x47e075a4` | [doc] [hw] [digitone-2.md:69](../hardware/devices/digitone-2.md#L69) Architecture |
+| `0x47d00000` | [doc] [digitone-2.md:83](../hardware/devices/digitone-2.md#L83) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
+| `0x47e00000` | [doc] [hw] [digitone-2.md:63](../hardware/devices/digitone-2.md#L63) Architecture<br>[doc] [memory-maps.md:58](../hardware/common/memory-maps.md#L58) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
+| `0x47e075a4` | [doc] [hw] [digitone-2.md:63](../hardware/devices/digitone-2.md#L63) Architecture |
 | `0x47f00000` | [hw] [digitone-2-internals.md:95](../hardware/devices/digitone-2-internals.md#L95) Hardware map and budgets (OS 1.12 unless noted)<br>[emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[emu] [digitone-2-internals.md:9](../hardware/devices/digitone-2-internals.md#L9) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch)<br>[doc] [memory-maps.md:58](../hardware/common/memory-maps.md#L58) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
 | `0x47fe0000` | [emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[doc] [memory-maps.md:39](../hardware/common/memory-maps.md#L39) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11) |
 | `0x47ffffcc` | [emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
-| `0x47ffffff` | [hw] [digitone-2.md:46](../hardware/devices/digitone-2.md#L46) Architecture<br>[doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
+| `0x47ffffff` | [hw] [digitone-2.md:40](../hardware/devices/digitone-2.md#L40) Architecture<br>[doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
 | `0x48000000` | [emu] [memory-maps.md:56](../hardware/common/memory-maps.md#L56) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02)<br>[doc] [emu] [digitone-2-internals.md:199](../hardware/devices/digitone-2-internals.md#L199) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12)<br>[doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59)<br>[untagged] [digitone-2-internals.md:6](../hardware/devices/digitone-2-internals.md#L6) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
 | `0x4e6c0000` | [untagged] [digitone-2-internals.md:8](../hardware/devices/digitone-2-internals.md#L8) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
-| `0x4e6e7100` | [hw] [digitone-2.md:46](../hardware/devices/digitone-2.md#L46) Architecture |
+| `0x4e6e7100` | [hw] [digitone-2.md:40](../hardware/devices/digitone-2.md#L40) Architecture |
 | `0x4e709340` | [untagged] [digitone-2-internals.md:8](../hardware/devices/digitone-2-internals.md#L8) Main-OS memory facts for loaders (Digiwerk note T1.3, DN2 1.12, emulator write-watch) |
 | `0x4fffffff` | [doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
 | `0x60000000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
@@ -950,7 +950,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x8c000010` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
 | `0x9d22b9c8` | [hw] [dt2-dn2-sharc-crosscheck.md:36](../hardware/common/dt2-dn2-sharc-crosscheck.md#L36) 4. Different on the two devices |
 | `0xa0000000` | [hw] [dt2-dn2-sharc-crosscheck.md:36](../hardware/common/dt2-dn2-sharc-crosscheck.md#L36) 4. Different on the two devices<br>[hw] [digitone-2-machines-sampler-sharc.md:72](../hardware/devices/digitone-2-machines-sampler-sharc.md#L72) Reading a DSP stop, and what the silicon enforces (dnfw, DN2 1.11) |
-| `0xa50ce100` | [hw] [digitone-2.md:46](../hardware/devices/digitone-2.md#L46) Architecture |
+| `0xa50ce100` | [hw] [digitone-2.md:40](../hardware/devices/digitone-2.md#L40) Architecture |
 | `0xdebb20e3` | [doc] [digitone-2-internals.md:220](../hardware/devices/digitone-2-internals.md#L220) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
 | `0xec038000` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
 | `0xec070000` | [emu] [sysex-and-midi.md:133](../hardware/common/sysex-and-midi.md#L133) DN2 1.11)<br>[doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
@@ -970,7 +970,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0xfc08c000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc090000` | [doc] [memory-maps.md:18](../hardware/common/memory-maps.md#L18) Digitone II, digikit finding 08 and 59) |
 | `0xfc0b0000` | [doc] [overbridge-usb.md:6](../hardware/common/overbridge-usb.md#L6) Digitone II (digikit finding 42, static, DT2 1.16) |
-| `0xfc0cc024` | [hw] [digitone-2.md:108](../hardware/devices/digitone-2.md#L108) Sample memory (dn2mk2) |
+| `0xfc0cc024` | [hw] [digitone-2.md:102](../hardware/devices/digitone-2.md#L102) Sample memory (dn2mk2) |
 | `0xffffffff` | [hw] [dt2-dn2-sharc-crosscheck.md:14](../hardware/common/dt2-dn2-sharc-crosscheck.md#L14) 1. Shown on both units `[hw]`<br>[hw] [digitone-2-internals.md:119](../hardware/devices/digitone-2-internals.md#L119) More from dnfw's notes (read 2026-11-02)<br>[hw] [digitone-2-os111-reference.md:33](../hardware/devices/digitone-2-os111-reference.md#L33) Free memory |
 
 ## Syntakt (268 addresses)

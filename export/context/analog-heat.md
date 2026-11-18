@@ -124,6 +124,13 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 
 - **Analog Heat FX+ MultiMode (beta 0.1)** (mod, unverified, tested: not stated)
 
+## Stock OS files (pin your mod to one of these SHA-256 values)
+
+- 1.02 (+FX): `Analog-Heat+FX_OS1.02.syx` `85abe773c9e2284cd1b2aaaf1f599ec0f800f56f4b34127214fe998f1a2cfe63` (pinned by 1 catalogued repos)
+- 1.22 (MKII): `Analog-Heat_MKII_OS1.22.syx` `5401d6286a9a79366e6ed4bc0e1f9c849aa39c1c035360cccce2e7f78039a35d` (pinned by 1 catalogued repos)
+- 1.22 (MKI): `Analog-Heat_OS1.22.syx` `4473055689e5982df49406a76e818c06dcf82d3831cfb86c587b97b88f33e109` (pinned by 1 catalogued repos)
+- Details and sources: [hardware/STOCK-OS.md](https://github.com/70b185/Aggregat/blob/master/hardware/STOCK-OS.md)
+
 ## Fact files for this device
 
 - [hardware/common/ecosystem-lessons.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/ecosystem-lessons.md)

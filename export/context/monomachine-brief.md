@@ -122,6 +122,11 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **OP-XY MNMD** (emulator, active, tested: not stated) https://github.com/mmockett/OP-XY-MNMD
 - **ems-monomachine-firmware** (mod, active, tested: not-stated, base OS 1.32B) https://github.com/emuyia/ems-monomachine-firmware
 
+## Stock OS files (pin your mod to one of these SHA-256 values)
+
+- 1.32B (SFX-6/60): `Elektron_SFX6-60_OS1.32B.syx` `fe13c09f661cdba5fe57813240fa1574de1ee0a3ddd7047fc39d0318cba1a710` (pinned by 4 catalogued repos)
+- Details and sources: [hardware/STOCK-OS.md](https://github.com/70b185/Aggregat/blob/master/hardware/STOCK-OS.md)
+
 ## Fact files for this device
 
 - [hardware/common/ecosystem-lessons.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/ecosystem-lessons.md)

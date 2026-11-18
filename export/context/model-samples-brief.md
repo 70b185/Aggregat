@@ -119,6 +119,11 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **ms-multi-output** (mod, active, tested: partly, base OS 1.13) https://github.com/scottmetoyer/ms-multi-output
 - **plaits-on-models** (mod, active, tested: emulator, base OS 1.13) https://github.com/DMDaudio/plaits-on-models
 
+## Stock OS files (pin your mod to one of these SHA-256 values)
+
+- 1.13: `model-samples_OS1.13.syx` `e11859b68deb7e5e3fe86ab32581212093849c4be5d3950add011eac398a2ce8` (pinned by 16 catalogued repos)
+- Details and sources: [hardware/STOCK-OS.md](https://github.com/70b185/Aggregat/blob/master/hardware/STOCK-OS.md)
+
 ## Fact files for this device
 
 - [hardware/common/firmware-container.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/firmware-container.md)

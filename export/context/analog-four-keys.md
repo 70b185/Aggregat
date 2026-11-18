@@ -128,6 +128,14 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **Sidecar | Expander** (mod, wip, tested: emulator, base OS Analog Rytm MKII OS 1.74 only from 0.5.0 (Rytm firmware 0.4.4 is the last for 1.73); the Rytm side is an elekloader module (core 0.1)) https://github.com/trigcondition/sidecar-expander
 - **Sidecar | Expander: Rytm mods** (mod, active, tested: unit, base OS Analog Rytm MKII OS 1.74 (0.5.0 has no 1.73 build; the tree still builds 1.73); Analog Four MKII (a4/)) https://github.com/trigcondition/sidecar-mods
 
+## Stock OS files (pin your mod to one of these SHA-256 values)
+
+- 1.56 (A4 MKI / Analog Keys): `Analog-Four_Analog-Keys_OS1.56.syx` `cda4459d14bfba40635440ad9dfa8fc183e5317e5e3ffa7116704f307fdf7010` (pinned by 5 catalogued repos)
+- 1.55D (A4 MKI / Analog Keys): `Analog-Four_Analog-Keys_OS1.55D.syx` `6449d1a7718371332c48081ca8ac514da76e7ff47613511b2eb00f6d4118582b` (pinned by 1 catalogued repos)
+- 1.55B (A4 MKI / Analog Keys): `Analog-Four_Analog-Keys_OS1.55B.syx` `80d9ada793aabe35adbd32bab0bad8bd6e937bcdc5008d3d08d2f657cbb5f6a6` (pinned by 1 catalogued repos)
+- 1.56 (A4 MKII): `Analog-Four_MKII_OS1.56.syx` `5aea489db3e747547f71d5e08a2d20253149fe6258defad60306402d2fc23cb5` (pinned by 5 catalogued repos)
+- Details and sources: [hardware/STOCK-OS.md](https://github.com/70b185/Aggregat/blob/master/hardware/STOCK-OS.md)
+
 ## Fact files for this device
 
 - [hardware/common/ecosystem-lessons.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/ecosystem-lessons.md)

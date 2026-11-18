@@ -4,7 +4,7 @@
   python3 scripts/rebuild.py            local generators only (no network)
   python3 scripts/rebuild.py --online   first refresh GitHub numbers (scripts/repo_meta.py, needs gh)
 
-Order: first_seen -> build (Markdown lists) -> research_snapshot -> export_db (database) -> agent_packs (context
+Order: first_seen -> build (Markdown lists) -> stock_os (hardware/STOCK-OS.md) -> research_snapshot -> export_db (database) -> agent_packs (context
 packs, weak-evidence list, address map, llms.txt) -> find_duplicates -> feed -> site_pages (share pages, sitemap). The change check
 (scripts/check_updates.py) and the search for new repos (scripts/find_new.py) are separate: see docs/UPDATING.md.
 """
@@ -13,7 +13,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent.parent
-STEPS = ["first_seen.py", "build.py", "research_snapshot.py", "export_db.py", "agent_packs.py", "find_duplicates.py", "feed.py", "site_pages.py"]
+STEPS = ["first_seen.py", "build.py", "stock_os.py", "research_snapshot.py", "export_db.py", "agent_packs.py", "find_duplicates.py", "feed.py", "site_pages.py"]
 
 
 def main():

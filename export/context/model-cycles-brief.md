@@ -143,6 +143,11 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **Supermodel Edition** (mod, active, tested: unit, base OS 1.13) https://github.com/AveyCole/Supermodel
 - **Supermodel REDUX** (mod, active, tested: not-stated, base OS Model:Cycles OS 1.13 (the user's own .syx, checked by the builder)) https://github.com/AveyCole/Supermodel-REDUX
 
+## Stock OS files (pin your mod to one of these SHA-256 values)
+
+- 1.13: `model-cycles_OS1.13.syx` `44fe586269631a0ca7da25a3383fc6733c314809505fc3cc52f1e0ed9800640c` (pinned by 21 catalogued repos)
+- Details and sources: [hardware/STOCK-OS.md](https://github.com/70b185/Aggregat/blob/master/hardware/STOCK-OS.md)
+
 ## Fact files for this device
 
 - [hardware/common/ecosystem-lessons.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/ecosystem-lessons.md)

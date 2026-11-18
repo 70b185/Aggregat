@@ -89,6 +89,7 @@ def main():
     tasks = q("SELECT * FROM tasks WHERE status='open'")
     hyps = q("SELECT * FROM hypotheses WHERE status='open'")
     projects = q("SELECT * FROM projects")
+    stock_os, os_support = q("SELECT * FROM stock_os"), q("SELECT * FROM os_support")
     stamp = f"Data checked {meta.get('checked')}, research snapshot `{meta.get('research_snapshot')}`."
     has = lambda row, slug: slug in lst(row["devices"])
 
@@ -143,6 +144,20 @@ def main():
         brief += [f"- **{p['name']}** ({p['kind']}, {p['status'] or 'status unknown'}, tested: {p['tested'] or 'not stated'}"
                   + (f", base OS {p['base_os']}" if p["base_os"] else "") + ")" + (f" {p['repo']}" if p["repo"] else "")
                   for p in d_proj] or ["- None catalogued."]
+        d_os = [r for r in stock_os if r["device"] == slug]
+        if d_os:
+            brief += ["", "## Stock OS files (pin your mod to one of these SHA-256 values)", ""]
+            brief += [f"- {r['os']}" + (f" ({r['model']})" if r["model"] else "") + f": `{r['file']}` "
+                      f"`{r['sha256']}` (pinned by {r['pinned_count']} catalogued repos)"
+                      + (f"; another value `{r['other_sha256']}` is also seen, not resolved" if r["other_sha256"] else "")
+                      for r in d_os]
+            d_sup = [s for s in os_support if s["device"] == slug]
+            if d_sup:
+                camps = {}
+                for s in d_sup:
+                    camps.setdefault(s["os"].split(",")[0], []).append(s["project"])
+                brief += [f"- Needs {k}: {', '.join(sorted(v))}" for k, v in camps.items()]
+            brief += [f"- Details and sources: [hardware/STOCK-OS.md]({REPO}hardware/STOCK-OS.md)"]
         brief += ["", "## Fact files for this device", ""] + [f"- [{f}]({REPO}{f})" for f in files] + [""]
 
         full = list(brief)
@@ -261,6 +276,7 @@ def main():
              f"- [JSON export]({raw}export/aggregat.json): the same tables as JSON",
              f"- [Export schema and example queries]({raw}export/README.md)",
              f"- [MCP server]({raw}mcp/README.md): query tools for agents",
+             f"- [Stock OS files]({raw}hardware/STOCK-OS.md): SHA-256 of every stock OS file and which version each project needs",
              "", "## Optional",
              f"- [Research map]({raw}research/RESEARCH-MAP.md): what is known and open per device, shared goals",
              f"- [Feature overlap]({raw}research/FEATURE-OVERLAP.md): the same feature built on several devices",

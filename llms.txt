@@ -30,6 +30,7 @@ Everything is second-hand; re-check addresses against the cited source. Evidence
 - [JSON export](https://raw.githubusercontent.com/70b185/Aggregat/master/export/aggregat.json): the same tables as JSON
 - [Export schema and example queries](https://raw.githubusercontent.com/70b185/Aggregat/master/export/README.md)
 - [MCP server](https://raw.githubusercontent.com/70b185/Aggregat/master/mcp/README.md): query tools for agents
+- [Stock OS files](https://raw.githubusercontent.com/70b185/Aggregat/master/hardware/STOCK-OS.md): SHA-256 of every stock OS file and which version each project needs
 
 ## Optional
 - [Research map](https://raw.githubusercontent.com/70b185/Aggregat/master/research/RESEARCH-MAP.md): what is known and open per device, shared goals

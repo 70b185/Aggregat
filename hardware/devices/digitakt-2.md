@@ -78,13 +78,8 @@ OS **1.17** dated 2026-10-01 ("adds some Outbox 8-related features"); English ma
 Newest **1.17**, then 1.16, 1.15C, 1.15B, 1.15A, 1.15, 1.10B, 1.10A, 1.10, 1.03A, 1.03, 1.02, 1.01A, 1.01 (1.00 baseline). No dates per version. Feature milestones from the notes: 1.03 added Overbridge 2.13 support; 1.10 added the Comb+ filter machine, configurable routing of distortion and base-width filter, key tracking; 1.15 added the Slice machine; 1.15A added track swap within a pattern and overdub in live recording. 1.15B and 1.15C are described only as support for "updated production processes" - our inference: newer production batches may need those builds, so check which OS a unit actually runs before assuming a mod's stock hash applies. `[doc]` {elektron-dt2-notes}
 (Earlier in this repo we noted that 1.16 had vanished from Elektron's download page; the release-notes page still lists it. Which files are downloadable now was not re-checked.)
 
-## Identifying stock files (SHA-256 as published by projects; use to check you hold the right file)
-| OS | SHA-256 | Source |
-|---|---|---|
-| 1.17 | `26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5` | {digitakt-ii-research} |
-| 1.16 | `278541e466edcd77d6b3e018a91fb90185932d3c7de224dd3e68294dddf3a9ec` | {digitakt-ii-research}, {digikit-forks} |
-| 1.15C | `62d588456e47194bd56dfee9568fb9dd4521c4ff1e8b5427eb461355532e8c6c` | {digikit-forks} |
-Hashes agree across independent repos where two sources exist (1.16). Always compare against the file you actually downloaded; the hash is how builders recognise a file. `[doc]`
+## Identifying stock files
+The SHA-256 of every Digitakt II stock OS file that projects publish, how many catalogued repos pin each value, and which OS version each project needs: [`../STOCK-OS.md`](../STOCK-OS.md) (generated from [`data/stock-os.yml`](../../data/stock-os.yml)). Always compare against the file you actually downloaded. `[doc]`
 
 ## Deja Vu / zoom builder facts (digitakt-ii-research)
 - Releases: v0.1.0-beta (16 Oct, OS 1.16 only), v0.1.1-beta (17 Oct, adds 1.17, "recommended"), v0.2.0-beta (18 Oct, adds the ONESHOT zoom for 1.17 only). All three generated outputs were validated on a physical unit for normal boot and operation. Output files are identified by hash too (1.17 Deja Vu `cd553ef6...67b2e`, 1.17 Deja Vu + zoom `6163640c...febd4`, 1.16 Deja Vu `d9fe67b3...7835`). `[hw]` {digitakt-ii-research}

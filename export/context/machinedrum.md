@@ -128,6 +128,11 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **MDX** (mod, active, tested: not-stated)
 - **murdenihcam USR machines** (mod, active, tested: not-stated, base OS MDX X.20 B) https://github.com/murdenihcam/murdenihcam-usr-machines
 
+## Stock OS files (pin your mod to one of these SHA-256 values)
+
+- 1.63 (SPS-1UW): `Elektron_SPS1-1UW_OS1.63.syx` `a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5` (pinned by 3 catalogued repos)
+- Details and sources: [hardware/STOCK-OS.md](https://github.com/70b185/Aggregat/blob/master/hardware/STOCK-OS.md)
+
 ## Fact files for this device
 
 - [hardware/common/ecosystem-lessons.md](https://github.com/70b185/Aggregat/blob/master/hardware/common/ecosystem-lessons.md)

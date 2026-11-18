@@ -18,7 +18,9 @@
    "incidents": 152,
    "stock_bugs": 30,
    "addresses": 2194,
-   "ram_tenancy": 136
+   "ram_tenancy": 136,
+   "stock_os": 41,
+   "os_support": 48
   },
   "research_snapshot": "5a0b3743189d"
  },
@@ -21094,7 +21096,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 90,
+   "line": 85,
    "section": "Digitakt II / Deja Vu / zoom builder facts (digitakt-ii-research)",
    "text": "Releases: v0.1.0-beta (16 Oct, OS 1.16 only), v0.1.1-beta (17 Oct, adds 1.17, \"recommended\"), v0.2.0-beta (18 Oct, adds the ONESHOT zoom for 1.17 only). All three generated outputs were validated on a physical unit for normal boot and operation. Output files are identified by hash too (1.17 Deja Vu `cd553ef6...67b2e`, 1.17 Deja Vu + zoom `6163640c...febd4`, 1.16 Deja Vu `d9fe67b3...7835`). `[hw]` {digitakt-ii-research}",
    "evidence": "hw",
@@ -21106,7 +21108,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 91,
+   "line": 86,
    "section": "Digitakt II / Deja Vu / zoom builder facts (digitakt-ii-research)",
    "text": "Builder checks: SHA-256 of input and output, package identity, six-section decode, HMAC/checksums, Sound-object conversion, stock WAVE 0-6 behaviour. The ColdFire side uses a trampoline and a startup allocation (source in the repo's `coldfire/`). `[doc]` {digitakt-ii-research}",
    "evidence": "doc",
@@ -21118,7 +21120,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 92,
+   "line": 87,
    "section": "Digitakt II / Deja Vu / zoom builder facts (digitakt-ii-research)",
    "text": "Open: broad MIDI/sequencer/sync regression and save-reload-power-cycle persistence are unverified. `[doc]` {digitakt-ii-research}",
    "evidence": "doc",
@@ -21130,7 +21132,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 95,
+   "line": 90,
    "section": "Digitakt II / Hardware claims from forums and teardowns (not verified)",
    "text": "Forum users who opened the unit: main CPU is the same ColdFire as the Digitakt mk1 (MCF54415CMJ250 reported); new in the Digitakt II: the ADSP-21569 SHARC system, a larger eMMC and an additional 512 MB DDR3L; audio codec looks the same, a DAC was added. `[?]` {elektronauts-dt2-intro}",
    "evidence": "?",
@@ -21142,7 +21144,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 96,
+   "line": 91,
    "section": "Digitakt II / Hardware claims from forums and teardowns (not verified)",
    "text": "On the day of the first teardown photos (from Discord, hedged with \"supposedly\"/\"possibly\") a poster spotted a ColdFire CPU (NXP MCF54415CMJ250), linked the ADSP-21569 as the SHARC part, and a 2023-dated mainboard; others complained that both are old \"legacy\" parts. Eventually a separate thread confirmed it as the Digitakt II PCB (not readable by us). `[?]` {elektronauts-dt2-teardown}",
    "evidence": "?",
@@ -21154,7 +21156,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 97,
+   "line": 92,
    "section": "Digitakt II / Hardware claims from forums and teardowns (not verified)",
    "text": "Another poster says the main CPU is a legacy chip first launched Dec 2017 and that the board has many Kingston memory chips. `[?]` {elektronauts-dt2-pcb}",
    "evidence": "?",
@@ -21166,7 +21168,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 98,
+   "line": 93,
    "section": "Digitakt II / Hardware claims from forums and teardowns (not verified)",
    "text": "The Digitone II board has the same part number PCBA0109B as the Digitakt II (32 GB Kingston eMMC), so both likely run the same hardware with different OS images and header boards. `[?]` {elektronauts-dn2-pcb}",
    "evidence": "?",
@@ -21178,7 +21180,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 99,
+   "line": 94,
    "section": "Digitakt II / Hardware claims from forums and teardowns (not verified)",
    "text": "Specs from reviews: 400 MB sample memory, 20 GB internal storage, 16 tracks (synthtopia summary); sample memory pool of dn2mk2 on the Digitone II is also 400 MB. `[doc]` {dn2mk2-firmware-md}",
    "evidence": "doc",
@@ -21190,7 +21192,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 111,
+   "line": 106,
    "section": "Digitakt II / Architecture map from static analysis and simulation (lalzart, OS 1.15C)",
    "text": "SHARC part: ADSP-21569. Section 7 holds ADSP-2156x loader/application records (104 records mapped). FreeRTOS, an Audio task and a recurring block loop are traced. The hand-off from the boot kernel to that startup is not.",
    "evidence": "doc",
@@ -21202,7 +21204,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 112,
+   "line": 107,
    "section": "Digitakt II / Architecture map from static analysis and simulation (lalzart, OS 1.15C)",
    "text": "The ColdFire <-> SHARC frame is the same shape as on the Digitone II: A full-duplex `0xabc`-byte DSPI2 frame carries a `0x802`-byte state payload: 16 records of `0x60` bytes, track n to SHARC unit n. ColdFire eDMA29 sends and eDMA28 receives; the SHARC uses SPI2 with completed-image double buffering. The send is driven from a level-5 interrupt that a level-6 eDMA-completion path forces in software. Link settings: SPI mode 1, 16-bit MSB-first, one `0x55e`-word window. The meaning of the SHARC-to-ColdFire return content is open. Compare the DN2's frame and reply words in [digitone-2-internals.md](digitone-2-internals.md). This is a second, independent reading of the shared design (research map T19).",
    "evidence": "doc",
@@ -21214,7 +21216,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 118,
+   "line": 113,
    "section": "Digitakt II / Architecture map from static analysis and simulation (lalzart, OS 1.15C)",
    "text": "Project samples reach the SHARC over a different path: ColdFire Rapid-GPIO byte/strobe/ready endpoint -> SHARC link port 0 (LP0_RX, DMA30). Samples are described by five-word resource descriptors with 4 KiB pages. This agrees with digikit finding 15 ([digitakt-2-sharc-measured.md](digitakt-2-sharc-measured.md)). The physical bridge between the two endpoints is not identified.",
    "evidence": "doc",
@@ -21226,7 +21228,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 119,
+   "line": 114,
    "section": "Digitakt II / Architecture map from static analysis and simulation (lalzart, OS 1.15C)",
    "text": "Audio output: two 64-word banks are selected, then sent by a two-bank circular DMA descriptor (DMA10) to SPORT4 half A. Codec and pin are not identified.",
    "evidence": "doc",
@@ -21238,7 +21240,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 120,
+   "line": 115,
    "section": "Digitakt II / Architecture map from static analysis and simulation (lalzart, OS 1.15C)",
    "text": "Update path: MAIN validates checksum, minimum version and the cryptographic trailer before it erases and programs the staged ELE3 slot at flash `0x80000`, then requests a reset. Which updater copy runs after reset, and whether recovery is independent of it, is marked opaque.",
    "evidence": "doc",
@@ -21250,7 +21252,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 123,
+   "line": 118,
    "section": "Digitakt II / Architecture map from static analysis and simulation (lalzart, OS 1.15C)",
    "text": "Offline modifications proven in the simulator only: a byte-exact selector reroute, and a 3-byte change that turns an output-bank negation into pass-through. Re-encoding a modified section and running it on hardware are explicitly unproven.",
    "evidence": "doc",
@@ -21262,7 +21264,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 126,
+   "line": 121,
    "section": "Digitakt II / What happens on a ColdFire fault (digikit finding 37, DT2 1.16/1.17 and DN2 1.11/1.12, static, checked by a second agent) `[doc]`",
    "text": "The main OS's default exception handler prints `EXCEPTION ...` with the vector, format, PC and twelve stack words, then executes `halt` with interrupts masked. It never returns.",
    "evidence": "doc",
@@ -21274,7 +21276,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 127,
+   "line": 122,
    "section": "Digitakt II / What happens on a ColdFire fault (digikit finding 37, DT2 1.16/1.17 and DN2 1.11/1.12, static, checked by a second agent) `[doc]`",
    "text": "The core watchdog is not used anywhere in the main OS, so a fault hangs the whole device until the power is cycled. Messages like the DT2's `V04 M0 P40311A64` (dt2-machine-lab) are this handler's output.",
    "evidence": "doc",
@@ -21286,7 +21288,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 128,
+   "line": 123,
    "section": "Digitakt II / What happens on a ColdFire fault (digikit finding 37, DT2 1.16/1.17 and DN2 1.11/1.12, static, checked by a second agent) `[doc]`",
    "text": "digikit's runtime counts bad boots: the counter is raised at boot start and cleared only after 30 s of stable running. `[doc]`",
    "evidence": "doc",
@@ -21298,7 +21300,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 134,
+   "line": 129,
    "section": "Digitakt II / The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12)",
    "text": "The intro is its own task, priority 7, created once by the installer before the main-OS task (DT2 `0x400d1448`, DN2 1.12 `0x400d3920`) and woken by a PIT3 tick. A higher number is more urgent here, so the intro preempts the main-OS task (priority 6). A frame callback that never returns starves the main OS until power-off.",
    "evidence": "doc",
@@ -21310,7 +21312,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 135,
+   "line": 130,
    "section": "Digitakt II / The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12)",
    "text": "Five scene tables at `0x402a1b64`, `0x402a1b74`, `0x402a1b84`, `0x402a1b94`, `0x402a1ba4`. Each boot picks one with an LCG; the first is picked about 99.9 % of the time and has 175 frames. An entry is `{callback, frame count}`, ended by a 0.",
    "evidence": "doc",
@@ -21322,7 +21324,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 136,
+   "line": 131,
    "section": "Digitakt II / The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12)",
    "text": "One pointer drives it: the current entry is at DT2 `0x43153a00`, DN2 1.12 `0x42c4cacc`, DN2 1.11 `0x42c4bacc`. Only the setup function (DT2 `0x400d1832`, DN2 1.12 `0x400d3d0a`) and the tick function (DT2 `0x400d18f0`, DN2 1.12 `0x400d3dc8`) touch it. Each frame calls `callback(index, count, bitmap)`; count 0 ends the intro the normal way: the pointer is cleared, PIT3 stops and semaphore `0x43149550` releases the main-OS task.",
    "evidence": "doc",
@@ -21334,7 +21336,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 137,
+   "line": 132,
    "section": "Digitakt II / The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12)",
    "text": "Swapping the intro: a hook before the setup function's argument load (`move.l (0x24,SP),D0; movea.l D0,A0`, DT2 `0x400d183a`, DN2 1.12 `0x400d3d12`, DN2 1.11 `0x400d3bae`, the same 6 bytes on all three) can point it at an own table. In digikit's emulator the UI was then reached after 115 audio blocks instead of 5,973 (DT2) and 6,180 (DN2). Stock's frame clear is `0x40113700` (DN2 1.12 `0x40115074`, DN2 1.11 `0x40114d94`), called as `(bitmap, 0, 1)`. `[emu]`",
    "evidence": "emu",
@@ -21346,7 +21348,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 138,
+   "line": 133,
    "section": "Digitakt II / The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12)",
    "text": "Frame rate unresolved: digikit's timer model gives 30 Hz (175 frames = 5.8 s); its earlier emulator notes derived 15 Hz. Open conflict [O20](../CONFLICTS.md). Module code first runs at about frame 53-57 of the intro (emulator); almost all of that delay is stock setup.",
    "evidence": "doc",
@@ -21358,7 +21360,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 139,
+   "line": 134,
    "section": "Digitakt II / The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12)",
    "text": "Faults during the intro reach stock's halting handler (see the section above): digikit installs its own crash handler only from the UI loop.",
    "evidence": "doc",
@@ -21370,7 +21372,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 140,
+   "line": 135,
    "section": "Digitakt II / The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12)",
    "text": "Frame layout on the panel (measured on one DT2 1.17): with y = 0 at the top, the intro bitmap holds pixel (x, y) at byte `8*x + (63-y)/8`, bit `7 - (63-y)%8`, flipped vertically only. digikit's emulator shows these frames the other way up. `[hw]` ([I53](../INCIDENTS.md#i53-boot-screen-frames-were-upright-in-the-emulator-and-flipped-on-the-panel))",
    "evidence": "hw",
@@ -21382,7 +21384,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 141,
+   "line": 136,
    "section": "Digitakt II / The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12)",
    "text": "Safe mode is digikit's, not stock's: REC (key `0x13`, state byte 2 bit 2; key state array at DT2 `0x44dc8644`, DN2 `0x445a2e30`) held from power-on skips all modules. On one DT2 1.17 it worked, and a custom boot screen started about 1.8 s after the stock intro. `[hw]` ([I54](../INCIDENTS.md#i54-safe-mode-by-rec-at-power-on-tested-on-a-digitakt-ii))",
    "evidence": "hw",
@@ -21394,7 +21396,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 142,
+   "line": 137,
    "section": "Digitakt II / The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12)",
    "text": "With the black intro patch set, the bootstrap's logo, \"B\" and the OS version stay until the main OS first writes the display, then about 1-2 s of black, then the boot screen. `[hw]`",
    "evidence": "hw",
@@ -21406,7 +21408,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 146,
+   "line": 141,
    "section": "Digitakt II / Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)",
    "text": "ColdFire heap: a 32 MiB buddy allocator at `0x44f39c40-0x46f39c40` (16-byte minimum, power-of-two blocks), parameters at `0x402b406c`.",
    "evidence": "emu",
@@ -21418,7 +21420,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 147,
+   "line": 142,
    "section": "Digitakt II / Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)",
    "text": "Allocating from the stock heap at startup (digitakt-ii-research, OS 1.16, emulator, byte-verified sites) {dt2-research-heap}: `malloc` is at `0x4011e674` (size at `4(A7)`, pointer in D0, mutex at `0x44e08654`, lazy init on first call). `free` is at `0x4011e87a`. It traps with `illegal` on a pointer outside the heap or not 16-byte aligned, the same rule as the Digitakt mk1's operator delete. The OS clears `0x40312000-0x47e28470` at reset, so static data placed there does not survive boot. A startup hook at `0x40133646` (`link.w` + `movem`) made exactly one 8 KiB allocation that stayed untouched for 20 M instructions. This is the cleanest way to own memory without a cave.",
    "evidence": "emu",
@@ -21430,7 +21432,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 152,
+   "line": 147,
    "section": "Digitakt II / Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)",
    "text": "Sample pool: Logical range `0x400-0x19000400`, 400 MiB, allocations rounded to 8 KiB. The ColdFire's allocation records decide admission; no SHARC malloc is involved. In the SHARC's view the pool is a window at DSP byte address `0x8422b9c8 + (offset - 0x400)`, ending at `0x9d22b9c8`. Capicola reserves the top 8 MiB.",
    "evidence": "emu",
@@ -21442,7 +21444,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 156,
+   "line": 151,
    "section": "Digitakt II / Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)",
    "text": "Recorder: the main OS fetches recorder data in chunks of at most `0x800` bytes over DSPI1 from a service whose physical owner (ColdFire, SHARC DDR or a third part) is not established. Staging buffers are at `0x4fe79340` / `0x4fe7a340`.",
    "evidence": "emu",
@@ -21454,7 +21456,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 157,
+   "line": 152,
    "section": "Digitakt II / Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)",
    "text": "SHARC side: Sample-slot table at `0x257810 + slot*0x14`: 1,025 entries, slot `0x400` is the preview. Voices at `0x2412cc + lane*0x1d8`, 32 lanes: `+0` PCM pointer, `+0x188` length, `+0x1b8` active. Link-port 0 receive staging at `0x268220` (descriptor) and `0x268240` (a tag plus 4 KiB of payload).",
    "evidence": "emu",
@@ -21466,7 +21468,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 161,
+   "line": 156,
    "section": "Digitakt II / Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator)",
    "text": "Once published to the SHARC, PCM keeps playing after the ColdFire source is freed, as long as the stock allocation stays owned. Saving, however, needs the source, and no read-back path from sample memory was found.",
    "evidence": "emu",
@@ -21478,7 +21480,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 164,
+   "line": 159,
    "section": "Digitakt II / Three Digitakt II mod routes side by side (T21, 2026-11-02)",
    "text": "digikit's patchkit (used by digitakt-ii-research's All-in-One and dt2-machine-lab), elekloader's core-dt2 (used by digitakt2-perform) and the hand-placed builds share the flash cave `0x403117c4-0x40312000`. elekloader's RAM `0x47f00000-0x47f40000` lies inside digikit's `cf.expansion` `0x47e8b000-0x47fe0000`. Full table of ranges and hook sites: [memory-maps.md](../common/memory-maps.md). `[doc]`",
    "evidence": "doc",
@@ -21490,7 +21492,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 165,
+   "line": 160,
    "section": "Digitakt II / Three Digitakt II mod routes side by side (T21, 2026-11-02)",
    "text": "A decoded section 7 over 1 MiB crashed a unit (dt2-machine-lab, OS 1.16): [firmware-container.md](../common/firmware-container.md), rule A46. `[hw]` {dt2-lab-capicola} ([I16](../INCIDENTS.md#i16-a-decoded-section-7-over-1-mib-crashed-the-unit))",
    "evidence": "hw",
@@ -21502,7 +21504,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 172,
+   "line": 167,
    "section": "Digitakt II / Sound parameters, overdrive and run-time machines (digikit, DT2 1.17 / DN2 1.12, 2026-11-10)",
    "text": "Reading a track's Sound parameter words needs no fixed address: get the project singleton, its ProjectSettings at project + `0x30` (static analysis only), the selected track from `view_track` (clamped 0-15), then `native_track_sound(active kit, track)` = kit + `0x6c` + `0x3c0` x track; vtable slot `0x28` of that Sound object returns the record pointer `*(sound + 0x10)` (0 when none is bound), and word i is a big-endian s16 at record + `0x14` + 2i. Anchors: settings `0x40041d18` (DT2 1.17) / `0x4003e40e` (DN2 1.12); `native_track_sound` `0x40035cca` / `0x40030e66`. The array holds 71 words on the DT2 and 101 on the DN2. `[doc]`",
    "evidence": "doc",
@@ -21514,7 +21516,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 173,
+   "line": 168,
    "section": "Digitakt II / Sound parameters, overdrive and run-time machines (digikit, DT2 1.17 / DN2 1.12, 2026-11-10)",
    "text": "On the DN2 a track's Sound record can sit at an odd address (kit stride `0x48b`), so read it byte by byte. A parameter code maps to its array index through the descriptor table (rows of `0x3c` bytes, index as s32 at row + 4, -1 = no word); the same index means another parameter on another machine. P-locks, sound lock, LFO and MIDI CC writes go through other paths, and a latched parameter of a run-time machine changed no word in the array (where it is stored is open). `[doc]`/`[emu]`",
    "evidence": "doc,emu",
@@ -21526,7 +21528,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 174,
+   "line": 169,
    "section": "Digitakt II / Sound parameters, overdrive and run-time machines (digikit, DT2 1.17 / DN2 1.12, 2026-11-10)",
    "text": "Track overdrive (stock): the curve clamps to +-1 and applies y*(2-|y|) three times; the blend is x + mix*(y-x) with stock ramps for drive and mix. OVR Routing is parameter `0x103` (Sound mirror index 68; 0 = pre, `0x100` = post). The per-track stage is called twice per track from the voice chain. `[doc]` {digikit-overdrive}",
    "evidence": "doc",
@@ -21538,7 +21540,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 175,
+   "line": 170,
    "section": "Digitakt II / Sound parameters, overdrive and run-time machines (digikit, DT2 1.17 / DN2 1.12, 2026-11-10)",
    "text": "Run-time machines: on the DT2 they can use knob slots B C E F G H; a parameter on the seventh slot replaces LEV, whose level is then fixed at 100. The run-time module stage is limited to 64 KB; a TB-303 port costs about 8,000 SHARC instructions per 32-sample block. `[doc]` {digikit-tb303}",
    "evidence": "doc",
@@ -21550,7 +21552,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 176,
+   "line": 171,
    "section": "Digitakt II / Sound parameters, overdrive and run-time machines (digikit, DT2 1.17 / DN2 1.12, 2026-11-10)",
    "text": "ColdFire jump targets must be even: a jsr/jmp to an odd address faults with an address error on the unit while the emulator runs on; a byte-aligned mod section froze a DT2 at boot (I61). `[hw]` {elekloader-oddjump}",
    "evidence": "hw",
@@ -21562,7 +21564,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 177,
+   "line": 172,
    "section": "Digitakt II / Sound parameters, overdrive and run-time machines (digikit, DT2 1.17 / DN2 1.12, 2026-11-10)",
    "text": "Modwerk's DT2 base: a combined image booted on a DT2 (OS 1.17, 2026-11-08) and restored saved module kit data after a project reload. Its audio scheduler (grid callbacks and phrase replacement at the stock audio submission call `0x400d82f8`) is a proposal checked only in digikit fixtures. `[hw]` / `[emu]` {modwerk-dt2-base}",
    "evidence": "emu,hw",
@@ -21574,7 +21576,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 180,
+   "line": 175,
    "section": "Digitakt II / +Drive file writes from mod code (digikit finding 120, DT2 1.17)",
    "text": "The firmware's own file calls can write samples: open (`0x40158902`, mode \"w\"), write (`0x4015866a`), reserve, hash (`0x4015b3aa`), close (`0x401588c0`), info, delete (`0x40157078`), mkdir and rename (`0x40156f6c`, which keeps the inode, size and stored hash). Each takes the recursive filesystem mutex itself and blocks, so call them from a task, never an interrupt. The sampler's recorder `0x40153c70` is a complete stock caller. `[doc]` (static)",
    "evidence": "doc",
@@ -21586,7 +21588,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 181,
+   "line": 176,
    "section": "Digitakt II / +Drive file writes from mod code (digikit finding 120, DT2 1.17)",
    "text": "Open does not truncate: an existing file opens at position 0 with its old size and data; stock deletes first. Whole 32 KiB pages at multiples of `0x8000` are written straight from the buffer, the rest goes through the page cache. `[doc]`",
    "evidence": "doc",
@@ -21598,7 +21600,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 182,
+   "line": 177,
    "section": "Digitakt II / +Drive file writes from mod code (digikit finding 120, DT2 1.17)",
    "text": "The 16-byte trailer: files carry 16 zero bytes after the data, and the stored hash covers them; the C calls do not add them (the recorder and stock's MidiRpc close do), so a writer adds them before the hash. File info reports size minus 16. `[emu]` (card read back on the emulator) Elekloader's Rytm loader meets the same 16 bytes as a header at the start of each file on the Analog Rytm MKII ([analog-rytm.md](analog-rytm.md)).",
    "evidence": "emu",
@@ -21610,7 +21612,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 183,
+   "line": 178,
    "section": "Digitakt II / +Drive file writes from mod code (digikit finding 120, DT2 1.17)",
    "text": "Power cut: a cut mid-write leaves a visible file with a partial size and no hash; the mount was not seen to repair it. Delete refuses an open file (open-file bitmap at `0x46f4ded0`). Only `/factory` is RAM-backed; user files always go to the card, and a failed card write is not reported. `[doc]`",
    "evidence": "doc",
@@ -21622,7 +21624,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 184,
+   "line": 179,
    "section": "Digitakt II / +Drive file writes from mod code (digikit finding 120, DT2 1.17)",
    "text": "On a unit (2026-11-11) digikit's bulk uploads through these calls left only complete files after a pulled cable, and the stock sample browser did not list the staging folder `/.dkstage`. `[hw]` {digikit-usbfast}",
    "evidence": "hw",
@@ -21634,7 +21636,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 187,
+   "line": 182,
    "section": "Digitakt II / Project and kit storage (digikit finding 121, DT2 1.17)",
    "text": "In RAM: the project object is at `0x41776c9c`; 128 patterns from `0x41776cb8` (stride `0x1db8c`), 128 kits from `0x426532b8` (stride `0x5574`). Serializer `0x400df66c` (flag bits pick the parts), loader `0x400df95a`. `[doc]`",
    "evidence": "doc",
@@ -21646,7 +21648,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 188,
+   "line": 183,
    "section": "Digitakt II / Project and kit storage (digikit finding 121, DT2 1.17)",
    "text": "Bytes the serializer never writes: pattern record `0x15acc-0x15c00`, kit record `0x573e-0x5800`, file header `0x1c-0x200`. Pattern RAM `+0x1cef0..0x1db60` is not saved but is in use: pokes there hung the UI. `[doc]` (the hang `[hw]`)",
    "evidence": "doc,hw",
@@ -21658,7 +21660,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 191,
+   "line": 186,
    "section": "Digitakt II / Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13)",
    "text": "Whole-sample-clear hook on OS 1.17: the entry `0x40154634` starts with push A2, push D2, `clr.l D2` (6 bytes); a hook resumes at `0x4015463a`. INIT NEW and a full project LOAD both pass it. It is a notice, not a promise that the recorder, loaders or DMA have stopped: drain your own work before stock frees the backing. `[emu]`",
    "evidence": "emu",
@@ -21670,7 +21672,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 192,
+   "line": 187,
    "section": "Digitakt II / Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13)",
    "text": "OS 1.16 project LOAD: the stock clear runs once per sample slot, so it marks no project boundary; the post-clear sample-batch entry does. The load-and-select callback (caller `0x40046c8e`) saves a recovery copy to internal slot 128 before its asynchronous sample batch completes; a mod that blocks that save makes LOAD report LOAD ERROR although decoding succeeded (I93). `[emu]`",
    "evidence": "emu",
@@ -21682,7 +21684,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 193,
+   "line": 188,
    "section": "Digitakt II / Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13)",
    "text": "Sample rows are shared: digikit's `core/sample-pool` reserves the top sixteen rows (H112-H127); Sketch uses H124-H127 for live buffers and H116-H123 for FREEZE, so the two declare a conflict. A user sample in those rows also blocks the reservation. Two mods that reserve sample rows need one owner. `[doc]`",
    "evidence": "doc",
@@ -21694,7 +21696,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 194,
+   "line": 189,
    "section": "Digitakt II / Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13)",
    "text": "OS 1.16 recorder editor (static): the waveform service `0x4001266a` issues recorder command 3 for four signed extrema; encoder handling at `0x40020960`; trim endpoints at view +`0x9a0`/+`0x9a4`; the accepted-range copy is command 4 at `0x4001282e`. The native accept refuses ranges below 141 frames. `[doc]`",
    "evidence": "doc",
@@ -21706,7 +21708,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 195,
+   "line": 190,
    "section": "Digitakt II / Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13)",
    "text": "Stock SHARC load on OS 1.16 (emulator, mean instructions per 32-frame block of 666,667 cycles): 206,144 idle, 209,769 with 1 stereo track, 220,304 with 4, 262,231 with 16. Bounded workloads, not worst cases. `[emu]`",
    "evidence": "emu",
@@ -21718,7 +21720,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 198,
+   "line": 193,
    "section": "Digitakt II / UI surfaces for mods (digikit finding 122, DT2 1.17)",
    "text": "Pointer returns: the firmware returns pointers in d0, while GCC's m68k ABI reads them from a0; a C prototype returning a pointer froze the UI. Declare such routines as returning a 32-bit integer. `[hw]`",
    "evidence": "hw",
@@ -21730,7 +21732,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 199,
+   "line": 194,
    "section": "Digitakt II / UI surfaces for mods (digikit finding 122, DT2 1.17)",
    "text": "Sites: encoder filter `0x40111cda`; per-frame value block `0x80005b50`; modulator call site `0x4002e90c`; LED frame `0x4003117c`, LED setter `0x400308e0`; NameView wrapper `0x40117c70`. `[doc]`",
    "evidence": "doc",
@@ -21742,7 +21744,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 200,
+   "line": 195,
    "section": "Digitakt II / UI surfaces for mods (digikit finding 122, DT2 1.17)",
    "text": "LED colour byte: on a unit `0x31` looked deep blue and `0x41` yellow (one observer, by eye); this disagrees with digikit's own finding 19 (CONFLICTS O25). `[hw]` `[?]`",
    "evidence": "?,hw",
@@ -21754,7 +21756,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 203,
+   "line": 198,
    "section": "Digitakt II / USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)",
    "text": "USB mode switch: `FUN_40006c16` has the same address and bytes on DT2 1.17 and DN2 1.12. It takes no lock and cuts a MIDI reply in flight; USB restarts after a 30-tick counter (about 1 s in the emulator; counter DT2 `0x40965a38`, DN2 `0x4058f280`). The stored USB CONFIG byte (0 MIDI, 1 Overbridge, 2 AUDIO/MIDI; DT2 `0x4099d5c4`, DN2 `0x405ce898`) is written only by the menu actions (DT2 `0x4010331a`/`30`/`48`, DN2 `0x40104dc2`/`d8`/`f0`), never by the switch, so a reboot returns to the stored mode; an Overbridge disconnect (`FUN_400f2ce0`) is the only path that re-applies it by itself. DT2 connection-state word `0x40965a40`. `[doc]`",
    "evidence": "doc",
@@ -21766,7 +21768,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 204,
+   "line": 199,
    "section": "Digitakt II / USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)",
    "text": "Take-over on units (2026-11-11): digikit's Fast USB switched both units from USB AUDIO/MIDI to USB MIDI in RAM for an upload over its bulk interface and back (SysEx TAKEOVER `0x1e`, RELEASE `0x1f`); the stored mode byte stayed unchanged and USB audio was heard working afterwards. Longer loops later lost a unit from USB (I80, next section). `[hw]`",
    "evidence": "hw",
@@ -21778,7 +21780,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 205,
+   "line": 200,
    "section": "Digitakt II / USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)",
    "text": "+Drive internals: close hash `0x4015b1e8` under the filesystem mutex `0x46f4deb0` (recursive lock `0x400015a0`, unlock `0x400016d2`); inode get/put/write `0x4015b92a`/`0x4015b846`/`0x4015b868`; extent lookup `0x4015813c`; hash-table rebuild `0x4015b0ee` (about 300 ms per file on a unit); event post `0x4015a6aa`. Data page 0 is card sector `0x5ee180` (page p at base + p x `0x40`), the first hash page sector `0x5ee980`. Every file write reaches the card before the call returns. The eSDHC read/write is clamped to 64 KiB (DT2 `0x4012e3c4`, DN2 `0x4012ca8a`). `[doc]`",
    "evidence": "doc",
@@ -21790,7 +21792,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 206,
+   "line": 201,
    "section": "Digitakt II / USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)",
    "text": "Measured ceilings (8 MiB, 2026-11-11): DT2 +Drive file write 2.6 MB/s with 64 KiB calls, 7.8 MB/s with 256 KiB, 10.3 MB/s with 1 MiB; the firmware's close-hash re-read 4.2 MB/s; store writes DT2 about 7.2 MB/s, DN2 6.3 MB/s; raw card reads 15.3 MB/s on both; CPU hash 16-18.7 MB/s. A whole 8 MB upload: DT2 2.99-6.15 s (varies a lot between runs), DN2 1.75 s. Per file about 0.18-0.19 s fixed cost. `[hw]`",
    "evidence": "hw",
@@ -21802,7 +21804,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 207,
+   "line": 202,
    "section": "Digitakt II / USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)",
    "text": "Fast close: digikit hashes from a card read-back and then runs the firmware's own close steps, byte-identical to the stock close, falling back to the firmware close if the read-back fails. After such uploads the stock browser listed the files, a sample loaded and played, and a project that referenced an uploaded sample reloaded and played it. Creating the staging folder `/.dkstage` cost about 420 ms and removing a file from it about 150 ms, so it now stays for the session. `[hw]`",
    "evidence": "hw",
@@ -21814,7 +21816,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 208,
+   "line": 203,
    "section": "Digitakt II / USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)",
    "text": "SHARC cycle counter: each image has exactly one EMUCLK reader, the block handler (DT2 `0x1c74cd`, DN2 `0x1c9d6b`), which keeps a low-word delta for reporting only; nothing branches on it. `[doc]`",
    "evidence": "doc",
@@ -21826,7 +21828,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 209,
+   "line": 204,
    "section": "Digitakt II / USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12)",
    "text": "eMMC EXT_CSD copy in RAM: DT2 1.17 `0x4fe69100`, DN2 1.12 `0x4e6f9100`; bytes are reversed within each 32-bit word because the eSDHC runs little-endian. `[doc]`",
    "evidence": "doc",
@@ -21838,7 +21840,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 212,
+   "line": 207,
    "section": "Digitakt II / USB take-over failures and card speed (digikit, 2026-11-13)",
    "text": "The USB mode take-over is not reliable on a unit: switching a Digitakt II from USB AUDIO/MIDI to USB MIDI in RAM and back lost the unit from USB in cycle 5 of a 20-cycle loop, and in cycle 11 after digikit added a 2 s restart hold and parked the PHY's line during the stop. The host saw no disconnect, the unit no longer answered, a cable replug did not help and only a power cycle did; both failures came on TAKEOVER, never on RELEASE. digikit now keeps the take-over off by default; with USB CONFIG set to USB MIDI in the menu its fast transfer ran fully reliably (I80, rule A55). `[hw]`",
    "evidence": "hw",
@@ -21850,7 +21852,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 213,
+   "line": 208,
    "section": "Digitakt II / USB take-over failures and card speed (digikit, 2026-11-13)",
    "text": "External ULPI PHY: the USB controller drives an external ULPI PHY (PORTSC.PTS = ULPI, set at init `0x40006d1c`-`0x40006d2c`). The stock firmware writes no PHY register: its only ULPI_VIEWPORT (`0xFC0B0170`) use is a read of PHY register 0 every 300 calls of a periodic function (`0x40006af8`), which resets the controller (not the PHY) when the read never finishes. It never sets PORTSC.PHCD. The VBUS interrupt (`0x40005e14`, OTGSC.BSVIS) starts or stops the controller; the restart `0x40006bc6` starts it only while OTGSC.BSV is set. Same code on DN2 1.12. `[doc]`",
    "evidence": "doc",
@@ -21862,7 +21864,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 214,
+   "line": 209,
    "section": "Digitakt II / USB take-over failures and card speed (digikit, 2026-11-13)",
    "text": "The USB clock comes from the PHY: the stock init clears MISCCR.USBSRC (`0xEC09000E` bit 0), so the PHY's 60 MHz ULPI output clocks the controller's USB side. A PHY whose clock stops freezes USB while the rest of the unit runs on. The documented way to restart a stopped PHY clock is a viewport wake-up (WU set, RUN clear). Same code on DN2 1.12. `[doc]` {digikit-f123-bulk}",
    "evidence": "doc",
@@ -21874,7 +21876,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 215,
+   "line": 210,
    "section": "Digitakt II / USB take-over failures and card speed (digikit, 2026-11-13)",
    "text": "Stock controller reset: `0x40006ada` (same on DT2 1.17 and DN2 1.12) stops the controller with restart type 2; after 30 ticks `0x40007104` sets USBCMD.RST and spins on it with no bound, runs the USB init `0x40006c52` and restarts if VBUS is valid. The firmware's own viewport watchdog uses this path. Each reset leaks one of the 16 shared timer slots (SB20). `[doc]` {digikit-f123-bulk}",
    "evidence": "doc",
@@ -21886,7 +21888,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 216,
+   "line": 211,
    "section": "Digitakt II / USB take-over failures and card speed (digikit, 2026-11-13)",
    "text": "How a failed take-over looks: after RS is set again PORTSC shows line state SE0 (`0xa0000005`; good switches show J), no SOF arrives and the host never addresses the device; after a controller reset OTGSC.BSV reads 0. Failures came on take-over and on release, with audio idle: 1 in 76 and 1 in 200 switches on two builds; parking the PHY line during the stop made it about 1 in 15. A replug never helped, a power cycle always did; a stop/hold/restart and the stock reset did not revive it. A viewport wake-up was never tried on a unit (I80). `[hw]` {digikit-f123-bulk}",
    "evidence": "hw",
@@ -21898,7 +21900,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 217,
+   "line": 212,
    "section": "Digitakt II / USB take-over failures and card speed (digikit, 2026-11-13)",
    "text": "USB AUDIO/MIDI port entry 5: the port table has 0x28-byte entries; entry 5 is at table + 0xC8 (DT2 `0x4029f048`): +0 connect `0x400040a6`, +4 disconnect `0x40004054`, +0xC configuration pointer, +0x10 length 0x148. The configuration has 5 interfaces (UAC2 on 0-2, MIDI on 3-4 with the EP1 bulk pair); EP2 IN is the iso feedback and EP2 OUT is unused. A bus reset clears ENDPTCTRL1-3 and every queue head, and SET_CONFIGURATION calls connect again. DN2 1.12 has the same code at other data addresses. `[doc]` {digikit-f123-bulk}",
    "evidence": "doc",
@@ -21910,7 +21912,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 218,
+   "line": 213,
    "section": "Digitakt II / USB take-over failures and card speed (digikit, 2026-11-13)",
    "text": "A bulk OUT endpoint fits beside live USB audio: digikit hooks the USB init entry `0x40006c52` (6-byte prologue, same on DT2 1.17 and DN2 1.12; it runs at boot and again in interrupt context after a controller reset), copies the configuration, appends interface 5 (vendor class, EP2 OUT bulk, 512 bytes), sets wTotalLength 0x158 and repoints entry 5; connect and disconnect touch only the receive half of ENDPTCTRL2. Replies go back over SysEx. A probe sent 200 MB at 28 MB/s while audio played; real uploads on 2026-11-13: DN2 3.38 MB/s (6.5 MB) and 2.09 MB/s (146 MB in 200 files, audio clean), DT2 2.74 and 1.50 MB/s. macOS keeps audio and MIDI; Windows does not bind it without an MS OS 2.0 descriptor. Not yet tested: long runs, host sleep, a bus reset during a transfer. `[hw]` {digikit-f123-bulk}",
    "evidence": "hw",
@@ -21922,7 +21924,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 219,
+   "line": 214,
    "section": "Digitakt II / USB take-over failures and card speed (digikit, 2026-11-13)",
    "text": "eMMC: both units carry an eMMC 5.1 of 23.05 GiB with identical EXT_CSD: enhanced reliable write supported but not forced, 1 MiB cache off, background operations off, optimal write size 32 KiB. Card clock 37.71 MHz (75.43 MHz divided by 2) on a 4-bit bus in high-speed timing; the eSDHC has no 8-bit mode. `[hw]` (read on the units)",
    "evidence": "hw",
@@ -21934,7 +21936,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 220,
+   "line": 215,
    "section": "Digitakt II / USB take-over failures and card speed (digikit, 2026-11-13)",
    "text": "Stock card driver: data moves by eDMA channel 59 to the eSDHC data port, 16 bytes per request; every write uses CMD23 with the reliable-write bit. The block write and read split every transfer into 64 KiB commands: `cmpi.l #0x10000,D2` at offset 0x14 (entry) and 0x22 (chunk loop) of each function, same bytes on both images: DT2 1.17 read `0x4012e1b6` (sites `0x4012e1ca`, `0x4012e1d8`), write `0x4012e39c` (sites `0x4012e3b0`, `0x4012e3be`); DN2 1.12 read `0x4012c87a` (`0x4012c88e`, `0x4012c89c`), write `0x4012ca60` (`0x4012ca74`, `0x4012ca82`). The 64 KiB bounce buffer for unaligned buffers is the likely reason; the eDMA's 15-bit count allows at most 1023 blocks (511 KiB) a command, which digikit's sdhc-large uses (1022) for 16-byte aligned buffers it registers. `[doc]`",
    "evidence": "doc",
@@ -21946,7 +21948,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 221,
+   "line": 216,
    "section": "Digitakt II / USB take-over failures and card speed (digikit, 2026-11-13)",
    "text": "Raw card rates (DN2, 8 MiB, median of 3): write 11.4 / 13.3 / 15.3 MB/s and read 13.8 / 15.6 / 16.1 MB/s with 32 KiB / 64 KiB / 511 KiB commands; reliable write and the card cache change nothing within 2 %. A copy in RAM runs at 18 MB/s, USB alone at 20.9 MB/s (13.5 MB/s while the CPU copies). An upload that reads every file back is capped at about 7.2-7.8 MB/s by the card. `[hw]`",
    "evidence": "hw",
@@ -21958,7 +21960,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 222,
+   "line": 217,
    "section": "Digitakt II / USB take-over failures and card speed (digikit, 2026-11-13)",
    "text": "Cost per file: on the DN2 store the cost of an upload grows by about 0.46 ms for each file already stored (the store table is rewritten and read back at every commit), on top of about 95 ms; on the DT2 +Drive about 195 ms a file, with no growth across folders. For sample packs of hundreds of files this matters more than the transfer rate. `[hw]`",
    "evidence": "hw",
@@ -21970,7 +21972,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 223,
+   "line": 218,
    "section": "Digitakt II / USB take-over failures and card speed (digikit, 2026-11-13)",
    "text": "+Drive ids at or above `0x1000000` never reach the card (DT2 1.17): the inode write-back `0x4015b868` and page write-back `0x40155c34` call the block write only for inode ids and page numbers below `0x1000000`; higher ones are copied into RAM tables (inodes at `0x47d73ed0 + n*0x80`, pages at `0x46f63ed0 + n*0x8000`, n counted from `0x1000000`). `[doc]` {digikit-f120}",
    "evidence": "doc",
@@ -21982,7 +21984,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 226,
+   "line": 221,
    "section": "Digitakt II / MIDI notes from whiplash (DT2, OS 1.17 manual, 2026-11)",
    "text": "NRPN numbers disagree between the OS 1.17 manual and midi.guide's data for track mute and level, pattern mute, master overdrive, filter env depth, filter base/width and portamento; all CCs agree (CONFLICTS O24). `[doc]`",
    "evidence": "doc",
@@ -21994,7 +21996,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 227,
+   "line": 222,
    "section": "Digitakt II / MIDI notes from whiplash (DT2, OS 1.17 manual, 2026-11)",
    "text": "CC 80 (amp HOLD) at 127 switches HOLD to NOTE; it is not the longest hold. A sound ends on note-off only with AMP MODE = ADSR or HOLD = NOTE. Note 60 plays a sample at its own pitch only with TUNE 64 and the preset OCTAVE unchanged. No CC or NRPN selects the machine type. `[doc]`",
    "evidence": "doc",
@@ -22006,7 +22008,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 228,
+   "line": 223,
    "section": "Digitakt II / MIDI notes from whiplash (DT2, OS 1.17 manual, 2026-11)",
    "text": "CC 19 selects the sample slot from the project pool; it switched slots audibly on a unit (2026-11-11). MIDI Start also starts the unit's own sequencer, so the selected pattern's trigs play on top of an external part. `[hw]`",
    "evidence": "hw",
@@ -22018,7 +22020,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 229,
+   "line": 224,
    "section": "Digitakt II / MIDI notes from whiplash (DT2, OS 1.17 manual, 2026-11)",
    "text": "USB audio: class-compliant audio exists only in USB AUDIO/MIDI mode, with one stereo USB OUT pair; track outputs over USB carry no effects; INT TO MAIN = AUTO mutes the internal outs while USB audio streams. `[doc]`",
    "evidence": "doc",
@@ -22030,7 +22032,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 232,
+   "line": 227,
    "section": "Digitakt II / Pre-send render hook proposal (Modwerk, OS 1.17, emulator)",
    "text": "Modwerk's proposal guards the SHARC send-driver entry `0x1c18a6` (short-word PC), displacing one 6-byte instruction and resuming at `0x1c18a9`; the stock caller is at `0x1c3090`. Track buses start at DM `0x252df8`, 256 bytes a track, 32 floats per channel. A sidechain prototype (16 sources x 16 destinations) ran 9,060 SHARC instructions a block in digikit's emulator; with the hook off the PCM was byte-identical to stock. Not on a unit. `[emu]`",
    "evidence": "emu",
@@ -22042,7 +22044,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 235,
+   "line": 230,
    "section": "Digitakt II / Track Names, the first Modwerk library module (OS 1.17, 2026-11-13/14)",
    "text": "UI pointers the emulator fills can stay 0 on the unit: the view controller's page-set pointer at `+0x9c` was non-zero in digikit's emulator and 0 on a Digitakt II, so the first build never recognised the mixer on hardware. Find a screen from the frame the OS has just drawn instead (I106). `[hw]`",
    "evidence": "hw",
@@ -22054,7 +22056,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 236,
+   "line": 231,
    "section": "Digitakt II / Track Names, the first Modwerk library module (OS 1.17, 2026-11-13/14)",
    "text": "Track names from SETUP > RENAME are stored per pattern in the kit, 16 bytes per track at kit + `0x38` + t x `0x450`, and are saved with the project. `[emu]`",
    "evidence": "emu",
@@ -22066,7 +22068,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 237,
+   "line": 232,
    "section": "Digitakt II / Track Names, the first Modwerk library module (OS 1.17, 2026-11-13/14)",
    "text": "Faint lines along a pop-up's top and bottom edges are the OLED's own row crosstalk: they show with the stock OS too, so they are not a mod bug. `[hw]`",
    "evidence": "hw",
@@ -22078,7 +22080,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 238,
+   "line": 233,
    "section": "Digitakt II / Track Names, the first Modwerk library module (OS 1.17, 2026-11-13/14)",
    "text": "Modwerk's DT2 project archive (module settings in the last 48 bytes of the serialized kit records) survived a project saved on a modded build and reopened on official OS 1.17 on a user's unit. `[hw]`",
    "evidence": "hw",
@@ -22090,7 +22092,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 241,
+   "line": 236,
    "section": "Digitakt II / USB MIDI callbacks and Shot's cost (digikit handover, 2026-11-15)",
    "text": "The function at `0x4000434a` stores two USB MIDI callbacks into .bss slots: `0x409659d0` / `0x409659d4` on the Digitakt II (1.17), `0x4058f218` / `0x4058f21c` on the Digitone II 1.12. USB MIDI that arrives before they are set leaves the link dead while the CPU runs (an emulator-only failure in digikit's tests). `[doc]`",
    "evidence": "doc",
@@ -22102,7 +22104,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 242,
+   "line": 237,
    "section": "Digitakt II / USB MIDI callbacks and Shot's cost (digikit handover, 2026-11-15)",
    "text": "digikit's Shot sample machine costs about 5,057 (DT2) / 5,266 (DN2) instructions per 32-frame block; 16 voices use 91 % of the DN2 headroom. `[emu]`",
    "evidence": "emu",
@@ -22114,7 +22116,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 245,
+   "line": 240,
    "section": "Digitakt II / ColdFire task switches, main-OS entry and the bus timer (digikit findings 07 and 132, DT2 1.17 and DN2 1.12)",
    "text": "Every ColdFire task switch passes through `vector_32_handler` at `0x40000410` (20,760 entries on DT2 and 17,778 on DN2 over the probe window). Vector 205 is the switch entered from an interrupt, always from stacked IPL 0; vector 32 (`trap #0`) is a task yielding, with SR 0x2700; vector 191 does not occur, and no switch is entered from a handler at IPL 2 or higher. So code reachable from a task needs an entry/exit counter before it can be unloaded while running; code reached only from interrupts can be unloaded after masking interrupts and clearing its slot. `[emu]` (PC probe)",
    "evidence": "emu",
@@ -22126,7 +22128,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 246,
+   "line": 241,
    "section": "Digitakt II / ColdFire task switches, main-OS entry and the bus timer (digikit findings 07 and 132, DT2 1.17 and DN2 1.12)",
    "text": "Main-OS entry comes at instruction 299,258,200 on DT2 and 298,782,809 on DN2. `param_code` runs before it, from the boot project decode loop (caller DT2 `FUN_400e64dc`, return `0x400e6546`; DN2 `FUN_400e7eb0`, return `0x400e7f1a`), and saw only stock machine types even with a saved project that uses digikit's types 16/17: the saved project loads after main-OS entry, so hooks installed there are early enough. `[emu]`",
    "evidence": "emu",
@@ -22138,7 +22140,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 247,
+   "line": 242,
    "section": "Digitakt II / ColdFire task switches, main-OS entry and the bus timer (digikit findings 07 and 132, DT2 1.17 and DN2 1.12)",
    "text": "DTIM0's counter `DTCN0` at `0xfc07000c` runs at the 132 MHz bus clock, 88,000 ticks per 32-sample frame, and is already running before the main OS. digikit uses it read-only as its profiling clock (`span_clock` in the device files). The rate was measured on the owner's unit on 2026-11-07 (the source does not say which device). `[hw]` The Analog Rytm MKII's DTCN0 runs at the same rate ([analog-rytm.md](analog-rytm.md)).",
    "evidence": "hw",
@@ -22150,7 +22152,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 250,
+   "line": 245,
    "section": "Digitakt II / Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17)",
    "text": "One card transfer at a time: the eSDHC has one command and one data channel, no command queue and no packed commands; it supports SD Host 2.0 and MMC 4.2 only (no DDR), and the 8-bit pins are not bonded. The reference manual gives 40 MHz as the eSDHC maximum; the firmware runs 37.7 MHz (SDCLKFS=1, DVS=0, DT2 setup `0x4012d78e`). A command without data (CMD13) can go out during a data transfer, but errata SECF214 says it may see a spurious CRC or index error. FIFO 128 x 32 bit; the controller stops the card clock on FIFO under- or overrun. Wire ceiling about 18.5 MB/s payload, about 9.3 MB/s for write plus full read-back. `[doc]`",
    "evidence": "doc",
@@ -22162,7 +22164,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 251,
+   "line": 246,
    "section": "Digitakt II / Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17)",
    "text": "Stock card driver locking: every block transfer runs under one global mutex (DT2 `0x47de3cac`) plus a second mutex `0x44e4ae98` taken through `0x401344dc`; a request above 64 KiB is cut into 64 KiB chunks, each locked on its own. The caller starts eDMA channel 59 and waits with `sem_pend` on `0x44e3fec8` (command complete) and `0x44e3fec0` / `0x44e3feb8` (data); the eSDHC ISR `0x4012d5ba` (vector 223) posts `0x44e3fec8` on CC/CTOE and `0x44e3fec0` on TC or a data error (the poster of `0x44e3feb8` was not found). The task sleeps during DMA and card busy, so other tasks get the CPU. Reads use CMD18 with auto-CMD12 and no CMD23; writes send CMD23 with the reliable-write bit before every CMD25, no auto-CMD12. Setup: CMD6 HS_TIMING=1, BUS_WIDTH=1 (4 bit), ERASE_GROUP_DEF=1, CMD16 512; no cache enable or flush, packed commands or command queue seen. `[doc]`",
    "evidence": "doc",
@@ -22174,7 +22176,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 252,
+   "line": 247,
    "section": "Digitakt II / Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17)",
    "text": "RTOS primitives (DT2 1.17; the DN2 1.12 mutex functions sit at the same addresses): priority-preemptive, a larger number is a higher priority; task switch by `trap #0` (`0x40000410`); no tick that rotates tasks of equal priority was found `[?]`. Binary semaphores `sem_init` `0x40001398`, `sem_pend` `0x4000141a`, `sem_post` `0x4000155c` (a counting variant at `0x4000148c`, `0x400014fc`, `0x4000172a`). Mutexes `0x400015a0` / `0x400016d2` are recursive for the owner with FIFO waiters and no priority inheritance. No task delete, yield or event flags were found. `[doc]`",
    "evidence": "?,doc",
@@ -22186,7 +22188,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 253,
+   "line": 248,
    "section": "Digitakt II / Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17)",
    "text": "+Drive serialises as well: every `file.*` and `path.*` call runs under the file-system mutex `0x46f4deb0`, and the close (`0x4015b3aa` -> `0x4015b1e8`) holds it through the whole read-back and hash-table work. Several files can be open (open bitmap `0x46f4ded0`), but they share static scratch buffers (`0x4066d8c0`, `0x406658c0`, `0x44f2bc68`). So several writers (tasks, files or pieces of one file) cannot raise card throughput; a pipeline (one task waits on the card while another copies or hashes in RAM) is safe and helps. Keep middle-priority work from delaying the task that holds the card mutex. `[doc]`",
    "evidence": "doc",
@@ -22198,7 +22200,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 254,
+   "line": 249,
    "section": "Digitakt II / Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17)",
    "text": "+Drive page allocation (DT2 1.17): `file_reserve` `0x40158810` calls `0x40158448(id, 0, bytes, 0)`: inode get, missing-page count `0x40158326`, free-page count `0x40155f84` (bit by bit over the 0x14010-byte bitmap, no I/O), then `0x401581dc(inode, 0, pages, 0)` and the inode write-back `0x4015b868`. `0x401581dc` allocates first fit with `0x40155974` from page `0xa7a`, then from 0, writes the touched bitmap pages and adds one extent per allocation (`0x40157c68`); it stops silently when no page is free and does not write the inode back. Call it under the file-system mutex with an inode from inode get, hint 0. `[doc]` {digikit-f120}",
    "evidence": "doc",
@@ -22210,7 +22212,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 255,
+   "line": 250,
    "section": "Digitakt II / Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17)",
    "text": "Where upload time goes (2026-11-16, every file hash-checked on the unit): one 9.8 MB file: DN2 3.66-3.73 MB/s (card writes 710 ms = 13.8 MB/s, copy from the USB buffers 710 ms, END with read-back, hash and commit 1100 ms); DT2 3.46-3.52 MB/s (BEGIN 141 ms, card writes 988 ms = 9.9 MB/s, copy 558 ms, END 1009 ms of which read-back 940 ms = 10.4 MB/s). A 309-file pack (1.05 MB a file): on the DN2 the END per file grew from 386 to 550 ms between two runs as the store filled (about 300-480 ms of it is the store-table commit); on the DT2 per file `file_reserve` 94 ms (also 90 ms for the 9.8 MB file), `path_open \"w\"` 52 ms, rename 56 ms, read-back hash 92 ms (32 KiB pages), the 16-byte trailer write 13 ms. The DT2's fixed cost of about 200 ms a file stays flat up to 618 files in one folder. `[hw]`",
    "evidence": "hw",
@@ -22222,7 +22224,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 256,
+   "line": 251,
    "section": "Digitakt II / Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17)",
    "text": "Cached USB receive is slower: reading the USB receive buffers through the cached window (with a cache-line invalidate before the read) gave 3.47-3.50 MB/s against 3.66-3.73 MB/s uncached on a DN2; the copy time stayed about 0.71 s, and the extra 0.19 s is likely the about 600,000 line invalidates per 9.8 MB. Why the copy runs at only about 14 MB/s is open. `[hw]`",
    "evidence": "hw",
@@ -22234,7 +22236,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 257,
+   "line": 252,
    "section": "Digitakt II / Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17)",
    "text": "What did help (all kept since runtime 0.8.3): one store-table commit for up to 16 files took a DN2 100-file pack from 2.42 to 3.25 MB/s, and 3.56 with copy/write overlap; overlap alone (a helper task copies into one 512 KiB half while the card writes the other) took a 9.8 MB file from 3.67 to 4.37 MB/s (DN2) and 3.53 to 4.01 MB/s (DT2). On the DT2, read-back in runs of up to 128 KiB, the trailer in the last write, page allocation without the free-page count and new files written at their final name (no rename; a power cut can leave one partial unhashed file visible) took a pack from 2.32 to 2.49 MB/s, and 3.07 MB/s with every lever; the 9.8 MB file reached 4.13 MB/s with read-back runs, trailer and overlap. `[hw]`",
    "evidence": "hw",
@@ -22246,7 +22248,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 258,
+   "line": 253,
    "section": "Digitakt II / Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17)",
    "text": "CACR and the by-address flush: both images write CACR once, at `0x4000055a` (`move.l #0xa50ce100,d0`: SPA=1, IVO=0, DDPI=0, IDPI=0, instruction and data cache on). With SPA=1, `cpushl bc,(ax)` searches by physical address and clears the line in both caches (RM Table 6-10), so one `cpushl` per 16-byte line is a correct flush for new code. Do not write CACR yourself. Whether a pipeline sync is needed after the last `cpushl` is open. `[doc]`",
    "evidence": "doc",
@@ -22258,7 +22260,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 259,
+   "line": 254,
    "section": "Digitakt II / Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17)",
    "text": "The task that loads a project: DT2 entry `0x400caff0` (created at `0x400cc7ce`, TCB `0x4039be58`, priority 2, stack `0x4039beac` + `0x4000`); DN2 entry `0x400cd5f2` (created at `0x400cec02`, TCB `0x40386e48`). It reaches `write_live_project` `0x400df95a`, `fx_array.load` `0x400daf54` and the sound-load exit; `fx_array.save` is reached from the UI side (`0x400dbdca`). This is call-graph reachability only (vtable calls are not edges). `[?]`",
    "evidence": "?",
@@ -22270,7 +22272,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 260,
+   "line": 255,
    "section": "Digitakt II / Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17)",
    "text": "The UI task and its queue: DT2 `main_os_task` `0x400337ba` (created at `0x40033280`, TCB `0x40966ee8`, priority 6, stack `0x4096775c` + `0x28000`) waits on queue `0x40966f3c` (wait function `0x40001928`) and switches on the message byte; the UI-loop site is `0x40033d06`. DN2: entry `0x4002ed34`, created at `0x4002e902`, TCB `0x4059e1c0`, queue `0x4059e214`, site `0x4002f17e`. No other code reads that queue, so modal pop-ups and browsers run inside message handlers and a UI-loop hook runs once per message. A7 inside one of the two stacks tells which task runs a hook. `[doc]`",
    "evidence": "doc",
@@ -22282,7 +22284,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 261,
+   "line": 256,
    "section": "Digitakt II / Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17)",
    "text": "Two level-7 interrupts (not maskable): INTC0 ICR2 (`0xfc048042`, set at `0x40001cbe`): EPF2, vector 0x108, handler `0x40001a10`, a 516-byte leaf with no callees. INTC1 ICR40 (`0xfc04c068`, set at `0x400d346e`): EDMA_INTR, its handler installed at run time into vector 0x2a0 from pointer `0x43153a2c` (DN2 sites `0x400d56c6`, `0x400d5996`); which code it runs is open. An IPL-7 mask therefore does not keep these two out. `[doc]`",
    "evidence": "doc",
@@ -22294,7 +22296,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 262,
+   "line": 257,
    "section": "Digitakt II / Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17)",
    "text": "Empty machine rows and the name table: stock `mf_dispatch` `0x400c89a4` uses `type < 7 ? 0x4293b960 + 0x2c * type : 0x4293ba68`, so a stored type on an empty row plays as type 0. No code keeps a pointer to a name-table row (only `lea` in the accessors); the machine list is fetched once into the view at boot. `[doc]`",
    "evidence": "doc",
@@ -22306,7 +22308,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 263,
+   "line": 258,
    "section": "Digitakt II / Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17)",
    "text": "The boot intro drops stock MidiRpc: after a restart digikit's runtime answered at once, but the firmware was still on its boot intro and dropped stock MidiRpc file requests; digikit's host now probes read-only for up to about 30 s and never resends a write (I114). `[emu]`",
    "evidence": "emu",
@@ -22318,7 +22320,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 264,
+   "line": 259,
    "section": "Digitakt II / Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17)",
    "text": "Encoder input needs fast detents: digikit reports that the firmware encoder needs fast detents (12 detents moved a value about one or two steps); its test helpers send 4-detent events 30 ms apart. `[emu]`",
    "evidence": "emu",
@@ -22330,7 +22332,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 267,
+   "line": 262,
    "section": "Digitakt II / digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18)",
    "text": "The six `type == 6` (MANUAL SLICE) tests on DT2 1.17, for anyone who clones MANUAL SLICE: `0x4005fbec` (`moveq #6,D1; cmp.l D0,D1; beq.w`, target `0x4005fcd4`), `0x4005f8f8` (`bne.b`, target `0x4005f920`), `0x40030e1e` (`bne.w`, target `0x40030f90`), `0x4004923e` (D6 holds 6, target `0x40049266`), `0x4005c936` (type in D2, target `0x4005c950`) and in the frame builder `0x4002ec18` (`mvs.b (0x990,A0),D0`, target `0x4002ecd8`). digikit removed its hooks there on 2026-11-18 because no machine of theirs clones MANUAL SLICE. `[doc]`",
    "evidence": "doc",
@@ -22342,7 +22344,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 268,
+   "line": 263,
    "section": "Digitakt II / digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18)",
    "text": "The masked test `(type & ~2) == 4` is at `0x4005da60` (12 bytes; first four instructions); its `beq.w` target is `0x4005db02`. digikit maps an added type to its `clone_of` there. `[doc]`",
    "evidence": "doc",
@@ -22354,7 +22356,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 269,
+   "line": 264,
    "section": "Digitakt II / digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18)",
    "text": "MANUAL SLICE's slice table (frame words `+0xee..+0xf8`) is sent only for type 6, so a clone of SAMPLE gets none. `[doc]`",
    "evidence": "doc",
@@ -22366,7 +22368,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 270,
+   "line": 265,
    "section": "Digitakt II / digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18)",
    "text": "The VerticalMenuView font is not at a fixed field offset: the field offset differs between firmwares, so read the font from the `move.l #font,D0` literal in the constructor (6 bytes at constructor + `0xb6`): DT2 1.17 `0x4011a022`, DN2 1.12 `0x4011b996`. `[doc]`",
    "evidence": "doc",
@@ -22378,7 +22380,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 271,
+   "line": 266,
    "section": "Digitakt II / digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18)",
    "text": "SHARC pointer-slot stubs: digikit's image now jumps from each SHARC hook through one of 16 words in window 0 of its DSP link area (zero = stock path). Measured in its SHARC rig: 6 instructions per FX hook with an empty slot; an empty FX chain with the service 27 instructions, one disabled row 206. About +10 instructions per voice on DT2 for the voice stub and dispatch. `[emu]`",
    "evidence": "emu",
@@ -22390,7 +22392,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 272,
+   "line": 267,
    "section": "Digitakt II / digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18)",
    "text": "ColdFire pointer-slot stubs (pattern): 12 bytes per site (`movea.l slot,aN; tst.l aN; beq.b; jmp (aN)`, or `move.l slot,dN; beq.b; move.l dN,-(sp); rts`); the installer writes the slot word under IPL 7 and then flushes the cache line. A displaced instruction with a `(d8,PC,Xn)` operand cannot be re-encoded and needs a hand-written tail. `[doc]`",
    "evidence": "doc",
@@ -22402,7 +22404,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 275,
+   "line": 270,
    "section": "Digitakt II / Modwerk's Digitakt II plan (GOAL.md, OS 1.17, 2026-11-16)",
    "text": "USB MIDI in every USB mode: OS 1.17 offers USB MIDI in MIDI, Audio/MIDI and Overbridge modes, so a SysEx link over it needs no change to the USB descriptors. Modwerk reports that the stock transmit path can wait indefinitely for buffer space, so a link reply must not block when the host stops reading. `[doc]`",
    "evidence": "doc",
@@ -22414,7 +22416,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 276,
+   "line": 271,
    "section": "Digitakt II / Modwerk's Digitakt II plan (GOAL.md, OS 1.17, 2026-11-16)",
    "text": "Kit data room: a kit record holds 191 bytes of kit data for all mods together (core 1.1; 143 B on Modwerk's base, see 2026-11-17 below {modwerk-1118}). Open: whether OS 1.17 saves a kit when only a mod's block changed (H20). `[doc]`",
    "evidence": "doc",
@@ -22426,7 +22428,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 277,
+   "line": 272,
    "section": "Digitakt II / Modwerk's Digitakt II plan (GOAL.md, OS 1.17, 2026-11-16)",
    "text": "Recovery floor: FUNC + TRIG 4 at power-on, then the stock `.syx` over MIDI DIN. `[doc]`",
    "evidence": "doc",
@@ -22438,7 +22440,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 280,
+   "line": 275,
    "section": "Digitakt II / Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17)",
    "text": "Kit-data room is 143 B on Modwerk's base: core 1.1 gives 191 B (`KIT_ROOM` 194), but Modwerk's project archive uses the last 48 B of each serialized kit record, so the base ends core's kit data at `0x57d0` (`KIT_ROOM` 146). On base `e88273ed` the two overlapped and a save zeroed the archive (I147). `[hw]`",
    "evidence": "hw",
@@ -22450,7 +22452,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 281,
+   "line": 276,
    "section": "Digitakt II / Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17)",
    "text": "Official OS 1.17 opened a project saved on base `8650bb8a` with Chord Arp, Euclidean Scale and Track Names; on the modded build all settings survived Save Project and a power cycle. `[hw]` (one unit)",
    "evidence": "hw",
@@ -22462,7 +22464,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 282,
+   "line": 277,
    "section": "Digitakt II / Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17)",
    "text": "Core 1.1 storage sites (stock bytes guarded): kit save `0x400dbee4`, kit load `0x400db8be`, project save `0x400df932`, project load `0x400df99c`, `memcpy` `0x40136388`, key-LED frame call `0x400311a2`. Modwerk base: 22 sites, 10,032 B `.run` + 9,848 B `.bss` (19,880 B) in the shared DDR. `[doc]`",
    "evidence": "doc",
@@ -22474,7 +22476,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 283,
+   "line": 278,
    "section": "Digitakt II / Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17)",
    "text": "Sequencer state: each track's step position at `0x43164fe0` + track (rises 1 per step, about 16.5 M emulated instructions at the test tempo, wraps to 0), playing flag `0x43164f94`, pattern pointer `0x4316501c`. `[emu]`",
    "evidence": "emu",
@@ -22486,7 +22488,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 284,
+   "line": 279,
    "section": "Digitakt II / Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17)",
    "text": "PREP MUTES: a track's mute toggle `0x40068b96`, the apply routine `0x4006de70`; the view (vtable `0x401f8a18`) keeps a 16-bit choice mask at `+0x88` and its session flag (FUNC held) at `+0x8d`; Brain `0x44f5de40`. The object lives while Mute Mode is on (same address across FUNC sessions) and is freed on leaving. FUNC + TEMPO opens Tap tempo over it; FUNC + PERFORM opens \"Perform Kit=ON\". `[emu]`",
    "evidence": "emu",
@@ -22498,7 +22500,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 285,
+   "line": 280,
    "section": "Digitakt II / Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17)",
    "text": "The step counter runs a step ahead of the sound: a step's mute is judged just after the counter moves. Switching mutes with the counter at the last step already changed steps 127-128; at step 2 it missed step 1; on the second UI tick (about 30 Hz) of step 1 the last step stayed and step 1 played switched. `[hw]` (author's reports, 128 steps, 140 and 200 BPM)",
    "evidence": "hw",
@@ -22510,7 +22512,7 @@
   },
   {
    "file": "hardware/devices/digitakt-2.md",
-   "line": 286,
+   "line": 281,
    "section": "Digitakt II / Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17)",
    "text": "Power-off on a mod page leaves stock's Euclidean view half set up: after the next boot the stock Euclidean page had no page indicators and FUNC + AMP did nothing until the page was left; the track-editor cache was unset. Using the stock Euclidean view's own track accessor fixed it (I150). `[hw]` / `[emu]`",
    "evidence": "emu,hw",
@@ -25954,7 +25956,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 27,
+   "line": 21,
    "section": "Digitone II / From the official manual (OS 1.12; first part only - the MIDI appendix C was not reachable)",
    "text": "16 tracks, each audio (SYN machine) or MIDI; 16 audio voices (one per track) each with SYN machine, bit reduction, filter, amp and LFO; 12 V DC via PSU-3c; balanced/unbalanced 1/4\" I/O, inputs also over USB; MIDI IN, OUT/SYNC A, THRU/SYNC B (SYNC outputs can send DIN sync); USB type B, class compliant, audio + MIDI, Overbridge. Wait at least 30 s after power-off before powering on again; ambient max 40 deg C. `[doc]` {dn2-manual}",
    "evidence": "doc",
@@ -25966,7 +25968,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 28,
+   "line": 22,
    "section": "Digitone II / From the official manual (OS 1.12; first part only - the MIDI appendix C was not reachable)",
    "text": "Data model: +Drive holds up to 128 projects and a library of 2,048 presets; a project = 128 patterns (8 banks x 16), 16 songs, a 128-preset pool and general settings; a pattern holds up to 16 presets (one per track), sequencer data, TRIG page settings, BPM, length, swing, time signature, MIDI track parameters; a preset holds SYN1, SYN2, FLTR, AMP and LFO pages. Digitone I projects can be imported but patterns may differ - re-save on Digitone II before exporting. `[doc]` {dn2-manual}",
    "evidence": "doc",
@@ -25978,7 +25980,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 29,
+   "line": 23,
    "section": "Digitone II / From the official manual (OS 1.12; first part only - the MIDI appendix C was not reachable)",
    "text": "MIDI in: notes 0-15 trigger tracks 1-16 (default channels), notes 16-84 (E2-C7) play the active track chromatically (C5 = 60 is middle C), program change 0-127 selects patterns A01-H16, tap tempo by note C0 on the FX CONTROL channel; MIDI tracks: up to 16 notes per step, pitch bend, aftertouch, 16 assignable CCs (CC1-8 on the FLTR page, 9-16 on AMP); the lowest-numbered track wins when tracks share a channel. TRIG modes: TRACKS, VELOCITIES (TRIG 1-15 = velocity 8..120 in steps of 8, TRIG 16 = 127), RETRIGS (1/1 ... 1/64). `[doc]` {dn2-manual}",
    "evidence": "doc",
@@ -25990,7 +25992,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 30,
+   "line": 24,
    "section": "Digitone II / From the official manual (OS 1.12; first part only - the MIDI appendix C was not reachable)",
    "text": "Appendix C groups (numbers not extracted): C.1 Track, C.2 Trig, C.3 Source, C.4 Filter, C.5 Amp, C.6 Euclidean, C.7 FX, C.8 MOD, C.9 Send FX, C.10 Mixer, C.11 VAL, C.12 MISC. Startup menu entries: TEST MODE, EMPTY RESET, FACTORY RESET, OS UPGRADE, EXIT (other sources: TRIG 4 = OS UPGRADE). `[doc]` {dn2-manual}",
    "evidence": "doc",
@@ -26002,7 +26004,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 41,
+   "line": 35,
    "section": "Digitone II / Architecture",
    "text": "ColdFire main CPU (big-endian code, GCC-built, C++ RTTI names remain); SHARC+ audio DSP. `[doc]` {dn2-cfw} {dn2-firmware-explore}",
    "evidence": "doc",
@@ -26014,7 +26016,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 42,
+   "line": 36,
    "section": "Digitone II / Architecture",
    "text": "`MAIN OS` section: 3,085,696 bytes on 1.10E and 3,192,192 bytes on 1.11 (unpacked), loads at `0x40000400`. `[doc]` {dn2-firmware-explore}",
    "evidence": "doc",
@@ -26026,7 +26028,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 43,
+   "line": 37,
    "section": "Digitone II / Architecture",
    "text": "Container signed with HMAC-SHA256 with a key derived from the image itself, so the tools re-sign modified images ([`../common/firmware-container.md`](../common/firmware-container.md)). `[doc]` {dn2-firmware-explore}",
    "evidence": "doc",
@@ -26038,7 +26040,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 44,
+   "line": 38,
    "section": "Digitone II / Architecture",
    "text": "The OS keeps its C++ RTTI, enough to name most code: on 1.12, 12,350 functions and 1,624 types (752 classes, 872 lambdas), 741 with vtables; about a third of all instructions sit in a function that RTTI names. A function that loads a vtable is a constructor or destructor; a `std::function` lambda's typeinfo names its enclosing method with the signature. The DSP has no application RTTI. `[doc]` {dn2-skill-firmware}",
    "evidence": "doc",
@@ -26050,7 +26052,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 45,
+   "line": 39,
    "section": "Digitone II / Architecture",
    "text": "1.11 to 1.12: sections 2, 4, 7 and 8 are byte-identical (the DSP did not change); section 3 is relinked (+4 KB, BSS +0x1000, DMA alias +0x8000). Overtone ships on 1.12 by translating every 1.11 patch address through a code map built from anchors of 10 matching instructions. `[doc]` {dn2-skill-firmware}",
    "evidence": "doc",
@@ -26062,7 +26064,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 46,
+   "line": 40,
    "section": "Digitone II / Architecture",
    "text": "Cache map (OS 1.11 and 1.12): the bootstrap leaves the data cache off (CACR `0x000cc100`), but the main OS start-up at `0x40000554` writes CACR `0xa50ce100` and ACR0 `0x4007e020`: `0x40000000-0x47ffffff` is cached copyback, everything else uncached, including the SSI DMA buffers at `0x4e6e7100`. Reading those buffers byte by byte from a mod is slow enough to stall the sequencer: Digiwerk's first multichannel USB build (UM01) packed the SSI slots with byte-wise uncached reads and lagged until unusable; reading each of the 14 slots once as a 32-bit word (UM02) ran on the unit with busy sequences and no lag. Checking only the bootstrap's CACR gave a wrong \"cache off\" conclusion first, corrected the same day. `[hw]` {dn2-cfw-handoff} {dn2-cfw-usb} ([I10](../INCIDENTS.md#i10-byte-wise-reads-of-uncached-dma-buffers-stalled-the-sequencer))",
    "evidence": "hw",
@@ -26074,7 +26076,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 47,
+   "line": 41,
    "section": "Digitone II / Architecture",
    "text": "DSP works per block; the stock handler can be interpreted offline (sharcvm); new effects are portable C, compiled with selache/selcc and spliced into the DSP section. `[doc]` {dn2-cfw}",
    "evidence": "doc",
@@ -26086,7 +26088,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 49,
+   "line": 43,
    "section": "Digitone II / Architecture",
    "text": "Board PCBA0109B, read from photographs of the parts (dnfw `docs/hardware.md`, 2026-09-12) {dn2-hw}. The same board number as the Digitakt II is reported. CPU: ColdFire MCF5441SCMJ250 (MCF5441x, 250 MHz). Not the V4e that older notes inherited from the Octatrack. RAM: NANYA NT5TU128M8HE-AC, 128 MB DDR2. Flash: Winbond W25Q128JV (16 MB SPI NOR, by the ColdFire). Storage: Kingston EMMC32G-TX29 (32 GB eMMC). DSP: ADSP-21569 (KBCZ10) with its own Kingston DDR3 beside it. Codec: AKM AK4621EF, 20 MHz crystal by the SHARC. There is no flash chip by the DSP: the ColdFire boots the SHARC (section 7 is its boot stream). `[hw]` (photos)",
    "evidence": "hw",
@@ -26098,7 +26100,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 57,
+   "line": 51,
    "section": "Digitone II / Architecture",
    "text": "Flash-part mismatch worth knowing: the bootstrap's DYB sector protection (`0xE1`) is applied only on a Spansion S25FL (`0x01 2018`), and digikit's DT2 reading names that part. On a unit with the Winbond part, that lock has no effect (Digiwerk T1.5/T1.4). Do not count on hardware write protection of the bootstrap. `[?]` {dn2-hw} {dn2-cfw-t15}",
    "evidence": "?",
@@ -26110,7 +26112,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 58,
+   "line": 52,
    "section": "Digitone II / Architecture",
    "text": "Third-party claim about the family (not measured): Digitone mk1: two MCF54415 plus a Spartan XC3S50A. Digitakt mk1: one MCF54415. Digitakt II: one MCF54415-class part plus the ADSP-21569. Syntakt: two MCF54415, XC3S50A and XC3S200A (the latter driving the analog side). digikit's Syntakt 1.42 reading (an FPGA section, a second ColdFire program) fits. `[?]` {dn2-hw}",
    "evidence": "?",
@@ -26122,7 +26124,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 66,
+   "line": 60,
    "section": "Digitone II / Architecture",
    "text": "Cross-device transplant (armio's R012, DN2 1.11): the Digitakt II 1.16 sample machines and their UI (ONESHOT, WERP, STRETCH, REPITCH, GRID, SLICE, stereo samples, sample browsing) run on a Digitone II. Donor routines are extracted from the official DT2 file and relocated at build time. `[doc]` {armio-r012} The same build makes USB AUDIO class-compliant with 42 capture channels (48 kHz/24 bit, 21 stereo pairs) and a stereo return. Digiwerk's USB01 note sketched this. `[doc]` {armio-r012} R013 (2026-11-05) adds the missing sample-storage setup: SYSTEM > FORMAT SAMPLES creates a sample filesystem in an area the stock OS does not expose as sample storage, and erases that area (including other mods' data there). Formatting, restart, Transfer capacity (about 20 GB on the tested DN2) and uploads afterwards passed on the unit. `[hw]` {armio-samples}",
    "evidence": "doc,hw",
@@ -26134,7 +26136,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 69,
+   "line": 63,
    "section": "Digitone II / Architecture",
    "text": "Two independent 42-channel USB audio builds now exist for the DN2, on different OS versions: armio's (1.11, above) and Digiwerk 0.3.0 (1.12, USB MULTI/MIDI as a fourth USB CONFIG choice; UAC 2.0, 48 kHz/24 bit; inputs 1-32 the 16 tracks, 33-34 main, 35-40 delay/reverb/chorus returns, 41-42 the inputs; used with a Mac and with AUM on an iPhone). Digiwerk's USB addition changes only the main OS, leaving each build's DSP section unchanged. `[hw]` {dn2-cfw-030} {dn2-cfw-usb} Historical size estimate (UM03): the USB addition's code and BSS added about 2.6 KB to the existing 1 MB mod region. `0x47e00000-0x47e075a4` describes the combined used span, not the USB addition alone; this is not a size measurement of the later UM04 implementation shipped in 0.3.0. `[doc]` {dn2-cfw-um03} Recorder adds recording/resampling, source selection, normalization, trimming, audition, saving to +Drive and optional track assignment. VOICE cycles Voice Setup, Sample Manager and Recorder. Exact trimmed-file comparison and full Recorder-source coverage remain unverified. `[doc]` {armio-recorder} R012 requires only the two official OS files. Native and browser builds verify the final SHA-256; the browser builds locally without uploads. No sample bank or factory library is required; historical exact T1E2/R003/R008/R011 builds still need their original private bank. `[doc]` {armio-r012} {armio-browser} R012 stable is owner-confirmed for stock audio, samples, Recorder and USB audio, including after project changes. This is not exhaustive workflow or endurance validation. `[hw]` {armio-r012}",
    "evidence": "doc,hw",
@@ -26146,7 +26148,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 74,
+   "line": 68,
    "section": "Digitone II / Architecture",
    "text": "USB audio repeating old audio after a project change (armio, R007-R011; fixed 2026-11-03): USB audio froze or repeated while headphones and UI kept working; accepted publications stopped, rejected ones rose by 16,392 in about 10.9 s, and USB transfers kept running. Cause: the render-time TX selector follows RX completion and is not a TX ownership grant, but the build had bound the retained queue head to a destination derived from that older phase. R011 picks the candidate from the current DMA START and leaves the ownership guards to decide; the owner confirmed playback after project changes, and R012 is the stable build. Endurance and end-to-end USB latency are unmeasured. `[hw]` {armio-usb} {armio-r011} ([I13](../INCIDENTS.md#i13-usb-audio-repeated-old-audio-after-a-project-change))",
    "evidence": "hw",
@@ -26158,7 +26160,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 78,
+   "line": 72,
    "section": "Digitone II / Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06)",
    "text": "Incremental working-state updates are a separate persistence path from whole-project saves. In armio's port, sample load/unload updates a separate identity companion and sends the native ProjectSettings notification. Its queued worker `0x400469E2` calls settings serializer `0x400DF57A` at `0x400469FE`; it does not pass through whole-project serializer `0x400E1494`. The extension had been attached only to the latter, so the native settings mirror advanced while the added sample mirror stayed stale. The alternating boot snapshots at sectors `0x40000` / `0x48000` are separate from explicitly saved project slots (see the existing [storage map](../common/memory-maps.md)). R020 replay reproduced a new identity absent from the prepared backup and from a fresh emulated boot. R022 updates the working companion at the narrow settings-worker callsite under the existing project mutex, checking destination, owner, readiness and matching UIDs; explicit saved companions remain untouched. Unchanged identities skip the 16 KiB copy/CRC. Load, unload, fresh-boot restore and failure guards passed native replay; physical shutdown and freeze recovery are unverified. These extension defects are not evidence of a stock DN2 autosave bug. `[emu]` {armio-r022} ([I52](../INCIDENTS.md#i52-new-project-samples-were-missing-after-reboot))",
    "evidence": "emu",
@@ -26170,7 +26172,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 79,
+   "line": 73,
    "section": "Digitone II / Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06)",
    "text": "A Machine change can leave a port's old SYN view attached even when the Sound has changed. Native selection reselects the view when audio/MIDI classification changes; stock synth to a ported sampler remains an audio track. Generic Project, ActiveTrack and Sound notifications redraw but do not replace the view. R020 replay reproduced knob D reaching the stock handler after switching to all six samplers. R021, included in R022, reconciles the exposed SYN view through the existing factory and native selector on the next UI poll, deferring during modal ownership, selected-trig edits, construction and expired ownership. Ten transitions and nine guards passed. Earlier tests explicitly selected SYN before turning D and therefore repaired the state they were meant to test. Hardware confirmation is pending. `[emu]` {armio-r022} ([I51](../INCIDENTS.md#i51-the-sample-popup-did-not-open-after-switching-machines))",
    "evidence": "emu",
@@ -26182,7 +26184,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 82,
+   "line": 76,
    "section": "Digitone II / Parameter table",
    "text": "1.12: one OS table of 321 rows, no free space after it. dn2-cfw's patch GT00 copies it at start-up into free memory with room for 384 rows; GT01 adds 17 hidden rows (3-band compressor). `[hw]` {dn2-cfw}",
    "evidence": "hw",
@@ -26194,7 +26196,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 83,
+   "line": 77,
    "section": "Digitone II / Parameter table",
    "text": "Projects store values by slot, not by row, so moving the table keeps the saved format; new rows follow `docs/parameter-table-growth.md` (not read yet). Table growth was first done on 1.11 for the LFO4 mod in dn2_firmware_explore. `[doc]` {dn2-cfw}",
    "evidence": "doc",
@@ -26206,7 +26208,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 84,
+   "line": 78,
    "section": "Digitone II / Parameter table",
    "text": "Overtone: LFO 3's storage holds ARP 2, so a sound that used LFO 3 loses it; ENV3/LFO3 no longer exist in Overtone. `[doc]` {overtone}",
    "evidence": "doc",
@@ -26218,7 +26220,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 87,
+   "line": 81,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "Each parameter is one 60-byte row. Table base `0x401f83a4`, stock 321 rows. Offsets: `+0x00` group (set/page family), `+0x04` k (the slot that holds the value in its set), `+0x08..0x14` min/max/default/bipolar, `+0x18` MIDI CC, `+0x1c` NRPN, `+0x20` Overbridge id, `+0x28..0x38` names/formatter/suffix. A separate RAM display table holds glyph, lock flags and randomiser data. `[doc]` {dn2-cfw-param-table}",
    "evidence": "doc",
@@ -26230,7 +26232,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 88,
+   "line": 82,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "Row ids are not saved; projects store values by slot k through fixed k-to-stored-id tables. Slot maps and CC/NRPN maps are rebuilt from the table at each boot (`0x400dc634`); page records are built at boot from code constants (`0x400c2c4e`). Moving the table does not change project storage; new rows do, via their k and display flags. `[doc]` {dn2-cfw-param-table}",
    "evidence": "doc",
@@ -26242,7 +26244,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 89,
+   "line": 83,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "Grown table at `0x47D00000`, room for 384 rows (`0x180`), copied at boot by `pg_boot` (called from `0x40000568`). New row ids `0x141`-`0x17f` (63 ids); the same-length-edit ceiling is `0x1e0` (480 rows). 56 address operands in 53 functions had to be redirected; 57 row-count compares changed (`#0x141`->`#0x180`, `#0x140`->`#0x17f`; five look similar and stay). The display-table reader at `0x400c257c` has its first 10 bytes turned into a jump plus two nops. The MIDI input cache (33 constants in five functions) grows by 12,852 bytes. `[doc]` {dn2-cfw-param-table}",
    "evidence": "doc",
@@ -26254,7 +26256,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 90,
+   "line": 84,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "The grown table ran on a unit (Digiwerk GT00/GT01, OS 1.12, 2026-10-13): boot, cold start, +Drive project save and load were all reported fine, and GT01 added 17 hidden rows for the 3-band compressor that later shipped (CMP3). In the emulator, not one instruction read the stock table after the boot copy. Since projects store values by slot k, and stock saves FX k 25-69 only, values in new slots k 70+ need their own storage (the 3-band compressor uses 28 FX-record words that stock never writes or reads). Whether such a project opens cleanly on a stock OS has not been reported. `[hw]` {dn2-cfw-t65}",
    "evidence": "hw",
@@ -26266,7 +26268,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 91,
+   "line": 85,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "New rows carry Overbridge ids of `0x400` and up. Each is sent to the plugin as soon as its value changes; what the plugin does with an id it doesn't know is not known. `[emu]` {dn2-cfw-t65}",
    "evidence": "emu",
@@ -26278,7 +26280,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 92,
+   "line": 86,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "Map builders hold 101 entries each, so k must stay in range (0..100 for sound/FX/MIDI, 0..25 for trig). Stock saves FX k 25-69 only; FX k 70+ and sound k 65 and 100 are not saved. `[doc]` {dn2-cfw-param-table}",
    "evidence": "doc",
@@ -26290,7 +26292,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 93,
+   "line": 87,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "Rules for a new row: use a free k in the set's table, one row per k (the last row written wins and can silently replace a stock knob); value 0 must keep classic behaviour (existing projects store 0 in slots stock has no row for); send-FX rows set `flags_set = 8` so they are never lockable; synth rows use free saved k values (FM Tone 34, 49; WaveTone 50-64; FM Drum 55-64; Swarmer 33-64); no randomiser; MIDI: no CC already in the set's map, none in 32-63, none taken by the CC parser (1, 2, 6, 64, 66, 94, 98, 99, 110, 120, 121, 123), NRPN 398 at most; Overbridge id outside stock's 0..387 (e.g. `0x400`+n, untested with the plugin). `[doc]` {dn2-cfw-param-table}",
    "evidence": "doc",
@@ -26302,7 +26304,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 94,
+   "line": 88,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "P-lock trap: a row is lockable when display flag bits 0 and 3 are clear; locks are stored as (track, k), so an FX row with k 70 could create a lock on a sound's slot 70, which stock would play back. A bad row can write past map tables, replace a stock knob, or leave stray p-locks that persist after returning to stock. A project saved on a grown build and loaded on stock 1.12 is untested on hardware. `[doc]` {dn2-cfw-param-table}",
    "evidence": "doc",
@@ -26314,7 +26316,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 95,
+   "line": 89,
    "section": "Digitone II / Parameter table / Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`)",
    "text": "Checks used: brick checker 12/12 for GT00/GT01 (\"a pass is not proof for code changes\"), `scripts/t65_build.py check_rows` for FX rows, `pg_boot` only skips ids outside `0x141`-`0x17f` (it does not check k, flags, CCs or Overbridge ids), an emulator run of 7,100 MIDI messages giving the same 991 parameter sets as baseline. Never flash `param-test-dn2` or `fx-page2-dn2`. `[doc]` {dn2-cfw-param-table}",
    "evidence": "doc",
@@ -26326,7 +26328,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 98,
+   "line": 92,
    "section": "Digitone II / Limits and budgets",
    "text": "USB upgrade limit 2 MiB, not checked by the receiver; oversized images stall at the end, nothing written, power cycle clears. `[hw]` {dn2mk2-firmware-md} ([I3](../INCIDENTS.md#i3-usb-upgrade-receiver-does-not-check-the-2-mib-limit))",
    "evidence": "hw",
@@ -26338,7 +26340,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 99,
+   "line": 93,
    "section": "Digitone II / Limits and budgets",
    "text": "DSP image limit 1,048,575 bytes; recent dn2mk2 builds sit at ~1,017,000-1,018,000. `[doc]` {dn2mk2-firmware-md}",
    "evidence": "doc",
@@ -26350,7 +26352,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 100,
+   "line": 94,
    "section": "Digitone II / Limits and budgets",
    "text": "DSP time: SETTINGS > SYSTEM > DSP LOAD shows it; at 100 % the audio crackles. Heavy machines can push it over. `[hw]` {overtone}",
    "evidence": "hw",
@@ -26362,7 +26364,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 101,
+   "line": 95,
    "section": "Digitone II / Limits and budgets",
    "text": "dn2mk2 cost figures: a PERC voice up to ~41,000 instructions per block, P-I machines ~9,000-19,000; Monomachine budget about two SIDs, four DPRO Waves, one DDRW and one DENS, or two VO-6 at once. A frame guard silences voices that no longer fit (limit 0.6 of the frame, estimated, not measured). `[doc]` {dn2mk2-firmware-md}",
    "evidence": "doc",
@@ -26374,7 +26376,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 102,
+   "line": 96,
    "section": "Digitone II / Limits and budgets",
    "text": "Fast on-chip DSP memory vs DDR: voice state moved to fast memory in dn2mk2 v0.32; Monomachine tables and P-I delay lines remain in DDR. Savings can only be measured on a unit. `[doc]` {dn2mk2-firmware-md}",
    "evidence": "doc",
@@ -26386,7 +26388,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 103,
+   "line": 97,
    "section": "Digitone II / Limits and budgets",
    "text": "Overtone: LOOP records 8 s stereo per track; LOOP in STRC mode, P-I and many SOPHIE voices can push DSP over 100 %. `[doc]` {overtone}",
    "evidence": "doc",
@@ -26398,7 +26400,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 106,
+   "line": 100,
    "section": "Digitone II / Sample memory (dn2mk2)",
    "text": "Pool of 400 MB (368 MB user samples + 32 MB recordings, ~5.5 min), up to 122 slots, RAM-checked at power-on (~0.7 s); +Drive library ~20 GB in a region the stock OS does not touch, up to 2,048 samples; slices up to 64 per sample, stored in a 128 KB area. Power-on load grows with stored samples (~30 s for 20 MB). The 400 MB pool has never run on hardware per FIRMWARE.md v0.22. `[emu]` {dn2mk2-firmware-md}",
    "evidence": "emu",
@@ -26410,7 +26412,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 107,
+   "line": 101,
    "section": "Digitone II / Sample memory (dn2mk2)",
    "text": "A stock DN2 has no sample filesystem, and a mod that mounts one must also create it (armio R012, 2026-11-03). R012 mounted an existing sample filesystem but did not create one on a unit that never had it; on such a unit Transfer showed 0% Free / 0 bytes, uploads stalled and connections failed. The author says stock FORMAT +DRIVE, EMPTY RESET and FACTORY RESET do not create it and can erase projects. The bug was found by new users; the author's own unit had storage prepared during development, which is why owner testing missed it. A test on a freshly flashed stock unit is the only check that catches this. `[doc]` {armio-samples} ([I12](../INCIDENTS.md#i12-a-sample-machine-mod-could-not-create-the-storage-it-needed))",
    "evidence": "doc",
@@ -26422,7 +26424,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 108,
+   "line": 102,
    "section": "Digitone II / Sample memory (dn2mk2)",
    "text": "Stock eMMC TRIM can fail with TRIM ERROR on a busy card (OS 1.11). A unit running dn2mk2 v0.39 stopped with TRIM ERROR at two different sector ranges while erasing mod data. dn2mk2's reading of the stock code: TRIM `0x4012c4b2` fails only when CMD35/36/38 get no answer (command timeout); after CMD38 the busy wait arms the DAT0 edge interrupt (`0x4012c53e`) before testing DAT0 (`0x4012c544`), so a short TRIM whose card finishes in between leaves a stale semaphore post (`0x4461b6c0`), the next TRIM on a really busy card returns at once, and the call after it gets no answer. The driver has no timeout. v0.40's fix: read the eSDHC present-state register `PRSSTAT` `0xfc0cc024` before every TRIM and verify read and call only when the card is idle; retry a failed call five times (TRIM is idempotent); report ERASE PAUSED and continue on request. The error is `[hw]`; the race is a static reading of stock code, not seen on the bus. Anything that issues TRIMs through the stock driver on a DN2 (and, not checked, a DT2 with the same driver) should do the same. `[hw]` {dn2mk2-v040} ([I1](../INCIDENTS.md#i1-stock-emmc-trim-fails-with-trim-error-on-a-busy-card))",
    "evidence": "hw",
@@ -26434,7 +26436,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 114,
+   "line": 108,
    "section": "Digitone II / Recovery (full procedure in [`../common/flash-procedure.md`](../common/flash-procedure.md))",
    "text": "FUNC at power-on -> TRIG 4 (OS UPGRADE) -> Elektron Transfer LEGACY OS UPGRADE over 5-pin DIN MIDI to MIDI IN; USB does not work in this mode; takes ~12-15 min, do not interrupt. The bootstrap that holds this menu must stay byte-identical (the brick checker refuses changes). `[hw]` {overtone} {dn2mk2} {dn2-cfw}",
    "evidence": "hw",
@@ -26446,7 +26448,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 115,
+   "line": 109,
    "section": "Digitone II / Recovery (full procedure in [`../common/flash-procedure.md`](../common/flash-procedure.md))",
    "text": "Overtone 1.0 broke the Transfer update path (stall at \"Receiving\"/\"PREPARING...\"); fixed in 1.0.1, way out = STARTUP menu over DIN. Details and the release test that catches it: [`../common/recovery.md`](../common/recovery.md). `[hw]` {overtone}",
    "evidence": "hw",
@@ -26458,7 +26460,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 116,
+   "line": 110,
    "section": "Digitone II / Recovery (full procedure in [`../common/flash-procedure.md`](../common/flash-procedure.md))",
    "text": "Pre-flash safety kit: back up +Drive, keep the stock OS file for the exact version, volume down, DIN cable ready, check the file's SHA-256 against the gate record (`certutil -hashfile FILE SHA256` on Windows). `[doc]` {dn2mk2-firmware-md}",
    "evidence": "doc",
@@ -26470,7 +26472,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 117,
+   "line": 111,
    "section": "Digitone II / Recovery (full procedure in [`../common/flash-procedure.md`](../common/flash-procedure.md))",
    "text": "The ~80% recovery-path stall once reported for dn2_firmware_explore's own images was the MIDI link: stock 1.10E stalled on the same route. Details: [`../common/recovery.md`](../common/recovery.md). `[hw]` {dn2-firmware-explore}",
    "evidence": "hw",
@@ -26482,7 +26484,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 125,
+   "line": 119,
    "section": "Digitone II / Hardware test evidence",
    "text": "dn2-cfw: EF01 (renamed stock 1.12) proved rebuild/seal/flash; FLG1 (flanger), FTD1, DH01 (hook bus), FTN1, GT00, GT01 ran on the unit. `[hw]` {dn2-cfw}",
    "evidence": "hw",
@@ -26494,7 +26496,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 126,
+   "line": 120,
    "section": "Digitone II / Hardware test evidence",
    "text": "Overtone 1.0.1: played on a Digitone II, Transfer installs tested on the unit. `[hw]` {overtone}",
    "evidence": "hw",
@@ -26506,7 +26508,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 127,
+   "line": 121,
    "section": "Digitone II / Hardware test evidence",
    "text": "dn2mk2: v0.21-v0.33 mostly emulator-only, hardware checks outstanding; user reports of p-lock clicks and silence were the reason for the DSP guard (v0.27) and AMD fix (v0.30.1). `[emu]` {dn2mk2-firmware-md}",
    "evidence": "emu",
@@ -26518,7 +26520,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 128,
+   "line": 122,
    "section": "Digitone II / Hardware test evidence",
    "text": "Emulators do not model the two chips' timing, so overruns show only on a unit ([`../common/toolchain-and-emulators.md`](../common/toolchain-and-emulators.md)). `[doc]` {dn2mk2-firmware-md}",
    "evidence": "doc",
@@ -26530,7 +26532,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 129,
+   "line": 123,
    "section": "Digitone II / Hardware test evidence",
    "text": "Digiwerk's spring-reverb builds lost their sound on the unit (locks on USB MULTI/MIDI; a stop one or two minutes after a pattern stop); the cause is open and the spring is shelved ([I68](../INCIDENTS.md#i68-spring-reverb-builds-lost-their-sound-on-a-digitone-ii-no-cause-found-offline)). `[hw]` {dn2-cfw-sp02}",
    "evidence": "hw",
@@ -26542,7 +26544,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 130,
+   "line": 124,
    "section": "Digitone II / Hardware test evidence",
    "text": "Stock DSP fault parks (OS 1.12): on a fault the stock DSP code idles at `0x1c07c7` or `0x1c1431`. Digiwerk's EEEM build jumps from there to a routine that fills the codec buffers with a square wave whose pitch names the fault, so a fault on the unit is heard rather than silent. `[doc]` {dn2-cfw-mr03}",
    "evidence": "doc",
@@ -26554,7 +26556,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 133,
+   "line": 127,
    "section": "Digitone II / armio R023-R027: the SEM filter and a DSP overload (2026-11)",
    "text": "R027 adds a seventh filter type, SEM (an Oberheim-style state-variable model from Faust's library: TYPE 0 low-pass, 63 notch, 126 high-pass, 127 band-pass), on every machine, with its computed response drawn on the FILTER page. The values derived from Elektron data for that graph are computed in the browser from the user's own OS file. Owner-tested, not instrumented. `[hw]` (owner)",
    "evidence": "hw",
@@ -26566,7 +26568,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 134,
+   "line": 128,
    "section": "Digitone II / armio R023-R027: the SEM filter and a DSP overload (2026-11)",
    "text": "R023/R024 overloaded the DSP and broke USB audio (I74); R025 runs the right-hand effects chain only for sampler voices. USB audio is untested since. `[hw]`",
    "evidence": "hw",
@@ -26578,7 +26580,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 135,
+   "line": 129,
    "section": "Digitone II / armio R023-R027: the SEM filter and a DSP overload (2026-11)",
    "text": "After a USB update the unit can stay on SUCCESS! REBOOTING; a power cycle then boots the new OS (rule A23). `[doc]`",
    "evidence": "doc",
@@ -26590,7 +26592,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 149,
+   "line": 143,
    "section": "Digitone II / The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14)",
    "text": "The NAME screen is a generic view class, `NameView`, not part of project or preset saving: its constructor takes a title, the starting name, two ints, a flag, another string and a `std::function` that receives the result (name and an int, likely YES/NO). Its RTTI name is at `0x4021f7b4`, its key-hint strings from `0x4021f71a`, and its code around `0x4010e000..0x4010e700`. So a mod could in principle open it with its own name and take the result back; calling it from C needs libstdc++'s old (COW) string and `std::function` layouts. Not tried yet. `[doc]`",
    "evidence": "doc",
@@ -26602,7 +26604,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 153,
+   "line": 147,
    "section": "Digitone II / Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17)",
    "text": "Card driver: block read `0x4012c87a`, write `0x4012ca60`, each transfer under one global mutex; one eSDHC transfer at a time, so parallel writers cannot raise throughput. The RTOS mutex functions (`0x400015a0` / `0x400016d2`, no priority inheritance) sit at the same addresses as on DT2 1.17. `[doc]`",
    "evidence": "doc",
@@ -26614,7 +26616,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 154,
+   "line": 148,
    "section": "Digitone II / Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17)",
    "text": "Tasks: the project-load task starts at `0x400cd5f2` (created at `0x400cec02`, TCB `0x40386e48`); the UI task at `0x4002ed34` (created at `0x4002e902`, TCB `0x4059e1c0`) is the only reader of queue `0x4059e214`; UI-loop site `0x4002f17e`. The level-7 EDMA interrupt is set up at `0x400d56c6` / `0x400d5996`. `[doc]`",
    "evidence": "doc",
@@ -26626,7 +26628,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 155,
+   "line": 149,
    "section": "Digitone II / Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17)",
    "text": "Upload time on a unit (2026-11-16): a 9.8 MB file ran at 3.66-3.73 MB/s (card writes 13.8 MB/s, copy 0.71 s, END 1.1 s); in a 309-file pack the END per file grew from 386 to 550 ms as the store filled, mostly the store-table commit. Reading the USB buffers through the cache was slower (3.47-3.50 MB/s). One commit for up to 16 files and copy/write overlap later gave 3.56 MB/s for a pack and 4.37 MB/s for the 9.8 MB file. `[hw]`",
    "evidence": "hw",
@@ -26638,7 +26640,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 158,
+   "line": 152,
    "section": "Digitone II / digikit port data for DN2 OS 1.11 (2026-11-18)",
    "text": "USB driver code is at the same addresses on DN2 1.11, DN2 1.12 and DT2 1.17: USB init site `0x40006c52`, stop `0x40006bac`, restart `0x40006bc6`, connect `0x400043e2`, disconnect `0x4000436e`, TD alloc `0x40005764`, queue TD `0x40005a86`, cancel endpoint `0x400059aa` (each matched by a sha256 of its bytes). So the Fast USB hooks need no new code sites on 1.11. `[doc]`",
    "evidence": "doc",
@@ -26650,7 +26652,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 159,
+   "line": 153,
    "section": "Digitone II / digikit port data for DN2 OS 1.11 (2026-11-18)",
    "text": "USB data moves between versions: port table DN2 1.11 `0x402875b0` (1.12 `0x40287af0`, DT2 1.17 `0x4029ef80`, 280 bytes); active-port word 1.11 `0x4058e2a8` / 1.12 `0x4058f2a8` (DT2 `0x40965a60`); restart-delay word 1.11 `0x4058e280` / 1.12 `0x4058f280` (DT2 `0x40965a38`). The 1.11 to 1.12 shift of `0x1000` matches the known BSS growth. `[doc]`",
    "evidence": "doc",
@@ -26662,7 +26664,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 160,
+   "line": 154,
    "section": "Digitone II / digikit port data for DN2 OS 1.11 (2026-11-18)",
    "text": "Card driver 64 KiB split sites on DN2 1.11: block read entry test `0x4012c5ae` (6 bytes) and chunk test `0x4012c5bc` (12 bytes); block write `0x4012c794` and `0x4012c7a2`. These are the sites digikit's sdhc-large patches (1.12: `0x4012c88e`/`0x4012c89c`, `0x4012ca74`/`0x4012ca82`). `[doc]`",
    "evidence": "doc",
@@ -26674,7 +26676,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 161,
+   "line": 155,
    "section": "Digitone II / digikit port data for DN2 OS 1.11 (2026-11-18)",
    "text": "Other 1.11 ColdFire anchors: microsecond sleep `0x4013464c` (1.12 `0x4013492c`, DT2 1.17 `0x40136544`); link boot wire-size site `0x400cef28` (1.12 `0x400cf08c`); reply-copy function `0x40134490` and site `0x400cf7f2`; machine group helper's `bge.b` target `0x4005928a` (same on 1.12; types 0-3 are group 1); SRC page key / turn / code / draw `0x40016480` / `0x4001704e` / `0x4001683a` / `0x40018118`; sound index `0x400167a4`; library sound `0x4003e426`; native font operand `0x40065ae8`; samples worker get `0x4019e83a`, queue `0x400f2494`. `[doc]`",
    "evidence": "doc",
@@ -26686,7 +26688,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 162,
+   "line": 156,
    "section": "Digitone II / digikit port data for DN2 OS 1.11 (2026-11-18)",
    "text": "All 68 DSP anchors resolve to the same addresses on 1.11 and 1.12, as expected from the identical section 7. New named ones: Q31 output converter `0x28393a7e` (its call `0x28393fa4`), FX entry `0x2838489a`, FX send `0x28383e3c`, link-port-0 open / submit / set-callback `0x28395ff6` / `0x2839554c` / `0x283956c0`, DSP boot wire-size site `0x28395024`, block tail `0x28393cbe`, cache-range function `0x283801b4`, cache-enable site `0x20017358`, voice render entry `0x20004a36`, shaper `0x2839b6ac`, voice engine base (DM) `0x241298`, send slot map / fade flags / slot bus / return bus (DM) `0x257898` / `0x2578b8` / `0x257ee8` / `0x25b868`, sidechain filter word `0x25ced8`, link-port-0 record `0x268ca8`. `[doc]`",
    "evidence": "doc",
@@ -26698,7 +26700,7 @@
   },
   {
    "file": "hardware/devices/digitone-2.md",
-   "line": 163,
+   "line": 157,
    "section": "Digitone II / digikit port data for DN2 OS 1.11 (2026-11-18)",
    "text": "The DN2 voice-render hook has no free register: digikit's slot stub there saves R0 (and R1 on voice 0) and must pin M13 and I12. On voice 0 with an empty slot the stub costs 50 instructions (heartbeat, twelve context words, block counter, slot test). `[emu]` {digikit-1118}",
    "evidence": "emu",
@@ -44045,6 +44047,934 @@
    "os": "1.41",
    "evidence": "doc",
    "sources": "synfact-main-opt"
+  }
+ ],
+ "stock_os": [
+  {
+   "device": "digitakt-2",
+   "model": null,
+   "os": "1.17",
+   "file": "Digitakt_II_OS1.17.syx",
+   "sha256": "26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5",
+   "released": "2026-10-01",
+   "sources": "elektron-dt2-notes,digikit-firmware,digitakt-ii-research",
+   "pinned_by": "digi2core,digi2digiseq,digi2elixir,digi2macroosc,digi2sophie,digi2string,digikit,digitakt-ii-research,digitakt-mods-hillzeealex,dn2-cfw,dt2-machine-lab,elekloader,elektron-model-tweaks,eucplus,mezclando,modwerk,synfact",
+   "pinned_count": 17,
+   "other_sha256": null
+  },
+  {
+   "device": "digitakt-2",
+   "model": null,
+   "os": "1.16",
+   "file": "Digitakt_II_OS1.16.syx",
+   "sha256": "278541e466edcd77d6b3e018a91fb90185932d3c7de224dd3e68294dddf3a9ec",
+   "released": null,
+   "sources": "digikit-firmware,digitakt-ii-research,digikit-forks",
+   "pinned_by": "digiemu,digikit,digitakt-ii-research,dn2-dt2-firmware-research,dt2-machine-lab",
+   "pinned_count": 5,
+   "other_sha256": null
+  },
+  {
+   "device": "digitakt-2",
+   "model": null,
+   "os": "1.15C",
+   "file": "Digitakt_II_OS1.15C.syx",
+   "sha256": "62d588456e47194bd56dfee9568fb9dd4521c4ff1e8b5427eb461355532e8c6c",
+   "released": null,
+   "sources": "digikit-firmware,digikit-forks",
+   "pinned_by": "digiemu,digikit,digitone-arp-mod,dt2-firmware-research",
+   "pinned_count": 4,
+   "other_sha256": "6050317eb616669caf11ed442f0d9df6f4a70bdcb85ee47474df2b0848d6c257"
+  },
+  {
+   "device": "digitone-2",
+   "model": null,
+   "os": "1.12",
+   "file": "Digitone_II_OS1.12.syx",
+   "sha256": "7e5b8a733d4ab1fdf7e5d22757f7d8eddaa3cbf71d0858874a791844c02ceb35",
+   "released": "2026-10-01",
+   "sources": "elektron-dn2-notes,digikit-firmware,dn2-cfw-firmware",
+   "pinned_by": "digihealth,digikit,digirust,digitone-2-mod-hack,dn2-cfw,dn2-firmware-explore,elekloader,modwerk,motorcycles,overtone,terrain-dn2,x0x",
+   "pinned_count": 12,
+   "other_sha256": null
+  },
+  {
+   "device": "digitone-2",
+   "model": null,
+   "os": "1.11",
+   "file": "Digitone_II_OS1.11.syx",
+   "sha256": "2af43e65e3d8390b41c9f66222620f8cce027d73ed87db00c80b440f628472e0",
+   "released": null,
+   "sources": "digikit-firmware,dn2-cfw-firmware",
+   "pinned_by": "digikit,digitone-2-modding-skill,dn2-cfw,dn2-dt2-firmware-research,dn2-firmware-explore,dn2-rift,dn2-tools-depattern,dn2mk2,dnx,dt2-machine-lab,motorcycles,overtone",
+   "pinned_count": 12,
+   "other_sha256": null
+  },
+  {
+   "device": "digitone-2",
+   "model": null,
+   "os": "1.10E",
+   "file": "Digitone_II_OS1.10E.syx",
+   "sha256": "9881ee5ca4624be2b833e5eb94e294f2f8425371e6729781baccd1c256cac504",
+   "released": null,
+   "sources": "digikit-firmware,dn2-cfw-firmware",
+   "pinned_by": "digiemu,digikit,digitone-arp-mod,dn2-cfw",
+   "pinned_count": 4,
+   "other_sha256": "4f8184e7b42a82802e67a81f3ff43e02e67d8e3a6ef046e3f4468e77ad89feb5"
+  },
+  {
+   "device": "digitone-2",
+   "model": null,
+   "os": "1.10C",
+   "file": "Digitone_II_OS1.10C.syx",
+   "sha256": "8db03f8407fc0cb1adf0d6f828f7b94429226fc07e1289e6d9136462583d30b1",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "digitone-2",
+   "model": null,
+   "os": "1.10B",
+   "file": "Digitone_II_OS1.10B.syx",
+   "sha256": "e8fb540aa62069b8a159458c119148d352ba62a25547c16a6e2c9a3078e66853",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "digitone-2",
+   "model": null,
+   "os": "1.10A",
+   "file": "Digitone_II_OS1.10A.syx",
+   "sha256": "4dcc46fa790c83c7f87a9a72f2c74bed3b7be4f17ce9cff61ab0eb09ff0090cc",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "digitone-2",
+   "model": null,
+   "os": "1.00A",
+   "file": "Digitone_II_OS1.00A.syx",
+   "sha256": "3b0448246a025e4f29649b38fa48e752aa09676fb0eb3d92b9a6793e53d5fc7d",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "syntakt",
+   "model": null,
+   "os": "1.42",
+   "file": "Syntakt_OS1.42.syx",
+   "sha256": "ded3c59fdb909eb9e2c3307b30a486452c8fa6947b12c14e0ce35a187b7f37c1",
+   "released": "2026-10-01",
+   "sources": "digikit-f70,dn2-cfw-firmware,modded-cycles-thread",
+   "pinned_by": "analog-emu,chord-keys,digikit,dn2-cfw,modded-cycles,model-machinedrum,model27,modwerk,motorcycles,spokes,supermodel-edition,syncrackd,synfact,syntakt-performance-mods",
+   "pinned_count": 14,
+   "other_sha256": null
+  },
+  {
+   "device": "syntakt",
+   "model": null,
+   "os": "1.41",
+   "file": "Syntakt_OS1.41.syx",
+   "sha256": "8e2488f462c4a5656396a895f113bcd415e9900fa8709340dccf45d4cb9ed19e",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "chord-keys,dn2-cfw,modded-cycles,model-machinedrum,model27,modwerk,motorcycles,spokes,supermodel-edition,synfact,syntakt-firmware-workbench,syntakt-machine45-research,syntakt-performance-mods,synthack-os,synthack-os-upstream",
+   "pinned_count": 15,
+   "other_sha256": null
+  },
+  {
+   "device": "syntakt",
+   "model": null,
+   "os": "1.40A",
+   "file": "Syntakt_OS1.40A.syx",
+   "sha256": "266a5a3022ff565bf470173147b7f3005b7da8ef80724b6271836818ac2b5828",
+   "released": null,
+   "sources": "dn2-cfw-firmware,sy-fm4",
+   "pinned_by": "digitakt-ii-research,dn2-cfw,modwerk,sy-fm4",
+   "pinned_count": 4,
+   "other_sha256": null
+  },
+  {
+   "device": "syntakt",
+   "model": null,
+   "os": "1.30B",
+   "file": "Syntakt_OS1.30B.syx",
+   "sha256": "500a75c42fd45ad8d8365bf6b18e15bf5be2d75a6b357ae673097241c27593ea",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "syntakt",
+   "model": null,
+   "os": "1.30",
+   "file": "Syntakt_OS1.30.syx",
+   "sha256": "f7c53691883a8b3f675f4f368ca3aea44f6ef91a3f98b727731ccb3909b69f16",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "digitakt",
+   "model": null,
+   "os": "1.54",
+   "file": "Digitakt_OS1.54.syx",
+   "sha256": "f78ba80fa7b1da5fb0e1ff61ad61e9e71aafe79f4364fc49679f3651353e3cf6",
+   "released": null,
+   "sources": "dn2-cfw-firmware,elekloader",
+   "pinned_by": "digi-expression,digi1-mods,digiarp-dt1,digifilter,digiseq-digitakt,digisophie,digistring,digitakt-fx-locks,digitakt-led-colors,digitakt-mods-hillzeealex,digitakt-sidecar-pi,directjump-digitakt,dn2-cfw,dt-fm,elekloader,elektron-model-tweaks,eucplus,filter-fx,filter-plus,flex-plus,gestalt-digitakt,glide-digitakt,mashup-digitakt,mezclando,modwerk,pump-digitakt,sidecar-digitakt,synfact,taktone,tone-fx,x0x",
+   "pinned_count": 31,
+   "other_sha256": null
+  },
+  {
+   "device": "digitakt",
+   "model": null,
+   "os": "1.53",
+   "file": "Digitakt_OS1.53.syx",
+   "sha256": "9bdd44bb6102fb25c143cfab97bc92b7a89c463f795d3112dce89771e29bcc92",
+   "released": null,
+   "sources": "dn2-cfw-firmware,elekloader",
+   "pinned_by": "digi1-mods,digicandy,digiemu,digifilter,digiseq-digitakt,digisophie,digisplash,digistring,digitakt-mods-hillzeealex,digitakt-sidecar-pi,digitone-arp-mod,dn2-cfw,dt-fm,elekloader,elektron-model-tweaks,filter-fx,gestalt-digitakt,glide-digitakt,mezclando,modwerk,pump-digitakt,sidecar-digitakt,synfact,taktone,tone-fx",
+   "pinned_count": 25,
+   "other_sha256": null
+  },
+  {
+   "device": "digitakt",
+   "model": null,
+   "os": "1.52A",
+   "file": "Digitakt_OS1.52A.syx",
+   "sha256": "01315133041dcdb8b432146190cc74fc8695c47d8466b0f31bd78cef96fa56a4",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "digitakt",
+   "model": null,
+   "os": "1.52",
+   "file": "Digitakt_OS1.52.syx",
+   "sha256": "0a8250f799904194cfb5c12b88adef2352f3645f8a5c6e57eb8539998aff1e45",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "digitone",
+   "model": null,
+   "os": "1.44",
+   "file": "Digitone_and_Digitone_Keys_OS1.44.syx",
+   "sha256": "d4f200d04484333d82822db7744e6484d0def8f2db8ddf55ee2b780cc13c9659",
+   "released": null,
+   "sources": "dn2-cfw-firmware,elekloader",
+   "pinned_by": "ctrl-plus,digiarp-midi,digiemu,digifilter,digiseq-digitone,digisophie-dn,digitone-arp-mod,directjump-digitone,dn2-cfw,drum-plus,elekloader,elektron-model-tweaks,elektron-mods-rumorismo,esoterika,filter-fx,filter-plus,flex-plus,gestalt-digitone,mezclando,modwerk,mutiny,pump-digitone,sampletone,synfact,tone-fx,x0x",
+   "pinned_count": 26,
+   "other_sha256": null
+  },
+  {
+   "device": "digitone",
+   "model": null,
+   "os": "1.43",
+   "file": "Digitone_and_Digitone_Keys_OS1.43.syx",
+   "sha256": "c5a54cc05b921f2e4bd814834c5365c2a5aa01d7772a9a2961fac1c3095bf9aa",
+   "released": null,
+   "sources": "dn2-cfw-firmware,elekloader",
+   "pinned_by": "digialchemy-gamepack-1,digicandy,digiemu,digiseq-digitone,digisophie-dn,digisplash,digitone-arp-mod,dn2-cfw,elekloader,elektron-model-tweaks,elektron-mods-rumorismo,gestalt-digitone,mezclando,modwerk,pump-digitone,synfact,taktone,tone-fx",
+   "pinned_count": 18,
+   "other_sha256": null
+  },
+  {
+   "device": "digitone",
+   "model": null,
+   "os": "1.42",
+   "file": "Digitone_and_Digitone_Keys_OS1.42.syx",
+   "sha256": "0de87bf55e6bc48bebef5479e0d054f262fb7a0c7f81052dbd195d38569fdfda",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "digitone-arp-mod,dn2-cfw",
+   "pinned_count": 2,
+   "other_sha256": null
+  },
+  {
+   "device": "octatrack",
+   "model": null,
+   "os": "1.40C",
+   "file": "OCTATRACK_OS1.40C.syx",
+   "sha256": "0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6",
+   "released": null,
+   "sources": "dn2-cfw-firmware,elekloader",
+   "pinned_by": "dn2-cfw,elekloader,elektron-model-tweaks,ems-octakit,mezclando,modwerk,octabam,octamax,octatrack-kyoti-fw,synfact",
+   "pinned_count": 10,
+   "other_sha256": null
+  },
+  {
+   "device": "octatrack",
+   "model": null,
+   "os": "1.40B",
+   "file": "OCTATRACK_OS1.40B.syx",
+   "sha256": "68d92d76324af55d63fe9f22a3d5838c7c7a2a76d5bc3f53cfc4709114eb146e",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "analog-rytm",
+   "model": "MKII",
+   "os": "1.74",
+   "file": "Analog-Rytm_MKII_OS1.74.syx",
+   "sha256": "cb0f99d620edde994fb860c0e79cc2464e427d06882828cfdfb00fc53700e123",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw,elekloader,mezclando,modwerk,sidecar-expander,sidecar-mods,synfact",
+   "pinned_count": 7,
+   "other_sha256": null
+  },
+  {
+   "device": "analog-rytm",
+   "model": "MKII",
+   "os": "1.73",
+   "file": "Analog-Rytm_MKII_OS1.73.syx",
+   "sha256": "8ad671087ec30433d5407c7380d2396e0915ab931c5d3dd18a78bf284d3d1e52",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "chopshop,dn2-cfw,elekloader,mezclando,modwerk,rytm-mods-boot-report,rytm-mods-src,sidecar-expander,sidecar-mods,synfact",
+   "pinned_count": 10,
+   "other_sha256": null
+  },
+  {
+   "device": "analog-rytm",
+   "model": "MKII",
+   "os": "1.71",
+   "file": "Analog-Rytm_MKII_OS1.71.syx",
+   "sha256": "d32a8e013d84b04d1abdff9afba3ed0c89b3b84082f8cb5db57a08527168bba9",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "analog-rytm",
+   "model": "MKI",
+   "os": "1.74",
+   "file": "Analog-Rytm_OS1.74.syx",
+   "sha256": "4f0d59051b4b3ac01f336639918ceb8186e0ae1a1abf2ed9bc028b8718514cff",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw,elekloader,elkflash,modwerk,rytm-mk1-mods-hugz202",
+   "pinned_count": 5,
+   "other_sha256": null
+  },
+  {
+   "device": "analog-rytm",
+   "model": "MKI",
+   "os": "1.73",
+   "file": "Analog-Rytm_OS1.73.syx",
+   "sha256": "9115c3888354bb388f90410e0445cd312bf020593ed99f768a99e475d1d6157c",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "chopshop,dn2-cfw,rytm1-mods",
+   "pinned_count": 3,
+   "other_sha256": null
+  },
+  {
+   "device": "analog-rytm",
+   "model": "MKI",
+   "os": "1.71",
+   "file": "Analog-Rytm_OS1.71.syx",
+   "sha256": "46550ad99fa737c3f4596cf52bd7f4194919929253ce8f3532eb16857768ae7d",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "analog-four-keys",
+   "model": "A4 MKI / Analog Keys",
+   "os": "1.56",
+   "file": "Analog-Four_Analog-Keys_OS1.56.syx",
+   "sha256": "cda4459d14bfba40635440ad9dfa8fc183e5317e5e3ffa7116704f307fdf7010",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "a4-mk1-mods,chopshop,dn2-cfw,elkflash,modwerk",
+   "pinned_count": 5,
+   "other_sha256": null
+  },
+  {
+   "device": "analog-four-keys",
+   "model": "A4 MKI / Analog Keys",
+   "os": "1.55D",
+   "file": "Analog-Four_Analog-Keys_OS1.55D.syx",
+   "sha256": "6449d1a7718371332c48081ca8ac514da76e7ff47613511b2eb00f6d4118582b",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "analog-four-keys",
+   "model": "A4 MKI / Analog Keys",
+   "os": "1.55B",
+   "file": "Analog-Four_Analog-Keys_OS1.55B.syx",
+   "sha256": "80d9ada793aabe35adbd32bab0bad8bd6e937bcdc5008d3d08d2f657cbb5f6a6",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "analog-four-keys",
+   "model": "A4 MKII",
+   "os": "1.56",
+   "file": "Analog-Four_MKII_OS1.56.syx",
+   "sha256": "5aea489db3e747547f71d5e08a2d20253149fe6258defad60306402d2fc23cb5",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw,elekloader,modwerk,sidecar-expander,sidecar-mods",
+   "pinned_count": 5,
+   "other_sha256": null
+  },
+  {
+   "device": "analog-heat",
+   "model": "+FX",
+   "os": "1.02",
+   "file": "Analog-Heat+FX_OS1.02.syx",
+   "sha256": "85abe773c9e2284cd1b2aaaf1f599ec0f800f56f4b34127214fe998f1a2cfe63",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "analog-heat",
+   "model": "MKII",
+   "os": "1.22",
+   "file": "Analog-Heat_MKII_OS1.22.syx",
+   "sha256": "5401d6286a9a79366e6ed4bc0e1f9c849aa39c1c035360cccce2e7f78039a35d",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "analog-heat",
+   "model": "MKI",
+   "os": "1.22",
+   "file": "Analog-Heat_OS1.22.syx",
+   "sha256": "4473055689e5982df49406a76e818c06dcf82d3831cfb86c587b97b88f33e109",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw",
+   "pinned_count": 1,
+   "other_sha256": null
+  },
+  {
+   "device": "model-cycles",
+   "model": null,
+   "os": "1.13",
+   "file": "model-cycles_OS1.13.syx",
+   "sha256": "44fe586269631a0ca7da25a3383fc6733c314809505fc3cc52f1e0ed9800640c",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "chord-keys,cycles-engines,cycles-mods-100demons,digiemu,dn2-cfw,elekloader,elektron-model-tweaks,mezclando,modded-cycles,modded-cycles-techno,model-machinedrum,model-tg,model27,model909,modwerk,motorcycles,ms-multi-output,plaits-on-models,spokes,supermodel-edition,synfact",
+   "pinned_count": 21,
+   "other_sha256": null
+  },
+  {
+   "device": "model-samples",
+   "model": null,
+   "os": "1.13",
+   "file": "model-samples_OS1.13.syx",
+   "sha256": "e11859b68deb7e5e3fe86ab32581212093849c4be5d3950add011eac398a2ce8",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "chord-keys,digiemu,dn2-cfw,elekloader,elektron-model-tweaks,mezclando,modded-cycles,model-machinedrum,model27,model909,modwerk,ms-multi-output,plaits-on-models,spokes,supermodel-edition,synfact",
+   "pinned_count": 16,
+   "other_sha256": null
+  },
+  {
+   "device": "machinedrum",
+   "model": "SPS-1UW",
+   "os": "1.63",
+   "file": "Elektron_SPS1-1UW_OS1.63.syx",
+   "sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw,model-machinedrum,supermodel-edition",
+   "pinned_count": 3,
+   "other_sha256": null
+  },
+  {
+   "device": "monomachine",
+   "model": "SFX-6/60",
+   "os": "1.32B",
+   "file": "Elektron_SFX6-60_OS1.32B.syx",
+   "sha256": "fe13c09f661cdba5fe57813240fa1574de1ee0a3ddd7047fc39d0318cba1a710",
+   "released": null,
+   "sources": "dn2-cfw-firmware",
+   "pinned_by": "dn2-cfw,dn2-rift,dn2mk2,monomodule",
+   "pinned_count": 4,
+   "other_sha256": null
+  }
+ ],
+ "os_support": [
+  {
+   "device": "digitakt-2",
+   "project": "elekloader",
+   "use": "patch",
+   "os": "1.17",
+   "ported": "2026-10-04",
+   "evidence": "commit 827bc68 \"The Digitakt II (OS 1.17): sealed builds, core-dt2 and an example mod\"",
+   "note": null
+  },
+  {
+   "device": "digitakt-2",
+   "project": "modwerk",
+   "use": "patch",
+   "os": "1.17",
+   "ported": "2026-10-10",
+   "evidence": "commit d6395f87 \"Wire Digitakt II 1.17 build preview\" (merged in #402)",
+   "note": "preview; downloads off"
+  },
+  {
+   "device": "digitakt-2",
+   "project": "digikit",
+   "use": "analysis",
+   "os": "1.17,1.16,1.15C",
+   "ported": "2026-10-13",
+   "evidence": "commit f75da50b \"Onboard DT2 1.17 and DN2 1.12\"",
+   "note": "emulator and toolkit"
+  },
+  {
+   "device": "digitakt-2",
+   "project": "digitakt-ii-research",
+   "use": "patch",
+   "os": "1.17,1.16",
+   "ported": "2026-10-17",
+   "evidence": "commit 141a7df \"Add Digitakt II OS 1.17 builder support\"",
+   "note": "started on 1.16 on 2026-10-14"
+  },
+  {
+   "device": "digitakt-2",
+   "project": "digitakt2-perform",
+   "use": "patch",
+   "os": "1.17",
+   "ported": null,
+   "evidence": "first commit 2026-10-05",
+   "note": null
+  },
+  {
+   "device": "digitakt-2",
+   "project": "digisplash-ii",
+   "use": "patch",
+   "os": "1.17",
+   "ported": null,
+   "evidence": "first commit 2026-10-02",
+   "note": null
+  },
+  {
+   "device": "digitakt-2",
+   "project": "digi2core",
+   "use": "patch",
+   "os": "1.17",
+   "ported": null,
+   "evidence": "first commit 2026-11-08",
+   "note": null
+  },
+  {
+   "device": "digitakt-2",
+   "project": "digi2macroosc",
+   "use": "patch",
+   "os": "1.17",
+   "ported": null,
+   "evidence": "first commit 2026-11-01",
+   "note": null
+  },
+  {
+   "device": "digitakt-2",
+   "project": "digi2elixir",
+   "use": "patch",
+   "os": "1.17",
+   "ported": null,
+   "evidence": "first commit 2026-10-27",
+   "note": null
+  },
+  {
+   "device": "digitakt-2",
+   "project": "digi2string",
+   "use": "patch",
+   "os": "1.17",
+   "ported": null,
+   "evidence": "first commit 2026-11-09",
+   "note": null
+  },
+  {
+   "device": "digitakt-2",
+   "project": "digi2sophie",
+   "use": "patch",
+   "os": "1.17",
+   "ported": null,
+   "evidence": "first commit 2026-11-09",
+   "note": null
+  },
+  {
+   "device": "digitakt-2",
+   "project": "digi2digiseq",
+   "use": "patch",
+   "os": "1.17",
+   "ported": null,
+   "evidence": "first commit 2026-11-01",
+   "note": null
+  },
+  {
+   "device": "digitakt-2",
+   "project": "digi-macro",
+   "use": "patch",
+   "os": "1.17",
+   "ported": null,
+   "evidence": "first commit 2026-10-28",
+   "note": null
+  },
+  {
+   "device": "digitakt-2",
+   "project": "digitakt-mods-hillzeealex",
+   "use": "patch",
+   "os": "1.17",
+   "ported": null,
+   "evidence": "first commit 2026-10-29",
+   "note": null
+  },
+  {
+   "device": "digitakt-2",
+   "project": "mezclando",
+   "use": "patch",
+   "os": "1.17",
+   "ported": null,
+   "evidence": "first commit 2026-11-04",
+   "note": null
+  },
+  {
+   "device": "digitakt-2",
+   "project": "eucplus",
+   "use": "patch",
+   "os": "1.17",
+   "ported": null,
+   "evidence": "first commit 2026-11-03",
+   "note": null
+  },
+  {
+   "device": "digitakt-2",
+   "project": "dt2-machine-lab",
+   "use": "patch",
+   "os": "1.16",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": "OS 1.17 work started 2026-11-13 (commit b9628bc), not yet the target"
+  },
+  {
+   "device": "digitakt-2",
+   "project": "digimod",
+   "use": "patch",
+   "os": "1.16",
+   "ported": null,
+   "evidence": "base_os in the catalogue; first commit 2026-11-05",
+   "note": null
+  },
+  {
+   "device": "digitakt-2",
+   "project": "dn2-dt2-firmware-research",
+   "use": "donor",
+   "os": "1.16",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": "Digitakt II file as donor for a Digitone II build"
+  },
+  {
+   "device": "digitakt-2",
+   "project": "dn2mk2",
+   "use": "donor",
+   "os": "1.17,1.16",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": "Digitakt II file as donor for the comb filters"
+  },
+  {
+   "device": "digitakt-2",
+   "project": "dn2-rift",
+   "use": "donor",
+   "os": "1.17",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": "Digitakt II file as donor"
+  },
+  {
+   "device": "digitakt-2",
+   "project": "dt2-firmware-research",
+   "use": "analysis",
+   "os": "1.15C",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": null
+  },
+  {
+   "device": "digitone-2",
+   "project": "elekloader",
+   "use": "patch",
+   "os": "1.12",
+   "ported": "2026-10-24",
+   "evidence": "commit b9006bf \"Add experimental Digitone II OS 1.12 support (#166)\"",
+   "note": "experimental"
+  },
+  {
+   "device": "digitone-2",
+   "project": "digikit",
+   "use": "analysis",
+   "os": "1.12,1.11,1.10E",
+   "ported": "2026-10-13",
+   "evidence": "commit f75da50b \"Onboard DT2 1.17 and DN2 1.12\"",
+   "note": "emulator and toolkit"
+  },
+  {
+   "device": "digitone-2",
+   "project": "modwerk",
+   "use": "analysis",
+   "os": "1.12",
+   "ported": "2026-10-23",
+   "evidence": "commit a829d349 \"Digitone II OS 1.12 research and a draft core in the emulator (#808)\"",
+   "note": "research only, no downloads"
+  },
+  {
+   "device": "digitone-2",
+   "project": "dn2-cfw",
+   "use": "patch",
+   "os": "1.12",
+   "ported": null,
+   "evidence": "first commit 2026-10-12",
+   "note": null
+  },
+  {
+   "device": "digitone-2",
+   "project": "digirust",
+   "use": "patch",
+   "os": "1.12",
+   "ported": null,
+   "evidence": "first commit 2026-10-12",
+   "note": null
+  },
+  {
+   "device": "digitone-2",
+   "project": "x0x",
+   "use": "patch",
+   "os": "1.12",
+   "ported": null,
+   "evidence": "first commit 2026-10-26",
+   "note": null
+  },
+  {
+   "device": "digitone-2",
+   "project": "digi-macro",
+   "use": "patch",
+   "os": "1.12",
+   "ported": null,
+   "evidence": "first commit 2026-10-28",
+   "note": null
+  },
+  {
+   "device": "digitone-2",
+   "project": "overtone",
+   "use": "patch",
+   "os": "1.12",
+   "ported": null,
+   "evidence": "first commit 2026-10-29",
+   "note": null
+  },
+  {
+   "device": "digitone-2",
+   "project": "terrain-dn2",
+   "use": "patch",
+   "os": "1.12",
+   "ported": null,
+   "evidence": "first commit 2026-11-14",
+   "note": null
+  },
+  {
+   "device": "digitone-2",
+   "project": "digitone-2-mod-hack",
+   "use": "patch",
+   "os": "1.12",
+   "ported": null,
+   "evidence": "README pins the 1.12 hash",
+   "note": null
+  },
+  {
+   "device": "digitone-2",
+   "project": "openbridge-digitone-2",
+   "use": "runs-on",
+   "os": "1.12",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": "the unit must run 1.12 or later; nothing is patched"
+  },
+  {
+   "device": "digitone-2",
+   "project": "dn2-firmware-explore",
+   "use": "patch",
+   "os": "1.11",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": null
+  },
+  {
+   "device": "digitone-2",
+   "project": "dn2mk2",
+   "use": "patch",
+   "os": "1.11",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": "1.12 users must go back to 1.11"
+  },
+  {
+   "device": "digitone-2",
+   "project": "dn2-rift",
+   "use": "patch",
+   "os": "1.11",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": null
+  },
+  {
+   "device": "digitone-2",
+   "project": "dn2-dt2-firmware-research",
+   "use": "patch",
+   "os": "1.11",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": null
+  },
+  {
+   "device": "digitone-2",
+   "project": "digitone-2-modding-skill",
+   "use": "analysis",
+   "os": "1.11",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": null
+  },
+  {
+   "device": "syntakt",
+   "project": "synfact",
+   "use": "patch",
+   "os": "1.42,1.41",
+   "ported": "2026-11-17",
+   "evidence": "commit 276667a \"move to OS 1.42\"",
+   "note": "1.41 for core 1.9.0 and older"
+  },
+  {
+   "device": "syntakt",
+   "project": "analog-emu",
+   "use": "analysis",
+   "os": "1.42",
+   "ported": null,
+   "evidence": "Syntakt support added on 1.42, commit 40f8b5b (2026-10-13)",
+   "note": "emulator"
+  },
+  {
+   "device": "syntakt",
+   "project": "syncrackd",
+   "use": "patch",
+   "os": "1.42",
+   "ported": null,
+   "evidence": "first commit 2026-10-30",
+   "note": null
+  },
+  {
+   "device": "syntakt",
+   "project": "syntakt-performance-mods",
+   "use": "patch",
+   "os": "1.42,1.41",
+   "ported": null,
+   "evidence": "first commit 2026-11-16",
+   "note": null
+  },
+  {
+   "device": "syntakt",
+   "project": "synthack-os",
+   "use": "patch",
+   "os": "1.41",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": null
+  },
+  {
+   "device": "syntakt",
+   "project": "synthack-os-upstream",
+   "use": "patch",
+   "os": "1.41",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": null
+  },
+  {
+   "device": "syntakt",
+   "project": "syntakt-firmware-workbench",
+   "use": "patch",
+   "os": "1.41",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": null
+  },
+  {
+   "device": "syntakt",
+   "project": "syntakt-machine45-research",
+   "use": "analysis",
+   "os": "1.41",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": null
+  },
+  {
+   "device": "syntakt",
+   "project": "sy-fm4",
+   "use": "patch",
+   "os": "1.40A",
+   "ported": null,
+   "evidence": "base_os in the catalogue",
+   "note": null
+  },
+  {
+   "device": "syntakt",
+   "project": "modded-cycles",
+   "use": "donor",
+   "os": "1.42,1.41",
+   "ported": null,
+   "evidence": "its flasher accepts either file and checks section 7, whose hash is the same in both",
+   "note": "Syntakt engine for Model:Cycles; projects built on it carry the same check"
   }
  ]
 }

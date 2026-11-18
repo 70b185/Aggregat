@@ -126,11 +126,11 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 
 - [L9](../hardware/devices/digitakt-2.md#L9) [?] A forum user notes the Digitone II PCB looks near identical (same P/N PCBA0109B, 32 GB eMMC). `[?]` {elektronauts-dn2-pcb} `digitakt-2#5a4f9bd7`
 - [L66](../hardware/devices/digitakt-2.md#L66) [untagged] These are 1.16 addresses; resolve them on 1.17 before use (rule C1). `digitakt-2#fc52e6f8`
-- [L95](../hardware/devices/digitakt-2.md#L95) [?] Forum users who opened the unit: main CPU is the same ColdFire as the Digitakt mk1 (MCF54415CMJ250 reported); new in the Digitakt II: the ADSP-21569 SHARC system, a larger eMMC and an additional 512 MB DDR3L; audio ... `digitakt-2#fe3673ce`
-- [L96](../hardware/devices/digitakt-2.md#L96) [?] On the day of the first teardown photos (from Discord, hedged with "supposedly"/"possibly") a poster spotted a ColdFire CPU (NXP MCF54415CMJ250), linked the ADSP-21569 as the SHARC part, and a 2023-dated mainboard; ... `digitakt-2#840b0f65`
-- [L97](../hardware/devices/digitakt-2.md#L97) [?] Another poster says the main CPU is a legacy chip first launched Dec 2017 and that the board has many Kingston memory chips. `[?]` {elektronauts-dt2-pcb} `digitakt-2#fd7a152a`
-- [L98](../hardware/devices/digitakt-2.md#L98) [?] The Digitone II board has the same part number PCBA0109B as the Digitakt II (32 GB Kingston eMMC), so both likely run the same hardware with different OS images and header boards. `[?]` {elektronauts-dn2-pcb} `digitakt-2#ad22ff91`
-- [L259](../hardware/devices/digitakt-2.md#L259) [?] The task that loads a project: DT2 entry `0x400caff0` (created at `0x400cc7ce`, TCB `0x4039be58`, priority 2, stack `0x4039beac` + `0x4000`); DN2 entry `0x400cd5f2` (created at `0x400cec02`, TCB `0x40386e48`). It ... `digitakt-2#6ab6f71f`
+- [L90](../hardware/devices/digitakt-2.md#L90) [?] Forum users who opened the unit: main CPU is the same ColdFire as the Digitakt mk1 (MCF54415CMJ250 reported); new in the Digitakt II: the ADSP-21569 SHARC system, a larger eMMC and an additional 512 MB DDR3L; audio ... `digitakt-2#fe3673ce`
+- [L91](../hardware/devices/digitakt-2.md#L91) [?] On the day of the first teardown photos (from Discord, hedged with "supposedly"/"possibly") a poster spotted a ColdFire CPU (NXP MCF54415CMJ250), linked the ADSP-21569 as the SHARC part, and a 2023-dated mainboard; ... `digitakt-2#840b0f65`
+- [L92](../hardware/devices/digitakt-2.md#L92) [?] Another poster says the main CPU is a legacy chip first launched Dec 2017 and that the board has many Kingston memory chips. `[?]` {elektronauts-dt2-pcb} `digitakt-2#fd7a152a`
+- [L93](../hardware/devices/digitakt-2.md#L93) [?] The Digitone II board has the same part number PCBA0109B as the Digitakt II (32 GB Kingston eMMC), so both likely run the same hardware with different OS images and header boards. `[?]` {elektronauts-dn2-pcb} `digitakt-2#ad22ff91`
+- [L254](../hardware/devices/digitakt-2.md#L254) [?] The task that loads a project: DT2 entry `0x400caff0` (created at `0x400cc7ce`, TCB `0x4039be58`, priority 2, stack `0x4039beac` + `0x4000`); DN2 entry `0x400cd5f2` (created at `0x400cec02`, TCB `0x40386e48`). It ... `digitakt-2#6ab6f71f`
 
 ## [hardware/devices/digitakt.md](../hardware/devices/digitakt.md) (11)
 
@@ -163,8 +163,8 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 
 ## [hardware/devices/digitone-2.md](../hardware/devices/digitone-2.md) (2)
 
-- [L57](../hardware/devices/digitone-2.md#L57) [?] Flash-part mismatch worth knowing: the bootstrap's DYB sector protection (`0xE1`) is applied only on a Spansion S25FL (`0x01 2018`), and digikit's DT2 reading names that part. On a unit with the Winbond part, that ... `digitone-2#a24402a1`
-- [L58](../hardware/devices/digitone-2.md#L58) [?] Third-party claim about the family (not measured): Digitone mk1: two MCF54415 plus a Spartan XC3S50A. Digitakt mk1: one MCF54415. Digitakt II: one MCF54415-class part plus the ADSP-21569. Syntakt: two MCF54415, ... `digitone-2#f3ef11d6`
+- [L51](../hardware/devices/digitone-2.md#L51) [?] Flash-part mismatch worth knowing: the bootstrap's DYB sector protection (`0xE1`) is applied only on a Spansion S25FL (`0x01 2018`), and digikit's DT2 reading names that part. On a unit with the Winbond part, that ... `digitone-2#a24402a1`
+- [L52](../hardware/devices/digitone-2.md#L52) [?] Third-party claim about the family (not measured): Digitone mk1: two MCF54415 plus a Spartan XC3S50A. Digitakt mk1: one MCF54415. Digitakt II: one MCF54415-class part plus the ADSP-21569. Syntakt: two MCF54415, ... `digitone-2#f3ef11d6`
 
 ## [hardware/devices/digitone.md](../hardware/devices/digitone.md) (9)
 

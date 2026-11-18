@@ -270,3 +270,33 @@ def test_anchor_translate(tmp_path):
     r = subprocess.run([PY, str(ROOT / "scripts" / "anchor_translate.py"), str(tmp_path / "old.bin"), str(tmp_path / "new.bin"),
                         "--base", "0x40000400", hex(0x40000400 + 8000)], capture_output=True, text=True)
     assert r.returncode == 0 and f"0x{0x40000400 + 8000 + 120:08x}" in r.stdout
+
+
+# ------------------------------------------------------------------ stock OS register
+def test_stock_os_page_and_tables(repo):
+    """Every OS file in data/stock-os.yml reaches the page and the database, and the page is deterministic."""
+    import yaml
+    data = yaml.safe_load((repo / "data" / "stock-os.yml").read_text(encoding="utf-8"))
+    run("stock_os.py", repo)
+    page = repo / "hardware" / "STOCK-OS.md"
+    first = sha(page)
+    run("stock_os.py", repo)
+    assert sha(page) == first
+    text = page.read_text(encoding="utf-8")
+    hashes = [r["sha256"] for d in data["devices"] for r in d["releases"]]
+    assert all(h in text for h in hashes)
+    con = sqlite3.connect(repo / "export" / "aggregat.sqlite")
+    assert sorted(r[0] for r in con.execute("SELECT sha256 FROM stock_os")) == sorted(hashes)
+    n = sum(len(d.get("support") or []) for d in data["devices"])
+    assert con.execute("SELECT count(*) FROM os_support").fetchone()[0] == n
+    con.close()
+
+
+def test_validate_catches_bad_stock_os(tmp_path):
+    dst = tmp_path / "Aggregat"
+    shutil.copytree(ROOT, dst, ignore=shutil.ignore_patterns(".git", "__pycache__", ".pytest_cache", "export"))
+    p = dst / "data" / "stock-os.yml"
+    p.write_text(p.read_text(encoding="utf-8").replace("{id: elekloader, use: patch", "{id: no-such-project, use: patch", 1),
+                 encoding="utf-8")
+    r = subprocess.run([PY, str(dst / "scripts" / "validate.py")], cwd=dst, capture_output=True, text=True)
+    assert r.returncode == 1 and "no-such-project" in r.stdout + r.stderr

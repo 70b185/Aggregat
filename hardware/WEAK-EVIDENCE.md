@@ -163,8 +163,8 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 
 ## [hardware/devices/digitone-2.md](../hardware/devices/digitone-2.md) (2)
 
-- [L48](../hardware/devices/digitone-2.md#L48) [?] Flash-part mismatch worth knowing: the bootstrap's DYB sector protection (`0xE1`) is applied only on a Spansion S25FL (`0x01 2018`), and digikit's DT2 reading names that part. On a unit with the Winbond part, that ... `digitone-2#a24402a1`
-- [L49](../hardware/devices/digitone-2.md#L49) [?] Third-party claim about the family (not measured): Digitone mk1: two MCF54415 plus a Spartan XC3S50A. Digitakt mk1: one MCF54415. Digitakt II: one MCF54415-class part plus the ADSP-21569. Syntakt: two MCF54415, ... `digitone-2#f3ef11d6`
+- [L57](../hardware/devices/digitone-2.md#L57) [?] Flash-part mismatch worth knowing: the bootstrap's DYB sector protection (`0xE1`) is applied only on a Spansion S25FL (`0x01 2018`), and digikit's DT2 reading names that part. On a unit with the Winbond part, that ... `digitone-2#a24402a1`
+- [L58](../hardware/devices/digitone-2.md#L58) [?] Third-party claim about the family (not measured): Digitone mk1: two MCF54415 plus a Spartan XC3S50A. Digitakt mk1: one MCF54415. Digitakt II: one MCF54415-class part plus the ADSP-21569. Syntakt: two MCF54415, ... `digitone-2#f3ef11d6`
 
 ## [hardware/devices/digitone.md](../hardware/devices/digitone.md) (9)
 

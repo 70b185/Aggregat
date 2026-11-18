@@ -160,6 +160,7 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | digikit-f02 | ElekLabs/digikit finding 02, machines and parameters (incl. the corrected XSLICE rank shim) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/02-machines-and-parameters.md |
 | digikit-f17 | ElekLabs/digikit finding 17, emulator control (incl. the unconfigured ColdFire watchdog) | https://github.com/ElekLabs/digikit/blob/main/docs/findings/17-emulator-control.md |
 | digikit-agents | ElekLabs/digikit `AGENTS.md` | https://github.com/ElekLabs/digikit/blob/main/AGENTS.md |
+| digikit-firmware | ElekLabs/digikit `firmware/README.md` (stock file names and SHA-256 per OS; read 2026-11-18) | https://github.com/ElekLabs/digikit/blob/main/firmware/README.md |
 | own-dt2-notes | Own measurements and notes by **70b185** (owner of this repo) from a private Digitakt II DSP project (device findings, load and safety notes, long-sample notes; OS 1.17, up to 2026-10-29). Private: not linked and not listed in INDEX | - |
 | own-heatfx-notes | Own analysis and device tests by **70b185** (owner of this repo) on the Analog Heat +FX OS 1.02, from a private research repo (as of 2026-10-28). Private: not linked and not listed in INDEX | - |
 | digikit-rpc | ElekLabs/digikit `docs/MIDI-SYSEX-RPC.md`, the live MidiRpc protocol (DT2 1.16/1.17) | https://github.com/ElekLabs/digikit/blob/main/docs/MIDI-SYSEX-RPC.md |

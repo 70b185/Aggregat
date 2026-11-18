@@ -14,6 +14,15 @@ Projects: [../../catalog/digitone-2.md](../../catalog/digitone-2.md)
 ## Official support page (read 2026-10-31)
 OS **1.12** dated 2026-10-01 ("adds some Outbox 8-related features"; distributed as `Digitone_II_OS1.12_dist.zip`); English manual for OS 1.12 dated 2026-10-08; Japanese manual only for OS 1.00A; Elektron Transfer 1.10.3 (2026-03-04). The page allows personal use of its files and prohibits editing, modifying or redistributing them - one more reason never to commit stock files. `[doc]` {elektron-dn2-support}
 
+## Identifying stock files (SHA-256 as published by projects; use to check you hold the right file)
+| OS | SHA-256 | Source |
+|---|---|---|
+| 1.12 | `7e5b8a733d4ab1fdf7e5d22757f7d8eddaa3cbf71d0858874a791844c02ceb35` | {digikit-firmware} |
+| 1.11 | `2af43e65e3d8390b41c9f66222620f8cce027d73ed87db00c80b440f628472e0` | {digikit-firmware}, {dn2-skill-scripts} |
+| 1.10E | `9881ee5ca4624be2b833e5eb94e294f2f8425371e6729781baccd1c256cac504` | {digikit-firmware} |
+
+The same values are pinned independently elsewhere: 1.12 in 8 repos (digikit, digirust, dn2-cfw, dn2_firmware_explore, elekloader, Modwerk, Overtone, terrain-dn2), 1.11 in 11 (among them dn2mk2, DN2-Rift, DNX and the modding skill); none was seen with another value for these names (cross-repo scan 2026-11-18). Always compare against the file you actually downloaded. `[doc]`
+
 ## From the official manual (OS 1.12; first part only - the MIDI appendix C was not reachable)
 - 16 tracks, each audio (SYN machine) or MIDI; **16 audio voices** (one per track) each with SYN machine, bit reduction, filter, amp and LFO; 12 V DC via PSU-3c; balanced/unbalanced 1/4" I/O, inputs also over USB; MIDI IN, OUT/SYNC A, THRU/SYNC B (SYNC outputs can send DIN sync); USB type B, class compliant, audio + MIDI, Overbridge. Wait at least 30 s after power-off before powering on again; ambient max 40 deg C. `[doc]` {dn2-manual}
 - **Data model:** +Drive holds up to 128 projects and a library of 2,048 presets; a project = 128 patterns (8 banks x 16), 16 songs, a 128-preset pool and general settings; a pattern holds up to 16 presets (one per track), sequencer data, TRIG page settings, BPM, length, swing, time signature, MIDI track parameters; a preset holds SYN1, SYN2, FLTR, AMP and LFO pages. Digitone I projects can be imported but patterns may differ - re-save on Digitone II before exporting. `[doc]` {dn2-manual}

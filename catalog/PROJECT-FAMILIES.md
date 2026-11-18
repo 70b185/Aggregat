@@ -29,7 +29,7 @@ Devices: Model:Cycles, Model:Samples. [repo](https://github.com/18nelli18/Modded
 - **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/ElekLabs/digikit)
 - **digitakt-ii-research (Deja Vu LFOs, ONESHOT zoom)** (kariGardarsson) - builds on **digikit** (all-in-one/README.md: modified firmware derived from digikit; uses its patchkit). [repo](https://github.com/karigardarsson/digitakt-ii-research)
 - **DN2 DT2 firmware research** (armio) - builds on **dn2_firmware_explore** (catalogue notes: builds on dnfw (pinned commit)); builds on **digikit** (catalogue notes: builds on digikit (pinned commit)); builds on **elektron-firmware-tool** (catalogue notes: builds on elektron-firmware-tool (pinned commit)). [repo](https://github.com/armio/dn2-dt2-firmware-research)
-- **DN2 mk2 Mod (dn2mk2-firmware)** (De-Pattern (README says it builds on the upstream project dn2_firmware_explore / xrcstrecords - not verified by us)) - builds on **dn2_firmware_explore** (docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698). [repo](https://github.com/De-Pattern/dn2mk2-firmware)
+- **DN2 mk2 Mod (dn2mk2-firmware)** (De-Pattern (builds on dn2_firmware_explore: the history holds 1,149 commits by its author Ángel Linares García and 11 commits identical to dnfw's; git log 2026-11-18)) - builds on **dn2_firmware_explore** (docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698). [repo](https://github.com/De-Pattern/dn2mk2-firmware)
 - **DN2 Tools (dn2mk2 browser tools)** (De-Pattern) - same project as **DN2 mk2 Mod (dn2mk2-firmware)** (README: browser tools for the Digitone II mod; same author). [repo](https://github.com/De-Pattern/dn2mk2)
 - **dn2_firmware_explore** (angellinares) - builds on **elektron-firmware-tool** (README credit: container, transport, codec and integrity work stands on it). [repo](https://github.com/angellinares/dn2_firmware_explore)
 - **elektron-firmware-tool** (mischa85) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/mischa85/elektron-firmware-tool)
@@ -205,6 +205,12 @@ Devices: Digitakt (MKI). [repo](https://github.com/droelfdroelf/dtdump)
 
 - **Overwitch** (dagargo) - builds on **dtdump** (README: based on the Overbridge USB reverse engineering in dtdump). [repo](https://github.com/dagargo/overwitch)
 
+## Elektron Emu (xerydian)
+
+Devices: Digitakt II, Digitone II, Syntakt. [repo](https://github.com/xerydian/elektron-emu)
+
+- **Elektron Emu (joshklomp)** (joshklomp) - copy of **Elektron Emu** (identical commit hashes 30ba7a5 and 03961c6 in both repos (git log 2026-11-18)). [repo](https://github.com/joshklomp/emu-elektron)
+
 ## libanalogrytm (bsp2)
 
 Devices: Analog Rytm (MKI, MKII). [repo](https://github.com/bsp2/libanalogrytm)
@@ -281,17 +287,17 @@ flowchart LR
     n_elektron_mods_rumorismo["Digitone MK1 Modding Project<br/>not recorded"]:::none
     n_digitone_drum_mode["Digitone mods (Drum Mode)<br/>GPL-2.0-or-later"]:::copyleft
     n_directjump_digitone["DIRECT JUMP (Digitone)<br/>GPL"]:::copyleft
-    n_dn2_dt2_firmware_research["DN2 DT2 firmware research<br/>not recorded"]:::none
+    n_dn2_dt2_firmware_research["DN2 DT2 firmware research<br/>AGPL-3.0-or-later"]:::copyleft
     n_dn2mk2["DN2 mk2 Mod (dn2mk2-firmware)<br/>AGPL-3.0-or-later"]:::copyleft
     n_dn2_tools_depattern["DN2 Tools (dn2mk2 browser tools)<br/>not stated"]:::none
-    n_dn2_cfw["dn2-cfw<br/>not recorded"]:::none
+    n_dn2_cfw["dn2-cfw<br/>GPL-2.0-or-later"]:::copyleft
     n_dn2_firmware_explore["dn2_firmware_explore<br/>AGPL-3.0-or-later"]:::copyleft
     n_gestalt_digitone["GESTALT (Digitone)<br/>GPL-2.0-or-later"]:::copyleft
-    n_overtone["Overtone<br/>not recorded"]:::none
+    n_overtone["Overtone<br/>AGPL-3.0-or-later"]:::copyleft
     n_pump_digitone["PUMP (Digitone)<br/>GPL"]:::copyleft
     n_dn2_rift["RIFT<br/>AGPL-3.0"]:::copyleft
     n_ringtone["RingTone<br/>not recorded"]:::none
-    n_syxgrid["SYXGRID v2<br/>not recorded"]:::none
+    n_syxgrid["SYXGRID v2<br/>AGPL-3.0"]:::copyleft
     n_terrain_dn2["TERRAIN for Digitone II<br/>AGPL-3.0 with additional terms (NOTICE)"]:::copyleft
   end
   subgraph n_group_Syntakt["Syntakt"]
@@ -366,21 +372,23 @@ flowchart LR
   subgraph n_group_Several_device_families["Several device families"]
     n_analoghealth["analoghealth<br/>not recorded"]:::none
     n_chopshop["Chopshop<br/>not recorded"]:::none
-    n_digi_roll_studio["digi-roll-studio<br/>not recorded"]:::none
+    n_digi_roll_studio["digi-roll-studio<br/>GPL-3.0-or-later"]:::copyleft
     n_digiemu["digiemu<br/>not recorded"]:::none
     n_digihealth["digihealth<br/>not recorded"]:::none
     n_digikit["digikit<br/>AGPL-3.0-or-later with extra terms"]:::copyleft
-    n_digitakt_digitone_mcp["digitakt-digitone-mcp<br/>not recorded"]:::none
+    n_digitakt_digitone_mcp["digitakt-digitone-mcp<br/>MIT"]:::permissive
     n_elek_view["Elek View<br/>GPL-3.0"]:::copyleft
     n_elekloader["elekloader<br/>GPL-2.0-or-later"]:::copyleft
-    n_elektron_firmware_tool["elektron-firmware-tool<br/>not recorded"]:::none
+    n_elektron_emu["Elektron Emu<br/>not recorded"]:::none
+    n_emu_elektron_joshklomp["Elektron Emu (joshklomp)<br/>not recorded"]:::none
+    n_elektron_firmware_tool["elektron-firmware-tool<br/>MIT"]:::permissive
     n_elektron_screen_tool["Elektron-Screen-Tool<br/>MIT"]:::permissive
     n_filter_plus["Filter+ (13 filter types)<br/>GPL-2.0-or-later"]:::copyleft
     n_gearmulator_md_mm["Gearmulator MD/MM<br/>GPL-3.0-only"]:::copyleft
     n_maschine_md_mm["Maschine MD-MM<br/>GPL-3.0"]:::copyleft
     n_mdmm["MDMM<br/>not recorded"]:::none
-    n_modwerk["Modwerk (formerly Octamod)<br/>not recorded"]:::none
-    n_overwitch["Overwitch<br/>not recorded"]:::none
+    n_modwerk["Modwerk (formerly Octamod)<br/>GPL-3.0-or-later by default; backend (since 2026-10-09) and owner workflows and tools (since 2026-10-25) Elastic-2.0; SDK modules keep their own licences (MIT, GPL-2.0-or-later, GPL-2.0-only and others); GitHub shows NOASSERTION"]:::copyleft
+    n_overwitch["Overwitch<br/>GPL-3.0-or-later"]:::copyleft
     n_sidecar_expander["Sidecar | Expander<br/>GPL-2.0"]:::copyleft
     n_sidecar_mods["Sidecar | Expander: Rytm mods<br/>GPL-2.0-or-later"]:::copyleft
     n_taktone["taktone<br/>not recorded"]:::none
@@ -573,6 +581,8 @@ flowchart LR
   %% evidence: README
   n_dt2_capicola -- "builds on" --> n_keyframer_lab
   %% evidence: same Capicola keyframe engine by Heavylight Industries
+  n_emu_elektron_joshklomp -- "copy of" --> n_elektron_emu
+  %% evidence: identical commit hashes 30ba7a5 and 03961c6 in both repos (git log 2026-11-18)
   n_taktone -- "vendors code from" --> n_digiemu
   %% evidence: README: the ColdFire instruction decoder comes from irpina/digiemu (GPL retained)
   n_taktone -- "bundles" --> n_digisophie

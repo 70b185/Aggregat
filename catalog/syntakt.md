@@ -161,6 +161,8 @@ _Sources: GitHub search 2026-11-02, README, README (2026-11-13)_
 
 ### Elektron Emu (joshklomp)
 
-VST3 plug-ins running the real OS of Digitakt II, Syntakt, Rytm MKII, Digitone II and Model:Cycles in an emulated CPU. Same description as xerydian/elektron-emu; relationship not verified. No licence file seen. Found by GitHub search 2026-11-02; README start read.
+VST3 plug-ins running the real OS of Digitakt II, Syntakt, Rytm MKII, Digitone II and Model:Cycles in an emulated CPU. A copy of xerydian/elektron-emu - both repos hold the same two commits (30ba7a5, 03961c6, author "simo", 2026-10-17; git log 2026-11-18). No licence file seen. Found by GitHub search 2026-11-02; README start read.
+
+_Related: copy of `elektron-emu` (identical commit hashes 30ba7a5 and 03961c6 in both repos (git log 2026-11-18)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_

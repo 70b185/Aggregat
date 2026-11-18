@@ -39,7 +39,7 @@ Data last verified: 2026-11-18
 | **Digitakt II reverse-engineering knowledge base** (Fadedlimes) | research | - | Digitakt II OS 1.17 | - | 2026-10-07 | [repo](https://github.com/Fadedlimes/My-personal-Digitakt-II-reverse-engeneering-knowledge-base) |
 | **elektron-firmware-tool** (mischa85) | tool | - | any (generic .syx unpack/repack with checksum verification) | - | 2026-10-03 | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **Digitakt II splash screens** (octplane) | mod | - | Digitakt II | - | 2026-09-25 | [repo](https://github.com/octplane/digitakt-ii-splash-screens) |
-| **digi-roll-studio** (zooloo303) | editor | - | v0.5.4 (2026-09-09); hardware-verified: Digitakt II 1.16 (0079), Digitone II 1.11 (0059), Analog Four 1.55D (0201); the numbers in parentheses are not explained on the page | v0.5.5 | 2026-09-09 | [repo](https://github.com/zooloo303/digi-roll-studio) |
+| **digi-roll-studio** (zooloo303) | editor | - | v0.5.4 (2026-09-09); hardware-verified: Digitakt II 1.16 (0079), Digitone II 1.11 (0059), Analog Four 1.55D (0201); the numbers in parentheses are the OS build numbers the units report in their identity reply (test fixtures firmware-2026-09-09, read 2026-11-18) | v0.5.5 | 2026-09-09 | [repo](https://github.com/zooloo303/digi-roll-studio) |
 | **Digi Battery** (JGuzak) | research | - | - | - | 2026-08-21 | [repo](https://github.com/JGuzak/digi_battery) |
 | **digitakt-ii-firmware-research** (lalzart) | research | - | publication snapshot 2026-08-16; Digitakt II OS 1.15C | - | 2026-08-16 | [repo](https://github.com/lalzart/digitakt-ii-firmware-research-public) |
 | **ElekPrep (elektron-sample-prep)** (luizvarela) | tool | - | main @ 9f85fc8 (2026-02-27) | - | 2026-02-27 | [repo](https://github.com/luizvarela/elektron-sample-prep) · [web app](https://luizvarela.github.io/elektron-sample-prep/) |
@@ -315,7 +315,9 @@ _Sources: GitHub search 2026-11-02, README, README (2026-11-13)_
 
 ### Elektron Emu (joshklomp)
 
-VST3 plug-ins running the real OS of Digitakt II, Syntakt, Rytm MKII, Digitone II and Model:Cycles in an emulated CPU. Same description as xerydian/elektron-emu; relationship not verified. No licence file seen. Found by GitHub search 2026-11-02; README start read.
+VST3 plug-ins running the real OS of Digitakt II, Syntakt, Rytm MKII, Digitone II and Model:Cycles in an emulated CPU. A copy of xerydian/elektron-emu - both repos hold the same two commits (30ba7a5, 03961c6, author "simo", 2026-10-17; git log 2026-11-18). No licence file seen. Found by GitHub search 2026-11-02; README start read.
+
+_Related: copy of `elektron-emu` (identical commit hashes 30ba7a5 and 03961c6 in both repos (git log 2026-11-18)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README_
 

@@ -51,6 +51,30 @@ projects:
       No README yet, so OS, loader, licence and tests are unknown. Found by GitHub search 2026-11-08.
     sources: [GitHub search 2026-11-08]
 
+  - id: soundlab-a4-dg
+    name: SoundLab-A4-DG
+    author: Jickssa
+    kind: tool
+    devices: [analog-four-keys, digitone]
+    repo: https://github.com/Jickssa/SoundLab-A4-DG
+    status: unverified
+    notes: >
+      Repo created 2026-11-17 with only a LICENSE file (checked 2026-11-18). The description calls it a sound-processing
+      app for the Analog Four and Digitone, not tested on other Elektron machines. Found by GitHub search 2026-11-18.
+    sources: [GitHub search 2026-11-18]
+
+  - id: sidecar-machines
+    name: Sidecar community machine registry
+    author: trigcondition
+    kind: resource
+    devices: [analog-rytm]
+    repo: https://github.com/trigcondition/sidecar-machines
+    status: unverified
+    notes: >
+      The registry of community user machines and effects for the Sidecar expander, from which Sidecar 0.5.1's web
+      catalog installs packages (named by sidecar-expander's docs and by LEDrum's README, 2026-11-18). Not read yet.
+    sources: [sidecar-expander docs (2026-11-18), LEDrum README]
+
   # ------------------------------------------------------------- Analog Heat
   - id: heatfx-multimode
     name: Analog Heat FX+ MultiMode (beta 0.1)

@@ -68,6 +68,8 @@ static map; it is where every platform below lives. Stock's DMA buffers sit just
 | `0x47d00000` | `0x47d05a00` | dn2-cfw (Digiwerk) | grown parameter table, 384 rows of 60 B (inside the mod area) | 1.12 | `[hw]` {dn2-cfw-param-table} |
 | `0x47e00000` | `0x47f00000` | dn2-cfw (Digiwerk) | core run image (the core's boot copies it here and zeroes `.bss`) | 1.12 | `[doc]` {dn2-cfw-t13} |
 | `0x47f00000` | `0x47f40000` | elekloader | core-dn2 and every elekloader mod (256 KB, the same area as on the Digitakt II) | 1.12 | `[doc]` {elekloader-dn2-device} {elekloader-dn2-profile} |
+| `0x402fc7a8` | `0x402fd000` | digikit patchkit | `cf.flash_cave` (2,136 B at the end of the flashed MAIN) | 1.12 | `[doc]` {digikit-1118} |
+| `0x402fb7a8` | `0x402fc000` | digikit patchkit | `cf.flash_cave` | 1.11 | `[doc]` {digikit-1118} |
 
 What this shows (2026-11-11)
 - **On 1.11, `0x46800000` has four claimants**: dnfw (and its fork dn2mk2), cfmod, and armio's transplanted runtime,
@@ -88,6 +90,16 @@ What this shows (2026-11-11)
 |---|---|---|---|---|---|
 | `0x20090000` | `0x20098000` | elekloader | SHARC mod area (32 KiB) | 1.12 | `[doc]` {elekloader-dn2-profile} |
 | `0x200e9000` | `0x200fa000` | dn2mk2 | unused in dn2mk2's image (68 KB), listed as room | 1.11 | `[doc]` {dn2mk2-fascia-plan} |
+| `0x200c4000` | `0x200d9000` | RIFT | fascia.asm (84 KB, FASCIA/ORGAN/SILT; end computed from the size), moved into the PERC code's former room | 1.11 | `[doc]` {dn2-rift-1118} |
+
+## Digitone II SHARC DDR (`digitone-2`)
+
+| start | end | user | use | OS | evidence |
+|---|---|---|---|---|---|
+| `0x81000000` | ? | dn2mk2 / RIFT | DSP tables (W5 tables), in a span measured clear of stock's init | 1.11 | `[doc]` {dn2-rift-1118} |
+| `0x82200000` | `0x82220000` | dn2mk2 / RIFT | Machinedrum P-I delay lines (128 KB) | 1.11 | `[doc]` {dn2-rift-1118} |
+| `0x82400000` | `0x824c0000` | RIFT | SILT waveguide and filament delay lines, 48 KB per track slot x 16 (v0.6) | 1.11 | `[doc]` {dn2-rift-1118} |
+| `0x84000000` | ? | dn2mk2 / RIFT | sample pool (directory magic `SMP1`, then frames) | 1.11 | `[doc]` {dn2-rift-1118} |
 
 ## Digitakt II flash cave (`digitakt-2`)
 
@@ -147,6 +159,12 @@ The area where Model:Cycles mods place added machines; the Syntakt engine ports 
 | `0x43000000` | ? | model27 | CHIPS code when it is the only added machine (image payload 15,776 B, code 7,846 B, tables about 2 KB) | 1.13 | `[doc]` {model27-chips} |
 | `0x43036000` | `0x430363e0` | model27 | CHIPS variables when it is the only added machine (992 B for six voices; end is our sum) | 1.13 | `[doc]` {model27-chips} |
 | `0x43000000` | `0x43002162` | model27 | MAXSAW code when it is the only added machine (8,546 B in release 0.69; end is our sum; image payload 16,468 B) | 1.13 | `[doc]` {model27-maxsaw} |
+| `0x43000000` | `0x43033000` | model27 | code window for added machines and the builder's parts (204 KiB, `gs.STUBS`); the registrar's part follows | 1.13 | `[doc]` {model27-1118} |
+| `0x43000000` | `0x43004aea` | model27 | TERRA code when it is the only added machine (19,178 B) | 1.13 | `[doc]` {model27-1118} |
+| `0x43036000` | `0x43042780` | model27 | TERRA far table (50,688 B of Plaits wavetable data) and variables, 51,072 B, when it is the only added machine | 1.13 | `[emu]` {model27-1118} |
+| `0x43000000` | `0x43176c58` | model27 | the whole payload with every offered card and TERRA (release 0.72) | 1.13 | `[doc]` {model27-1118} |
+| `0x43400000` | ? | model27 | CHORD Tables' RAM claim | 1.13 | `[doc]` {model27-1118} |
+| `0x43800000` | ? | model27 | SAMPLE's (Cycles One-Shot) sample pool | 1.13 | `[doc]` {model27-1118} |
 | `0x43036000` | `0x43036344` | model27 | MAXSAW variables when it is the only added machine (836 B, among them 92 B of state a track and a 128-byte shared buffer; end is our sum) | 1.13 | `[doc]` {model27-maxsaw} |
 
 ## Octatrack DSP X memory (`octatrack`)
@@ -184,24 +202,68 @@ MEMORY page does not show the loss.
 | `0x100ffb30` | ? | Modwerk | timings of the 128 frames before a stall | 1.40C | `[doc]` {modwerk-ot-driving} |
 | `0x100f85a0` | ? | Modwerk Kits / octabam KITS | Kits' battery record (`KCS1`, RESID); same address in octabam | 1.40C | `[hw]` {modwerk-ot-kits} |
 | `0x100f9800` | `0x100fbf00` | Modwerk MIDI Scenes | current bank's packed MIDI scene locks (`SCS2`, 9,984 B) | 1.40C | `[hw]` {modwerk-ot-midiscenes} |
+| `0x100f8600` | `0x100fbdc0` | octabam PLOCKS P2 | current bank's page-2 locks (`P2NV`, 4,752 locks, 14,272 B; was to `0x100fbdf0` before 2026-11-17) | 1.40C | `[doc]` {octabam-1118} |
+| `0x100fbdc0` | `0x100fbdf0` | octabam PATTERN MUTE | current bank's PATTERN-layer mutes (`PMCS`, 48 B, since 2026-11-17) | 1.40C | `[doc]` {octabam-pmute-1118} |
+| `0x100ffe00` | `0x100fff00` | octabam KITS | ASSIGN (256 B); stock references nothing in `0x100f859c..0x100fff00` per octabam | 1.40C | `[doc]` {octabam-1118} |
+| `0x100b14dd` | `0x100b14de` | octabam PATTERN MUTE | bit 0 = layer (mirror of `0x80000011`, unused by stock) | 1.40C | `[emu]` {octabam-pmute-1118} |
 | `0x100fbdf0` | `0x100ffe00` | octabam MIDI SCENES | power-cycle copy of the MIDI scene locks (16,400 B; per Modwerk's notes, under Modwerk's own records) | 1.40C | `[doc]` {modwerk-ot-midiscenes} |
 | `0x100fbf00` | ? | Modwerk Kits | Kits' pattern assignments (ASSIGN), moved from octabam's `0x100ffe00` | 1.40C | `[doc]` {modwerk-ot-kits} |
 | `0x100ffd40` | ? | Modwerk base 0.7.3+ | machine map (each machine's module and name); covers octabam KITS' ASSIGN at `0x100ffe00` | 1.40C | `[doc]` {modwerk-1117} |
+
+## Analog Four MKII DDR (`analog-four-keys`)
+
+| start | end | user | use | OS | evidence |
+|---|---|---|---|---|---|
+| `0x45650000` | `0x47c00000` | elekloader (core-a4mk2 0.6+) | mods' area: flashed mods' code and `.bss`, then the +Drive area from the build's RAM end (4 KB aligned) to the top; no `resources.regions` for +Drive mods | 1.56 | `[doc]` {elekloader-core-a4} {elekloader-1118} |
+| `0x47be0000` | `0x47c00000` | elekloader (core-a4 0.5 and older) | the old 128 KB mods' area | 1.56 | `[doc]` {elekloader-core-a4} |
 
 ## Analog Rytm MKI DDR (`analog-rytm`)
 
 | start | end | user | use | OS | evidence |
 |---|---|---|---|---|---|
 | `0x47be0000` | `0x47c00000` | elekloader | mods' area reserved by the MKI profile; no core uses it yet (a canary read back unchanged on a unit) | 1.74 | `[hw]` {elekloader-ar1} |
+| `0x47b00000` | `0x47f00000` | Modwerk (MW02 canary) | test fill address ^ 0xC0DEF00D, never written by stock with sample memory full, locks, play and save | 1.74 | `[hw]` {modwerk-rytm-1118} |
+| `0x47be0000` | `0x47c00000` | Modwerk (MKI base, core-ar2 0.7 at MKI addresses) | module area, the same range as elekloader's MKI profile | 1.74 | `[hw]` {modwerk-rytm-1118} |
 
 ## Analog Rytm MKII DDR and SRAM (`analog-rytm`)
 
 | start | end | user | use | OS | evidence |
 |---|---|---|---|---|---|
 | `0x47be0000` | `0x47c00000` | elekloader (core-ar2) / Modwerk / Sidecar | the shared 128 KiB mod area (Sidecar's rui_key at `0x47bedd14` lies inside) | 1.74 | `[hw]` {modwerk-rytm-link} {sidecar-mods-1116} |
-| `0x47bfffbc` | `0x47c00000` | Modwerk development link | RAM-boot diagnostics in the top 68 B of the mod area (the top 8 B are reset marks); development bases only; nothing checks that a set leaves these bytes free | 1.74 | `[hw]` {modwerk-rytm-link} |
+| `0x47bfffbc` | `0x47c00000` | Modwerk development link | RAM-boot diagnostics in the top 68 B of the mod area (the top 8 B are reset marks); development bases built before 2026-11-17 only (later bases use `0x47feffbc`, {modwerk-rytm-1118}); nothing checks that a set leaves these bytes free | 1.74 | `[hw]` {modwerk-rytm-link} |
 | `0x403c8b00` | `0x403c8b20` | Modwerk development link | RAM-boot mailbox written over the header of stock's upload buffer just before the software reset (transient) | 1.74 | `[hw]` {modwerk-rytm-link} |
 | `0x8000f774` | ? | Sidecar 0.5.0 | adds offsets to the effective sound words (index 26 + 42 x track + word) every audio block; another mod that writes these words after stage A collides | 1.73/1.74 | `[emu]` {sidecar-mods-1116} |
+| `0x479372e0` | `0x47b47480` | stock | end of heap allocations, 352 B bookkeeping, fixed buffers (mostly a factory test console) to `0x47b47440`, a 16-word DMA list | 1.74 | `[doc]` {modwerk-rytm-1118} |
+| `0x47b50000` | `0x47c00000` | Modwerk (own linker) | 704 KiB module area for sets over 128 KiB (includes the shared 128 KiB area) | 1.74 | `[hw]` {modwerk-rytm-1118} |
+| `0x47c00000` | `0x47f00000` | Modwerk (own linker, no send-bus base) | extends the 3.7 MiB area; the send bus's work area otherwise ends at `0x47c00000` | 1.74 | `[hw]` {modwerk-rytm-1118} |
+| `0x47feffbc` | `0x47ff0000` | Modwerk development link | RAM-boot diagnostics (68 B) moved here from the top of the mod area; `ident` names the place | 1.74 | `[doc]` {modwerk-rytm-1118} |
+
+## Syntakt MAIN DDR (`syntakt`)
+
+OS 1.42, from digikit's static reading (2026-11-18). The reset clears `0x4033a000-0x45566490`; nothing above it.
+
+| start | end | user | use | OS | evidence |
+|---|---|---|---|---|---|
+| `0x444e48c0` | `0x454e48c0` | stock | OS heap (buddy allocator, 16 MiB) | 1.42 | `[doc]` {digikit-st-1118} |
+| `0x4584f2c0` | `0x4784f2c0` | stock | sample stage buffer before the upload to the voice CPU (extent inferred) | 1.42 | `[?]` {digikit-st-1118} |
+| `0x4784f2c1` | `0x478af2cb` | stock | section-7 transmit buffer (the voice CPU's program) | 1.42 | `[doc]` {digikit-st-1118} |
+| `0x4584f2c5` | `0x4759b3c5` | stock | sample blob of the 64 stock slots, built at boot (64 frame counts + PCM16; 29.30 MiB when every slot holds 5 s; uncached alias `0x4d84f2c5`); not built by Synfact core 2.0.1 | 1.42 | `[emu]` {synfact-1118} |
+| `0x46000000` | `0x46010000` | Synfact core-st | 64 KiB resident core; safe only with core 2.0.1, which stops stock building the blob above | 1.42 | `[hw]` {synfact-1118} |
+| `0x478c0000` | `0x47bf0000` | digikit | `cf.expansion`: runtime object (981,036 B used); emulator only, no canary run | 1.42 | `[emu]` {digikit-st-1118} |
+| `0x47bf0000` | `0x47bf1000` | digikit | keep area (crash records across a reset) | 1.42 | `[doc]` {digikit-st-1118} |
+| `0x47c00000` | `0x48000000` | stock | 4 MiB ring (through `0x4fc00000`), cleared at boot, written every frame | 1.42 | `[doc]` {digikit-st-1118} |
+| `0x47fe0000` | `0x48000000` | Modwerk | freed by lowering the stack 128 KB; overlaps the ring (O35) | 1.42 | `[hw]` {modwerk-st-goal} |
+| `0x40339730` | `0x4033a000` | digikit | loader in the flash cave after the init table (56 of 2,256 B) | 1.42 | `[emu]` {digikit-st-1118} |
+
+## Syntakt voice CPU DDR (`syntakt`)
+
+The second ColdFire's own RAM (section 7), a separate address space from MAIN's.
+
+| start | end | user | use | OS | evidence |
+|---|---|---|---|---|---|
+| `0x4004f750` | `0x4404f750` | stock | sample pool (64 MB), filled at boot from MAIN's sender | 1.42 | `[doc]` {syncrackd-mm} {synfact-1118} |
+| `0x42100750` | `0x42101750` | Synfact core-st | service code and 128 PCM descriptors (inside the stock pool's span) | 1.42 | `[doc]` {synfact-1118} |
+| `0x42101750` | `0x4404f750` | Synfact core-st | HZFS long-sample PCM, about 31.30 MiB; the SMZ machine region ends below at `0x42100000` | 1.42 | `[doc]` {synfact-1118} |
 
 ## Syntakt MAIN SRAM (`syntakt`)
 

@@ -139,7 +139,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Unit:** none (digikit's emulator, Digitakt II OS 1.17), found 2026-11-16
 - **Seen:** a storage device test failed with "no reply to MidiRpc 11" right after a module install had restarted the device.
 - **Cause (shown in the emulator):** digikit's runtime answered at once after the restart, but the firmware was still on its boot intro, which drops stock MidiRpc requests. A boot race, not storage code.
-- **Fix:** after `restart()` the host's first stock RPC waits for the stock service with a read-only probe (up to about 30 s); a write is never resent. Planned: a firmware-ready event (FW_READY) logged on the first UI-loop pass after boot, so tests and tools wait on firmware state.
+- **Fix:** after `restart()` the host's first stock RPC waits for the stock service with a read-only probe (up to about 30 s); a write is never resent. digikit's debug log now has event 47 FW_READY, written with the block counter on the first UI-loop pass after boot; hosts wait on it before they send stock MidiRpc requests (2026-11-18, {digikit-1118}).
 - **Status:** fixed in digikit's host (branch `fix/rpc-after-install`); not checked on a unit (stock test H27).
 - **Evidence:** `[emu]` {digikit-1117}
 - **Rule:** C12
@@ -1024,7 +1024,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Seen:** every feature worked, but YES on a track wrote real trigs at once, with RECORD off, unlike every other trig edit on the Rytm; leaving the track or pattern kept an unapplied take.
 - **Cause (by design):** the mod must write stored trigs to be heard (stock's Euclidean mode plays a separate pattern and never touches stored trigs), and 0.5.0 treated leaving as keeping.
 - **Fix:** 0.5.1 "generate and apply": YES writes only with grid recording on (flag byte `0x417e320c`), FUNC + YES is the only way a take stays, and changing track or pattern, closing or turning RECORD off restores the original (NOT APPLIED). 0.6.0 played on the unit: works. 0.7.0 adds a pending-take dot and makes YES after a revert bring the same take back.
-- **Status:** fixed (0.7.0 not yet on a unit).
+- **Status:** fixed; 0.7.1 passed on a unit 2026-11-17 {trig-seedr-1118}.
 - **Evidence:** `[hw]` {trig-seedr-1117}
 - **Rule:** C11 (a usability fault, no safety rule)
 - **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md#trig-seedr-05-07-grid-recording-lock-lanes-redraw-cost-and-first-unit-passes-mkii-os-174-2026-11-16-trig-seedr-1117)
@@ -1098,6 +1098,116 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` (author's known issue) / `[doc]` (analysis) {drummode-1117}
 - **Rule:** C11
 - **Fact:** [devices/digitone.md](devices/digitone.md#drum-mode-and-digiarp-notes-leds-record-modes-pages-os-144-2026-11-1416-drummode-1117)
+
+### I137. A per-track colour hid the stock quick-mute colours (Digitakt LED colours)
+- **Unit:** Digitakt MKI, OS 1.54 (ledcolors 0.6), user report, fixed 2026-11-17
+- **Seen:** while holding TRK + FUNC (quick mute) the keys showed the track colours instead of stock's green (playing) and red (muted).
+- **Cause:** the mod's track colour replaces the theme's red everywhere, including the quick-mute view.
+- **Fix:** 0.7 shows the stock mute colours while TRK + FUNC is held; track colours return when FUNC is released.
+- **Status:** fixed in 0.7 (0.9 tested on a unit by the author).
+- **Evidence:** `[hw]` {led-colors-1118}
+- **Rule:** C11
+- **Fact:** [devices/digitakt.md](devices/digitakt.md)
+
+### I138. A new keyboard scale crashed the unit in a chord MODE (dn2mk2 v0.58)
+- **Unit:** Digitone II, OS 1.11 (dn2mk2 v0.58 SCALES), tester report, 2026-11-17
+- **Seen:** with PR12 or PM12 selected, a chord MODE crashed the unit: EXCEPTION at P `40034BA6`.
+- **Cause (the project's analysis):** a division by an empty chord list; the chord MODEs use a sixth per-scale table, built in RAM at run time, which v0.58 did not extend when it added two scales to the five stock tables.
+- **Fix:** v0.58 pulled from the patcher the same day; v0.57 is the latest again and the code is reverted on main. A fix (chord lists extended, plus a chord-MODE gate test still to write) is on a branch.
+- **Status:** open (withdrawn)
+- **Evidence:** `[hw]` {dn2mk2-v058}
+- **Rule:** A8, A16, A72
+- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md)
+
+### I139. A neutral filter setting still coloured the mix through the analog FX block (Syntakt Performance Mods)
+- **Unit:** Syntakt, OS 1.41/1.42 (Performance Mods TEST36b), the author's unit, 2026-11-16
+- **Seen:** with the PERFORM filter at THRU the mix sounded harder and crackly.
+- **Cause:** THRU left the whole mix routed through the analog FX block.
+- **Fix:** TEST37c makes THRU a full bypass (filter off, stock routing kept, no CPU at THRU).
+- **Status:** fixed in TEST37c (tried on the author's unit; "much better"); heavy sets not proven.
+- **Evidence:** `[hw]` {stpm-1118}
+- **Rule:** A73
+- **Fact:** [devices/syntakt.md](devices/syntakt.md)
+
+### I140. A 70 % CPU budget greyed out every heavier machine on old projects (Modded Cycles Techno Edition)
+- **Unit:** Model:Cycles, OS 1.13 (Modded Cycles Techno Edition up to v1.4), user report, fixed 2026-11-17
+- **Seen:** on a project made before flashing, every heavier machine in the list was greyed out even with nothing playing.
+- **Cause:** the project keeps the six stock machines, which with the rest of the OS already count about 74 % against the CPU Lim default of 70 %.
+- **Fix:** v1.4.1 sets the default to 80 % (a user who had chosen 80 % now reads 70 % and must step it on). New projects start with EMPTY on all six tracks.
+- **Status:** fixed in v1.4.1.
+- **Evidence:** `[hw]` (user report) {mcte-1118}
+- **Rule:** A65 (judge a load budget by the playing load, and know the baseline before setting a limit)
+- **Fact:** [devices/model-cycles-samples.md](devices/model-cycles-samples.md)
+
+### I141. Drum Mode's lane strip disappeared on page switches (Digitone mk1)
+- **Unit:** Digitone mk1, OS 1.44 (Drum Mode 0.8), 2026-11-17
+- **Seen:** the lane strip in the screen corner sometimes vanished while browsing pages (e.g. LFO, then SYN1); not reproduced in digiemu, where the strip was there after every switch. Whether it returns by itself is not stated.
+- **Cause:** unknown; suspected stock repainting the whole page after the mod drew, while the mod redraws only on a change.
+- **Fix:** proposed: redraw whenever the shown page changes.
+- **Status:** open
+- **Evidence:** `[hw]` {drum-mode-1118}
+- **Rule:** C11 (a candidate general rule, if a second case appears: "a mod that draws over a stock page must redraw when the page changes, not only when its own content changes")
+- **Fact:** [devices/digitone.md](devices/digitone.md)
+
+### I144. An added machine clicked at trigs through the stock VCA (model27 TERRA, Model:Cycles)
+- **Unit:** Model:Cycles, OS 1.13, model27 TERRA 0.1b with the CPU page (command-line build), 2026-11-17
+- **Seen:** small clicks now and then at trigs. The same clicks were known from earlier added machines (SWARM).
+- **Cause:** the stock VCA (`0x400a9430`) cuts the level in a trig's block and jumps at the attack. TONE's chain does that to TERRA's output, which runs on through the trig without a reset.
+- **Fix:** TERRA 0.2 clears voice `+0x34` and `+0x38` only for the VCA call and restores them before PUNCH; the VCA ramps from its last level each block. Unicorn retrig check at DECAY 127/60/30: gain never dips toward zero, largest step a frame 0.0014/0.0064/0.0190.
+- **Status:** fixed in TERRA 0.2 (release 0.72); heard on the unit: "no more clicks". SWARM's version of the fix is on a branch, not tried on a unit.
+- **Evidence:** `[hw]` {model27-1118}
+- **Rule:** A75
+- **Fact:** [devices/model-cycles-samples.md](devices/model-cycles-samples.md)
+
+### I145. Many stock samples overwrote Synfact's resident core and crashed it at boot (Synfact)
+- **Unit:** Syntakt, OS 1.42 (and the same layout on 1.41), Synfact core 2.0.0 and older, the owner's unit, 2026-11-17
+- **Seen:** with all 64 stock sample slots holding 5 s samples, the core crashed; earlier user reports of exceptions at `0x460001d0` and `0x460001d6` lie in the window that gets overwritten (that link is not proven).
+- **Cause:** at boot stock concatenates all 64 stock samples into one blob in MAIN DDR from `0x4584f2c5`; past 84 s of audio in all it runs over the 64 KiB resident core at `0x46000000`. The core's guards checked each slot on disk and parsed the blob only after stock had built it. Reproduced in Unicorn for both OS versions (first overlapping write in stock's memcpy while copying slot 17).
+- **Fix:** core 2.0.1 no longer calls the stock builder; it streams each sender page from eMMC with 5 KiB of scratch, and draws waveforms on demand.
+- **Status:** fixed in 2.0.1 (prototype booted with the same 64 samples on the owner's unit; the final 2.0.1 not stated on hardware)
+- **Evidence:** `[hw]` (crash and prototype boot, owner's report) / `[emu]` (cause) {synfact-1118}
+- **Rule:** A34, D11 (a repeat of I20 at the same address)
+- **Fact:** [devices/syntakt.md](devices/syntakt.md)
+
+### I146. PATTERN MUTE stored its layer in the one-shot trig mask (octabam)
+- **Unit:** Octatrack MKI, OS 1.40C, octabam 0.4 with PATTERN MUTE, reported 2026-11-16 (octabam#1143)
+- **Seen:** a one-shot trig on step 1 of an audio track muted that track in the PATTERN layer, one on step 2 muted the matching MIDI track, and a PATTERN-layer unmute deleted the one-shot. The double-FUNC layer switch also flipped in ordinary use when FUNC+track or FUNC+trig was pressed twice within 300 ms.
+- **Cause:** the module used bits 0-1 of byte 40 of each audio track record, which is the low byte of the one-shot trig mask (steps 1-8). The check that called the byte unused ran on a project with no one-shots on steps 1-2. The switch counted any two FUNC presses, chords included.
+- **Fix:** PATTERN-layer mutes moved to a side file `pmute.work` (STORE client 11, 512 B, CRC-32) plus a 48-byte battery copy at `0x100fbdc0`; projects saved under 0.4 load no PATTERN mutes and keep their one-shots; a pattern copy no longer carries PATTERN mutes. The switch now drops a pending FUNC press once the panel row states show another key. The gate now seeds one-shots on steps 1-2.
+- **Status:** fixed on main 2026-11-17 (emulator gate, 16 checks); the fix not yet flashed
+- **Evidence:** `[hw]` (MKI over REMOTE) / `[emu]` {octabam-pmute-1118}
+- **Rule:** A43, A77
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I147. Kit data overlapped the project archive: a module setting came back off after a power cycle (Modwerk)
+- **Unit:** Digitakt II, OS 1.17, Modwerk base `e88273ed` with Chord Arp, Euclidean Scale and Track Names, 2026-11-17
+- **Seen:** after Save Project and a power cycle Euclidean Scale kept its settings but Chord Arp's ARP came back OFF.
+- **Cause:** core 1.1's kit data (191 B) ran into the last 48 B of the kit record that the base's project archive uses; saving a kit-data module zeroed the archive.
+- **Fix:** base `8650bb8a` ends core's kit data before the archive (`KIT_ROOM` 146, one byte of the package); a check refuses an overlap.
+- **Status:** fixed in 8650bb8a (KR17 passed on the same unit)
+- **Evidence:** `[hw]` {modwerk-1118}
+- **Rule:** A78
+- **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md)
+
+### I150. Powering off on a mod page broke the stock Euclidean page at the next boot (Euclidean Scale)
+- **Unit:** Digitakt II, OS 1.17, Modwerk base with Euclidean Scale build P117, 2026-11-08
+- **Seen:** after powering off on the SCF/RNN page, the next boot showed the stock Euclidean page without its page indicators; FUNC + AMP did nothing until the tester changed page and came back.
+- **Cause:** at startup the stock Euclidean view's track-editor cache is unset; the module read the track from that cache.
+- **Fix:** read the track through the stock Euclidean view's own accessor (S117); confirmed on the unit.
+- **Status:** fixed in S117
+- **Evidence:** `[hw]` {modwerk-1118}
+- **Rule:** A40
+- **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md)
+
+### I151. A Rytm MKII mod read a 32-bit kit index as 16 bits and played the old sound (MIDI Engine)
+- **Unit:** Analog Rytm MKII, OS 1.74, MIDI Engine build ME08 (flashed), early November 2026
+- **Seen:** on a project whose current kit was not kit 1, a track switched to the MIDI machine kept playing its previous sound from pads and sequencer, and its AMP page showed stock values.
+- **Cause:** the current kit's index is a 32-bit word; the build read its top half, which is 0, so it always used kit 1.
+- **Fix:** read the whole word (ME09); reproduced and cleared in rytm-emu with kit 2 current.
+- **Status:** fixed in ME09
+- **Evidence:** `[hw]` {modwerk-rytm-1118}
+- **Rule:** A51
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)
 
 ## E. Emulator or toolchain disagreed with the unit
 
@@ -1301,6 +1411,26 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** C10
 - **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md#trig-seedr-05-07-grid-recording-lock-lanes-redraw-cost-and-first-unit-passes-mkii-os-174-2026-11-16-trig-seedr-1117)
 
+### I142. A function without a return value passed the emulator by chance (trig-seedr 0.7.0)
+- **Unit:** Analog Rytm MKII OS 1.74 in analog-emu, trig-seedr 0.7.0, found 2026-11-17
+- **Seen:** no failure seen; a code review for the manual found that `take()` is declared `int` but falls off its end on success, and YOLO tests its result. A successful roll could be treated as failed and the old recipe put back, depending on a leftover register value. Every emulator test passed.
+- **Cause:** undefined return value in C (m68k-elf-gcc gives no error by default); the register happened to hold a non-zero value in the emulator runs.
+- **Fix:** `return 1;` added; the mod builds with `-Werror=return-type`.
+- **Status:** fixed in 0.7.1 (0.7.1 passed on a unit, 2026-11-17).
+- **Evidence:** `[emu]` {trig-seedr-1118}
+- **Rule:** A74
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)
+
+### I143. Gearmulator's DSP56300 JIT misexecuted `cmpm` and X/Y half writes (gearmulator-md-mm)
+- **Unit:** Machinedrum / Monomachine emulator (gearmulator-md-mm before mdmm-v0.1.0-alpha.15; the same JIT is upstream Gearmulator's), 2026-11-10 to 2026-11-17
+- **Seen:** two wrong results inside one JIT block: after `cmpm a,b` or `cmpm b,a` the source accumulator held its magnitude, so later instructions in the block read |S1|; and after a write to x0/x1 (or y0/y1) followed by a read of the whole 48-bit x (or y) in the same block, the halves were never stored back, so the next block read a stale x.
+- **Cause:** JIT code generation bugs (the interpreter was right; the `cmpm` fix came from upstream dsp56300).
+- **Fix:** dsp56300 submodule moved to the fixed release branch; an interpreter-versus-JIT test for X/Y half writes was added.
+- **Status:** fixed in mdmm-v0.1.0-alpha.15.
+- **Evidence:** `[emu]` {gearmulator-1118}
+- **Rule:** C4 (re-run emulator checks made on an older pin, e.g. machinedrum-kit pins a gearmulator-md-mm commit, and test DSP code under the interpreter too)
+- **Fact:** [devices/machinedrum-monomachine.md](devices/machinedrum-monomachine.md)
+
 ## R. Recovery and transfer links
 
 ### I43. Recovery stalled at ~80 %: the MIDI link, not the image
@@ -1391,4 +1521,34 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Status:** passed.
 - **Evidence:** `[hw]` {elekloader-ar1}
 - **Rule:** A2, A6
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)
+
+### I148. OS UPGRADE from the card installed an older base .bin (Modwerk)
+- **Unit:** Octatrack (MKI/MKII not stated), OS 1.40C, Modwerk base install from the CF card, reported up to 2026-11-17
+- **Seen:** with an older Modwerk base `.bin` still on the card, OS UPGRADE installed that one; the unit came back on the base it ran before and the guide waited with no hint.
+- **Cause:** stock's choice between several `.bin` files at the card's top level; the rule is unknown.
+- **Fix:** the guide says to remove every other `.bin` and to rerun if the old base comes back.
+- **Status:** workaround documented; stock behaviour open
+- **Evidence:** `[hw]` (user reports) {modwerk-1118}
+- **Rule:** A6
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I149. A trial rollback timed out halfway and left the unit in recovery (Modwerk)
+- **Unit:** Octatrack MKII, OS 1.40C, Modwerk base, 24-module timed trial, about 2026-11-17
+- **Seen:** the rollback stopped at the tool's 3 s limit with 16 of 24 modules undone; the unit waited in recovery until `device recover`.
+- **Cause:** the base undoes a set one module at a time; 24 modules need more than 3 s.
+- **Fix:** the tool waits up to 20 s.
+- **Status:** fixed (tooling)
+- **Evidence:** `[hw]` {modwerk-1118}
+- **Rule:** A54
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I152. A Transfer install stalled at "Waiting for SysEx" on a Rytm MKII
+- **Unit:** Analog Rytm MKII, OS 1.74 (running MIDI Engine ME17), installing MER1 with Transfer DROP, 2026-11-17
+- **Seen:** the first DROP stalled at the startup screen's "Waiting for SysEx"; after a power cycle ME17 still booted; a second DROP installed MER1.
+- **Cause:** unknown.
+- **Fix:** power cycle and send again.
+- **Status:** open (once)
+- **Evidence:** `[hw]` {modwerk-rytm-1118}
+- **Rule:** A23
 - **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)

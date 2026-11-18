@@ -105,3 +105,8 @@ What the comparison shows:
 
 ## Implication for Analog Heat
 Analog Heat +FX OS 1.02 now has a first profile from the owner's own research: MCF5441x, 64 MB DDR, MAIN OS at `0x40000400` staged at `0x40200000`, custom code only below `0x40206000`, audio on the ColdFire via SSI1/eDMA and no DSP. See [`../devices/analog-heat.md`](../devices/analog-heat.md). `[doc]` {own-heatfx-notes} Still nothing for MKI/MKII. A first profile would need: container type and sealing of the Heat OS file, CPU/DSP architecture, loader/stage behaviour, free-memory evidence and the startup-menu recovery path (known officially: ACTIVE/ON + [LFO] on MKI/MKII, ACTIVE + MOD on +FX). See [`../devices/analog-heat.md`](../devices/analog-heat.md).
+
+## digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) {digikit-protect-1118}
+- **Windows only the firmware drives:** SPI NOR DSPI `0xFC05C000` (19 functions, 14 NOR primitives), GPIO `0xEC094000-0xEC0940FF` (NOR chip-select helper DT2 `0x401344dc` / DN2 `0x401328c4`), DSPI2 `0xEC038000` (SHARC program load and frame link), DSPI1 `0xFC03C000` (four functions, role open) and the FlexBus device `0x8C000000-0x8C00000F` (only offsets 0, 2, 4, 6, `0xA` used; nothing references `0x8C000010+`, and MAIN never touches the FlexBus registers, so the chip select is set before MAIN). digikit's packer refuses a content module holding an address in these windows. `[doc]`
+- **OS writer:** DT2 `0x4013ac54` / DN2 `0x40139104` ("Writing Flash") erases from NOR `0x80000` and programs. Neither has "RBOZ" or a `0x300000` record writer. `[doc]`
+- **Read-only container sections:** digikit's device files declare MAIN = 3, DSP = 7, read-only 2, 4, 8 for both. `[doc]`

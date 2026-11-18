@@ -22,7 +22,7 @@ results by hand, with credit to this project. Taking part is voluntary and can s
 
 | | |
 |---|---|
-| Aggregat state | research map reviewed 2026-11-03, snapshot `36d3d5c23653` |
+| Aggregat state | research map reviewed 2026-11-03, snapshot `5a0b3743189d` |
 | Copied on | <date you copied it> |
 
 ## What we work on
@@ -49,7 +49,7 @@ emulator, `doc` = read in code or documents.
 
 ---
 
-# Copied state: Aggregat research, snapshot `36d3d5c23653` (research map reviewed 2026-11-03)
+# Copied state: Aggregat research, snapshot `5a0b3743189d` (research map reviewed 2026-11-03)
 
 ## Goals (copied from Aggregat)
 
@@ -107,6 +107,17 @@ emulator, `doc` = read in code or documents.
 | H36 | G1 | The Rytm MKI boot-flash writers lie at `0x40096A6C-0x40096B3E` and BOOTSTRAP UPGRADE ends at `0x4011AA7A` in OS 1.74; the upgrade buffer is `0x40366570` (2 MiB; SB21). | Analog Rytm MKI | Static: disassemble the stock MKI 1.74 image at those addresses and check the callers of the erase and program routines. No flashing needed. |
 | H37 | G7 | The Digitakt II's stock USB MIDI transmit path (OS 1.17) waits indefinitely for buffer space when the host stops reading. | DT2 | Send a SysEx request whose reply is large, keep the port open but stop reading, and watch whether the UI and sequencer keep running. |
 | H40 | G7 | Octatrack stock LFO-design Invert maps v to -1 - v and Clear sets all steps to 0 and stepped. | Octatrack | Invert and clear a custom LFO on the unit, save, and read the Part's 16 values and interpolation mask. |
+| H41 | G7 | On stock DN2 OS 1.11 the chord MODEs' per-scale chord table is built in RAM at start-up from the five stock scale tables, with one row per SCALE value 0-34. | Digitone II | Dump the RAM table after boot in the emulator and on a unit (read-only), compare row count and content per scale. |
+| H42 | G8 | On a Model:Cycles with stock OS 1.13, a project track holding an out-of-range machine number plays CHORD with wrong settings, shows *Error* on MACHINES, and is repaired by turning LEVEL/DATA, without any crash. | Model:Cycles | Save a project with an added machine on a mod, flash stock, open it and play; then turn LEVEL/DATA on MACHINES. |
+| H44 | G7 | A Monomachine (OS 1.32B) sometimes reads a pattern status request sent right after a kit dump and never answers it; the same request sent again is answered. | Monomachine | Send a kit dump, then a pattern status request at once, 50 times; count requests with no reply within 3 s. |
+| H45 | G7 | A Model:Samples running a Cycles OS that checks with the Cycles key refuses a Samples-signed OS file at the last block, after all packets were sent (the check covers the whole file). | Model:Samples | Only with a recovery path ready (MIDI startup menu): on a Samples with such an OS, send a Samples-signed OS by USB with a tool that logs each reply; note which block gets an error, and what the screen says. |
+| H46 | G7 | A Model:Cycles OS `.syx` with more than 16,270 packets (packet numbers past 16,383) is refused or fails during the update. | Model:Cycles | Do not flash such a file. Instead count the packets of your build and check that each packet number's two bytes are below 0x80. |
+| H49 | G7 | On a Rytm MKII (OS 1.74), Transfer's progress bar goes wrong while reading a file over 4,294,967 bytes from the unit (SB28). | Analog Rytm MKII | Read a sample larger than 4.3 MB back from the unit with Transfer and watch the progress. |
+| H50 | G8 | A `.wav` saved by a stock Octatrack holds the file size, not size - 8, in its RIFF header (bytes 4-7). | Octatrack | Save any sample or recorder buffer on a unit; read bytes 4-7 as little endian and compare with the file size. |
+| H51 | G7 | With several .bin files at the CF card's top level, Octatrack OS UPGRADE picks one by a fixed rule (name order or file date), not the newest. | Octatrack | Put two copies of the stock 1.40C .bin with different names and dates on the card (both stock, so nothing changes), run OS UPGRADE and note which file it names or reads; swap names and repeat. |
+| H52 | G7 | On stock Rytm MKII 1.74, TRK SEND MIDI sends only a step's first message on time; later notes of the same step leave 5-30 ms late, more on p-locked steps. | Analog Rytm | Stock OS: TRK SEND MIDI on BD and SD, trigs on the same steps, one p-lock on BD; record DIN out on a computer MIDI monitor and compare each note's time to the step grid. |
+| H47 | G8 | On Syntakt OS 1.42 the top 4 MiB of DDR (`0x47c00000-0x48000000`) is rewritten every frame while delay and reverb are in use, so Modwerk's freed `0x47fe0000-0x48000000` is not free then. | Syntakt | Fill `0x47fe0000-0x48000000` and `0x478c0000-0x47bf0000` with a pattern after boot, play a pattern with heavy delay and reverb sends, load a sample-heavy project, then read back. Settles O35. |
+| H48 | G7 | Holding TRIG 16 at power-on on a Syntakt with stock OS 1.42 does nothing else than (at most) toggle step 16 of the first pattern; MAIN has no boot-time key reader. | Syntakt | Hold TRIG 16 while powering on a stock unit; check the boot and step 16. |
 | H6 | G8 | The DT2's SHARC DDR above the sample pool window (`0x9d22b9c8` up to `0xa0000000`, about 46 MB) is never written by stock, as the DN2's tail `0x80531000-0xa0000000` is not. | DT2 | dnfw's method: fill the range with a pattern at boot, then scan it during heavy playback, pattern and kit changes, FX extremes, sample loads and a save. Expect a reserved top part for Capicola builds only. |
 | H7 | G3 | The DT2's ColdFire runs the same FreeRTOS layout as the DN2: higher priority numbers run first, prio 0 never runs, prio 1 is the idle loop; the main task's stack is barely used. | DT2 | With the USB probe: find the ready table and the running-task pointer, sample them 60 times. |
 | H8 | G8 | The DN2's digikit flash cave `0x402fb7a8` (2,136 B on 1.11) keeps its bytes through a cold boot, as the DT2's `0x403117c4` does. | DN2 | A canary in the cave, read back after a cold boot and after playback. Combine with H9. |
@@ -127,6 +138,7 @@ emulator, `doc` = read in code or documents.
 | H30 | G1 | The Octatrack comes back up normally from a ColdFire soft reset (RCR `0xFC0A0000` = `0x80`) started on the engine task; stock never restarts itself. | Octatrack | Trigger the reset from a minimal mod on a unit with a known recovery path; check boot, card mount and project load. |
 | H35 | G8 | Clocking an Octatrack on a USB-MIDI mod base (Modwerk, octabam) from USB and DIN at once doubles the tempo and saves it into the project, because the base passes every USB clock tick to stock's clock handler without checking for DIN clock. | Octatrack | Send 120 BPM clock on DIN and USB together for 30 s; read the tempo, then reload the project. |
 | H38 | G7 | The Digitone mk1 trig-key LED palette indices 2 dark, 3 red, 5 dim red, 20 white, 21 dim white (from digiemu's copy of the panel's colour table) give those colours on a unit. | Digitone mk1 | Set each index with the setter `0x40016e62` on a unit and compare with the stock trig and dim-white LEDs. |
+| H43 | G7 | The Drum Mode UI hang (Mod Menu opened with YES right after releasing the track key, after trig key 1 with Drum Mode off) is an emulator artefact and does not happen on a unit. | Digitone mk1 | Run the same key sequence on a unit with Drum Mode 0.8; check YES/NO/page keys in the Mod Menu. |
 | H39 | G7 | On a Digitone mk1 (OS 1.44), a mod page inserted right after MIDI page 20 (MIDI Source) breaks FUNC + push A (CHAN enable) on a unit too, as measured in digiemu. | Digitone mk1 | Build with the extra page after 20, try FUNC + push A on a MIDI track's SRC page. |
 
 ## Open conflicts between projects
@@ -161,3 +173,7 @@ emulator, `doc` = read in code or documents.
 | O26 | DN2 FM Tone spare records' MIDI CCs |
 | O31 | Lowest safe word for code in the Octatrack DSP window |
 | O32 | Octatrack track record: where the trigless-trig mask sits |
+| O33 | Model:Cycles CPU load with six tracks |
+| O34 | Syntakt OS container cap |
+| O35 | Top of Syntakt DDR (OS 1.42) |
+| O36 | Syntakt core clock |

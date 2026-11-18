@@ -2,12 +2,13 @@
 
 # Machinedrum (incl. UW)
 
-Data last verified: 2026-11-17
+Data last verified: 2026-11-18
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **Gearmulator MD/MM** (Joe Landers) | emulator | - | mdmm-v0.1.0-alpha.15 (2026-11-18): Machinedrum inter-DSP link as block transfers (-31 % CPU), Record SysEx to File and export shortcuts, +Drive emulation per project, panel control from MIDI; merged upstream Gearmulator and fixed two DSP56300 JIT bugs; Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-11-18 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
 | **Machinedrum WebLoader (MDX user machines)** (gerdtanck) | tool | - | untagged (2026-11-16); Machinedrum running MDX X.20 | - | 2026-11-16 | [repo](https://github.com/gerdtanck/WebLoader) · [homepage](https://gerdtanck.github.io/WebLoader/) |
 | **murdenihcam USR machines** (murdenihcam) | mod | - | main (2026-11-15): RAM-GR 0.5; MDX X.20 B | - | 2026-11-15 | [repo](https://github.com/murdenihcam/murdenihcam-usr-machines) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.1 (2026-11-13): Monomachine factory reset from your own ROM; the host's Stop is a real stop on the MM, so LOAD SONG works after it; Knob 1-8 as host parameters; several ROM images in one folder; Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-14 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
@@ -31,7 +32,6 @@ Data last verified: 2026-11-17
 | **MDS (Machine Dump Standard)** (Justin Mammarella) | library | - | main @ c446179 (2026-10-09); MDX 2.0 (X.20 or later) | - | 2026-10-09 | [repo](https://github.com/jmamma/MDS) |
 | **MDX** (Justin Mammarella, Yatao Li) | mod | - | X.20 B (2026-10-09) | - | 2026-10-09 | [homepage](https://github.com/jmamma/MDX) |
 | **Maschine MD-MM** (sid366) | emulator | - | - | v0.1.1-combined.1 | 2026-09-28 | [repo](https://github.com/sid366/maschine-md-mm-combined) |
-| **Gearmulator MD/MM** (Joe Landers) | emulator | - | mdmm-v0.1.0-alpha.14 (2026-09-21); Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-09-21 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
 | **Say A! (MCL chromatic A tool)** (BartBral) | tool | - | main @ c241980 (2026-05-21) per altstrument | - | 2026-05-21 | [repo](https://github.com/BartBral/MCL-Chromatic-A-tool) · [web app](https://bartbral.github.io/MCL-Chromatic-A-tool/md-transfer.html) |
 | **MDDT (Machinedrum Data Tool)** (waftlord) | editor | - | V2.0 | v1.0.0 | 2026-01-04 | [repo](https://github.com/waftlord/mddt) · [web](https://wftlrd.uk/mddt/) |
 | **TurboMIDI (C++)** (DatanoiseTV) | library | repo unreachable | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
@@ -56,9 +56,9 @@ _Sources: altstrument (2026-11-01)_
 
 ### Gearmulator MD/MM
 
-Plug-in and standalone emulation of Machinedrum and Monomachine (Gearmulator fork) booting your own OS file. Licence: GPL-3.0-only; distribution: download. Listed by altstrument; repo not read by us yet.
+Plug-in and standalone emulation of Machinedrum and Monomachine (Gearmulator fork) booting your own OS file. Licence: GPL-3.0-only; distribution: download. Listed by altstrument. Repo read 2026-11-18 (alpha.15 commit messages, mdblocklink.h): carries the Machinedrum OS 1.63 inter-DSP link at the DMA registers instead of clocking ESSI0 word by word; fixed two DSP56300 JIT bugs (cmpm, X/Y halves) that affected every earlier pin (I143).
 
-_Sources: altstrument (2026-11-01)_
+_Sources: altstrument (2026-11-01), commit messages alpha.14..alpha.15, source/elektron/md/mdLib/mdblocklink.h (2026-11-18)_
 
 ### Kitbasher
 
@@ -132,11 +132,11 @@ _Sources: GitHub search 2026-11-02, README_
 
 ### Machinemodule for MPC OS
 
-The Machinedrum's own DSP code and machine/LFO/mixer maths as a VST2 for Akai MPC/Force standalone devices (all 16 tracks in one instance). The same author ports it to Ableton Move (Schwung) and ships Monomodule for MPC OS. User supplies the OS file. AGPL-3.0.
+The Machinedrum's own DSP code and machine/LFO/mixer maths as a VST2 for Akai MPC/Force standalone devices (all 16 tracks in one instance). The same author ports it to Ableton Move (Schwung) and ships Monomodule for MPC OS. User supplies the OS file. AGPL-3.0. 2026-11-18 (README): the installer is now the OpenMPC Plugin Manager; the Gen2 download needs the user's own Machinedrum OS 1.63 file added to the plugin folder after installing (the Gen 1 build-it-yourself zips put it in during the build).
 
 _Related: uses tool `gearmulator-md-mm` (README: checked against gearmulator-md-mm); vendors `moduledrum` (README: ideas and code adapted from ModuleDrum (AGPL-3.0)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README (2026-11-18)_
 
 ### MachineModule (desktop)
 

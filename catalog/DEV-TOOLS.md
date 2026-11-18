@@ -4,7 +4,7 @@
 
 For people (and agents) who build mods: toolchains, emulators, firmware unpackers, protocol libraries and research write-ups. Pair this with [hardware/](../hardware/README.md), which collects the rules and device facts.
 
-Data last verified: 2026-11-17. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
+Data last verified: 2026-11-18. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
 
 
 The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds), [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians). Hardware knowledge for writing mods: [hardware/](../hardware/README.md).
@@ -26,6 +26,7 @@ The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds),
 | **elektron-firmware-tool** (mischa85) | Digitakt (MKI), Digitakt II, Digitone (MKI) / Digitone Keys, Digitone II, Syntakt, Analog Heat (MKI, MKII, +FX) | C, MIT licence. | - | any (generic .syx unpack/repack with checksum verification) | [repo](https://github.com/mischa85/elektron-firmware-tool) · [forum mod list](https://elektronmods.com/mods.php?id=7) · [tutorial](https://elektronmods.com/thread-8-first-steps-in-elektron-firmware-modding-unpack-edit-repack) |
 | **dtdump** (droelfdroelf) | Digitakt (MKI) | 2019 proof of concept of an open Overbridge protocol implementation; points to Overwitch for active work. | repo archived | - | [repo](https://github.com/droelfdroelf/dtdump) |
 | **digitone-syx-toolkit** (emnyeca) | Digitone II | Python CLI (+ Tkinter GUI) to capture, replay, diff and hex-view SysEx, and to generate Digitone II PATTERN .syx from an empty template. | - | - | [repo](https://github.com/emnyeca/digitone-syx-toolkit) |
+| **SoundLab-A4-DG** (Jickssa) | Analog Four / Analog Keys, Digitone (MKI) / Digitone Keys | Repo created 2026-11-17 with only a LICENSE file (checked 2026-11-18). | unverified entry | - | [repo](https://github.com/Jickssa/SoundLab-A4-DG) |
 | **selache (SHARC+ toolchain)** (js216 (ElekLabs keeps a fork)) | Digitakt II, Digitone II | Open-source toolchain for SHARC+ DSP (assembler/C compiler), GPL-3.0. | unverified entry | - | [repo](https://github.com/js216/selache) |
 
 ## Emulators
@@ -33,6 +34,7 @@ The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds),
 | Project | Devices | What it is | Note | Version / OS | Links |
 |---|---|---|---|---|---|
 | **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo) <br>_cites elektron-firmware-tool; cites dt2-firmware-research_ | Digitakt II, Digitone II | Native Rust emulator that runs the ColdFire and SHARC+ firmware together, with front panel, display and audio, plus a web panel (WASM core), a Tauri desktop app, the … | - | Digitakt II target 1.17 (emulator also runs 1.16 as … | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
+| **Gearmulator MD/MM** (Joe Landers) | Machinedrum (incl. UW), Monomachine | Plug-in and standalone emulation of Machinedrum and Monomachine (Gearmulator fork) booting your own OS file. | - | mdmm-v0.1.0-alpha.15 (2026-11-18): Machinedrum inter-DSP … | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
 | **OP-XY MNMD** (mmockett) <br>_uses gearmulator-md-mm_ | Machinedrum (incl. UW), Monomachine | Machinedrum and Monomachine engines written from scratch (not an emulation of the chips) for the Teenage Engineering OP-XY on the Open-XY SDK. MIT. v1.3.2 (README … | - | v1.3.6 (tag, 2026-11-13): MD KIT builds into one firmware … | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **Machinemodule for MPC OS** (sd88me) <br>_uses gearmulator-md-mm; vendors code from moduledrum_ | Machinedrum (incl. UW) | The Machinedrum's own DSP code and machine/LFO/mixer maths as a VST2 for Akai MPC/Force standalone devices (all 16 tracks in one instance). | - | v1.0.5 (tag, 2026-11-12) | [repo](https://github.com/sd88me/mpc-vst-machinedrum) · [move port](https://github.com/sd88me/schwung-machinemodule) · [monomodule mpc](https://github.com/sd88me/mpc-vst-monomodule) |
 | **sidecar-emu (Sidecar emulator)** (Iced-Cream) <br>_uses analog-emu; cites sidecar-expander_ | Analog Rytm (MKI, MKII) | QEMU cut down to the Raspberry Pi 4B and the devices Sidecar's engine needs: boots the Sidecar engine image, answers over Ethernet, puts an Analog Rytm MKII stand-in on … | - | - | [repo](https://github.com/Iced-Cream/sidecar-emu) |
@@ -49,7 +51,6 @@ The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds),
 | **Monomodule for Schwung** (legsmechanical) <br>_port of monomodule_ | Monomachine | Port of Monomodule (chip-level Monomachine engine) to Ableton Move via Schwung, as one synth track plus the seven FX machines. | - | - | [repo](https://github.com/legsmechanical/schwung-monomodule) |
 | **Maschine MD-MM** (sid366) <br>_fork of gearmulator-md-mm_ | Machinedrum (incl. UW), Monomachine | Fork of gearmulator-md-mm with Native Instruments Maschine MK3 integration. | - | - | [repo](https://github.com/sid366/maschine-md-mm-combined) |
 | **Monomodule** (shnolk) <br>_cites elektron-firmware-tool_ | Monomachine | DAW plug-ins and a SysEx library app running the Monomachine engine in a DSP56300 emulator from your OS file. | - | 1.0.0 (2026-09-24) | [repo](https://github.com/shnolk/monomodule) |
-| **Gearmulator MD/MM** (Joe Landers) | Machinedrum (incl. UW), Monomachine | Plug-in and standalone emulation of Machinedrum and Monomachine (Gearmulator fork) booting your own OS file. | - | mdmm-v0.1.0-alpha.14 (2026-09-21) | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
 | **octemu** (Mark Roberts (markandrus)) <br>_uses elektron-firmware-tool; cites octamax; cites octabam_ | Octatrack (MKI, MKII) | Octatrack emulator and development environment for firmware changes. | - | 1.40C | [repo](https://github.com/markandrus/octemu) |
 
 ## Libraries and protocol implementations

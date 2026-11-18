@@ -4,9 +4,33 @@
   <link href="https://70b185.github.io/Aggregat/"/>
   <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
   <id>https://70b185.github.io/Aggregat/</id>
-  <updated>2026-11-17T00:00:00Z</updated>
+  <updated>2026-11-18T00:00:00Z</updated>
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>New in the catalogue: Supermodel REDUX (Mod, Model:Cycles)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=supermodel-redux"/>
+    <id>https://70b185.github.io/Aggregat/#project-supermodel-redux</id>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A modular Model:Cycles firmware built locally by a Windows or macOS Workbench (in the releases) from the user's own OS 1.13 file: pick machines, shared effects and add-ons, build, then flash from the Workbench or Transfer; the unit checks the image before installing. The repo …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: LEDrum (Sidecar drum voice) (Mod, Analog Rytm)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=ledrum"/>
+    <id>https://70b185.github.io/Aggregat/#project-ledrum</id>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A drum voice for the Sidecar expander (a Raspberry Pi beside the Analog Rytm MKII) as a Pi user machine (.rmp): a modified port of the open-source Erica Synths LXR-02 drum voice, rewritten for float processing at 48 kHz with new envelopes and filter; the LXR wavetables and …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: flexmods (Digitakt elekloader mods) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=flexmods"/>
+    <id>https://70b185.github.io/Aggregat/#project-flexmods</id>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A collection of 22 elekloader mods for the Digitakt MKI, each its own .elemod in the releases; every mod works alone and with the others, and with all 22 in one build the OS is close to its memory limit (VISUALS, about 11 KB, and FREQSEQ are the largest). Key combinations are …</summary>
+  </entry>
   <entry>
     <title>New in the catalogue: ZIBENS (drum-synth machine) (Mod, Digitakt)</title>
     <link href="https://70b185.github.io/Aggregat/?p=zibens"/>
@@ -68,7 +92,7 @@
     <id>https://70b185.github.io/Aggregat/#project-ms-vis</id>
     <updated>2026-11-16T00:00:00Z</updated>
     <category term="project"/>
-    <summary>An audio-reactive visualizer in one HTML page (Three.js and Web MIDI) that follows the Model:Samples' notes, CCs, clock and program changes; presets, projector mode and video recording. Nothing is sent to the device. Found by GitHub search 2026-11-16.</summary>
+    <summary>An audio-reactive visualizer in one HTML page (Three.js and Web MIDI) that follows the Model:Samples' notes, CCs, clock and program changes; presets, projector mode and video recording. Nothing is sent to the device. Found by GitHub search 2026-11-16. 2026-11-18 (README): out …</summary>
   </entry>
   <entry>
     <title>New in the catalogue: Digitone mods (Drum Mode) (Mod, Digitone)</title>
@@ -441,28 +465,5 @@
     <updated>2026-11-10T00:00:00Z</updated>
     <category term="project"/>
     <summary>Robbie's DIGISEQ sequencers for the Digitakt II: every track, audio or MIDI, picks a TYPE whose sequencer plays instead of its trigs - SNAKE (a path through a 4 x 2 grid), 185 (stage sequencer after ML-185), ARP (played by the track's own note trigs) and PRINT (writes the …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: Digi2Core (core-dt2 2.6.1) (Mod, Digitakt II)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=digi2core"/>
-    <id>https://70b185.github.io/Aggregat/#project-digi2core</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>Base mod for gdeo607's Digitakt II machine mods; on its own it changes nothing. It keeps irpina's core 1.0 hook bus and adds digikit's machine, parameter and DSP-inline frameworks as core services: added machine types 7-23 and parameter codes 275-338, DSP voices as relocatable …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: CyclesEmu (Model:Cycles engine as plug-ins) (Tool, Model:Cycles)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=cyclesemu"/>
-    <id>https://70b185.github.io/Aggregat/#project-cyclesemu</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>Unofficial macOS plug-ins (AU, VST3, standalone) that run the Model:Cycles' own sound engine: the parts of the firmware that render audio are translated ahead of time from ColdFire code to C, from the user's own firmware (nothing included or derived in the repo). CyclesEmu …</summary>
-  </entry>
-  <entry>
-    <title>Update 2026-11-10: change reports of 11-09 and 11-10 folded, I55-I66, SB17-SB18</title>
-    <link href="https://github.com/70b185/Aggregat/commit/ea694d1c51929aaf7fe9091a0db36b7e8c5acabc"/>
-    <id>https://70b185.github.io/Aggregat/#commit-ea694d1c5192</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <category term="update"/>
   </entry>
 </feed>

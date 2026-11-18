@@ -15,8 +15,17 @@ Source: dagargo/overwitch README (JACK clients for Overbridge 2 devices, GPL-3.0
 - **Rule: keep the version field the device expects, or patch only what is sent out.** Overbridge logs on macOS: `~/Library/Logs/Elektron Overbridge/`.
 
 ## Which devices
-- **Overbridge 2 devices supported:** Analog Four MKII, Analog Rytm MKII, Digitakt, Digitakt II, Digitone, Digitone II, Digitone Keys, **Analog Heat, Analog Heat MKII, Analog Heat +FX**, Syntakt. **Not supported:** the Overbridge 1 devices (Analog Four MKI, Analog Keys, Analog Rytm MKI). `[doc]`
+- **Overbridge 2 devices supported:** Analog Four MKII, Analog Rytm MKII, Digitakt, Digitakt II, Digitone, Digitone II, Digitone Keys, **Analog Heat, Analog Heat MKII, Analog Heat +FX**, Syntakt. **Overbridge 1 devices** (Analog Four MKI, Analog Keys, Analog Rytm MKI): supported on Overwitch's main branch since 2026-11 with recent OS versions, only the A4 MKI tested {overwitch-1118}. `[doc]`
 - Device IDs are listed as vendor:product: Digitakt `1935:0b2c`; Analog Heat +FX has product id 2899. `[doc]`
+
+## Overbridge 1 devices (Overwitch main, 2026-11-17) {overwitch-1118}
+- **Overbridge 1 units speak the Overbridge 2 protocol only on recent OS versions** (e.g. Analog Four MKI OS 1.56); Overwitch shows an error with older ones. `[doc]`
+- **Transfer and samples:** protocol version 1, isochronous; samples 2 bytes (16 bit) or 3 bytes (24 bit), the same size for every track in one direction; at least one track per direction. `[doc]`
+- **The track layout is stored in the device** (set with Elektron's Overbridge Control Panel on Windows/macOS) and must match the host's definition; Overwitch compares them and lists the device's tracks on a mismatch. With a channel code for every track it writes its own layout to the device. `[doc]`
+- **Layout limits (as the Control Panel enforces):** at most 6 tracks at 24 bit or 10 at 16 bit, both directions together, and at most 8 tracks per direction. `[doc]`
+- **Analog Four MKI channel codes:** output Main L/R 160/161, Synth Track 1-4 128-131, Input L/R 192/193; input Main L/R Input 32/33, Synth Track 1-4 Input 0-3. USB product id 2891 (`0x0b4b`) in the sample definition. `[doc]`
+- **Blocks:** an Overbridge 1 block holds 1 ms of audio; valid 1-5 blocks per transfer, default 3 (Overbridge 2 devices: at least 10 recommended). `[doc]`
+- **Tested:** only the Analog Four MKI; the shipped Analog Keys and Rytm MKI definitions (main outs and ins, 16 bit) are untested. `[doc]`
 
 ## Protocol generations (transfer type, sample size)
 | Version | USB transfer | Samples | Devices |

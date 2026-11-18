@@ -297,3 +297,8 @@ ignore:
   - andreiiterate/Toverk_sfz_converter   # an .elmulti/SFZ converter for the Tonverk; Tonverk not in scope yet (altstrument, 2026-11-16)
   - spacejam/tv7   # renders DX7 patches into Tonverk multisamples; Tonverk not in scope yet (altstrument, 2026-11-16)
   - spacejam/tv7-js   # browser version of tv7 for the Tonverk; Tonverk not in scope yet (altstrument, 2026-11-16)
+  - nerazin/mono-ringmod-clap   # a desktop CLAP effect for Bitwig modelled on the Monomachine ringmod machine; no device, firmware or mod (2026-11-18)
+  - nerazin/mono-reverb-clap   # a desktop CLAP effect for Bitwig modelled on the Monomachine reverb machine; no device, firmware or mod (2026-11-18)
+  - nerazin/mono-dynamix-clap   # a desktop CLAP effect for Bitwig modelled on the Monomachine dynamix machine; no device, firmware or mod (2026-11-18)
+  - nerazin/mono-flanger-clap   # a desktop CLAP effect for Bitwig modelled on the Monomachine flanger machine; no device, firmware or mod (2026-11-18)
+  - nerazin/mono-phaser-clap   # a desktop CLAP effect for Bitwig modelled on the Monomachine phaser machine; no device, firmware or mod (2026-11-18)

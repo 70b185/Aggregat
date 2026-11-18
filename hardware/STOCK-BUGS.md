@@ -258,6 +258,29 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Status:** unconfirmed
 - **Evidence:** `[doc]` {kyoti-clyps-scope}
 
+### SB29. WAV files saved by the Octatrack carry a RIFF size 8 bytes too large
+- **Device and OS:** Octatrack, OS 1.40C
+- **Area:** card, sample save
+- **Symptom:** bytes 4-7 of a saved `.wav` hold the whole file size instead of file size minus 8. Most decoders ignore it because they trust the `data` chunk size; strict tools may warn or read past the end.
+- **Trigger:** any stock sample save (seen with a recorder buffer saved through the stock routine).
+- **Cause:** the header writer stores the file length, not length - 8 (read from the code; measured under the port: 176,444 B file, 176,444 in the field).
+- **Workaround:** tools that read Octatrack WAVs should trust the `data` chunk size.
+- **Test tip:** H50.
+- **Found by:** octabam (docs/firmware/SAMPLE_SAVE.md)
+- **Status:** confirmed in emulator, not checked on a unit-saved file
+- **Evidence:** `[emu]` {octabam-1118}
+
+### SB30. FX1 SETUP knob F on EQUALIZER changes a hidden Part byte
+- **Device and OS:** Octatrack, OS 1.40C
+- **Area:** UI, Parts
+- **Symptom (expected):** turning knob F on FX1's SETUP page with EQUALIZER loaded changes a Part byte while no screen shows a parameter there.
+- **Trigger:** EQUALIZER in FX1, SETUP page, turn F.
+- **Cause:** none of the page-2 editors tests an enable bit for the slot.
+- **Workaround:** leave knob F alone on that page.
+- **Found by:** octabam (docs/firmware/PARAM_PAGES.md, under the port 2026-11-05)
+- **Status:** unconfirmed on a unit; audible effect unknown
+- **Evidence:** `[emu]` {octabam-1118}
+
 ## Analog Rytm
 
 ### SB18. Edits to hidden FX words overwrite the delay's saved TIME (latent)
@@ -319,6 +342,18 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Status:** stock behaviour
 - **Evidence:** `[hw]` (overflow counted on a unit) / `[doc]` (no full check, from the disassembly) {modwerk-rytm-1116}
 
+### SB28. Data transfer progress wraps for files over 4,294,967 bytes
+- **Device and OS:** Analog Rytm MKII, OS 1.74
+- **Area:** Data router (USB transfers of files, as Transfer uses)
+- **Symptom:** the per-mille progress of a read goes wrong past 4,294,967 bytes.
+- **Trigger:** a read of a file larger than 4,294,967 bytes.
+- **Cause:** the progress (`0x4008c9d6..0x4008c9e8`) wraps there; 4,294,967 is 2^32 / 1,000, so a 32-bit multiply by 1,000 is the likely cause `[?]` (the source gives only the range and the limit).
+- **Workaround:** a client counts the bytes it gets; elekloader's tools do.
+- **Test tip:** download a sample over 4.3 MB with Transfer and watch the progress bar.
+- **Found by:** elekloader (drive-loader-ar2 STAGE.md)
+- **Status:** open
+- **Evidence:** `[doc]` {elekloader-drive-1118}
+
 ## Model:Cycles
 
 ### SB15. A random exception while browsing (filesystem block cache)
@@ -354,7 +389,7 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Area:** OS update, restart
 - **Symptom:** the unit sits on SUCCESS! REBOOTING, stays on USB, and every MIDI call to it blocks until it leaves USB.
 - **Trigger:** a flash that stock 1.56 runs; seen twice in about 30 flashes.
-- **Cause:** the restart masks every interrupt and then waits for a serial queue that only those interrupts drain (elkflash's reading).
+- **Cause:** the restart masks every interrupt and then waits for a serial queue that only those interrupts drain (elkflash's reading). elekloader's reading: 1.56 masks interrupts at `0x4007db24` and then waits in `0x40002766` while bytes are pending behind the panel link's DMA (`0x4133cfc0`) or in the UART queue (`0x4133cfd0`), which only those interrupts drain; core-a4mk2 (0.4+) masks only once nothing is pending, not yet checked on the A4. {elekloader-core-a4}
 - **Workaround:** power-cycle by hand; the new OS is already written. Do not reflash, and do not take a screenshot over MIDI.
 - **Test tip:** watch the USB node: units leave USB 16-32 s after the commit; one still there after 45 s has stalled.
 - **Found by:** elkflash

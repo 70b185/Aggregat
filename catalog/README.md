@@ -12,10 +12,10 @@ Data last verified: 2026-11-18. Repo fingerprints: see state/CHANGES.md
 | [Digitone II](digitone-2.md) | 34 | 2 | 2 |
 | [Syntakt](syntakt.md) | 17 | 0 | 1 |
 | [Analog Heat (MKI, MKII, +FX)](analog-heat.md) | 4 | 1 | 1 |
-| [Octatrack (MKI, MKII)](octatrack.md) | 32 | 2 | 0 |
+| [Octatrack (MKI, MKII)](octatrack.md) | 33 | 2 | 0 |
 | [Analog Rytm (MKI, MKII)](analog-rytm.md) | 30 | 0 | 1 |
-| [Analog Four / Analog Keys](analog-four-keys.md) | 14 | 1 | 0 |
+| [Analog Four / Analog Keys](analog-four-keys.md) | 15 | 1 | 0 |
 | [Model:Cycles](model-cycles.md) | 31 | 1 | 0 |
 | [Model:Samples](model-samples.md) | 11 | 0 | 0 |
-| [Machinedrum (incl. UW)](machinedrum.md) | 29 | 0 | 0 |
-| [Monomachine](monomachine.md) | 12 | 0 | 0 |
+| [Machinedrum (incl. UW)](machinedrum.md) | 30 | 0 | 0 |
+| [Monomachine](monomachine.md) | 14 | 0 | 0 |

@@ -70,7 +70,7 @@ Data last verified: 2026-11-18
 | **DigiCosm** (pina (irpina)) | mod | - | 0.1; Digitone mk1 OS 1.43 and 1.44 (core-dn1 3.2), checked in digikit's emulator | v0.2 | - | [repo](https://github.com/irpina/digicosm) |
 | **DigiChroma** (pina (irpina)) | mod | - | 0.1; Digitone mk1 OS 1.43 and 1.44 (core-dn1 3.2; source option DIGITONE needs unreleased core-dn1 3.3) | v0.2 | - | [repo](https://github.com/irpina/digichroma) |
 | **Elektroid** (dagargo) | tool | - | 3.4 (2026-08-22) | 3.4 | - | [repo](https://github.com/dagargo/elektroid) |
-| **plock2sound** (AvroraPolnareff) | mod | - | - | - | - | [forum](https://elektronmods.com/mods.php?id=29) |
+| **plock2sound** (AvroraPolnareff) | mod | repo unreachable | v1.0; 1.43 (Digitone mk1 and Keys) | - | - | [repo](https://github.com/AvroraPolnareff/plock2sound) · [forum](https://elektronmods.com/mods.php?id=29) |
 | **SoundLab-A4-DG** (Jickssa) | tool | unverified entry | - | - | - | [repo](https://github.com/Jickssa/SoundLab-A4-DG) |
 
 ## Details
@@ -253,9 +253,11 @@ _Sources: altstrument tools page_
 
 ### plock2sound
 
-Turns one step's parameter locks into a saveable sound; Digitone mk1 and Keys; listed as not on GitHub. AvroraPolnareff also has an elekloader fork with Analog Four MKII proof-of-concept work.
+An elekloader mod: hold a step's TRIG and its track key, press RECORD, and the step's parameter locks become a sound you can save in the Sound Manager (keeps the track sound's name, tags and arp data). The forum now lists a GitHub repo; on 2026-11-18 it could not be cloned (private or not yet public), so the details come from the forum page. AvroraPolnareff also has an elekloader fork with Analog Four MKII proof-of-concept work.
 
-_Sources: elektronmods list_
+_Related: mod for `elekloader` (elektronmods mod page: an elekloader mod) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
+
+_Sources: elektronmods list, elektronmods mod page (2026-11-18)_
 
 ### Vampire Manga OS
 

@@ -2531,18 +2531,25 @@ projects:
     author: AvroraPolnareff
     kind: mod
     devices: [digitone]
-    repo: null
+    repo: https://github.com/AvroraPolnareff/plock2sound
     links:
       forum: https://elektronmods.com/mods.php?id=29
-    status: unknown
+    license: "GPL-2.0 (per the forum page)"
+    status: unreachable
     tested: not-stated
-    base_os: null
-    version: null
+    base_os: "1.43 (Digitone mk1 and Keys)"
+    version: v1.0
     last_activity: null
-    notes: Turns one step's parameter locks into a saveable sound; Digitone mk1 and Keys; listed as not on GitHub. AvroraPolnareff also has an elekloader fork with Analog Four MKII proof-of-concept work.
+    notes: >
+      An elekloader mod: hold a step's TRIG and its track key, press RECORD, and the step's parameter locks become a
+      sound you can save in the Sound Manager (keeps the track sound's name, tags and arp data). The forum now lists a
+      GitHub repo; on 2026-11-18 it could not be cloned (private or not yet public), so the details come from the forum
+      page. AvroraPolnareff also has an elekloader fork with Analog Four MKII proof-of-concept work.
     features:
       - "turns one step's parameter locks into a sound you can save"
-    sources: [elektronmods list]
+    sources: [elektronmods list, "elektronmods mod page (2026-11-18)"]
+    relations:
+    - {type: mod_for, id: elekloader, evidence: 'elektronmods mod page: an elekloader mod'}
 
   # ---------------------------------------------------------------- Phase 2 devices (imported 2026-11-01 from altstrument, facts only, notes our own)
   - id: analog-rytm-mkii-research
@@ -2575,7 +2582,8 @@ projects:
     base_os: 1.73 (Rytm), 1.56 (Keys); not 1.74
     notes: 'Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog
       Keys OS 1.56 (chord memory, joystick random). Not OS 1.74, not Analog Four. Licence: GPL-3.0-or-later; distribution:
-      browser-installer. Listed by altstrument.'
+      browser-installer. Listed by altstrument. Replaces the author''s earlier ARChop (CHOP mode for the Rytm MK1), which the
+      elektronmods list marks as deprecated (2026-11-18).'
     features:
       - "Rytm: CHOP with step locks"
       - "Rytm: sample focus and per-track low and high cuts"
@@ -5598,6 +5606,27 @@ projects:
     - {type: uses_tool, id: gearmulator-md-mm, evidence: 'README: checked against gearmulator-md-mm'}
     - {type: vendors, id: moduledrum, evidence: 'README: ideas and code adapted from ModuleDrum (AGPL-3.0)'}
 
+  - id: monomodule-mpc
+    name: Monomodule for MPC OS
+    author: sd88me
+    kind: emulator
+    devices:
+    - monomachine
+    repo: https://github.com/sd88me/mpc-vst-monomodule
+    license: "AGPL-3.0"
+    status: active
+    version: "v1.0.4 (tag, 2026-11-04)"
+    last_activity: '2026-11-04'
+    notes: >
+      shnolk's Monomodule engine as VST2 plug-ins for Akai MPC and Force standalone devices: Monomodule One (15 synth
+      machines) and Monomodule FX (7 effect machines). A static recompiler turns the DSP56300 code into ARM code so it
+      runs in real time. Needs MPC OS 3.x for the touchscreen page. User supplies the Monomachine OS file; the Force build
+      is built from it by the user.
+    sources:
+    - elektronmods list (2026-11-18)
+    - "README (2026-11-18)"
+    relations:
+    - {type: port_of, id: monomodule, evidence: 'README: MPC port of shnolk''s Monomodule engine'}
   - id: machinemodule-desktop
     name: MachineModule (desktop)
     author: AcidReff
@@ -5790,6 +5819,36 @@ projects:
     - GitHub search 2026-11-02
     - README
     - "README (2026-11-11)"
+  - id: octalab
+    name: octalab
+    author: nordseele
+    kind: research
+    devices:
+    - octatrack
+    repo: https://github.com/nordseele/octalab
+    license: "CC BY-NC-SA 4.0 (text, docs, images; versions before 2026-09-27 MIT)"
+    status: wip
+    base_os: 1.40C
+    last_activity: '2026-10-08'
+    notes: >
+      An Octatrack firmware workshop built on octabam, tested on an MKI. The README documents what was tried in
+      September 2026: one-gesture randomisation, GROOVE and a groove pool, generators (Euclidean, Grids), CAPTURE (an
+      instant sampler on the trig keys) and TAPE / Direct to CF (recording to the card while the machine plays).
+      Publishes no firmware, builds or source code. The work continues in OType and ot1; some features may come as
+      octabam modules.
+    features:
+      - "randomisation in one gesture (sample pool, LFOs, effects, scenes, locks)"
+      - "GROOVE with a groove pool; Euclidean and Grids generators"
+      - "CAPTURE: an instant sampler on the trig keys"
+      - "TAPE: record the master straight to the CF card while playing"
+    sources:
+    - elektronmods list (2026-11-18)
+    - "README (2026-11-18)"
+    relations:
+    - {type: builds_on, id: octabam, evidence: 'README: builds on octabam'}
+    - {type: cites, id: octamax, evidence: 'README: names octamax as prior work'}
+    - {type: cites, id: ems-octakit, evidence: 'README: names ems-octakit as prior work'}
+    - {type: cites, id: octa-bt-pt, evidence: 'README: names octa-bt-pt as prior work'}
   - id: octadraw
     name: OctaDraw
     author: nordseele
@@ -7610,6 +7669,34 @@ projects:
     - {type: uses_tool, id: mds-tools, evidence: 'README: the same dsp56300 core as mds-tools; EXPORT .SYX runs its certifier'}
     - {type: builds_on, id: mds, evidence: 'README: MDS 1.1 user machines'}
 
+  - id: mcl
+    name: MCL (MegaCommand Live)
+    author: Justin Mammarella
+    kind: tool
+    devices:
+    - machinedrum
+    - monomachine
+    - analog-four-keys
+    repo: https://github.com/jmamma/MCL
+    license: "BSD-style (LICENSE)"
+    links:
+      docs: https://jmamma.github.io/MCL/
+      releases: https://github.com/jmamma/MCL/releases
+    status: released
+    version: "5.02 (2026-06-26)"
+    last_activity: '2026-06-26'
+    notes: >
+      Firmware for the MegaCommand MIDI controller (DIY MegaCommand and MegaCMD), not for an Elektron box: a sequencer,
+      controller and live performance system built around the Machinedrum, with Analog Four and Monomachine support.
+      Runs on AVR; RP2040/RP2350 ports in progress. MCL 5.00 asks for Machinedrum OS X.13 and Monomachine OS X.01.
+      Long-running project (history since 2017).
+    features:
+      - "sequencer and live performance system for the Machinedrum"
+      - "runs on the MegaCommand MIDI controller"
+    sources:
+    - elektronmods list (2026-11-18)
+    - "README (2026-11-18)"
+    - "Changelog (2026-11-18)"
   - id: telos
     name: telos (elekloader OS)
     author: elekloader

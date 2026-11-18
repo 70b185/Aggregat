@@ -13,12 +13,14 @@ Data last verified: 2026-11-18
 | **OP-XY MNMD** (mmockett) | emulator | - | v1.3.6 (tag, 2026-11-13): MD KIT builds into one firmware with Hexagon's Moth; v1.3.5: the synths play at one loudness, MD KIT raises its quieter machines by up to 6 dB | v1.3.6 | 2026-11-13 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **Mono Chorus CLAP** (nerazin) | tool | - | 0.3.0 (2026-11-10) | - | 2026-11-10 | [repo](https://github.com/nerazin/mono-chorus-clap) |
 | **ems-monomachine-firmware** (June Kiff (emuyia)) | mod | - | 26B09-beta (2026-11-09): ARP p-locks, trig conditions to 8:8 plus PRE/NEI, microtiming, multi-trig edit, page transpose, BBOX sample manager (SDS and a compressed format shared with compatible Machinedrum firmware), DPRO>SBOX machine; 1.32B | 26910-release | 2026-11-09 | [repo](https://github.com/emuyia/ems-monomachine-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
+| **Monomodule for MPC OS** (sd88me) | emulator | - | v1.0.4 (tag, 2026-11-04) | - | 2026-11-04 | [repo](https://github.com/sd88me/mpc-vst-monomodule) |
 | **BSP Machinedrum** (ABarracu87) | tool | - | - | v0.3.5 | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
 | **Monomachine Lab** (Jick238) | emulator | - | Monomachine OS 1.32B (user-supplied) | v0.1.4 | 2026-10-21 | [repo](https://github.com/Jick238/monomachine-lab) |
 | **C7** (sata1000000) | editor | - | - | v0.1.0 | 2026-10-10 | [repo](https://github.com/sata1000000/C7) |
 | **Monomodule for Schwung** (legsmechanical) | emulator | - | - | v0.1.0-test.5 | 2026-09-28 | [repo](https://github.com/legsmechanical/schwung-monomodule) |
 | **Maschine MD-MM** (sid366) | emulator | - | - | v0.1.1-combined.1 | 2026-09-28 | [repo](https://github.com/sid366/maschine-md-mm-combined) |
 | **Monomodule** (shnolk) | emulator | - | 1.0.0 (2026-09-24); Monomachine OS 1.32B (supplied by you) | release | 2026-09-24 | [repo](https://github.com/shnolk/monomodule) |
+| **MCL (MegaCommand Live)** (Justin Mammarella) | tool | - | 5.02 (2026-06-26) | - | 2026-06-26 | [repo](https://github.com/jmamma/MCL) · [docs](https://jmamma.github.io/MCL/) · [releases](https://github.com/jmamma/MCL/releases) |
 | **TurboMIDI (C++)** (DatanoiseTV) | library | repo unreachable | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 
 ## Details
@@ -56,6 +58,14 @@ _Sources: altstrument (2026-11-01)_
 Desktop app controlling the Machinedrum and Monomachine over SysEx/MIDI (kits, sounds, patterns, songs, samples) with a DAW bridge plug-in for automation. GPL-3.0.
 
 _Sources: GitHub search 2026-11-02, README_
+
+### Monomodule for MPC OS
+
+shnolk's Monomodule engine as VST2 plug-ins for Akai MPC and Force standalone devices: Monomodule One (15 synth machines) and Monomodule FX (7 effect machines). A static recompiler turns the DSP56300 code into ARM code so it runs in real time. Needs MPC OS 3.x for the touchscreen page. User supplies the Monomachine OS file; the Force build is built from it by the user.
+
+_Related: port of `monomodule` (README: MPC port of shnolk's Monomodule engine) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
+
+_Sources: elektronmods list (2026-11-18), README (2026-11-18)_
 
 ### Monomodule for Schwung
 
@@ -106,3 +116,9 @@ _Sources: GitHub search 2026-11-02, README_
 A small stereo CLAP chorus plug-in (macOS) after the Monomachine's FX-CHORS: a floating-point reconstruction with eight automatable parameters (DEL, DEP, SPD, MIX, FB, WID, LP, INP), one C file, no firmware and no emulator.
 
 _Sources: state/NEW.md 2026-11-10, README_
+
+### MCL (MegaCommand Live)
+
+Firmware for the MegaCommand MIDI controller (DIY MegaCommand and MegaCMD), not for an Elektron box: a sequencer, controller and live performance system built around the Machinedrum, with Analog Four and Monomachine support. Runs on AVR; RP2040/RP2350 ports in progress. MCL 5.00 asks for Machinedrum OS X.13 and Monomachine OS X.01. Long-running project (history since 2017).
+
+_Sources: elektronmods list (2026-11-18), README (2026-11-18), Changelog (2026-11-18)_

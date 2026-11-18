@@ -163,7 +163,7 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **MUTINY (modular sequencers for Digitone mk1)** (mod, active, tested: unit, base OS Digitone mk1 OS 1.44) https://github.com/mbaumannn/mutiny
 - **OB-1 (elektrob-1)** (mod, wip, tested: partly, base OS Digitakt mk1, Digitone mk1 / Keys) https://github.com/simonjohansson/elektrob-1
 - **PHREAKOID** (mod, wip, tested: unit, base OS Digitone mk1) https://github.com/x2k77m1/phreakoid
-- **plock2sound** (mod, unknown, tested: not-stated)
+- **plock2sound** (mod, unreachable, tested: not-stated, base OS 1.43 (Digitone mk1 and Keys)) https://github.com/AvroraPolnareff/plock2sound
 - **PROGRAM CHANGE -> SOUND (Digitone mk1)** (mod, wip, tested: emulator, base OS Digitone mk1 / Keys OS 1.43 and 1.44; core-dn1 5.0.1 (unreleased)) https://github.com/irpina/digipcsound
 - **PUMP (Digitone)** (mod, wip, tested: partly, base OS Digitone mk1 / Keys) https://github.com/ClaidArremer/digitone-pump
 - **RingTone (master ring mod / wavefold / EQ)** (mod, wip, tested: unit, base OS Digitone mk1 / Digitone Keys OS 1.43) https://github.com/DigiAlchemydsp/RingTone

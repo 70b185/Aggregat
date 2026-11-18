@@ -32,6 +32,7 @@ Data last verified: 2026-11-18
 | **MDS (Machine Dump Standard)** (Justin Mammarella) | library | - | main @ c446179 (2026-10-09); MDX 2.0 (X.20 or later) | - | 2026-10-09 | [repo](https://github.com/jmamma/MDS) |
 | **MDX** (Justin Mammarella, Yatao Li) | mod | - | X.20 B (2026-10-09) | - | 2026-10-09 | [homepage](https://github.com/jmamma/MDX) |
 | **Maschine MD-MM** (sid366) | emulator | - | - | v0.1.1-combined.1 | 2026-09-28 | [repo](https://github.com/sid366/maschine-md-mm-combined) |
+| **MCL (MegaCommand Live)** (Justin Mammarella) | tool | - | 5.02 (2026-06-26) | - | 2026-06-26 | [repo](https://github.com/jmamma/MCL) · [docs](https://jmamma.github.io/MCL/) · [releases](https://github.com/jmamma/MCL/releases) |
 | **Say A! (MCL chromatic A tool)** (BartBral) | tool | - | main @ c241980 (2026-05-21) per altstrument | - | 2026-05-21 | [repo](https://github.com/BartBral/MCL-Chromatic-A-tool) · [web app](https://bartbral.github.io/MCL-Chromatic-A-tool/md-transfer.html) |
 | **MDDT (Machinedrum Data Tool)** (waftlord) | editor | - | V2.0 | v1.0.0 | 2026-01-04 | [repo](https://github.com/waftlord/mddt) · [web](https://wftlrd.uk/mddt/) |
 | **TurboMIDI (C++)** (DatanoiseTV) | library | repo unreachable | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
@@ -241,3 +242,9 @@ Development harness for MDS 1.1 Machinedrum user machines: loads a .mds package 
 _Related: uses tool `mds-tools` (README: the same dsp56300 core as mds-tools; EXPORT .SYX runs its certifier); builds on `mds` (README: MDS 1.1 user machines) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: state/NEW.md 2026-11-14, README (2026-11-13)_
+
+### MCL (MegaCommand Live)
+
+Firmware for the MegaCommand MIDI controller (DIY MegaCommand and MegaCMD), not for an Elektron box: a sequencer, controller and live performance system built around the Machinedrum, with Analog Four and Monomachine support. Runs on AVR; RP2040/RP2350 ports in progress. MCL 5.00 asks for Machinedrum OS X.13 and Monomachine OS X.01. Long-running project (history since 2017).
+
+_Sources: elektronmods list (2026-11-18), README (2026-11-18), Changelog (2026-11-18)_

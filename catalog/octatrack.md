@@ -28,6 +28,7 @@ Data last verified: 2026-11-18
 | **OctaDraw** (nordseele) | tool | - | - | v0.13 | 2026-10-21 | [repo](https://github.com/nordseele/octadraw) |
 | **aCiDtRacK modules** (braikomarko-hub) | mod | - | Octatrack MKI OS 1.40C via octabam | - | 2026-10-21 | [repo](https://github.com/braikomarko-hub/acidtrack-modules) |
 | **midisc** (bkkbrls-del) | mod | - | MIDISC2.1 (2026-10-08); 1.40C | 1.40MIDISC | 2026-10-08 | [repo](https://github.com/bkkbrls-del/midisc) |
+| **octalab** (nordseele) | research | - | 1.40C | - | 2026-10-08 | [repo](https://github.com/nordseele/octalab) |
 | **octa-panel** (Tim Hastie) | emulator | - | octatrick-2.9 (2026-09-29); 1.40C | octatrick-2.9 | 2026-09-29 | [repo](https://github.com/timhastie/octa-panel) |
 | **PassOS** (theremoteviewer) | mod | - | v1.0 (2026-09-28); 1.40C | v1.0 | 2026-09-28 | [repo](https://github.com/theremoteviewer/octa-passos) |
 | **midisc-patcher** (bkkbrls-del) | tool | - | main @ 1ce2245 (2026-09-18); 1.40C | - | 2026-09-18 | [repo](https://github.com/bkkbrls-del/midisc-patcher) |
@@ -206,6 +207,14 @@ _Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
 A line-oriented scripting language for the Octatrack - scripts on the card reach (almost) every editable parameter and audio files and are called on the machine. Command reference in a separate docs repo. GPL-3.0.
 
 _Sources: GitHub search 2026-11-02, README, README (2026-11-11)_
+
+### octalab
+
+An Octatrack firmware workshop built on octabam, tested on an MKI. The README documents what was tried in September 2026: one-gesture randomisation, GROOVE and a groove pool, generators (Euclidean, Grids), CAPTURE (an instant sampler on the trig keys) and TAPE / Direct to CF (recording to the card while the machine plays). Publishes no firmware, builds or source code. The work continues in OType and ot1; some features may come as octabam modules.
+
+_Related: builds on `octabam` (README: builds on octabam); cites `octamax` (README: names octamax as prior work); cites `ems-octakit` (README: names ems-octakit as prior work); cites `octa-bt-pt` (README: names octa-bt-pt as prior work) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
+
+_Sources: elektronmods list (2026-11-18), README (2026-11-18)_
 
 ### OctaDraw
 

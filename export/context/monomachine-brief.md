@@ -117,6 +117,7 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **Maschine MD-MM** (emulator, active, tested: not stated) https://github.com/sid366/maschine-md-mm-combined
 - **Monomachine Lab** (emulator, wip, tested: not stated, base OS Monomachine OS 1.32B (user-supplied)) https://github.com/Jick238/monomachine-lab
 - **Monomodule** (emulator, active, tested: not stated, base OS Monomachine OS 1.32B (supplied by you)) https://github.com/shnolk/monomodule
+- **Monomodule for MPC OS** (emulator, active, tested: not stated) https://github.com/sd88me/mpc-vst-monomodule
 - **Monomodule for Schwung** (emulator, active, tested: not stated) https://github.com/legsmechanical/schwung-monomodule
 - **OP-XY MNMD** (emulator, active, tested: not stated) https://github.com/mmockett/OP-XY-MNMD
 - **ems-monomachine-firmware** (mod, active, tested: not-stated, base OS 1.32B) https://github.com/emuyia/ems-monomachine-firmware

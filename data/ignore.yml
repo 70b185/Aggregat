@@ -244,6 +244,8 @@ ignore:
   # upstream's, and it is behind upstream (dc6ac1f, 2026-10-29). Removed by the maintainer's decision (2026-11-09).
   - simonjohansson/elekloader
   # dead link, removed from the Lapin list on 2026-11-09; not reachable, nothing to catalogue.
+  # 2026-11-18: listed again on elektronmods (Machinedrum firmware on the Octatrack, by the modwerk owner), but still
+  # not clonable (private or gone). Recheck and catalogue once it is public.
   - repeat98/octamachine
   # --- triage of state/NEW.md, 2026-11-10 -----------------------------------------------------------------------
   # forks with no commit of their own (compared with the original: ahead 0)

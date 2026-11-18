@@ -19,6 +19,7 @@ Data last verified: 2026-11-18
 | **analoghealth** (Iced-Cream) | mod | - | Rytm MKII 1.74, A4 MKII 1.56 | v1.3 | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
 | **Analog Four / Keys MK1 OS 1.56 mods** (hugz202) | mod | - | Analog Four / Analog Keys MK1, OS 1.56 only (not MKII) | - | 2026-10-28 | [repo](https://github.com/hugz202/AE-analog-four-mods) |
 | **RytmRandomizer** (buzzijose-hub) | tool | - | main @ 892aaff (2026-09-28); Analog Rytm MK2 and Analog Four MK2 | - | 2026-09-28 | [repo](https://github.com/buzzijose-hub/rytmrandomizer) |
+| **MCL (MegaCommand Live)** (Justin Mammarella) | tool | - | 5.02 (2026-06-26) | - | 2026-06-26 | [repo](https://github.com/jmamma/MCL) · [docs](https://jmamma.github.io/MCL/) · [releases](https://github.com/jmamma/MCL/releases) |
 | **TurboMIDI (C++)** (DatanoiseTV) | library | repo unreachable | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 | **Analog Four sound SysEx cheatsheet** (kimasendorf) | research | - | - | - | 2020-12-01 | [repo](https://github.com/kimasendorf/elektron-analog-four-sound-sysex) |
 | **Chopshop** (Jesus Triana (bandersong)) | mod | - | 1.73 (Rytm), 1.56 (Keys); not 1.74 | - | - | [repo](https://github.com/bandersong/chopshop) · [homepage](https://chopshop-synth.pages.dev/) |
@@ -48,7 +49,7 @@ _Sources: GitHub README, lapin-list, README, docs/adding.md (2026-11-18)_
 
 ### Chopshop
 
-Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog Keys OS 1.56 (chord memory, joystick random). Not OS 1.74, not Analog Four. Licence: GPL-3.0-or-later; distribution: browser-installer. Listed by altstrument.
+Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog Keys OS 1.56 (chord memory, joystick random). Not OS 1.74, not Analog Four. Licence: GPL-3.0-or-later; distribution: browser-installer. Listed by altstrument. Replaces the author's earlier ARChop (CHOP mode for the Rytm MK1), which the elektronmods list marks as deprecated (2026-11-18).
 
 _Related: vendors `elektron-firmware-tool` (README: built on elektron-firmware-tool compiled to WebAssembly); builds on `rytm1-mods` (README: built on gdeo607's rytm1_mods) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
@@ -117,6 +118,12 @@ One local MCP server per PC that gives AI agent sessions the same tools for test
 _Related: uses tool `analog-emu` (README: emulator first; sidecar-emu reaches analog-emu through it) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: state/NEW.md 2026-11-10, README, README, config.example.toml (2026-11-14)_
+
+### MCL (MegaCommand Live)
+
+Firmware for the MegaCommand MIDI controller (DIY MegaCommand and MegaCMD), not for an Elektron box: a sequencer, controller and live performance system built around the Machinedrum, with Analog Four and Monomachine support. Runs on AVR; RP2040/RP2350 ports in progress. MCL 5.00 asks for Machinedrum OS X.13 and Monomachine OS X.01. Long-running project (history since 2017).
+
+_Sources: elektronmods list (2026-11-18), README (2026-11-18), Changelog (2026-11-18)_
 
 ### a4mk1-arplocks (ARP page p-locks)
 

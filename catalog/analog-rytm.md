@@ -78,7 +78,7 @@ _Sources: altstrument (2026-11-01)_
 
 ### Chopshop
 
-Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog Keys OS 1.56 (chord memory, joystick random). Not OS 1.74, not Analog Four. Licence: GPL-3.0-or-later; distribution: browser-installer. Listed by altstrument.
+Browser builder for Rytm MK1/MKII OS 1.73 (CHOP with step locks, sample focus, per-track cuts) and Analog Keys OS 1.56 (chord memory, joystick random). Not OS 1.74, not Analog Four. Licence: GPL-3.0-or-later; distribution: browser-installer. Listed by altstrument. Replaces the author's earlier ARChop (CHOP mode for the Rytm MK1), which the elektronmods list marks as deprecated (2026-11-18).
 
 _Related: vendors `elektron-firmware-tool` (README: built on elektron-firmware-tool compiled to WebAssembly); builds on `rytm1-mods` (README: built on gdeo607's rytm1_mods) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 

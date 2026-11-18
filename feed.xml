@@ -32,6 +32,20 @@
     <summary>A collection of 22 elekloader mods for the Digitakt MKI, each its own .elemod in the releases; every mod works alone and with the others, and with all 22 in one build the OS is close to its memory limit (VISUALS, about 11 KB, and FREQSEQ are the largest). Key combinations are …</summary>
   </entry>
   <entry>
+    <title>Catalog fixes from the DT2/DN2 git-history scan (2026-11-18)</title>
+    <link href="https://github.com/70b185/Aggregat/commit/946fd05bdccaf2ae2c50cca5500d41c33374bc2f"/>
+    <id>https://70b185.github.io/Aggregat/#commit-946fd05bdcca</id>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Update 2026-11-18: 27 change reports folded, 3 repos added, 2 candidates, 5 ignored, I137-I152, SB28-SB30, O33-O36, H41-H52, A72-A78</title>
+    <link href="https://github.com/70b185/Aggregat/commit/03660e90eec56024521bdc1b71df602f6f95ff3c"/>
+    <id>https://70b185.github.io/Aggregat/#commit-03660e90eec5</id>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>New in the catalogue: ZIBENS (drum-synth machine) (Mod, Digitakt)</title>
     <link href="https://70b185.github.io/Aggregat/?p=zibens"/>
     <id>https://70b185.github.io/Aggregat/#project-zibens</id>
@@ -449,21 +463,5 @@
     <updated>2026-11-10T00:00:00Z</updated>
     <category term="project"/>
     <summary>MACRO, a macro-oscillator machine (type 11): 25 synthesis models and four DX7 patch banks after Emilie Gillet's Plaits, with a graphical model selector and HARM, TIMBRE, MORPH and MIX. Its DSP object is built from digikit's Plaits module. The README still names core-dt2 2.4, …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: Digi2ElixirPotionsDRUM (ELIXIR) (Mod, Digitakt II)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=digi2elixir"/>
-    <id>https://70b185.github.io/Aggregat/#project-digi2elixir</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>ELIXIR, a drum-synthesis machine (type 12) with four models picked by MODEL - DRUM, SNARE, CYMBAL, HIHAT - each with a pitch sweep and a transient; the voices follow the open-source LXR drum machine firmware (Sonic Potions / Erica Synths). Two SRC pages; host tests render …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: Digi2Digiseq (DIGISEQ) (Mod, Digitakt II)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=digi2digiseq"/>
-    <id>https://70b185.github.io/Aggregat/#project-digi2digiseq</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>Robbie's DIGISEQ sequencers for the Digitakt II: every track, audio or MIDI, picks a TYPE whose sequencer plays instead of its trigs - SNAKE (a path through a 4 x 2 grid), 185 (stage sequencer after ML-185), ARP (played by the track's own note trigs) and PRINT (writes the …</summary>
   </entry>
 </feed>

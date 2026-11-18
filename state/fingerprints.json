@@ -7902,7 +7902,7 @@
   ]
  },
  "modwerk": {
-  "checked": "2026-11-18 09:34 UTC",
+  "checked": "2026-11-18 10:13 UTC",
   "files": {
    ".agents/skills/modwerk-contribute/SKILL.md": "62bf888fcdd1",
    ".agents/skills/modwerk-diagnostics/SKILL.md": "591e84d40488",
@@ -8121,6 +8121,7 @@
    "changelog/2026-11-03-link-image-lockfile.md": "90c262139e80",
    "changelog/2026-11-03-link-image-ram-spare.md": "9d456177038d",
    "changelog/2026-11-03-module-pages-test-escape.md": "e9417f44277c",
+   "changelog/2026-11-03-octatrack-dsp-hook-chains.md": "9d09eeed27e5",
    "changelog/2026-11-03-placeholder-thumbnail-gate.md": "896b07a31409",
    "changelog/2026-11-03-rytm-downloads.md": "91ba116c1bc6",
    "changelog/2026-11-03-rytm-guide-audio-in-notes.md": "97af13bd449a",
@@ -8456,7 +8457,7 @@
    "docs/OCTATRACK_HARDWARE_TRAPS.md": "80a0d38ca2dd",
    "docs/OCTATRACK_MODULE_EDGE_CASES.md": "26351a572ddd",
    "docs/OCTATRACK_MORE_EFFECT_IDS.md": "9762153e5ba8",
-   "docs/OCTATRACK_PACKAGE_DSP_HOOKS.md": "6b61e1545ca2",
+   "docs/OCTATRACK_PACKAGE_DSP_HOOKS.md": "6b518ec0bf76",
    "docs/OCTATRACK_RECONSTRUCTION.md": "36841db78c01",
    "docs/OCTATRACK_RESIDENT_ENGINES_ON_DEMAND.md": "f2faacdeeda3",
    "docs/OCTATRACK_TWO_SLOT_BASE.md": "ea7f6f52c4e6",
@@ -9224,9 +9225,9 @@
    "vendor/elekloader/README.md": "23a81fff99b8",
    "vendor/elekloader/kit/README.md": "7962b6e18ab9"
   },
-  "head": "9d6f6cd617f5369844356d88d76594a6e4bb6a38",
+  "head": "0e168b32c5c69f985ddc8d2380d6c41ac81e380a",
   "repo": "https://github.com/repeat98/modwerk",
-  "seen": "2026-11-18 09:34 UTC",
+  "seen": "2026-11-18 10:13 UTC",
   "tags": [],
   "watch": [
    "*.md",
@@ -13178,7 +13179,7 @@
   ]
  },
  "synfact": {
-  "checked": "2026-11-18 09:34 UTC",
+  "checked": "2026-11-18 10:13 UTC",
   "files": {
    "AGENTS.md": "b719aea4298e",
    "CLAUDE.md": "43c994c2d361",
@@ -13192,7 +13193,7 @@
    "docs/DEVICES.md": "e697bf07592e",
    "docs/FORMAT.md": "63af39bac27f",
    "docs/IDLE-MAIN-PERFORMANCE.md": "0d3313829e2b",
-   "docs/INTEGRATING.md": "e1fe0fa725c0",
+   "docs/INTEGRATING.md": "530baeb958bb",
    "docs/LFO3-MAIN-PERFORMANCE.md": "a325167728a9",
    "docs/MACHINE-REFERENCE.md": "0bceba3cc5c0",
    "docs/MACHINES.md": "3758d660a9f8",
@@ -13210,7 +13211,7 @@
    "docs/SETUP.md": "6ba634332e50",
    "docs/STEREO-MAIN-CURRENT.md": "f683b3c5f9a0",
    "docs/STOCK-SAMPLE-CORE-OVERLAP.md": "358b4512de1b",
-   "docs/SYNFACT-WEB.md": "974d09431f4f",
+   "docs/SYNFACT-WEB.md": "3e4f36e606ad",
    "docs/SYNTAKT-BUILD.md": "f3e0ad08e90a",
    "docs/TESTS.md": "6c6265582d20",
    "docs/TRIG-ARP-MUTE-INVESTIGATION.md": "fdaf25de58d4",
@@ -13222,7 +13223,7 @@
    "examples/smz-test-st/mod.json": "f595b18aa995",
    "examples/ui-machine-test-st/README.md": "74e47922ede9",
    "examples/ui-machine-test-st/mod.json": "b38224e9a4ae",
-   "js/README.md": "71f9fd7b9472",
+   "js/README.md": "2ab332c4cf82",
    "mods/arp-st/CHANGELOG.md": "b8f29fcfa44d",
    "mods/arp-st/README.md": "4a7e2c1c511c",
    "mods/arp-st/mod.json": "3d7e4801a516",
@@ -13281,9 +13282,9 @@
    "tools/probes/stereo-probe-st/mod.json": "657e07258615",
    "web/README.md": "1e49c36de732"
   },
-  "head": "9c235f39a37878a42eeb874565fa668311fb7e40",
+  "head": "fb5cd083ef4d7832195c3e183dca09fe218f37d1",
   "repo": "https://github.com/GSM1980/synfact-dev",
-  "seen": "2026-11-18 09:34 UTC",
+  "seen": "2026-11-18 10:13 UTC",
   "tags": [],
   "watch": [
    "*.md",

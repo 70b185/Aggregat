@@ -141,7 +141,7 @@ Report results with the [test-result issue form](https://github.com/70b185/Aggre
 - **Elektron Emu (joshklomp)** (emulator, wip, tested: not stated, base OS user-supplied OS files) https://github.com/joshklomp/emu-elektron
 - **SY FM4** (mod, wip, tested: partly, base OS Syntakt OS 1.40A only (the other Syntakt mods target 1.41)) https://github.com/Rxuting/sy-fm4
 - **SynCrackd** (mod, wip, tested: unit, base OS Syntakt OS 1.42) https://github.com/Vuulgaris/syncrackd
-- **Synfact** (mod, active, tested: partly, base OS Syntakt OS 1.42 (source builds from core 2.0, 2026-11-17; 1.41 for core 1.9.0 and older; the web builder is not yet moved)) https://github.com/GSM1980/synfact-dev
+- **Synfact** (mod, active, tested: partly, base OS Syntakt OS 1.42 (source builds from core 2.0, 2026-11-17; 1.41 for core 1.9.0 and older; the web route documented for 1.42 since 2026-11-18, published catalogue not yet confirmed)) https://github.com/GSM1980/synfact-dev
 - **Syntakt Performance Mods (JOG page, PERFORM DJ filter)** (mod, wip, tested: partly, base OS Syntakt OS 1.41 and 1.42) https://github.com/GHNMrec/SyntaktPerformanceMods
 - **syntakt-firmware-workbench** (mod, wip, tested: emulator, base OS Syntakt OS 1.41 only (other files refused, not changed)) https://github.com/Bezronczek/syntakt-firmware-workbench
 - **SyntHack OS (upstream)** (mod, beta, tested: unit, base OS Syntakt OS 1.41) https://github.com/Angelo-politek/Synthack-OS

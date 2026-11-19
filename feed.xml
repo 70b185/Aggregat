@@ -16,6 +16,13 @@
     <summary>Four elekloader mods for the Digitone II, each its own .elemod, installed from the elekloader Mod Shop, which patches the user's own stock OS in the browser; all four can be combined and none needs another. MIDI LFO run fixes a stock 1.12 bug (SB31): after a new project, …</summary>
   </entry>
   <entry>
+    <title>Update 2026-11-19: 14 change reports folded, 2 repos added, 1 revived, 2 candidates, 4 ignored, I153-I157, SB31-SB34, O37-O38, S24, H53, A79</title>
+    <link href="https://github.com/70b185/Aggregat/commit/3d2faf16090159e0297b1e3dedfb0f22be56a834"/>
+    <id>https://70b185.github.io/Aggregat/#commit-3d2faf160901</id>
+    <updated>2026-11-19T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>New in the catalogue: Supermodel REDUX (Mod, Model:Cycles)</title>
     <link href="https://70b185.github.io/Aggregat/?p=supermodel-redux"/>
     <id>https://70b185.github.io/Aggregat/#project-supermodel-redux</id>
@@ -452,13 +459,5 @@
     <updated>2026-11-10T00:00:00Z</updated>
     <category term="project"/>
     <summary>The source of the Analog Rytm MKII OS mods that Sidecar | Expander needs: patch sources, symbol map, allocation registry and the build that turns the user's own stock .syx into a modded one, as one elekloader module per OS; the Analog Four MKII's mod in a4/. 0.4.0 reports each …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: sidecar-emu (Sidecar emulator) (Emulator, Analog Rytm)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=sidecar-emu"/>
-    <id>https://70b185.github.io/Aggregat/#project-sidecar-emu</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>QEMU cut down to the Raspberry Pi 4B and the devices Sidecar's engine needs: boots the Sidecar engine image, answers over Ethernet, puts an Analog Rytm MKII stand-in on its USB-A side and gives its USB-C gadget a raw MIDI TCP port, so an OS upgrade or an elkbench run can go …</summary>
   </entry>
 </feed>

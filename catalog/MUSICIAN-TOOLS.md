@@ -4,7 +4,7 @@
 
 Software for using and managing the devices - editors, sample and project managers, Overbridge audio, screen mirrors, control from a computer or an AI agent. **None of these change the firmware.**
 
-Data last verified: 2026-11-18. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
+Data last verified: 2026-11-19. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
 
 
 The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds), [DEV-TOOLS.md](DEV-TOOLS.md) (development tools). Hardware knowledge for writing mods: [hardware/](../hardware/README.md).
@@ -12,8 +12,8 @@ The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds),
 
 | Project | Kind | Devices | What it is | Note | Version / OS | Links |
 |---|---|---|---|---|---|---|
-| **Overwitch** (dagargo) <br>_builds on dtdump_ | tool | Digitakt (MKI), Digitakt II, Digitone (MKI) / Digitone Keys, Digitone II, Syntakt, Analog Heat (MKI, MKII, +FX), Analog Four / Analog Keys, Analog Rytm (MKI, MKII) | Multitrack Overbridge audio on Linux. | - | 2.2 (2025-12-21) | [repo](https://github.com/dagargo/overwitch) |
 | **sample-shepherd** (julesyoungberg) <br>_uses elektroid_ | tool | Digitakt II | Organises a sample library (through Fourier Samples), exports it per device profile and syncs it to a sampler without breaking the projects on it: backs up projects, … | - | - | [repo](https://github.com/julesyoungberg/sample-shepherd) |
+| **Overwitch** (dagargo) <br>_builds on dtdump_ | tool | Digitakt (MKI), Digitakt II, Digitone (MKI) / Digitone Keys, Digitone II, Syntakt, Analog Heat (MKI, MKII, +FX), Analog Four / Analog Keys, Analog Rytm (MKI, MKII) | Multitrack Overbridge audio on Linux. | - | 2.2 (2025-12-21) | [repo](https://github.com/dagargo/overwitch) |
 | **ms-vis (Model:Samples visualizer)** (kirillrybin) | tool | Model:Samples | An audio-reactive visualizer in one HTML page (Three.js and Web MIDI) that follows the Model:Samples' notes, CCs, clock and program changes; presets, projector mode and … | - | - | [repo](https://github.com/kirillrybin/ms-vis) · [homepage](https://kirillrybin.github.io/ms-vis/) |
 | **Octatrack Manager** (David Ferlay) <br>_builds on ot-tools-io_ | tool | Octatrack (MKI, MKII) | Desktop app to inspect and edit Octatrack projects, patterns, parts and sample pools on CF cards and backups. | - | v0.50.0 (2026-11-11) | [repo](https://github.com/davidferlay/octatrack-manager) · [homepage](https://davidferlay.github.io/octatrack-manager/) |
 | **Machinedrum WebLoader (MDX user machines)** (gerdtanck) <br>_mod for mdx; bundles murdenihcam-usr-machines_ | tool | Machinedrum (incl. UW) | Mobile-first web page (German UI) that loads MDS user machines onto a Machinedrum running MDX X.20 over WebMIDI: a library of 71 machines with PNG descriptions (dbx, … | - | untagged (2026-11-16) | [repo](https://github.com/gerdtanck/WebLoader) · [homepage](https://gerdtanck.github.io/WebLoader/) |

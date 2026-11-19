@@ -126,6 +126,11 @@ removed on 2026-11-16).
 - **Sequencer note events** are queued through `0x40100178`, each of type 1 with a lock list. `[emu]`
 - **A DIN MIDI note** reaches the OS's byte parser and goes on to a worker task, but no event reached the render queue within about 700 ms for notes on channels 1, 2 and 14 (INPUT FROM MIDI+USB). A MIDI note's event layout is still unknown. `[emu]`
 
+## Drum Mode 0.8.2: one set of track edit objects per pattern, the MIDI out path (OS 1.44, 2026-11-18) {drum-mode-1119}
+- **The project keeps one set of track edit objects per pattern:** 128 sets `0x38c` bytes apart, at `fw_project + 0x11f4 + 0x38c*pattern + 0x58*track`; each object's data pointer (+16) points into its own pattern, and the stock trig keys edit through the active pattern's set. A mod that writes through A01's set records into A01 whatever pattern plays; Drum Mode 0.8 and 0.8.1 did, and every emulator test had run on A01 (I153). `[hw]` (debug builds on a unit) / `[emu]` (the stock trig setter hooked)
+- **The main CPU sends MIDI out itself:** pad notes (port switch `0x400ee1a6`) and the sequencer's MIDI tracks (two buffers flushed at `0x400f37ce` by OUTPUT TO's bits at `0x419c5df4`) end in the same two drivers: DIN `0x40002a3a` (UART9 at `0xEC074000`, fed by eDMA channel 37 from a 4 KB ring) and USB `0x40004bcc`, which sends only when the USB link is configured (`0x40529244` = 1) and writes the USB controller at `0xFC0B0000`. The second processor (section 8) is not on the DIN path. digiemu models UART9 and can read the bytes on the wire; USB MIDI is not modelled. `[emu]`
+- **Boot flags:** on a unit the bootstrap passes the OS `0x00140000`, stored at `0x401F55C0` and tested in more than twenty places; digiemu's direct start passes 0, so code that branches on them may take another path on the unit. `[doc]`
+
 ## Notes
 - digihealth 1.1 brings SYSTEM INFO only; FAST AUDIO is not ported to Digitone. {digihealth}
 - DigiSplash and DigiCandy support Digitone mk1 + Keys at OS 1.43. {digisplash} {digicandy}

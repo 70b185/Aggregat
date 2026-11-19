@@ -3,7 +3,7 @@
 
 Every address that a fact names, per device, in address order. One line per address; the facts that name it follow, best evidence first. Two facts at the same address with different claims are worth a look: they may be a conflict (add it to [CONFLICTS.md](CONFLICTS.md)) or a RAM range two projects both use (rule area G8 in the [research map](../research/RESEARCH-MAP.md)). Addresses differ between OS versions; the fact text says which.
 
-Data checked 2026-11-18, research snapshot `5a0b3743189d`.
+Data checked 2026-11-19, research snapshot `83b79b763a13`.
 
 ## Digitakt (MKI) (89 addresses)
 
@@ -99,7 +99,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0xfc07000c` | [doc] [digitakt.md:13](../hardware/devices/digitakt.md#L13) Where the audio runs (Digiwerk prior-art survey, 2026-10) |
 | `0xfc080004` | [emu] [hw] [digitakt.md:92](../hardware/devices/digitakt.md#L92) Digi CMI on the unit (OS 1.54, 2026-11-12) |
 
-## Digitakt II (389 addresses)
+## Digitakt II (403 addresses)
 
 | Address | Facts |
 |---|---|
@@ -145,6 +145,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x00252d50` | [emu] [digitakt-2-sharc-measured.md:40](../hardware/devices/digitakt-2-sharc-measured.md#L40) 5. STRETCH machine contract (measured in the emulator, used on the unit) |
 | `0x00252df8` | [emu] [digitakt-2.md:227](../hardware/devices/digitakt-2.md#L227) Pre-send render hook proposal (Modwerk, OS 1.17, emulator) |
 | `0x002558dc` | [hw] [digitakt-2-sharc-measured.md:42](../hardware/devices/digitakt-2-sharc-measured.md#L42) 5. STRETCH machine contract (measured in the emulator, used on the unit) |
+| `0x002567a0` | [doc] [digitakt-2.md:285](../hardware/devices/digitakt-2.md#L285) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x00257810` | [emu] [hw] [digitakt-2-sharc-measured.md:51](../hardware/devices/digitakt-2-sharc-measured.md#L51) 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator)<br>[emu] [digitakt-2.md:152](../hardware/devices/digitakt-2.md#L152) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0x00261ca4` | [hw] [digitakt-2-sharc-measured.md:34](../hardware/devices/digitakt-2-sharc-measured.md#L34) 4. The ColdFire <-> SHARC reply record |
 | `0x00266220` | [hw] [dt2-dn2-sharc-crosscheck.md:28](../hardware/common/dt2-dn2-sharc-crosscheck.md#L28) 3. Firmware-level, one device only: check before relying on it<br>[hw] [digitakt-2-sharc-measured.md:34](../hardware/devices/digitakt-2-sharc-measured.md#L34) 4. The ColdFire <-> SHARC reply record<br>[hw] [digitakt-2-sharc-measured.md:35](../hardware/devices/digitakt-2-sharc-measured.md#L35) 4. The ColdFire <-> SHARC reply record |
@@ -163,7 +164,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x00457fff` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
 | `0x00458000` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
 | `0x005d7fff` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
-| `0x005d8000` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
+| `0x005d8000` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59)<br>[doc] [digitakt-2.md:288](../hardware/devices/digitakt-2.md#L288) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x005ee180` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x005ee980` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x00800000` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
@@ -243,6 +244,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x40035cca` | [doc] [digitakt-2.md:167](../hardware/devices/digitakt-2.md#L167) DN2 1.12, 2026-11-10) |
 | `0x4003e40e` | [doc] [digitakt-2.md:167](../hardware/devices/digitakt-2.md#L167) DN2 1.12, 2026-11-10) |
 | `0x40041d18` | [doc] [digitakt-2.md:167](../hardware/devices/digitakt-2.md#L167) DN2 1.12, 2026-11-10) |
+| `0x40043a30` | [?] [digitakt-2.md:289](../hardware/devices/digitakt-2.md#L289) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x40046c8e` | [emu] [digitakt-2.md:187](../hardware/devices/digitakt-2.md#L187) Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13) |
 | `0x4004923e` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
 | `0x40049266` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
@@ -256,7 +258,9 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x4005fcd4` | [doc] [digitakt-2.md:262](../hardware/devices/digitakt-2.md#L262) digikit findings: MANUAL SLICE tests, menu font, DSP slot stubs (DT2 1.17, 2026-11-18) |
 | `0x40068b96` | [emu] [digitakt-2.md:279](../hardware/devices/digitakt-2.md#L279) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
 | `0x4006de70` | [emu] [digitakt-2.md:279](../hardware/devices/digitakt-2.md#L279) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x400c11ca` | [?] [digitakt-2.md:289](../hardware/devices/digitakt-2.md#L289) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x400c89a4` | [doc] [digitakt-2.md:257](../hardware/devices/digitakt-2.md#L257) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400c89c6` | [doc] [digitakt-2.md:285](../hardware/devices/digitakt-2.md#L285) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x400caff0` | [?] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
 | `0x400cc7ce` | [?] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
 | `0x400cd20c` | [doc] [hw] [firmware-container.md:34](../hardware/common/firmware-container.md#L34) Sections |
@@ -274,8 +278,11 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x400d3dc8` | [doc] [digitakt-2.md:131](../hardware/devices/digitakt-2.md#L131) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
 | `0x400d56c6` | [doc] [digitakt-2.md:256](../hardware/devices/digitakt-2.md#L256) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
 | `0x400d5996` | [doc] [digitakt-2.md:256](../hardware/devices/digitakt-2.md#L256) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400d688a` | [doc] [digitakt-2.md:284](../hardware/devices/digitakt-2.md#L284) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x400d82f8` | [emu] [hw] [digitakt-2.md:172](../hardware/devices/digitakt-2.md#L172) DN2 1.12, 2026-11-10) |
+| `0x400da368` | [doc] [digitakt-2.md:287](../hardware/devices/digitakt-2.md#L287) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x400daf54` | [?] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x400db484` | [doc] [digitakt-2.md:285](../hardware/devices/digitakt-2.md#L285) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x400db8be` | [doc] [digitakt-2.md:277](../hardware/devices/digitakt-2.md#L277) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
 | `0x400db9e0` | [doc] [toolchain-and-emulators.md:83](../hardware/common/toolchain-and-emulators.md#L83) More emulators and directory snapshots (2026-10-31) |
 | `0x400dbdca` | [?] [digitakt-2.md:254](../hardware/devices/digitakt-2.md#L254) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
@@ -325,8 +332,10 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x401344dc` | [doc] [memory-maps.md:110](../hardware/common/memory-maps.md#L110) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18)<br>[doc] [digitakt-2.md:246](../hardware/devices/digitakt-2.md#L246) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
 | `0x40136388` | [doc] [digitakt-2.md:277](../hardware/devices/digitakt-2.md#L277) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
 | `0x40139104` | [doc] [memory-maps.md:111](../hardware/common/memory-maps.md#L111) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
+| `0x401392d4` | [doc] [digitakt-2.md:286](../hardware/devices/digitakt-2.md#L286) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x40139342` | [emu] [digitakt-2.md:57](../hardware/devices/digitakt-2.md#L57) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator) |
 | `0x401393c6` | [emu] [digitakt-2.md:57](../hardware/devices/digitakt-2.md#L57) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator) |
+| `0x4013961e` | [doc] [digitakt-2.md:286](../hardware/devices/digitakt-2.md#L286) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x4013ac54` | [doc] [memory-maps.md:111](../hardware/common/memory-maps.md#L111) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
 | `0x40153c70` | [doc] [digitakt-2.md:175](../hardware/devices/digitakt-2.md#L175) +Drive file writes from mod code (digikit finding 120, DT2 1.17) |
 | `0x40154634` | [emu] [digitakt-2.md:186](../hardware/devices/digitakt-2.md#L186) Projects, sample rows and the recorder (dt2-machine-lab Sketch, OS 1.16 and 1.17, 2026-11-13) |
@@ -354,8 +363,10 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x4015b92a` | [doc] [digitakt-2.md:200](../hardware/devices/digitakt-2.md#L200) USB mode take-over and fast close (digikit findings 123-125, DT2 1.17 and DN2 1.12) |
 | `0x401f8a18` | [emu] [digitakt-2.md:279](../hardware/devices/digitakt-2.md#L279) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
 | `0x40200000` | [doc] [memory-maps.md:94](../hardware/common/memory-maps.md#L94) Details per device |
+| `0x4020ef30` | [doc] [digitakt-2.md:285](../hardware/devices/digitakt-2.md#L285) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x4021e5d2` | [hw] [digitakt-2-sharc-measured.md:74](../hardware/devices/digitakt-2-sharc-measured.md#L74) 8. Measuring on the unit without a debugger |
 | `0x4022231c` | [emu] [digitakt-2.md:57](../hardware/devices/digitakt-2.md#L57) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator) |
+| `0x402227d4` | [doc] [digitakt-2.md:286](../hardware/devices/digitakt-2.md#L286) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x4029f048` | [doc] [digitakt-2.md:212](../hardware/devices/digitakt-2.md#L212) USB take-over failures and card speed (digikit, 2026-11-13) |
 | `0x4029f554` | [doc] [memory-maps.md:23](../hardware/common/memory-maps.md#L23) Digitone II, digikit finding 08 and 59) |
 | `0x402a1b64` | [doc] [digitakt-2.md:130](../hardware/devices/digitakt-2.md#L130) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
@@ -402,8 +413,9 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x43149550` | [doc] [digitakt-2.md:131](../hardware/devices/digitakt-2.md#L131) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
 | `0x43153a00` | [doc] [digitakt-2.md:131](../hardware/devices/digitakt-2.md#L131) The stock intro and boot screens (digikit finding 117, DT2 1.17 and DN2 1.11/1.12) |
 | `0x43153a2c` | [doc] [digitakt-2.md:256](../hardware/devices/digitakt-2.md#L256) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
-| `0x43164f94` | [emu] [digitakt-2.md:278](../hardware/devices/digitakt-2.md#L278) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x43164f94` | [emu] [digitakt-2.md:278](../hardware/devices/digitakt-2.md#L278) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17)<br>[doc] [digitakt-2.md:284](../hardware/devices/digitakt-2.md#L284) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x43164fe0` | [emu] [digitakt-2.md:278](../hardware/devices/digitakt-2.md#L278) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
+| `0x43165010` | [doc] [digitakt-2.md:284](../hardware/devices/digitakt-2.md#L284) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x4316501c` | [emu] [digitakt-2.md:278](../hardware/devices/digitakt-2.md#L278) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
 | `0x4316e854` | [doc] [dt2-dn2-limits-and-audio-chain.md:21](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L21) 1. Machines and parameters (ColdFire) |
 | `0x44000000` | [doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
@@ -415,6 +427,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x44e3fec8` | [doc] [digitakt-2.md:246](../hardware/devices/digitakt-2.md#L246) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
 | `0x44e4ae98` | [doc] [digitakt-2.md:246](../hardware/devices/digitakt-2.md#L246) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
 | `0x44f2bc68` | [doc] [digitakt-2.md:248](../hardware/devices/digitakt-2.md#L248) Card concurrency, upload phases and hot-reload facts (digikit findings 133-135, DT2 1.17 and DN2 1.12, 2026-11-16/17) |
+| `0x44f37098` | [doc] [digitakt-2.md:288](../hardware/devices/digitakt-2.md#L288) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x44f39c40` | [emu] [digitakt-2.md:64](../hardware/devices/digitakt-2.md#L64) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:141](../hardware/devices/digitakt-2.md#L141) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
 | `0x44f5de40` | [emu] [digitakt-2.md:279](../hardware/devices/digitakt-2.md#L279) Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) |
 | `0x46f39c40` | [emu] [digitakt-2.md:64](../hardware/devices/digitakt-2.md#L64) ColdFire facts from digitakt-ii-research's research notes (DT2 **1.16**, emulator)<br>[emu] [digitakt-2.md:141](../hardware/devices/digitakt-2.md#L141) Memory map for samples and voices (dt2-machine-lab, OS 1.16, static plus emulator) |
@@ -444,6 +457,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x80001bd0` | [doc] [digitakt-2.md:28](../hardware/devices/digitakt-2.md#L28) Bootstrap/recovery facts |
 | `0x80001c72` | [doc] [digitakt-2.md:28](../hardware/devices/digitakt-2.md#L28) Bootstrap/recovery facts |
 | `0x8000488c` | [hw] [digitakt-2-sharc-measured.md:34](../hardware/devices/digitakt-2-sharc-measured.md#L34) 4. The ColdFire <-> SHARC reply record<br>[hw] [digitakt-2-sharc-measured.md:36](../hardware/devices/digitakt-2-sharc-measured.md#L36) 4. The ColdFire <-> SHARC reply record |
+| `0x80005348` | [doc] [digitakt-2.md:286](../hardware/devices/digitakt-2.md#L286) digikit findings 147-149: play state, filter type, LFO paths (DT2 1.17, static, 2026-11-18) |
 | `0x80005b50` | [doc] [digitakt-2.md:194](../hardware/devices/digitakt-2.md#L194) UI surfaces for mods (digikit finding 122, DT2 1.17) |
 | `0x80005e2a` | [doc] [digitakt-2.md:28](../hardware/devices/digitakt-2.md#L28) Bootstrap/recovery facts |
 | `0x80006e80` | [doc] [memory-maps.md:96](../hardware/common/memory-maps.md#L96) Details per device |
@@ -493,12 +507,13 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0xfc0b0170` | [doc] [digitakt-2.md:208](../hardware/devices/digitakt-2.md#L208) USB take-over failures and card speed (digikit, 2026-11-13) |
 | `0xffffffff` | [hw] [dt2-dn2-sharc-crosscheck.md:14](../hardware/common/dt2-dn2-sharc-crosscheck.md#L14) 1. Shown on both units `[hw]`<br>[hw] [digitakt-2-dsp-optimizing.md:86](../hardware/devices/digitakt-2-dsp-optimizing.md#L86) 6. Measured on silicon: cycles and float rules (digikit findings 101-103, DT2 1.17 and DN2 1.12, 2026-10-31/11-01)<br>[emu] [hw] [digitakt-2-sharc-measured.md:46](../hardware/devices/digitakt-2-sharc-measured.md#L46) 5b. How a sample reaches a SHARC voice (digikit finding 15, DT2 1.16, emulator) |
 
-## Digitone (MKI) / Digitone Keys (52 addresses)
+## Digitone (MKI) / Digitone Keys (61 addresses)
 
 | Address | Facts |
 |---|---|
 | `0x00000000` | [hw] [digitone.md:21](../hardware/devices/digitone.md#L21) The board and the second ColdFire (taktone, DN1 1.43 with DT1 1.53/1.54 applications) |
 | `0x0008c000` | [untagged] [digitone.md:44](../hardware/devices/digitone.md#L44) Caches at startup (digitone-arp-mod, OS 1.44, emulator trace and the NXP manual) |
+| `0x00140000` | [doc] [digitone.md:132](../hardware/devices/digitone.md#L132) Drum Mode 0.8.2: one set of track edit objects per pattern, the MIDI out path (OS 1.44, 2026-11-18) |
 | `0x00180000` | [doc] [hw] [digitone.md:97](../hardware/devices/digitone.md#L97) telos store on the +Drive (elekloader telos 0.2, OS 1.43/1.44) |
 | `0x00380000` | [doc] [hw] [digitone.md:97](../hardware/devices/digitone.md#L97) telos store on the +Drive (elekloader telos 0.2, OS 1.43/1.44) |
 | `0x003a4000` | [doc] [hw] [digitone.md:97](../hardware/devices/digitone.md#L97) telos store on the +Drive (elekloader telos 0.2, OS 1.43/1.44) |
@@ -511,7 +526,8 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x40000b7a` | [untagged] [digitone.md:38](../hardware/devices/digitone.md#L38) Writing your own engine for the second ColdFire (taktone-extended's contract) |
 | `0x40000b80` | [untagged] [digitone.md:38](../hardware/devices/digitone.md#L38) Writing your own engine for the second ColdFire (taktone-extended's contract) |
 | `0x40000b92` | [hw] [digitone.md:21](../hardware/devices/digitone.md#L21) The board and the second ColdFire (taktone, DN1 1.43 with DT1 1.53/1.54 applications) |
-| `0x40002a3a` | [doc] [digitone.md:110](../hardware/devices/digitone.md#L110) Drum Mode and DigiArp notes: LEDs, record modes, pages (OS 1.44, 2026-11-14/16) |
+| `0x40002a3a` | [emu] [digitone.md:131](../hardware/devices/digitone.md#L131) Drum Mode 0.8.2: one set of track edit objects per pattern, the MIDI out path (OS 1.44, 2026-11-18)<br>[doc] [digitone.md:110](../hardware/devices/digitone.md#L110) Drum Mode and DigiArp notes: LEDs, record modes, pages (OS 1.44, 2026-11-14/16) |
+| `0x40004bcc` | [emu] [digitone.md:131](../hardware/devices/digitone.md#L131) Drum Mode 0.8.2: one set of track edit objects per pattern, the MIDI out path (OS 1.44, 2026-11-18) |
 | `0x400077a0` | [doc] [digitone.md:28](../hardware/devices/digitone.md#L28) The board and the second ColdFire (taktone, DN1 1.43 with DT1 1.53/1.54 applications) |
 | `0x40009000` | [doc] [digitone.md:28](../hardware/devices/digitone.md#L28) The board and the second ColdFire (taktone, DN1 1.43 with DT1 1.53/1.54 applications) |
 | `0x40016e62` | [emu] [digitone.md:106](../hardware/devices/digitone.md#L106) Drum Mode and DigiArp notes: LEDs, record modes, pages (OS 1.44, 2026-11-14/16) |
@@ -526,14 +542,19 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x4009e928` | [doc] [memory-maps.md:95](../hardware/common/memory-maps.md#L95) Details per device |
 | `0x4009eae0` | [emu] [digitone.md:125](../hardware/devices/digitone.md#L125) Where a note's parameter locks are applied (Modwerk `ev_note_locks` proposal, OS 1.44, digiemu only, 2026-10-28) |
 | `0x400adcb4` | [emu] [digitone.md:107](../hardware/devices/digitone.md#L107) Drum Mode and DigiArp notes: LEDs, record modes, pages (OS 1.44, 2026-11-14/16) |
+| `0x400ee1a6` | [emu] [digitone.md:131](../hardware/devices/digitone.md#L131) Drum Mode 0.8.2: one set of track edit objects per pattern, the MIDI out path (OS 1.44, 2026-11-18) |
 | `0x400ee232` | [emu] [digitone.md:114](../hardware/devices/digitone.md#L114) Drum Mode off, DigiArp on core 5.3, mod page slots (OS 1.44, 2026-11-17) |
 | `0x400ee29e` | [emu] [digitone.md:114](../hardware/devices/digitone.md#L114) Drum Mode off, DigiArp on core 5.3, mod page slots (OS 1.44, 2026-11-17) |
+| `0x400f37ce` | [emu] [digitone.md:131](../hardware/devices/digitone.md#L131) Drum Mode 0.8.2: one set of track edit objects per pattern, the MIDI out path (OS 1.44, 2026-11-18) |
 | `0x40100178` | [emu] [digitone.md:126](../hardware/devices/digitone.md#L126) Where a note's parameter locks are applied (Modwerk `ev_note_locks` proposal, OS 1.44, digiemu only, 2026-10-28) |
 | `0x401c3f34` | [emu] [digitone.md:108](../hardware/devices/digitone.md#L108) Drum Mode and DigiArp notes: LEDs, record modes, pages (OS 1.44, 2026-11-14/16) |
+| `0x401f55c0` | [doc] [digitone.md:132](../hardware/devices/digitone.md#L132) Drum Mode 0.8.2: one set of track edit objects per pattern, the MIDI out path (OS 1.44, 2026-11-18) |
 | `0x40200000` | [doc] [memory-maps.md:94](../hardware/common/memory-maps.md#L94) Details per device |
 | `0x4028e000` | [doc] [memory-maps.md:95](../hardware/common/memory-maps.md#L95) Details per device<br>[doc] [digitone.md:94](../hardware/devices/digitone.md#L94) Effect mods and the `bulk` area (altstrument 2026-10-31 lists five Digitone mk1 mods; elektronmods 19 Digitone entries) |
+| `0x40529244` | [emu] [digitone.md:131](../hardware/devices/digitone.md#L131) Drum Mode 0.8.2: one set of track edit objects per pattern, the MIDI out path (OS 1.44, 2026-11-18) |
 | `0x41368ce8` | [emu] [digitone.md:107](../hardware/devices/digitone.md#L107) Drum Mode and DigiArp notes: LEDs, record modes, pages (OS 1.44, 2026-11-14/16) |
 | `0x4136c558` | [emu] [digitone.md:108](../hardware/devices/digitone.md#L108) Drum Mode and DigiArp notes: LEDs, record modes, pages (OS 1.44, 2026-11-14/16) |
+| `0x419c5df4` | [emu] [digitone.md:131](../hardware/devices/digitone.md#L131) Drum Mode 0.8.2: one set of track edit objects per pattern, the MIDI out path (OS 1.44, 2026-11-18) |
 | `0x419f0dd8` | [emu] [digitone.md:107](../hardware/devices/digitone.md#L107) Drum Mode and DigiArp notes: LEDs, record modes, pages (OS 1.44, 2026-11-14/16) |
 | `0x4319d6b0` | [doc] [hw] [digitone.md:39](../hardware/devices/digitone.md#L39) Writing your own engine for the second ColdFire (taktone-extended's contract) |
 | `0x43229e60` | [doc] [memory-maps.md:95](../hardware/common/memory-maps.md#L95) Details per device<br>[doc] [digitone.md:94](../hardware/devices/digitone.md#L94) Effect mods and the `bulk` area (altstrument 2026-10-31 lists five Digitone mk1 mods; elektronmods 19 Digitone entries) |
@@ -549,8 +570,10 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x60000000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
 | `0x60042000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
 | `0xa50ce100` | [untagged] [digitone.md:45](../hardware/devices/digitone.md#L45) Caches at startup (digitone-arp-mod, OS 1.44, emulator trace and the NXP manual) |
+| `0xec074000` | [emu] [digitone.md:131](../hardware/devices/digitone.md#L131) Drum Mode 0.8.2: one set of track edit objects per pattern, the MIDI out path (OS 1.44, 2026-11-18) |
+| `0xfc0b0000` | [emu] [digitone.md:131](../hardware/devices/digitone.md#L131) Drum Mode 0.8.2: one set of track edit objects per pattern, the MIDI out path (OS 1.44, 2026-11-18) |
 
-## Digitone II (418 addresses)
+## Digitone II (440 addresses)
 
 | Address | Facts |
 |---|---|
@@ -635,7 +658,10 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x005d8000` | [doc] [memory-maps.md:24](../hardware/common/memory-maps.md#L24) Digitone II, digikit finding 08 and 59) |
 | `0x00600000` | [doc] [digitone-2-machines-sampler-sharc.md:35](../hardware/devices/digitone-2-machines-sampler-sharc.md#L35) C. dn2mk2 sampler and +Drive layout (OS 1.11; most numbers are version-specific, v0.13-v0.31) |
 | `0x006d0000` | [hw] [digitone-2-machines-sampler-sharc.md:37](../hardware/devices/digitone-2-machines-sampler-sharc.md#L37) C. dn2mk2 sampler and +Drive layout (OS 1.11; most numbers are version-specific, v0.13-v0.31) |
-| `0x006e02ff` | [hw] [digitone-2-machines-sampler-sharc.md:37](../hardware/devices/digitone-2-machines-sampler-sharc.md#L37) C. dn2mk2 sampler and +Drive layout (OS 1.11; most numbers are version-specific, v0.13-v0.31) |
+| `0x006e02ff` | [hw] [digitone-2-machines-sampler-sharc.md:37](../hardware/devices/digitone-2-machines-sampler-sharc.md#L37) C. dn2mk2 sampler and +Drive layout (OS 1.11; most numbers are version-specific, v0.13-v0.31)<br>[doc] [digitone-2-internals.md:287](../hardware/devices/digitone-2-internals.md#L287) dn2mk2 v0.59-v0.61 and RIFT v0.8 (OS 1.11, 2026-11-18/19) |
+| `0x006e0400` | [doc] [digitone-2-internals.md:287](../hardware/devices/digitone-2-internals.md#L287) dn2mk2 v0.59-v0.61 and RIFT v0.8 (OS 1.11, 2026-11-18/19) |
+| `0x006e04ff` | [doc] [digitone-2-internals.md:287](../hardware/devices/digitone-2-internals.md#L287) dn2mk2 v0.59-v0.61 and RIFT v0.8 (OS 1.11, 2026-11-18/19) |
+| `0x006f0000` | [doc] [digitone-2-internals.md:287](../hardware/devices/digitone-2-internals.md#L287) dn2mk2 v0.59-v0.61 and RIFT v0.8 (OS 1.11, 2026-11-18/19) |
 | `0x006ff000` | [hw] [digitone-2-machines-sampler-sharc.md:37](../hardware/devices/digitone-2-machines-sampler-sharc.md#L37) C. dn2mk2 sampler and +Drive layout (OS 1.11; most numbers are version-specific, v0.13-v0.31) |
 | `0x00700000` | [doc] [digitone-2-machines-sampler-sharc.md:35](../hardware/devices/digitone-2-machines-sampler-sharc.md#L35) C. dn2mk2 sampler and +Drive layout (OS 1.11; most numbers are version-specific, v0.13-v0.31) |
 | `0x007fffff` | [doc] [digitone-2-internals.md:70](../hardware/devices/digitone-2-internals.md#L70) The three ColdFire <-> SHARC layers (dnfw `audio-dma.md`, `dsp-control-block.md`, lalzart cross-check) |
@@ -728,6 +754,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x40006bac` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x40006bc6` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x40006c52` | [doc] [digitone-2.md:152](../hardware/devices/digitone-2.md#L152) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x4000766c` | [doc] [emu] [digitone-2-internals.md:281](../hardware/devices/digitone-2-internals.md#L281) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
 | `0x40016480` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x400167a4` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x4001683a` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
@@ -753,6 +780,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x4003e426` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x4003f0ec` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
 | `0x4003f106` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
+| `0x40040190` | [doc] [digitone-2-internals.md:282](../hardware/devices/digitone-2-internals.md#L282) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
 | `0x400469e2` | [emu] [digitone-2.md:72](../hardware/devices/digitone-2.md#L72) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
 | `0x400469fe` | [emu] [digitone-2.md:72](../hardware/devices/digitone-2.md#L72) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
 | `0x4004b6d6` | [doc] [digitone-2-internals.md:150](../hardware/devices/digitone-2-internals.md#L150) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
@@ -766,7 +794,10 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x4007e020` | [hw] [digitone-2.md:40](../hardware/devices/digitone-2.md#L40) Architecture |
 | `0x400987a2` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device |
 | `0x4009ff88` | [doc] [memory-maps.md:97](../hardware/common/memory-maps.md#L97) Details per device |
+| `0x400bb7fa` | [doc] [digitone-2-internals.md:282](../hardware/devices/digitone-2-internals.md#L282) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
 | `0x400c257c` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only)<br>[doc] [digitone-2.md:83](../hardware/devices/digitone-2.md#L83) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
+| `0x400c25f2` | [doc] [digitone-2-internals.md:282](../hardware/devices/digitone-2-internals.md#L282) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
+| `0x400c2614` | [doc] [digitone-2-internals.md:280](../hardware/devices/digitone-2-internals.md#L280) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
 | `0x400c2c4e` | [doc] [digitone-2.md:82](../hardware/devices/digitone-2.md#L82) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
 | `0x400cd20c` | [doc] [hw] [firmware-container.md:34](../hardware/common/firmware-container.md#L34) Sections |
 | `0x400cd5f2` | [doc] [digitone-2.md:148](../hardware/devices/digitone-2.md#L148) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
@@ -779,6 +810,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x400cf7f2` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x400d56c6` | [doc] [digitone-2.md:148](../hardware/devices/digitone-2.md#L148) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
 | `0x400d5996` | [doc] [digitone-2.md:148](../hardware/devices/digitone-2.md#L148) Card concurrency, upload phases and task facts (digikit findings 133-135, DN2 1.12, 2026-11-16/17) |
+| `0x400d86c0` | [doc] [digitone-2-internals.md:279](../hardware/devices/digitone-2-internals.md#L279) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
 | `0x400d9e10` | [doc] [emu] [digitone-2-internals.md:176](../hardware/devices/digitone-2-internals.md#L176) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x400da406` | [doc] [emu] [digitone-2-internals.md:176](../hardware/devices/digitone-2-internals.md#L176) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x400da6e6` | [doc] [emu] [digitone-2-internals.md:176](../hardware/devices/digitone-2-internals.md#L176) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
@@ -788,10 +820,12 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x400db1f6` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x400db22c` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x400db32e` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
+| `0x400dc154` | [doc] [digitone-2-internals.md:282](../hardware/devices/digitone-2-internals.md#L282) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
 | `0x400dc634` | [doc] [digitone-2.md:82](../hardware/devices/digitone-2.md#L82) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
 | `0x400dc978` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only) |
 | `0x400dca5a` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only) |
 | `0x400dd2b2` | [doc] [digitone-2-internals.md:184](../hardware/devices/digitone-2-internals.md#L184) RIFT v0.1 (dn2mk2 without Machinedrum/Monomachine, OS 1.11, 2026-11-13) |
+| `0x400dd420` | [doc] [digitone-2-internals.md:280](../hardware/devices/digitone-2-internals.md#L280) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
 | `0x400dea6a` | [hw] [digitone-2-internals.md:129](../hardware/devices/digitone-2-internals.md#L129) More from dnfw's notes (read 2026-11-02) |
 | `0x400df57a` | [emu] [digitone-2.md:72](../hardware/devices/digitone-2.md#L72) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
 | `0x400e1494` | [emu] [digitone-2.md:72](../hardware/devices/digitone-2.md#L72) Sampler port lifecycle findings (DN2 OS 1.11, 2026-11-06) |
@@ -805,6 +839,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x4011ed4a` | [emu] [digitone-2-internals.md:200](../hardware/devices/digitone-2-internals.md#L200) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12) |
 | `0x4011fc8c` | [emu] [sysex-and-midi.md:128](../hardware/common/sysex-and-midi.md#L128) DN2 1.12) `[doc]` |
 | `0x4011ff0c` | [emu] [sysex-and-midi.md:128](../hardware/common/sysex-and-midi.md#L128) DN2 1.12) `[doc]` |
+| `0x4012a340` | [doc] [digitone-2-internals.md:292](../hardware/devices/digitone-2-internals.md#L292) MIDI LFO freeze and its fix (vitel2 digitone2-mods, OS 1.12, 2026-11-18) |
 | `0x4012c4b2` | [hw] [digitone-2.md:102](../hardware/devices/digitone-2.md#L102) Sample memory (dn2mk2) |
 | `0x4012c53e` | [hw] [digitone-2.md:102](../hardware/devices/digitone-2.md#L102) Sample memory (dn2mk2) |
 | `0x4012c544` | [hw] [digitone-2.md:102](../hardware/devices/digitone-2.md#L102) Sample memory (dn2mk2) |
@@ -825,11 +860,15 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x4013464c` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x4013492c` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x40136544` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x401376bc` | [doc] [emu] [digitone-2-internals.md:281](../hardware/devices/digitone-2-internals.md#L281) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
+| `0x40137770` | [doc] [digitone-2-internals.md:292](../hardware/devices/digitone-2-internals.md#L292) MIDI LFO freeze and its fix (vitel2 digitone2-mods, OS 1.12, 2026-11-18) |
+| `0x40137a06` | [doc] [emu] [digitone-2-internals.md:281](../hardware/devices/digitone-2-internals.md#L281) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
 | `0x40138992` | [emu] [digitone-2-internals.md:177](../hardware/devices/digitone-2-internals.md#L177) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x401389dc` | [emu] [digitone-2-internals.md:177](../hardware/devices/digitone-2-internals.md#L177) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x40139104` | [doc] [memory-maps.md:111](../hardware/common/memory-maps.md#L111) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
 | `0x4013ac54` | [doc] [memory-maps.md:111](../hardware/common/memory-maps.md#L111) digikit: hardware windows a module must not address (DT2 1.17, DN2 1.12, 2026-11-18) |
 | `0x4019e83a` | [doc] [digitone-2.md:155](../hardware/devices/digitone-2.md#L155) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x401d5650` | [doc] [digitone-2-internals.md:285](../hardware/devices/digitone-2-internals.md#L285) dn2mk2 v0.59-v0.61 and RIFT v0.8 (OS 1.11, 2026-11-18/19) |
 | `0x401f7400` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x401f83a4` | [doc] [digitone-2-machines-sampler-sharc.md:16](../hardware/devices/digitone-2-machines-sampler-sharc.md#L16) A. Adding machines (elekloader machines-dn2, OS 1.12 only)<br>[doc] [digitone-2.md:81](../hardware/devices/digitone-2.md#L81) Parameter table details (OS 1.12; dn2-cfw `docs/parameter-table-growth.md`) |
 | `0x40200000` | [hw] [digitone-2-internals.md:92](../hardware/devices/digitone-2-internals.md#L92) Hardware map and budgets (OS 1.12 unless noted) |
@@ -837,6 +876,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x40200b09` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x40200b2e` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
 | `0x40201cb0` | [doc] [digitone-2-internals.md:75](../hardware/devices/digitone-2-internals.md#L75) Image identity |
+| `0x4020b7f8` | [doc] [emu] [digitone-2-internals.md:281](../hardware/devices/digitone-2-internals.md#L281) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
 | `0x4021f71a` | [doc] [digitone-2.md:143](../hardware/devices/digitone-2.md#L143) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
 | `0x4021f7b4` | [doc] [digitone-2.md:143](../hardware/devices/digitone-2.md#L143) The stock NAME screen (dn2mk2, OS 1.11, read from the image 2026-11-14) |
 | `0x402875b0` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
@@ -868,7 +908,10 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x405cd95b` | [doc] [hw] [digitone-2-internals.md:179](../hardware/devices/digitone-2-internals.md#L179) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
 | `0x40965a38` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
 | `0x40965a60` | [doc] [digitone-2.md:153](../hardware/devices/digitone-2.md#L153) digikit port data for DN2 OS 1.11 (2026-11-18) |
+| `0x42433bd4` | [doc] [digitone-2-internals.md:282](../hardware/devices/digitone-2-internals.md#L282) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
 | `0x42c5a91c` | [doc] [emu] [digitone-2-internals.md:176](../hardware/devices/digitone-2-internals.md#L176) Pattern change, the PTN view and the settings block (dnfw directjump, OS 1.11, 2026-11-12) |
+| `0x42c5b918` | [doc] [digitone-2-internals.md:279](../hardware/devices/digitone-2-internals.md#L279) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
+| `0x42c5b994` | [doc] [digitone-2-internals.md:279](../hardware/devices/digitone-2-internals.md#L279) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
 | `0x4316e854` | [doc] [dt2-dn2-limits-and-audio-chain.md:21](../hardware/common/dt2-dn2-limits-and-audio-chain.md#L21) 1. Machines and parameters (ColdFire) |
 | `0x44000000` | [doc] [memory-maps.md:19](../hardware/common/memory-maps.md#L19) Digitone II, digikit finding 08 and 59) |
 | `0x445ff870` | [doc] [digitone-2-internals.md:238](../hardware/devices/digitone-2-internals.md#L238) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
@@ -876,6 +919,8 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x4460f4b8` | [doc] [digitone-2-internals.md:238](../hardware/devices/digitone-2-internals.md#L238) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only)<br>[doc] [digitone-2-internals.md:239](../hardware/devices/digitone-2-internals.md#L239) Arpeggiator vs MIDI tracks (dn2-cfw `notes/T2.2-arp-midi-v2.md`, OS 1.12, static analysis only) |
 | `0x4461b6c0` | [hw] [digitone-2.md:102](../hardware/devices/digitone-2.md#L102) Sample memory (dn2mk2) |
 | `0x446478e0` | [doc] [digitone-2-internals.md:145](../hardware/devices/digitone-2-internals.md#L145) dn2mk2 findings v0.45-v0.48 (OS 1.11, 2026-11-11) |
+| `0x44647900` | [doc] [digitone-2-internals.md:282](../hardware/devices/digitone-2-internals.md#L282) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
+| `0x44648900` | [doc] [digitone-2-internals.md:282](../hardware/devices/digitone-2-internals.md#L282) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
 | `0x4464abf0` | [doc] [memory-maps.md:39](../hardware/common/memory-maps.md#L39) ColdFire code caves and mod RAM (dnfw `code-caves.md`, `mod-memory-regions.md`, DN2 1.11)<br>[doc] [memory-maps.md:57](../hardware/common/memory-maps.md#L57) Digitone II: who uses the RAM above the reset clear (compared across five projects, 2026-11-02) |
 | `0x4464bbf0` | [doc] [emu] [digitone-2-internals.md:201](../hardware/devices/digitone-2-internals.md#L201) Porting from OS 1.11 to 1.12 (dnfw, 2026-11-12) |
 | `0x4664ac9c` | [hw] [digitone-2-internals.md:124](../hardware/devices/digitone-2-internals.md#L124) More from dnfw's notes (read 2026-11-02) |
@@ -924,7 +969,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x80005368` | [doc] [digitone-2-internals.md:69](../hardware/devices/digitone-2-internals.md#L69) The three ColdFire <-> SHARC layers (dnfw `audio-dma.md`, `dsp-control-block.md`, lalzart cross-check) |
 | `0x800053a4` | [emu] [digitone-2-internals.md:39](../hardware/devices/digitone-2-internals.md#L39) The ColdFire-to-DSP frame and the panel (Digiwerk T3.2, T3.3, T2.1, T2.4b/c; DN2 1.12) |
 | `0x80005e40` | [doc] [digitone-2-os111-reference.md:50](../hardware/devices/digitone-2-os111-reference.md#L50) ColdFire-to-DSP frame (per voice, big-endian halfwords; the DSP swaps halves of each 32-bit word) |
-| `0x80005e60` | [emu] [digitone-2-internals.md:39](../hardware/devices/digitone-2-internals.md#L39) The ColdFire-to-DSP frame and the panel (Digiwerk T3.2, T3.3, T2.1, T2.4b/c; DN2 1.12) |
+| `0x80005e60` | [emu] [digitone-2-internals.md:39](../hardware/devices/digitone-2-internals.md#L39) The ColdFire-to-DSP frame and the panel (Digiwerk T3.2, T3.3, T2.1, T2.4b/c; DN2 1.12)<br>[doc] [emu] [digitone-2-internals.md:281](../hardware/devices/digitone-2-internals.md#L281) digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) |
 | `0x800065e6` | [doc] [digitone-2-internals.md:218](../hardware/devices/digitone-2-internals.md#L218) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
 | `0x80006603` | [doc] [digitone-2-internals.md:218](../hardware/devices/digitone-2-internals.md#L218) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
 | `0x80006614` | [doc] [digitone-2-internals.md:218](../hardware/devices/digitone-2-internals.md#L218) Bootstrap and the recovery path (dnfw `docs/bootstrap.md`, 1.10E image) |
@@ -973,71 +1018,74 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0xfc0cc024` | [hw] [digitone-2.md:102](../hardware/devices/digitone-2.md#L102) Sample memory (dn2mk2) |
 | `0xffffffff` | [hw] [dt2-dn2-sharc-crosscheck.md:14](../hardware/common/dt2-dn2-sharc-crosscheck.md#L14) 1. Shown on both units `[hw]`<br>[hw] [digitone-2-internals.md:119](../hardware/devices/digitone-2-internals.md#L119) More from dnfw's notes (read 2026-11-02)<br>[hw] [digitone-2-os111-reference.md:33](../hardware/devices/digitone-2-os111-reference.md#L33) Free memory |
 
-## Syntakt (268 addresses)
+## Syntakt (280 addresses)
 
 | Address | Facts |
 |---|---|
-| `0x00010000` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x00012000` | [doc] [emu] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x0001ffff` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x00010000` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x00012000` | [doc] [emu] [syntakt.md:230](../hardware/devices/syntakt.md#L230) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x0001ffff` | [doc] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x00021374` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x00021379` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x00022d40` | [doc] [syntakt.md:232](../hardware/devices/syntakt.md#L232) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x00022d40` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x000378d8` | [hw] [syntakt.md:183](../hardware/devices/syntakt.md#L183) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x00040000` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x0005fffb` | [doc] [emu] [syntakt.md:219](../hardware/devices/syntakt.md#L219) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x00060000` | [doc] [emu] [syntakt.md:219](../hardware/devices/syntakt.md#L219) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x0007a000` | [doc] [emu] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x0007c000` | [doc] [emu] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x0007e000` | [doc] [emu] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x0007ffff` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x00080000` | [doc] [emu] [syntakt.md:219](../hardware/devices/syntakt.md#L219) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [emu] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x00080020` | [doc] [emu] [syntakt.md:219](../hardware/devices/syntakt.md#L219) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x00081f7f` | [doc] [emu] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x0017ffff` | [doc] [emu] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x00180000` | [doc] [emu] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x00040000` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x0005fffb` | [doc] [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x00060000` | [doc] [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x0007a000` | [doc] [emu] [syntakt.md:230](../hardware/devices/syntakt.md#L230) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x0007c000` | [doc] [emu] [syntakt.md:230](../hardware/devices/syntakt.md#L230) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x0007e000` | [doc] [emu] [syntakt.md:230](../hardware/devices/syntakt.md#L230) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x0007ffff` | [doc] [syntakt.md:226](../hardware/devices/syntakt.md#L226) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x00080000` | [doc] [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [emu] [syntakt.md:230](../hardware/devices/syntakt.md#L230) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:242](../hardware/devices/syntakt.md#L242) Upgrade receiver, transport state, native bitmaps (OS 1.42, 2026-11-18) |
+| `0x00080020` | [doc] [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x00081f7f` | [doc] [emu] [syntakt.md:230](../hardware/devices/syntakt.md#L230) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x0017ffff` | [doc] [emu] [syntakt.md:230](../hardware/devices/syntakt.md#L230) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x00180000` | [doc] [emu] [syntakt.md:230](../hardware/devices/syntakt.md#L230) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x001ffc00` | [hw] [syntakt.md:53](../hardware/devices/syntakt.md#L53) Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41) |
-| `0x00300000` | [doc] [syntakt.md:232](../hardware/devices/syntakt.md#L232) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x00340000` | [doc] [syntakt.md:232](../hardware/devices/syntakt.md#L232) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x003c0000` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x00300000` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:242](../hardware/devices/syntakt.md#L242) Upgrade receiver, transport state, native bitmaps (OS 1.42, 2026-11-18) |
+| `0x00340000` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x003c0000` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x02bffe00` | [doc] [syntakt.md:164](../hardware/devices/syntakt.md#L164) Synfact core and SMZ4 banks (OS 1.41, 2026-11-10) |
 | `0x033ffe00` | [doc] [syntakt.md:164](../hardware/devices/syntakt.md#L164) Synfact core and SMZ4 banks (OS 1.41, 2026-11-10) |
 | `0x03400000` | [doc] [syntakt.md:164](../hardware/devices/syntakt.md#L164) Synfact core and SMZ4 banks (OS 1.41, 2026-11-10) |
 | `0x04000000` | [?] [doc] [syntakt.md:149](../hardware/devices/syntakt.md#L149) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]` |
-| `0x08000000` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x10000000` | [doc] [syntakt.md:38](../hardware/devices/syntakt.md#L38) Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41)<br>[doc] [syntakt.md:97](../hardware/devices/syntakt.md#L97) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`<br>[doc] [syntakt.md:150](../hardware/devices/syntakt.md#L150) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`<br>[doc] [syntakt.md:231](../hardware/devices/syntakt.md#L231) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x08000000` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x10000000` | [doc] [syntakt.md:38](../hardware/devices/syntakt.md#L38) Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41)<br>[doc] [syntakt.md:97](../hardware/devices/syntakt.md#L97) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`<br>[doc] [syntakt.md:150](../hardware/devices/syntakt.md#L150) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`<br>[doc] [syntakt.md:232](../hardware/devices/syntakt.md#L232) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x100005b0` | [hw] [syntakt.md:172](../hardware/devices/syntakt.md#L172) Synfact core and SMZ4 banks (OS 1.41, 2026-11-10) |
-| `0x10000800` | [emu] [syntakt.md:193](../hardware/devices/syntakt.md#L193) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[doc] [syntakt.md:150](../hardware/devices/syntakt.md#L150) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]` |
-| `0x1001ffff` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40000000` | [doc] [syntakt.md:89](../hardware/devices/syntakt.md#L89) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`<br>[doc] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40000400` | [hw] [syntakt.md:53](../hardware/devices/syntakt.md#L53) Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41)<br>[doc] [emu] [syntakt.md:219](../hardware/devices/syntakt.md#L219) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:31](../hardware/devices/syntakt.md#L31) Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware)<br>[?] [doc] [syntakt.md:149](../hardware/devices/syntakt.md#L149) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`<br>[untagged] [syntakt.md:39](../hardware/devices/syntakt.md#L39) Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41) |
+| `0x10000800` | [emu] [syntakt.md:194](../hardware/devices/syntakt.md#L194) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[doc] [syntakt.md:150](../hardware/devices/syntakt.md#L150) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]` |
+| `0x1001ffff` | [doc] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40000000` | [doc] [syntakt.md:89](../hardware/devices/syntakt.md#L89) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`<br>[doc] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40000400` | [hw] [syntakt.md:53](../hardware/devices/syntakt.md#L53) Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41)<br>[doc] [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:31](../hardware/devices/syntakt.md#L31) Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware)<br>[?] [doc] [syntakt.md:149](../hardware/devices/syntakt.md#L149) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`<br>[untagged] [syntakt.md:39](../hardware/devices/syntakt.md#L39) Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41) |
 | `0x40000404` | [doc] [syntakt.md:90](../hardware/devices/syntakt.md#L90) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]` |
 | `0x400004e8` | [doc] [syntakt.md:73](../hardware/devices/syntakt.md#L73) Memory map of CPU #1 (OS 1.41)<br>[?] [doc] [syntakt.md:149](../hardware/devices/syntakt.md#L149) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]` |
-| `0x4000053e` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40000934` | [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:76](../hardware/devices/syntakt.md#L76) Audio path |
-| `0x40000d06` | [emu] [syntakt.md:195](../hardware/devices/syntakt.md#L195) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x40000fba` | [emu] [syntakt.md:195](../hardware/devices/syntakt.md#L195) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x4000053e` | [?] [doc] [syntakt.md:239](../hardware/devices/syntakt.md#L239) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40000934` | [emu] [syntakt.md:221](../hardware/devices/syntakt.md#L221) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:76](../hardware/devices/syntakt.md#L76) Audio path |
+| `0x40000d06` | [emu] [syntakt.md:196](../hardware/devices/syntakt.md#L196) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x40000fba` | [emu] [syntakt.md:196](../hardware/devices/syntakt.md#L196) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
 | `0x40001070` | [doc] [syntakt.md:89](../hardware/devices/syntakt.md#L89) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`<br>[?] [doc] [syntakt.md:149](../hardware/devices/syntakt.md#L149) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`<br>[untagged] [syntakt.md:39](../hardware/devices/syntakt.md#L39) Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41) |
-| `0x40001640` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40001792` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40001d28` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x4000290e` | [emu] [syntakt.md:222](../hardware/devices/syntakt.md#L222) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40001640` | [?] [doc] [syntakt.md:239](../hardware/devices/syntakt.md#L239) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40001792` | [?] [doc] [syntakt.md:239](../hardware/devices/syntakt.md#L239) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40001d28` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x4000290e` | [emu] [syntakt.md:223](../hardware/devices/syntakt.md#L223) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x40003eb4` | [doc] [syntakt.md:175](../hardware/devices/syntakt.md#L175) SY SWARM read from the audio program (model27 notes/84, OS 1.42 section 7, same in 1.41, 2026-11-16) |
 | `0x40004324` | [doc] [syntakt.md:76](../hardware/devices/syntakt.md#L76) Audio path |
-| `0x400058f4` | [doc] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x400058f4` | [doc] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x40006074` | [doc] [syntakt.md:175](../hardware/devices/syntakt.md#L175) SY SWARM read from the audio program (model27 notes/84, OS 1.42 section 7, same in 1.41, 2026-11-16) |
 | `0x40006434` | [doc] [syntakt.md:175](../hardware/devices/syntakt.md#L175) SY SWARM read from the audio program (model27 notes/84, OS 1.42 section 7, same in 1.41, 2026-11-16) |
 | `0x40006588` | [doc] [syntakt.md:175](../hardware/devices/syntakt.md#L175) SY SWARM read from the audio program (model27 notes/84, OS 1.42 section 7, same in 1.41, 2026-11-16) |
-| `0x40008220` | [emu] [syntakt.md:187](../hardware/devices/syntakt.md#L187) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x4000839e` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x400083f0` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x40008220` | [emu] [syntakt.md:188](../hardware/devices/syntakt.md#L188) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x4000839e` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x400083f0` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
 | `0x400092ec` | [doc] [syntakt.md:175](../hardware/devices/syntakt.md#L175) SY SWARM read from the audio program (model27 notes/84, OS 1.42 section 7, same in 1.41, 2026-11-16) |
 | `0x400096e8` | [doc] [syntakt.md:175](../hardware/devices/syntakt.md#L175) SY SWARM read from the audio program (model27 notes/84, OS 1.42 section 7, same in 1.41, 2026-11-16) |
 | `0x40009f88` | [doc] [syntakt.md:90](../hardware/devices/syntakt.md#L90) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]` |
-| `0x4000a0e6` | [emu] [syntakt.md:185](../hardware/devices/syntakt.md#L185) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16)<br>[doc] [syntakt.md:73](../hardware/devices/syntakt.md#L73) Memory map of CPU #1 (OS 1.41) |
-| `0x4000abd6` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4000b2d8` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4000a0e6` | [emu] [syntakt.md:186](../hardware/devices/syntakt.md#L186) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16)<br>[doc] [syntakt.md:73](../hardware/devices/syntakt.md#L73) Memory map of CPU #1 (OS 1.41) |
+| `0x4000a21a` | [emu] [syntakt.md:245](../hardware/devices/syntakt.md#L245) Upgrade receiver, transport state, native bitmaps (OS 1.42, 2026-11-18) |
+| `0x4000a220` | [emu] [syntakt.md:245](../hardware/devices/syntakt.md#L245) Upgrade receiver, transport state, native bitmaps (OS 1.42, 2026-11-18) |
+| `0x4000abd6` | [?] [doc] [syntakt.md:239](../hardware/devices/syntakt.md#L239) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4000b2d8` | [?] [doc] [syntakt.md:239](../hardware/devices/syntakt.md#L239) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x4001082e` | [hw] [syntakt.md:183](../hardware/devices/syntakt.md#L183) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x40013730` | [emu] [syntakt.md:246](../hardware/devices/syntakt.md#L246) Upgrade receiver, transport state, native bitmaps (OS 1.42, 2026-11-18) |
 | `0x400148f0` | [doc] [syntakt.md:33](../hardware/devices/syntakt.md#L33) Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware)<br>[doc] [syntakt.md:76](../hardware/devices/syntakt.md#L76) Audio path |
 | `0x40014920` | [doc] [syntakt.md:33](../hardware/devices/syntakt.md#L33) Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware)<br>[doc] [syntakt.md:76](../hardware/devices/syntakt.md#L76) Audio path |
 | `0x40014950` | [doc] [syntakt.md:33](../hardware/devices/syntakt.md#L33) Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware)<br>[doc] [syntakt.md:76](../hardware/devices/syntakt.md#L76) Audio path |
@@ -1046,119 +1094,128 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x40025620` | [doc] [syntakt.md:32](../hardware/devices/syntakt.md#L32) Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware) |
 | `0x40032b0e` | [doc] [syntakt.md:184](../hardware/devices/syntakt.md#L184) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x40032b72` | [doc] [syntakt.md:184](../hardware/devices/syntakt.md#L184) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x40033b74` | [emu] [syntakt.md:187](../hardware/devices/syntakt.md#L187) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x4004005c` | [?] [doc] [syntakt.md:237](../hardware/devices/syntakt.md#L237) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40033b74` | [emu] [syntakt.md:188](../hardware/devices/syntakt.md#L188) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x4004005c` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x40040060` | [hw] [syntakt.md:166](../hardware/devices/syntakt.md#L166) Synfact core and SMZ4 banks (OS 1.41, 2026-11-10) |
 | `0x40041060` | [?] [syntakt.md:91](../hardware/devices/syntakt.md#L91) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]` |
 | `0x40042000` | [?] [syntakt.md:91](../hardware/devices/syntakt.md#L91) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]` |
-| `0x4004f6e0` | [?] [doc] [syntakt.md:237](../hardware/devices/syntakt.md#L237) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4004f750` | [emu] [syntakt.md:195](../hardware/devices/syntakt.md#L195) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[doc] [syntakt.md:92](../hardware/devices/syntakt.md#L92) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]` |
-| `0x4004f7c8` | [emu] [syntakt.md:195](../hardware/devices/syntakt.md#L195) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x4005f176` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4006eb7e` | [doc] [syntakt.md:232](../hardware/devices/syntakt.md#L232) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4007e020` | [doc] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40080646` | [doc] [syntakt.md:232](../hardware/devices/syntakt.md#L232) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x400822bc` | [emu] [syntakt.md:193](../hardware/devices/syntakt.md#L193) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x40082334` | [emu] [syntakt.md:193](../hardware/devices/syntakt.md#L193) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[?] [syntakt.md:226](../hardware/devices/syntakt.md#L226) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4008248c` | [doc] [syntakt.md:231](../hardware/devices/syntakt.md#L231) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4004f6e0` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4004f750` | [emu] [syntakt.md:196](../hardware/devices/syntakt.md#L196) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[doc] [syntakt.md:92](../hardware/devices/syntakt.md#L92) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]` |
+| `0x4004f7c8` | [emu] [syntakt.md:196](../hardware/devices/syntakt.md#L196) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x4005f176` | [?] [doc] [syntakt.md:239](../hardware/devices/syntakt.md#L239) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4006eb7e` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4007e020` | [doc] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40080646` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x400822bc` | [emu] [syntakt.md:194](../hardware/devices/syntakt.md#L194) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x40082334` | [emu] [syntakt.md:194](../hardware/devices/syntakt.md#L194) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[?] [syntakt.md:227](../hardware/devices/syntakt.md#L227) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4008248c` | [doc] [syntakt.md:232](../hardware/devices/syntakt.md#L232) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x40082500` | [doc] [syntakt.md:73](../hardware/devices/syntakt.md#L73) Memory map of CPU #1 (OS 1.41) |
-| `0x400826a6` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x4008271e` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x40082896` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40082f90` | [emu] [syntakt.md:193](../hardware/devices/syntakt.md#L193) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x40083026` | [emu] [hw] [syntakt.md:197](../hardware/devices/syntakt.md#L197) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x400826a6` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x4008271e` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x40082896` | [?] [doc] [syntakt.md:239](../hardware/devices/syntakt.md#L239) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40082f90` | [emu] [syntakt.md:194](../hardware/devices/syntakt.md#L194) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x40083026` | [emu] [hw] [syntakt.md:198](../hardware/devices/syntakt.md#L198) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
 | `0x40087e6a` | [doc] [syntakt.md:73](../hardware/devices/syntakt.md#L73) Memory map of CPU #1 (OS 1.41) |
 | `0x4008b734` | [hw] [syntakt.md:180](../hardware/devices/syntakt.md#L180) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x4008b882` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16)<br>[doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x4008b8fa` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x4008b838` | [doc] [syntakt.md:243](../hardware/devices/syntakt.md#L243) Upgrade receiver, transport state, native bitmaps (OS 1.42, 2026-11-18) |
+| `0x4008b882` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16)<br>[doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x4008b8fa` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
 | `0x4008c204` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x4008c288` | [emu] [syntakt.md:188](../hardware/devices/syntakt.md#L188) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x4008c288` | [emu] [syntakt.md:189](../hardware/devices/syntakt.md#L189) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x4008c924` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x4008cf00` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x4008cf14` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x4008d0e4` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x4008d120` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x4008d1a8` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x4008f1ca` | [emu] [syntakt.md:188](../hardware/devices/syntakt.md#L188) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16)<br>[doc] [syntakt.md:80](../hardware/devices/syntakt.md#L80) Audio path<br>[doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x4008f242` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x4008fb38` | [emu] [syntakt.md:188](../hardware/devices/syntakt.md#L188) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x400966e0` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4009687a` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4008f1ca` | [emu] [syntakt.md:189](../hardware/devices/syntakt.md#L189) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16)<br>[doc] [syntakt.md:80](../hardware/devices/syntakt.md#L80) Audio path<br>[doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x4008f242` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x4008fb38` | [emu] [syntakt.md:189](../hardware/devices/syntakt.md#L189) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x400966e0` | [doc] [syntakt.md:226](../hardware/devices/syntakt.md#L226) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4009687a` | [doc] [syntakt.md:226](../hardware/devices/syntakt.md#L226) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x40096890` | [doc] [syntakt.md:80](../hardware/devices/syntakt.md#L80) Audio path |
 | `0x40096e3c` | [doc] [syntakt.md:80](../hardware/devices/syntakt.md#L80) Audio path |
-| `0x4009748c` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40097afc` | [doc] [emu] [syntakt.md:170](../hardware/devices/syntakt.md#L170) Synfact core and SMZ4 banks (OS 1.41, 2026-11-10)<br>[doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x40097b74` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x400a2058` | [doc] [emu] [syntakt.md:221](../hardware/devices/syntakt.md#L221) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4009748c` | [doc] [syntakt.md:226](../hardware/devices/syntakt.md#L226) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40097afc` | [doc] [emu] [syntakt.md:170](../hardware/devices/syntakt.md#L170) Synfact core and SMZ4 banks (OS 1.41, 2026-11-10)<br>[doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x40097b3e` | [emu] [syntakt.md:247](../hardware/devices/syntakt.md#L247) Upgrade receiver, transport state, native bitmaps (OS 1.42, 2026-11-18) |
+| `0x40097b74` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x400a2058` | [doc] [emu] [syntakt.md:222](../hardware/devices/syntakt.md#L222) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x400a3856` | [doc] [syntakt.md:80](../hardware/devices/syntakt.md#L80) Audio path |
-| `0x400a38ce` | [doc] [emu] [syntakt.md:221](../hardware/devices/syntakt.md#L221) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x400a4fce` | [emu] [syntakt.md:188](../hardware/devices/syntakt.md#L188) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16)<br>[doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x400a5046` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x400bcb4e` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x400a38ce` | [doc] [emu] [syntakt.md:222](../hardware/devices/syntakt.md#L222) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x400a4fce` | [emu] [syntakt.md:189](../hardware/devices/syntakt.md#L189) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16)<br>[doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x400a5046` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x400bcb4e` | [doc] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x400c20ee` | [hw] [syntakt.md:180](../hardware/devices/syntakt.md#L180) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x400c347c` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x400f9ebe` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x400fa082` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x400fa688` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x400fa84c` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x400ffd02` | [emu] [syntakt.md:185](../hardware/devices/syntakt.md#L185) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x401007ce` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x40100992` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x40100ade` | [emu] [syntakt.md:185](../hardware/devices/syntakt.md#L185) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x40100bc2` | [emu] [syntakt.md:185](../hardware/devices/syntakt.md#L185) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x40100ea4` | [emu] [syntakt.md:186](../hardware/devices/syntakt.md#L186) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x40100f2c` | [emu] [syntakt.md:186](../hardware/devices/syntakt.md#L186) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16)<br>[doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x40100f3e` | [emu] [syntakt.md:186](../hardware/devices/syntakt.md#L186) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x401010f0` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x40102f40` | [doc] [emu] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40103094` | [doc] [emu] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x400c347c` | [?] [doc] [syntakt.md:239](../hardware/devices/syntakt.md#L239) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x400f72be` | [emu] [syntakt.md:244](../hardware/devices/syntakt.md#L244) Upgrade receiver, transport state, native bitmaps (OS 1.42, 2026-11-18) |
+| `0x400f7fb6` | [emu] [syntakt.md:244](../hardware/devices/syntakt.md#L244) Upgrade receiver, transport state, native bitmaps (OS 1.42, 2026-11-18) |
+| `0x400f8f70` | [emu] [syntakt.md:244](../hardware/devices/syntakt.md#L244) Upgrade receiver, transport state, native bitmaps (OS 1.42, 2026-11-18) |
+| `0x400f9ebe` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x400fa082` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x400fa688` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x400fa84c` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x400ffd02` | [emu] [syntakt.md:186](../hardware/devices/syntakt.md#L186) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x401007ce` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x4010095c` | [emu] [syntakt.md:245](../hardware/devices/syntakt.md#L245) Upgrade receiver, transport state, native bitmaps (OS 1.42, 2026-11-18) |
+| `0x40100966` | [emu] [syntakt.md:245](../hardware/devices/syntakt.md#L245) Upgrade receiver, transport state, native bitmaps (OS 1.42, 2026-11-18) |
+| `0x40100992` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x40100ade` | [emu] [syntakt.md:186](../hardware/devices/syntakt.md#L186) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x40100bc2` | [emu] [syntakt.md:186](../hardware/devices/syntakt.md#L186) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x40100ea4` | [emu] [syntakt.md:187](../hardware/devices/syntakt.md#L187) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x40100f2c` | [emu] [syntakt.md:187](../hardware/devices/syntakt.md#L187) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16)<br>[doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x40100f3e` | [emu] [syntakt.md:187](../hardware/devices/syntakt.md#L187) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x401010f0` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x40102f40` | [doc] [emu] [syntakt.md:236](../hardware/devices/syntakt.md#L236) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40103094` | [doc] [emu] [syntakt.md:236](../hardware/devices/syntakt.md#L236) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x4010350c` | [hw] [syntakt.md:132](../hardware/devices/syntakt.md#L132) How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]` |
 | `0x4010358e` | [hw] [syntakt.md:71](../hardware/devices/syntakt.md#L71) Memory map of CPU #1 (OS 1.41) |
-| `0x401036d0` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40103788` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x401038d6` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4010394c` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x40103f5e` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40106728` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4010bd9a` | [doc] [syntakt.md:230](../hardware/devices/syntakt.md#L230) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4010f612` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4010f7f8` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40114288` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40115f94` | [emu] [hw] [syntakt.md:194](../hardware/devices/syntakt.md#L194) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x40116158` | [emu] [hw] [syntakt.md:194](../hardware/devices/syntakt.md#L194) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x401162f8` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40117a72` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40117aee` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40117b58` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40119266` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x4011942a` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x4011aad4` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x401036d0` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40103788` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x401038d6` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4010394c` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x40103f5e` | [?] [doc] [syntakt.md:239](../hardware/devices/syntakt.md#L239) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40106728` | [?] [doc] [syntakt.md:239](../hardware/devices/syntakt.md#L239) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4010bd9a` | [doc] [syntakt.md:231](../hardware/devices/syntakt.md#L231) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4010f612` | [?] [doc] [syntakt.md:239](../hardware/devices/syntakt.md#L239) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4010f7f8` | [?] [doc] [syntakt.md:239](../hardware/devices/syntakt.md#L239) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40114288` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40115f94` | [emu] [hw] [syntakt.md:195](../hardware/devices/syntakt.md#L195) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x40116158` | [emu] [hw] [syntakt.md:195](../hardware/devices/syntakt.md#L195) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x401162f8` | [?] [doc] [syntakt.md:239](../hardware/devices/syntakt.md#L239) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40117a72` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40117aee` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40117b58` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40119266` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x4011942a` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x4011aad4` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4016e044` | [emu] [syntakt.md:185](../hardware/devices/syntakt.md#L185) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x40172250` | [hw] [syntakt.md:183](../hardware/devices/syntakt.md#L183) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x401885d2` | [doc] [syntakt.md:113](../hardware/devices/syntakt.md#L113) How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]` |
 | `0x401c33f4` | [hw] [syntakt.md:183](../hardware/devices/syntakt.md#L183) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x401d7984` | [doc] [emu] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x401d7a48` | [doc] [emu] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x401c3e28` | [emu] [syntakt.md:246](../hardware/devices/syntakt.md#L246) Upgrade receiver, transport state, native bitmaps (OS 1.42, 2026-11-18) |
+| `0x401d7984` | [doc] [emu] [syntakt.md:236](../hardware/devices/syntakt.md#L236) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x401d7a48` | [doc] [emu] [syntakt.md:236](../hardware/devices/syntakt.md#L236) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x40200000` | [hw] [syntakt.md:53](../hardware/devices/syntakt.md#L53) Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41) |
 | `0x4022d59c` | [doc] [syntakt.md:125](../hardware/devices/syntakt.md#L125) How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]` |
-| `0x402d5324` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x402d5b40` | [doc] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x402d5324` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x402d5b40` | [doc] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x402d6dc0` | [doc] [syntakt.md:73](../hardware/devices/syntakt.md#L73) Memory map of CPU #1 (OS 1.41) |
 | `0x402d6dc4` | [doc] [syntakt.md:73](../hardware/devices/syntakt.md#L73) Memory map of CPU #1 (OS 1.41) |
 | `0x402d7010` | [hw] [syntakt.md:86](../hardware/devices/syntakt.md#L86) Audio path |
-| `0x40338740` | [doc] [emu] [syntakt.md:227](../hardware/devices/syntakt.md#L227) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40339000` | [doc] [emu] [syntakt.md:227](../hardware/devices/syntakt.md#L227) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40339730` | [doc] [emu] [syntakt.md:227](../hardware/devices/syntakt.md#L227) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4033a000` | [doc] [emu] [syntakt.md:227](../hardware/devices/syntakt.md#L227) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x40347b90` | [doc] [syntakt.md:198](../hardware/devices/syntakt.md#L198) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x40338740` | [doc] [emu] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40339000` | [doc] [emu] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40339730` | [doc] [emu] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4033a000` | [doc] [emu] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x40347b90` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
 | `0x40348000` | [hw] [syntakt.md:71](../hardware/devices/syntakt.md#L71) Memory map of CPU #1 (OS 1.41)<br>[hw] [syntakt.md:132](../hardware/devices/syntakt.md#L132) How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]` |
-| `0x40348b90` | [doc] [syntakt.md:198](../hardware/devices/syntakt.md#L198) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x40348b90` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
 | `0x40350000` | [hw] [syntakt.md:53](../hardware/devices/syntakt.md#L53) Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41) |
 | `0x40a38b18` | [hw] [syntakt.md:183](../hardware/devices/syntakt.md#L183) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x41ad5134` | [doc] [syntakt.md:181](../hardware/devices/syntakt.md#L181) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x41b9f3c8` | [doc] [syntakt.md:125](../hardware/devices/syntakt.md#L125) How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]` |
 | `0x41b9fa24` | [doc] [syntakt.md:125](../hardware/devices/syntakt.md#L125) How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]` |
-| `0x41bb32b0` | [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x41bbf448` | [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x41bb32b0` | [emu] [syntakt.md:221](../hardware/devices/syntakt.md#L221) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x41bbf448` | [emu] [syntakt.md:221](../hardware/devices/syntakt.md#L221) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x43bd73fc` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x43bd7409` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x43bd7416` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
@@ -1168,83 +1225,83 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x43bd7444` | [doc] [syntakt.md:181](../hardware/devices/syntakt.md#L181) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x43bd753c` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x4404f754` | [doc] [syntakt.md:92](../hardware/devices/syntakt.md#L92) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]` |
-| `0x4404f980` | [hw] [syntakt.md:96](../hardware/devices/syntakt.md#L96) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`<br>[?] [doc] [syntakt.md:237](../hardware/devices/syntakt.md#L237) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4404f980` | [hw] [syntakt.md:96](../hardware/devices/syntakt.md#L96) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`<br>[?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x444e1334` | [doc] [syntakt.md:73](../hardware/devices/syntakt.md#L73) Memory map of CPU #1 (OS 1.41) |
 | `0x444e2370` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x444e237d` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x444e38c0` | [hw] [syntakt.md:132](../hardware/devices/syntakt.md#L132) How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`<br>[doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x444e48c0` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x454e48c0` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x45565490` | [emu] [hw] [syntakt.md:194](../hardware/devices/syntakt.md#L194) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[doc] [syntakt.md:198](../hardware/devices/syntakt.md#L198) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x45566490` | [doc] [syntakt.md:198](../hardware/devices/syntakt.md#L198) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x45570000` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x45608000` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x45609000` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4564f0a0` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4582f080` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4583f280` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4584f2c0` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[?] [syntakt.md:226](../hardware/devices/syntakt.md#L226) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4584f2c5` | [emu] [hw] [syntakt.md:194](../hardware/devices/syntakt.md#L194) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[?] [emu] [syntakt.md:72](../hardware/devices/syntakt.md#L72) Memory map of CPU #1 (OS 1.41)<br>[emu] [syntakt.md:193](../hardware/devices/syntakt.md#L193) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x458b0000` | [doc] [emu] [syntakt.md:227](../hardware/devices/syntakt.md#L227) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x46000000` | [hw] [syntakt.md:71](../hardware/devices/syntakt.md#L71) Memory map of CPU #1 (OS 1.41)<br>[hw] [syntakt.md:132](../hardware/devices/syntakt.md#L132) How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`<br>[emu] [hw] [syntakt.md:194](../hardware/devices/syntakt.md#L194) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[?] [syntakt.md:226](../hardware/devices/syntakt.md#L226) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x47000000` | [emu] [hw] [syntakt.md:194](../hardware/devices/syntakt.md#L194) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[?] [emu] [syntakt.md:72](../hardware/devices/syntakt.md#L72) Memory map of CPU #1 (OS 1.41)<br>[?] [syntakt.md:226](../hardware/devices/syntakt.md#L226) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4759b3c5` | [?] [emu] [syntakt.md:72](../hardware/devices/syntakt.md#L72) Memory map of CPU #1 (OS 1.41)<br>[emu] [syntakt.md:193](../hardware/devices/syntakt.md#L193) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x4784f2c1` | [doc] [emu] [syntakt.md:227](../hardware/devices/syntakt.md#L227) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[?] [syntakt.md:226](../hardware/devices/syntakt.md#L226) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x478af2cb` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x478c0000` | [doc] [emu] [syntakt.md:227](../hardware/devices/syntakt.md#L227) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x47bf0000` | [doc] [emu] [syntakt.md:227](../hardware/devices/syntakt.md#L227) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x47bf1000` | [doc] [emu] [syntakt.md:227](../hardware/devices/syntakt.md#L227) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x47c00000` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x47e8b000` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x47fe0000` | [?] [hw] [syntakt.md:203](../hardware/devices/syntakt.md#L203) Modwerk's Syntakt plan and limits (GOAL.md, OS 1.42, 2026-11-16)<br>[doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x48000000` | [hw] [syntakt.md:96](../hardware/devices/syntakt.md#L96) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`<br>[emu] [hw] [syntakt.md:194](../hardware/devices/syntakt.md#L194) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[?] [hw] [syntakt.md:203](../hardware/devices/syntakt.md#L203) Modwerk's Syntakt plan and limits (GOAL.md, OS 1.42, 2026-11-16)<br>[doc] [syntakt.md:89](../hardware/devices/syntakt.md#L89) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`<br>[?] [doc] [syntakt.md:149](../hardware/devices/syntakt.md#L149) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`<br>[doc] [syntakt.md:198](../hardware/devices/syntakt.md#L198) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4d84f2c5` | [emu] [syntakt.md:193](../hardware/devices/syntakt.md#L193) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
-| `0x4f84f2c1` | [doc] [emu] [syntakt.md:219](../hardware/devices/syntakt.md#L219) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4f8af2c1` | [doc] [emu] [syntakt.md:219](../hardware/devices/syntakt.md#L219) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x4fc00000` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x52424f5a` | [doc] [syntakt.md:232](../hardware/devices/syntakt.md#L232) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x55555555` | [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x444e38c0` | [hw] [syntakt.md:132](../hardware/devices/syntakt.md#L132) How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`<br>[doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x444e48c0` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x454e48c0` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x45565490` | [emu] [hw] [syntakt.md:195](../hardware/devices/syntakt.md#L195) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x45566490` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x45570000` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x45608000` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x45609000` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4564f0a0` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4582f080` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4583f280` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4584f2c0` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[?] [syntakt.md:227](../hardware/devices/syntakt.md#L227) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4584f2c5` | [emu] [hw] [syntakt.md:195](../hardware/devices/syntakt.md#L195) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[?] [emu] [syntakt.md:72](../hardware/devices/syntakt.md#L72) Memory map of CPU #1 (OS 1.41)<br>[emu] [syntakt.md:194](../hardware/devices/syntakt.md#L194) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x458b0000` | [doc] [emu] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x46000000` | [hw] [syntakt.md:71](../hardware/devices/syntakt.md#L71) Memory map of CPU #1 (OS 1.41)<br>[hw] [syntakt.md:132](../hardware/devices/syntakt.md#L132) How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]`<br>[emu] [hw] [syntakt.md:195](../hardware/devices/syntakt.md#L195) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[?] [syntakt.md:227](../hardware/devices/syntakt.md#L227) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x47000000` | [emu] [hw] [syntakt.md:195](../hardware/devices/syntakt.md#L195) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[?] [emu] [syntakt.md:72](../hardware/devices/syntakt.md#L72) Memory map of CPU #1 (OS 1.41)<br>[?] [syntakt.md:227](../hardware/devices/syntakt.md#L227) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4759b3c5` | [?] [emu] [syntakt.md:72](../hardware/devices/syntakt.md#L72) Memory map of CPU #1 (OS 1.41)<br>[emu] [syntakt.md:194](../hardware/devices/syntakt.md#L194) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x4784f2c1` | [doc] [emu] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[?] [syntakt.md:227](../hardware/devices/syntakt.md#L227) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x478af2cb` | [doc] [syntakt.md:225](../hardware/devices/syntakt.md#L225) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x478c0000` | [doc] [emu] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x47bf0000` | [doc] [emu] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x47bf1000` | [doc] [emu] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x47c00000` | [doc] [syntakt.md:226](../hardware/devices/syntakt.md#L226) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x47e8b000` | [doc] [syntakt.md:226](../hardware/devices/syntakt.md#L226) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x47fe0000` | [?] [hw] [syntakt.md:204](../hardware/devices/syntakt.md#L204) Modwerk's Syntakt plan and limits (GOAL.md, OS 1.42, 2026-11-16)<br>[doc] [syntakt.md:226](../hardware/devices/syntakt.md#L226) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x48000000` | [hw] [syntakt.md:96](../hardware/devices/syntakt.md#L96) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`<br>[emu] [hw] [syntakt.md:195](../hardware/devices/syntakt.md#L195) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[?] [hw] [syntakt.md:204](../hardware/devices/syntakt.md#L204) Modwerk's Syntakt plan and limits (GOAL.md, OS 1.42, 2026-11-16)<br>[doc] [syntakt.md:89](../hardware/devices/syntakt.md#L89) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`<br>[?] [doc] [syntakt.md:149](../hardware/devices/syntakt.md#L149) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`<br>[doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17)<br>[doc] [syntakt.md:226](../hardware/devices/syntakt.md#L226) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4d84f2c5` | [emu] [syntakt.md:194](../hardware/devices/syntakt.md#L194) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x4f84f2c1` | [doc] [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4f8af2c1` | [doc] [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x4fc00000` | [doc] [syntakt.md:226](../hardware/devices/syntakt.md#L226) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:226](../hardware/devices/syntakt.md#L226) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x52424f5a` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x55555555` | [emu] [syntakt.md:221](../hardware/devices/syntakt.md#L221) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x60000000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
-| `0x60042000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re)<br>[?] [doc] [syntakt.md:237](../hardware/devices/syntakt.md#L237) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0x80000000` | [doc] [emu] [syntakt.md:219](../hardware/devices/syntakt.md#L219) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [emu] [syntakt.md:221](../hardware/devices/syntakt.md#L221) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:38](../hardware/devices/syntakt.md#L38) Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41)<br>[doc] [syntakt.md:102](../hardware/devices/syntakt.md#L102) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`<br>[?] [doc] [syntakt.md:149](../hardware/devices/syntakt.md#L149) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`<br>[doc] [syntakt.md:171](../hardware/devices/syntakt.md#L171) Synfact core and SMZ4 banks (OS 1.41, 2026-11-10) |
+| `0x60042000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re)<br>[?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x80000000` | [doc] [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [emu] [syntakt.md:222](../hardware/devices/syntakt.md#L222) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:38](../hardware/devices/syntakt.md#L38) Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41)<br>[doc] [syntakt.md:102](../hardware/devices/syntakt.md#L102) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]`<br>[?] [doc] [syntakt.md:149](../hardware/devices/syntakt.md#L149) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`<br>[doc] [syntakt.md:171](../hardware/devices/syntakt.md#L171) Synfact core and SMZ4 banks (OS 1.41, 2026-11-10) |
 | `0x80000400` | [?] [doc] [syntakt.md:149](../hardware/devices/syntakt.md#L149) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]` |
 | `0x80002000` | [doc] [syntakt.md:33](../hardware/devices/syntakt.md#L33) Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware) |
 | `0x800021b0` | [doc] [syntakt.md:33](../hardware/devices/syntakt.md#L33) Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware) |
 | `0x800030bc` | [doc] [syntakt.md:119](../hardware/devices/syntakt.md#L119) How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]` |
 | `0x80003950` | [doc] [syntakt.md:80](../hardware/devices/syntakt.md#L80) Audio path |
 | `0x80003c40` | [doc] [syntakt.md:33](../hardware/devices/syntakt.md#L33) Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware) |
-| `0x80003d50` | [doc] [emu] [syntakt.md:221](../hardware/devices/syntakt.md#L221) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:80](../hardware/devices/syntakt.md#L80) Audio path |
+| `0x80003d50` | [doc] [emu] [syntakt.md:222](../hardware/devices/syntakt.md#L222) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:80](../hardware/devices/syntakt.md#L80) Audio path |
 | `0x80004760` | [doc] [syntakt.md:80](../hardware/devices/syntakt.md#L80) Audio path |
 | `0x80008000` | [doc] [syntakt.md:97](../hardware/devices/syntakt.md#L97) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]` |
-| `0x8000dad0` | [emu] [syntakt.md:188](../hardware/devices/syntakt.md#L188) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x8000ded0` | [emu] [syntakt.md:188](../hardware/devices/syntakt.md#L188) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
-| `0x8000dfd0` | [emu] [syntakt.md:188](../hardware/devices/syntakt.md#L188) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x8000dad0` | [emu] [syntakt.md:189](../hardware/devices/syntakt.md#L189) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x8000ded0` | [emu] [syntakt.md:189](../hardware/devices/syntakt.md#L189) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x8000dfd0` | [emu] [syntakt.md:189](../hardware/devices/syntakt.md#L189) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x8000f398` | [hw] [syntakt.md:172](../hardware/devices/syntakt.md#L172) Synfact core and SMZ4 banks (OS 1.41, 2026-11-10) |
 | `0x8000f670` | [doc] [syntakt.md:102](../hardware/devices/syntakt.md#L102) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]` |
 | `0x8000ffff` | [hw] [syntakt.md:172](../hardware/devices/syntakt.md#L172) Synfact core and SMZ4 banks (OS 1.41, 2026-11-10) |
-| `0xa50ce100` | [doc] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xaaaaaaaa` | [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xbeefbace` | [doc] [emu] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xec038000` | [doc] [emu] [syntakt.md:219](../hardware/devices/syntakt.md#L219) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xec070000` | [doc] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xec090000` | [doc] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xec094000` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xec09401c` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xec09401d` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xec09401e` | [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xec09402a` | [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xec0940ff` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xfc008000` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xfc03c000` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xfc0455e0` | [?] [doc] [syntakt.md:237](../hardware/devices/syntakt.md#L237) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xfc0456c0` | [doc] [emu] [syntakt.md:221](../hardware/devices/syntakt.md#L221) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xfc05c000` | [?] [doc] [syntakt.md:149](../hardware/devices/syntakt.md#L149) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`<br>[doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xa50ce100` | [doc] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xaaaaaaaa` | [emu] [syntakt.md:221](../hardware/devices/syntakt.md#L221) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xbeefbace` | [doc] [emu] [syntakt.md:230](../hardware/devices/syntakt.md#L230) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xec038000` | [doc] [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xec070000` | [doc] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xec090000` | [doc] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xec094000` | [doc] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xec09401c` | [doc] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xec09401d` | [doc] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xec09401e` | [emu] [syntakt.md:221](../hardware/devices/syntakt.md#L221) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xec09402a` | [emu] [syntakt.md:221](../hardware/devices/syntakt.md#L221) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xec0940ff` | [doc] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xfc008000` | [doc] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xfc03c000` | [doc] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xfc0455e0` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xfc0456c0` | [doc] [emu] [syntakt.md:222](../hardware/devices/syntakt.md#L222) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xfc05c000` | [?] [doc] [syntakt.md:149](../hardware/devices/syntakt.md#L149) Syntakt OS 1.42 container and CPUs (digikit finding 70, static reading, 2026-10) `[doc]`<br>[doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0xfc07000c` | [?] [hw] [syntakt.md:84](../hardware/devices/syntakt.md#L84) Audio path |
-| `0xfc078000` | [doc] [syntakt.md:223](../hardware/devices/syntakt.md#L223) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xfc07800c` | [doc] [syntakt.md:223](../hardware/devices/syntakt.md#L223) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xfc07800f` | [doc] [syntakt.md:223](../hardware/devices/syntakt.md#L223) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xfc0c8000` | [doc] [emu] [syntakt.md:221](../hardware/devices/syntakt.md#L221) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
-| `0xfc0cc000` | [doc] [syntakt.md:228](../hardware/devices/syntakt.md#L228) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xfc078000` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xfc07800c` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xfc07800f` | [doc] [syntakt.md:224](../hardware/devices/syntakt.md#L224) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xfc0c8000` | [doc] [emu] [syntakt.md:222](../hardware/devices/syntakt.md#L222) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0xfc0cc000` | [doc] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 
 ## Analog Heat (MKI, MKII, +FX) (20 addresses)
 
@@ -1271,37 +1328,42 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x80010000` | [doc] [hw] [analog-heat.md:43](../hardware/devices/analog-heat.md#L43) Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo) |
 | `0xfc0b0000` | [doc] [overbridge-usb.md:6](../hardware/common/overbridge-usb.md#L6) Digitone II (digikit finding 42, static, DT2 1.16) |
 
-## Octatrack (MKI, MKII) (317 addresses)
+## Octatrack (MKI, MKII) (377 addresses)
 
 | Address | Facts |
 |---|---|
 | `0x00012d05` | [doc] [memory-maps.md:98](../hardware/common/memory-maps.md#L98) Details per device |
 | `0x000136cb` | [doc] [memory-maps.md:98](../hardware/common/memory-maps.md#L98) Details per device |
-| `0x00030000` | [hw] [octatrack.md:52](../hardware/devices/octatrack.md#L52) Memory and code placement |
+| `0x00030000` | [hw] [octatrack.md:52](../hardware/devices/octatrack.md#L52) Memory and code placement<br>[?] [hw] [octatrack.md:320](../hardware/devices/octatrack.md#L320) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
 | `0x00033da2` | [emu] [octatrack.md:91](../hardware/devices/octatrack.md#L91) More DSP and boot traps (measured on units) |
 | `0x00033da3` | [emu] [octatrack.md:91](../hardware/devices/octatrack.md#L91) More DSP and boot traps (measured on units)<br>[doc] [octatrack.md:257](../hardware/devices/octatrack.md#L257) TELOS and dspload-ot: boot order, card mount, run-time DSP code (OS 1.40C, 2026-11-14/16) |
 | `0x00033dab` | [emu] [octatrack.md:256](../hardware/devices/octatrack.md#L256) TELOS and dspload-ot: boot order, card mount, run-time DSP code (OS 1.40C, 2026-11-14/16) |
 | `0x00033fff` | [emu] [octatrack.md:256](../hardware/devices/octatrack.md#L256) TELOS and dspload-ot: boot order, card mount, run-time DSP code (OS 1.40C, 2026-11-14/16) |
 | `0x00037eff` | [emu] [octatrack.md:91](../hardware/devices/octatrack.md#L91) More DSP and boot traps (measured on units) |
 | `0x00037f00` | [emu] [octatrack.md:91](../hardware/devices/octatrack.md#L91) More DSP and boot traps (measured on units) |
-| `0x0003ffff` | [hw] [octatrack.md:52](../hardware/devices/octatrack.md#L52) Memory and code placement<br>[emu] [octatrack.md:91](../hardware/devices/octatrack.md#L91) More DSP and boot traps (measured on units) |
+| `0x0003ffff` | [hw] [octatrack.md:52](../hardware/devices/octatrack.md#L52) Memory and code placement<br>[?] [hw] [octatrack.md:320](../hardware/devices/octatrack.md#L320) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18)<br>[emu] [octatrack.md:91](../hardware/devices/octatrack.md#L91) More DSP and boot traps (measured on units) |
 | `0x0008ed80` | [doc] [octatrack.md:266](../hardware/devices/octatrack.md#L266) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x00095048` | [doc] [octatrack.md:266](../hardware/devices/octatrack.md#L266) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x0009504a` | [doc] [octatrack.md:266](../hardware/devices/octatrack.md#L266) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x0009b312` | [doc] [octatrack.md:266](../hardware/devices/octatrack.md#L266) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x0009b332` | [doc] [octatrack.md:266](../hardware/devices/octatrack.md#L266) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
-| `0x0009b340` | [doc] [octatrack.md:266](../hardware/devices/octatrack.md#L266) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
+| `0x0009b340` | [emu] [octatrack.md:325](../hardware/devices/octatrack.md#L325) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18)<br>[doc] [octatrack.md:266](../hardware/devices/octatrack.md#L266) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x001f0000` | [doc] [hw] [octatrack.md:40](../hardware/devices/octatrack.md#L40) OS format, update and recovery |
 | `0x00285ff0` | [emu] [hw] [octatrack.md:272](../hardware/devices/octatrack.md#L272) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x007fffff` | [doc] [octatrack.md:200](../hardware/devices/octatrack.md#L200) Stock OS facts from elekloader's core-ot 0.9-0.40 (OS 1.40C, static reading and emulator probes, 2026-11-13) |
 | `0x00c0ffee` | [doc] [octatrack.md:257](../hardware/devices/octatrack.md#L257) TELOS and dspload-ot: boot order, card mount, run-time DSP code (OS 1.40C, 2026-11-14/16) |
 | `0x04000000` | [doc] [octatrack.md:201](../hardware/devices/octatrack.md#L201) Stock OS facts from elekloader's core-ot 0.9-0.40 (OS 1.40C, static reading and emulator probes, 2026-11-13) |
+| `0x10000000` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x10000004` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x1001614c` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x1001614e` | [emu] [octatrack.md:275](../hardware/devices/octatrack.md#L275) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x1001aa1e` | [emu] [octatrack.md:275](../hardware/devices/octatrack.md#L275) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x100a4ece` | [emu] [octatrack.md:275](../hardware/devices/octatrack.md#L275) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x100b14af` | [emu] [hw] [octatrack.md:273](../hardware/devices/octatrack.md#L273) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x100b14cc` | [emu] [octatrack.md:286](../hardware/devices/octatrack.md#L286) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
+| `0x100b14ce` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x100b14cf` | [doc] [hw] [octatrack.md:191](../hardware/devices/octatrack.md#L191) Modwerk findings (2026-11-12/13) |
+| `0x100b14d1` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x100b14dc` | [emu] [octatrack.md:286](../hardware/devices/octatrack.md#L286) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x100b14dd` | [emu] [octatrack.md:286](../hardware/devices/octatrack.md#L286) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x100b14f0` | [emu] [octatrack.md:148](../hardware/devices/octatrack.md#L148) octabam findings (2026-11-11) |
@@ -1324,12 +1386,16 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x40000c3c` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x40001e50` | [emu] [octatrack.md:249](../hardware/devices/octatrack.md#L249) TELOS and dspload-ot: boot order, card mount, run-time DSP code (OS 1.40C, 2026-11-14/16) |
 | `0x40001f18` | [emu] [octatrack.md:269](../hardware/devices/octatrack.md#L269) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
+| `0x40002318` | [emu] [octatrack.md:325](../hardware/devices/octatrack.md#L325) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x40002cb2` | [emu] [octatrack.md:325](../hardware/devices/octatrack.md#L325) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x40002cd2` | [emu] [octatrack.md:325](../hardware/devices/octatrack.md#L325) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x40002d24` | [emu] [octatrack.md:325](../hardware/devices/octatrack.md#L325) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x400031a0` | [hw] [octatrack.md:299](../hardware/devices/octatrack.md#L299) Modwerk findings: stock delay cost, machine prices, card upgrades (OS 1.40C, 2026-11-17/18) |
 | `0x4000361a` | [hw] [octatrack.md:300](../hardware/devices/octatrack.md#L300) Modwerk findings: stock delay cost, machine prices, card upgrades (OS 1.40C, 2026-11-17/18) |
 | `0x4000406a` | [emu] [hw] [octatrack.md:307](../hardware/devices/octatrack.md#L307) Modwerk findings: stock delay cost, machine prices, card upgrades (OS 1.40C, 2026-11-17/18) |
 | `0x4000407a` | [emu] [hw] [octatrack.md:307](../hardware/devices/octatrack.md#L307) Modwerk findings: stock delay cost, machine prices, card upgrades (OS 1.40C, 2026-11-17/18) |
 | `0x40004100` | [doc] [hw] [octatrack.md:191](../hardware/devices/octatrack.md#L191) Modwerk findings (2026-11-12/13)<br>[doc] [octatrack.md:201](../hardware/devices/octatrack.md#L201) Stock OS facts from elekloader's core-ot 0.9-0.40 (OS 1.40C, static reading and emulator probes, 2026-11-13) |
-| `0x40005178` | [?] [hw] [octatrack.md:161](../hardware/devices/octatrack.md#L161) Modwerk and octabam findings (2026-11-12) |
+| `0x40005178` | [?] [hw] [octatrack.md:161](../hardware/devices/octatrack.md#L161) Modwerk and octabam findings (2026-11-12)<br>[emu] [octatrack.md:318](../hardware/devices/octatrack.md#L318) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
 | `0x40005ff0` | [emu] [octatrack.md:290](../hardware/devices/octatrack.md#L290) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x40006820` | [emu] [hw] [octatrack.md:273](../hardware/devices/octatrack.md#L273) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x40008f84` | [emu] [hw] [octatrack.md:273](../hardware/devices/octatrack.md#L273) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
@@ -1338,6 +1404,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x40009ebe` | [doc] [octatrack.md:296](../hardware/devices/octatrack.md#L296) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x4000aad0` | [hw] [octatrack.md:168](../hardware/devices/octatrack.md#L168) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
 | `0x4000ab26` | [?] [hw] [octatrack.md:135](../hardware/devices/octatrack.md#L135) octabam and octamax findings (2026-11-10) |
+| `0x4000b54a` | [emu] [octatrack.md:317](../hardware/devices/octatrack.md#L317) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
 | `0x4000c9a4` | [emu] [octatrack.md:290](../hardware/devices/octatrack.md#L290) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x4000d446` | [emu] [hw] [octatrack.md:273](../hardware/devices/octatrack.md#L273) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x4000f450` | [emu] [octatrack.md:148](../hardware/devices/octatrack.md#L148) octabam findings (2026-11-11) |
@@ -1366,12 +1433,19 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x40022e80` | [emu] [octatrack.md:288](../hardware/devices/octatrack.md#L288) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x400232bc` | [emu] [octatrack.md:288](../hardware/devices/octatrack.md#L288) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x400255ec` | [emu] [octatrack.md:288](../hardware/devices/octatrack.md#L288) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
+| `0x40025770` | [emu] [octatrack.md:325](../hardware/devices/octatrack.md#L325) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x40025a90` | [emu] [octatrack.md:286](../hardware/devices/octatrack.md#L286) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x40025aa2` | [emu] [octatrack.md:251](../hardware/devices/octatrack.md#L251) TELOS and dspload-ot: boot order, card mount, run-time DSP code (OS 1.40C, 2026-11-14/16) |
 | `0x40025ac2` | [emu] [octatrack.md:251](../hardware/devices/octatrack.md#L251) TELOS and dspload-ot: boot order, card mount, run-time DSP code (OS 1.40C, 2026-11-14/16) |
 | `0x40029754` | [doc] [octatrack.md:280](../hardware/devices/octatrack.md#L280) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x4002bf38` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x4002cb52` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x4002dc4c` | [hw] [octatrack.md:328](../hardware/devices/octatrack.md#L328) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x4002dc68` | [hw] [octatrack.md:328](../hardware/devices/octatrack.md#L328) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x4002dc74` | [hw] [octatrack.md:328](../hardware/devices/octatrack.md#L328) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x4002dc90` | [hw] [octatrack.md:328](../hardware/devices/octatrack.md#L328) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x4002dc9c` | [hw] [octatrack.md:328](../hardware/devices/octatrack.md#L328) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x4002dcc4` | [hw] [octatrack.md:328](../hardware/devices/octatrack.md#L328) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x4002dcd0` | [emu] [octatrack.md:292](../hardware/devices/octatrack.md#L292) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x4002dd0c` | [emu] [octatrack.md:292](../hardware/devices/octatrack.md#L292) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x4002dd50` | [emu] [octatrack.md:292](../hardware/devices/octatrack.md#L292) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
@@ -1399,6 +1473,8 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x40055548` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
 | `0x40055670` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
 | `0x40055676` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
+| `0x40055678` | [emu] [octatrack.md:318](../hardware/devices/octatrack.md#L318) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x40055958` | [emu] [octatrack.md:317](../hardware/devices/octatrack.md#L317) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
 | `0x4005595c` | [emu] [octatrack.md:249](../hardware/devices/octatrack.md#L249) TELOS and dspload-ot: boot order, card mount, run-time DSP code (OS 1.40C, 2026-11-14/16) |
 | `0x40056c28` | [emu] [octatrack.md:165](../hardware/devices/octatrack.md#L165) Modwerk and octabam findings (2026-11-12) |
 | `0x4005829c` | [emu] [hw] [octatrack.md:277](../hardware/devices/octatrack.md#L277) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
@@ -1419,6 +1495,20 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x40063c54` | [emu] [octatrack.md:288](../hardware/devices/octatrack.md#L288) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x40065a96` | [emu] [hw] [octatrack.md:273](../hardware/devices/octatrack.md#L273) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x4006d57c` | [?] [doc] [octatrack.md:254](../hardware/devices/octatrack.md#L254) TELOS and dspload-ot: boot order, card mount, run-time DSP code (OS 1.40C, 2026-11-14/16) |
+| `0x4006d94c` | [hw] [octatrack.md:328](../hardware/devices/octatrack.md#L328) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x4006dae4` | [emu] [octatrack.md:316](../hardware/devices/octatrack.md#L316) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x4006e2cc` | [emu] [octatrack.md:316](../hardware/devices/octatrack.md#L316) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x4006f87c` | [emu] [octatrack.md:319](../hardware/devices/octatrack.md#L319) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x40070c28` | [emu] [octatrack.md:316](../hardware/devices/octatrack.md#L316) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x40071668` | [emu] [octatrack.md:319](../hardware/devices/octatrack.md#L319) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x40071712` | [emu] [octatrack.md:319](../hardware/devices/octatrack.md#L319) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x40071b38` | [emu] [octatrack.md:319](../hardware/devices/octatrack.md#L319) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x40071bb2` | [emu] [octatrack.md:316](../hardware/devices/octatrack.md#L316) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x40072c10` | [emu] [octatrack.md:316](../hardware/devices/octatrack.md#L316) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x40074110` | [emu] [octatrack.md:319](../hardware/devices/octatrack.md#L319) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x40074216` | [emu] [octatrack.md:319](../hardware/devices/octatrack.md#L319) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x40077138` | [emu] [octatrack.md:319](../hardware/devices/octatrack.md#L319) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x4007b2fc` | [emu] [octatrack.md:325](../hardware/devices/octatrack.md#L325) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x4007c0d0` | [emu] [octatrack.md:226](../hardware/devices/octatrack.md#L226) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x4007e760` | [hw] [octatrack.md:278](../hardware/devices/octatrack.md#L278) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x4007e81c` | [hw] [octatrack.md:278](../hardware/devices/octatrack.md#L278) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
@@ -1430,6 +1520,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x40084dc8` | [emu] [octatrack.md:228](../hardware/devices/octatrack.md#L228) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x40085736` | [emu] [octatrack.md:288](../hardware/devices/octatrack.md#L288) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x40085ab6` | [emu] [octatrack.md:289](../hardware/devices/octatrack.md#L289) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
+| `0x4008cea0` | [emu] [octatrack.md:325](../hardware/devices/octatrack.md#L325) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x4008ed5e` | [doc] [hw] [octatrack.md:274](../hardware/devices/octatrack.md#L274) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x4008ee74` | [emu] [octatrack.md:288](../hardware/devices/octatrack.md#L288) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18)<br>[doc] [octatrack.md:214](../hardware/devices/octatrack.md#L214) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
 | `0x4008f180` | [doc] [octatrack.md:214](../hardware/devices/octatrack.md#L214) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
@@ -1439,14 +1530,20 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x400914de` | [doc] [hw] [octatrack.md:274](../hardware/devices/octatrack.md#L274) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x400917c8` | [emu] [octatrack.md:228](../hardware/devices/octatrack.md#L228) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16)<br>[doc] [octatrack.md:214](../hardware/devices/octatrack.md#L214) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
 | `0x400919e4` | [emu] [octatrack.md:288](../hardware/devices/octatrack.md#L288) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
+| `0x4009499c` | [emu] [octatrack.md:316](../hardware/devices/octatrack.md#L316) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
 | `0x40097014` | [doc] [octatrack.md:233](../hardware/devices/octatrack.md#L233) Modwerk findings (2026-11-16/17) |
 | `0x400973b4` | [emu] [octatrack.md:269](../hardware/devices/octatrack.md#L269) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x40098300` | [hw] [octatrack.md:220](../hardware/devices/octatrack.md#L220) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x40098bff` | [hw] [octatrack.md:220](../hardware/devices/octatrack.md#L220) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x4009b168` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x4009c3d4` | [hw] [octatrack.md:222](../hardware/devices/octatrack.md#L222) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x4009c4d4` | [hw] [octatrack.md:222](../hardware/devices/octatrack.md#L222) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x4009d1de` | [emu] [octatrack.md:251](../hardware/devices/octatrack.md#L251) TELOS and dspload-ot: boot order, card mount, run-time DSP code (OS 1.40C, 2026-11-14/16) |
 | `0x4009d9a4` | [emu] [octatrack.md:290](../hardware/devices/octatrack.md#L290) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
+| `0x4009e4c8` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x4009e5e4` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x4009e704` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x4009e790` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x4009eec8` | [emu] [octatrack.md:155](../hardware/devices/octatrack.md#L155) Modwerk and octabam findings (2026-11-12) |
 | `0x400a10c8` | [emu] [octatrack.md:288](../hardware/devices/octatrack.md#L288) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x400a12b8` | [emu] [octatrack.md:210](../hardware/devices/octatrack.md#L210) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
@@ -1490,9 +1587,12 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x400bfc10` | [emu] [octatrack.md:276](../hardware/devices/octatrack.md#L276) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x400bfc12` | [emu] [octatrack.md:287](../hardware/devices/octatrack.md#L287) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x400c0000` | [hw] [octatrack.md:49](../hardware/devices/octatrack.md#L49) Memory and code placement |
+| `0x400c0158` | [emu] [octatrack.md:318](../hardware/devices/octatrack.md#L318) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
 | `0x400c01f6` | [emu] [octatrack.md:287](../hardware/devices/octatrack.md#L287) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x400c090a` | [emu] [octatrack.md:291](../hardware/devices/octatrack.md#L291) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x400c091e` | [emu] [octatrack.md:291](../hardware/devices/octatrack.md#L291) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
+| `0x400c0936` | [emu] [octatrack.md:317](../hardware/devices/octatrack.md#L317) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x400c0b74` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x400c0c50` | [hw] [octatrack.md:278](../hardware/devices/octatrack.md#L278) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x400c0c94` | [hw] [octatrack.md:278](../hardware/devices/octatrack.md#L278) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x400c205c` | [emu] [hw] [octatrack.md:277](../hardware/devices/octatrack.md#L277) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
@@ -1502,6 +1602,9 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x400cbf2c` | [emu] [octatrack.md:291](../hardware/devices/octatrack.md#L291) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x400cdff8` | [emu] [octatrack.md:291](../hardware/devices/octatrack.md#L291) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x400ce0c4` | [emu] [octatrack.md:291](../hardware/devices/octatrack.md#L291) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
+| `0x400ce724` | [emu] [octatrack.md:319](../hardware/devices/octatrack.md#L319) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x400ceb14` | [emu] [octatrack.md:319](../hardware/devices/octatrack.md#L319) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x400cef60` | [emu] [octatrack.md:319](../hardware/devices/octatrack.md#L319) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
 | `0x400d0384` | [emu] [octatrack.md:291](../hardware/devices/octatrack.md#L291) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x400d071c` | [emu] [octatrack.md:291](../hardware/devices/octatrack.md#L291) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x400d0bc4` | [emu] [octatrack.md:291](../hardware/devices/octatrack.md#L291) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
@@ -1525,22 +1628,31 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x401086f4` | [doc] [octatrack.md:102](../hardware/devices/octatrack.md#L102) From KYOTI (Zac-Kyoti/octatrack-kyoti-fw, OS 1.40C) |
 | `0x401087e4` | [hw] [octatrack.md:49](../hardware/devices/octatrack.md#L49) Memory and code placement |
 | `0x4010fdf0` | [hw] [octatrack.md:49](../hardware/devices/octatrack.md#L49) Memory and code placement |
+| `0x4017d516` | [emu] [octatrack.md:325](../hardware/devices/octatrack.md#L325) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x40a955e0` | [hw] [octatrack.md:112](../hardware/devices/octatrack.md#L112) Debugging on the unit by writing a log to the CF card (OctaMax, MKII, OS 1.40C)<br>[doc] [octatrack.md:282](../hardware/devices/octatrack.md#L282) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x40af0000` | [hw] [octatrack.md:140](../hardware/devices/octatrack.md#L140) octabam and octamax findings (2026-11-10) |
 | `0x40af0600` | [hw] [octatrack.md:140](../hardware/devices/octatrack.md#L140) octabam and octamax findings (2026-11-10) |
 | `0x460ba98c` | [hw] [octatrack.md:278](../hardware/devices/octatrack.md#L278) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
+| `0x460d101c` | [hw] [octatrack.md:328](../hardware/devices/octatrack.md#L328) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x460d10c8` | [emu] [octatrack.md:292](../hardware/devices/octatrack.md#L292) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x460d165c` | [emu] [octatrack.md:276](../hardware/devices/octatrack.md#L276) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x460d1660` | [emu] [octatrack.md:276](../hardware/devices/octatrack.md#L276) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
+| `0x460d168c` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x460d1694` | [emu] [octatrack.md:171](../hardware/devices/octatrack.md#L171) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
+| `0x460d16e4` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x460d17ae` | [emu] [octatrack.md:289](../hardware/devices/octatrack.md#L289) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x460d1a32` | [emu] [octatrack.md:293](../hardware/devices/octatrack.md#L293) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
+| `0x460d1c64` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x460d5de0` | [emu] [octatrack.md:276](../hardware/devices/octatrack.md#L276) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
+| `0x460e5e4c` | [emu] [octatrack.md:318](../hardware/devices/octatrack.md#L318) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
 | `0x460e7628` | [hw] [octatrack.md:278](../hardware/devices/octatrack.md#L278) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x460e76a0` | [emu] [octatrack.md:227](../hardware/devices/octatrack.md#L227) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x46100b18` | [emu] [octatrack.md:287](../hardware/devices/octatrack.md#L287) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x46107564` | [emu] [hw] [octatrack.md:272](../hardware/devices/octatrack.md#L272) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x4610757c` | [emu] [hw] [octatrack.md:272](../hardware/devices/octatrack.md#L272) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
+| `0x461078e8` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x461078ec` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x46107902` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x46107918` | [emu] [octatrack.md:270](../hardware/devices/octatrack.md#L270) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x46107959` | [emu] [octatrack.md:210](../hardware/devices/octatrack.md#L210) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
 | `0x46107969` | [emu] [octatrack.md:210](../hardware/devices/octatrack.md#L210) Findings 2026-11-14/15 (KYOTI RELOAD, octabam DLCOPY, Modwerk) |
@@ -1550,6 +1662,8 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x46c7d8ee` | [emu] [octatrack.md:276](../hardware/devices/octatrack.md#L276) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x46c7dd26` | [emu] [octatrack.md:276](../hardware/devices/octatrack.md#L276) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x46c7dede` | [emu] [octatrack.md:154](../hardware/devices/octatrack.md#L154) Modwerk and octabam findings (2026-11-12) |
+| `0x46c7e9fa` | [emu] [octatrack.md:318](../hardware/devices/octatrack.md#L318) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
+| `0x46c80354` | [emu] [octatrack.md:317](../hardware/devices/octatrack.md#L317) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
 | `0x46c8240e` | [?] [doc] [octatrack.md:254](../hardware/devices/octatrack.md#L254) TELOS and dspload-ot: boot order, card mount, run-time DSP code (OS 1.40C, 2026-11-14/16) |
 | `0x46c8243e` | [doc] [hw] [octatrack.md:274](../hardware/devices/octatrack.md#L274) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x46c8244e` | [?] [doc] [octatrack.md:254](../hardware/devices/octatrack.md#L254) TELOS and dspload-ot: boot order, card mount, run-time DSP code (OS 1.40C, 2026-11-14/16) |
@@ -1571,6 +1685,8 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x800018de` | [?] [hw] [octatrack.md:161](../hardware/devices/octatrack.md#L161) Modwerk and octabam findings (2026-11-12) |
 | `0x80003c60` | [hw] [octatrack.md:134](../hardware/devices/octatrack.md#L134) octabam and octamax findings (2026-11-10) |
 | `0x80004000` | [doc] [octatrack.md:102](../hardware/devices/octatrack.md#L102) From KYOTI (Zac-Kyoti/octatrack-kyoti-fw, OS 1.40C) |
+| `0x80004898` | [hw] [octatrack.md:330](../hardware/devices/octatrack.md#L330) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
+| `0x800049d8` | [emu] [octatrack.md:317](../hardware/devices/octatrack.md#L317) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
 | `0x800065b2` | [emu] [octatrack.md:270](../hardware/devices/octatrack.md#L270) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x800065b6` | [emu] [octatrack.md:270](../hardware/devices/octatrack.md#L270) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x800065b8` | [hw] [octatrack.md:222](../hardware/devices/octatrack.md#L222) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
@@ -1580,6 +1696,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x800065d3` | [emu] [hw] [octatrack.md:272](../hardware/devices/octatrack.md#L272) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x80006624` | [emu] [hw] [octatrack.md:272](../hardware/devices/octatrack.md#L272) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x8000663d` | [emu] [octatrack.md:271](../hardware/devices/octatrack.md#L271) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
+| `0x80006698` | [emu] [hw] [octatrack.md:326](../hardware/devices/octatrack.md#L326) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x800068fc` | [doc] [octatrack.md:253](../hardware/devices/octatrack.md#L253) TELOS and dspload-ot: boot order, card mount, run-time DSP code (OS 1.40C, 2026-11-14/16) |
 | `0x80006920` | [hw] [octatrack.md:234](../hardware/devices/octatrack.md#L234) Modwerk findings (2026-11-16/17) |
 | `0x80006964` | [hw] [octatrack.md:140](../hardware/devices/octatrack.md#L140) octabam and octamax findings (2026-11-10) |
@@ -1922,7 +2039,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x60000000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
 | `0x60042000` | [doc] [firmware-container.md:61](../hardware/common/firmware-container.md#L61) Section 8: one shared ARM firmware image (merged from dnfw, analog-emu, digikit, rytm-fw-re) |
 
-## Model:Cycles (93 addresses)
+## Model:Cycles (98 addresses)
 
 | Address | Facts |
 |---|---|
@@ -1998,14 +2115,19 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x40fe4c90` | [doc] [model-cycles-samples.md:90](../hardware/devices/model-cycles-samples.md#L90) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x40fe4c9c` | [doc] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
 | `0x40fe4cb4` | [doc] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x43000000` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[doc] [model-cycles-samples.md:46](../hardware/devices/model-cycles-samples.md#L46) Free space and payloads<br>[doc] [model-cycles-samples.md:93](../hardware/devices/model-cycles-samples.md#L93) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11)<br>[doc] [model-cycles-samples.md:129](../hardware/devices/model-cycles-samples.md#L129) MAXSAW, PUNCH and the output stage (model27 notes/84, Model:Cycles OS 1.13, 2026-11-16)<br>[doc] [model-cycles-samples.md:150](../hardware/devices/model-cycles-samples.md#L150) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[?] [doc] [model-cycles-samples.md:151](../hardware/devices/model-cycles-samples.md#L151) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
+| `0x43000000` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18)<br>[doc] [model-cycles-samples.md:46](../hardware/devices/model-cycles-samples.md#L46) Free space and payloads<br>[doc] [model-cycles-samples.md:93](../hardware/devices/model-cycles-samples.md#L93) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11)<br>[doc] [model-cycles-samples.md:129](../hardware/devices/model-cycles-samples.md#L129) MAXSAW, PUNCH and the output stage (model27 notes/84, Model:Cycles OS 1.13, 2026-11-16)<br>[doc] [model-cycles-samples.md:150](../hardware/devices/model-cycles-samples.md#L150) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[?] [doc] [model-cycles-samples.md:151](../hardware/devices/model-cycles-samples.md#L151) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
+| `0x43000d4e` | [doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18) |
 | `0x43004aea` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
 | `0x43009680` | [doc] [model-cycles-samples.md:93](../hardware/devices/model-cycles-samples.md#L93) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x43033000` | [doc] [model-cycles-samples.md:150](../hardware/devices/model-cycles-samples.md#L150) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
-| `0x43036000` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[doc] [model-cycles-samples.md:129](../hardware/devices/model-cycles-samples.md#L129) MAXSAW, PUNCH and the output stage (model27 notes/84, Model:Cycles OS 1.13, 2026-11-16)<br>[doc] [model-cycles-samples.md:150](../hardware/devices/model-cycles-samples.md#L150) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
-| `0x43042780` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
-| `0x43045520` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
+| `0x43036000` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18)<br>[doc] [model-cycles-samples.md:129](../hardware/devices/model-cycles-samples.md#L129) MAXSAW, PUNCH and the output stage (model27 notes/84, Model:Cycles OS 1.13, 2026-11-16)<br>[doc] [model-cycles-samples.md:150](../hardware/devices/model-cycles-samples.md#L150) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
+| `0x43036344` | [doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18) |
+| `0x430363e0` | [doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18) |
+| `0x43038170` | [doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18) |
+| `0x43042780` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18) |
+| `0x43045520` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18) |
 | `0x43176c58` | [doc] [model-cycles-samples.md:153](../hardware/devices/model-cycles-samples.md#L153) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
+| `0x43178a84` | [doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18) |
 | `0x43400000` | [doc] [model-cycles-samples.md:153](../hardware/devices/model-cycles-samples.md#L153) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
 | `0x43800000` | [doc] [model-cycles-samples.md:153](../hardware/devices/model-cycles-samples.md#L153) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
 | `0x46700000` | [doc] [model-cycles-samples.md:46](../hardware/devices/model-cycles-samples.md#L46) Free space and payloads |
@@ -2020,7 +2142,7 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x80010000` | [doc] [memory-maps.md:99](../hardware/common/memory-maps.md#L99) Details per device |
 | `0xfc07000c` | [doc] [model-cycles-samples.md:79](../hardware/devices/model-cycles-samples.md#L79) A load governor that works, and one that didn't (Supermodel notes 30 and 36, Model:Cycles OS 1.13) |
 
-## Model:Samples (88 addresses)
+## Model:Samples (93 addresses)
 
 | Address | Facts |
 |---|---|
@@ -2095,14 +2217,19 @@ Data checked 2026-11-18, research snapshot `5a0b3743189d`.
 | `0x40fe4c90` | [doc] [model-cycles-samples.md:90](../hardware/devices/model-cycles-samples.md#L90) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x40fe4c9c` | [doc] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
 | `0x40fe4cb4` | [doc] [model-cycles-samples.md:101](../hardware/devices/model-cycles-samples.md#L101) Pads, preview notes and the shared sine (model27 notes 60 and 66, MAIN OS 1.13, 2026-11-12) |
-| `0x43000000` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[doc] [model-cycles-samples.md:46](../hardware/devices/model-cycles-samples.md#L46) Free space and payloads<br>[doc] [model-cycles-samples.md:93](../hardware/devices/model-cycles-samples.md#L93) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11)<br>[doc] [model-cycles-samples.md:129](../hardware/devices/model-cycles-samples.md#L129) MAXSAW, PUNCH and the output stage (model27 notes/84, Model:Cycles OS 1.13, 2026-11-16)<br>[doc] [model-cycles-samples.md:150](../hardware/devices/model-cycles-samples.md#L150) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[?] [doc] [model-cycles-samples.md:151](../hardware/devices/model-cycles-samples.md#L151) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
+| `0x43000000` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18)<br>[doc] [model-cycles-samples.md:46](../hardware/devices/model-cycles-samples.md#L46) Free space and payloads<br>[doc] [model-cycles-samples.md:93](../hardware/devices/model-cycles-samples.md#L93) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11)<br>[doc] [model-cycles-samples.md:129](../hardware/devices/model-cycles-samples.md#L129) MAXSAW, PUNCH and the output stage (model27 notes/84, Model:Cycles OS 1.13, 2026-11-16)<br>[doc] [model-cycles-samples.md:150](../hardware/devices/model-cycles-samples.md#L150) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[?] [doc] [model-cycles-samples.md:151](../hardware/devices/model-cycles-samples.md#L151) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
+| `0x43000d4e` | [doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18) |
 | `0x43004aea` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
 | `0x43009680` | [doc] [model-cycles-samples.md:93](../hardware/devices/model-cycles-samples.md#L93) MIDI map, voice internals and SOLID (model27 notes 65, 71-73, OS 1.13, 2026-11-11) |
 | `0x43033000` | [doc] [model-cycles-samples.md:150](../hardware/devices/model-cycles-samples.md#L150) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
-| `0x43036000` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[doc] [model-cycles-samples.md:129](../hardware/devices/model-cycles-samples.md#L129) MAXSAW, PUNCH and the output stage (model27 notes/84, Model:Cycles OS 1.13, 2026-11-16)<br>[doc] [model-cycles-samples.md:150](../hardware/devices/model-cycles-samples.md#L150) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
-| `0x43042780` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
-| `0x43045520` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
+| `0x43036000` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18)<br>[doc] [model-cycles-samples.md:129](../hardware/devices/model-cycles-samples.md#L129) MAXSAW, PUNCH and the output stage (model27 notes/84, Model:Cycles OS 1.13, 2026-11-16)<br>[doc] [model-cycles-samples.md:150](../hardware/devices/model-cycles-samples.md#L150) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
+| `0x43036344` | [doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18) |
+| `0x430363e0` | [doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18) |
+| `0x43038170` | [doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18) |
+| `0x43042780` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18) |
+| `0x43045520` | [doc] [emu] [model-cycles-samples.md:154](../hardware/devices/model-cycles-samples.md#L154) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17)<br>[doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18) |
 | `0x43176c58` | [doc] [model-cycles-samples.md:153](../hardware/devices/model-cycles-samples.md#L153) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
+| `0x43178a84` | [doc] [emu] [model-cycles-samples.md:166](../hardware/devices/model-cycles-samples.md#L166) VOSIM, eight dispatcher slots, the popup's name limit (model27 notes/86, 63, 57, 37, Model:Cycles OS 1.13, 2026-11-18) |
 | `0x43400000` | [doc] [model-cycles-samples.md:153](../hardware/devices/model-cycles-samples.md#L153) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
 | `0x43800000` | [doc] [model-cycles-samples.md:153](../hardware/devices/model-cycles-samples.md#L153) TERRA, far tables and the payload's limits (model27 notes/85 and 57, Model:Cycles OS 1.13, 2026-11-17) |
 | `0x46700000` | [doc] [model-cycles-samples.md:46](../hardware/devices/model-cycles-samples.md#L46) Free space and payloads |

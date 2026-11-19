@@ -2,7 +2,7 @@
 
 # Analog Four / Analog Keys
 
-Data last verified: 2026-11-18
+Data last verified: 2026-11-19
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
@@ -19,7 +19,7 @@ Data last verified: 2026-11-18
 | **analoghealth** (Iced-Cream) | mod | - | Rytm MKII 1.74, A4 MKII 1.56 | v1.3 | 2026-11-01 | [repo](https://github.com/Iced-Cream/analoghealth) |
 | **Analog Four / Keys MK1 OS 1.56 mods** (hugz202) | mod | - | Analog Four / Analog Keys MK1, OS 1.56 only (not MKII) | - | 2026-10-28 | [repo](https://github.com/hugz202/AE-analog-four-mods) |
 | **RytmRandomizer** (buzzijose-hub) | tool | - | main @ 892aaff (2026-09-28); Analog Rytm MK2 and Analog Four MK2 | - | 2026-09-28 | [repo](https://github.com/buzzijose-hub/rytmrandomizer) |
-| **MCL (MegaCommand Live)** (Justin Mammarella) | tool | - | 5.02 (2026-06-26) | - | 2026-06-26 | [repo](https://github.com/jmamma/MCL) · [docs](https://jmamma.github.io/MCL/) · [releases](https://github.com/jmamma/MCL/releases) |
+| **MCL (MegaCommand Live)** (Justin Mammarella) | tool | - | 5.02 (2026-06-26) | 5.02 | 2026-06-26 | [repo](https://github.com/jmamma/MCL) · [docs](https://jmamma.github.io/MCL/) · [releases](https://github.com/jmamma/MCL/releases) |
 | **TurboMIDI (C++)** (DatanoiseTV) | library | repo unreachable | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 | **Analog Four sound SysEx cheatsheet** (kimasendorf) | research | - | - | - | 2020-12-01 | [repo](https://github.com/kimasendorf/elektron-analog-four-sound-sysex) |
 | **Chopshop** (Jesus Triana (bandersong)) | mod | - | 1.73 (Rytm), 1.56 (Keys); not 1.74 | - | - | [repo](https://github.com/bandersong/chopshop) · [homepage](https://chopshop-synth.pages.dev/) |
@@ -143,6 +143,6 @@ _Sources: state/NEW.md 2026-11-16, README (2026-11-16), README and mod.toml (202
 
 ### SoundLab-A4-DG
 
-Repo created 2026-11-17 with only a LICENSE file (checked 2026-11-18). The description calls it a sound-processing app for the Analog Four and Digitone, not tested on other Elektron machines. Found by GitHub search 2026-11-18.
+Repo created 2026-11-17 with only a LICENSE file (checked 2026-11-18 and 2026-11-19). The description calls it a sound-processing app for the Analog Four and Digitone, not tested on other Elektron machines. Found by GitHub search 2026-11-18.
 
 _Sources: GitHub search 2026-11-18_

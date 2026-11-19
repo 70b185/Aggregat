@@ -4,7 +4,7 @@
 
 Pairs of facts from different files under `hardware/` that overlap strongly in wording or cite the same addresses. Each is a candidate for keeping the fact in one file and linking to it from the other. Some pairs are intentional (a summary file pointing at a device file); some are two independent sources agreeing, which is worth keeping as a second confirmation. Pairs where one fact links to the other file count as consolidated and are left out. Score = shared content words / words of the shorter fact.
 
-62 candidate pairs at score >= 0.45 or with two shared addresses.
+63 candidate pairs at score >= 0.45 or with two shared addresses.
 
 | Score | Fact A | Fact B | Shared addresses |
 |---|---|---|---|
@@ -24,6 +24,7 @@ Pairs of facts from different files under `hardware/` that overlap strongly in w
 | 0.56 | `devices/analog-rytm.md:63` File (elekloader's profile, MKI OS 1.74): the Digitakt mk1's SysEx transport (device id `0x07`) around an ELE2 container: a `0x14`-byte header with the … | `common/firmware-container.md:6` The OS update is a `.syx` file: SysEx transport around a container of compressed sections. `[doc]` {elektron-firmware-tool} | - |
 | 0.56 | `devices/digitakt-2.md:221` NRPN numbers disagree between the OS 1.17 manual and midi.guide's data for track mute and level, pattern mute, master overdrive, filter env depth, filter … | `common/sysex-and-midi.md:197` Digitakt II Misc: Pattern Mute CC 110, NRPN 1:104; Sample Slot CC 19, NRPN 1:8; Sample Bank CC 24, NRPN 1:9; Master Overdrive CC 17, NRPN 2:37. | - |
 | 0.56 | `devices/digitakt-2.md:242` DTIM0's counter `DTCN0` at `0xfc07000c` runs at the 132 MHz bus clock, 88,000 ticks per 32-sample frame, and is already running before the main OS. digikit … | `common/memory-maps.md:112` Read-only container sections: digikit's device files declare MAIN = 3, DSP = 7, read-only 2, 4, 8 for both. `[doc]` | - |
+| 0.56 | `devices/digitakt-2.md:285` Filter type is a byte at sound + `0xa3`, right after the machine type byte. The accessor `0x400c89c6` takes types up to 5 and otherwise a fallback row; the … | `common/agent-workflow.md:18` Check any stock state you read on every variant (every machine and filter type). | - |
 | 0.56 | `devices/digitone-2-internals.md:8` The DDR clear runs `0x402fd000-0x466b84d0`. DMA buffers are reached only through the uncached alias (`0x4e6c0000-0x4e709340`). | `common/memory-maps.md:19` DDR is 128 MiB (DDRMC writes in the bootstrap; earlier 64 MiB claims are wrong): `0x40000000-0x47FFFFFF` cached (ACR0), `0x48000000-0x4FFFFFFF` an uncached … | - |
 | 0.56 | `devices/digitone-2-internals.md:215` Rules for a new OS version (dnfw): compare decoded content (`dnfw diff`), never compressed bytes; use `--strings` as a filter only; read the densest change … | `common/agent-workflow.md:18` Check any stock state you read on every variant (every machine and filter type). | - |
 | 0.54 | `devices/digitone-2.md:35` ColdFire main CPU (big-endian code, GCC-built, C++ RTTI names remain); SHARC+ audio DSP. `[doc]` {dn2-cfw} {dn2-firmware-explore} | `common/firmware-container.md:35` Digitone II: the `MAIN OS` section is 3,085,696 bytes of big-endian ColdFire code, built with GCC, still containing C++ RTTI names. `[doc]` … | - |

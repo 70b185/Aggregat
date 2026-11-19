@@ -166,6 +166,9 @@ The area where Model:Cycles mods place added machines; the Syntakt engine ports 
 | `0x43400000` | ? | model27 | CHORD Tables' RAM claim | 1.13 | `[doc]` {model27-1118} |
 | `0x43800000` | ? | model27 | SAMPLE's (Cycles One-Shot) sample pool | 1.13 | `[doc]` {model27-1118} |
 | `0x43036000` | `0x43036344` | model27 | MAXSAW variables when it is the only added machine (836 B, among them 92 B of state a track and a 128-byte shared buffer; end is our sum) | 1.13 | `[doc]` {model27-maxsaw} |
+| `0x43000000` | `0x43000d4e` | model27 | VOSIM code when it is the only added machine (3,406 B, release 0.75) | 1.13 | `[emu]` {model27-1119} |
+| `0x43036000` | `0x43038170` | model27 | VOSIM far table (8,224 B) and variables, 8,560 B, when it is the only added machine | 1.13 | `[emu]` {model27-1119} |
+| `0x43000000` | `0x43178a84` | model27 | the whole payload with every offered card and VOSIM (release 0.75; replaces the 0.72 end `0x43176c58`) | 1.13 | `[doc]` {model27-1119} |
 
 ## Octatrack DSP X memory (`octatrack`)
 

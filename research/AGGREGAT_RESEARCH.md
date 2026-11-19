@@ -22,7 +22,7 @@ results by hand, with credit to this project. Taking part is voluntary and can s
 
 | | |
 |---|---|
-| Aggregat state | research map reviewed 2026-11-03, snapshot `5a0b3743189d` |
+| Aggregat state | research map reviewed 2026-11-03, snapshot `83b79b763a13` |
 | Copied on | <date you copied it> |
 
 ## What we work on
@@ -49,7 +49,7 @@ emulator, `doc` = read in code or documents.
 
 ---
 
-# Copied state: Aggregat research, snapshot `5a0b3743189d` (research map reviewed 2026-11-03)
+# Copied state: Aggregat research, snapshot `83b79b763a13` (research map reviewed 2026-11-03)
 
 ## Goals (copied from Aggregat)
 
@@ -116,6 +116,7 @@ emulator, `doc` = read in code or documents.
 | H50 | G8 | A `.wav` saved by a stock Octatrack holds the file size, not size - 8, in its RIFF header (bytes 4-7). | Octatrack | Save any sample or recorder buffer on a unit; read bytes 4-7 as little endian and compare with the file size. |
 | H51 | G7 | With several .bin files at the CF card's top level, Octatrack OS UPGRADE picks one by a fixed rule (name order or file date), not the newest. | Octatrack | Put two copies of the stock 1.40C .bin with different names and dates on the card (both stock, so nothing changes), run OS UPGRADE and note which file it names or reads; swap names and repeat. |
 | H52 | G7 | On stock Rytm MKII 1.74, TRK SEND MIDI sends only a step's first message on time; later notes of the same step leave 5-30 ms late, more on p-locked steps. | Analog Rytm | Stock OS: TRK SEND MIDI on BD and SD, trigs on the same steps, one p-lock on BD; record DIN out on a computer MIDI monitor and compare each note's time to the step grid. |
+| H53 | G7 | On stock Digitone II 1.12, after NEW project the LFOs of a MIDI track send nothing until a note trig plays on that track; lock-only trigs do not start them. | Digitone II | Stock OS 1.12: NEW project, a MIDI track with LFO1 in FRE mode on a CC, no trigs; PLAY and watch a MIDI monitor. Then add a lock-only trig, then a note trig. Which one starts the CCs? |
 | H47 | G8 | On Syntakt OS 1.42 the top 4 MiB of DDR (`0x47c00000-0x48000000`) is rewritten every frame while delay and reverb are in use, so Modwerk's freed `0x47fe0000-0x48000000` is not free then. | Syntakt | Fill `0x47fe0000-0x48000000` and `0x478c0000-0x47bf0000` with a pattern after boot, play a pattern with heavy delay and reverb sends, load a sample-heavy project, then read back. Settles O35. |
 | H48 | G7 | Holding TRIG 16 at power-on on a Syntakt with stock OS 1.42 does nothing else than (at most) toggle step 16 of the first pattern; MAIN has no boot-time key reader. | Syntakt | Hold TRIG 16 while powering on a stock unit; check the boot and step 16. |
 | H6 | G8 | The DT2's SHARC DDR above the sample pool window (`0x9d22b9c8` up to `0xa0000000`, about 46 MB) is never written by stock, as the DN2's tail `0x80531000-0xa0000000` is not. | DT2 | dnfw's method: fill the range with a pattern at boot, then scan it during heavy playback, pattern and kit changes, FX extremes, sample loads and a save. Expect a reserved top part for Capicola builds only. |
@@ -177,3 +178,5 @@ emulator, `doc` = read in code or documents.
 | O34 | Syntakt OS container cap |
 | O35 | Top of Syntakt DDR (OS 1.42) |
 | O36 | Syntakt core clock |
+| O37 | Digitone II parameter row: MIDI fields at +0x18..+0x24 (OS 1.12) |
+| O38 | Octatrack DSP cycles per move (probe readings) |

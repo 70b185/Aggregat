@@ -274,3 +274,19 @@ dnfw's own mod allocations above BSS: LFO4 tick state `0x46700000` (12,288 B), b
 
 ## SYN page draw method (TERRAIN v63e, OS 1.12, 2026-11-16) {terrain-dn2-1117}
 - **The stock SYN pages draw through one vtable slot:** TERRAIN's page module (pagine 3.15.0) writes its own draw routine into the SYN page vtable at +8 (the module's comment gives `0x40018118` on OS 1.12 for that slot's draw; the write goes through the anchor `em.syn.vtable`, so check which of the two the address names), so its animated MOD GRAPHICS also run on the stock machines' SYN pages. `[doc]`
+
+## digikit findings 147-149 on DN2 1.12 (static, 2026-11-18) {digikit-1119}
+- **Play state:** u32 words `0x42c5b918` and `0x42c5b994` (0 stopped, 1 playing, 2 paused), ORed by the firmware's test at `0x400d86c0`. `[doc]`
+- **Filter type** byte at sound + `0xdf`; accessor `0x400c2614` (types up to 5, else a fallback row); the stock sound loader resets 6 or more to 0 (`0x400dd420`), which agrees with "unknown filter types load as Multi-Mode" above; CC/NRPN for the type is dropped. `[doc]`
+- **LFO:** tick `0x40137a06`, function table `0x4020b7f8`, second reader `0x401376bc`; two name formatters, one with 4-character and one with 3-character names (`0x4000766c`); the DN2 rotates voices across 16 slots, and the LFO state follows the voice slot `[emu]`; the final output is in the DSP transmit frame at `0x80005e60` + `0xda` + stride x slot. `[doc]`
+- **Machine rows:** the dispatch at `0x400c25f2` takes types up to 4 and falls back to type 4's row (`0x42433bd4`), not to type 0. Parameter range accessor `0x400dc154`; Brain pointer `0x44648900` (1.12), `0x44647900` (1.11). Project hooks (planned, not checked): setter `0x400bb7fa`, save `0x40040190`. `[doc]`
+
+## dn2mk2 v0.59-v0.61 and RIFT v0.8 (OS 1.11, 2026-11-18/19) {dn2mk2-v061} {dn2-rift-v08}
+- **KB SETUP can be recognised by its view:** it is up when the top of the screen's view list (screen + 28, the node's view at + 8) has KeyboardSetup's vtable `0x401D5650`; the view's name "KeyboardSetup" is at + `0x24`. Its H slot is empty in stock (a dotted box). `[doc]`
+- **A voice's NOTE word** is `note << 8 | fine`, the fine part in 1/256 semitone; dn2mk2 v0.61 retunes voices by adding an offset to it in the audio interrupt, after the frame is built, reading one of two snapshots that the UI flips, and never touches stock's scale tables (whose change crashed v0.58). MIDI tracks and MIDI out keep 12-TET; SLICE and GRID tracks are not retuned because their note picks the slice. `[doc]` (gated in the emulator, not yet reported from a unit)
+- **dn2mk2's +Drive map grows:** the per-project tuning record sits in its own sectors, two copies per project at `0x6E0400 + 2p + c` (region `0x6E0400-0x6E04FF`), between the per-project sample lists (to `0x6E02FF`) and the library extension at `0x6F0000`; ERASE MOD DATA does not clear it yet. `[doc]`
+- **A page lookup that skips a machine number** gave FM+ STAT the page of PAR, PAR that of DYN, and DYN a read past the table (v0.59 on units, I157); v0.60 finds each Monomachine machine's page by an explicit test. `[hw]`
+- **RIFT v0.8 RESONATOR** is machine type 22: 24 two-pole modes a voice, a mallet blended with a noise burst; it was gated in the emulators, its sound and DSP load on a unit are not tested. `[doc]`
+
+## MIDI LFO freeze and its fix (vitel2 digitone2-mods, OS 1.12, 2026-11-18) {dn2-mods-vitel2}
+- **After a new project, MIDI-track LFOs stop sending until a note trig plays on the track** (SB31); a tap on the track's trig key also restarts them, lock-only trigs do not. The fix patches the lane update `0x40137770` and the LFO send loop's destination check `0x4012a340`. Stock sends MIDI LFO CCs while the transport is stopped. `[doc]`

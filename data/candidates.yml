@@ -38,6 +38,32 @@ projects:
       Repo created 2026-11-16, no commits and no description yet (checked 2026-11-17). Only the name points at the
       Digitone II. Found by GitHub search 2026-11-17.
     sources: [GitHub search 2026-11-17]
+  - id: digiarcade
+    name: DigiArcade
+    author: ceredmeat
+    kind: mod
+    devices: [digitakt]
+    repo: https://github.com/ceredmeat/DigiArcade
+    status: unverified
+    notes: >
+      Repo created 2026-11-18 with no commits and no description (checked 2026-11-19). The author makes Digitakt MKI
+      elekloader mods (flexmods, ZIBENS, DIGIWAVE); the device is guessed from the name only. Found by find_new (new
+      repo of a catalogued author) 2026-11-19.
+    sources: [state/NEW.md 2026-11-19]
+  - id: dn2-pattern-commander
+    name: Digitone II Pattern Commander
+    author: Dissonant Witchcraft
+    kind: tool
+    devices: [digitone-2]
+    repo: null
+    links:
+      homepage: https://dissonantwitchcraft.com/tools/digitone-ii-pattern-commander
+    status: unverified
+    notes: >
+      A free, closed-source browser tool on a soundpack site: it loads Digitone II project files (.dn2prj or SysEx),
+      copies and moves patterns between slots and projects, and saves the result. No source repo, licence or version;
+      whether it talks to the unit over Web MIDI is not stated. Listed by altstrument 2026-11-18; not read by us.
+    sources: [altstrument (2026-11-18)]
 
   - id: octacloudz
     name: Octacloudz
@@ -59,21 +85,9 @@ projects:
     repo: https://github.com/Jickssa/SoundLab-A4-DG
     status: unverified
     notes: >
-      Repo created 2026-11-17 with only a LICENSE file (checked 2026-11-18). The description calls it a sound-processing
+      Repo created 2026-11-17 with only a LICENSE file (checked 2026-11-18 and 2026-11-19). The description calls it a sound-processing
       app for the Analog Four and Digitone, not tested on other Elektron machines. Found by GitHub search 2026-11-18.
     sources: [GitHub search 2026-11-18]
-
-  - id: sidecar-machines
-    name: Sidecar community machine registry
-    author: trigcondition
-    kind: resource
-    devices: [analog-rytm]
-    repo: https://github.com/trigcondition/sidecar-machines
-    status: unverified
-    notes: >
-      The registry of community user machines and effects for the Sidecar expander, from which Sidecar 0.5.1's web
-      catalog installs packages (named by sidecar-expander's docs and by LEDrum's README, 2026-11-18). Not read yet.
-    sources: [sidecar-expander docs (2026-11-18), LEDrum README]
 
   # ------------------------------------------------------------- Analog Heat
   - id: heatfx-multimode

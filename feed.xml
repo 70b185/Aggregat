@@ -4,9 +4,17 @@
   <link href="https://70b185.github.io/Aggregat/"/>
   <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
   <id>https://70b185.github.io/Aggregat/</id>
-  <updated>2026-11-18T00:00:00Z</updated>
+  <updated>2026-11-19T00:00:00Z</updated>
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>New in the catalogue: Digitone II mods (vitel2) (Mod, Digitone II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digitone2-mods-vitel2"/>
+    <id>https://70b185.github.io/Aggregat/#project-digitone2-mods-vitel2</id>
+    <updated>2026-11-19T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Four elekloader mods for the Digitone II, each its own .elemod, installed from the elekloader Mod Shop, which patches the user's own stock OS in the browser; all four can be combined and none needs another. MIDI LFO run fixes a stock 1.12 bug (SB31): after a new project, …</summary>
+  </entry>
   <entry>
     <title>New in the catalogue: Supermodel REDUX (Mod, Model:Cycles)</title>
     <link href="https://70b185.github.io/Aggregat/?p=supermodel-redux"/>
@@ -14,6 +22,14 @@
     <updated>2026-11-18T00:00:00Z</updated>
     <category term="project"/>
     <summary>A modular Model:Cycles firmware built locally by a Windows or macOS Workbench (in the releases) from the user's own OS 1.13 file: pick machines, shared effects and add-ons, build, then flash from the Workbench or Transfer; the unit checks the image before installing. The repo …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Sidecar community machine registry (Mod, Analog Rytm)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=sidecar-machines"/>
+    <id>https://70b185.github.io/Aggregat/#project-sidecar-machines</id>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>The registry of community user machines and effects for the Sidecar expander (.rmp packages built for the Pi 4, Pi 5 or Teensy), from which Sidecar's web catalogue installs them. Each package comes with a manifest (id, version, board, plugin API, SHA-256, licence) and a README; …</summary>
   </entry>
   <entry>
     <title>New in the catalogue: octalab (Research, Octatrack)</title>
@@ -444,21 +460,5 @@
     <updated>2026-11-10T00:00:00Z</updated>
     <category term="project"/>
     <summary>QEMU cut down to the Raspberry Pi 4B and the devices Sidecar's engine needs: boots the Sidecar engine image, answers over Ethernet, puts an Analog Rytm MKII stand-in on its USB-A side and gives its USB-C gadget a raw MIDI TCP port, so an OS upgrade or an elkbench run can go …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: Mono Chorus CLAP (Tool, Monomachine)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=mono-chorus-clap"/>
-    <id>https://70b185.github.io/Aggregat/#project-mono-chorus-clap</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>A small stereo CLAP chorus plug-in (macOS) after the Monomachine's FX-CHORS: a floating-point reconstruction with eight automatable parameters (DEL, DEP, SPD, MIX, FB, WID, LP, INP), one C file, no firmware and no emulator.</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: ModelDigi (Model D oscillators) (Mod, Digitakt)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=modeldigi"/>
-    <id>https://70b185.github.io/Aggregat/#project-modeldigi</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>A Minimoog Model D-style oscillator section for the Digitakt mk1: three oscillators with their ranges, waveforms, tuning and levels, oscillator 3 as a pitch modulator of the others, slight pitch drift and mixer saturation (a switch per sound turns them off). Waveforms and …</summary>
   </entry>
 </feed>

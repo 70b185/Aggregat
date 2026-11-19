@@ -304,3 +304,7 @@ ignore:
   - nerazin/mono-dynamix-clap   # a desktop CLAP effect for Bitwig modelled on the Monomachine dynamix machine; no device, firmware or mod (2026-11-18)
   - nerazin/mono-flanger-clap   # a desktop CLAP effect for Bitwig modelled on the Monomachine flanger machine; no device, firmware or mod (2026-11-18)
   - nerazin/mono-phaser-clap   # a desktop CLAP effect for Bitwig modelled on the Monomachine phaser machine; no device, firmware or mod (2026-11-18)
+  - nerazin/mono-swave-clap   # desktop CLAP instruments for Bitwig modelled on the Monomachine SWAVE machines; no device, firmware or mod (2026-11-19)
+  - nerazin/mono-fm-clap   # desktop CLAP instruments for Bitwig modelled on the Monomachine FM+ machines; no device, firmware or mod (2026-11-19)
+  - tronym57/groove-lab   # a browser page of genre drum patterns and practice samples to try before programming a Model:Cycles; it does not talk to the unit and changes no firmware (2026-11-19)
+  - AvroraPolnareff/elekloader   # fork of elekloader/elekloader with no commits of its own (0 ahead, 2026-11-19)

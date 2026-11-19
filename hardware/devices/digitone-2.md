@@ -156,5 +156,8 @@ Full list, shared with the DT2, in [digitakt-2.md](digitakt-2.md#card-concurrenc
 - **All 68 DSP anchors resolve to the same addresses on 1.11 and 1.12**, as expected from the identical section 7. New named ones: Q31 output converter `0x28393a7e` (its call `0x28393fa4`), FX entry `0x2838489a`, FX send `0x28383e3c`, link-port-0 open / submit / set-callback `0x28395ff6` / `0x2839554c` / `0x283956c0`, DSP boot wire-size site `0x28395024`, block tail `0x28393cbe`, cache-range function `0x283801b4`, cache-enable site `0x20017358`, voice render entry `0x20004a36`, shaper `0x2839b6ac`, voice engine base (DM) `0x241298`, send slot map / fade flags / slot bus / return bus (DM) `0x257898` / `0x2578b8` / `0x257ee8` / `0x25b868`, sidechain filter word `0x25ced8`, link-port-0 record `0x268ca8`. `[doc]`
 - **The DN2 voice-render hook has no free register:** digikit's slot stub there saves R0 (and R1 on voice 0) and must pin M13 and I12. On voice 0 with an empty slot the stub costs 50 instructions (heartbeat, twelve context words, block counter, slot test). `[emu]` {digikit-1118}
 
+## Modwerk: core-dn2 0.3 on a second unit (OS 1.12, 2026-11-18) {modwerk-1119}
+- **core-dn2 0.3 builds booted from Transfer over USB on a second Digitone II** (hello-marker and hooks-check); all six UI events and the subscriber order behaved as in the emulator, and a normal Transfer update put stock 1.12 back. The unit had run dn2mk2 (OS 1.11) before. Smallest depack gap seen: 2,156,549 B. `[hw]`
+
 ## Gaps
 `docs/flashing.md`, `docs/mainos-image.md`, `docs/parameter-table-growth.md`, dn2mk2 `docs/SAFETY.md`, and the skill's "hardware rules the emulators cannot check" are the next reads (see `../MINING.md`).

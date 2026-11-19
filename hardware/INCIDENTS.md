@@ -1209,6 +1209,36 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** A51
 - **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)
 
+### I154. A project load dropped installed effects from the next start's list (Modwerk Octatrack base up to 0.7.8)
+- **Unit:** Octatrack (MKII units in the shared diagnostics), OS 1.40C, Modwerk bases up to 0.7.8, reported 2026-11-18
+- **Seen:** at the next start Tape Echo, BBD Delay and Euclid were refused with NO ROOM FOR IT; the shared diagnostics of four units show it.
+- **Cause:** a project load replaced the base's effect map; a module that stayed on its handle was left unnamed, so the save dropped its line. Found from the diagnostics and reproduced in a host test.
+- **Fix:** base 0.7.9 names every module that stays on its handle and gives legacy projects the catalogue's handle.
+- **Status:** fixed in 0.7.9, not yet tried on a unit; may explain I129
+- **Evidence:** `[hw]` (diagnostics) / `[doc]` {modwerk-ot-1119}
+- **Rule:** C9
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I155. Arr Rows drew its selection wrong and pasted as an insert (Modwerk draft, Octatrack MKI)
+- **Unit:** Octatrack MKI, OS 1.40C, Arr Rows 0.1.0-experimental draft, 2026-11-17
+- **Seen:** selection marks were drawn on the wrong rows; paste acted as an insert; once, MIDI to external synths stopped during a many-row copy while playing.
+- **Cause:** the module read `0x460d16e8` as the first row shown (stock's is `0x460d1c64`), and judged CUE from its own key count, which a missed release left stuck. Found on the unit, diagnosed in the emulator. The MIDI stop is unexplained. An earlier build had marked the bank bit `0x100b14ce` instead of the arrangement bit `0x100b14d1`; the emulator caught that, the host test could not.
+- **Fix:** the stock row variable, and CUE state read from stock.
+- **Status:** two fixed; the MIDI stop open
+- **Evidence:** `[hw]` {modwerk-ot-1119}
+- **Rule:** A50
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I157. FM+ knobs moved the wrong parameters (dn2mk2 v0.59)
+- **Unit:** Digitone II, OS 1.11, dn2mk2 v0.59 FMPLUS, testers' units, 2026-11-18
+- **Seen:** on FM+ STAT, PAR and DYN the knobs moved other parameters and some read "unused"; the sound engine itself was fine.
+- **Cause:** the page lookup skipped over BOUNCE's machine number, so STAT got PAR's page, PAR got DYN's and DYN read past the table. Found from the testers' reports; the 57-step gate had no check for which knob reaches which parameter.
+- **Fix:** v0.60 finds each Monomachine machine's page by an explicit test; a new gate step `mnmpages` checks that each type's page record is its own.
+- **Status:** fixed in v0.60 (gated; unit report pending)
+- **Evidence:** `[hw]` {dn2mk2-v061}
+- **Rule:** A8
+- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md)
+
 ## E. Emulator or toolchain disagreed with the unit
 
 ### I36. The emulator undercounted DSP time by 2x to 12x
@@ -1431,6 +1461,16 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** C4 (re-run emulator checks made on an older pin, e.g. machinedrum-kit pins a gearmulator-md-mm commit, and test DSP code under the interpreter too)
 - **Fact:** [devices/machinedrum-monomachine.md](devices/machinedrum-monomachine.md)
 
+### I153. Live-recorded beats went into pattern A01: every emulator test had run on A01 (Drum Mode 0.8/0.8.1)
+- **Unit:** Digitone MKI, OS 1.44, Drum Mode 0.8 and 0.8.1 on elekloader, 2026-11-17/18
+- **Seen:** the pads, notes, pages and mutes worked, but beats recorded live on a Drum Mode track never played back; in the emulator they did.
+- **Cause:** the project holds one set of track edit objects per pattern (128 sets `0x38c` apart); 0.8 always wrote through A01's set, 0.8.1 through A01's or A02's, so on H02 the beats went into A01. Found with three debug builds that printed the playback path's view on the unit's screen, then by hooking the stock trig setter in digiemu on the same pattern.
+- **Fix:** 0.8.2 uses the active pattern's own set (checked by its data pointer, all 128 searched otherwise); a test now records on H02.
+- **Status:** fixed in 0.8.2 (confirmed on the unit 2026-11-18)
+- **Evidence:** `[hw]` {drum-mode-1119}
+- **Rule:** A79
+- **Fact:** [devices/digitone.md](devices/digitone.md)
+
 ## R. Recovery and transfer links
 
 ### I43. Recovery stalled at ~80 %: the MIDI link, not the image
@@ -1552,3 +1592,13 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` {modwerk-rytm-1118}
 - **Rule:** A23
 - **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)
+
+### I156. The first USB OS send to a Model:Samples stalls at 0-1 % (Modded-Cycles protocol flashers)
+- **Unit:** Model:Samples, OS update over USB with model27's flasher and other flashers of the same protocol, a tester's report, 2026-11-18
+- **Seen:** the first send stalls at 0-1 % with every such flasher; the second send always works.
+- **Cause:** unknown; the guess is that the first reply after the MIDI ports are reopened is lost (macOS/Chrome), or that the unit answers slowly on its first start.
+- **Fix:** model27 0.73 waits 2 s, reopens the ports, identifies the unit again and resends the whole file once (nothing is written before the user confirms on the unit).
+- **Status:** open; the retry passed a simulated-machine test only
+- **Evidence:** `[hw]` symptom, `[doc]` fix {model27-1119}
+- **Rule:** A11
+- **Fact:** [devices/model-cycles-samples.md](devices/model-cycles-samples.md)

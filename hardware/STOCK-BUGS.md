@@ -107,6 +107,17 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Status:** open, unconfirmed
 - **Evidence:** `[doc]` {digikit-f123-bulk}
 
+### SB31. MIDI-track LFOs freeze after a new project until a note trig plays
+- **Device and OS:** Digitone II, OS 1.12
+- **Area:** LFOs on MIDI tracks
+- **Symptom:** after creating a new project, the LFOs on a MIDI track send nothing until a note trig plays on that track (or its trig key is tapped); lock-only trigs do not start them, so a MIDI track used only for LFO modulation stays frozen.
+- **Trigger:** NEW project, MIDI track with an LFO in FRE or TRG mode and no note trigs.
+- **Cause:** not described; the fix patches the lane update `0x40137770` and the LFO send loop's destination check `0x4012a340`.
+- **Workaround:** tap the track's trig key, or place a note trig; fixed by vitel2's MIDI LFO run mod (which also stops the CCs while the transport is stopped).
+- **Found by:** vitel2/digitone2-mods (README)
+- **Status:** open in stock; unconfirmed by us (H53)
+- **Evidence:** `[doc]` {dn2-mods-vitel2}
+
 ## Digitone mk1
 
 ### SB6. The stock restart does not wait for the +Drive or drain the panel link
@@ -280,6 +291,39 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Found by:** octabam (docs/firmware/PARAM_PAGES.md, under the port 2026-11-05)
 - **Status:** unconfirmed on a unit; audible effect unknown
 - **Evidence:** `[emu]` {octabam-1118}
+
+### SB32. A timestretched voice retriggered within about 300 samples stays silent
+- **Device and OS:** Octatrack MKI, OS 1.40C
+- **Area:** timestretch, slices
+- **Symptom:** a voice with TSTR AUTO, NORM or BEAT that is retriggered within its first ~300 samples stalls silent (200 and 250 samples failed, 308 held); slices made by stock's CREATE SLICE GRID show it too.
+- **Trigger:** very short slices or fast retriggers with timestretch on.
+- **Cause:** timestretch needs about 300 samples of run-up (octabam's reading).
+- **Workaround:** keep slices and retrigger gaps above ~300 samples, or turn timestretch off for them; octabam's LAZY CHOP guards against it.
+- **Found by:** octabam (LAZY CHOP)
+- **Status:** stock behaviour (a limit more than a bug)
+- **Evidence:** `[hw]` (one MKI) {octabam-1119}
+
+### SB33. Deleting an arrangement row above a JUMP that targets it turns the JUMP into a HALT
+- **Device and OS:** Octatrack MKI, OS 1.40C
+- **Area:** arranger
+- **Symptom:** FUNC + UP (delete) on row D, with a JUMP on row D+1 that targets D, moves the JUMP into D, where it points at itself and plays as a HALT; no message.
+- **Trigger:** delete the row a JUMP below targets.
+- **Cause:** the delete routine `0x4009b168` shifts rows without fixing jump targets (matches the image reading).
+- **Workaround:** check JUMP targets after deleting rows.
+- **Found by:** Modwerk (Arr Rows research; reported to the Modwerk owner)
+- **Status:** stock behaviour, reproduced on the developer's MKI with no module
+- **Evidence:** `[hw]` {modwerk-ot-1119}
+
+### SB34. Inserting on a HALT row leaves an endless LOOP below it
+- **Device and OS:** Octatrack MKI, OS 1.40C
+- **Area:** arranger
+- **Symptom:** FUNC + DOWN (insert) on a HALT row keeps the HALT and leaves a `LOOP: n/∞` below it.
+- **Trigger:** insert on a HALT row.
+- **Cause:** not described.
+- **Workaround:** check the rows after an insert near a HALT.
+- **Found by:** Modwerk (Arr Rows research)
+- **Status:** stock behaviour
+- **Evidence:** `[hw]` / `[emu]` {modwerk-ot-1119}
 
 ## Analog Rytm
 

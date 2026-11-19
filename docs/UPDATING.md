@@ -20,6 +20,11 @@ Goal: find out **what changed** without reading every repo again. Most runs shou
 - **Stage 2** (only if HEAD moved): blobless depth-1 clone, `git ls-tree`, compare hashes -> lists added `+`, changed `~`, removed `-` watched files and new tags.
 - `--diff` additionally prints the text diff of exactly those files (old HEAD fetched blobless).
 - Directories (altstrument data folder, Lapin list) are watched the same way to **discover new projects**.
+- **Forum threads**: an entry with no GitHub `repo` but a `links.forum` thread on elektronmods.com (`PAGE_HOSTS` in the
+  script) is watched by one HTTP GET of the thread page. Its fingerprint is the post ids, the page count and the GitHub
+  links in the posts; a report line looks like `heatfx-multimode (page) ...: +post 310 +link github.com/x/y`. Online
+  users and view counts do not count. A new GitHub link is the signal to add `repo:` to the entry; from then on the
+  repo is watched instead of the thread.
 - A GitHub Action (`.github/workflows/check-updates.yml`, twice a day; GitHub starts it hours late) runs the check with `--report` and commits `state/CHANGES.md`. It does **not** move the baselines, so the report lists every change since the last update run read it, however many days ago; and lists repos not in the catalogue yet in `state/NEW.md` (see "Finding new projects").
 
 ## Agent procedure (token-cheap)
@@ -42,7 +47,8 @@ Goal: find out **what changed** without reading every repo again. Most runs shou
 - **`pinned_by`** is counted by searching every catalogued repo for each value; recount it now and then (the date goes into `pinned_checked`). A shallow clone of each repo and `rg -F -f <list of hashes>` is enough.
 
 ## What it cannot see
-Forum threads, vendor pages (elektron.se release notes), PDFs and non-git sites. Those stay on the manual list in `hardware/MINING.md`; check them occasionally, e.g. when a new OS appears in a repo's diff.
+Forum threads of entries that have a GitHub repo, forums other than elektronmods.com, vendor pages (elektron.se release
+notes), PDFs and non-git sites. Those stay on the manual list in `hardware/MINING.md`; check them occasionally, e.g. when a new OS appears in a repo's diff.
 
 ## Adding a repo
 Add the project to `data/projects.yml` with a `repo:` URL - it is watched automatically. For a narrower or wider watch list add an entry under `overrides` in `data/watch.yml`.

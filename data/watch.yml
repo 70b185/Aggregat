@@ -39,5 +39,6 @@ directories:
     watch:
       - "README.md"
 
-# Sources without git (forum pages, vendor pages) cannot be fingerprinted by this script.
-# Check them by hand occasionally; the list lives in hardware/MINING.md.
+# Sources without git cannot be fingerprinted by this script, with one exception: an entry without a GitHub repo whose
+# links.forum is an elektronmods.com thread is watched by its post ids (docs/UPDATING.md, "Forum threads").
+# Check the rest by hand occasionally; the list lives in hardware/MINING.md.

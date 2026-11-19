@@ -113,6 +113,7 @@ Read on 2026-10-31 unless noted. "README" means the repo's front page as rendere
 | elektroid-devices | dagargo/elektroid `res/elektron/devices.json` and `src/connectors/elektron.c` (product id per device, read from the Ping reply) | https://github.com/dagargo/elektroid/blob/master/res/elektron/devices.json |
 | elek-view | BlueSGL/Elek_View README and index.html, and its elektronmods.com thread 93 (2026-11-02) | https://github.com/BlueSGL/Elek_View |
 | em-dx2-scripts | elektronmods.com thread 25, project file extraction/compaction scripts by blueSGL (2026-10-01) | https://elektronmods.com/thread-25-elektron-project-file-extraction-compaction-scripts-tested-w |
+| elektronmods-heatfx-multimode | elektronmods.com thread 92, "Analog Heat FX+ MultiMode. Beta 0.1." by sapfir365karat (2026-11-02; read 2026-11-03, 2026-11-05, 2026-11-19) | https://elektronmods.com/thread-92-analog-heat-fx-multimode-beta-0-1 |
 | elekloader-agents | elekloader `AGENTS.md` (repo root) | https://github.com/elekloader/elekloader/blob/main/AGENTS.md |
 | elekloader-cores | elekloader `docs/CORES.md` | https://github.com/elekloader/elekloader/blob/main/docs/CORES.md |
 | elekloader-format | elekloader `docs/FORMAT.md` (knob ids, core-ar2 0.13; read 2026-11-10) | https://github.com/elekloader/elekloader/blob/main/docs/FORMAT.md |

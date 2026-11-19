@@ -7,6 +7,10 @@ Stage 2 (only when HEAD moved):
     blobless depth-1 clone -> `git ls-tree` -> blob hashes of watched paths -> added / changed / removed.
 Optional (--diff):
     fetch the old HEAD (blobless) and print `git diff` of the changed watched files only.
+Forum threads (entries without a GitHub repo but with links.forum on a host in PAGE_HOSTS):
+    one HTTP GET of the thread page -> post ids, page count and GitHub links in the posts. A new post, a new page or
+    a new GitHub link is reported like a changed file ("+post 123", "+link github.com/x/y"); nothing else on the
+    page (online users, view counts) counts. This is how forum-only projects (such as heatfx-multimode) get watched.
 
 State lives in state/fingerprints.json (compact, one entry per repo).
 The human/agent-readable result is written to state/CHANGES.md and printed.
@@ -16,7 +20,7 @@ Usage:
     python3 scripts/check_updates.py --update     # report and store the new fingerprints
     python3 scripts/check_updates.py --diff       # also print text diffs of changed watched files
     python3 scripts/check_updates.py --only overtone digikit
-Needs: git, PyYAML.  No GitHub API, no token.
+Needs: git, PyYAML.  No GitHub API, no token.  Forum threads need plain HTTPS to the forum.
 """
 from __future__ import annotations
 
@@ -30,6 +34,8 @@ import re
 import shutil
 import subprocess
 import tempfile
+import hashlib
+import urllib.request
 from pathlib import Path
 
 import yaml
@@ -38,6 +44,11 @@ ROOT = Path(__file__).resolve().parent.parent
 STATE = ROOT / "state" / "fingerprints.json"
 REPORT = ROOT / "state" / "CHANGES.md"
 GH = re.compile(r"^https://github\.com/([^/]+)/([^/#?]+?)(?:\.git)?/?$")
+# Forums whose thread pages we can fingerprint (MyBB: every post carries id="post_<n>").
+PAGE_HOSTS = ("elektronmods.com",)
+POST_ID = re.compile(r'id="post_(\d+)"')
+GH_LINK = re.compile(r"https?://(?:www\.)?github\.com/([A-Za-z0-9_.-]+)/([A-Za-z0-9_.-]+)")
+GH_NOT_REPO = {"orgs", "users", "settings", "login", "about", "features", "topics", "sponsors", "marketplace"}
 
 
 def git(*args, cwd=None, timeout=180):
@@ -59,6 +70,10 @@ def load_targets():
             continue
         for e in (yaml.safe_load(p.read_text(encoding="utf-8")) or {}).get("projects") or []:
             repo = (e.get("repo") or "").strip()
+            forum = str((e.get("links") or {}).get("forum") or "").strip()
+            if not GH.match(repo) and is_page(forum) and str(e.get("status", "")).lower() != "unreachable":
+                targets[e["id"]] = {"repo": forum, "watch": ["posts"], "kind": "page"}
+                continue
             # Repos we already know are gone (deleted or private) are not polled in full; one cheap
             # ls-remote per run tells whether they are back (reported as "back online"). Set their
             # status back to something else to watch them again.
@@ -71,6 +86,60 @@ def load_targets():
     for d in watch.get("directories") or []:
         targets[d["id"]] = {"repo": d["repo"], "watch": d["watch"], "kind": "directory"}
     return targets, gone
+
+
+def is_page(url):
+    """True for a forum thread URL we know how to fingerprint."""
+    m = re.match(r"^https://([^/]+)/thread-\d+", url or "")
+    return bool(m) and m.group(1).lower().removeprefix("www.") in PAGE_HOSTS
+
+
+def page_fingerprint(html, url):
+    """What counts on a MyBB thread page: its posts, how many pages it has, and GitHub links in it.
+
+    Returns a dict shaped like a watched-file listing, so the usual added/removed logic reports changes."""
+    posts = sorted(set(POST_ID.findall(html)), key=int)
+    if not posts:
+        raise RuntimeError("no posts found on the page (layout changed, or the thread is gone)")
+    tid = re.search(r"thread-(\d+)", url).group(1)
+    # pagination links to the same thread: thread-92-...html?page=3 or showthread.php?tid=92&page=3
+    pages = [int(n) for n in re.findall(rf"(?:thread-{tid}[^\"'\s]*?|tid={tid}[^\"'\s]*?)[?&](?:amp;)?page=(\d+)", html)]
+    files = {f"post {p}": "" for p in posts}
+    files[f"pages {max(pages + [1])}"] = ""
+    for owner, name in GH_LINK.findall(html):
+        if owner.lower() not in GH_NOT_REPO:
+            files[f"link github.com/{owner}/{name.removesuffix('.git')}".lower()] = ""
+    return files
+
+
+def fetch_page(url, timeout=30):
+    req = urllib.request.Request(url, headers={"User-Agent": "aggregat-check-updates (+https://github.com/70b185/Aggregat)"})
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return r.read().decode("utf-8", "replace")
+
+
+def check_page(tid, t, prev, fetch=fetch_page):
+    res = {"id": tid, "kind": "page", "repo": t["repo"], "tags": []}
+    try:
+        files = page_fingerprint(fetch(t["repo"]), t["repo"])
+    except Exception as e:  # network, blocked, layout changed: report, keep the old baseline
+        res["status"] = "error"
+        res["error"] = str(e)[:200]
+        return res
+    res["files"] = files
+    res["head"] = hashlib.sha1("\n".join(sorted(files)).encode()).hexdigest()[:12]
+    if not prev:
+        res["status"] = "new"
+        return res
+    if prev.get("head") == res["head"]:
+        res["status"] = "unchanged"
+        return res
+    old = prev.get("files", {})
+    res["added"] = sorted(set(files) - set(old))
+    res["removed"] = sorted(set(old) - set(files))
+    res["changed"], res["new_tags"] = [], []
+    res["status"] = "changed"
+    return res
 
 
 def is_back(repo):
@@ -113,6 +182,8 @@ def watched_files(repo, globs, old_head=None, want_diff=False):
 
 
 def check(tid, t, prev, want_diff):
+    if t["kind"] == "page":
+        return check_page(tid, t, prev)
     res = {"id": tid, "kind": t["kind"], "repo": t["repo"]}
     try:
         head, tags = remote_state(t["repo"])

@@ -40,6 +40,13 @@
     <summary>MIDI tracks 9-16 set to an audio track's channel, the FX control channel or the auto channel control that track or the master FX inside the unit (CCs, locks, notes, MIDI LFO as a third LFO); other channels still go out as usual. Switched in SETTINGS &gt; MIDI LOOPBACK. Also shows …</summary>
   </entry>
   <entry>
+    <title>Update 2026-11-20: 26 change reports folded, 4 repos added, 1 moved from candidates, 1 moved, 6 ignored, I158-I171, O39-O45, H54-H65, A80-A83</title>
+    <link href="https://github.com/70b185/Aggregat/commit/77ae8f501ee77c54f6dd443d99a83e940a7203ef"/>
+    <id>https://70b185.github.io/Aggregat/#commit-77ae8f501ee7</id>
+    <updated>2026-11-20T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>New in the catalogue: Digitone II mods (vitel2) (Mod, Digitone II)</title>
     <link href="https://70b185.github.io/Aggregat/?p=digitone2-mods-vitel2"/>
     <id>https://70b185.github.io/Aggregat/#project-digitone2-mods-vitel2</id>
@@ -454,13 +461,6 @@
     <title>Update 2026-11-11: ten change reports folded, I70-I72, SB19, H24</title>
     <link href="https://github.com/70b185/Aggregat/commit/3d970aa1495fd7bc87b9bcf41ae7ad2a9cb826b2"/>
     <id>https://70b185.github.io/Aggregat/#commit-3d970aa1495f</id>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Dev tooling: schema, validator, tests, PR checks, CONTRIBUTING, catalog/ rename, feed</title>
-    <link href="https://github.com/70b185/Aggregat/commit/2c4f02ace38618e4be81c4ee6081ea74ff1f4bbc"/>
-    <id>https://70b185.github.io/Aggregat/#commit-2c4f02ace386</id>
     <updated>2026-11-11T00:00:00Z</updated>
     <category term="update"/>
   </entry>

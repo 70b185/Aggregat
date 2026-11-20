@@ -127,6 +127,9 @@ trace and an emulator watch of every SD command.
 - **Live recording's three pattern writes** (liverec-check): a played note as a trig `0x400a954a`, note/velocity/length into the step's trig `0x400a6a08`, a live p-lock `0x400a690c`; core-a4mk2's `ev_live_rec` can take each. Project model: the kit object's data pointer is at model +`0x16c` +`0x10`; sidecar-a4 reads the kit index at `0x405f5ca4`. The current kit, track and pattern, `ev_kit` at a project load and `core_midi_try_send`'s refusal on an unconfigured port read as expected in the emulator. `[emu]` (OS 1.56, 2026-11-14)
 - **Restart:** `core_restart` waits for the +Drive store, the card, the panel link and the UART before it resets; the OS-upgrade restart fix at `0x4007db24` (SB23) is still unchecked on the A4. `[doc]`
 
+## Keeping unsaved project changes over a restart (core-a4mk2 0.10, MKII OS 1.56, 2026-11-19) {elekloader-1120}
+- **Working project to the +Drive:** stock's full repack job (`0x40096d90`) packs the working project's RAM image (`0x4045c870`) and the next +Drive copy is written through `0x40106f04`; the boot reads that copy back. core-a4mk2 0.10's `core_project_keep` does this so the +Drive loader's APPLY & RESTART keeps unsaved changes and mods' own fields. Unit run not stated. `[doc]`
+
 ## Open
 - Which analog quantity each calibration table trims (inferred from strings only).
 - TX slots 0-2, 6, 7 and RX 6/7 on the MKII.

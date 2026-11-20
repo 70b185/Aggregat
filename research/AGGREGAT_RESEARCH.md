@@ -22,7 +22,7 @@ results by hand, with credit to this project. Taking part is voluntary and can s
 
 | | |
 |---|---|
-| Aggregat state | research map reviewed 2026-11-03, snapshot `83b79b763a13` |
+| Aggregat state | research map reviewed 2026-11-03, snapshot `90e5890619e9` |
 | Copied on | <date you copied it> |
 
 ## What we work on
@@ -49,7 +49,7 @@ emulator, `doc` = read in code or documents.
 
 ---
 
-# Copied state: Aggregat research, snapshot `83b79b763a13` (research map reviewed 2026-11-03)
+# Copied state: Aggregat research, snapshot `90e5890619e9` (research map reviewed 2026-11-03)
 
 ## Goals (copied from Aggregat)
 
@@ -119,6 +119,14 @@ emulator, `doc` = read in code or documents.
 | H53 | G7 | On stock Digitone II 1.12, after NEW project the LFOs of a MIDI track send nothing until a note trig plays on that track; lock-only trigs do not start them. | Digitone II | Stock OS 1.12: NEW project, a MIDI track with LFO1 in FRE mode on a CC, no trigs; PLAY and watch a MIDI monitor. Then add a lock-only trig, then a note trig. Which one starts the CCs? |
 | H47 | G8 | On Syntakt OS 1.42 the top 4 MiB of DDR (`0x47c00000-0x48000000`) is rewritten every frame while delay and reverb are in use, so Modwerk's freed `0x47fe0000-0x48000000` is not free then. | Syntakt | Fill `0x47fe0000-0x48000000` and `0x478c0000-0x47bf0000` with a pattern after boot, play a pattern with heavy delay and reverb sends, load a sample-heavy project, then read back. Settles O35. |
 | H48 | G7 | Holding TRIG 16 at power-on on a Syntakt with stock OS 1.42 does nothing else than (at most) toggle step 16 of the first pattern; MAIN has no boot-time key reader. | Syntakt | Hold TRIG 16 while powering on a stock unit; check the boot and step 16. |
+| H54 | G7 | On a stock Digitakt II (OS 1.17), changing a track's filter type sends the same MIDI parameter as a machine change (`0xea`, the "Machine Type" row, or (`0xf`, type) in the other send mode), because the stock filter setter `0x40051886` is a copy of the machine setter `0x40051712` (O39). What a receiving unit does with it is unknown. | Digitakt II | Stock OS, MIDI out (CC/NRPN) to a computer MIDI monitor: change the filter type on the FLTR page, then the machine; compare the messages. Optionally send the captured message into a second unit and see what changes. |
+| H55 | G7 | A stock project rename on a Digitakt II or Digitone II keeps the save stamp (32-bit word at slot record +`0x18`), so a tool keyed on the stamp follows a renamed project. The rename callback (DT2 `0x400a1246`, DN2 `0x4009b3bc`) does not call the stamp builder directly; what its change notice triggers is not traced. | Digitakt II, Digitone II | Read the slot listing (with a tool that reads it) before and after a rename in PROJECT MANAGER; compare the stamp. |
+| H56 | G8 | Stock Model:Cycles OS 1.13 plays an LFO WAVE value past RND (a sound saved by the Techno Edition with its T3-T16 waves) as RND and does not crash. | Model:Cycles | Load such a sound on the official OS (back up first); check the LFO page and listen. |
+| H57 | G8 | On stock Model:Cycles OS 1.13, muting a track does not stop a note already sounding; only later trigs are held back (I162). | Model:Cycles | Play a long-decay note (CHORD or TONE), mute the track mid-note, listen. |
+| H58 | G8 | Stock Octatrack OS 1.40C reads a trig condition above 64 (octabam's TRIG MUTE stores condition + 65) as no condition: it plays the trig, shows ERR, and the bank still loads (no BANK UNAVAILABLE, cf. A60). | Octatrack | Load a project saved with a TRIG MUTE build on stock 1.40C (back up first): does the muted trig play, does its condition read ERR, does the bank load? |
+| H59 | G8 | A stock Octatrack power-up never parses `project.work`; it restores the project from battery RAM (I168). | Octatrack | With the unit off, edit the tempo in `project.work` on the card (keep a copy), power on: the old tempo should stay until LOAD PROJECT. |
+| H60 | G7 | A stock Syntakt (OS 1.42) keeps an unsaved trig edit across a power-off once its supercap is charged: the power-off handler writes the working state only when byte `0x43be3154` is set, which happens when PPDSDR_G bit 3 (supercap charged) reads high. | Syntakt | Leave the unit on for a few minutes, add a trig without saving, switch off and on: is the trig there? Repeat right after a cold start. |
+| H61 | G7 | Syntakt OS 1.42 has no parameter-lock row limit (unlike the Rytm's 72 rows a pattern): each track's lock store is a full 64-step x 71-id matrix and the set routine counts no rows. | Syntakt | Lock several SYN, FLTR and AMP parameters on every step of several tracks; look for any refusal. |
 | H6 | G8 | The DT2's SHARC DDR above the sample pool window (`0x9d22b9c8` up to `0xa0000000`, about 46 MB) is never written by stock, as the DN2's tail `0x80531000-0xa0000000` is not. | DT2 | dnfw's method: fill the range with a pattern at boot, then scan it during heavy playback, pattern and kit changes, FX extremes, sample loads and a save. Expect a reserved top part for Capicola builds only. |
 | H7 | G3 | The DT2's ColdFire runs the same FreeRTOS layout as the DN2: higher priority numbers run first, prio 0 never runs, prio 1 is the idle loop; the main task's stack is barely used. | DT2 | With the USB probe: find the ready table and the running-task pointer, sample them 60 times. |
 | H8 | G8 | The DN2's digikit flash cave `0x402fb7a8` (2,136 B on 1.11) keeps its bytes through a cold boot, as the DT2's `0x403117c4` does. | DN2 | A canary in the cave, read back after a cold boot and after playback. Combine with H9. |
@@ -127,6 +135,9 @@ emulator, `doc` = read in code or documents.
 | H11 | G8 | DN2 RAM `0x46700000-0x46701300` is written by stock only when a +Drive transfer is over 60,672 bytes (S17: project save and load reach it). | DN2 | A canary at `0x46700000`, read back after loading a large sample or project from +Drive. |
 | H12 | G3 | Direct hook writes may race reply publication on a DN2. Digikit measured 3,995 of 4,000 zero diagnostic words on a DT2; its own diagnostic clears overwrote the previous block's record in the DN2 emulator. Silicon DMA timing remains unmeasured. | DN2 | Compare a hook's direct counter writes with static-word publication at block tail, without clearing prior reply records; count arrivals on the ColdFire side. |
 | H28 | G4 | On a project load, `write_live_project` (DT2 `0x400df95a`) and `fx_array.load` (`0x400daf54`) run in the project-load task (stack `0x4039beac` + `0x4000`), not in the UI task (stack `0x4096775c` + `0x28000`); finding 135 shows reachability only. | DT2 (DN2 at its own addresses) | PC probe at those addresses logging A7 and SR while a project loads; A7 in the first range = project task. |
+| H62 | G2 | A stock Analog Rytm MKII (OS 1.74) spends CPU on silence until a power cycle: from a slot's first SYN trig the render calls that slot's machine every block whether it sounds or not (no idle test at `0x40121208`), and delay and reverb once used never decay to exact zero and run at full cost with every send at 0. STOP, a kit load or a project load do not clear it. | Analog Rytm | Read the render load with a probe at boot, after triggering all eight voices once, after one delay and reverb use, after STOP and after a kit reload. Does it stay up until a power cycle? |
+| H63 | G4 | The stock Digitone mk1 (OS 1.44) bank select swallows the release of the trig key used to pick a bank, as digiemu shows; Drum Mode 0.9.2 works around it with a 1.5 s timeout. | Digitone mk1 | With a key-event logger build, press BANK + trig 9 and release: does a release event arrive? If it does, it is a digiemu artefact. |
+| H64 | G8 | On a Syntakt (OS 1.42) nothing writes AUDIO RAM `0x4404ff50-0x47ff0000` in normal use, and the AUDIO stack stays well under 64 KiB (O43). | Syntakt | Run Synfact's HIGH MEM PROBE for several minutes with samplers, FM, POLY, ARP, chorus, the recorder and a project load and save; HIGH BAD must stay 0; read STACK PEAK. |
 | H13 | G3 | SIMD loads or stores into L2 byte space hang the DN2's DSP as they hang the DT2's (same core, same IMASK). | DN2 | A one-variable probe image with one SIMD L2 access behind a key press; recovery by power cycle. |
 | H14 | G3 | The SHARC's IIR0/FIR0 accelerators compute on the DT2 exactly as measured on the DN2 (output from stored word 5, FIR sums in pairs, INIDX/OUTIDX written the other way round). | DT2 | Port the accelprobe image to the DT2 and compare the 76 result words. |
 | H15 | G2, G3 | On the DN2, a single late DSP block is a one-block dropout that recovers, as on the DT2; the "silence until power cycle" reports came from sustained overload. | DN2 | Provoke single late blocks (a burn loop on a key press) and count them on the DSP side; then hold an overload for seconds. |
@@ -141,6 +152,7 @@ emulator, `doc` = read in code or documents.
 | H38 | G7 | The Digitone mk1 trig-key LED palette indices 2 dark, 3 red, 5 dim red, 20 white, 21 dim white (from digiemu's copy of the panel's colour table) give those colours on a unit. | Digitone mk1 | Set each index with the setter `0x40016e62` on a unit and compare with the stock trig and dim-white LEDs. |
 | H43 | G7 | The Drum Mode UI hang (Mod Menu opened with YES right after releasing the track key, after trig key 1 with Drum Mode off) is an emulator artefact and does not happen on a unit. | Digitone mk1 | Run the same key sequence on a unit with Drum Mode 0.8; check YES/NO/page keys in the Mod Menu. |
 | H39 | G7 | On a Digitone mk1 (OS 1.44), a mod page inserted right after MIDI page 20 (MIDI Source) breaks FUNC + push A (CHAN enable) on a unit too, as measured in digiemu. | Digitone mk1 | Build with the extra page after 20, try FUNC + push A on a MIDI track's SRC page. |
+| H65 | G8 | Binding a DSP module at about 95 % CPU stalls the Octatrack's DSP frame exchange: four field stalls on Modwerk bases before 0.7.9 had the manager binding, core 0's last packet a BIND, every earlier frame on time. | Octatrack | On base 0.7.9 or later, bind a module at about 95 % CPU and read the stall record; the emulator cannot show it (it never places DSP code). |
 
 ## Open conflicts between projects
 
@@ -180,3 +192,10 @@ emulator, `doc` = read in code or documents.
 | O36 | Syntakt core clock |
 | O37 | Digitone II parameter row: MIDI fields at +0x18..+0x24 (OS 1.12) |
 | O38 | Octatrack DSP cycles per move (probe readings) |
+| O39 | Digitakt II wire parameter `0xea` (OS 1.17) |
+| O40 | Syntakt 128 x 64 screen bitmap bit order (OS 1.42) |
+| O41 | Syntakt AUDIO (section 7) vector table |
+| O42 | Syntakt stock MAIN instructions per audio block |
+| O43 | Syntakt AUDIO stack reserve below `0x48000000` |
+| O44 | Octatrack codec set-up over SPI |
+| O45 | Has octabam's form of PAGE LOOP, TRIG MUTE and TRACK TRIG MODE run on an Octatrack? |

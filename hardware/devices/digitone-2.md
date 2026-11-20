@@ -158,6 +158,12 @@ Full list, shared with the DT2, in [digitakt-2.md](digitakt-2.md#card-concurrenc
 
 ## Modwerk: core-dn2 0.3 on a second unit (OS 1.12, 2026-11-18) {modwerk-1119}
 - **core-dn2 0.3 builds booted from Transfer over USB on a second Digitone II** (hello-marker and hooks-check); all six UI events and the subscriber order behaved as in the emulator, and a normal Transfer update put stock 1.12 back. The unit had run dn2mk2 (OS 1.11) before. Smallest depack gap seen: 2,156,549 B. `[hw]`
+- **A second linker reproduces elekloader's DN2 output (2026-11-19):** Modwerk's own linker links core-dn2 0.3 and 0.4, alone and with elekloader's examples, to the same main OS 1.12 image as elekloader, byte for byte; it takes the core's DSP bridge but refuses mods that bring DSP code. No unit run of these builds; no Modwerk base for the DN2 yet. `[doc]` {modwerk-1120}
+
+## elekloader core-dn2 0.5: what a loader on the unit needs (DN2 1.12, 2026-11-19) {elekloader-1120}
+- **Sites:** card bring-up status stored at `0x400cf0f2` (by the init task, `0x400cedfc`); project slot write entry `0x40040190`; project load entry `0x40042e6e`; crash printer installed as exception hook at `0x4011ee16`. The routines are the Digitakt II's code with other addresses; the SysEx router is the same byte for byte. `[doc]`
+- **No +Drive file system:** a mod reaches the card only by sector (`0x4012c87a` read, `0x4012ca60` write) from card-ready on. The OS has fourteen static tasks (saved SP at TCB+72); restart `0x40005608`, as on the Digitakt II. Drawing exports: fill `0x40114b22`, text `0x4011573c` (flags as fifth argument), font `0x44508ef8`, blit `0x40115adc`, invalidate `0x4011ca9a`. `[doc]`
+- **Checked:** with TELOS in digikit's ColdFire emulator (OS 1.12 card image), mods written over USB SysEx linked at the next boot, a mod that crashed the UI task was skipped on the next boot, and a project saved with a mod asked for it after the mod was switched off. Not yet on a unit. `[emu]`
 
 ## Gaps
 `docs/flashing.md`, `docs/mainos-image.md`, `docs/parameter-table-growth.md`, dn2mk2 `docs/SAFETY.md`, and the skill's "hardware rules the emulators cannot check" are the next reads (see `../MINING.md`).

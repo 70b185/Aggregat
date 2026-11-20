@@ -2,14 +2,14 @@
 
 # Monomachine
 
-Data last verified: 2026-11-19
+Data last verified: 2026-11-20
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **Gearmulator MD/MM** (Joe Landers) | emulator | - | mdmm-v0.1.0-alpha.16 (tag, 2026-11-19); alpha.15 (2026-11-18): Machinedrum inter-DSP link as block transfers (-31 % CPU), Record SysEx to File and export shortcuts, +Drive emulation per project, panel control from MIDI; Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-11-19 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
-| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.1 (2026-11-13): Monomachine factory reset from your own ROM; the host's Stop is a real stop on the MM, so LOAD SONG works after it; Knob 1-8 as host parameters; several ROM images in one folder; Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-14 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
+| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.1 (2026-11-13): Monomachine factory reset from your own ROM; the host's Stop is a real stop on the MM, so LOAD SONG works after it; Knob 1-8 as host parameters; several ROM images in one folder; Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-19 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
 | **OP-XY MNMD** (mmockett) | emulator | - | v1.3.6 (tag, 2026-11-13): MD KIT builds into one firmware with Hexagon's Moth; v1.3.5: the synths play at one loudness, MD KIT raises its quieter machines by up to 6 dB | v1.3.6 | 2026-11-13 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **Mono Chorus CLAP** (nerazin) | tool | - | 0.3.0 (2026-11-10) | - | 2026-11-10 | [repo](https://github.com/nerazin/mono-chorus-clap) |
 | **ems-monomachine-firmware** (June Kiff (emuyia)) | mod | - | 26B09-beta (2026-11-09): ARP p-locks, trig conditions to 8:8 plus PRE/NEI, microtiming, multi-trig edit, page transpose, BBOX sample manager (SDS and a compressed format shared with compatible Machinedrum firmware), DPRO>SBOX machine; 1.32B | 26910-release | 2026-11-09 | [repo](https://github.com/emuyia/ems-monomachine-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
@@ -27,9 +27,9 @@ Data last verified: 2026-11-19
 
 ### Gearmulator MD/MM
 
-Plug-in and standalone emulation of Machinedrum and Monomachine (Gearmulator fork) booting your own OS file. Licence: GPL-3.0-only; distribution: download. Listed by altstrument. Repo read 2026-11-18 (alpha.15 commit messages, mdblocklink.h): carries the Machinedrum OS 1.63 inter-DSP link at the DMA registers instead of clocking ESSI0 word by word; fixed two DSP56300 JIT bugs (cmpm, X/Y halves) that affected every earlier pin (I143).
+Plug-in and standalone emulation of Machinedrum and Monomachine (Gearmulator fork) booting your own OS file. Licence: GPL-3.0-only; distribution: download. Listed by altstrument. Repo read 2026-11-18 (alpha.15 commit messages, mdblocklink.h): carries the Machinedrum OS 1.63 inter-DSP link at the DMA registers instead of clocking ESSI0 word by word; fixed two DSP56300 JIT bugs (cmpm, X/Y halves) that affected every earlier pin (I143). 2026-11-20 (altstrument, alpha.16 of 2026-11-19): fixes silent UW samples after reloading a project with a +Drive, and a Machinedrum that stayed silent after Create Blank +Drive (it now reboots by itself after the format). Emulation CPU use drops from about 38 to 23 % of the real-time budget (Machinedrum) and 65 to 50 % (Monomachine) in the maintainer's check on Apple silicon.
 
-_Sources: altstrument (2026-11-01), commit messages alpha.14..alpha.15, source/elektron/md/mdLib/mdblocklink.h (2026-11-18)_
+_Sources: altstrument (2026-11-01), commit messages alpha.14..alpha.15, source/elektron/md/mdLib/mdblocklink.h (2026-11-18), altstrument alpha.16 notes (2026-11-20)_
 
 ### MDMM (Machinedrum and Monomachine Editors)
 

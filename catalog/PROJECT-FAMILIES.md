@@ -2,7 +2,7 @@
 
 # Project families
 
-Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-19. Edit the `relations:` field in `data/projects.yml`.
+Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-20. Edit the `relations:` field in `data/projects.yml`.
 
 | Relation | Meaning |
 |---|---|
@@ -175,7 +175,7 @@ Devices: Syntakt. [repo](https://github.com/Angelo-politek/Synthack-OS)
 
 Devices: Digitone (MKI) / Digitone Keys. [repo](https://github.com/aleks-karachevtsev/Digitone-MIDI-Arpeggiator)
 
-- **Digitone mods (Drum Mode)** (morriess) - builds on **DigiArp MIDI (DA27)** (digiarp-core5/README: rebuilds DigiArp 0.9-dev11 for core 5.3 with a two-name patch and builds it together with Drum Mode). [repo](https://github.com/morriess/Digitone-mods)
+- **Digitone Drum Mode** (morriess) - builds on **DigiArp MIDI (DA27)** (README: a DigiArp MIDI rebuild for core 5.3, in the fork morriess/Digitone-MIDI-Arpeggiator (branch core-5.3; until 2026-11-19 the digiarp-core5 folder), builds one firmware with Drum Mode). [repo](https://github.com/morriess/Digitone-Drum-Mode)
 
 ## DigiFilter (DigiAlchemydsp)
 
@@ -268,7 +268,7 @@ flowchart LR
     n_digitakt_midi_mcp["digitakt-midi-mcp<br/>not recorded"]:::none
     n_digitakt_reorder["digitakt-reorder<br/>MIT"]:::permissive
     n_directjump_digitakt["DIRECT JUMP (Digitakt)<br/>GPL"]:::copyleft
-    n_dt_fm["DT-FM<br/>MIT, part GPL-2.0-or-later"]:::copyleft
+    n_dt_fm["DT-FM<br/>MIT"]:::permissive
     n_dt2_capicola["dt2-capicola<br/>not recorded"]:::none
     n_dt2_machine_lab["dt2-machine-lab<br/>not stated"]:::none
     n_dtdump["dtdump<br/>not recorded"]:::none
@@ -286,8 +286,8 @@ flowchart LR
     n_digiseq_digitone["DIGISEQ (Digitone)<br/>GPL"]:::copyleft
     n_digisnake_digitone["DIGISNAKE (Digitone)<br/>GPL"]:::copyleft
     n_digisophie_dn["Digisophie-DN<br/>MIT"]:::permissive
+    n_digitone_drum_mode["Digitone Drum Mode<br/>GPL-2.0-or-later"]:::copyleft
     n_elektron_mods_rumorismo["Digitone MK1 Modding Project<br/>not recorded"]:::none
-    n_digitone_drum_mode["Digitone mods (Drum Mode)<br/>GPL-2.0-or-later"]:::copyleft
     n_directjump_digitone["DIRECT JUMP (Digitone)<br/>GPL"]:::copyleft
     n_dn2_dt2_firmware_research["DN2 DT2 firmware research<br/>AGPL-3.0-or-later"]:::copyleft
     n_dn2mk2["DN2 mk2 Mod (dn2mk2-firmware)<br/>AGPL-3.0-or-later"]:::copyleft
@@ -686,7 +686,7 @@ flowchart LR
   n_telos -- "builds on" --> n_elekloader
   %% evidence: README: part of elekloader; built as an elekloader mod with core-dn1 and its +Drive boot linker
   n_digitone_drum_mode -- "builds on" --> n_digiarp_midi
-  %% evidence: digiarp-core5/README: rebuilds DigiArp 0.9-dev11 for core 5.3 with a two-name patch and builds it together with Drum Mode
+  %% evidence: README: a DigiArp MIDI rebuild for core 5.3, in the fork morriess/Digitone-MIDI-Arpeggiator (branch core-5.3; until 2026-11-19 the digiarp-core5 folder), builds one firmware with Drum Mode
   classDef permissive fill:#d9f2e3,stroke:#2b7a4b,color:#10301e
   classDef copyleft fill:#dde7fb,stroke:#3460b0,color:#13254a
   classDef public-domain fill:#f9ecc8,stroke:#a07410,color:#3d2c05

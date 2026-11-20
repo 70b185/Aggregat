@@ -60,6 +60,7 @@ static map; it is where every platform below lives. Stock's DMA buffers sit just
 | `0x46ac0000` | `0x46af0000` | dn2mk2 | Waverider renderer C (span `0x30000` since v0.41) | 1.11 | `[doc]` {dn2mk2-ram} |
 | `0x46af0000` | `0x46af8000` | dn2mk2 | Machinedrum screen graphics (6.8 KB) | 1.11 | `[doc]` {dn2mk2-ram} |
 | `0x46b00000` | `0x47000000` | dn2mk2 | sampler: the ColdFire's 5 MB mirror of the sample pool, fed to the DSP | 1.11 | `[doc]` {dn2mk2-ram} |
+| `0x46b79000` | ? | dn2mk2 | v0.62 slice editor's FINE buffer (int16 frames read from the +Drive for the deepest zoom), "mirror + 0x79000, below META"; the absolute address assumes the mirror still starts at `0x46b00000`; size not stated | 1.11 | `[?]` {dn2mk2-1120} {dn2mk2-ram} |
 | `0x47000000` | ? | dn2mk2 | sampler machine tables (a `CODE` chunk: magic, length, data) | 1.11 | `[doc]` {dn2mk2-ram} |
 | `0x46800000` | ? | cfmod / cfkit | code (default link address) | 1.11 | `[doc]` {dn2-skill-scripts} |
 | `0x46a00000` | ? | cfmod / cfkit | stacks, rings and scratch | 1.11 | `[doc]` {dn2-skill-scripts} |
@@ -185,6 +186,7 @@ DSP56300 X-memory words, written `$xxxx` in the projects' notes.
 | `0x28f0` | `0x28f4` | elekloader (dspload-ot 0.2) | core 1's kept registers for the copier | 1.40C | `[emu]` {elekloader-1117} |
 | `0x2900` | `0x2db2` | elekloader (dspload-ot 0.2) | core 1's staging for run-time DSP code; doorbell `0xa55a` at `0x2900` (the same layout as octabam's DLCOPY, so the two cannot share a build) | 1.40C | `[emu]` {elekloader-1117} |
 | `0x33da3` | `0x34000` | elekloader (dspload-ot 0.2; TELOS card mods) | shared window (P/X/Y aliased): four slot pairs at `0x33da3`, code gap `P:0x33dab..0x33fff` (597 words); a reverb past its default knobs can reach it | 1.40C | `[emu]` {elekloader-1117} |
+| `0x7b04` | `0x7bfc` | KYOTI BLACKPYRAMIDS_303 (V1.8BC) | the 303 voice's X run 1, inside SPRING REV's five X records (both payloads); voice Y `$7a5..$feb`, SIDE-CHAIN Y `$7df0..$7fff` | 1.40C | `[doc]` {kyoti-1120} |
 
 ## Octatrack ColdFire DDR (`octatrack`)
 
@@ -195,6 +197,8 @@ MEMORY page does not show the loss.
 |---|---|---|---|---|---|
 | `0x40a955e0` | `0x40aa5de0` | KYOTI | KYOTI V1.8: RELOAD_FROM_PROJECT and DIRECT JUMP DRAM units, 11 arena pages (end is our sum) | 1.40C | `[doc]` {kyoti-1117} |
 | `0x40a955e0` | `0x41498de0` | KYOTI | KYOTI V1.8C and the CLYPS image: Clyps and DIRECT JUMP code (32,496 B) plus Clyps' buffers (every bank's originals, temp saves, Part shadow), 1,709 arena pages (end is our sum) | 1.40C | `[doc]` {kyoti-1117} {kyoti-clyps-scope} |
+| `0x40a955e0` | `0x414aade0` | KYOTI | KYOTI V1.8BC: DIRECT JUMP (4,012 B at `0x40a955e0`), the BLACKPYRAMIDS_303 runtime (46,268 B from `0x40a9658c`), then Clyps and its buffers, 1,721 arena pages (end is our sum) | 1.40C | `[doc]` {kyoti-1120} |
+| `0x40a955e0` | `0x40a96de0` | KYOTI | VARISPEED_EMUS VEM11 feature image: the guard's UI-task code and the bug fixes' DRAM pieces, one arena page (end is our sum) | 1.40C | `[doc]` {kyoti-1120} |
 
 ## Octatrack battery RAM (`octatrack`)
 
@@ -207,11 +211,20 @@ MEMORY page does not show the loss.
 | `0x100f9800` | `0x100fbf00` | Modwerk MIDI Scenes | current bank's packed MIDI scene locks (`SCS2`, 9,984 B) | 1.40C | `[hw]` {modwerk-ot-midiscenes} |
 | `0x100f8600` | `0x100fbdc0` | octabam PLOCKS P2 | current bank's page-2 locks (`P2NV`, 4,752 locks, 14,272 B; was to `0x100fbdf0` before 2026-11-17) | 1.40C | `[doc]` {octabam-1118} |
 | `0x100fbdc0` | `0x100fbdf0` | octabam PATTERN MUTE | current bank's PATTERN-layer mutes (`PMCS`, 48 B, since 2026-11-17) | 1.40C | `[doc]` {octabam-pmute-1118} |
+| `0x100f85e8` | `0x100f85f0` | octabam TRACK TRIG MODE | each audio track's trig mode (8 B, one per track) | 1.40C | `[hw]` {octabam-1120} |
+| `0x100f8598` | ? | stock | written 1 when stock's TRACK PASTE marks a Part edited (width not given) | 1.40C | `[emu]` {kyoti-1120} |
 | `0x100ffe00` | `0x100fff00` | octabam KITS | ASSIGN (256 B); stock references nothing in `0x100f859c..0x100fff00` per octabam | 1.40C | `[doc]` {octabam-1118} |
 | `0x100b14dd` | `0x100b14de` | octabam PATTERN MUTE | bit 0 = layer (mirror of `0x80000011`, unused by stock) | 1.40C | `[emu]` {octabam-pmute-1118} |
 | `0x100fbdf0` | `0x100ffe00` | octabam MIDI SCENES | power-cycle copy of the MIDI scene locks (16,400 B; per Modwerk's notes, under Modwerk's own records) | 1.40C | `[doc]` {modwerk-ot-midiscenes} |
 | `0x100fbf00` | ? | Modwerk Kits | Kits' pattern assignments (ASSIGN), moved from octabam's `0x100ffe00` | 1.40C | `[doc]` {modwerk-ot-kits} |
+| `0x10000000` | `0x100c0000` | AERIA OS (own OS, replaces stock) | 8 projects of `0x18000` bytes each; stock's battery data is overwritten while AERIA runs, so back it up before switching | AERIA 0.9.5 | `[doc]` {aeria-1120} |
+| `0x100c0000` | ? | AERIA OS | sequence | AERIA 0.9.5 | `[doc]` {aeria-1120} |
+| `0x100cc400` | ? | AERIA OS | MIDI tracks | AERIA 0.9.5 | `[doc]` {aeria-1120} |
+| `0x100e0000` | ? | AERIA OS | UI state and scenes | AERIA 0.9.5 | `[doc]` {aeria-1120} |
+| `0x100f9000` | ? | AERIA OS | bring-up logs | AERIA 0.9.5 | `[doc]` {aeria-1120} |
+| `0x100fba00` | ? | AERIA OS | loaded-sample list | AERIA 0.9.5 | `[doc]` {aeria-1120} |
 | `0x100ffd40` | ? | Modwerk base 0.7.3+ | machine map (each machine's module and name); covers octabam KITS' ASSIGN at `0x100ffe00` | 1.40C | `[doc]` {modwerk-1117} |
+| `0x100fc000` | ? | Modwerk base | diagnostic incident log (`diaglog`: start, base, set, `shed` and other incidents); size not published | 1.40C | `[emu]` {modwerk-1120} |
 
 ## Analog Four MKII DDR (`analog-four-keys`)
 
@@ -254,19 +267,31 @@ OS 1.42, from digikit's static reading (2026-11-18). The reset clears `0x4033a00
 | `0x46000000` | `0x46010000` | Synfact core-st | 64 KiB resident core; safe only with core 2.0.1, which stops stock building the blob above | 1.42 | `[hw]` {synfact-1118} |
 | `0x478c0000` | `0x47bf0000` | digikit | `cf.expansion`: runtime object (981,036 B used); emulator only, no canary run | 1.42 | `[emu]` {digikit-st-1118} |
 | `0x47bf0000` | `0x47bf1000` | digikit | keep area (crash records across a reset) | 1.42 | `[doc]` {digikit-st-1118} |
+| `0x478af2ca` | `0x47c00000` | (none) | no code operand points here; an emulator canary over `0x478b0000-0x47c00000` stayed unchanged (no samples loaded, no unit) | 1.42 | `[emu]` {trig-seedr-1120} |
+| `0x47a00000` | `0x47b00000` | trig-seedr | Syntakt build's mods' area (`ST_AREA` default): hook-bus core and seedr code and data; buffers (~163 KB) from the OS heap; inside digikit's `cf.expansion`; emulator only | 1.42 | `[emu]` {trig-seedr-1120} |
+| `0x478b0000` | `0x47c00000` | trig-seedr | `canary-st` test build: pattern over `0x478b0000-0x47bf0000`, its own code at `0x47bf0000-0x47c00000` (overlaps digikit's keep area); for a unit check, not yet run | 1.42 | `[emu]` {trig-seedr-1120} |
 | `0x47c00000` | `0x48000000` | stock | 4 MiB ring (through `0x4fc00000`), cleared at boot, written every frame | 1.42 | `[doc]` {digikit-st-1118} |
 | `0x47fe0000` | `0x48000000` | Modwerk | freed by lowering the stack 128 KB; overlaps the ring (O35) | 1.42 | `[hw]` {modwerk-st-goal} |
 | `0x40339730` | `0x4033a000` | digikit | loader in the flash cave after the init table (56 of 2,256 B) | 1.42 | `[emu]` {digikit-st-1118} |
 
 ## Syntakt voice CPU DDR (`syntakt`)
 
-The second ColdFire's own RAM (section 7), a separate address space from MAIN's.
+The second ColdFire's own RAM (section 7), a separate address space from MAIN's. The `0x8000....` rows are its
+internal SRAM. Section 7 is the same in 1.41 and 1.42. Synfact's full AUDIO map is `docs/AUDIO-MEMORY-MAP.md` {synfact-1120}.
 
 | start | end | user | use | OS | evidence |
 |---|---|---|---|---|---|
 | `0x4004f750` | `0x4404f750` | stock | sample pool (64 MB), filled at boot from MAIN's sender | 1.42 | `[doc]` {syncrackd-mm} {synfact-1118} |
-| `0x42100750` | `0x42101750` | Synfact core-st | service code and 128 PCM descriptors (inside the stock pool's span) | 1.42 | `[doc]` {synfact-1118} |
-| `0x42101750` | `0x4404f750` | Synfact core-st | HZFS long-sample PCM, about 31.30 MiB; the SMZ machine region ends below at `0x42100000` | 1.42 | `[doc]` {synfact-1118} |
+| `0x42100750` | `0x42101750` | Synfact core-st | service code and 128 PCM descriptors (inside the stock pool's span); core 2.0-2.1 only | 1.42 | `[doc]` {synfact-1118} |
+| `0x42101750` | `0x4404f750` | Synfact core-st | HZFS long-sample PCM, about 31.30 MiB; the SMZ machine region ends below at `0x42100000`; core 2.0-2.1 only | 1.42 | `[doc]` {synfact-1118} |
+| `0x40040860` | `0x40041050` | Synfact core-st | AUDIO services (zero bytes in the stock image) | 1.42 | `[doc]` {synfact-1120} |
+| `0x4204f750` | `0x4244f750` | Synfact core-st | SMZ4 bank's AUDIO section (machine and module code), up to 4 MiB from core 2.2 (sample-store pages `0x4000-0x47ff`; up to 723,120 bytes before) | 1.42 | `[doc]` {synfact-1120} |
+| `0x4404f750` | `0x4404ff50` | stock | AUDIO's own variables and the 64-entry sample table (page `0x8000` of the unbounded receiver; never send it) | 1.42 | `[doc]` {synfact-1120} |
+| `0x4404ff50` | `0x44050f50` | Synfact core-st | sample-pool service, channel table (+`0xb80`) and 128 PCM descriptors, core 2.2+ | 1.42 | `[doc]` {synfact-1120} |
+| `0x44050f50` | `0x47feff50` | Synfact core-st | HZFS long-sample PCM, 63.62 MiB, core 2.2+; nothing in the stock image names this zone (probe on a unit pending) | 1.42 | `[doc]` {synfact-1120} |
+| `0x47feff50` | `0x48000000` | stock | left to the AUDIO stack (SP `0x48000000`; at most 3,140 bytes by static count) | 1.42 | `[doc]` {synfact-1120} |
+| `0x8000e8a0` | `0x8000f398` | Synfact FM TONE | scratch in AUDIO's SRAM | 1.42 | `[doc]` {synfact-1120} |
+| `0x8000f398` | `0x80010000` | Synfact core-st | stereo tracks in AUDIO's SRAM (tail checked free on a unit with a probe, 2026-11-10) | 1.42 | `[hw]` {synfact-memprobe} {synfact-1120} |
 
 ## Syntakt MAIN SRAM (`syntakt`)
 

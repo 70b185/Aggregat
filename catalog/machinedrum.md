@@ -2,16 +2,16 @@
 
 # Machinedrum (incl. UW)
 
-Data last verified: 2026-11-19
+Data last verified: 2026-11-20
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
 | **Gearmulator MD/MM** (Joe Landers) | emulator | - | mdmm-v0.1.0-alpha.16 (tag, 2026-11-19); alpha.15 (2026-11-18): Machinedrum inter-DSP link as block transfers (-31 % CPU), Record SysEx to File and export shortcuts, +Drive emulation per project, panel control from MIDI; Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-11-19 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
-| **Machinedrum WebLoader (MDX user machines)** (gerdtanck) | tool | - | untagged (2026-11-16); Machinedrum running MDX X.20 | - | 2026-11-16 | [repo](https://github.com/gerdtanck/WebLoader) · [homepage](https://gerdtanck.github.io/WebLoader/) |
+| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.1 (2026-11-13): Monomachine factory reset from your own ROM; the host's Stop is a real stop on the MM, so LOAD SONG works after it; Knob 1-8 as host parameters; several ROM images in one folder; Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-19 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
+| **Machinedrum WebLoader (MDX user machines)** (gerdtanck) | tool | - | untagged (671b0b0, 2026-11-19); Machinedrum running MDX X.20 | - | 2026-11-19 | [repo](https://github.com/gerdtanck/WebLoader) · [homepage](https://gerdtanck.github.io/WebLoader/) |
 | **murdenihcam USR machines** (murdenihcam) | mod | - | main (2026-11-15): RAM-GR 0.5; MDX X.20 B | - | 2026-11-15 | [repo](https://github.com/murdenihcam/murdenihcam-usr-machines) |
-| **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.1 (2026-11-13): Monomachine factory reset from your own ROM; the host's Stop is a real stop on the MM, so LOAD SONG works after it; Knob 1-8 as host parameters; several ROM images in one folder; Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-14 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
 | **OP-XY MNMD** (mmockett) | emulator | - | v1.3.6 (tag, 2026-11-13): MD KIT builds into one firmware with Hexagon's Moth; v1.3.5: the synths play at one loudness, MD KIT raises its quieter machines by up to 6 dB | v1.3.6 | 2026-11-13 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **mds-harness (Machinedrum user machine harness)** (bento909) | tool | - | - | - | 2026-11-13 | [repo](https://github.com/bento909/mds-harness) |
 | **Machinemodule for MPC OS** (sd88me) | emulator | - | v1.0.5 (tag, 2026-11-12) | v1.0.5 | 2026-11-12 | [repo](https://github.com/sd88me/mpc-vst-machinedrum) · [move port](https://github.com/sd88me/schwung-machinemodule) · [monomodule mpc](https://github.com/sd88me/mpc-vst-monomodule) |
@@ -57,9 +57,9 @@ _Sources: altstrument (2026-11-01)_
 
 ### Gearmulator MD/MM
 
-Plug-in and standalone emulation of Machinedrum and Monomachine (Gearmulator fork) booting your own OS file. Licence: GPL-3.0-only; distribution: download. Listed by altstrument. Repo read 2026-11-18 (alpha.15 commit messages, mdblocklink.h): carries the Machinedrum OS 1.63 inter-DSP link at the DMA registers instead of clocking ESSI0 word by word; fixed two DSP56300 JIT bugs (cmpm, X/Y halves) that affected every earlier pin (I143).
+Plug-in and standalone emulation of Machinedrum and Monomachine (Gearmulator fork) booting your own OS file. Licence: GPL-3.0-only; distribution: download. Listed by altstrument. Repo read 2026-11-18 (alpha.15 commit messages, mdblocklink.h): carries the Machinedrum OS 1.63 inter-DSP link at the DMA registers instead of clocking ESSI0 word by word; fixed two DSP56300 JIT bugs (cmpm, X/Y halves) that affected every earlier pin (I143). 2026-11-20 (altstrument, alpha.16 of 2026-11-19): fixes silent UW samples after reloading a project with a +Drive, and a Machinedrum that stayed silent after Create Blank +Drive (it now reboots by itself after the format). Emulation CPU use drops from about 38 to 23 % of the real-time budget (Machinedrum) and 65 to 50 % (Monomachine) in the maintainer's check on Apple silicon.
 
-_Sources: altstrument (2026-11-01), commit messages alpha.14..alpha.15, source/elektron/md/mdLib/mdblocklink.h (2026-11-18)_
+_Sources: altstrument (2026-11-01), commit messages alpha.14..alpha.15, source/elektron/md/mdLib/mdblocklink.h (2026-11-18), altstrument alpha.16 notes (2026-11-20)_
 
 ### Kitbasher
 
@@ -229,11 +229,11 @@ _Sources: GitHub search 2026-11-07, README, README (2026-11-11)_
 
 ### Machinedrum WebLoader (MDX user machines)
 
-Mobile-first web page (German UI) that loads MDS user machines onto a Machinedrum running MDX X.20 over WebMIDI: a library of 71 machines with PNG descriptions (dbx, murdenihcam, waftlord folders, unchanged originals), a slot view and a load queue, plus a dry run without a device. Ships no firmware or ROM files; protocol sources are pinned in toolchain.lock.json. Found by GitHub search 2026-11-17.
+Mobile-first web page (German UI) that loads MDS user machines onto a Machinedrum running MDX X.20 over WebMIDI: a library of 71 machines with PNG descriptions (dbx, murdenihcam, waftlord folders, unchanged originals), a slot view and a load queue, plus a dry run without a device. Ships no firmware or ROM files; protocol sources are pinned in toolchain.lock.json. Found by GitHub search 2026-11-17. 2026-11-20 (README, CREDITS.md, machines/jmamma/README.md): interface now in English; the library has 126 machines, adding 55 X.20-C user machines by jmamma (byte-identical SysEx, description images generated from the release's README and package data). Slots U01-U16 only (an earlier U17 read timed out); the X.20 C profile reads NAK 12 detail 0 as an empty slot, a heuristic for that profile only. "Loaded" means the final commit ACK came back; there is no readback compare.
 
 _Related: mod for `mdx` (README: loads user machines on MDX X.20); bundles `murdenihcam-usr-machines` (CREDITS: 13 murdenihcam machines in the library) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-17, README (2026-11-17), CREDITS.md_
+_Sources: GitHub search 2026-11-17, README (2026-11-17), CREDITS.md, README, CREDITS.md, machines/jmamma/README.md (2026-11-20)_
 
 ### mds-harness (Machinedrum user machine harness)
 

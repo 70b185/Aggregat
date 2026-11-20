@@ -904,6 +904,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Seen:** REMOTE's command 3 booted a `.RMX` file through REMIX SWITCH's YES path; the unit reset, showed the boot screen and did not come back on USB within 150 s. A power cycle recovered it.
 - **Cause (unknown):** it was the first boot after flashing, after a project load, panel PLAY, MIDI START, two program changes, STOP and commands 1, 2 and 4. The next nine commanded boots all came back in 7-8 s, two of them after the same sequence.
 - **Fix:** none; seen once.
+- **Later (2026-11-20):** seen twice more on an MKII. On 2026-11-18 command 3 for `OCTABAM 05.RMX` from image N1 left the boot screen with no USB at 30 s and needed a power cycle, while the same file picked from BRAIN > REMIXES on the panel booted; later commanded boots between BUILD 05 images came back 4 of 4. On 2026-11-19 command 3 sent while BUILD 05's DSP frame count was stopped (I170) did not come back in 150 s; two earlier boots from a stalled DSP (after loader phases, I169) did. `[hw]` {octabam-1120}
 - **Status:** open.
 - **Evidence:** `[hw]` {octabam-1116}
 - **Rule:** A2, A40
@@ -1034,6 +1035,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Seen:** at six of seven starts the power-on restore loaded 11 modules and refused SC Ringmod for module memory; at the seventh it refused Tape Echo (no free handle). A sync from the site then added the missing module and all 12 ran.
 - **Cause (unknown):** a set the unit accepts at a sync does not always fit again at the restore; not reproduced.
 - **Fix:** none yet; Modwerk plans to restore that set in the emulator.
+- **Later (2026-11-20):** Modwerk found the same shape on another unit on base 0.7.8 (11 modules; SC Ringmod restored at two starts, refused for "module memory" at the next two, and a one-package sync refused the same way). There the cause was a DSP claim meeting a delay buffer: SC Ringmod 0.2.1 claims the key bus, and the base counts a module effect's whole FX2 block as a delay buffer; the refusals began when Air Chorus sat on T5 FX2. The module pool was far from full (161,344 of 786,432 bytes), so the refusal was right but its name was wrong. This unit's records do not line up with that, so I129 stays unconfirmed; the other candidate is the dropped effect line of I154. Base 0.7.10 is to give the case its own refusal code. `[hw]` (field log) / `[emu]` {modwerk-1120}
 - **Status:** open.
 - **Evidence:** `[hw]` (field records) {modwerk-ot-beta-1116}
 - **Rule:** C11
@@ -1044,6 +1046,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Seen:** with Tuner's window left open, the trial's automatic Undo at 45 s was refused; the host gave up after 3 s of retries (`needs-recovery`), the module stayed live and the window kept drawing.
 - **Cause (by design, from the base's refusal code):** base 0.7.5 refuses to remove, replace or undo a module while stock's window manager or input layer still names its memory (`RUNTIME_UI_OPEN`); the timed trial's rollback had no path for it.
 - **Fix:** after NO closed the window, `device -- recover` rolled the trial back; a second trial with the window closed rolled back at once. The site's handling of a trial that ends with a window open is not yet tested.
+- **Later (2026-11-20):** a Micro Timing 0.1.1-experimental trial on a RAM-booted development twin (OS 1.40C, 2026-11-19, about 180 s, no crash, stall or skipped track) ended with its automatic rollback refused (`needs-recovery`); the cause is not stated. The unit came back on the flashed base `c889442d` with the same 24 kept modules and no trace of the trial. On 2026-11-18 (flashed base `931a91bd`) removing the module was refused (loader refusal 11, `RUNTIME_UI_OPEN`) while TRACK TRIG EDIT's key layer was up, even after leaving the list for the grid; after a power cycle with the menus closed it went. `[hw]` {modwerk-1120}
 - **Status:** worked around; open for the site's sync dialog.
 - **Evidence:** `[hw]` {modwerk-1117}
 - **Rule:** A54, A2
@@ -1144,7 +1147,8 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Seen:** the lane strip in the screen corner sometimes vanished while browsing pages (e.g. LFO, then SYN1); not reproduced in digiemu, where the strip was there after every switch. Whether it returns by itself is not stated.
 - **Cause:** unknown; suspected stock repainting the whole page after the mod drew, while the mod redraws only on a change.
 - **Fix:** proposed: redraw whenever the shown page changes.
-- **Status:** open
+- **Later (2026-11-20):** probable cause found on the unit on pattern H02: after a pattern pick with BANK or PTN one of the firmware's permanent views stays on top of the main view stack. It draws nothing, but the mod asked for the top view and drew only while the parameter page was on top, so the DRUM pages were empty and the strip was gone. Drum Mode 0.8.3 walks the view stack past that view; the page-switch case is still to be checked on a unit. The lesson is then not "redraw on a page change" but "find your page in the view stack; do not assume it is the top view" (A79 again: H02, not A01). `[hw]` (symptom on H02) / `[emu]` (cause) {drum-mode-1120}
+- **Status:** fixed in 0.8.3 for the pattern-pick case; the page-switch case is open
 - **Evidence:** `[hw]` {drum-mode-1118}
 - **Rule:** C11 (a candidate general rule, if a second case appears: "a mod that draws over a stock page must redraw when the page changes, not only when its own content changes")
 - **Fact:** [devices/digitone.md](devices/digitone.md)
@@ -1238,6 +1242,146 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` {dn2mk2-v061}
 - **Rule:** A8
 - **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md)
+
+### I158. A mis-encoded DSP multiply put garbage on the Octatrack's headphones (AERIA OS)
+- **Unit:** Octatrack MKII, AERIA OS builds of 2026-11-13..15
+- **Seen:** the headphones carried garbage: far too loud, never negative, the same level whatever the volume; main was fine. Earlier (2026-11-13) the owner heard "stereo, then right only, then left only, then cut out".
+- **Cause (found by the author, read from the listing):** a multiply in the DSP engine had its operands in an order the assembler silently encodes as the signed-by-unsigned `mpysu`, so the sample was read as unsigned.
+- **Fix:** operands reordered (builds of 2026-11-15, tested and flashed on the unit); the build script now refuses a DSP listing with an `mpysu`-encoded multiply or with unassembled lines.
+- **Status:** fixed
+- **Evidence:** `[hw]` {aeria-1120}
+- **Rule:** A41
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I159. Headphones silent after flashing, though every RAM-boot bench test passed (AERIA OS)
+- **Unit:** Octatrack MKII, AERIA OS releases of 2026-11-15/16, flashed; reported 2026-11-17
+- **Seen:** no sound from the headphone output after flashing; main worked. The bench tests (RAM boot, 2026-11-15) had passed.
+- **Cause (likely, read from code; not confirmed on the unit):** at a cold start core 0 started the ESAI and lined its output rings up with the converter before core 1 set the shared PLL; the PLL lock then stalled it, and the eight output words could sit shifted in the converter's slots (a shift of two puts main on the main jacks and unused words on the headphones). A RAM boot runs with the PLL already locked, so no bench test could see it. Also found: AERIA's MKII headphone left and right were swapped against stock.
+- **Fix:** v0.9.5-beta (2026-11-19): the engine waits for a host flag raised 20 ms after core 1 and the PLL are set; the MKII phones order follows stock (right in word 4). Simulator-tested only; the simulator does not model the cold-start clock. The owner's check: cold power-on, sound on main and headphones; if still silent, listen on CUE (main there means the slots are still shifted).
+- **Status:** open (fix not yet run on the unit)
+- **Evidence:** `[hw]` (silence) / `[?]` (cause) {aeria-1120}
+- **Rule:** A40
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#aeria-os-repair-facts-mkii-v095-beta-2026-11-19-aeria-1120)
+
+### I160. A chord set just before a live note slid in from the old chord (model27 Chord Joy, Model:Cycles)
+- **Unit:** Model:Cycles, OS 1.13, model27 release 0.76 full build, 2026-11-19
+- **Seen:** some Chord Joy chords sounded broken: the note started on the chord held before and slid to the new one, worst on TRIG 6-8; also with keys played one after another. SHAPE turned by hand between trigs played cleanly.
+- **Cause (read in OS 1.13):** the set reaches the voice target at once, but the audio side smooths every target per block, and CHORD reads the smoothed word. The OS snaps the smoothing state only when a note brings another sound, not for a live note on the track's own sound. A second bug found while reading: a degree pressed while another was held released the wrong root.
+- **Fix:** after each SHAPE set, Chord Joy also writes the smoothing state of that parameter before the note's event; the sounding root is tracked. The fixed build passed on the unit the same day.
+- **Status:** fixed (confirmed on the unit 2026-11-19)
+- **Evidence:** `[hw]` {model27-1120}
+- **Rule:** A80
+- **Fact:** [devices/model-cycles-samples.md](devices/model-cycles-samples.md#chord-joy-the-keyboard-slot-parameter-writes-and-smoothing-model27-notes87-modelcycles-os-113-2026-11-19-model27-1120)
+
+### I161. Held chord notes were cut when a melody played over them (RIFT v0.10 and earlier, Digitone II)
+- **Unit:** Digitone II, OS 1.11, RIFT v0.10 or earlier, user report on Discord, 2026-11-19
+- **Seen:** on a busy FASCIA or SILT track a held chord lost notes when a melody played over it, or when one of its notes was struck again (voice mode REUSE).
+- **Cause (read from code, shown in the emulator):** the frame guard renders voices in ORDER and leaves out, then steals, those that no longer fit. ORDER was newest first (inherited from dn2mk2 v0.29), so new and re-struck notes took the DSP time ahead of held ones.
+- **Fix:** v0.11 marks a voice released at its note-off until its next note and orders all released voices after all held ones; an emulator test holds two notes under a melody with the clock squeezed to about three voices.
+- **Status:** fix gated in the emulators 2026-11-19, no unit result yet; the REUSE case did not reproduce at the emulator's CPU level. More held notes than the DSP can run still lose the oldest.
+- **Evidence:** `[?]` (user report; a unit is implied but not stated) / `[emu]` (fix) {dn2-rift-1120}
+- **Rule:** A44
+- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md)
+
+### I162. A drone kept sounding on a muted track (Modded Cycles Techno Edition ATMOS, before v1.9)
+- **Unit:** Model:Cycles, OS 1.13, Techno Edition v1.8 or earlier, user report, 2026-11-19
+- **Seen:** ATMOS with GATE on kept droning after its track was muted, even across a pattern change.
+- **Cause (from the project's notes):** the Cycles' mute only holds back the sequencer's trigs; the GATE drone plays without a trig.
+- **Fix:** v1.9 ends the drone on mute (FUNC + track or latched mute) and fades its reverb tail in about a second; unmute starts it again.
+- **Status:** fixed in v1.9 (emulation only, not yet played on a unit)
+- **Evidence:** `[?]` (user report; unit not stated) {mcte-1120}
+- **Rule:** A81
+- **Fact:** [devices/model-cycles-samples.md](devices/model-cycles-samples.md)
+
+### I163. An Octatrack froze while playing after the walk PROJ, DOWN, YES, YES (Modwerk base 0.7.9)
+- **Unit:** Octatrack (model not stated), Modwerk base 0.7.9 (`c889442d`), eight modules (E-Verb, BBD Delay, LOFI2, Recorder Loop, DirectJmp Kyoti, Deja Vu, Temp Save, Repitch), field diagnostics 2026-11-18/19
+- **Seen:** froze until a restart while playing at 58 % CPU; the last keys were PROJ, DOWN, YES, YES (four times), the last followed by PLAY. Earlier the same night it froze while stopped after the same walk. All eight modules came back at the next start.
+- **Cause:** unknown. Freezes while stopped after this walk were read earlier as OS upgrades or USB DISK MODE seen by the freeze watch, but this one was playing and kept its base.
+- **Fix:** none yet. Modwerk's test: on 0.7.9 with that set, play, repeat the walk and read the log.
+- **Status:** open
+- **Evidence:** `[hw]` (field record) {modwerk-1120}
+- **Rule:** A29
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I164. A 303 voice lost its last step, popped and played a blip at Part and pattern changes (KYOTI BLACKPYRAMIDS_303)
+- **Unit:** Octatrack MKI, OS 1.40C, octabam test images OCTABAM40-43 with KYOTI's blackpyramids-303 module, 2026-11-19
+- **Seen:** OCTABAM40: a quiet pop at a cued Part switch into a Part whose 303 track had no trig on step 1, and the outgoing pattern's last-step note never sounded. OCTABAM41: a note tied to the end of a pattern was cut at a change to a pattern starting with ties. OCTABAM42: the first note after a load or into another Part was a blip or cut short.
+- **Cause (shown in ot_emu after each report):** the voice asked the UI Part, which stock moves about 7 ticks before the switch, so the outgoing track changed a step early; a note's gate was worked out a step ahead from its own pattern only; and GATE was read from the live SETUP byte, which stock re-stages only at the track's trig (0 after a load).
+- **Fix:** read stock's per-track Part pair, re-time a tied note from the next pattern's first steps, and read GATE from the scheduled pattern's Part. OCTABAM43 passed all checks; the same code is in KYOTI V1.8BC FINAL (2026-11-19). All three bugs were in the earlier FINAL too.
+- **Status:** fixed (confirmed on the unit in the octabam form, not in V1.8BC itself)
+- **Evidence:** `[hw]` {kyoti-1120}
+- **Rule:** A82, A79
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#kyoti-v18bc-a-dsp-voice-per-core-part-changes-paste-paths-os-140c-2026-111719-kyoti-1120)
+
+### I165. A FLEX SRC page pasted onto a 303 track left a 303 with FLEX's numbers (KYOTI V1.8BC)
+- **Unit:** Octatrack MKI, OS 1.40C, KYOTI V1.8BC first test image, 2026-11-18
+- **Seen:** a FLEX track's SRC page pasted onto a 303 track left it a 303 with VOL 0 and the other FLEX values.
+- **Cause (read from code):** the 303 machine is stored as FLEX in the machine bytes plus a signature in NEIGHBOR's bytes; a page paste writes one machine's twelve bytes and the machine byte, never the signature.
+- **Fix:** hooks at the page copy core, the page paste and the page UNDO set the machine before stock writes. The rebuilt image behaved as intended on the unit, 2026-11-19.
+- **Status:** fixed
+- **Evidence:** `[hw]` {kyoti-1120}
+- **Rule:** A77
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#kyoti-v18bc-a-dsp-voice-per-core-part-changes-paste-paths-os-140c-2026-111719-kyoti-1120)
+
+### I166. The sequencer stayed on step 1 after a 303 track was pasted into another Part's pattern (KYOTI V1.8BC, seen once)
+- **Unit:** Octatrack MKI, OS 1.40C, KYOTI V1.8BC test image, 2026-11-18/19
+- **Seen:** while setting up a test by TRACK COPY of a 303 track and TRACK PASTE onto T2 or T5 of a pattern on another Part, PLAY left step 1 lit and the sequencer did not advance.
+- **Cause:** unknown; the author could not repeat it, and an ot_emu replay of the steps ran normally in every variant.
+- **Fix:** none; if it comes back, record the steps and build a diagnostic image.
+- **Status:** open (seen once)
+- **Evidence:** `[hw]` {kyoti-1120}
+- **Rule:** A29
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I167. Holding a step again deleted its trig (octabam LOCK EDIT)
+- **Unit:** Octatrack MKI, OS 1.40C, a contributor's LOCK EDIT build, 2026-11-17
+- **Seen:** with the audio editor opened by [TRIG] + [BANK], holding the same step again and releasing it removed the step's trig while the editor stayed open.
+- **Cause (shown in the port's probe):** LOCK EDIT's hold hook kept the lock popup closed but returned before stock's hold handler cleared the key's hold bit; the release toggles the trig while that bit is set.
+- **Fix:** the hook clears the bit itself and still keeps the popup closed; a gate holds again for 400 ms and checks that the step survives.
+- **Status:** fixed (port gate; a unit re-run is not stated)
+- **Evidence:** `[hw]` (symptom) / `[emu]` (cause) {octabam-1120}
+- **Rule:** A50
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#octabam-sequencer-and-editor-modules-mkii-tooling-os-140c-2026-111720-octabam-1120)
+
+### I168. Per-track trig modes were saved but gone after a power cycle (TRACK TRIG MODE)
+- **Unit:** Octatrack MKI, OS 1.40C, test images ACCLOOP14 and ACCLOOP16 (Hteah's TRACK TRIG MODE), 2026-10-27/28
+- **Seen:** ACCLOOP14: the modes survived SAVE but were gone after a power cycle. ACCLOOP16: leaving QUICK MUTE with FUNC + UP/DOWN wrote the mode it passed over onto the track (T1's SLICES became CHROMATIC).
+- **Cause (read from code, shown in the emulator):** a power-up restores the project from battery RAM and never parses `project.work`, and the mode table was in DRAM. The QUICK MUTE exit treated the passing mode as a pick.
+- **Fix:** the table moved to 8 bytes of battery RAM; a step out of TRACKS, QUICK MUTE or DELAY CONTROL never overwrites a track's mode. ACCLOOP15 passed switching, save, reload and a power cycle on the MKI.
+- **Status:** fixed
+- **Evidence:** `[hw]` {octabam-1120}
+- **Rule:** A40
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#octabam-sequencer-and-editor-modules-mkii-tooling-os-140c-2026-111720-octabam-1120)
+
+### I169. A project reload after a demand-loader phase left the DSP frame count stopped (octabam BUILD 05)
+- **Unit:** Octatrack MKII, OS 1.40C, `octabam` and `octabam-verbs` BUILD 05 (`5b991c85`), 2026-11-18/19
+- **Seen:** a project reload over USB (DISK MODE, copy, then the reload command) right after a scripted demand-loader phase left the DSP's frame count fixed, still so after 90 s and after 20 minutes; the ColdFire frame interrupt ran on and USB answered. Seen three times; never after a reload straight after boot, nor after the FX phases.
+- **Cause:** unknown.
+- **Fix:** none; workaround: boot the image again (REMOTE command 3) after each loader phase, which restarted the count without a power cycle.
+- **Status:** open
+- **Evidence:** `[hw]` {octabam-1120}
+- **Rule:** A51 (related: I57, H22)
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I170. DARK REV picked on all eight tracks while MODULATION was loaded stopped the DSP (octabam BUILD 05)
+- **Unit:** Octatrack MKII, OS 1.40C, `octabam` BUILD 05 (`5b991c85`), seeded fuzz soak (seed 3401), 2026-11-19/20
+- **Seen:** the DSP frame count stopped 1,612 s into the run, at a START after a program change; panel, USB and the ColdFire frame interrupt went on. A commanded boot did not bring it back (boot screen, I110); a power cycle did. A 573 s replay stalled 2 of 2 times at the same START; with the last program change set to MODULATION, PLATE or SPRING REV instead of DARK REV it did not (one run each). Three diagnostic builds still stalled; in all, 6 of 9 runs stalled. ot_emu did not stall.
+- **Cause (narrowed, not found):** it needs MODULATION loaded by the demand loader and live on FX2 when DARK REV, whose buffer reaches the demand effect's code, is picked on every track and START follows. An earlier overwrite of the frame guard's cells is not the cause.
+- **Fix:** none
+- **Status:** open
+- **Evidence:** `[hw]` {octabam-1120}
+- **Rule:** A56, A51 (related: I57, I110)
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I171. A third LFO page showed ERR labels when the bank held only modules (Synfact core 2.1.1, Syntakt)
+- **Unit:** Syntakt, OS 1.42, Synfact core 2.1.1 with a bank of LFO3 only (one module, no machine), 2026-11-19
+- **Seen:** the third LFO page appeared, but its parameters showed ERR labels, no ranges and no editor data.
+- **Cause (read from code, reproduced in a host test):** the machine binder returned early for a bank with no machines and never set the registry active. The LFO3 page hooks still ran, but every provider lookup was skipped while the registry was inactive, so LFO3's ids fell through to stock's fallbacks. Every earlier test had at least one machine in the bank.
+- **Fix:** core 2.1.2 drops the early return; an empty registry gets valid storage before it becomes active. A host regression and a Unicorn test with two module-only banks cover it, with the old core as a negative control.
+- **Status:** fixed in 2.1.2 (the owner ran the old and the new core with the LFO3-only bank and confirmed the fix on the unit, 2026-11-19)
+- **Evidence:** `[hw]` {synfact-1120}
+- **Rule:** A83
+- **Fact:** [devices/syntakt.md](devices/syntakt.md)
 
 ## E. Emulator or toolchain disagreed with the unit
 

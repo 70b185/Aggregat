@@ -70,6 +70,7 @@ Distribution is uniform: every mod is an elekloader mod patching the user's own 
 ## Facts about specific mods (for compatibility)
 - Digitakt II is explicitly out of scope for the mk1 mods (e.g. DigiFilter). {digifilter}
 - digihealth's FAST AUDIO gives a lower DSP load with the same audio (elekloader v0.2.0 notes; checked alone in digikit's emulator with cold boot). {elekloader-readme}
+- DT-FM 1.2.x: four DT-FM tracks playing together took about 95% CPU without FAST AUDIO and about 85% with it; the author treats FAST AUDIO as needed for multi-track use and claims no eight-track use. `[hw]` {dtfm-1120}
 - Test state varies per build: see the project pages; several are emulator-only.
 
 ## elekloader core 4.1-4.3 and compatibility (2026-11-10) {elekloader-core-dt1}

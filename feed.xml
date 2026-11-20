@@ -4,9 +4,41 @@
   <link href="https://70b185.github.io/Aggregat/"/>
   <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
   <id>https://70b185.github.io/Aggregat/</id>
-  <updated>2026-11-19T00:00:00Z</updated>
+  <updated>2026-11-20T00:00:00Z</updated>
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>New in the catalogue: TRANSPOSE (Digitakt mk1) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=transpose-dt"/>
+    <id>https://70b185.github.io/Aggregat/#project-transpose-dt</id>
+    <updated>2026-11-20T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Holding TRK + NO opens an overlay that transposes the active track live (RANGE in octaves, OFFSET -48..+48 semitones, picked with the trig keys or knob H); YES writes the offset into the main note lock of every trig step. Only COMMIT survives power-off. Stock tracks only. …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: T9-KeyScale (Digitakt mk1) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=t9-keyscale"/>
+    <id>https://70b185.github.io/Aggregat/#project-t9-keyscale</id>
+    <updated>2026-11-20T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Track 9 (the first MIDI track) becomes a key track: its note trigs transpose chosen audio and MIDI tracks by their distance from C5 until its next note, and a free 12-note remap table bends notes into a scale. Both are switched per track. FUNC + TRIG opens it and alternates …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: NO INPUT (Digitakt mk1) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=noinput-dt"/>
+    <id>https://70b185.github.io/Aggregat/#project-noinput-dt</id>
+    <updated>2026-11-20T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>An SRC machine that makes each track a no-input mixer channel: a feedback loop of a short delay (up to about 21 ms), a tone control, a clipper and a noise seed, fed from another track, all tracks or the audio inputs; the trig opens the AMP envelope. The loop output is limited …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: MIDI Loopback (Digitakt mk1) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=midi-loopback-dt"/>
+    <id>https://70b185.github.io/Aggregat/#project-midi-loopback-dt</id>
+    <updated>2026-11-20T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>MIDI tracks 9-16 set to an audio track's channel, the FX control channel or the auto channel control that track or the master FX inside the unit (CCs, locks, notes, MIDI LFO as a third LFO); other channels still go out as usual. Switched in SETTINGS &gt; MIDI LOOPBACK. Also shows …</summary>
+  </entry>
   <entry>
     <title>New in the catalogue: Digitone II mods (vitel2) (Mod, Digitone II)</title>
     <link href="https://70b185.github.io/Aggregat/?p=digitone2-mods-vitel2"/>
@@ -29,6 +61,14 @@
     <updated>2026-11-18T00:00:00Z</updated>
     <category term="project"/>
     <summary>A modular Model:Cycles firmware built locally by a Windows or macOS Workbench (in the releases) from the user's own OS 1.13 file: pick machines, shared effects and add-ons, build, then flash from the Workbench or Transfer; the unit checks the image before installing. The repo …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Elektron SoundLab (Analog Four and Digitone) (Tool, Analog Four / Analog Keys, Digitone)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=soundlab-a4-dg"/>
+    <id>https://70b185.github.io/Aggregat/#project-soundlab-a4-dg</id>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A local sound library and audition app in one HTML page for the Analog Four MKI / Analog Keys and the Digitone MK1 (Web Audio and Web MIDI in Chrome or Edge; a Windows script starts a local server for MIDI and audio input). It lists .afsnd, .dnsnd and .syx files, audio and ZIP …</summary>
   </entry>
   <entry>
     <title>New in the catalogue: Sidecar community machine registry (Mod, Analog Rytm)</title>
@@ -177,7 +217,7 @@
     <summary>An audio-reactive visualizer in one HTML page (Three.js and Web MIDI) that follows the Model:Samples' notes, CCs, clock and program changes; presets, projector mode and video recording. Nothing is sent to the device. Found by GitHub search 2026-11-16. 2026-11-18 (README): out …</summary>
   </entry>
   <entry>
-    <title>New in the catalogue: Digitone mods (Drum Mode) (Mod, Digitone)</title>
+    <title>New in the catalogue: Digitone Drum Mode (Mod, Digitone)</title>
     <link href="https://70b185.github.io/Aggregat/?p=digitone-drum-mode"/>
     <id>https://70b185.github.io/Aggregat/#project-digitone-drum-mode</id>
     <updated>2026-11-16T00:00:00Z</updated>
@@ -423,41 +463,5 @@
     <id>https://70b185.github.io/Aggregat/#commit-2c4f02ace386</id>
     <updated>2026-11-11T00:00:00Z</updated>
     <category term="update"/>
-  </entry>
-  <entry>
-    <title>Tidy the root so the README shows near the top</title>
-    <link href="https://github.com/70b185/Aggregat/commit/1a2a51a5472b7103f66788037fea6e2f740a4cc0"/>
-    <id>https://70b185.github.io/Aggregat/#commit-1a2a51a5472b</id>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Remove the mod finder</title>
-    <link href="https://github.com/70b185/Aggregat/commit/175f0dec77eeb92b2b2d7af4e64aec4c5252df24"/>
-    <id>https://70b185.github.io/Aggregat/#commit-175f0dec77ee</id>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Website: mod finder, New tab + feed, Test your unit, address explorer, project pages, lazy data, one set of design tokens</title>
-    <link href="https://github.com/70b185/Aggregat/commit/0b5adcd4097701d7ea19e4554678471371a0ba61"/>
-    <id>https://70b185.github.io/Aggregat/#commit-0b5adcd40977</id>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Add a features list to every mod</title>
-    <link href="https://github.com/70b185/Aggregat/commit/0332b10be98fbad87f950850f66db4dcd297eaa5"/>
-    <id>https://70b185.github.io/Aggregat/#commit-0332b10be98f</id>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>New in the catalogue: Sidecar | Expander: Rytm mods (Mod, Analog Rytm, Analog Four / Analog Keys)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=sidecar-mods"/>
-    <id>https://70b185.github.io/Aggregat/#project-sidecar-mods</id>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>The source of the Analog Rytm MKII OS mods that Sidecar | Expander needs: patch sources, symbol map, allocation registry and the build that turns the user's own stock .syx into a modded one, as one elekloader module per OS; the Analog Four MKII's mod in a4/. 0.4.0 reports each …</summary>
   </entry>
 </feed>

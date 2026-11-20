@@ -27,6 +27,13 @@ projects:
     notes: >
       Only a one-line README and a licence so far (checked 2026-11-14): an attempt to bring complex oscillators and
       acid filters to the Octatrack. No code, OS or loader named yet. Found by GitHub search 2026-11-14.
+      2026-11-20 (README on main, README and docs on branch model-v0): main is now only an index; each project lives
+      on its own branch. Branch model-v0 (2026-11-17) is a Python reference model of a bass voice for the Octatrack
+      MKII (OS 1.40C, aimed at octabam / Modwerk as a ColdFire machine): a sine oscillator with Twist and Warp after
+      the 4ms Ensemble Oscillator, two sub-oscillators, into OCTA303's TB-303 filter, plus alias measurements (FOLD
+      needs 2x oversampling above about 200 Hz; CHEB is limited by table precision, not by oversampling). No firmware
+      code yet; nothing runs on a unit.
+    sources: [GitHub search 2026-11-14, "README, model-v0 README and docs/BEFUNDE.md (2026-11-20)"]
   - id: digitone-ii-haddersbadders
     name: Digitone-II (haddersbadders)
     author: haddersbadders
@@ -76,18 +83,6 @@ projects:
       The repo exists but has no commits yet (checked 2026-11-14 and 2026-11-17; check_updates reports it as empty). Repo description only: a granular FX2 module for the Octatrack MKII in the spirit of Mutable Instruments Clouds.
       No README yet, so OS, loader, licence and tests are unknown. Found by GitHub search 2026-11-08.
     sources: [GitHub search 2026-11-08]
-
-  - id: soundlab-a4-dg
-    name: SoundLab-A4-DG
-    author: Jickssa
-    kind: tool
-    devices: [analog-four-keys, digitone]
-    repo: https://github.com/Jickssa/SoundLab-A4-DG
-    status: unverified
-    notes: >
-      Repo created 2026-11-17 with only a LICENSE file (checked 2026-11-18 and 2026-11-19). The description calls it a sound-processing
-      app for the Analog Four and Digitone, not tested on other Elektron machines. Found by GitHub search 2026-11-18.
-    sources: [GitHub search 2026-11-18]
 
   # ------------------------------------------------------------- Analog Heat
   - id: heatfx-multimode

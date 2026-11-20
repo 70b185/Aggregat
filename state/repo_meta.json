@@ -94,7 +94,7 @@
   "full_name": "a1o1/trig-seedr",
   "created": "2026-11-14",
   "pushed": "2026-11-20",
-  "stars": 3,
+  "stars": 4,
   "forks": 1,
   "language": "C",
   "fork": false,
@@ -275,7 +275,7 @@
  "aveycole/spokes": {
   "full_name": "AveyCole/SPOKES",
   "created": "2026-10-29",
-  "pushed": "2026-11-19",
+  "pushed": "2026-11-20",
   "stars": 1,
   "forks": 0,
   "language": "JavaScript",
@@ -289,7 +289,7 @@
   "full_name": "AveyCole/Supermodel",
   "created": "2026-10-10",
   "pushed": "2026-11-20",
-  "stars": 21,
+  "stars": 22,
   "forks": 1,
   "language": "Python",
   "fork": true,
@@ -574,12 +574,12 @@
  "claidarremer/digitakt-digiseq": {
   "full_name": "ClaidArremer/digitakt-digiseq",
   "created": "2026-10-26",
-  "pushed": "2026-11-02",
+  "pushed": "2026-11-20",
   "stars": 3,
   "forks": 0,
   "language": "C",
   "fork": false,
-  "license": "GPL-2.0",
+  "license": "GPL-3.0",
   "owner_type": "User",
   "archived": false,
   "seen": "2026-11-20"
@@ -784,7 +784,7 @@
  "dagargo/overwitch": {
   "full_name": "dagargo/overwitch",
   "created": "2021-04-11",
-  "pushed": "2026-11-19",
+  "pushed": "2026-11-20",
   "stars": 245,
   "forks": 24,
   "language": "C",
@@ -824,7 +824,7 @@
   "full_name": "De-Pattern/DN2-Rift",
   "created": "2026-11-12",
   "pushed": "2026-11-20",
-  "stars": 3,
+  "stars": 4,
   "forks": 0,
   "language": "Python",
   "fork": false,
@@ -837,7 +837,7 @@
   "full_name": "De-Pattern/dn2mk2",
   "created": "2026-10-27",
   "pushed": "2026-11-20",
-  "stars": 14,
+  "stars": 15,
   "forks": 1,
   "language": "HTML",
   "fork": false,
@@ -850,7 +850,7 @@
   "full_name": "De-Pattern/dn2mk2-firmware",
   "created": "2026-10-28",
   "pushed": "2026-11-20",
-  "stars": 21,
+  "stars": 24,
   "forks": 2,
   "language": "Python",
   "fork": false,
@@ -916,7 +916,7 @@
   "created": "2026-09-29",
   "pushed": "2026-10-24",
   "stars": 24,
-  "forks": 3,
+  "forks": 2,
   "language": "Python",
   "fork": false,
   "license": "NOASSERTION",
@@ -1217,7 +1217,7 @@
   "created": "2026-09-26",
   "pushed": "2026-11-20",
   "stars": 133,
-  "forks": 23,
+  "forks": 22,
   "language": "C",
   "fork": false,
   "license": "GPL-2.0",
@@ -1540,7 +1540,7 @@
  "gerdtanck/webloader": {
   "full_name": "gerdtanck/WebLoader",
   "created": "2026-11-16",
-  "pushed": "2026-11-19",
+  "pushed": "2026-11-20",
   "stars": 1,
   "forks": 0,
   "language": "TypeScript",
@@ -1592,7 +1592,7 @@
  "hejijunhao/whiplash": {
   "full_name": "hejijunhao/whiplash",
   "created": "2026-11-05",
-  "pushed": "2026-11-19",
+  "pushed": "2026-11-20",
   "stars": 0,
   "forks": 0,
   "language": "Python",
@@ -2230,7 +2230,7 @@
   "full_name": "K-X420/ModuleDrum",
   "created": "2026-10-06",
   "pushed": "2026-11-01",
-  "stars": 20,
+  "stars": 21,
   "forks": 0,
   "language": "C++",
   "fork": false,
@@ -2464,7 +2464,7 @@
   "full_name": "mbreilly/Modded_cycles_techno_edition",
   "created": "2026-11-05",
   "pushed": "2026-11-20",
-  "stars": 4,
+  "stars": 5,
   "forks": 1,
   "language": "C++",
   "fork": false,
@@ -2542,7 +2542,7 @@
   "full_name": "morriess/Digitone-Drum-Mode",
   "created": "2026-11-15",
   "pushed": "2026-11-19",
-  "stars": 1,
+  "stars": 2,
   "forks": 0,
   "language": "Python",
   "fork": false,
@@ -2829,7 +2829,7 @@
   "created": "2026-10-01",
   "pushed": "2026-11-20",
   "stars": 69,
-  "forks": 153,
+  "forks": 156,
   "language": "Python",
   "fork": false,
   "license": "NOASSERTION",
@@ -2906,7 +2906,7 @@
   "full_name": "sambanks/octabam",
   "created": "2026-08-07",
   "pushed": "2026-11-20",
-  "stars": 314,
+  "stars": 315,
   "forks": 58,
   "language": "Python",
   "fork": false,
@@ -2997,7 +2997,7 @@
   "full_name": "shnolk/monomodule",
   "created": "2026-09-24",
   "pushed": "2026-10-10",
-  "stars": 175,
+  "stars": 176,
   "forks": 15,
   "language": "C++",
   "fork": false,
@@ -3037,7 +3037,7 @@
   "created": "2026-10-13",
   "pushed": "2026-10-24",
   "stars": 4,
-  "forks": 1,
+  "forks": 0,
   "language": "Python",
   "fork": false,
   "license": null,
@@ -3128,7 +3128,7 @@
   "created": "2026-09-30",
   "pushed": "2026-10-26",
   "stars": 69,
-  "forks": 10,
+  "forks": 9,
   "language": "C",
   "fork": false,
   "license": "MIT",
@@ -3165,7 +3165,7 @@
  "stampman3000-jpg/mpc-tributary": {
   "full_name": "stampman3000-jpg/mpc-tributary",
   "created": "2026-10-09",
-  "pushed": "2026-11-17",
+  "pushed": "2026-11-20",
   "stars": 1,
   "forks": 1,
   "language": "C",
@@ -3472,7 +3472,8 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-20"
+  "seen": "2026-11-20",
+  "missing": true
  },
  "x2k77m1/lfox": {
   "full_name": "x2k77m1/lfox",
@@ -3485,7 +3486,8 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-20"
+  "seen": "2026-11-20",
+  "missing": true
  },
  "x2k77m1/phreakoid": {
   "full_name": "x2k77m1/phreakoid",
@@ -3498,7 +3500,8 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-20"
+  "seen": "2026-11-20",
+  "missing": true
  },
  "x2k77m1/sampletone": {
   "full_name": "x2k77m1/sampletone",
@@ -3511,7 +3514,8 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-20"
+  "seen": "2026-11-20",
+  "missing": true
  },
  "x2k77m1/sayit": {
   "full_name": "x2k77m1/sayit",
@@ -3524,7 +3528,8 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-20"
+  "seen": "2026-11-20",
+  "missing": true
  },
  "x2k77m1/vawt": {
   "full_name": "x2k77m1/VAWT",
@@ -3537,7 +3542,8 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-20"
+  "seen": "2026-11-20",
+  "missing": true
  },
  "xerydian/elektron-emu": {
   "full_name": "xerydian/elektron-emu",

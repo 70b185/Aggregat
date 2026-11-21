@@ -263,7 +263,7 @@
     <category term="update"/>
   </entry>
   <entry>
-    <title>New in the catalogue: trig-seedr (Mod, Analog Rytm)</title>
+    <title>New in the catalogue: trig-seedr (Mod, Analog Rytm, Syntakt)</title>
     <link href="https://70b185.github.io/Aggregat/?p=trig-seedr"/>
     <id>https://70b185.github.io/Aggregat/#project-trig-seedr</id>
     <updated>2026-11-15T00:00:00Z</updated>
@@ -416,13 +416,6 @@
     <category term="update"/>
   </entry>
   <entry>
-    <title>Agent foundation: stable fact ids, address index, context packs, AGENTS.md, llms.txt, MCP server</title>
-    <link href="https://github.com/70b185/Aggregat/commit/c046776058dbc2704310e9f9e4d10164e90112f3"/>
-    <id>https://70b185.github.io/Aggregat/#commit-c046776058db</id>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
     <title>UPDATING: an entry in the mods list names only the devices it ships mods for</title>
     <link href="https://github.com/70b185/Aggregat/commit/b4b156a489cb8441d623c0e9e09dd3685ce78417"/>
     <id>https://70b185.github.io/Aggregat/#commit-b4b156a489cb</id>
@@ -458,9 +451,16 @@
     <category term="update"/>
   </entry>
   <entry>
-    <title>Update 2026-11-11: ten change reports folded, I70-I72, SB19, H24</title>
-    <link href="https://github.com/70b185/Aggregat/commit/3d970aa1495fd7bc87b9bcf41ae7ad2a9cb826b2"/>
-    <id>https://70b185.github.io/Aggregat/#commit-3d970aa1495f</id>
+    <title>Tidy the root so the README shows near the top</title>
+    <link href="https://github.com/70b185/Aggregat/commit/1a2a51a5472b7103f66788037fea6e2f740a4cc0"/>
+    <id>https://70b185.github.io/Aggregat/#commit-1a2a51a5472b</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Remove the mod finder</title>
+    <link href="https://github.com/70b185/Aggregat/commit/175f0dec77eeb92b2b2d7af4e64aec4c5252df24"/>
+    <id>https://70b185.github.io/Aggregat/#commit-175f0dec77ee</id>
     <updated>2026-11-11T00:00:00Z</updated>
     <category term="update"/>
   </entry>

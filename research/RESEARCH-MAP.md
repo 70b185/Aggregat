@@ -202,8 +202,8 @@ table (unit, OS, what happened, evidence tag, link to the details).
 | Where mod code can live | ✅ | Not above the BSS: sample loading overwrites `0x45565490-0x48000000` (settled S13). SyntHack reserves the first 64 KB heap block at boot; kit and project files carry spare bytes that round-trip through stock code. | [syntakt.md](../hardware/devices/syntakt.md) |
 | Free executable storage on CPU #2 | ❓ | Unresolved. | machine-45 research notes |
 | Section 8 | ✅ | A shared ARM Cortex-M firmware image, the same on several devices, not an FPGA (S15). Which accessory it serves is open (O16): Outbox 8 is the likely candidate. | - |
-| FPGA role | ⬜ | Unknown on every device that has one. | T12 |
-| OS 1.42 | ⬜ | All mods target 1.41 (SY FM4: 1.40A); only 27 of 172 anchors shared with the DT2. | **T6** |
+| FPGA role | ⬜ | Unknown on every device that has one. On 1.42 MAIN loads the main FPGA from section 1 and the voice CPU loads a second bitstream carried in section 7 (digikit, static). | T12 |
+| OS 1.42 | 🟢 | Synfact, trig-seedr and digikit target 1.42; digikit's dry run hits 81 of 106 ColdFire anchors (the "27 of 172" was withdrawn). digikit images (section 7 stored packed, runtime, store) boot on a unit (2026-11-21); the bootstrap stages MAIN at `0x40200000`, so check the in-place margin (I183). | [syntakt.md](../hardware/devices/syntakt.md) |
 | Mod building method | ✅ | SyntHack's modding guide (patch.json, protected sections). | - |
 
 ## Analog Heat - MKI / MKII / +FX

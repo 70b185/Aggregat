@@ -1036,6 +1036,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Cause (unknown):** a set the unit accepts at a sync does not always fit again at the restore; not reproduced.
 - **Fix:** none yet; Modwerk plans to restore that set in the emulator.
 - **Later (2026-11-20):** Modwerk found the same shape on another unit on base 0.7.8 (11 modules; SC Ringmod restored at two starts, refused for "module memory" at the next two, and a one-package sync refused the same way). There the cause was a DSP claim meeting a delay buffer: SC Ringmod 0.2.1 claims the key bus, and the base counts a module effect's whole FX2 block as a delay buffer; the refusals began when Air Chorus sat on T5 FX2. The module pool was far from full (161,344 of 786,432 bytes), so the refusal was right but its name was wrong. This unit's records do not line up with that, so I129 stays unconfirmed; the other candidate is the dropped effect line of I154. Base 0.7.10 is to give the case its own refusal code. `[hw]` (field log) / `[emu]` {modwerk-1120}
+- **Later (2026-11-21):** base 0.7.10 refuses that case as `RUNTIME_BUFFER` (12), its message names the FX2 slot to move (T1, T5 or T7), it counts reviewed buffer extents so E-Verb, Mini Verb, BBD Delay and Vibrato there no longer cause it (Air Chorus still does), and a refused restore logs which check refused and how much module memory was in use, so the next such field record can tell the causes apart. `[doc]` {modwerk-1121}
 - **Status:** open.
 - **Evidence:** `[hw]` (field records) {modwerk-ot-beta-1116}
 - **Rule:** C11
@@ -1047,6 +1048,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Cause (by design, from the base's refusal code):** base 0.7.5 refuses to remove, replace or undo a module while stock's window manager or input layer still names its memory (`RUNTIME_UI_OPEN`); the timed trial's rollback had no path for it.
 - **Fix:** after NO closed the window, `device -- recover` rolled the trial back; a second trial with the window closed rolled back at once. The site's handling of a trial that ends with a window open is not yet tested.
 - **Later (2026-11-20):** a Micro Timing 0.1.1-experimental trial on a RAM-booted development twin (OS 1.40C, 2026-11-19, about 180 s, no crash, stall or skipped track) ended with its automatic rollback refused (`needs-recovery`); the cause is not stated. The unit came back on the flashed base `c889442d` with the same 24 kept modules and no trace of the trial. On 2026-11-18 (flashed base `931a91bd`) removing the module was refused (loader refusal 11, `RUNTIME_UI_OPEN`) while TRACK TRIG EDIT's key layer was up, even after leaving the list for the grid; after a power cycle with the menus closed it went. `[hw]` {modwerk-1120}
+- **Later (2026-11-21):** the Micro Timing case had a second cause: with a module's page open when the trial ended, the base counted the module's own change to the stock page as a use, so Undo stayed refused even after the page was closed and only a power cycle helped (USB unplug did not). Base 0.7.10 judges the page as it will read once the module is out; with the page still open Undo waits, and after closing it `device -- recover` finishes without a restart (MKII, MICRO T highlighted in TRACK TRIG EDIT, 2026-11-19). `[hw]` {modwerk-1121}
 - **Status:** worked around; open for the site's sync dialog.
 - **Evidence:** `[hw]` {modwerk-1117}
 - **Rule:** A54, A2
@@ -1383,6 +1385,116 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** A83
 - **Fact:** [devices/syntakt.md](devices/syntakt.md)
 
+### I172. A 303 chosen on a FLEX track was silent until switched away and back (KYOTI V1.8BC RC1)
+- **Unit:** Octatrack MKI, OS 1.40C, KYOTI V1.8BC release candidate RC1 (`KY18BC RC1`), 2026-11-20
+- **Seen:** a BLKPYRAMD (the 303 voice) chosen from the machine chooser often made no sound; switching to NEIGHBOR or THRU and back once or twice woke it.
+- **Cause (shown in the emulator):** the 303 is stored as FLEX, so FLEX to BLKPYRAMD is FLEX to FLEX for stock, and stock's machine commit re-stages a track's live machine bytes only for PICKUP; otherwise they follow at the track's next trig after a real machine change, or at a Part apply. The voice played FLEX's live values (VOL = FLEX's TSTR byte: OFF gives silence). The project's checks seeded the bytes before PLAY, so none caught it. The same was in V1.8BC FINAL.
+- **Fix:** after a machine commit on the current Part, call stock's seed when the stored machine is FLEX and set the track's Part pair to `0xff`, but not while the track still carries the old Part's note. `KY18BC RC2` passed every item on the unit, 2026-11-20.
+- **Status:** fixed in RC2 (not yet promoted; waits for RC3)
+- **Evidence:** `[hw]` {octatrack-kyoti-fw-1121}
+- **Rule:** A85
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#kyoti-release-candidates-spare-part-bytes-machine-switches-live-erase-on-midi-os-140c-2026-111920-octatrack-kyoti-fw-1121)
+
+### I173. A fix for erased trigless locks covered audio tracks only (KYOTI ERASE_EMPTY_TRIGLESS_LOCKS)
+- **Unit:** Octatrack MKI, OS 1.40C, KYOTI V1.8C and V1.8BC RC1, 2026-11-20
+- **Seen:** on a MIDI track, erasing the last lock of a trigless lock left the step lit, as on stock (SB12); audio tracks were fixed.
+- **Cause (read from code):** the LIVE erase calls a separate MIDI twin of the audio worker; the fix had only hooked the audio one. The emulator showed the bug on the FINAL and RC1 images once a MIDI case was added.
+- **Fix:** one shared rule behind two hooks, one per worker (240 B). `KY18BC RC2` passed every MIDI and audio item on the unit, 2026-11-20; promoted the same day.
+- **Status:** fixed
+- **Evidence:** `[hw]` {octatrack-kyoti-fw-1121}
+- **Rule:** A84
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#kyoti-release-candidates-spare-part-bytes-machine-switches-live-erase-on-midi-os-140c-2026-111920-octatrack-kyoti-fw-1121)
+
+### I174. A track that stopped being a 303 played a burst of its FLEX sample (KYOTI V1.8BC RC2)
+- **Unit:** Octatrack MKI, OS 1.40C, `KY18BC RC2`, sequencer running, 2026-11-20
+- **Seen:** switching a track with samples between BLKPYRAMD and FLEX, STATIC or NEIGHBOR played a bit of the FLEX or STATIC sample at the switch, often a very short fast loop.
+- **Cause (shown in the emulator):** the 303 rides on a hidden stock FLEX voice. After the switch the frame's renderer for the track stays the 303's until the track's next trig, and it handed the hidden voice to stock's sample renderer, which played it for about 300 ms. Present since V1.8BC FINAL.
+- **Fix:** while a track that was a 303 waits for its trig (also when it yields at a cued Part switch), render stock's idle record instead. RC3 carries it.
+- **Status:** fixed in the emulator; RC3 not yet flashed
+- **Evidence:** `[hw]` symptom, `[emu]` fix {octatrack-kyoti-fw-1121}
+- **Rule:** A85
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#kyoti-release-candidates-spare-part-bytes-machine-switches-live-erase-on-midi-os-140c-2026-111920-octatrack-kyoti-fw-1121)
+
+### I175. QUAN read 5/4 instead of 1/1 on entering VARI; VARISPEED and the 303 shared spare bytes (KYOTI VARISPEED)
+- **Unit:** Octatrack MKI, OS 1.40C, `KY18C VRG1` test image, 2026-11-19
+- **Seen:** setting TSTR to VARI showed QUAN `5/4` instead of `1/1`, also on a track that seemed fresh.
+- **Cause (emulator):** which meaning a parked byte had (PTCH or QUAN) lived only in RAM and was forgotten at every Part apply, so the next poll read the PTCH park as QUAN (PTCH +12 = `5/4`), and that value was then saved with the Part. Present in every FINAL VARISPEED, VARISPEED_EMUS and KYOTI. A follow-up probe found that VARISPEED parked PTCH in NEIGHBOR's spare bytes, which BLACKPYRAMIDS_303 also used: PTCH was lost or changed, a track that had been a 303 entered VARI at `5/4`, and a real 303's signature could break. A flag in bit 7 was also zeroed by stock's Part validator on every load.
+- **Fix:** VRG3 keeps VARISPEED's state in four Part bytes nobody else uses, each below 128, with the meaning in the bytes; older projects are migrated at first sight, and VARISPEED never touches a 303 track. Confirmed on the unit in RC1 (VARI entry, QUAN across a save, a project from the old build, a 303 beside VARI), 2026-11-20; promoted.
+- **Status:** fixed
+- **Evidence:** `[hw]` {octatrack-kyoti-fw-1121}
+- **Rule:** A77, A60
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#kyoti-release-candidates-spare-part-bytes-machine-switches-live-erase-on-midi-os-140c-2026-111920-octatrack-kyoti-fw-1121)
+
+### I176. A USB Audio Undo froze the panel and left the Octatrack off USB (Modwerk 0.7.11 candidates)
+- **Unit:** Octatrack MKII, OS 1.40C, owner's unit, RAM-booted Modwerk 0.7.11 release candidates with USB Audio 0.3.0-experimental as a package, macOS host, 2026-11-20
+- **Seen:** (1) on candidate `a2ae64eb`, Undo of a 16-channel POST LEVEL trial was acknowledged, then the unit left USB and its panel froze; the log kept a freeze (UI tick stopped at least 5 s while the frame interrupt ran, CPU 38 %), and the Mac's port reset failed to enable the port. (2) On the rebuilt `e0cbd717`, seven trials passed; the eighth (Track 8/Master) acknowledged its set and the unit vanished from USB before the host read the new descriptors, while the panel still answered keys. Both times a cold start with USB unplugged brought back the flashed base and all ten kept modules, checksum for checksum.
+- **Cause:** (1) after a descriptor change only the UI tick could switch the USB controller back on (host test); (2) not proven: the base started its host deadline when it set the controller's run bit and never checked that the controller attached.
+- **Fix:** a one-second fallback in the frame interrupt re-enables the controller; later the base checks attach, suspend and reset after three seconds and offers the descriptors once more if VBUS is valid and the port stayed disconnected. Release base 0.7.12 then passed eight trials (2 to 20 channels, Track 8/Master twice), Keep, a power cycle and a restore from the card.
+- **Status:** fixed in 0.7.12 (the retry itself did not fire on the unit; it runs in a controller model only)
+- **Evidence:** `[hw]` {modwerk-1121}
+- **Rule:** A88, A55
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#modwerk-findings-bases-0710-0712-unused-module-cost-usb-audio-as-a-module-os-140c-2026-111921-modwerk-1121)
+
+### I177. A paired browser tab rolled back USB Audio trials at the reconnect (Modwerk)
+- **Unit:** Octatrack MKII, OS 1.40C, development base with the USB function slot, macOS host with a Modwerk page open in a browser, 2026-11-20
+- **Seen:** four-channel USB Audio trials driven by a native test tool rolled back during the reconnect that follows the descriptor change, two of three times; once the unit came back with the audio configuration live but its module row gone.
+- **Cause (by elimination):** the macOS USB log showed the browser opening the vendor interface about 200 ms before the test tool; the site's link undoes an unfinished trial when a paired page reconnects. The log does not show an Undo command from the browser.
+- **Fix:** with the browser closed, Main + Cue passed three times in a row and all six layouts recorded; Modwerk's guide says to close paired tabs before a native USB Audio trial, and the site now leaves another session's USB Audio trial running when the unit reconnects.
+- **Status:** worked around
+- **Evidence:** `[hw]` {modwerk-1121}
+- **Rule:** A88
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#modwerk-findings-bases-0710-0712-unused-module-cost-usb-audio-as-a-module-os-140c-2026-111921-modwerk-1121)
+
+### I178. Analog BD stayed silent after a rolled-back trial until a power cycle (Modwerk base 0.7.9)
+- **Unit:** Octatrack (field report #1736), Modwerk base 0.7.9; reproduced on an MKII with a development copy of the beta base, 2026-11-19
+- **Seen:** a trial that took out Analog BD (or Sidechain, or Output Matrix) to make room for another module was rolled back; Analog BD was listed again and could be picked but made no sound until a power cycle.
+- **Cause:** the base released the module's DSP engine for good while the trial was still open.
+- **Fix:** base 0.7.10 keeps the module ready to come back until the trial is kept or rolled back, while still giving its DSP room to the trial. Release candidate on an MKII: the kick measured -19.3 dBFS on T4 before and after a 60 s trial that removed Analog BD and added Vibrato.
+- **Status:** fixed in 0.7.10
+- **Evidence:** `[hw]` {modwerk-1121}
+- **Rule:** A54
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#modwerk-findings-bases-0710-0712-unused-module-cost-usb-audio-as-a-module-os-140c-2026-111921-modwerk-1121)
+
+### I179. A VECTOR trial's Undo left the loader in recovery until a power cycle (Modwerk 0.7.11 development image)
+- **Unit:** Octatrack MKII, OS 1.40C, 0.7.11 development image `fac15232`, VECTOR 0.3.2 alone in a 30 s stopped whole-set trial, 2026-11-20
+- **Seen:** the rollback left the loader in recovery; a fresh connection and `recover` failed too. After the owner's power cycle the flashed 0.7.9 base and its ten modules were intact.
+- **Cause (partly found):** before removing a departing track machine the loader checked its stock menu definitions as they read with the machine still patched in, so it saw the machine as still in use. The log did not name the reference that blocked.
+- **Fix:** the loader now judges a departing machine's menu entries as they will read after its stock handlers return, and still checks cached callbacks and every Part live. Five later VECTOR trials (stopped and after playback, three builds, the release candidate included) rolled back normally.
+- **Status:** fixed in the 0.7.11 release
+- **Evidence:** `[hw]` {modwerk-1121}
+- **Rule:** A54
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#modwerk-findings-bases-0710-0712-unused-module-cost-usb-audio-as-a-module-os-140c-2026-111921-modwerk-1121)
+
+### I180. A project load after a card restore stalled the DSP (Modwerk 0.7.9 development base)
+- **Unit:** Octatrack MKII, OS 1.40C, 0.7.9 Tracks Post development base `c6345a32`, six modules (Tape Echo, Euclid, LOFI2, Sidechain Compressor, POLY8, Slow LFO) restored from the card, 2026-11-19
+- **Seen:** the first load from one project to another (stock SPRING REV on T1 FX2 and SPATIALIZER on T5 FX1 in both) stalled the DSP twice before PLAY. The same load passed once without modules and four times with the same modules sent over USB.
+- **Cause (narrowed):** the base's DSP manager began changing which effects the DSP held while the bank and Parts were still loading: at the stall core 0 had bound SPATIALIZER and the manager waited for core 1's SPRING REV bind, with the incoming effect map not yet published. Why the frame edge went missing is open.
+- **Fix:** a gate that continues open requests but starts no new plan until the whole effect map is loaded (base 0.7.11). On 0.7.11 two restoring boots loaded with no extra DSP packet or commit; shipped 0.7.10 did not stall in two tries either but made the same residency changes the stall trace had shown.
+- **Status:** fixed in 0.7.11; the stall itself did not reproduce on 0.7.10
+- **Evidence:** `[hw]` {modwerk-1121}
+- **Rule:** A89, A56
+- **Fact:** [devices/octatrack.md](devices/octatrack.md#modwerk-findings-bases-0710-0712-unused-module-cost-usb-audio-as-a-module-os-140c-2026-111921-modwerk-1121)
+
+### I181. The digikit MODULES page froze a Syntakt: it used the Digitakt II key ids
+- **Unit:** Syntakt, OS 1.42, digikit `device` image, 2026-11-20
+- **Seen:** DIGIKIT > MODULES showed an empty list ("NO STORE") and afterwards no key worked, not even NO; the unit needed a power cycle.
+- **Cause (reproduced in the emulator, also on a blank card):** the list page replaces the stock key handler and compared key ids with the Digitakt II values (YES 10, NO 12, RIGHT 15). An empty list passes only NO to the stock handler. On the Syntakt the firmware key index 12 is YES and NO is 13 (decoder table `0x401d7a48`), so NO was swallowed with every other key.
+- **Fix:** key ids and flag bits per device in the device file (Syntakt YES 12, NO 13, RIGHT 17, LEVEL push 48); an empty list now swallows only YES and RIGHT and passes every other key to the stock handler; the build refuses a device file without the key table. A test compares the ids with the stock decoder table.
+- **Status:** fixed; the fix ran in the emulator, a flash of the fixed build is not reported as the cause check
+- **Evidence:** `[hw]` (symptom) / `[emu]` (cause) {digikit-1121}
+- **Rule:** A86
+- **Fact:** [devices/syntakt.md](devices/syntakt.md#digikit-on-a-syntakt-unit-section-7-packed-bootstrap-stage-key-ids-card-capacity-write-guard-os-142-2026-111921-digikit-1121)
+
+### I182. The first digikit store on a Syntakt lay beyond the unit's card
+- **Unit:** Syntakt, OS 1.42, first digikit `device` build, 2026-11-19/20
+- **Seen:** the runtime reported `CARD_TOO_SMALL` and had no store; nothing was written (the check refuses every write before a sector is touched).
+- **Cause:** the store reused the Digitone II range (sectors `0x800000-0x2e1a000`, made for the 32 GB part the emulators model), but the unit's eMMC is the 1.82 GiB part (`0x3a4000` sectors, the smallest the firmware's part table lists; the table is not enforced at boot).
+- **Fix:** a fixed 512 MiB store at `0x200000-0x300000`, above every stock sector (below `0x180000`) and below the smallest listed capacity, checked at boot against the driver's capacity getter; INFO and HEALTH show the capacity. On the unit the new store took uploads, listing and removal, and a content module ran from it.
+- **Status:** fixed (confirmed on the unit)
+- **Evidence:** `[hw]` {digikit-1121}
+- **Rule:** A87
+- **Fact:** [devices/syntakt.md](devices/syntakt.md#digikit-on-a-syntakt-unit-section-7-packed-bootstrap-stage-key-ids-card-capacity-write-guard-os-142-2026-111921-digikit-1121)
+
 ## E. Emulator or toolchain disagreed with the unit
 
 ### I36. The emulator undercounted DSP time by 2x to 12x
@@ -1615,6 +1727,16 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Rule:** A79
 - **Fact:** [devices/digitone.md](devices/digitone.md)
 
+### I183. A full digikit image hung a Syntakt at the logo: the bootstrap's unpack overran its stream
+- **Unit:** Syntakt, OS 1.42, digikit full `device` set (runtime, menu, HEALTH, input, section 7 packer), 2026-11-19
+- **Seen:** after the flash the unit restarted and stayed at the Elektron logo on every power cycle. The smaller `device-peer` image (the section 7 packer only) booted. Every emulator boot of the same image had passed.
+- **Cause (read from the bootstrap, reproduced by running its own depacker on the emulator core):** the Syntakt bootstrap stages packed MAIN at `0x40200000`, not at the `0x40400000` of the Digitakt II and Digitone II, and unpacks it in place with no bound. The full image's stream had an in-place margin of -42,486 bytes at that stage (stock +96,356), so the output overwrote unread stream bytes and the decoder ran away before MAIN started. The emulator installs MAIN directly and never runs that unpack; the device file had copied the Digitakt II stage value; the margin was checked only for the repacked section 7.
+- **Fix:** the stage is per-device data read from section 2; patchkit writes the stream's last tokens as literals until the margin is at least 8 KiB and refuses an image below that in `verify`, `preflight` and `flash`, printing the margin. The repaired full image boots on the unit.
+- **Status:** fixed (confirmed on the unit). How the hung unit was brought back is not stated; digikit's documented path is the startup menu (FUNC at power-on, TRIG 4, stock file over DIN).
+- **Evidence:** `[hw]` {digikit-1121}
+- **Rule:** A14
+- **Fact:** [devices/syntakt.md](devices/syntakt.md#digikit-on-a-syntakt-unit-section-7-packed-bootstrap-stage-key-ids-card-capacity-write-guard-os-142-2026-111921-digikit-1121)
+
 ## R. Recovery and transfer links
 
 ### I43. Recovery stalled at ~80 %: the MIDI link, not the image
@@ -1746,3 +1868,23 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` symptom, `[doc]` fix {model27-1119}
 - **Rule:** A11
 - **Fact:** [devices/model-cycles-samples.md](devices/model-cycles-samples.md)
+
+### I184. A memory canary held with all 64 sample slots loaded, then trig-seedr passed its first checks (Syntakt)
+- **Unit:** Syntakt, OS 1.42, trig-seedr 0.7.1-labelled build (same code as 0.8.0) on a minimal elekloader hook-bus core, one unit, 2026-11-19
+- **Seen:** in order: the STARTUP menu (FUNC at power-on) with TRIG 4 = OS UPGRADE was checked on stock; the stock file round-tripped by elektron-firmware-tool (`-r`, byte-identical) flashed and booted as stock; a canary build kept a pattern over `0x478b0000-0x47bf0000` intact (OK and a growing pass count) through a session with all 64 sample slots loaded, project load and save and a power cycle; then trig-seedr passed its 15 first checks, including an applied and a pending take kept across a power off.
+- **Cause (planned test):** the project's staged first-flash plan: way back first, a null repack, a memory canary, then the mod.
+- **Fix:** none needed.
+- **Status:** passed on one unit; other units not yet.
+- **Evidence:** `[hw]` {trig-seedr-1121}
+- **Rule:** A11, A43
+- **Fact:** [devices/syntakt.md](devices/syntakt.md)
+
+### I185. A FLEX take level built in by ear was 12 dB too loud (dn2mk2 v0.63-v0.64)
+- **Unit:** Digitone II, OS 1.11, dn2mk2 v0.63 (and v0.64), a tester's unit, measured about 2026-11-20
+- **Seen:** a FLEX take of a single track played about 12 dB louder than its source at GAIN 0; with every level at 127, recorded through a DAW over USB, a take matched its source at GAIN -12.
+- **Cause (from the project's notes):** v0.63 built +24 dB into such takes because GAIN +24 had matched a take to its source by ear on the owner's unit; that number had been judged on another firmware, not on the mod build that shipped it.
+- **Fix:** v0.65 builds in +12 dB (`TRK_HW_DB` 12); users who set FLEX tracks to GAIN -12 are told to set them back to 0. RIFT v0.13-v0.14 ported the +24 and still ship it.
+- **Status:** fixed in dn2mk2 v0.65 (gated in the emulator; the tester's measurement is the hardware evidence). Open in RIFT. MAIN and IN takes got their own +12 dB in v0.66, which the owner thinks may still be short; not yet measured.
+- **Evidence:** `[hw]` (tester's measurement) {dn2mk2-1121}
+- **Rule:** G8
+- **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md)

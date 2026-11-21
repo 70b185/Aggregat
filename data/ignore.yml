@@ -314,3 +314,4 @@ ignore:
   - hugelton/Pendel   # Pocket AMP, not Elektron (Lapin list, 2026-11-20)
   - ioma8/opz-firmware-notes   # teenage engineering OP-Z, not Elektron (Lapin list, 2026-11-20)
   - morriess/Digitone-MIDI-Arpeggiator   # fork of digiarp-midi; default branch 0 commits ahead; its core-5.3 branch (3 commits, the DigiArp rebuild for Drum Mode) is covered in the digitone-drum-mode entry (2026-11-20)
+  - nerazin/mono-gnd-clap   # desktop CLAP instruments for Bitwig modelled on the Monomachine GND SIN and NOIS machines; no device, firmware or mod (2026-11-21)

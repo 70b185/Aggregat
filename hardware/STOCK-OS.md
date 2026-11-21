@@ -63,7 +63,7 @@ Elektron released Digitakt II 1.17, Digitone II 1.12 and Syntakt 1.42 on the sam
 
 ### Syntakt: newest OS 1.42 (since 2026-10-01)
 
-5 projects accept 1.42 (1 moved from an older OS, 2 started on it); 5 need an older file. A unit runs one OS, so mods that need different versions cannot be combined on it.
+6 projects accept 1.42 (1 moved from an older OS, 2 started on it); 5 need an older file. A unit runs one OS, so mods that need different versions cannot be combined on it.
 
 | OS needed | Project | Use | Also accepts | Since | Note |
 |---|---|---|---|---|---|
@@ -72,6 +72,7 @@ Elektron released Digitakt II 1.17, Digitone II 1.12 and Syntakt 1.42 on the sam
 | 1.42 | [Modded Cycles](../p/modded-cycles/) | donor | 1.41 | - | Syntakt engine for Model:Cycles; projects built on it carry the same check |
 | 1.42 | [SynCrackd](../p/syncrackd/) | patch | - | started on it (2026-10-30) |  |
 | 1.42 | [Syntakt Performance Mods (JOG page, PERFORM DJ filter)](../p/syntakt-performance-mods/) | patch | 1.41 | started on it (2026-11-16) |  |
+| 1.42 | [trig-seedr](../p/trig-seedr/) | patch | - | - |  |
 | 1.41 | [syntakt-firmware-workbench](../p/syntakt-firmware-workbench/) | patch | - | - |  |
 | 1.41 | [syntakt-machine45-research](../p/syntakt-machine45-research/) | analysis | - | - |  |
 | 1.41 | [Synthack-OS (Syntakt MAX 1.0, SY FM4 modular builder)](../p/synthack-os/) | patch | - | - |  |

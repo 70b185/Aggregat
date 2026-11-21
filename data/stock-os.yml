@@ -149,6 +149,7 @@ devices:
       - {id: analog-emu, use: analysis, os: ["1.42"], evidence: "Syntakt support added on 1.42, commit 40f8b5b (2026-10-13)", note: "emulator"}
       - {id: syncrackd, use: patch, os: ["1.42"], evidence: "first commit 2026-10-30"}
       - {id: syntakt-performance-mods, use: patch, os: ["1.42", "1.41"], evidence: "first commit 2026-11-16"}
+      - {id: trig-seedr, use: patch, os: ["1.42"], evidence: "release-0.8.md (v0.8.0): the Syntakt build is made from stock Syntakt_OS1.42.syx (sha256 ded3c59f...37c1) and refused for any other file"}
       - {id: synthack-os, use: patch, os: ["1.41"], evidence: "base_os in the catalogue"}
       - {id: synthack-os-upstream, use: patch, os: ["1.41"], evidence: "base_os in the catalogue"}
       - {id: syntakt-firmware-workbench, use: patch, os: ["1.41"], evidence: "base_os in the catalogue"}

@@ -2,15 +2,15 @@
 
 # Machinedrum (incl. UW)
 
-Data last verified: 2026-11-20
+Data last verified: 2026-11-21
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **Machinedrum WebLoader (MDX user machines)** (gerdtanck) | tool | - | untagged (c0494d8, 2026-11-20); Machinedrum running MDX X.20 | - | 2026-11-20 | [repo](https://github.com/gerdtanck/WebLoader) · [homepage](https://gerdtanck.github.io/WebLoader/) |
 | **Gearmulator MD/MM** (Joe Landers) | emulator | - | mdmm-v0.1.0-alpha.16 (tag, 2026-11-19); alpha.15 (2026-11-18): Machinedrum inter-DSP link as block transfers (-31 % CPU), Record SysEx to File and export shortcuts, +Drive emulation per project, panel control from MIDI; Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-11-19 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.1 (2026-11-13): Monomachine factory reset from your own ROM; the host's Stop is a real stop on the MM, so LOAD SONG works after it; Knob 1-8 as host parameters; several ROM images in one folder; Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-19 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
-| **Machinedrum WebLoader (MDX user machines)** (gerdtanck) | tool | - | untagged (671b0b0, 2026-11-19); Machinedrum running MDX X.20 | - | 2026-11-19 | [repo](https://github.com/gerdtanck/WebLoader) · [homepage](https://gerdtanck.github.io/WebLoader/) |
 | **murdenihcam USR machines** (murdenihcam) | mod | - | main (2026-11-15): RAM-GR 0.5; MDX X.20 B | - | 2026-11-15 | [repo](https://github.com/murdenihcam/murdenihcam-usr-machines) |
 | **OP-XY MNMD** (mmockett) | emulator | - | v1.3.6 (tag, 2026-11-13): MD KIT builds into one firmware with Hexagon's Moth; v1.3.5: the synths play at one loudness, MD KIT raises its quieter machines by up to 6 dB | v1.3.6 | 2026-11-13 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
 | **mds-harness (Machinedrum user machine harness)** (bento909) | tool | - | - | - | 2026-11-13 | [repo](https://github.com/bento909/mds-harness) |
@@ -229,11 +229,11 @@ _Sources: GitHub search 2026-11-07, README, README (2026-11-11)_
 
 ### Machinedrum WebLoader (MDX user machines)
 
-Mobile-first web page (German UI) that loads MDS user machines onto a Machinedrum running MDX X.20 over WebMIDI: a library of 71 machines with PNG descriptions (dbx, murdenihcam, waftlord folders, unchanged originals), a slot view and a load queue, plus a dry run without a device. Ships no firmware or ROM files; protocol sources are pinned in toolchain.lock.json. Found by GitHub search 2026-11-17. 2026-11-20 (README, CREDITS.md, machines/jmamma/README.md): interface now in English; the library has 126 machines, adding 55 X.20-C user machines by jmamma (byte-identical SysEx, description images generated from the release's README and package data). Slots U01-U16 only (an earlier U17 read timed out); the X.20 C profile reads NAK 12 detail 0 as an empty slot, a heuristic for that profile only. "Loaded" means the final commit ACK came back; there is no readback compare.
+Mobile-first web page (German UI) that loads MDS user machines onto a Machinedrum running MDX X.20 over WebMIDI: a library of 71 machines with PNG descriptions (dbx, murdenihcam, waftlord folders, unchanged originals), a slot view and a load queue, plus a dry run without a device. Ships no firmware or ROM files; protocol sources are pinned in toolchain.lock.json. Found by GitHub search 2026-11-17. 2026-11-20 (README, CREDITS.md, machines/jmamma/README.md): interface now in English; the library has 126 machines, adding 55 X.20-C user machines by jmamma (byte-identical SysEx, description images generated from the release's README and package data). Slots U01-U16 only (an earlier U17 read timed out); the X.20 C profile reads NAK 12 detail 0 as an empty slot, a heuristic for that profile only. "Loaded" means the final commit ACK came back; there is no readback compare. 2026-11-21 (README, CREDITS.md, machines/minimal/): 130 machines; four new development packages by minimal, all effects for an input on the preceding track (the Neighbor input): the CROSSFIELD stereo reverb pair RVB-XA + RVB-XB (r0001; uses UW RAM slots R1 and R2 and almost all of the DSP, reads across tracks outside the MDS specification, so not certified), the three-band OTT compressor NFX-OT (r0003) and the mono-to-stereo decorrelator NFX-DC (r0001). Checked in DSP fixtures (CROSSFIELD also in a firmware emulator), none on a unit.
 
 _Related: mod for `mdx` (README: loads user machines on MDX X.20); bundles `murdenihcam-usr-machines` (CREDITS: 13 murdenihcam machines in the library) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-17, README (2026-11-17), CREDITS.md, README, CREDITS.md, machines/jmamma/README.md (2026-11-20)_
+_Sources: GitHub search 2026-11-17, README (2026-11-17), CREDITS.md, README, CREDITS.md, machines/jmamma/README.md (2026-11-20), README, CREDITS.md, machines/minimal/ (2026-11-21)_
 
 ### mds-harness (Machinedrum user machine harness)
 

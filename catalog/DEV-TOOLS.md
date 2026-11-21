@@ -4,7 +4,7 @@
 
 For people (and agents) who build mods: toolchains, emulators, firmware unpackers, protocol libraries and research write-ups. Pair this with [hardware/](../hardware/README.md), which collects the rules and device facts.
 
-Data last verified: 2026-11-20. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
+Data last verified: 2026-11-21. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
 
 
 The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds), [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians). Hardware knowledge for writing mods: [hardware/](../hardware/README.md).
@@ -34,7 +34,7 @@ The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds),
 
 | Project | Devices | What it is | Note | Version / OS | Links |
 |---|---|---|---|---|---|
-| **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo) <br>_cites elektron-firmware-tool; cites dt2-firmware-research_ | Digitakt II, Digitone II | Native Rust emulator that runs the ColdFire and SHARC+ firmware together, with front panel, display and audio, plus a web panel (WASM core), a Tauri desktop app, the … | - | Digitakt II target 1.17 (emulator also runs 1.16 as … | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
+| **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo) <br>_cites elektron-firmware-tool; cites dt2-firmware-research_ | Digitakt II, Digitone II, Syntakt | Native Rust emulator that runs the ColdFire and SHARC+ firmware together, with front panel, display and audio, plus a web panel (WASM core), a Tauri desktop app, the … | - | Digitakt II target 1.17 (emulator also runs 1.16 as … | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
 | **Gearmulator MD/MM** (Joe Landers) | Machinedrum (incl. UW), Monomachine | Plug-in and standalone emulation of Machinedrum and Monomachine (Gearmulator fork) booting your own OS file. | - | mdmm-v0.1.0-alpha.16 (tag, 2026-11-19); alpha.15 … | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
 | **sidecar-emu (Sidecar emulator)** (Iced-Cream) <br>_uses analog-emu; cites sidecar-expander_ | Analog Rytm (MKI, MKII) | QEMU cut down to the Raspberry Pi 4B and the devices Sidecar's engine needs: boots the Sidecar engine image, answers over Ethernet, puts an Analog Rytm MKII stand-in on … | - | - | [repo](https://github.com/Iced-Cream/sidecar-emu) |
 | **OP-XY MNMD** (mmockett) <br>_uses gearmulator-md-mm_ | Machinedrum (incl. UW), Monomachine | Machinedrum and Monomachine engines written from scratch (not an emulation of the chips) for the Teenage Engineering OP-XY on the Open-XY SDK. MIT. v1.3.2 (README … | - | v1.3.6 (tag, 2026-11-13): MD KIT builds into one firmware … | [repo](https://github.com/mmockett/OP-XY-MNMD) |

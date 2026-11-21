@@ -27,7 +27,7 @@ pin: Digitakt II 1.17 (improvements only), Digitone II 1.12 (improvements only),
 version is therefore probably also in the newest one; that is an inference until someone checks.
 
 Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatrack](#octatrack) ·
-[Analog Rytm](#analog-rytm) · [Model:Cycles](#modelcycles) · [Monomachine](#monomachine) · [Analog Four](#analog-four) · [Looks like a bug, is not](#looks-like-a-bug-is-not)
+[Analog Rytm](#analog-rytm) · [Model:Cycles](#modelcycles) · [Monomachine](#monomachine) · [Analog Four](#analog-four) · [Syntakt](#syntakt) · [Looks like a bug, is not](#looks-like-a-bug-is-not)
 
 ## Digitone II
 
@@ -178,7 +178,7 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Symptom:** the pattern's grid LED stays unlit under [PTN], as for an unused slot.
 - **Trigger:** a pattern whose only content is parameter locks (on a MIDI track, or trigless locks on an audio track), with no trig.
 - **Cause:** stock's "used" test looks at trigs only.
-- **Workaround:** fixed by BATCH_BUGFIXES (`EMPTY_PATTERN_LED_FIX`) under [PTN]; under [BANK] it stays as stock, because scanning 256 patterns' locks on every LED refresh starved the CPU.
+- **Workaround:** fixed by BATCH_BUGFIXES (`EMPTY_PATTERN_LED_FIX`) under [PTN]; under [BANK] a full scan of 256 patterns' locks on every LED refresh starved the CPU. Since 2026-11-20 (318 B version) [BANK] also lights a bank whose pattern holds a trigless lock with a locked value, by reading only the trigless-lock masks and at most 16 lock rows per pattern; confirmed responsive with [BANK] held on an MKI. Other lock-only content still reads empty under [BANK]. {octatrack-kyoti-fw-1121}
 - **Test tip:** do not overwrite a "free" pattern slot in a test project without checking for locks.
 - **Found by:** octatrack-kyoti-fw
 - **Status:** open in stock; fixed by a mod
@@ -200,9 +200,9 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Device and OS:** Octatrack, OS 1.40C
 - **Area:** UI, sequencer
 - **Symptom:** the step stays lit on the trig row forever, although it is now inert.
-- **Trigger:** erase the last remaining lock of a trigless lock.
-- **Cause:** not described in the source.
-- **Workaround:** fixed by octatrack-kyoti-fw's ERASE_EMPTY_TRIGLESS_LOCKS (a deliberately empty trigless lock placed with FUNC + TRIG is left alone).
+- **Trigger:** erase the last remaining lock of a trigless lock (LIVE REC: [NO] + knob), on an audio or a MIDI track.
+- **Cause (read from code, 2026-11-20):** the LIVE erase worker (audio `0x40038874`, MIDI twin `0x40038668`) clears the step from the lock bitmap when its row empties, but never the trigless-lock flag at track `+0x10`, which keeps the LED lit. The MIDI clear-trigs path also leaves `+0x10` set where audio clears it. {octatrack-kyoti-fw-1121}
+- **Workaround:** fixed by octatrack-kyoti-fw's ERASE_EMPTY_TRIGLESS_LOCKS (a deliberately empty trigless lock placed with FUNC + TRIG is left alone); since 2026-11-20 on MIDI tracks too, confirmed on an MKI (I173).
 - **Test tip:** lit steps after a lock edit are not necessarily your mod.
 - **Found by:** octatrack-kyoti-fw
 - **Status:** open in stock; fixed by a mod
@@ -450,6 +450,20 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Found by:** mdmm (B-133)
 - **Status:** open; seen on the unmodified OS in the emulator, a real unit "very likely" the same but not tried.
 - **Evidence:** `[emu]` {mdmm-091}
+
+## Syntakt
+
+### SB35. A Data API card write takes its length from the host and is bounded only by the card's end
+- **Device and OS:** Syntakt, OS 1.42 (the same eMMC write and erase code is in Digitakt II 1.17 and Digitone II 1.11/1.12; whether their Data API sizes a write the same way is not read)
+- **Area:** storage, MidiRpc Data API
+- **Symptom:** none with Elektron Transfer, which sends the slot size. A host that declares a larger size writes upward from the slot through the next slots, the project pool, the COKi state copies (`0x7a000`) and the working project (`0x7e000`) up to the card's end.
+- **Trigger:** a Data API write (samples, projects, sounds) whose import header declares more bytes than the slot holds (the u32 at +`0x19`, copied without a compare in `0x4010b4de`).
+- **Cause:** the start comes from the path, the size from the host; the block write `0x4010f7f8` checks only the card capacity, and the block erase `0x4010f52a` checks nothing (a count of 0 makes the end sector `sector - 1`).
+- **Workaround:** a host client must bound the size to the slot; digikit's card guard hooks both entries and refuses a request outside the stock area `[0, 0x180000)` (emulator-tested).
+- **Test tip:** back up the +Drive card before you test any tool that writes samples or sounds into the stock slots.
+- **Found by:** digikit (read from the code; not reproduced on a unit)
+- **Status:** open in stock
+- **Evidence:** `[doc]` {digikit-1121}
 
 ## Looks like a bug, is not
 

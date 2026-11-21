@@ -62,6 +62,7 @@ static map; it is where every platform below lives. Stock's DMA buffers sit just
 | `0x46b00000` | `0x47000000` | dn2mk2 | sampler: the ColdFire's 5 MB mirror of the sample pool, fed to the DSP | 1.11 | `[doc]` {dn2mk2-ram} |
 | `0x46b79000` | ? | dn2mk2 | v0.62 slice editor's FINE buffer (int16 frames read from the +Drive for the deepest zoom), "mirror + 0x79000, below META"; the absolute address assumes the mirror still starts at `0x46b00000`; size not stated | 1.11 | `[?]` {dn2mk2-1120} {dn2mk2-ram} |
 | `0x47000000` | ? | dn2mk2 | sampler machine tables (a `CODE` chunk: magic, length, data) | 1.11 | `[doc]` {dn2mk2-ram} |
+| `0x46afc000` | ? | RIFT | Machinedrum screen graphics, moved here in v0.13 when the page renderer's span grew to `0x3C000` (ported from dn2mk2's slice editor; if the renderer still starts at `0x46ac0000`, it now ends here). Size not stated | 1.11 | `[doc]` {dn2-rift-1121} |
 | `0x46800000` | ? | cfmod / cfkit | code (default link address) | 1.11 | `[doc]` {dn2-skill-scripts} |
 | `0x46a00000` | ? | cfmod / cfkit | stacks, rings and scratch | 1.11 | `[doc]` {dn2-skill-scripts} |
 | `0x46800000` | `0x47ad0000` | armio T1E2 / R012 / R022 | the transplanted Digitakt II runtime, envelope: graft base `0x46800000`, private state `0x46816f8c-0x47a19ca0` (BSS flag at `0x46b9608c`), extension `0x47a36000`, scratch `0x47a58000`, startup status `0x47a9cd7c`, R022's autosave helper at `0x47acee98`; the end moves with each build | 1.11 | `[doc]` {armio-ram} {armio-r012} |
@@ -101,6 +102,33 @@ What this shows (2026-11-11)
 | `0x82200000` | `0x82220000` | dn2mk2 / RIFT | Machinedrum P-I delay lines (128 KB) | 1.11 | `[doc]` {dn2-rift-1118} |
 | `0x82400000` | `0x824c0000` | RIFT | SILT waveguide and filament delay lines, 48 KB per track slot x 16 (v0.6) | 1.11 | `[doc]` {dn2-rift-1118} |
 | `0x84000000` | ? | dn2mk2 / RIFT | sample pool (directory magic `SMP1`, then frames) | 1.11 | `[doc]` {dn2-rift-1118} |
+
+## Digitone II +Drive sectors (`digitone-2`)
+
+Not RAM: sector numbers on the +Drive (512-byte sectors; `0x6E0400 + 2p + c` is one sector per copy), as the mods'
+own memory maps give them (dn2mk2 `docs/memory-map.md` and `docs/erase-mod-data.md`, the same files in RIFT). Stock's
+data and the free gaps are listed so a new region can be placed. dn2mk2 and RIFT are separate firmwares and never run
+together; a region marked "dn2mk2 / RIFT" means the same layout in both. Another mod that writes the +Drive below the
+stock file system (as these do) must stay out of all of these. dn2mk2's own table left out the tunings and the library
+extension and called them free until v0.65.
+
+| start | end | user | use | OS | evidence |
+|---|---|---|---|---|---|
+| `0x0` | `0x458000` | stock | the stock store (the +Drive file system), per the mods' erase notes | 1.11 | `[doc]` {dn2-rift-1121} |
+| `0x458000` | `0x5d8000` | stock | factory buffer | 1.11 | `[doc]` {dn2-rift-1121} |
+| `0x600001` | `0x6c8001` | dn2mk2 / RIFT | the sample link's pool image (400 MB, `POOL_BYTES`) | 1.11 | `[doc]` {dn2mk2-1121} {dn2-rift-1121} |
+| `0x6d0000` | `0x6d0002` | dn2mk2 / RIFT | per-project sample pools: superblock `DN2J`, two copies | 1.11 | `[doc]` {dn2mk2-1121} |
+| `0x6d0100` | `0x6e0300` | dn2mk2 / RIFT | per-project sample pools: 129 lists (128 projects and the legacy list) x 2 copies x 256 sectors (`DN2K`) | 1.11 | `[doc]` {dn2mk2-1121} |
+| `0x6e0400` | `0x6e0500` | dn2mk2 (v0.61) / RIFT (v0.14) | microtuning: one record per project, two copies (`DN2T`); ERASE MOD DATA does not clear it yet | 1.11 | `[doc]` {dn2mk2-1121} {dn2-rift-1121} |
+| `0x6e0600` | `0x6ee600` | dn2mk2 (v0.65) | PROJECT RAM banks B..D, lists of projects 0..63, 2 copies x 464 sectors (`DN2B`, header last) | 1.11 | `[doc]` {dn2mk2-1121} |
+| `0x6f0000` | `0x6f0701` | dn2mk2 (v0.45) | +Drive library extension, entries 2,048..16,383 (`DN2X`); RIFT's map does not list it | 1.11 | `[doc]` {dn2mk2-1121} |
+| `0x6f0800` | `0x6ff000` | dn2mk2 (v0.65) | PROJECT RAM banks B..D, lists of projects 64..127 | 1.11 | `[doc]` {dn2mk2-1121} |
+| `0x6ff000` | `0x6ff001` | dn2mk2 / RIFT | the mod's settings sector (`DN2S`; bit 0 DIRECT JUMP) | 1.11 | `[doc]` {dn2mk2-1121} |
+| `0x6ff800` | `0x6ff805` | dn2mk2 (v0.43) | +Drive library folders 64..127 | 1.11 | `[doc]` {dn2mk2-1121} |
+| `0x700000` | ? | dn2mk2 / RIFT | +Drive library to the device's end: superblock `DN2L`, index, folders, sample frames | 1.11 | `[doc]` {dn2mk2-1121} |
+
+Free in dn2mk2 v0.65's map: `0x6C8001-0x6CFFFF`, `0x6D0002-0x6D00FF`, `0x6E0300-0x6E03FF`, `0x6E0500-0x6E05FF`,
+`0x6EE600-0x6EFFFF`, `0x6F0701-0x6F07FF`; the gap `0x5D8000-0x5FFFFF` is left alone by both mods.
 
 ## Digitakt II flash cave (`digitakt-2`)
 
@@ -199,6 +227,7 @@ MEMORY page does not show the loss.
 | `0x40a955e0` | `0x41498de0` | KYOTI | KYOTI V1.8C and the CLYPS image: Clyps and DIRECT JUMP code (32,496 B) plus Clyps' buffers (every bank's originals, temp saves, Part shadow), 1,709 arena pages (end is our sum) | 1.40C | `[doc]` {kyoti-1117} {kyoti-clyps-scope} |
 | `0x40a955e0` | `0x414aade0` | KYOTI | KYOTI V1.8BC: DIRECT JUMP (4,012 B at `0x40a955e0`), the BLACKPYRAMIDS_303 runtime (46,268 B from `0x40a9658c`), then Clyps and its buffers, 1,721 arena pages (end is our sum) | 1.40C | `[doc]` {kyoti-1120} |
 | `0x40a955e0` | `0x40a96de0` | KYOTI | VARISPEED_EMUS VEM11 feature image: the guard's UI-task code and the bug fixes' DRAM pieces, one arena page (end is our sum) | 1.40C | `[doc]` {kyoti-1120} |
+| `0x40a955e0` | `0x40a985e0` | KYOTI | VARISPEED_EMUS final promoted 2026-11-20 (`140C_VEM11`, mainos `f3b08c79…`): its UI-task code, PART_CHANGE_CARRYOVER_FIX and the 318 B EMPTY_PATTERN_LED_FIX predicate (at `0x40a963b0` in RC1), two arena pages (end is our sum) | 1.40C | `[doc]` {octatrack-kyoti-fw-1121} |
 
 ## Octatrack battery RAM (`octatrack`)
 
@@ -265,11 +294,11 @@ OS 1.42, from digikit's static reading (2026-11-18). The reset clears `0x4033a00
 | `0x4784f2c1` | `0x478af2cb` | stock | section-7 transmit buffer (the voice CPU's program) | 1.42 | `[doc]` {digikit-st-1118} |
 | `0x4584f2c5` | `0x4759b3c5` | stock | sample blob of the 64 stock slots, built at boot (64 frame counts + PCM16; 29.30 MiB when every slot holds 5 s; uncached alias `0x4d84f2c5`); not built by Synfact core 2.0.1 | 1.42 | `[emu]` {synfact-1118} |
 | `0x46000000` | `0x46010000` | Synfact core-st | 64 KiB resident core; safe only with core 2.0.1, which stops stock building the blob above | 1.42 | `[hw]` {synfact-1118} |
-| `0x478c0000` | `0x47bf0000` | digikit | `cf.expansion`: runtime object (981,036 B used); emulator only, no canary run | 1.42 | `[emu]` {digikit-st-1118} |
+| `0x478c0000` | `0x47bf0000` | digikit | `cf.expansion`: runtime object (981,036 B used, 2026-11-18); the full `device` image with runtime, menu and store booted and ran on one unit (2026-11-20); no canary run | 1.42 | `[hw]` (one unit) {digikit-st-1118} {digikit-1121} |
 | `0x47bf0000` | `0x47bf1000` | digikit | keep area (crash records across a reset) | 1.42 | `[doc]` {digikit-st-1118} |
-| `0x478af2ca` | `0x47c00000` | (none) | no code operand points here; an emulator canary over `0x478b0000-0x47c00000` stayed unchanged (no samples loaded, no unit) | 1.42 | `[emu]` {trig-seedr-1120} |
-| `0x47a00000` | `0x47b00000` | trig-seedr | Syntakt build's mods' area (`ST_AREA` default): hook-bus core and seedr code and data; buffers (~163 KB) from the OS heap; inside digikit's `cf.expansion`; emulator only | 1.42 | `[emu]` {trig-seedr-1120} |
-| `0x478b0000` | `0x47c00000` | trig-seedr | `canary-st` test build: pattern over `0x478b0000-0x47bf0000`, its own code at `0x47bf0000-0x47c00000` (overlaps digikit's keep area); for a unit check, not yet run | 1.42 | `[emu]` {trig-seedr-1120} |
+| `0x478af2ca` | `0x47c00000` | (none) | no code operand points here; an emulator canary over `0x478b0000-0x47c00000` stayed unchanged (no samples loaded); on one unit (2026-11-19) a canary over `0x478b0000-0x47bf0000` stayed unchanged with all 64 sample slots loaded, project load and save and a power cycle (I184) | 1.42 | `[hw]` (one unit) {trig-seedr-1120} {trig-seedr-1121} |
+| `0x47a00000` | `0x47b00000` | trig-seedr | Syntakt build's mods' area (`ST_AREA` default): hook-bus core and seedr code and data; buffers (~163 KB) from the OS heap; inside digikit's `cf.expansion`; trig-seedr 0.7.1/0.8.0 ran on one unit (2026-11-19) | 1.42 | `[hw]` (one unit) {trig-seedr-1120} {trig-seedr-1121} |
+| `0x478b0000` | `0x47c00000` | trig-seedr | `canary-st` test build: pattern over `0x478b0000-0x47bf0000`, its own code at `0x47bf0000-0x47c00000` (overlaps digikit's keep area); ran on one unit 2026-11-19: OK (I184) | 1.42 | `[hw]` (one unit) {trig-seedr-1121} |
 | `0x47c00000` | `0x48000000` | stock | 4 MiB ring (through `0x4fc00000`), cleared at boot, written every frame | 1.42 | `[doc]` {digikit-st-1118} |
 | `0x47fe0000` | `0x48000000` | Modwerk | freed by lowering the stack 128 KB; overlaps the ring (O35) | 1.42 | `[hw]` {modwerk-st-goal} |
 | `0x40339730` | `0x4033a000` | digikit | loader in the flash cave after the init table (56 of 2,256 B) | 1.42 | `[emu]` {digikit-st-1118} |
@@ -300,5 +329,23 @@ on hardware; samplers checks its code there every 60 UI ticks and falls back to 
 
 | start | end | user | use | OS | evidence |
 |---|---|---|---|---|---|
+| `0x80007340` | `0x80007680` | Synfact lfo3-st | LFO3 renderer copy, 822 bytes of code plus 10 alignment bytes (1.3.3 narrowed the old 1,152-byte window, which had 330 bytes unused) | 1.42 | `[doc]` {synfact-1121} |
+| `0x80007680` | `0x800077c0` | Synfact comp-st | 256 bytes of compressor code, 56 bytes of state, 8 bytes of guards; falls back to DDR when the window is not empty or a periodic check fails | 1.42 | `[doc]` {synfact-1121} |
 | `0x800077c0` | `0x80008000` | Synfact | Chorus window; when Chorus is absent and the window is zero, samplers' stereo code takes all 2,112 bytes | 1.41 | `[doc]` {synfact-main-opt} |
 | `0x8000fc20` | `0x8000ff94` | Synfact | Chorus window; without Chorus the samplers' stereo mix kernel uses 790 of its 884 bytes | 1.41 | `[doc]` {synfact-main-opt} |
+
+## Syntakt eMMC sectors (`syntakt`)
+
+Not RAM: 512-byte sectors of the +Drive card, OS 1.42, from digikit's reading (findings 138 and 154). Nothing in stock
+is sized from the card's capacity; the smallest capacity the firmware's part table lists is `0x3a4000` sectors, and one
+unit has exactly that.
+
+| start | end | user | use | OS | evidence |
+|---|---|---|---|---|---|
+| `0x0` | `0x1000` | stock | MmcFs header (sector 0), write-protect tables (`0x800`) | 1.42 | `[doc]` {digikit-1121} |
+| `0x1000` | `0x2000` | stock | 2,048 sound presets of 2 sectors | 1.42 | `[doc]` {digikit-1121} |
+| `0x2000` | `0x12000` | stock | 64 sample slots of `0x400` sectors | 1.42 | `[doc]` {digikit-1121} |
+| `0x7a000` | `0x7e000` | stock | two COKi copies of the persistent state | 1.42 | `[doc]` {digikit-1121} |
+| `0x7e000` | `0x80000` | stock | working project, rewritten at boot | 1.42 | `[doc]` {digikit-1121} |
+| `0x80000` | `0x180000` | stock | 128 project slots of `0x2000` sectors; MmcFs refuses any sector from `0x180000` up | 1.42 | `[doc]` {digikit-1121} |
+| `0x200000` | `0x300000` | digikit | module store (512 MiB; header copy B at `0x2fffdd`, settings and selection records at the end); worked on one unit | 1.42 | `[hw]` (one unit) {digikit-1121} |

@@ -4,9 +4,16 @@
   <link href="https://70b185.github.io/Aggregat/"/>
   <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
   <id>https://70b185.github.io/Aggregat/</id>
-  <updated>2026-11-20T00:00:00Z</updated>
+  <updated>2026-11-21T00:00:00Z</updated>
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>Update 2026-11-21: 14 change reports folded, 1 repo moved, 6 set unreachable, 1 ignored, I172-I185, SB35, O46-O47, H66-H67, A84-A89</title>
+    <link href="https://github.com/70b185/Aggregat/commit/b3782b9407ed644b80666a0e04dc07198fe82913"/>
+    <id>https://70b185.github.io/Aggregat/#commit-b3782b9407ed</id>
+    <updated>2026-11-21T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
   <entry>
     <title>New in the catalogue: TRANSPOSE (Digitakt mk1) (Mod, Digitakt)</title>
     <link href="https://70b185.github.io/Aggregat/?p=transpose-dt"/>
@@ -416,6 +423,13 @@
     <category term="update"/>
   </entry>
   <entry>
+    <title>Agent foundation: stable fact ids, address index, context packs, AGENTS.md, llms.txt, MCP server</title>
+    <link href="https://github.com/70b185/Aggregat/commit/c046776058dbc2704310e9f9e4d10164e90112f3"/>
+    <id>https://70b185.github.io/Aggregat/#commit-c046776058db</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>UPDATING: an entry in the mods list names only the devices it ships mods for</title>
     <link href="https://github.com/70b185/Aggregat/commit/b4b156a489cb8441d623c0e9e09dd3685ce78417"/>
     <id>https://70b185.github.io/Aggregat/#commit-b4b156a489cb</id>
@@ -447,20 +461,6 @@
     <title>Housekeeping after the elektronmods.com post</title>
     <link href="https://github.com/70b185/Aggregat/commit/99d8875b1c9a68a2ee0fd90bdba6786dd1f4c071"/>
     <id>https://70b185.github.io/Aggregat/#commit-99d8875b1c9a</id>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Tidy the root so the README shows near the top</title>
-    <link href="https://github.com/70b185/Aggregat/commit/1a2a51a5472b7103f66788037fea6e2f740a4cc0"/>
-    <id>https://70b185.github.io/Aggregat/#commit-1a2a51a5472b</id>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Remove the mod finder</title>
-    <link href="https://github.com/70b185/Aggregat/commit/175f0dec77eeb92b2b2d7af4e64aec4c5252df24"/>
-    <id>https://70b185.github.io/Aggregat/#commit-175f0dec77ee</id>
     <updated>2026-11-11T00:00:00Z</updated>
     <category term="update"/>
   </entry>

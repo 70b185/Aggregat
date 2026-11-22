@@ -437,6 +437,7 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Workaround:** power-cycle by hand; the new OS is already written. Do not reflash, and do not take a screenshot over MIDI.
 - **Test tip:** watch the USB node: units leave USB 16-32 s after the commit; one still there after 45 s has stalled.
 - **Found by:** elkflash
+- **Also (2026-11-22):** the Analog Rytm MKII on OS 1.74 shows the same race in analog-emu: without elekloader core-ar2's restart routine 5 of 15 upgrades hung, with it 0 of 15, and 0 of 30 with the panel link paced as on a unit, so on a unit it is likely rare. `[emu]` {elekloader-1122}
 - **Status:** open
 - **Evidence:** `[hw]` {elkflash-stall} (I103)
 

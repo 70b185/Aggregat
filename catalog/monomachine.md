@@ -2,7 +2,7 @@
 
 # Monomachine
 
-Data last verified: 2026-11-21
+Data last verified: 2026-11-22
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 

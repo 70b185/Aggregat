@@ -2,7 +2,7 @@
 
 # Project families
 
-Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-21. Edit the `relations:` field in `data/projects.yml`.
+Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-22. Edit the `relations:` field in `data/projects.yml`.
 
 | Relation | Meaning |
 |---|---|
@@ -397,7 +397,7 @@ flowchart LR
     n_sidecar_expander["Sidecar | Expander<br/>GPL-2.0"]:::copyleft
     n_sidecar_mods["Sidecar | Expander: Rytm mods<br/>GPL-2.0-or-later"]:::copyleft
     n_taktone["taktone<br/>not recorded"]:::none
-    n_telos["telos (elekloader OS)<br/>GPL-2.0"]:::copyleft
+    n_telos["telos (elekloader OS)<br/>GPL-2.0-or-later (mod.json files; LICENSE holds the GPL-2.0 text)"]:::copyleft
     n_tone_fx["Tone+FX<br/>GPL-2.0-or-later"]:::copyleft
     n_trig_seedr["trig-seedr<br/>GPL-2.0-or-later; a build with the MAP data (from Mutable Instruments Grids) is GPL-3.0-or-later, as the shipped mod is"]:::copyleft
   end

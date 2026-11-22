@@ -22,7 +22,7 @@ results by hand, with credit to this project. Taking part is voluntary and can s
 
 | | |
 |---|---|
-| Aggregat state | research map reviewed 2026-11-03, snapshot `ac55c65383b3` |
+| Aggregat state | research map reviewed 2026-11-03, snapshot `b15d7f70eef1` |
 | Copied on | <date you copied it> |
 
 ## What we work on
@@ -49,7 +49,7 @@ emulator, `doc` = read in code or documents.
 
 ---
 
-# Copied state: Aggregat research, snapshot `ac55c65383b3` (research map reviewed 2026-11-03)
+# Copied state: Aggregat research, snapshot `b15d7f70eef1` (research map reviewed 2026-11-03)
 
 ## Goals (copied from Aggregat)
 
@@ -203,3 +203,4 @@ emulator, `doc` = read in code or documents.
 | O45 | Has octabam's form of PAGE LOOP, TRIG MUTE and TRACK TRIG MODE run on an Octatrack? |
 | O46 | What stock Digitone II OS 1.11 does with PTN + KEYBOARD |
 | O47 | How many kernel tasks the Digitone II OS 1.12 runs |
+| O48 | Digitone II FLEX single-track take level (dn2mk2) |

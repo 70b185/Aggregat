@@ -107,6 +107,7 @@ devices:
       - {id: x0x, use: patch, os: ["1.12"], evidence: "first commit 2026-10-26"}
       - {id: digi-macro, use: patch, os: ["1.12"], evidence: "first commit 2026-10-28"}
       - {id: overtone, use: patch, os: ["1.12"], evidence: "first commit 2026-10-29"}
+      - {id: digiglide, use: patch, os: ["1.12"], evidence: "README: the patcher needs exactly the official Digitone_II_OS1.12.syx and checks its hash (2026-11-22)"}
       - {id: terrain-dn2, use: patch, os: ["1.12"], evidence: "first commit 2026-11-14"}
       - {id: digitone-2-mod-hack, use: patch, os: ["1.12"], evidence: "README pins the 1.12 hash"}
       - {id: openbridge-digitone-2, use: runs-on, os: ["1.12"], evidence: "base_os in the catalogue", note: "the unit must run 1.12 or later; nothing is patched"}

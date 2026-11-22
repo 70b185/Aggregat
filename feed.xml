@@ -4,9 +4,17 @@
   <link href="https://70b185.github.io/Aggregat/"/>
   <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
   <id>https://70b185.github.io/Aggregat/</id>
-  <updated>2026-11-21T00:00:00Z</updated>
+  <updated>2026-11-22T00:00:00Z</updated>
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>New in the catalogue: DigiGlide (Mod, Digitone II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digiglide"/>
+    <id>https://70b185.github.io/Aggregat/#project-digiglide</id>
+    <updated>2026-11-22T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A Digitone II firmware mod in which a track holds a chord and its voices glide into the next chord along shaped paths; a port of the author's Brickglide engine (from his brickchord project) to FM TONE, WAVETONE, FM DRUM and SWARMER tracks, as four extra pages after the …</summary>
+  </entry>
   <entry>
     <title>Update 2026-11-21: 14 change reports folded, 1 repo moved, 6 set unreachable, 1 ignored, I172-I185, SB35, O46-O47, H66-H67, A84-A89</title>
     <link href="https://github.com/70b185/Aggregat/commit/b3782b9407ed644b80666a0e04dc07198fe82913"/>
@@ -278,7 +286,7 @@
     <summary>Offline pattern algorithms as an elekloader mod, opened as a third TRIG page after EUCLIDEAN: generate rhythms, notes, accents, trig conditions, retrigs and sample locks for a track, audition takes with undo, apply groove timing and velocity, and rotate a track or the whole …</summary>
   </entry>
   <entry>
-    <title>New in the catalogue: telos (elekloader OS) (Loader, Digitone, Octatrack)</title>
+    <title>New in the catalogue: telos (elekloader OS) (Loader, Digitone, Octatrack, Analog Rytm, Analog Four / Analog Keys)</title>
     <link href="https://70b185.github.io/Aggregat/?p=telos"/>
     <id>https://70b185.github.io/Aggregat/#project-telos</id>
     <updated>2026-11-15T00:00:00Z</updated>
@@ -423,13 +431,6 @@
     <category term="update"/>
   </entry>
   <entry>
-    <title>Agent foundation: stable fact ids, address index, context packs, AGENTS.md, llms.txt, MCP server</title>
-    <link href="https://github.com/70b185/Aggregat/commit/c046776058dbc2704310e9f9e4d10164e90112f3"/>
-    <id>https://70b185.github.io/Aggregat/#commit-c046776058db</id>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
     <title>UPDATING: an entry in the mods list names only the devices it ships mods for</title>
     <link href="https://github.com/70b185/Aggregat/commit/b4b156a489cb8441d623c0e9e09dd3685ce78417"/>
     <id>https://70b185.github.io/Aggregat/#commit-b4b156a489cb</id>
@@ -444,23 +445,23 @@
     <category term="update"/>
   </entry>
   <entry>
-    <title>Research: official MIDI tables (T13), test status from 43 READMEs, mod-author checklist, anchor_translate (G5)</title>
-    <link href="https://github.com/70b185/Aggregat/commit/a65404f1da338fb59e0bd62a21c043acf5d58f7d"/>
-    <id>https://70b185.github.io/Aggregat/#commit-a65404f1da33</id>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>RAM tenancy register (T23), recovery status per device, ram_users MCP tool</title>
-    <link href="https://github.com/70b185/Aggregat/commit/9b1fb8fce56d4343dfce34e3462dc10ea59449a7"/>
-    <id>https://70b185.github.io/Aggregat/#commit-9b1fb8fce56d</id>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
     <title>Housekeeping after the elektronmods.com post</title>
     <link href="https://github.com/70b185/Aggregat/commit/99d8875b1c9a68a2ee0fd90bdba6786dd1f4c071"/>
     <id>https://70b185.github.io/Aggregat/#commit-99d8875b1c9a</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Tidy the root so the README shows near the top</title>
+    <link href="https://github.com/70b185/Aggregat/commit/1a2a51a5472b7103f66788037fea6e2f740a4cc0"/>
+    <id>https://70b185.github.io/Aggregat/#commit-1a2a51a5472b</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
+    <title>Remove the mod finder</title>
+    <link href="https://github.com/70b185/Aggregat/commit/175f0dec77eeb92b2b2d7af4e64aec4c5252df24"/>
+    <id>https://70b185.github.io/Aggregat/#commit-175f0dec77ee</id>
     <updated>2026-11-11T00:00:00Z</updated>
     <category term="update"/>
   </entry>

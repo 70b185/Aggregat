@@ -93,6 +93,18 @@ What this shows (2026-11-11)
 | `0x20090000` | `0x20098000` | elekloader | SHARC mod area (32 KiB) | 1.12 | `[doc]` {elekloader-dn2-profile} |
 | `0x200e9000` | `0x200fa000` | dn2mk2 | unused in dn2mk2's image (68 KB), listed as room | 1.11 | `[doc]` {dn2mk2-fascia-plan} |
 | `0x200c4000` | `0x200d9000` | RIFT | fascia.asm (84 KB, FASCIA/ORGAN/SILT; end computed from the size), moved into the PERC code's former room | 1.11 | `[doc]` {dn2-rift-1118} |
+| `0x200a0000` | ? | RIFT (v0.16) | SMEAR's voice scratch, stage words, mailboxes and guard cost words (the Machinedrum voices' former room) | 1.11 | `[doc]` {dn2-rift-1122} |
+| `0x200b7800` | `0x200bb800` | RIFT (v0.16) | SMEAR vocoder lane 0 working frames (16 KB) | 1.11 | `[doc]` {dn2-rift-1122} |
+| `0x200bc000` | ? | RIFT (v0.15) | perc.asm, moved 16 KB lower | 1.11 | `[doc]` {dn2-rift-1122} |
+
+## Digitone II SHARC L1 (`digitone-2`)
+
+From dn2-cfw's paper check UF01 (2026-11-16, OS 1.12; kept as text, not as table rows, because the two are separate
+firmwares and only clash when combined in one build): elekloader core 0.4 uses `0x2dd600-0x2e0800` (bridge and state,
+pitch table, synth and filter stacks, DSP peek, busy record at `0x2e0630`); Digiwerk uses `0x2dd600-0x2e1c36` (hook
+stubs, flanger, MRB code, ran on the unit), `0x2e2900-0x2e4f46` (compressor glue, MRB part 2), `0x2e6000-0x2e7000`
+(data and register save area), `0x308400-0x30ff76` (compressor) and `0x310000-0x315f8c` (tape delay). Both start at
+`0x2dd600`, so a build with both needs one of them moved. `[doc]` {dn2-cfw-1122}
 
 ## Digitone II SHARC DDR (`digitone-2`)
 
@@ -102,6 +114,7 @@ What this shows (2026-11-11)
 | `0x82200000` | `0x82220000` | dn2mk2 / RIFT | Machinedrum P-I delay lines (128 KB) | 1.11 | `[doc]` {dn2-rift-1118} |
 | `0x82400000` | `0x824c0000` | RIFT | SILT waveguide and filament delay lines, 48 KB per track slot x 16 (v0.6) | 1.11 | `[doc]` {dn2-rift-1118} |
 | `0x84000000` | ? | dn2mk2 / RIFT | sample pool (directory magic `SMP1`, then frames) | 1.11 | `[doc]` {dn2-rift-1118} |
+| `0x82700000` | ? | RIFT (v0.16) | SMEAR's state, ring and computed tables; PLATEAU (v0.17) reuses THOLET's former DDR ring | 1.11 | `[doc]` {dn2-rift-1122} |
 
 ## Digitone II +Drive sectors (`digitone-2`)
 
@@ -120,6 +133,7 @@ extension and called them free until v0.65.
 | `0x6d0000` | `0x6d0002` | dn2mk2 / RIFT | per-project sample pools: superblock `DN2J`, two copies | 1.11 | `[doc]` {dn2mk2-1121} |
 | `0x6d0100` | `0x6e0300` | dn2mk2 / RIFT | per-project sample pools: 129 lists (128 projects and the legacy list) x 2 copies x 256 sectors (`DN2K`) | 1.11 | `[doc]` {dn2mk2-1121} |
 | `0x6e0400` | `0x6e0500` | dn2mk2 (v0.61) / RIFT (v0.14) | microtuning: one record per project, two copies (`DN2T`); ERASE MOD DATA does not clear it yet | 1.11 | `[doc]` {dn2mk2-1121} {dn2-rift-1121} |
+| `0x6e0500` | ? | dn2mk2 (v0.69) | PERFORM macros, one record per project, two copies with a check word; ERASE PROJECT does not clear them; end not stated | 1.11 | `[doc]` {dn2mk2-1122} |
 | `0x6e0600` | `0x6ee600` | dn2mk2 (v0.65) | PROJECT RAM banks B..D, lists of projects 0..63, 2 copies x 464 sectors (`DN2B`, header last) | 1.11 | `[doc]` {dn2mk2-1121} |
 | `0x6f0000` | `0x6f0701` | dn2mk2 (v0.45) | +Drive library extension, entries 2,048..16,383 (`DN2X`); RIFT's map does not list it | 1.11 | `[doc]` {dn2mk2-1121} |
 | `0x6f0800` | `0x6ff000` | dn2mk2 (v0.65) | PROJECT RAM banks B..D, lists of projects 64..127 | 1.11 | `[doc]` {dn2mk2-1121} |
@@ -127,7 +141,7 @@ extension and called them free until v0.65.
 | `0x6ff800` | `0x6ff805` | dn2mk2 (v0.43) | +Drive library folders 64..127 | 1.11 | `[doc]` {dn2mk2-1121} |
 | `0x700000` | ? | dn2mk2 / RIFT | +Drive library to the device's end: superblock `DN2L`, index, folders, sample frames | 1.11 | `[doc]` {dn2mk2-1121} |
 
-Free in dn2mk2 v0.65's map: `0x6C8001-0x6CFFFF`, `0x6D0002-0x6D00FF`, `0x6E0300-0x6E03FF`, `0x6E0500-0x6E05FF`,
+Free in dn2mk2 v0.65's map: `0x6C8001-0x6CFFFF`, `0x6D0002-0x6D00FF`, `0x6E0300-0x6E03FF`, `0x6E0500-0x6E05FF` (taken by PERFORM in v0.69),
 `0x6EE600-0x6EFFFF`, `0x6F0701-0x6F07FF`; the gap `0x5D8000-0x5FFFFF` is left alone by both mods.
 
 ## Digitakt II flash cave (`digitakt-2`)
@@ -214,6 +228,7 @@ DSP56300 X-memory words, written `$xxxx` in the projects' notes.
 | `0x28f0` | `0x28f4` | elekloader (dspload-ot 0.2) | core 1's kept registers for the copier | 1.40C | `[emu]` {elekloader-1117} |
 | `0x2900` | `0x2db2` | elekloader (dspload-ot 0.2) | core 1's staging for run-time DSP code; doorbell `0xa55a` at `0x2900` (the same layout as octabam's DLCOPY, so the two cannot share a build) | 1.40C | `[emu]` {elekloader-1117} |
 | `0x33da3` | `0x34000` | elekloader (dspload-ot 0.2; TELOS card mods) | shared window (P/X/Y aliased): four slot pairs at `0x33da3`, code gap `P:0x33dab..0x33fff` (597 words); a reverb past its default knobs can reach it | 1.40C | `[emu]` {elekloader-1117} |
+| `0x33f36` | `0x34000` | octabam | reverb guard body and SIDECHAIN_COMPRESSOR hook stubs (end at `0x33ffc`), inside the same gap; the next words belong to the FX2 slot at `0x34000` that DARK REV fills; the other free gap is `0x37da3..0x37eff` (I188) | 1.40C | `[hw]` {octabam-1122} |
 | `0x7b04` | `0x7bfc` | KYOTI BLACKPYRAMIDS_303 (V1.8BC) | the 303 voice's X run 1, inside SPRING REV's five X records (both payloads); voice Y `$7a5..$feb`, SIDE-CHAIN Y `$7df0..$7fff` | 1.40C | `[doc]` {kyoti-1120} |
 
 ## Octatrack ColdFire DDR (`octatrack`)

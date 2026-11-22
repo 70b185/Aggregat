@@ -40,7 +40,7 @@ Elektron released Digitakt II 1.17, Digitone II 1.12 and Syntakt 1.42 on the sam
 
 ### Digitone II: newest OS 1.12 (since 2026-10-01)
 
-11 projects accept 1.12 (3 moved from an older OS, 6 started on it); 5 need an older file. A unit runs one OS, so mods that need different versions cannot be combined on it.
+12 projects accept 1.12 (3 moved from an older OS, 6 started on it); 5 need an older file. A unit runs one OS, so mods that need different versions cannot be combined on it.
 
 | OS needed | Project | Use | Also accepts | Since | Note |
 |---|---|---|---|---|---|
@@ -48,6 +48,7 @@ Elektron released Digitakt II 1.17, Digitone II 1.12 and Syntakt 1.42 on the sam
 | 1.12 | [Modwerk (formerly Octamod)](../p/modwerk/) | analysis | - | 2026-10-23 (22 days after the release) | research only, no downloads |
 | 1.12 | [elekloader](../p/elekloader/) | patch | - | 2026-10-24 (23 days after the release) | experimental |
 | 1.12 | [macro-mode (digi_macro)](../p/digi-macro/) | patch | - | started on it (2026-10-28) |  |
+| 1.12 | [DigiGlide](../p/digiglide/) | patch | - | - |  |
 | 1.12 | [DigiRust](../p/digirust/) | patch | - | started on it (2026-10-12) |  |
 | 1.12 | [digitone-2-mod-hack](../p/digitone-2-mod-hack/) | patch | - | - |  |
 | 1.12 | [dn2-cfw](../p/dn2-cfw/) | patch | - | started on it (2026-10-12) |  |

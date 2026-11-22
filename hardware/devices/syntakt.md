@@ -300,6 +300,7 @@ First digikit images flashed to a Syntakt (one unit, the maintainer's). Facts ma
 - **Hook sites found by hash on 1.42 (not checked on this image, `[?]`):** project slot setter `0x4006f2ce`, slot byte `0x40653441`, save exit `0x4001a7d4`, clear-one exit `0x4005a81a`, clear-many exit `0x4005a898`, paste exit `0x400c2116`; USB EP0 setup dispatcher `0x400062e2`, EP0 send `0x4000621c`, setup packet `0x454e4bdc`. `[?]`
 - **MidiRpc Ping reply:** on 1.42 the payload is length-prefixed (`1e 16`, 22 request types, `"Syntakt" 00`, 32 bytes); read the name as the first NUL-terminated string after the blob. `[emu]`
 - **Recovery path digikit gives:** FUNC at power-on, TRIG 4 (OS UPGRADE), the stock file over 5-pin MIDI DIN; back up the +Drive card first and do not put samples or sounds into the stock slots with Transfer until the Data API guard exists. Whether the logo-hung unit came back through that menu is not stated. `[doc]`
+- **Size baseline 2026-11-22:** digikit's `device` set now stores 2,102,528 B against its cap of 2,096,640 B (`0x1FFE00`), 5,888 B over, after the 2026-11-21 set that booted on the unit was 2,079,872 B; growth on the development lane. About 69.8 KB of MAIN's tail is stored as literals because the unpack margin is small; the DIGIKIT menu (19,104 B stored) is to move to the card first. Measured with patchkit; nothing flashed. `[doc]` {digikit-1122}
 
 ## Gaps
 - **Signing:** the HMAC presence in 1.41 versus 1.42 is a conflict, see above.

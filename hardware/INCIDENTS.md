@@ -573,7 +573,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Seen:** EFES locked three times on Digiwerk 0.4 (twice in a short session, once after about 50 minutes; no sound on PLAY, the synths silent), always on USB MULTI/MIDI. EEES, the spring alone, stopped the sound for good one or two minutes after a pattern stop and in OS UPGRADE. A build with a -240 dB floor in the spring was silent from power-on. CFTE without the spring ran an hour and 30 minutes on the same USB mode without a lock.
 - **Cause:** not found. An offline search ruled out illegal instructions and accesses, parity, FP exceptions, the stack, Elektron's code, timing in digikit's coupled emulator, and digikit's SHARC+ silicon rules (checked on every build, no hit). The one lead: the spring's output is exactly 0 from 1.4 s into FX kill and 78 s after a stop, as at both unit stops [inferred].
 - **Fix:** the spring is shelved; its six builds stay withdrawn. The author stopped blind device tests. The next test build (EEEM, a light morphing reverb in the reverb slot) sends the stock DSP's idle parks to a fault tone whose pitch names the fault (1500 Hz illegal instruction, 3000 Hz parity, 6000 Hz emulation or default handler, 1500 + 6000 Hz abort or stack check; a ~750 Hz buzz or silence is a hang).
-- **Status:** open; EEEM not yet on the unit (2026-11-10).
+- **Status:** open; the spring stays shelved. The EEEM test build (with the MRB morphing reverb in its place) ran 15 minutes on the unit without a fault (2026-11-17) {dn2-cfw-1122}.
 - **Evidence:** `[hw]` {dn2-cfw-sp02} {dn2-cfw-mr03}
 - **Rule:** A16
 - **Fact:** [devices/digitone-2.md](devices/digitone-2.md)
@@ -905,6 +905,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Cause (unknown):** it was the first boot after flashing, after a project load, panel PLAY, MIDI START, two program changes, STOP and commands 1, 2 and 4. The next nine commanded boots all came back in 7-8 s, two of them after the same sequence.
 - **Fix:** none; seen once.
 - **Later (2026-11-20):** seen twice more on an MKII. On 2026-11-18 command 3 for `OCTABAM 05.RMX` from image N1 left the boot screen with no USB at 30 s and needed a power cycle, while the same file picked from BRAIN > REMIXES on the panel booted; later commanded boots between BUILD 05 images came back 4 of 4. On 2026-11-19 command 3 sent while BUILD 05's DSP frame count was stopped (I170) did not come back in 150 s; two earlier boots from a stalled DSP (after loader phases, I169) did. `[hw]` {octabam-1120}
+- **Later (2026-11-22):** commanded boots sent while the DSP was stalled mostly froze or fell back to the flashed image, which neither the boot screen nor the ring fingerprint shows (only the running image's name does); 39 commanded boots from units whose DSP was counting all came back. `[hw]` {octabam-1122}
 - **Status:** open.
 - **Evidence:** `[hw]` {octabam-1116}
 - **Rule:** A2, A40
@@ -1370,6 +1371,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Seen:** the DSP frame count stopped 1,612 s into the run, at a START after a program change; panel, USB and the ColdFire frame interrupt went on. A commanded boot did not bring it back (boot screen, I110); a power cycle did. A 573 s replay stalled 2 of 2 times at the same START; with the last program change set to MODULATION, PLATE or SPRING REV instead of DARK REV it did not (one run each). Three diagnostic builds still stalled; in all, 6 of 9 runs stalled. ot_emu did not stall.
 - **Cause (narrowed, not found):** it needs MODULATION loaded by the demand loader and live on FX2 when DARK REV, whose buffer reaches the demand effect's code, is picked on every track and START follows. An earlier overwrite of the frame guard's cells is not the cause.
 - **Fix:** none
+- **Later (2026-11-22):** narrowed on an MKII: with MODULATION loaded, 5 of 7 runs stalled with DARK REV on 8 tracks, 1 of 6 on 4 tracks, 0 of 2 on 1 track; with SPECTRUM loaded instead, 0 in 25 cycles; a stock-effects image without the demand loader, 0 in 60 STARTs. Two of the diagnostic builds were invalid because their window stubs sat inside DARK REV's buffer ([I188](#i188-window-stubs-placed-inside-dark-revs-buffer-stopped-the-dsp-octabam-test-images)). The ColdFire frame interrupt stops with the DSP (it does not go on, as written above). `[hw]` {octabam-1122}
 - **Status:** open
 - **Evidence:** `[hw]` {octabam-1120}
 - **Rule:** A56, A51 (related: I57, I110)
@@ -1885,6 +1887,37 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Cause (from the project's notes):** v0.63 built +24 dB into such takes because GAIN +24 had matched a take to its source by ear on the owner's unit; that number had been judged on another firmware, not on the mod build that shipped it.
 - **Fix:** v0.65 builds in +12 dB (`TRK_HW_DB` 12); users who set FLEX tracks to GAIN -12 are told to set them back to 0. RIFT v0.13-v0.14 ported the +24 and still ship it.
 - **Status:** fixed in dn2mk2 v0.65 (gated in the emulator; the tester's measurement is the hardware evidence). Open in RIFT. MAIN and IN takes got their own +12 dB in v0.66, which the owner thinks may still be short; not yet measured.
+- **Later (2026-11-22):** disputed. dn2mk2 v0.68 goes back to +24 dB for track takes and also builds +24 dB into MAIN and IN takes, after the owner measured on v0.67 (pattern volume 100, compressor off) that +12 needed 12 dB more. That contradicts the tester's measurement (all levels 127, recorded through a DAW over USB); RIFT v0.13-v0.17 ship +24 dB for track takes, the same as dn2mk2 again, and +12 dB for MAIN and IN. See [O48](CONFLICTS.md). `[hw]` (both measurements) {dn2mk2-1122} {dn2-rift-1122}
 - **Evidence:** `[hw]` (tester's measurement) {dn2mk2-1121}
 - **Rule:** G8
 - **Fact:** [devices/digitone-2-internals.md](devices/digitone-2-internals.md)
+
+### I186. A user machine that loaded samples between hits reset a Sidecar Pi 5 (WAVESURFER 1.0.0)
+- **Unit:** Analog Rytm MKII with the Sidecar expander on a Raspberry Pi 5, Sidecar firmware 0.5.1, community machine WAVESURFER 1.0.0 (a user's setup), reported by 2026-11-21
+- **Seen:** frequent resets of the Sidecar, with USB drops, when an LFO moved WAVESURFER's sample, bank, first-row or bank-size knobs; long or large samples (over about 12 MB or 60 s) went with USB drops and resets too.
+- **Cause (from the package's README):** in 1.0.0 every knob change asked the Sidecar for the selected sample, so a modulated knob made it load several samples a second from the SD card; long, heavy card reads are the common factor. The Sidecar side of the reset is not explained.
+- **Fix:** WAVESURFER 1.0.1 asks for a sample only when a trig comes in (or for the one playing); the README asks for samples under 12 MB and 60 s.
+- **Status:** fixed in the package (1.0.1); the Sidecar's own behaviour under heavy card reads is open.
+- **Evidence:** `[hw]` (user report in the package README) {sidecar-machines-1122}
+- **Rule:** A90
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)
+
+### I187. Panel froze after a Grain trial, and a later RAM boot hung (Modwerk, Octatrack MKII)
+- **Unit:** Octatrack MKII, OS 1.40C, Modwerk base 0.7.11 development twin, a Grain draft (two voices) on track 5, no CF card, MIDI and 20-channel USB capture, 2026-11-21
+- **Seen:** after 61 s of play and STOP the audio frames kept running but the UI tick stayed stuck for at least 27 s; the machine chooser never confirmed Flex, and the USB rollback and RAM restart could not finish. A power cycle restored the production base. Separately, a RAM boot back to the shipping base after the Grain timing runs (no module live) hung on the startup animation with no controls and no USB, and the log kept no crash or stall record; a power cycle with the card booted the flashed base.
+- **Cause:** open. The trace shows no faulting UI address; a redundant per-track source rewrite on the next UI tick was removed as a suspect, but the emulator did not reproduce the freeze. A stock-Flex control run did not freeze.
+- **Fix:** none yet.
+- **Status:** open
+- **Evidence:** `[hw]` {modwerk-1122}
+- **Rule:** A29
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I188. Window stubs placed inside DARK REV's buffer stopped the DSP (octabam test images)
+- **Unit:** Octatrack MKII, OS 1.40C, octabam diagnostic images (P1, D4), 2026-11-21/22
+- **Seen:** image P1 booted with the DSP frame count at 0 for 90 s, twice; D4 stalled 6.6 s into its run with no DARK REV picked.
+- **Cause (found from the build map):** SIDECHAIN_COMPRESSOR's hook stubs had grown past `0x33fff` into the FX2 slot at `0x34000`, which DARK REV fills up to slot + `0x3da2`. The window believed free, `0x33da3..0x37eff`, is really two gaps: `0x33da3..0x33fff` and `0x37da3..0x37eff`. The results of those diagnostic builds for I170 were discarded.
+- **Fix:** octabam's build refuses a window record inside the extent of a guarded reverb's slot.
+- **Status:** fixed (build gate)
+- **Evidence:** `[hw]` {octabam-1122}
+- **Rule:** D11
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)

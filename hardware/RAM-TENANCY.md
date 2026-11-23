@@ -228,7 +228,10 @@ DSP56300 X-memory words, written `$xxxx` in the projects' notes.
 | `0x28f0` | `0x28f4` | elekloader (dspload-ot 0.2) | core 1's kept registers for the copier | 1.40C | `[emu]` {elekloader-1117} |
 | `0x2900` | `0x2db2` | elekloader (dspload-ot 0.2) | core 1's staging for run-time DSP code; doorbell `0xa55a` at `0x2900` (the same layout as octabam's DLCOPY, so the two cannot share a build) | 1.40C | `[emu]` {elekloader-1117} |
 | `0x33da3` | `0x34000` | elekloader (dspload-ot 0.2; TELOS card mods) | shared window (P/X/Y aliased): four slot pairs at `0x33da3`, code gap `P:0x33dab..0x33fff` (597 words); a reverb past its default knobs can reach it | 1.40C | `[emu]` {elekloader-1117} |
-| `0x33f36` | `0x34000` | octabam | reverb guard body and SIDECHAIN_COMPRESSOR hook stubs (end at `0x33ffc`), inside the same gap; the next words belong to the FX2 slot at `0x34000` that DARK REV fills; the other free gap is `0x37da3..0x37eff` (I188) | 1.40C | `[hw]` {octabam-1122} |
+| `0x33f36` | `0x34000` | octabam | reverb guard body and SIDECHAIN_COMPRESSOR hook stubs (end at `0x33ffe` since 2026-11-23, {octabam-1123}), inside the same gap; the next words belong to the FX2 slot at `0x34000` that DARK REV fills; the other free gap is `0x37da3..0x37eff` (I188) | 1.40C | `[hw]` {octabam-1122} |
+| `0x37f60` | `0x37f6f` | octabam (KEYBUS) | per-track key words, rewritten every block: peak at `+0..7`, mean square at `+8..15` (CHARACTER KEY, VOID, VCA160 read them); no stock writer per octabam's ledger | 1.40C | `[doc]` {octabam-1123} |
+| `0x33dcb` | `0x33e55` | octabam (DLCOPY) | the demand-loader copier in the shared window (138 words; `0x33dc3..0x33e4d` in `test/dlspike`) | 1.40C | `[doc]` {octabam-1123} |
+| `0x33e55` | `0x33e70` | octabam (KEYBUS) | KEYBUS's tap code, 27 words, one copy for both payloads (`octabam`, `octabam-verbs`); the loader stub `window_loader` follows at `0x33e70` | 1.40C | `[doc]` {octabam-1123} |
 | `0x7b04` | `0x7bfc` | KYOTI BLACKPYRAMIDS_303 (V1.8BC) | the 303 voice's X run 1, inside SPRING REV's five X records (both payloads); voice Y `$7a5..$feb`, SIDE-CHAIN Y `$7df0..$7fff` | 1.40C | `[doc]` {kyoti-1120} |
 
 ## Octatrack ColdFire DDR (`octatrack`)
@@ -297,6 +300,8 @@ MEMORY page does not show the loss.
 | `0x47b50000` | `0x47c00000` | Modwerk (own linker) | 704 KiB module area for sets over 128 KiB (includes the shared 128 KiB area) | 1.74 | `[hw]` {modwerk-rytm-1118} |
 | `0x47c00000` | `0x47f00000` | Modwerk (own linker, no send-bus base) | extends the 3.7 MiB area; the send bus's work area otherwise ends at `0x47c00000` | 1.74 | `[hw]` {modwerk-rytm-1118} |
 | `0x47feffbc` | `0x47ff0000` | Modwerk development link | RAM-boot diagnostics (68 B) moved here from the top of the mod area; `ident` names the place | 1.74 | `[doc]` {modwerk-rytm-1118} |
+| `0x800067f8` | `0x80006bf8` | stock / Sidecar 0.5.1.1 | sample layer output S, 128 B per voice; stock's sample_render writes every voice every block, Sidecar's mixer detour zeroes S of voices under a Sidecar machine | 1.73/1.74 | `[emu]` {sidecar-mods-1123} |
+| `0x80005b30` | `0x80005e10` | stock / Sidecar 0.5.1.1 | sample voice records, 92 B per voice; Sidecar clears +40 (playing) and +44..+91 (filter state) of skipped voices | 1.73/1.74 | `[emu]` {sidecar-mods-1123} |
 
 ## Syntakt MAIN DDR (`syntakt`)
 
@@ -335,7 +340,7 @@ internal SRAM. Section 7 is the same in 1.41 and 1.42. Synfact's full AUDIO map 
 | `0x44050f50` | `0x47feff50` | Synfact core-st | HZFS long-sample PCM, 63.62 MiB, core 2.2+; nothing in the stock image names this zone (probe on a unit pending) | 1.42 | `[doc]` {synfact-1120} |
 | `0x47feff50` | `0x48000000` | stock | left to the AUDIO stack (SP `0x48000000`; at most 3,140 bytes by static count) | 1.42 | `[doc]` {synfact-1120} |
 | `0x8000e8a0` | `0x8000f398` | Synfact FM TONE | scratch in AUDIO's SRAM | 1.42 | `[doc]` {synfact-1120} |
-| `0x8000f398` | `0x80010000` | Synfact core-st | stereo tracks in AUDIO's SRAM (tail checked free on a unit with a probe, 2026-11-10) | 1.42 | `[hw]` {synfact-memprobe} {synfact-1120} |
+| `0x8000f398` | `0x80010000` | Synfact stereo engine (core-st, samplers-st) | stereo tracks in AUDIO's SRAM (tail checked free on a unit with a probe, 2026-11-10); samplers-st 1.6 layout: R buffers `0x8000f400` (8 x 128 B), R's chain memory `0x8000f800` (40 words), drive state from before L `0x8000f8a0` (40 words), window block staging `0x8000fb50` (560 B, read by eDMA channel 46), R's render filter memory `0x8000fe00`, scratch and fused-multimode buffers `0x8000fe80..0x8000ffff` | 1.42 | `[hw]` {synfact-memprobe} {synfact-1120} {synfact-1123} |
 
 ## Syntakt MAIN SRAM (`syntakt`)
 
@@ -345,7 +350,7 @@ on hardware; samplers checks its code there every 60 UI ticks and falls back to 
 | start | end | user | use | OS | evidence |
 |---|---|---|---|---|---|
 | `0x80007340` | `0x80007680` | Synfact lfo3-st | LFO3 renderer copy, 822 bytes of code plus 10 alignment bytes (1.3.3 narrowed the old 1,152-byte window, which had 330 bytes unused) | 1.42 | `[doc]` {synfact-1121} |
-| `0x80007680` | `0x800077c0` | Synfact comp-st | 256 bytes of compressor code, 56 bytes of state, 8 bytes of guards; falls back to DDR when the window is not empty or a periodic check fails | 1.42 | `[doc]` {synfact-1121} |
+| `0x80007680` | `0x800077c0` | Synfact comp-st | 244 bytes of code (four-sample peak, SCF loop, curve, VCA), 68 bytes of state (SCF coefficient and L/R state added in 0.3), 8 bytes of guards; falls back to DDR when the window is not empty or a periodic check fails | 1.42 | `[doc]` {synfact-1121} {synfact-1123} |
 | `0x800077c0` | `0x80008000` | Synfact | Chorus window; when Chorus is absent and the window is zero, samplers' stereo code takes all 2,112 bytes | 1.41 | `[doc]` {synfact-main-opt} |
 | `0x8000fc20` | `0x8000ff94` | Synfact | Chorus window; without Chorus the samplers' stereo mix kernel uses 790 of its 884 bytes | 1.41 | `[doc]` {synfact-main-opt} |
 

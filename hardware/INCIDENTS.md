@@ -1151,7 +1151,8 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Cause:** unknown; suspected stock repainting the whole page after the mod drew, while the mod redraws only on a change.
 - **Fix:** proposed: redraw whenever the shown page changes.
 - **Later (2026-11-20):** probable cause found on the unit on pattern H02: after a pattern pick with BANK or PTN one of the firmware's permanent views stays on top of the main view stack. It draws nothing, but the mod asked for the top view and drew only while the parameter page was on top, so the DRUM pages were empty and the strip was gone. Drum Mode 0.8.3 walks the view stack past that view; the page-switch case is still to be checked on a unit. The lesson is then not "redraw on a page change" but "find your page in the view stack; do not assume it is the top view" (A79 again: H02, not A01). `[hw]` (symptom on H02) / `[emu]` (cause) {drum-mode-1120}
-- **Status:** fixed in 0.8.3 for the pattern-pick case; the page-switch case is open
+- **Later (2026-11-22):** in the unit test of 0.10 the lane strip no longer disappeared while switching pages. `[hw]` {drum-mode-1123}
+- **Status:** fixed (0.8.3; the page-switch case passed on the unit with 0.10)
 - **Evidence:** `[hw]` {drum-mode-1118}
 - **Rule:** C11 (a candidate general rule, if a second case appears: "a mod that draws over a stock page must redraw when the page changes, not only when its own content changes")
 - **Fact:** [devices/digitone.md](devices/digitone.md)
@@ -1372,6 +1373,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Cause (narrowed, not found):** it needs MODULATION loaded by the demand loader and live on FX2 when DARK REV, whose buffer reaches the demand effect's code, is picked on every track and START follows. An earlier overwrite of the frame guard's cells is not the cause.
 - **Fix:** none
 - **Later (2026-11-22):** narrowed on an MKII: with MODULATION loaded, 5 of 7 runs stalled with DARK REV on 8 tracks, 1 of 6 on 4 tracks, 0 of 2 on 1 track; with SPECTRUM loaded instead, 0 in 25 cycles; a stock-effects image without the demand loader, 0 in 60 STARTs. Two of the diagnostic builds were invalid because their window stubs sat inside DARK REV's buffer ([I188](#i188-window-stubs-placed-inside-dark-revs-buffer-stopped-the-dsp-octabam-test-images)). The ColdFire frame interrupt stops with the DSP (it does not go on, as written above). `[hw]` {octabam-1122}
+- **Later (2026-11-23):** MODULATION counts as loaded while a track uses it and for 10 s after the last one stops. Suspected, not confirmed: DARK REV's inits (about 800 instructions each, four on core B) fall in the START frames beside the loaded block; the guard's cells and resume path are ruled out. v0.5 ships with the stall as a known fault. octabam-verbs (no stock DARK REV) and octabam-bus (no demand loader) cannot meet it this way, but neither was run against it. Open: whether CHARACTER, SHATTER or SIDECHAIN_COMPRESSOR do the same. `[hw]` / `[?]` {octabam-1123}
 - **Status:** open
 - **Evidence:** `[hw]` {octabam-1120}
 - **Rule:** A56, A51 (related: I57, I110)
@@ -1733,9 +1735,9 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Unit:** Syntakt, OS 1.42, digikit full `device` set (runtime, menu, HEALTH, input, section 7 packer), 2026-11-19
 - **Seen:** after the flash the unit restarted and stayed at the Elektron logo on every power cycle. The smaller `device-peer` image (the section 7 packer only) booted. Every emulator boot of the same image had passed.
 - **Cause (read from the bootstrap, reproduced by running its own depacker on the emulator core):** the Syntakt bootstrap stages packed MAIN at `0x40200000`, not at the `0x40400000` of the Digitakt II and Digitone II, and unpacks it in place with no bound. The full image's stream had an in-place margin of -42,486 bytes at that stage (stock +96,356), so the output overwrote unread stream bytes and the decoder ran away before MAIN started. The emulator installs MAIN directly and never runs that unpack; the device file had copied the Digitakt II stage value; the margin was checked only for the repacked section 7.
-- **Fix:** the stage is per-device data read from section 2; patchkit writes the stream's last tokens as literals until the margin is at least 8 KiB and refuses an image below that in `verify`, `preflight` and `flash`, printing the margin. The repaired full image boots on the unit.
+- **Fix:** the stage is per-device data read from section 2; patchkit writes the stream's last tokens as literals until the margin is at least 8 KiB and refuses an image below that in `verify`, `preflight` and `flash`, printing the margin. The repaired full image boots on the unit. Finding 159 (2026-11-23, static) adds that the 8 KiB floor is a safety default, not measured, and that the stored MAIN cannot go below unpacked MAIN - 2,096,128 B + floor whatever the packer does {digikit-1123}.
 - **Status:** fixed (confirmed on the unit). How the hung unit was brought back is not stated; digikit's documented path is the startup menu (FUNC at power-on, TRIG 4, stock file over DIN).
-- **Evidence:** `[hw]` {digikit-1121}
+- **Evidence:** `[hw]` {digikit-1121} {digikit-1123}
 - **Rule:** A14
 - **Fact:** [devices/syntakt.md](devices/syntakt.md#digikit-on-a-syntakt-unit-section-7-packed-bootstrap-stage-key-ids-card-capacity-write-guard-os-142-2026-111921-digikit-1121)
 
@@ -1921,3 +1923,93 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` {octabam-1122}
 - **Rule:** D11
 - **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I189. v0.5 release check: 3 of 32 program changes were not applied (octabam)
+- **Unit:** Octatrack MKII, OS 1.40C, octabam v0.5 images `octabam`, `octabam-verbs` and `octabam-bus` built from `main` at `382a478b` plus the release commit, booted by REMIX SWITCH from the flashed image (none flashed), 2026-11-22
+- **Seen:** the 32-program-change soak left 3 of 32 changes unapplied on `octabam`, 0 on `octabam-bus`, and 0 on `octabam-verbs`, which still logged 32 bad DSP records (one per transition, when the dearest layouts loaded). The meter, transport, USB and DSP-watch checks passed on all three. The long mixed soak did not complete on any image.
+- **Cause:** not given. v0.4 had applied 32 of 32 in the same soak (2026-11-08).
+- **Fix:** none. v0.5 was tagged with this result, with the DARK REV stall (I170) as a known fault, and with module changes made after the tested commit that never ran on a unit.
+- **Status:** open
+- **Evidence:** `[hw]` {octabam-1123}
+- **Rule:** A51 (related: A18, I170)
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I190. A SMEAR note silenced the whole Digitone II until a reboot (RIFT v0.16/v0.17)
+- **Unit:** Digitone II, OS 1.11, RIFT v0.16 and v0.17 (gated in the emulators), the owner's and a tester's units, 2026-11-22
+- **Seen:** a SMEAR note gave a short burst, then the whole output went silent, every other machine with it, until a power cycle; projects were unharmed. PLATEAU (v0.17) also did nothing while other tracks played. Separately, the first start after a flash could leave ORGAN silent until one more power cycle.
+- **Cause (author's analysis):** SMEAR's vocoder (VOC) jobs cost 200,000-260,000 cycles a block on a cost model of the unit (instructions plus memory waits, fitted to the idle frame's measured 416k of 667k cycles), which runs the DSP past its frame. The frame guard expected each voice to cost what its last block cost, and VOC's light blocks kept that figure low, so a heavy block was let through. PLATEAU was dropped for the rest of a note whenever the guard was short of time.
+- **Fix:** v0.18 (2026-11-22) turns VOC off, makes the guard expect a voice's peak cost, adds an output guard that replaces any block that is not finite or runs away with silence and restarts that voice, and skips PLATEAU only for a block with no room. The release gate now prices every machine's worst block on the unit's cost model (`rcost`) and checks non-finite blocks (`sanitize`). The fix itself is gated in the emulators only.
+- **Status:** fixed in v0.18 (not yet confirmed on a unit)
+- **Evidence:** `[hw]` (owner and tester) {dn2-rift-1123}
+- **Rule:** A35
+- **Fact:** [devices/digitone-2.md](devices/digitone-2.md)
+
+### I191. The UI stopped during playback with six modules installed (Modwerk base 0.7.13)
+- **Unit:** Octatrack (model not stated), OS 1.40C, released Modwerk base 0.7.13, six modules including Tape Echo and E-Verb, a tester's field diagnostics, 2026-11-22
+- **Seen:** the UI tick stopped during playback while the audio frame interrupt kept running long enough to record the freeze; the CPU meter read about 78 %. The incident and its installed set belong to the same boot. At the next start all six modules were restored. An earlier boot on base 0.7.12 with only Tape Echo and E-Verb installed showed the same symptom.
+- **Cause:** unknown. The record gives the set and the transport state but not the last action or where the UI stopped making progress; the overlap in installed modules does not show that either effect is responsible.
+- **Fix:** none yet; Modwerk needs the action and the point where the UI stopped in the next record.
+- **Status:** open
+- **Evidence:** `[hw]` (field record) {modwerk-1123}
+- **Rule:** A29 (a field record with the set and transport state alone did not find the cause; compare I163, I187)
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I192. A small USB staging transfer went unconfirmed, and a USB Audio trial rolled back at the reconnect (Modwerk, Windows)
+- **Unit:** Octatrack (model not stated), OS 1.40C, Modwerk bases 0.7.12 and 0.7.13, a tester's unit on a Windows host with the Modwerk site open in a browser, reported 2026-11-22
+- **Seen:** (1) a USB staging transfer went unconfirmed on both bases; on 0.7.13 the offer held only two removal headers, small enough for one chunk. All three failed attempts recorded one more primed USB receive than completed receives, and zero bus resets. (2) Other attempts with the same removals reached the trial, disconnected during the USB Audio configuration change and came back with the previous active set. Removing MIDI Scenes alone was then kept.
+- **Cause:** (1) open; the released diagnostics do not say which command failed. (2) not proven on the unit: in Modwerk's host link test the first claim of the returning interface fails, and the installer then entered its ordinary busy state, ended the page's wait and released its lock on the open trial.
+- **Fix:** (2) the installer retries the claim under the trial's existing lock and deadline (host tests cover Keep once the interface is free and expiry while it stays busy); diagnostic summaries now name USB Audio, and an opted-in report shows a failed claim during the trial. (1) none yet; the next record needs the upload command and the remaining receive length.
+- **Status:** open (1); fix not yet tried on a physical Windows reconnect (2)
+- **Evidence:** `[hw]` (tester's records) / `[emu]` (host link test) {modwerk-1123}
+- **Rule:** A88
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I193. Drum Mode kept the trig keys from the stock SCALE menu and covered the PTN/BANK LEDs (Digitone mk1)
+- **Unit:** Digitone mk1, OS 1.44, Drum Mode 0.10 on elekloader core-dn1 5.3, the author's unit, 2026-11-22
+- **Seen:** in the SCALE menu (FUNC + PAGE) the trig keys played pads instead of setting the number of steps; only PAGE and the knob worked. While PTN or BANK was held the trig keys showed the pads, not the stock's pattern and bank LEDs. The emulator test sets had passed.
+- **Cause (from the project's notes):** Drum Mode handed the trig keys back to the stock only while PTN or BANK was held, the pattern/bank select was open or a chain's key was held; the SCALE menu was not on that list, and its LED painting ignored all of these states. The emulator tests did not cover either case.
+- **Fix:** 0.10.1 leaves the trig key LEDs to the stock in those states; 0.10.2 leaves the trig keys and their LEDs to the stock while the SCALE menu is open. `test_stock_keys.py` grew from 25 to 33 checks.
+- **Status:** fixed in the emulator; waits for the unit (0.10.4)
+- **Evidence:** `[hw]` {drum-mode-1123}
+- **Rule:** A59 (test in the mode the user plays: a mod that takes stock keys must list every stock mode and menu that uses them and test each)
+- **Fact:** [devices/digitone.md](devices/digitone.md)
+
+### I194. A MIDI track showed "Drum Mode off" and then could not be used (Drum Mode 0.10)
+- **Unit:** Digitone mk1, OS 1.44, Drum Mode 0.10 on elekloader core-dn1 5.3, the author's unit, 2026-11-22
+- **Seen:** on some MIDI tracks the screen showed Drum Mode turned off, and the track could not be used after that.
+- **Cause:** unknown. Which tracks, what was pressed before and what "unusable" means (no sound, dead keys, stuck UI) are still to be recorded. The author thinks it may be linked to the UI hang with the Mod Menu open seen once in digiemu (digitone.md, 2026-11-17 section).
+- **Fix:** none yet.
+- **Status:** open
+- **Evidence:** `[hw]` (author's report) {drum-mode-1123}
+- **Rule:** C11 (record the steps on the unit; nothing more is known yet)
+- **Fact:** [devices/digitone.md](devices/digitone.md)
+
+### I195. Stock Rytm samples played under Sidecar machines (Rytm firmware 0.4.4/0.5.0)
+- **Unit:** Analog Rytm MKII with Sidecar, Rytm firmware 0.4.4 (a user's unit; reported before 2026-11-22)
+- **Seen:** the Rytm's own samples sounded under PLAITS and SOPHIE.
+- **Cause (read from the code and shown in the emulator):** page 2 of every Sidecar machine is the sound's sample words 17-24, and the stock sample player renders them for every voice. The mod zeroed the voice's sample gain (`0x80007000 + 8 x voice`), which scales buffer B only. The layer's output S (`0x800067f8 + 128 x voice`) is written by `sample_render` after the machine renders, so the machine cannot clear it.
+- **Fix:** Rytm firmware 0.5.1.1: a detour at the mixer call zeroes S of voices under a Sidecar machine, and the stock sample player skips its resampler and filter for those voices (also some Rytm CPU back). A stock track's sample-only trig on a shared voice still plays. The mirror case (a stock-latched engine and a sample-only trig from the Sidecar track) still plays the Rytm sample.
+- **Status:** fixed in 0.5.1.1 (emulator; no unit run stated).
+- **Evidence:** `[hw]` (user report) / `[emu]` (cause and fix) {sidecar-mods-1123}
+- **Rule:** A85 (a mod machine that stock sees as another machine must handle stock's layer for it); also A59 (check against the audio output, not a gain word)
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md#sidecar-0511-and-rytm-firmware-0511-mkii-os-174-2026-11-22-sidecar-1123-sidecar-mods-1123)
+
+### I196. A compressor's GR meter raised MAIN CPU through screen repaints (Synfact comp-st 0.2.0, Syntakt)
+- **Unit:** Syntakt, OS 1.42, Synfact core 2.4.0 with comp-st 0.2.0 (the owner's unit), 2026-11-20/21
+- **Seen:** MAIN's CPU reading rose a lot while the COMP page was open.
+- **Cause (counted in the emulator):** not the DSP. Every meter change asked for a repaint, and each repaint recomposes every visible view of the double-buffered screen (about 30,000 instructions for the COMP page). With drums the meter asked on 24-26 of the 30 UI ticks a second.
+- **Fix:** comp-st 0.3: the meter repaints at most every third tick (10 Hz) and ignores 1-pixel moves except to zero; 8-10 repaints a second with drums, none with a steady signal.
+- **Status:** fixed in 0.3 / 1.0.0 (emulator count); the CPU drop is not measured on the unit.
+- **Evidence:** `[hw]` (symptom) / `[emu]` (cause and fix) {synfact-1123}
+- **Rule:** A65 (judge the budget by the playing load, the module\'s own UI cost included; rate-limit redraw requests)
+- **Fact:** [devices/syntakt.md](devices/syntakt.md#synfact-screen-redraw-cost-stereo-inside-the-audio-chain-edma-self-link-os-142-core-250-2026-11-2122-synfact-1123)
+
+### I197. An eDMA block without a self-link moved only its first 16 bytes (Synfact stereo tracks, Syntakt)
+- **Unit:** Syntakt (the owner's unit), Synfact stereo engine development build, 2026-11 (before samplers-st 1.6)
+- **Seen:** a block sent by AUDIO eDMA channel 46 to the shared window never arrived whole: only the first 16 bytes (sequence, mask, shifts) reached it, never the tag; the profile written by the CPU did arrive. Synfact went back to copying word by word (about 6 % of the block against 5.1 % with DMA).
+- **Cause (as the docs state it; how it was found is not said, the fix copies stock's channel 47 TCD):** the TCD set CITER 35 without the channel link; a software start runs one minor loop of 16 bytes. Stock's channel 47 links the channel to itself.
+- **Fix:** samplers-st 1.6 sets CITER/BITER `0xdc23` (ELINK to channel 46, 35 loops of 16 bytes).
+- **Status:** fixed in 1.6 (emulated TCD check); not stated on a unit.
+- **Evidence:** `[hw]` (16-byte failure) / `[emu]` (fix) {synfact-1123}
+- **Rule:** D13 (trap register: a software-started ColdFire eDMA channel runs one minor loop unless it is linked to itself)
+- **Fact:** [devices/syntakt.md](devices/syntakt.md#synfact-screen-redraw-cost-stereo-inside-the-audio-chain-edma-self-link-os-142-core-250-2026-11-2122-synfact-1123)

@@ -84,6 +84,7 @@ Distribution is uniform: every mod is an elekloader mod patching the user's own 
 
 ## Stock compressor, read by Synfact (OS 1.54, 2026-11-20) {synfact-1121}
 - **Stock compressor routine (OS 1.54, from Synfact's Syntakt port study):** the master compressor is `[0x4007425e, 0x4007472a)` (1,228 bytes), initialised by `0x400741d8`; the GR meter is drawn by `0x40038f80` (half-dB steps, 50 pixels for 31.5 dB, at x = 126) and reads GR from `0x400784e0`. In Unicorn with EMAC it costs 3,860-4,015 instructions per 32-frame block; the gain calculation alone 2,896-3,051. The detector works per sample. `[emu]` {synfact-1121}
+- **SCF control (OS 1.54):** parameter record `0x401ab34c` ("SCF" / "Sidechain Filter"); its dial is the 27-frame bipolar filter animation `0x421fa2fc`, drawn by `0x400601f0` (low-pass at frame 0, flat at 13, high-pass at 26). Digitakt's SCF uses three coefficients interpolated per sample (6 MACs a frame) and also low-passes. `[doc]` {synfact-1123}
 
 ## Modwerk Digi Perform (OS 1.53/1.54, 2026-11-11) {modwerk-digiperform}
 - **Cold boot vs LOAD PROJECT:** after SAVE PROJECT, a cold boot came back with the sound records' spare bytes cleared, and a stock parameter written straight into the kit was lost too; LOAD PROJECT kept both. Mod data kept in a kit's spare bytes needs its own path through a power cycle (I77). `[hw]` (power cycle) / `[emu]` (the cause)

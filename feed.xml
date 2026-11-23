@@ -4,9 +4,57 @@
   <link href="https://70b185.github.io/Aggregat/"/>
   <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
   <id>https://70b185.github.io/Aggregat/</id>
-  <updated>2026-11-22T00:00:00Z</updated>
+  <updated>2026-11-23T00:00:00Z</updated>
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>New in the catalogue: Syntakt custom firmware (DelayCtrl, DJ filter, Drive rectifier) (Mod, Syntakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=syntakt-project-bengleg"/>
+    <id>https://70b185.github.io/Aggregat/#project-syntakt-project-bengleg</id>
+    <updated>2026-11-23T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Unofficial Syntakt OS 1.41 mods built on SyntHack OS: DelayCtrl turns MOD B into an Octatrack-style freeze and beat repeat that takes over the delay while it is selected; a DJ filter replaces LP-Notch in the FX filter's TYPE list; a rectifier is mixed into the FX Drive above 5 …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: SynPat (Syntakt pattern manager) (Tool, Syntakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=synpat"/>
+    <id>https://70b185.github.io/Aggregat/#project-synpat</id>
+    <updated>2026-11-23T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Unofficial tool that copies patterns (with their kits) between Syntakt projects, including across project format versions, and backs up and loads projects over USB MIDI. A Python codec for the .stprj project file (container, LZ4 blocks, layout) with a command line (info, verify …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: PLAY+ (Digitakt mk1) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=play-dt"/>
+    <id>https://70b185.github.io/Aggregat/#project-play-dt</id>
+    <updated>2026-11-23T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Nine new values for the ONESHOT machine's PLAY knob after the stock four; in each, LOOP becomes that mode's control and is renamed on the SRC and LFO pages. Raises the ONESHOT descriptor's PLAY maximum (0x401ab6cc) from 3 to 12; stock plays values above 3 as FWD, and the mod …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: Multitone (shared multi-boot kernel design for Digitone II firmwares) (Research, Digitone II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=multitone"/>
+    <id>https://70b185.github.io/Aggregat/#project-multitone</id>
+    <updated>2026-11-23T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A design, not built: a small boot kernel that could start a Digitone II firmware kept on the +Drive instead of the one in flash and fall back to a safe one when that fails, plus one shared rule for the extra data each custom firmware keeps (+Drive sector ranges, RAM ranges, …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: DN2 WISHES (Mod, Digitone II)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=dn2-wishes"/>
+    <id>https://70b185.github.io/Aggregat/#project-dn2-wishes</id>
+    <updated>2026-11-23T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A Digitone II OS 1.12 firmware built on the dn2mk2 mod (a GitHub fork of De-Pattern's dn2mk2-firmware with about 300 commits of its own since it branched; the history also carries upstream's and dn2-firmware-explore's). Its own machines are types 50-56 in MACHINE SEL: JUNO (a …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: AMP+ (Digitakt mk1) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=amp-dt"/>
+    <id>https://70b185.github.io/Aggregat/#project-amp-dt</id>
+    <updated>2026-11-23T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Five AMP envelope curves and a tempo-synced hold per track on the Digitakt mk1, after Modwerk's Improved AMP for the Analog Rytm. FUNC + A picks the curve (STK, LIN, EXP, LOG, PNCH), FUNC + B the hold (FREE or SYNC, 16 note values); times match the stock's, shaped decays end …</summary>
+  </entry>
   <entry>
     <title>New in the catalogue: DigiGlide (Mod, Digitone II)</title>
     <link href="https://70b185.github.io/Aggregat/?p=digiglide"/>
@@ -422,47 +470,5 @@
     <updated>2026-11-12T00:00:00Z</updated>
     <category term="project"/>
     <summary>A Fairlight CMI-style polyphonic sample instrument as an elekloader mod: machine CMI on track 1 turns tracks 2-8 into its voices and plays one sample across the keyboard, from trigs, chords or MIDI. Forked from Digi Poly 2.1 (digi1_mods), whose polyphony, voice borrowing and …</summary>
-  </entry>
-  <entry>
-    <title>Update 2026-11-12: seventeen change reports folded, OpenBridge added, I73-I78, A54, H25, O24/O25, S19</title>
-    <link href="https://github.com/70b185/Aggregat/commit/5b45def7e4cf15574c4f6aa78af72da5ccd92b0e"/>
-    <id>https://70b185.github.io/Aggregat/#commit-5b45def7e4cf</id>
-    <updated>2026-11-12T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Update 2026-11-12 (evening): eight change reports folded, Digi CMI added, I79</title>
-    <link href="https://github.com/70b185/Aggregat/commit/0cefa1d2da99e35c183258c0f8c9c920bab31145"/>
-    <id>https://70b185.github.io/Aggregat/#commit-0cefa1d2da99</id>
-    <updated>2026-11-12T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Agent foundation: stable fact ids, address index, context packs, AGENTS.md, llms.txt, MCP server</title>
-    <link href="https://github.com/70b185/Aggregat/commit/c046776058dbc2704310e9f9e4d10164e90112f3"/>
-    <id>https://70b185.github.io/Aggregat/#commit-c046776058db</id>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>UPDATING: an entry in the mods list names only the devices it ships mods for</title>
-    <link href="https://github.com/70b185/Aggregat/commit/b4b156a489cb8441d623c0e9e09dd3685ce78417"/>
-    <id>https://70b185.github.io/Aggregat/#commit-b4b156a489cb</id>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Mods: no mod / custom OS / research labels, no maturity words; dn2_firmware_explore is a Digitone II project</title>
-    <link href="https://github.com/70b185/Aggregat/commit/a94b1e3b13c0664b3798c785c9a5b8f5a8824235"/>
-    <id>https://70b185.github.io/Aggregat/#commit-a94b1e3b13c0</id>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Research: official MIDI tables (T13), test status from 43 READMEs, mod-author checklist, anchor_translate (G5)</title>
-    <link href="https://github.com/70b185/Aggregat/commit/a65404f1da338fb59e0bd62a21c043acf5d58f7d"/>
-    <id>https://70b185.github.io/Aggregat/#commit-a65404f1da33</id>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <category term="update"/>
   </entry>
 </feed>

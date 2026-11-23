@@ -398,6 +398,18 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Status:** open
 - **Evidence:** `[doc]` {elekloader-drive-1118}
 
+### SB36. Pad pressure goes to the wrong note in CHROMATIC mode and is dropped during RTRG rolls (Rytm MKII)
+- **Device and OS:** Analog Rytm MKII, OS 1.74
+- **Area:** pads, aftertouch, MIDI out
+- **Symptom:** in CHROMATIC mode a held pad's poly pressure goes out 24 semitones above the note it played (note on 36, pressure for 60, note off 36), so a synth that follows the note sees no aftertouch. During a retrig roll held with RTRG and VEL.CUR set, the RETRIG menu takes the pressure and throws it away: no AFTERTOUCH movement and no MIDI poly pressure (ALWAYS ON pads with VEL.CUR set keep it).
+- **Trigger:** hold a pad in CHROMATIC mode and press it harder; or hold RTRG with VEL.CUR set and squeeze a pad.
+- **Cause:** not read; the module README describes the behaviour only.
+- **Workaround:** Modwerk's Pad Pressure Fix module (0.2.0-experimental) sends pressure on the played note and routes roll pressure to aftertouch and MIDI out; its fixes are moving into the Modwerk Rytm base.
+- **Test tip:** watch MIDI out for the poly pressure note number while you hold a CHROMATIC pad.
+- **Found by:** Modwerk (Pad Pressure Fix module)
+- **Status:** open in stock
+- **Evidence:** `[doc]` (module README; the module's fix is reported on its author's unit) {modwerk-1123}
+
 ## Model:Cycles
 
 ### SB15. A random exception while browsing (filesystem block cache)

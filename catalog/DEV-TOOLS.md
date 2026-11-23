@@ -4,7 +4,7 @@
 
 For people (and agents) who build mods: toolchains, emulators, firmware unpackers, protocol libraries and research write-ups. Pair this with [hardware/](../hardware/README.md), which collects the rules and device facts.
 
-Data last verified: 2026-11-22. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
+Data last verified: 2026-11-23. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
 
 
 The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds), [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians). Hardware knowledge for writing mods: [hardware/](../hardware/README.md).
@@ -70,6 +70,7 @@ The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds),
 
 | Project | Devices | What it is | Note | Version / OS | Links |
 |---|---|---|---|---|---|
+| **Multitone (shared multi-boot kernel design for Digitone II firmwares)** (w0ts) <br>_cites dn2-wishes_ | Digitone II | A design, not built: a small boot kernel that could start a Digitone II firmware kept on the +Drive instead of the one in flash and fall back to a safe one when that … | - | - | [repo](https://github.com/w0ts/multitone) |
 | **dn2-cfw** (naturarum) <br>_vendors code from digikit; vendors code from elekloader; cites elektron-firmware-tool; cites syntakt-firmware-workbench; cites octabam; vendors code from digitakt-ii-research_ | Digitone II | Public lab notebook: notes, tools and new effects, no Elektron firmware included. | - | Digiwerk v0.3.0 (2026-11-04): multitrack USB audio (USB … | [repo](https://github.com/naturarum/dn2-cfw) |
 | **dn2_firmware_explore** (angellinares) <br>_builds on elektron-firmware-tool; cites digihealth; uses digikit; cites dn2-cfw; cites octabam; cites octa-bt-pt; cites dn2mk2_ | Digitone II | Tools to inspect, modify and rebuild Digitone firmware (dnfw, CLI and browser), plus 17 mods for Digitone II 1.11 (Waverider wavetable machine, LFO4, arp modes, LFO … | - | directjump (2026-11-11/12, by w-winter); lfo4 1.0.6 (1.0.7 … | [repo](https://github.com/angellinares/dn2_firmware_explore) |
 | **dt2-machine-lab** (lalzart) <br>_bundles dt2-capicola; uses digikit_ | Digitakt II | Local source, builds and offline tests for custom Digitakt II machines. | - | Digitakt II OS 1.16 (profiles/dt2-1.16); validated host … | [repo](https://github.com/lalzart/dt2-machine-lab) |

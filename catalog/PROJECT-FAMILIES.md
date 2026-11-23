@@ -2,7 +2,7 @@
 
 # Project families
 
-Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-22. Edit the `relations:` field in `data/projects.yml`.
+Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-23. Edit the `relations:` field in `data/projects.yml`.
 
 | Relation | Meaning |
 |---|---|
@@ -31,6 +31,7 @@ Devices: Model:Cycles, Model:Samples. [repo](https://github.com/18nelli18/Modded
 - **DN2 DT2 firmware research** (armio) - builds on **dn2_firmware_explore** (catalogue notes: builds on dnfw (pinned commit)); builds on **digikit** (catalogue notes: builds on digikit (pinned commit)); builds on **elektron-firmware-tool** (catalogue notes: builds on elektron-firmware-tool (pinned commit)). [repo](https://github.com/armio/dn2-dt2-firmware-research)
 - **DN2 mk2 Mod (dn2mk2-firmware)** (De-Pattern (builds on dn2_firmware_explore: the history holds 1,149 commits by its author Ángel Linares García and 11 commits identical to dnfw's; git log 2026-11-18)) - builds on **dn2_firmware_explore** (docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698). [repo](https://github.com/De-Pattern/dn2mk2-firmware)
 - **DN2 Tools (dn2mk2 browser tools)** (De-Pattern) - same project as **DN2 mk2 Mod (dn2mk2-firmware)** (README: browser tools for the Digitone II mod; same author). [repo](https://github.com/De-Pattern/dn2mk2)
+- **DN2 WISHES** (w0ts) - fork of **DN2 mk2 Mod (dn2mk2-firmware)** (GitHub fork; README: built on dn2mk2 by De-Pattern). [repo](https://github.com/w0ts/dn2-wishes)
 - **dn2_firmware_explore** (angellinares) - builds on **elektron-firmware-tool** (README credit: container, transport, codec and integrity work stands on it). [repo](https://github.com/angellinares/dn2_firmware_explore)
 - **elektron-firmware-tool** (mischa85) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/mischa85/elektron-firmware-tool)
 - **elektron-model-tweaks** (drumkilla) - builds on **elektron-firmware-tool** (README: building scripts are based on elektron-firmware-tool); builds on **ms-multi-output** (README: based on ms-multi-output by Scott Metoyer). [repo](https://github.com/drumkilla/elektron-model-tweaks)
@@ -137,6 +138,14 @@ Devices: Analog Rytm (MKI, MKII), Digitakt (MKI), Analog Four / Analog Keys. [re
 - **Sidecar (Digitakt mod)** (trigcondition) - variant of **Sidecar | Expander** (same author, Digitakt side of Sidecar). [repo](https://github.com/trigcondition/sidecar-digitakt)
 - **Sidecar | Expander: Rytm mods** (trigcondition) - same project as **Sidecar | Expander** (README: the Rytm mods that Sidecar | Expander uses). [repo](https://github.com/trigcondition/sidecar-mods)
 
+## SyntHack OS (upstream) (Angelo-politek)
+
+Devices: Syntakt. [repo](https://github.com/Angelo-politek/Synthack-OS)
+
+- **Syntakt custom firmware (DelayCtrl, DJ filter, Drive rectifier)** (bengleg) - builds on **SyntHack OS (upstream)** (README and PROJECT_STATUS: built on SyntHack-OS by Angelo-politek; upstream SyntHack mods in mods/). [repo](https://github.com/bengleg/syntakt-project)
+- **Syntakt Performance Mods (JOG page, PERFORM DJ filter)** (GHNMrec) - builds on **Synthack-OS (Syntakt MAX 1.0, SY FM4 modular builder)** (THIRD_PARTY_NOTICES: core mods from SyntHack as integrated in Syntakt MAX; the add-on merges into a MAX manifest). [repo](https://github.com/GHNMrec/SyntaktPerformanceMods)
+- **Synthack-OS (Syntakt MAX 1.0, SY FM4 modular builder)** (kariGardarsson) - fork of **SyntHack OS (upstream)** (GitHub fork flag). [repo](https://github.com/karigardarsson/Synthack-OS)
+
 ## elk-herd (mzero)
 
 Devices: Digitakt (MKI), Digitakt II. [repo](https://github.com/mzero/elk-herd)
@@ -164,13 +173,6 @@ Devices: Digitakt (MKI). [repo](https://github.com/jakobbak/screendump)
 
 - **Elek View (screen viewer in the browser)** (BlueSGL) - port of **screendump** (README: a .html implementation of jakobbak/screendump). [repo](https://github.com/BlueSGL/Elek_View)
 - **Elektron-Screen-Tool** (Fadedlimes) - fork of **screendump** (README). [repo](https://github.com/Fadedlimes/elektron-screen-tool)
-
-## SyntHack OS (upstream) (Angelo-politek)
-
-Devices: Syntakt. [repo](https://github.com/Angelo-politek/Synthack-OS)
-
-- **Syntakt Performance Mods (JOG page, PERFORM DJ filter)** (GHNMrec) - builds on **Synthack-OS (Syntakt MAX 1.0, SY FM4 modular builder)** (THIRD_PARTY_NOTICES: core mods from SyntHack as integrated in Syntakt MAX; the add-on merges into a MAX manifest). [repo](https://github.com/GHNMrec/SyntaktPerformanceMods)
-- **Synthack-OS (Syntakt MAX 1.0, SY FM4 modular builder)** (kariGardarsson) - fork of **SyntHack OS (upstream)** (GitHub fork flag). [repo](https://github.com/karigardarsson/Synthack-OS)
 
 ## DigiArp MIDI (DA27) (aleks-karachevtsev)
 
@@ -244,7 +246,7 @@ Drawn by GitHub from the lineage relations (fork, copy, port, variant, builds on
 
 <!-- relation-graph:start - generated by scripts/build.py from data/projects.yml, do not edit by hand -->
 
-135 entries with 146 relations. Colour: licence family (green permissive, blue copyleft, yellow public domain, grey none stated or not recorded).
+137 entries with 148 relations. Colour: licence family (green permissive, blue copyleft, yellow public domain, grey none stated or not recorded).
 
 ```mermaid
 flowchart LR
@@ -293,6 +295,7 @@ flowchart LR
     n_dn2_dt2_firmware_research["DN2 DT2 firmware research<br/>AGPL-3.0-or-later"]:::copyleft
     n_dn2mk2["DN2 mk2 Mod (dn2mk2-firmware)<br/>AGPL-3.0-or-later"]:::copyleft
     n_dn2_tools_depattern["DN2 Tools (dn2mk2 browser tools)<br/>not stated"]:::none
+    n_dn2_wishes["DN2 WISHES<br/>AGPL-3.0"]:::copyleft
     n_dn2_cfw["dn2-cfw<br/>GPL-2.0-or-later"]:::copyleft
     n_dn2_firmware_explore["dn2_firmware_explore<br/>AGPL-3.0-or-later"]:::copyleft
     n_gestalt_digitone["GESTALT (Digitone)<br/>GPL-2.0-or-later"]:::copyleft
@@ -305,6 +308,7 @@ flowchart LR
   end
   subgraph n_group_Syntakt["Syntakt"]
     n_synfact["Synfact<br/>GPL-2.0-or-later (old release repo MIT)"]:::copyleft
+    n_syntakt_project_bengleg["Syntakt custom firmware<br/>MIT"]:::permissive
     n_syntakt_performance_mods["Syntakt Performance Mods<br/>MIT"]:::permissive
     n_syntakt_firmware_workbench["syntakt-firmware-workbench<br/>not recorded"]:::none
     n_synthack_os_upstream["SyntHack OS (upstream)<br/>MIT"]:::permissive
@@ -693,6 +697,10 @@ flowchart LR
   %% evidence: release-0.8: the Syntakt core's hook bus and elekloader's Syntakt profile come from synfact-dev
   n_digitone_drum_mode -- "builds on" --> n_digiarp_midi
   %% evidence: README: a DigiArp MIDI rebuild for core 5.3, in the fork morriess/Digitone-MIDI-Arpeggiator (branch core-5.3; until 2026-11-19 the digiarp-core5 folder), builds one firmware with Drum Mode
+  n_syntakt_project_bengleg -- "builds on" --> n_synthack_os_upstream
+  %% evidence: README and PROJECT_STATUS: built on SyntHack-OS by Angelo-politek; upstream SyntHack mods in mods/
+  n_dn2_wishes -- "fork of" --> n_dn2mk2
+  %% evidence: GitHub fork; README: built on dn2mk2 by De-Pattern
   classDef permissive fill:#d9f2e3,stroke:#2b7a4b,color:#10301e
   classDef copyleft fill:#dde7fb,stroke:#3460b0,color:#13254a
   classDef public-domain fill:#f9ecc8,stroke:#a07410,color:#3d2c05

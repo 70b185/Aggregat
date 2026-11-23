@@ -56,6 +56,13 @@
     <summary>Five AMP envelope curves and a tempo-synced hold per track on the Digitakt mk1, after Modwerk's Improved AMP for the Analog Rytm. FUNC + A picks the curve (STK, LIN, EXP, LOG, PNCH), FUNC + B the hold (FREE or SYNC, 16 note values); times match the stock's, shaped decays end …</summary>
   </entry>
   <entry>
+    <title>Update 2026-11-23: 21 change reports folded, 6 repos added, 2 ignored, I189-I197, SB36</title>
+    <link href="https://github.com/70b185/Aggregat/commit/2e9444b49d18c54a00d6a6805240289da9f3b4e2"/>
+    <id>https://70b185.github.io/Aggregat/#commit-2e9444b49d18</id>
+    <updated>2026-11-23T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>New in the catalogue: DigiGlide (Mod, Digitone II)</title>
     <link href="https://70b185.github.io/Aggregat/?p=digiglide"/>
     <id>https://70b185.github.io/Aggregat/#project-digiglide</id>
@@ -462,13 +469,5 @@
     <updated>2026-11-12T00:00:00Z</updated>
     <category term="project"/>
     <summary>A Linux (x86_64) implementation of Overbridge for the Digitone II, as a VST3 plugin (JUCE; the standalone app was dropped on 2026-11-12): 42 channels of USB audio out and 8 in with clock-drift compensation, every sound parameter of the 16 tracks readable and editable with DAW …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: Digi CMI (Mod, Digitakt)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=digicmi"/>
-    <id>https://70b185.github.io/Aggregat/#project-digicmi</id>
-    <updated>2026-11-12T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>A Fairlight CMI-style polyphonic sample instrument as an elekloader mod: machine CMI on track 1 turns tracks 2-8 into its voices and plays one sample across the keyboard, from trigs, chords or MIDI. Forked from Digi Poly 2.1 (digi1_mods), whose polyphony, voice borrowing and …</summary>
   </entry>
 </feed>

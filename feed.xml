@@ -24,6 +24,13 @@
     <summary>Elekloader machine mod (machine 35), picked with FUNC + SRC; the Digitakt's filter, amp, LFO and FX follow it. Inspired by how the Moog Subharmonicon builds its sound and by the Labyrinth's wavefolder. Its sequencers (polyrhythm and corrupt modes) moved into FREQSEQ in …</summary>
   </entry>
   <entry>
+    <title>Update 2026-11-24: 20 change reports folded, 3 repos added (1 from candidates), 3 ignored, I198-I202, SB37</title>
+    <link href="https://github.com/70b185/Aggregat/commit/259e2f8de7e400911c4508d3db5adfac88b88f42"/>
+    <id>https://70b185.github.io/Aggregat/#commit-259e2f8de7e4</id>
+    <updated>2026-11-24T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>New in the catalogue: Syntakt custom firmware (DelayCtrl, DJ filter, Drive rectifier) (Mod, Syntakt)</title>
     <link href="https://70b185.github.io/Aggregat/?p=syntakt-project-bengleg"/>
     <id>https://70b185.github.io/Aggregat/#project-syntakt-project-bengleg</id>
@@ -463,13 +470,5 @@
     <updated>2026-11-13T00:00:00Z</updated>
     <category term="project"/>
     <summary>A second Digitone II firmware by the dn2mk2 author, separate from that mod: no Machinedrum or Monomachine machines, starting with one engine, FASCIA (two exciters into two coupled modal bodies, TZFM, ring and frequency shift, a spectral morph, a low-pass gate). Its first commit …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: AERIA OS (Mod, Octatrack)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=aeria-os"/>
-    <id>https://70b185.github.io/Aggregat/#project-aeria-os</id>
-    <updated>2026-11-13T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>An operating system of its own for the Octatrack MKII, not a patch of Elektron's OS: a weather-driven multi-effect on inputs A-D (up to seven effects whose knobs the chosen weather moves) and an 8-track sequencer groovebox (sampler, sub, FM, noise, Karplus-Strong and polyphonic …</summary>
   </entry>
 </feed>

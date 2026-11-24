@@ -418,7 +418,7 @@
  "braikomarko-hub/acidtrack-modules": {
   "full_name": "braikomarko-hub/acidtrack-modules",
   "created": "2026-10-20",
-  "pushed": "2026-10-21",
+  "pushed": "2026-11-24",
   "stars": 3,
   "forks": 0,
   "language": "Assembly",
@@ -810,7 +810,7 @@
  "complex-ping/overtone": {
   "full_name": "complex-ping/overtone",
   "created": "2026-10-29",
-  "pushed": "2026-11-22",
+  "pushed": "2026-11-24",
   "stars": 43,
   "forks": 3,
   "language": "Python",
@@ -875,7 +875,7 @@
  "de-pattern/dn2-rift": {
   "full_name": "De-Pattern/DN2-Rift",
   "created": "2026-11-12",
-  "pushed": "2026-11-23",
+  "pushed": "2026-11-24",
   "stars": 4,
   "forks": 0,
   "language": "Python",
@@ -1280,7 +1280,7 @@
  "elekloader/elekloader": {
   "full_name": "elekloader/elekloader",
   "created": "2026-09-26",
-  "pushed": "2026-11-23",
+  "pushed": "2026-11-24",
   "stars": 136,
   "forks": 22,
   "language": "C",
@@ -1483,7 +1483,8 @@
   "license": null,
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-24"
+  "seen": "2026-11-24",
+  "missing": true
  },
  "gdeo607/digi1_mods": {
   "full_name": "gdeo607/digi1_mods",
@@ -1631,7 +1632,7 @@
  "gsm1980/synfact-dev": {
   "full_name": "GSM1980/synfact-dev",
   "created": "2026-10-29",
-  "pushed": "2026-11-23",
+  "pushed": "2026-11-24",
   "stars": 12,
   "forks": 2,
   "language": "C",
@@ -2112,7 +2113,7 @@
  "jamiew/digitakt-digitone-mcp": {
   "full_name": "jamiew/digitakt-digitone-mcp",
   "created": "2026-02-10",
-  "pushed": "2026-11-23",
+  "pushed": "2026-11-24",
   "stars": 1,
   "forks": 0,
   "language": "Python",
@@ -2321,7 +2322,7 @@
   "full_name": "K-X420/ModuleDrum",
   "created": "2026-10-06",
   "pushed": "2026-11-01",
-  "stars": 21,
+  "stars": 22,
   "forks": 0,
   "language": "C++",
   "fork": false,
@@ -2554,7 +2555,7 @@
  "mbreilly/modded_cycles_techno_edition": {
   "full_name": "mbreilly/Modded_cycles_techno_edition",
   "created": "2026-11-05",
-  "pushed": "2026-11-23",
+  "pushed": "2026-11-24",
   "stars": 9,
   "forks": 1,
   "language": "C++",
@@ -2581,7 +2582,7 @@
   "full_name": "mischa85/elektron-firmware-tool",
   "created": "2026-07-22",
   "pushed": "2026-09-08",
-  "stars": 140,
+  "stars": 142,
   "forks": 19,
   "language": "C",
   "fork": false,
@@ -2946,7 +2947,7 @@
   "created": "2026-10-01",
   "pushed": "2026-11-24",
   "stars": 70,
-  "forks": 170,
+  "forks": 171,
   "language": "Python",
   "fork": false,
   "license": "NOASSERTION",
@@ -3477,7 +3478,7 @@
  "trigcondition/sidecar-expander": {
   "full_name": "trigcondition/sidecar-expander",
   "created": "2026-10-19",
-  "pushed": "2026-11-22",
+  "pushed": "2026-11-24",
   "stars": 13,
   "forks": 0,
   "language": "JavaScript",

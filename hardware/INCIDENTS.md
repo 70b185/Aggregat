@@ -2013,3 +2013,53 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) �
 - **Evidence:** `[hw]` (16-byte failure) / `[emu]` (fix) {synfact-1123}
 - **Rule:** D13 (trap register: a software-started ColdFire eDMA channel runs one minor loop unless it is linked to itself)
 - **Fact:** [devices/syntakt.md](devices/syntakt.md#synfact-screen-redraw-cost-stereo-inside-the-audio-chain-edma-self-link-os-142-core-250-2026-11-2122-synfact-1123)
+
+### I198. Tape Echo froze an Octatrack MKII after the frame budget was exceeded (Modwerk 0.7.14 development base)
+- **Unit:** Octatrack MKII (the owner's unit), OS 1.40C, Modwerk 0.7.14 development twin with an 11-module set, 2026-11-21
+- **Seen:** the meter admitted Tape Echo; the longest frame reached 134 % and 165 renders were skipped. About 3 s into the next PLAY MAIN froze: USB audio looped 250 ms for 9 s, then the unit and a second interface on the same hub left USB.
+- **Cause:** Tape Echo's work runs at interrupt level 5 and cannot be shed; the admission check looked at the mean load, while dropped renders depend on the longest frame.
+- **Fix:** base 0.8 admits modules by frame time (renders capped at 122 %) and adds a frame-deadline event; Tape Echo 0.1.9 took an overload scene from 139 % to 130 %.
+- **Status:** mitigated in base 0.8 (unit runs on development twins).
+- **Evidence:** `[hw]` {modwerk-1124}
+- **Rule:** A65 (budget by the playing load; on the Octatrack judge the longest frame, not the mean)
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I199. A pattern change made a late frame entry and the Octatrack DSP stopped (Modwerk 0.8 development twins)
+- **Unit:** Octatrack MKII (the owner's unit), OS 1.40C, Modwerk 0.8 development twins, 2026-11-22 (stalls 49, 50, 55 and 56)
+- **Seen:** after a pattern change a 477-498 µs frame was followed by an entry 147-162 µs late, and the DSP stopped; a power cycle was needed.
+- **Cause (measured on the unit):** an entry that comes too late breaks the DSP frame exchange for good.
+- **Fix:** base 0.8 holds an entry 80-190 µs late until it is 190 µs late, so the DSP skips one frame (a click) instead of stopping; with the 122 % render ceiling 20 switches ran on. Entries later than 190 µs cannot be held. A tester's MKI on 0.7.12 froze its UI after a 513 µs frame and an entry 172 µs late; not reproduced on an MKII, open.
+- **Status:** fixed in base 0.8 (unit runs); the MKI case is open.
+- **Evidence:** `[hw]` {modwerk-1124}
+- **Rule:** A65
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I200. New machines ran the Syntakt AUDIO CPU to 99 % (Synfact SY MnM and MD MACHINEDRUM)
+- **Unit:** Syntakt (the owner's unit), OS 1.42, Synfact banks 0.37-0.42 and SY MnM 0.6.1, 2026-11-21/23
+- **Seen:** SY MnM's FM+ STAT, PAR and DYN on three tracks plus five ONE SHOT read 99 % AUDIO; DENS's in-machine stereo chorus beside seven stock tracks read 99 %; MD's PI-RC or PI-RS voices with two or three SWARM, CY ALLOY, ONE SHOT, SY TOY, SY CHORD and SY TONE tracks read 99 % and the audio broke up.
+- **Cause:** the machines' per-sample cost, measured against the unit's own readings (see the cost model on the device page).
+- **Fix:** SY MnM 0.7.0's lighter FM+ backend (-25 % instructions, emulator), DENS's chorus removed (the stock Chorus FX instead), PI voices at 22.05 kHz from bank 0.40 (the same projects then read 95 % with no break-up). md-st also strikes through voices that do not fit its CPU budget.
+- **Status:** fixed on the unit for MD; FM+ re-check on a unit not stated.
+- **Evidence:** `[hw]` {synfact-1124}
+- **Rule:** A65
+- **Fact:** [devices/syntakt.md](devices/syntakt.md)
+
+### I201. A pattern write to a blank Analog Four pattern failed its readback on the kit byte (digi-roll-studio)
+- **Unit:** Analog Four MKI, OS 1.56 (build 0204), 2026-11-23
+- **Seen:** a track write to A16 of a blank pattern read back different in one byte; the tool restored the original byte for byte.
+- **Cause:** a blank pattern holds 0xFF as its kit reference; after a note write the unit stored 0 there.
+- **Fix:** track writes now refuse a pattern with an unset kit reference before anything is sent (v0.6.0/v0.6.1).
+- **Status:** fixed.
+- **Evidence:** `[hw]` {digi-roll-1124}
+- **Rule:** F3 (read back and byte-compare; it caught this)
+- **Fact:** [devices/analog-four-keys.md](devices/analog-four-keys.md)
+
+### I202. COPY PROJECT copied a stale saved state into a new Octatrack project (octabam)
+- **Unit:** an Octatrack (model not stated), OS 1.40C, octabam COPY PROJECT first version, 2026-11-24
+- **Seen:** the new folder made by SAVE TO NEW held the old project's `bank02.strd`, older than the take that had changed `bank02.work`, so reloading the saved state brought back the old bank.
+- **Cause:** the module copied every sidecar file, `.strd` included, after stock had written only `.work` files.
+- **Fix:** `.strd` files are no longer copied; SAVE PROJECT writes the new project's own.
+- **Status:** fixed in source; the fix has not run on a unit.
+- **Evidence:** `[hw]` (symptom) {octabam-1124}
+- **Rule:** C11 (recorded); see SB37 for stock's own message on the same path
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)

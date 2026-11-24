@@ -180,6 +180,7 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Cause:** stock's "used" test looks at trigs only.
 - **Workaround:** fixed by BATCH_BUGFIXES (`EMPTY_PATTERN_LED_FIX`) under [PTN]; under [BANK] a full scan of 256 patterns' locks on every LED refresh starved the CPU. Since 2026-11-20 (318 B version) [BANK] also lights a bank whose pattern holds a trigless lock with a locked value, by reading only the trigless-lock masks and at most 16 lock rows per pattern; confirmed responsive with [BANK] held on an MKI. Other lock-only content still reads empty under [BANK]. {octatrack-kyoti-fw-1121}
 - **Test tip:** do not overwrite a "free" pattern slot in a test project without checking for locks.
+- **Also (2026-11-24):** the same "used" test (`0x4009a464`) serves "find next empty pattern", so a lock-only pattern counts as empty and can be overwritten (octabam KITS' PTN + FUNC + RIGHT; the [BANK] caller is `0x4000fd8c`). octabam's BATCH_BUGFIXES content test counts locks, and Modwerk base 0.8 carries the fix at the same site. `[doc]` {octabam-1124} {modwerk-1124}
 - **Found by:** octatrack-kyoti-fw
 - **Status:** open in stock; fixed by a mod
 - **Evidence:** `[doc]` {kyoti-bugfixes}
@@ -324,6 +325,18 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Found by:** Modwerk (Arr Rows research)
 - **Status:** stock behaviour
 - **Evidence:** `[hw]` / `[emu]` {modwerk-ot-1119}
+
+### SB37. SAVE TO NEW reports FILE NOT FOUND for a project with no `.strd` files (Octatrack)
+- **Device and OS:** Octatrack, OS 1.40C
+- **Area:** card, projects
+- **Symptom:** SAVE TO NEW shows FILE NOT FOUND, yet the new project folder is written.
+- **Trigger:** SAVE TO NEW on a project that has never been saved as a state (no `.strd` files).
+- **Cause:** not read; stock first saves the open project, then copies only `.work` files to the new folder.
+- **Workaround:** none needed; the new folder is complete. octabam's COPY PROJECT adds the sidecar files to SAVE TO NEW.
+- **Test tip:** check the new folder on the card before you trust or distrust the message.
+- **Found by:** octabam (COPY PROJECT module)
+- **Status:** open in stock
+- **Evidence:** `[emu]` (stock code run in octabam's emulator) {octabam-1124}
 
 ## Analog Rytm
 

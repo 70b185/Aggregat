@@ -184,5 +184,14 @@ Full list, shared with the DT2, in [digitakt-2.md](digitakt-2.md#card-concurrenc
 - **PERFORM targets voices, not tracks:** the modulated mirror's blocks are voices and a track's notes play on any free voice; v0.70 moves every voice that the voice-to-track table at `0x80005308` gives the track. v0.69 wrote block t for track t and moved the wrong track or nothing (a user report). `[hw]` (report) / `[emu]` (fix)
 - **Emulator limit:** in the ColdFire emulator the [+]/[-] keys do not reach the degree-transpose handler (stock's [TRK] + [+] neither), so key paths like this need a unit. `[emu]`
 
+## OS upgrade over USB MIDI from a host script (OS 1.12, 2026-11-19) {modwerk-1124}
+- Modwerk's site engine sent Elektron's upgrade protocol over USB MIDI to a contributor's Digitone II: a start message and 1,168 writes, each acknowledged, in 7.7 s. The unit then asked UPGRADE OS NOW? and installed after YES on the unit. `[hw]` {modwerk-1124}
+
+## DN2 mods 2026-11-22/23: SHARC arithmetic cost, master reverb site, stock DSP copy (OS 1.11/1.12) {dn2mk2-1124} {dn2-rift-1124} {dn2-wishes-1124}
+- **Exact 56300 arithmetic is the costliest part of the ported engines:** in dn2mk2's run-mode count, EFM's rounded 24 x 24-bit product was 42 % of EFM-CY, TRX's `wmul` 35 % of TRX-S2 and VO-6's 24-bit truncation 13 % of VO-6; each builds a 48-bit product from 12-bit halves (about 30 instructions) where one float multiply and a `FIX ... BY` do. v0.72 switched where the difference was inaudible (EFM-CY -26 %, TRX-S2 -16 %, VO-6 -14 %), keeping EFM's phase increments exact. Constant loads are 15-30 % of every machine's instructions because the per-sample loops have no free registers. `[emu]` (SHARC runner counts) {dn2mk2-1124}
+- **P-I delay lines in DDR:** about 1,800 DDR accesses a block (over half of PI-SD's and PI-RS's cost); each voice has an 8 KB delay area (128 KB for 16 voices), against 28 KB of L2 the project has proven free. `[emu]` {dn2mk2-1124}
+- **The stock master reverb core is one call away:** RIFT v0.21 replaces the stock FX function's call of the reverb core (`CALL 0xb82d1a (DB)` at `0xb8370c`, SHARC) with a jump to its own plate, keeping the stock REVERB page and controls. Gated in the emulators; not stated on a unit. `[emu]` {dn2-rift-1124}
+- **SAFE MODE with the stock sound:** dn2-wishes' test build v0.69.2-dualboot keeps a copy of stock 1.12's DSP program on the +Drive (sent once over USB; only that exact program is accepted, every sector checked, header written last) and starts it in SAFE MODE; with no copy or a damaged one SAFE MODE stays silent. Not installed on a unit. `[doc]` {dn2-wishes-1124}
+
 ## Gaps
 `docs/flashing.md`, `docs/mainos-image.md`, `docs/parameter-table-growth.md`, dn2mk2 `docs/SAFETY.md`, and the skill's "hardware rules the emulators cannot check" are the next reads (see `../MINING.md`).

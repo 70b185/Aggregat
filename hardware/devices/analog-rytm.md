@@ -319,3 +319,6 @@ Sidecar 0.4.3: every remote redraw the Sidecar's patched Rytm firmware receives 
 - **Mixer frame words 8-15 are CPU-written:** in the mixer ring's 64-byte frames the mixer stores word 9 at `0x4010eb44` and words 14/15 at `0x4010edc6` (1.74, write watch). An earlier read-watch probe could not see SRAM reads, so it proved nothing about readers. `[emu]` {sidecar-mods-1123}
 - **0.5.1.1 status:** emulator suites with 4,329 checks (the two known failures are stock's own UP+RECORD / UP+PLAY CLASH), sample-player checks on the release image, flash rehearsals 9/9 (from stock 1.74, back to stock 1.74, from 0.5.0 and from earlier test builds). No unit run of 0.5.1.1 stated; 0.5.0 has run on units since 2026-11-13. `[emu]` {sidecar-mods-1123}
 
+## Improved FLTR: the filter's resonance word and TYP values (MKII OS 1.74, 2026-11-23) {modwerk-1124}
+- The filter routine `0x4010d0fc` writes cutoff, a signed resonance word and a 3-bit type every block. Resonance words below 0 damp further: band-pass Q 0.62 at 0, 0.24 at `0xf000`, 0.095 at `0xe000`. `[hw]` (module author's rig) {modwerk-1124}
+- MIDI CC 76 stores filter TYP 7-127 unclamped; stock plays such values as PK and shows a blank eighth TYP picture. `[hw]` {modwerk-1124}

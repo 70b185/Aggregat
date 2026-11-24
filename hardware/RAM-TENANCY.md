@@ -255,6 +255,7 @@ MEMORY page does not show the loss.
 | `0x100ff900` | `0x100ffb30` | Modwerk | DSP stall record | 1.40C | `[doc]` {modwerk-ot-driving} |
 | `0x100ffb30` | ? | Modwerk | timings of the 128 frames before a stall | 1.40C | `[doc]` {modwerk-ot-driving} |
 | `0x100f85a0` | ? | Modwerk Kits / octabam KITS | Kits' battery record (`KCS1`, RESID); same address in octabam | 1.40C | `[hw]` {modwerk-ot-kits} |
+| `0x100f9710` | ? | Modwerk base 0.8 | `MWLR` stall-lateness record (late frame entries before a stall) | 1.40C | `[doc]` {modwerk-1124} |
 | `0x100f9800` | `0x100fbf00` | Modwerk MIDI Scenes | current bank's packed MIDI scene locks (`SCS2`, 9,984 B) | 1.40C | `[hw]` {modwerk-ot-midiscenes} |
 | `0x100f8600` | `0x100fbdc0` | octabam PLOCKS P2 | current bank's page-2 locks (`P2NV`, 4,752 locks, 14,272 B; was to `0x100fbdf0` before 2026-11-17) | 1.40C | `[doc]` {octabam-1118} |
 | `0x100fbdc0` | `0x100fbdf0` | octabam PATTERN MUTE | current bank's PATTERN-layer mutes (`PMCS`, 48 B, since 2026-11-17) | 1.40C | `[doc]` {octabam-pmute-1118} |

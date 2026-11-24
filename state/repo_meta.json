@@ -493,6 +493,19 @@
   "archived": false,
   "seen": "2026-11-24"
  },
+ "ceredmeat/digiarcade": {
+  "full_name": "ceredmeat/DigiArcade",
+  "created": "2026-11-18",
+  "pushed": "2026-11-23",
+  "stars": 0,
+  "forks": 0,
+  "language": "C",
+  "fork": false,
+  "license": "GPL-2.0",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-24"
+ },
  "ceredmeat/digitakt-fx-locks": {
   "full_name": "ceredmeat/digitakt-fx-locks",
   "created": "2026-11-16",
@@ -537,6 +550,32 @@
   "created": "2026-11-16",
   "pushed": "2026-11-23",
   "stars": 2,
+  "forks": 0,
+  "language": "C",
+  "fork": false,
+  "license": "GPL-2.0",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-24"
+ },
+ "ceredmeat/undertone": {
+  "full_name": "ceredmeat/UNDERTONE",
+  "created": "2026-11-18",
+  "pushed": "2026-11-23",
+  "stars": 0,
+  "forks": 0,
+  "language": "C",
+  "fork": false,
+  "license": "GPL-2.0",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-24"
+ },
+ "ceredmeat/vilnis": {
+  "full_name": "ceredmeat/VILNIS",
+  "created": "2026-11-18",
+  "pushed": "2026-11-23",
+  "stars": 0,
   "forks": 0,
   "language": "C",
   "fork": false,

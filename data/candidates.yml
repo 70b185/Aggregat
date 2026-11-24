@@ -45,18 +45,6 @@ projects:
       Repo created 2026-11-16, no commits and no description yet (checked 2026-11-17). Only the name points at the
       Digitone II. Found by GitHub search 2026-11-17.
     sources: [GitHub search 2026-11-17]
-  - id: digiarcade
-    name: DigiArcade
-    author: ceredmeat
-    kind: mod
-    devices: [digitakt]
-    repo: https://github.com/ceredmeat/DigiArcade
-    status: unverified
-    notes: >
-      Repo created 2026-11-18 with no commits and no description (checked 2026-11-19). The author makes Digitakt MKI
-      elekloader mods (flexmods, ZIBENS, DIGIWAVE); the device is guessed from the name only. Found by find_new (new
-      repo of a catalogued author) 2026-11-19.
-    sources: [state/NEW.md 2026-11-19]
   - id: dn2-pattern-commander
     name: Digitone II Pattern Commander
     author: Dissonant Witchcraft
@@ -71,6 +59,18 @@ projects:
       copies and moves patterns between slots and projects, and saves the result. No source repo, licence or version;
       whether it talks to the unit over Web MIDI is not stated. Listed by altstrument 2026-11-18; not read by us.
     sources: [altstrument (2026-11-18)]
+
+  - id: model-cycles-dev-janneruohomaki
+    name: elektron-model-cycles-dev
+    author: janneruohomaki
+    kind: mod
+    devices: [model-cycles]
+    repo: https://github.com/janneruohomaki/elektron-model-cycles-dev
+    status: unverified
+    notes: >
+      Repo created 2026-11-23 with no commits and no description (checked 2026-11-24). Only the name points at Model:Cycles
+      development. Found by GitHub search 2026-11-24.
+    sources: [state/NEW.md 2026-11-24]
 
   - id: octacloudz
     name: Octacloudz

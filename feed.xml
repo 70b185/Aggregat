@@ -4,9 +4,25 @@
   <link href="https://70b185.github.io/Aggregat/"/>
   <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
   <id>https://70b185.github.io/Aggregat/</id>
-  <updated>2026-11-23T00:00:00Z</updated>
+  <updated>2026-11-24T00:00:00Z</updated>
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>New in the catalogue: VILNIS (west coast machine) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=vilnis"/>
+    <id>https://70b185.github.io/Aggregat/#project-vilnis</id>
+    <updated>2026-11-24T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Elekloader machine mod (machine 36), picked with FUNC + SRC; the Digitakt's filter, amp, LFO and FX follow it as on a sample. Inspired by Buchla-style west coast synthesis (the README names Majella Audio's Implexus and Compax and the Music Easel). Page 2 uses sound slots 46-52, …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: UNDERTONE (subharmonic machine) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=undertone"/>
+    <id>https://70b185.github.io/Aggregat/#project-undertone</id>
+    <updated>2026-11-24T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Elekloader machine mod (machine 35), picked with FUNC + SRC; the Digitakt's filter, amp, LFO and FX follow it. Inspired by how the Moog Subharmonicon builds its sound and by the Labyrinth's wavefolder. Its sequencers (polyrhythm and corrupt modes) moved into FREQSEQ in …</summary>
+  </entry>
   <entry>
     <title>New in the catalogue: Syntakt custom firmware (DelayCtrl, DJ filter, Drive rectifier) (Mod, Syntakt)</title>
     <link href="https://70b185.github.io/Aggregat/?p=syntakt-project-bengleg"/>
@@ -130,6 +146,14 @@
     <updated>2026-11-19T00:00:00Z</updated>
     <category term="project"/>
     <summary>Four elekloader mods for the Digitone II, each its own .elemod, installed from the elekloader Mod Shop, which patches the user's own stock OS in the browser; all four can be combined and none needs another. MIDI LFO run fixes a stock 1.12 bug (SB31): after a new project, …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: DigiARCADE (games) (Mod, Digitakt)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=digiarcade"/>
+    <id>https://70b185.github.io/Aggregat/#project-digiarcade</id>
+    <updated>2026-11-19T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>An elekloader mod with 21 games on one master page (FUNC + LFO, then the ARC page). Many play along with the pattern: notes fall on the steps, enemies march to the tempo, and games play the user's own track sounds (knob D picks the track). While a game is open the trig keys …</summary>
   </entry>
   <entry>
     <title>Update 2026-11-19: 14 change reports folded, 2 repos added, 1 revived, 2 candidates, 4 ignored, I153-I157, SB31-SB34, O37-O38, S24, H53, A79</title>
@@ -447,27 +471,5 @@
     <updated>2026-11-13T00:00:00Z</updated>
     <category term="project"/>
     <summary>An operating system of its own for the Octatrack MKII, not a patch of Elektron's OS: a weather-driven multi-effect on inputs A-D (up to seven effects whose knobs the chosen weather moves) and an 8-track sequencer groovebox (sampler, sub, FM, noise, Karplus-Strong and polyphonic …</summary>
-  </entry>
-  <entry>
-    <title>Update 2026-11-13: ten change reports folded, AERIA OS and RIFT added, I80-I82</title>
-    <link href="https://github.com/70b185/Aggregat/commit/9150a806a5e5c84f85a8175e1c64c985bd2ea756"/>
-    <id>https://70b185.github.io/Aggregat/#commit-9150a806a5e5</id>
-    <updated>2026-11-13T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Revive repos that come back online: LFOX and Cycles Mod Standard listed again</title>
-    <link href="https://github.com/70b185/Aggregat/commit/26ef306de45abef2ad9128cfbbfd4d16a1e6e750"/>
-    <id>https://70b185.github.io/Aggregat/#commit-26ef306de45a</id>
-    <updated>2026-11-13T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>New in the catalogue: OpenBridge - Digitone II (Tool, Digitone II)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=openbridge-digitone-2"/>
-    <id>https://70b185.github.io/Aggregat/#project-openbridge-digitone-2</id>
-    <updated>2026-11-12T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>A Linux (x86_64) implementation of Overbridge for the Digitone II, as a VST3 plugin (JUCE; the standalone app was dropped on 2026-11-12): 42 channels of USB audio out and 8 in with clock-drift compensation, every sound parameter of the 16 tracks readable and editable with DAW …</summary>
   </entry>
 </feed>

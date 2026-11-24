@@ -3,20 +3,20 @@
 
 For agents: load the **brief** pack before you touch a unit (safety rules, recovery, stock bugs, incidents, open questions, catalogued projects), and the **full** pack when you need the hardware facts too. Token counts are estimates (characters / 4). Each fact carries a stable id (`file-stem#hash`) that survives moved lines; cite it.
 
-Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
+Data checked 2026-11-24, research snapshot `b15d7f70eef1`.
 
 | Device | Brief | Tokens | Full | Tokens | Facts | Incidents | Stock bugs |
 |---|---|---|---|---|---|---|---|
-| Digitakt (MKI) | [digitakt-brief.md](digitakt-brief.md) | ~7,046 | [digitakt.md](digitakt.md) | ~19,811 | 94 | 3 | 0 |
-| Digitakt II | [digitakt-2-brief.md](digitakt-2-brief.md) | ~11,707 | [digitakt-2.md](digitakt-2.md) | ~78,982 | 429 | 22 | 2 |
+| Digitakt (MKI) | [digitakt-brief.md](digitakt-brief.md) | ~7,186 | [digitakt.md](digitakt.md) | ~20,161 | 95 | 3 | 0 |
+| Digitakt II | [digitakt-2-brief.md](digitakt-2-brief.md) | ~11,707 | [digitakt-2.md](digitakt-2.md) | ~79,334 | 431 | 22 | 2 |
 | Digitone (MKI) / Digitone Keys | [digitone-brief.md](digitone-brief.md) | ~7,064 | [digitone.md](digitone.md) | ~20,754 | 90 | 7 | 1 |
-| Digitone II | [digitone-2-brief.md](digitone-2-brief.md) | ~16,988 | [digitone-2.md](digitone-2.md) | ~106,515 | 532 | 37 | 8 |
-| Syntakt | [syntakt-brief.md](syntakt-brief.md) | ~8,882 | [syntakt.md](syntakt.md) | ~40,552 | 197 | 18 | 1 |
+| Digitone II | [digitone-2-brief.md](digitone-2-brief.md) | ~16,988 | [digitone-2.md](digitone-2.md) | ~107,284 | 537 | 37 | 8 |
+| Syntakt | [syntakt-brief.md](syntakt-brief.md) | ~9,009 | [syntakt.md](syntakt.md) | ~42,384 | 208 | 19 | 1 |
 | Analog Heat (MKI, MKII, +FX) | [analog-heat-brief.md](analog-heat-brief.md) | ~3,917 | [analog-heat.md](analog-heat.md) | ~16,490 | 88 | 0 | 0 |
-| Octatrack (MKI, MKII) | [octatrack-brief.md](octatrack-brief.md) | ~16,972 | [octatrack.md](octatrack.md) | ~67,206 | 324 | 74 | 16 |
-| Analog Rytm (MKI, MKII) | [analog-rytm-brief.md](analog-rytm-brief.md) | ~7,875 | [analog-rytm.md](analog-rytm.md) | ~43,886 | 226 | 20 | 7 |
-| Analog Four / Analog Keys | [analog-four-keys-brief.md](analog-four-keys-brief.md) | ~4,396 | [analog-four-keys.md](analog-four-keys.md) | ~15,620 | 78 | 2 | 1 |
-| Model:Cycles | [model-cycles-brief.md](model-cycles-brief.md) | ~5,200 | [model-cycles.md](model-cycles.md) | ~22,593 | 109 | 7 | 1 |
+| Octatrack (MKI, MKII) | [octatrack-brief.md](octatrack-brief.md) | ~17,357 | [octatrack.md](octatrack.md) | ~69,703 | 338 | 77 | 17 |
+| Analog Rytm (MKI, MKII) | [analog-rytm-brief.md](analog-rytm-brief.md) | ~7,875 | [analog-rytm.md](analog-rytm.md) | ~44,124 | 228 | 20 | 7 |
+| Analog Four / Analog Keys | [analog-four-keys-brief.md](analog-four-keys-brief.md) | ~4,479 | [analog-four-keys.md](analog-four-keys.md) | ~15,870 | 79 | 3 | 1 |
+| Model:Cycles | [model-cycles-brief.md](model-cycles-brief.md) | ~5,232 | [model-cycles.md](model-cycles.md) | ~22,625 | 109 | 7 | 1 |
 | Model:Samples | [model-samples-brief.md](model-samples-brief.md) | ~3,361 | [model-samples.md](model-samples.md) | ~20,008 | 105 | 1 | 0 |
 | Machinedrum (incl. UW) | [machinedrum-brief.md](machinedrum-brief.md) | ~3,542 | [machinedrum.md](machinedrum.md) | ~14,034 | 74 | 2 | 1 |
 | Monomachine | [monomachine-brief.md](monomachine-brief.md) | ~3,448 | [monomachine.md](monomachine.md) | ~14,113 | 75 | 2 | 1 |

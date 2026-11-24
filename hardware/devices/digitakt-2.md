@@ -341,5 +341,9 @@ Read once, not checked by a second reader.
 - **Stack size of the boot path:** building the runtime object in place cut the boot frame from 60 KB to about 7 KB (6,740 B); the worst boot chain of the package manager is about 24 KB. The runtime text grew to about 252,900 B (+41 KB) with the package manager. A mod that runs large Rust code from a firmware task should measure its frames: the main task's stack depth is not measured anywhere we know. `[doc]` {digikit-1123}
 - **Module files will break:** header table version 4 (runtime 0.12.0, decided 2026-11-22) refuses every older `.dkm` and `.dks` file (E_CONTRACT, "built for an older runtime"); cards in the field need repacked modules. `[doc]` {digikit-1123}
 
+## digikit's resident core and system package (DT2 1.17, DN2 1.12, Syntakt 1.42; static and emulator, 2026-11-23/24) {digikit-1124}
+- The DIGIKIT menu and the runtime lifecycle left the flashed image for a card file `digikit/system.dksp` (192,856 B), loaded into its own 320 KiB block beside the 512 KiB module arena. A flash alone leaves the unit in core-only mode (no modules, no menu; store and USB upload still answer) until Workbench or the CLI installs the package; the browser flow ends at the flash. Core-only also follows 4 unstable boots in a row or a missing, damaged or incompatible package; SysEx RETRY (0x0b) or a new package clears it, and a core-only boot does not clear the boot counter. The package activation flow has no hardware result yet. `[doc]` {digikit-1124}
+- Stored container sizes after the move: DT2 1,561,952 B (MAIN 1,640,800), DN2 1,973,664 B (MAIN 2,052,480); the flashed part of the runtime went from 278,414 to 130,326 B. `[doc]` {digikit-1124}
+
 ## Gaps
 Memory map beyond the numbers above, DSP memory, machine API, parameter-table layout: not collected yet (see `../MINING.md`).

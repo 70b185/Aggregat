@@ -2,7 +2,7 @@
 
 # Project families
 
-Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-23. Edit the `relations:` field in `data/projects.yml`.
+Entries in the catalogue that belong together: forks, copies, ports to another device or format, the same mod built for two devices, and projects that build on another project. Use this to avoid counting the same work twice and to find the original. Each link names its evidence (GitHub's fork flag, or the project's own README). Data last verified: 2026-11-24. Edit the `relations:` field in `data/projects.yml`.
 
 | Relation | Meaning |
 |---|---|
@@ -25,16 +25,32 @@ Devices: Model:Cycles, Model:Samples. [repo](https://github.com/18nelli18/Modded
 - **Cycles One-Shot** (durchgemacht) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/durchgemacht/cycles-one-shot)
 - **Digi CMI** (neutronrabbit) - builds on **digi1_mods** (README: forked from Digi Poly 2.1 by gdeo607 and the digi1_mods authors). [repo](https://github.com/neutronrabbit/digicmi)
 - **digi1_mods** (gdeo607) - bundles **Tone+FX** (README: Tone+FX, Digital Alchemy DSP's master effects suite, ported). [repo](https://github.com/gdeo607/digi1_mods)
+- **Digi2Core (core-dt2 2.6.1)** (gdeo607) - builds on **elekloader** (README: starts from core 1.0 (irpina's boot copier and hook bus, unchanged)). [repo](https://github.com/gdeo607/Digi2Core)
+- **Digi2Digiseq (DIGISEQ)** (gdeo607 (port); Robbie / ClaidArremer (DIGISEQ)) - port of **DIGISEQ (Digitakt)** (README: DIGISEQ for Digitakt by Robbie (ClaidArremer), adapted); builds on **Digi2Core (core-dt2 2.6.1)** (README: core-dt2 2.6.1 or later, its pattern service). [repo](https://github.com/gdeo607/Digi2Digiseq)
+- **Digi2ElixirPotionsDRUM (ELIXIR)** (gdeo607) - builds on **Digi2Core (core-dt2 2.6.1)** (README: core-dt2 2.4 (Digi2Core)). [repo](https://github.com/gdeo607/Digi2ElixirPotionsDRUM)
+- **Digi2MacroOSC (MACRO)** (gdeo607) - builds on **Digi2Core (core-dt2 2.6.1)** (README: on core-dt2 2.4). [repo](https://github.com/gdeo607/Digi2MacroOSC)
+- **Digi2Sophie (SOPHIE)** (gdeo607 (port); Matt Estela, soejrd (SOPHIE)) - port of **Digisophie / Sophie for Digitakt** (README: PIPE and BOOM from Sophie for Digitakt by soejrd); builds on **Digi2Core (core-dt2 2.6.1)** (README: core-dt2 2.6.1 or later). [repo](https://github.com/gdeo607/Digi2Sophie)
+- **Digi2String (STRING)** (gdeo607 (port); Alez22 (STRING)) - port of **digistring** (README: a floating-point port of Alez22's karplus.c); builds on **Digi2Core (core-dt2 2.6.1)** (README: core-dt2 2.6.1 or later). [repo](https://github.com/gdeo607/Digi2String)
 - **digiemu** (pina (irpina)) - builds on **digikit** (README: digiemu is derived from m-dwyer/digikit at an upstream commit). [repo](https://github.com/elekloader/digiemu)
 - **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/ElekLabs/digikit)
+- **DIGISEQ (Digitakt)** (ClaidArremer) - bundles **DIGISNAKE (Digitakt)** (README: DIGISNAKE for Digitakt, unchanged, as its SNAKE type). [repo](https://github.com/ClaidArremer/digitakt-digiseq)
+- **DIGISEQ (Digitone)** (ClaidArremer) - variant of **DIGISEQ (Digitakt)** (same author, Digitone build); bundles **DIGISNAKE (Digitone)** (README: DIGISNAKE carries on in DIGISEQ for Digitone, unchanged). [repo](https://github.com/ClaidArremer/digitone-digiseq)
+- **DIGISNAKE (Digitakt)** (ClaidArremer) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/ClaidArremer/digitakt-digisnake)
+- **DIGISNAKE (Digitone)** (ClaidArremer) - variant of **DIGISNAKE (Digitakt)** (same author, Digitone build). [repo](https://github.com/ClaidArremer/digitone-digisnake)
+- **Digisophie / Sophie for Digitakt** (Soejrd) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/soejrd/digisophie)
+- **Digisophie-DN (SOPHIE for the Digitone)** (x2k77m1 (port); soejrd (Digisophie)) - port of **Digisophie / Sophie for Digitakt** (README: a port of the Digitakt 1 mod Digisophie to the Digitone 1); fork of **Digisophie / Sophie for Digitakt** (GitHub fork flag; 3 own commits). [repo](https://github.com/x2k77m1/digisophie-dn)
+- **digistring** (Alez22) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/Alez22/digistring)
 - **digitakt-ii-research (Deja Vu LFOs, ONESHOT zoom)** (kariGardarsson) - builds on **digikit** (all-in-one/README.md: modified firmware derived from digikit; uses its patchkit). [repo](https://github.com/karigardarsson/digitakt-ii-research)
 - **DN2 DT2 firmware research** (armio) - builds on **dn2_firmware_explore** (catalogue notes: builds on dnfw (pinned commit)); builds on **digikit** (catalogue notes: builds on digikit (pinned commit)); builds on **elektron-firmware-tool** (catalogue notes: builds on elektron-firmware-tool (pinned commit)). [repo](https://github.com/armio/dn2-dt2-firmware-research)
 - **DN2 mk2 Mod (dn2mk2-firmware)** (De-Pattern (builds on dn2_firmware_explore: the history holds 1,149 commits by its author Ángel Linares García and 11 commits identical to dnfw's; git log 2026-11-18)) - builds on **dn2_firmware_explore** (docs/CHANGES-FROM-UPSTREAM: forked dnfw at 8c40698). [repo](https://github.com/De-Pattern/dn2mk2-firmware)
 - **DN2 Tools (dn2mk2 browser tools)** (De-Pattern) - same project as **DN2 mk2 Mod (dn2mk2-firmware)** (README: browser tools for the Digitone II mod; same author). [repo](https://github.com/De-Pattern/dn2mk2)
 - **DN2 WISHES** (w0ts) - fork of **DN2 mk2 Mod (dn2mk2-firmware)** (GitHub fork; README: built on dn2mk2 by De-Pattern). [repo](https://github.com/w0ts/dn2-wishes)
 - **dn2_firmware_explore** (angellinares) - builds on **elektron-firmware-tool** (README credit: container, transport, codec and integrity work stands on it). [repo](https://github.com/angellinares/dn2_firmware_explore)
+- **DT-FM** (mtalikka) - builds on **Digisophie / Sophie for Digitakt** (notes). [repo](https://github.com/mtalikka/DT-FM)
+- **elekloader** (pina (irpina)) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/elekloader/elekloader)
 - **elektron-firmware-tool** (mischa85) - linked to **Modded Cycles** through another member of this family. [repo](https://github.com/mischa85/elektron-firmware-tool)
 - **elektron-model-tweaks** (drumkilla) - builds on **elektron-firmware-tool** (README: building scripts are based on elektron-firmware-tool); builds on **ms-multi-output** (README: based on ms-multi-output by Scott Metoyer). [repo](https://github.com/drumkilla/elektron-model-tweaks)
+- **GLIDE (Digitakt)** (ClaidArremer) - builds on **DIGISEQ (Digitakt)** (README: built and tested with the seq-events copy in digitakt-digiseq). [repo](https://github.com/ClaidArremer/digitakt-glide)
 - **Modded Cycles Techno Edition** (mbreilly (m_reilly)) - builds on **Modded Cycles** (README credits: build toolchain, per-track filter, machine list, MACRO and ACID ports); bundles **model909** (README credits: the 909 kick, toms, rim and clap from DMDaudio/model909); bundles **elektron-model-tweaks** (README credits: scrolling names and the mtlib toolkit); builds on **ms-multi-output** (README credits: the original 6-channel USB audio mod). [repo](https://github.com/mbreilly/Modded_cycles_techno_edition)
 - **Model-TG** (TinyGregAudio) - bundles **elektron-model-tweaks** (README: includes drumkilla's tweaks (latching mute, trig preview)). [repo](https://github.com/TinyGregAudio/Model-TG)
 - **model27** (durchgemacht, 18nelli18) - fork of **Modded Cycles** (own README: beta fork of Modded Cycles 1.55); bundles **elektron-model-tweaks** (README: includes drumkilla's tweaks (latching mute, trig preview)); bundles **Control All Config** (README: Modded-Cycles 1.55 plus the Control All Config mod); bundles **Cycles One-Shot** (README: the SAMPLE machine of Cycles One-Shot). [repo](https://github.com/durchgemacht/model27)
@@ -47,33 +63,13 @@ Devices: Model:Cycles, Model:Samples. [repo](https://github.com/18nelli18/Modded
 - **SPOKES** (A.V.) - bundles **Modded Cycles** (README table); bundles **model27** (README table); bundles **Supermodel Edition** (README table). [repo](https://github.com/AveyCole/SPOKES)
 - **Supermodel Edition** (A.V., 18nelli18) - fork of **Modded Cycles** (GitHub fork flag). [repo](https://github.com/AveyCole/Supermodel)
 - **Supermodel REDUX** (AveyCole) - same name as (relation unclear) **Supermodel Edition** (same author; the README does not say whether REDUX builds on Supermodel). [repo](https://github.com/AveyCole/Supermodel-REDUX)
-- **TERRAIN for Digitone II** (ycmdynp9vw-coder) - builds on **digikit** (README: derived from digikit (patched, pinned commit)). [repo](https://github.com/ycmdynp9vw-coder/terrain-dn2)
-- **Tone+FX** (DigiAlchemydsp) - same name as (relation unclear) **RingTone (master ring mod / wavefold / EQ)** (Tone+FX README calls RingTone "the older RingTone repo" (same author); successor or same project not stated. Was same_project until 2026-11-04 (raised in PR #3)). [repo](https://github.com/DigiAlchemydsp/Tone-FX)
-- **Vladiktron Spoke** (imaf6971) - builds on **Modded Cycles** (README: this project builds on Modded-Cycles). [repo](https://github.com/imaf6971/vladiktron-spoke)
-
-## Digi2Core (core-dt2 2.6.1) (gdeo607)
-
-Devices: Digitakt II. [repo](https://github.com/gdeo607/Digi2Core)
-
-- **Digi2Digiseq (DIGISEQ)** (gdeo607 (port); Robbie / ClaidArremer (DIGISEQ)) - port of **DIGISEQ (Digitakt)** (README: DIGISEQ for Digitakt by Robbie (ClaidArremer), adapted); builds on **Digi2Core (core-dt2 2.6.1)** (README: core-dt2 2.6.1 or later, its pattern service). [repo](https://github.com/gdeo607/Digi2Digiseq)
-- **Digi2ElixirPotionsDRUM (ELIXIR)** (gdeo607) - builds on **Digi2Core (core-dt2 2.6.1)** (README: core-dt2 2.4 (Digi2Core)). [repo](https://github.com/gdeo607/Digi2ElixirPotionsDRUM)
-- **Digi2MacroOSC (MACRO)** (gdeo607) - builds on **Digi2Core (core-dt2 2.6.1)** (README: on core-dt2 2.4). [repo](https://github.com/gdeo607/Digi2MacroOSC)
-- **Digi2Sophie (SOPHIE)** (gdeo607 (port); Matt Estela, soejrd (SOPHIE)) - port of **Digisophie / Sophie for Digitakt** (README: PIPE and BOOM from Sophie for Digitakt by soejrd); builds on **Digi2Core (core-dt2 2.6.1)** (README: core-dt2 2.6.1 or later). [repo](https://github.com/gdeo607/Digi2Sophie)
-- **Digi2String (STRING)** (gdeo607 (port); Alez22 (STRING)) - port of **digistring** (README: a floating-point port of Alez22's karplus.c); builds on **Digi2Core (core-dt2 2.6.1)** (README: core-dt2 2.6.1 or later). [repo](https://github.com/gdeo607/Digi2String)
-- **DIGISEQ (Digitakt)** (ClaidArremer) - bundles **DIGISNAKE (Digitakt)** (README: DIGISNAKE for Digitakt, unchanged, as its SNAKE type). [repo](https://github.com/ClaidArremer/digitakt-digiseq)
-- **DIGISEQ (Digitone)** (ClaidArremer) - variant of **DIGISEQ (Digitakt)** (same author, Digitone build); bundles **DIGISNAKE (Digitone)** (README: DIGISNAKE carries on in DIGISEQ for Digitone, unchanged). [repo](https://github.com/ClaidArremer/digitone-digiseq)
-- **DIGISNAKE (Digitakt)** (ClaidArremer) - linked to **Digi2Core (core-dt2 2.6.1)** through another member of this family. [repo](https://github.com/ClaidArremer/digitakt-digisnake)
-- **DIGISNAKE (Digitone)** (ClaidArremer) - variant of **DIGISNAKE (Digitakt)** (same author, Digitone build). [repo](https://github.com/ClaidArremer/digitone-digisnake)
-- **Digisophie / Sophie for Digitakt** (Soejrd) - linked to **Digi2Core (core-dt2 2.6.1)** through another member of this family. [repo](https://github.com/soejrd/digisophie)
-- **Digisophie-DN (SOPHIE for the Digitone)** (x2k77m1 (port); soejrd (Digisophie)) - port of **Digisophie / Sophie for Digitakt** (README: a port of the Digitakt 1 mod Digisophie to the Digitone 1); fork of **Digisophie / Sophie for Digitakt** (GitHub fork flag; 3 own commits). [repo](https://github.com/x2k77m1/digisophie-dn)
-- **digistring** (Alez22) - linked to **Digi2Core (core-dt2 2.6.1)** through another member of this family. [repo](https://github.com/Alez22/digistring)
-- **DT-FM** (mtalikka) - builds on **Digisophie / Sophie for Digitakt** (notes). [repo](https://github.com/mtalikka/DT-FM)
-- **elekloader** (pina (irpina)) - linked to **Digi2Core (core-dt2 2.6.1)** through another member of this family. [repo](https://github.com/elekloader/elekloader)
-- **GLIDE (Digitakt)** (ClaidArremer) - builds on **DIGISEQ (Digitakt)** (README: built and tested with the seq-events copy in digitakt-digiseq). [repo](https://github.com/ClaidArremer/digitakt-glide)
-- **Synfact** (GSM1980) - builds on **elekloader** (README of synfact-dev: built on elekloader, its engine, file format and checks). [repo](https://github.com/GSM1980/synfact-dev)
+- **Synfact** (GSM1980) - builds on **elekloader** (README of synfact-dev: built on elekloader, its engine, file format and checks); port of **DN2 mk2 Mod (dn2mk2-firmware)** (mods/digimono-st/fmplus/README.md: FM+ and DigiPRO after the algorithms in De-Pattern/dn2mk2-firmware at a0249fc5); port of **digi1_mods** (mods/digimono-st/README.md: SIN..CHORDS come from Digi Mono at digi1_mods 32fd22a1). [repo](https://github.com/GSM1980/synfact-dev)
 - **taktone** (water-feature) - bundles **Digisophie / Sophie for Digitakt** (README: Digisophie machines running on the second DSP). [repo](https://github.com/water-feature/taktone)
 - **telos (elekloader OS)** (elekloader) - builds on **elekloader** (README: part of elekloader; built as an elekloader mod with core-dn1 and its +Drive boot linker). [repo](https://github.com/elekloader/telos)
+- **TERRAIN for Digitone II** (ycmdynp9vw-coder) - builds on **digikit** (README: derived from digikit (patched, pinned commit)). [repo](https://github.com/ycmdynp9vw-coder/terrain-dn2)
+- **Tone+FX** (DigiAlchemydsp) - same name as (relation unclear) **RingTone (master ring mod / wavefold / EQ)** (Tone+FX README calls RingTone "the older RingTone repo" (same author); successor or same project not stated. Was same_project until 2026-11-04 (raised in PR #3)). [repo](https://github.com/DigiAlchemydsp/Tone-FX)
 - **trig-seedr** (a1o1) - builds on **Synfact** (release-0.8: the Syntakt core's hook bus and elekloader's Syntakt profile come from synfact-dev). [repo](https://github.com/a1o1/trig-seedr)
+- **Vladiktron Spoke** (imaf6971) - builds on **Modded Cycles** (README: this project builds on Modded-Cycles). [repo](https://github.com/imaf6971/vladiktron-spoke)
 
 ## octabam (Sam Banks, Contributors credited per module)
 
@@ -246,7 +242,7 @@ Drawn by GitHub from the lineage relations (fork, copy, port, variant, builds on
 
 <!-- relation-graph:start - generated by scripts/build.py from data/projects.yml, do not edit by hand -->
 
-137 entries with 148 relations. Colour: licence family (green permissive, blue copyleft, yellow public domain, grey none stated or not recorded).
+138 entries with 151 relations. Colour: licence family (green permissive, blue copyleft, yellow public domain, grey none stated or not recorded).
 
 ```mermaid
 flowchart LR
@@ -366,6 +362,7 @@ flowchart LR
     n_md_webloader["Machinedrum WebLoader<br/>not recorded"]:::none
     n_machinemodule_desktop["MachineModule (desktop)<br/>AGPL-3.0"]:::copyleft
     n_machinemodule_mpc["Machinemodule for MPC OS<br/>AGPL-3.0"]:::copyleft
+    n_mdkit["mdkit<br/>CC0-1.0"]:::public-domain
     n_mds["MDS (Machine Dump Standard)<br/>not stated"]:::none
     n_mds_harness["mds-harness<br/>GPL-3.0"]:::copyleft
     n_mds_tools["mds-tools<br/>GPL"]:::copyleft
@@ -565,6 +562,12 @@ flowchart LR
   %% evidence: README: NOTICE covers the code that comes from elekloader and digikit
   n_synfact -- "vendors code from" --> n_synthack_os_upstream
   %% evidence: comp-st README: DSP adapted from Synthack-OS master-comp (MIT), exact comp.S kept in upstream/
+  n_synfact -- "port of" --> n_dn2mk2
+  %% evidence: mods/digimono-st/fmplus/README.md: FM+ and DigiPRO after the algorithms in De-Pattern/dn2mk2-firmware at a0249fc5
+  n_synfact -- "vendors code from" --> n_mdkit
+  %% evidence: mods/md-st/mdkit/VENDORED.md: soejrd/mdkit at 96157fe, src/ and include/ unchanged
+  n_synfact -- "port of" --> n_digi1_mods
+  %% evidence: mods/digimono-st/README.md: SIN..CHORDS come from Digi Mono at digi1_mods 32fd22a1
   n_digitakt_digitone_mcp -- "builds on" --> n_digitakt_midi_mcp
   %% evidence: README: the project this one grew out of
   n_digiseq_digitakt -- "bundles" --> n_digisnake_digitakt

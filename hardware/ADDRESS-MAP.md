@@ -3,17 +3,24 @@
 
 Every address that a fact names, per device, in address order. One line per address; the facts that name it follow, best evidence first. Two facts at the same address with different claims are worth a look: they may be a conflict (add it to [CONFLICTS.md](CONFLICTS.md)) or a RAM range two projects both use (rule area G8 in the [research map](../research/RESEARCH-MAP.md)). Addresses differ between OS versions; the fact text says which.
 
-Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
+Data checked 2026-11-24, research snapshot `b15d7f70eef1`.
 
-## Digitakt (MKI) (107 addresses)
+## Digitakt (MKI) (117 addresses)
 
 | Address | Facts |
 |---|---|
 | `0x00060000` | [doc] [hw] [digitakt.md:110](../hardware/devices/digitakt.md#L110) LED colours mod on the unit (OS 1.54, 2026-11-16)<br>[doc] [digitakt.md:134](../hardware/devices/digitakt.md#L134) T9-KeyScale: addresses for an OS 1.53 port (OS 1.54, 2026-11-20) |
 | `0x00060040` | [doc] [digitakt.md:134](../hardware/devices/digitakt.md#L134) T9-KeyScale: addresses for an OS 1.53 port (OS 1.54, 2026-11-20) |
 | `0x0006004c` | [doc] [digitakt.md:134](../hardware/devices/digitakt.md#L134) T9-KeyScale: addresses for an OS 1.53 port (OS 1.54, 2026-11-20) |
-| `0x0006004e` | [doc] [digitakt.md:134](../hardware/devices/digitakt.md#L134) T9-KeyScale: addresses for an OS 1.53 port (OS 1.54, 2026-11-20) |
+| `0x0006004d` | [doc] [digitakt.md:138](../hardware/devices/digitakt.md#L138) flexmods 1.5: per-project storage and project hooks (OS 1.54, 2026-11-23) |
+| `0x0006004e` | [doc] [digitakt.md:134](../hardware/devices/digitakt.md#L134) T9-KeyScale: addresses for an OS 1.53 port (OS 1.54, 2026-11-20)<br>[doc] [digitakt.md:138](../hardware/devices/digitakt.md#L138) flexmods 1.5: per-project storage and project hooks (OS 1.54, 2026-11-23) |
+| `0x0006004f` | [doc] [digitakt.md:138](../hardware/devices/digitakt.md#L138) flexmods 1.5: per-project storage and project hooks (OS 1.54, 2026-11-23) |
+| `0x00060050` | [doc] [digitakt.md:138](../hardware/devices/digitakt.md#L138) flexmods 1.5: per-project storage and project hooks (OS 1.54, 2026-11-23) |
+| `0x00060051` | [doc] [digitakt.md:138](../hardware/devices/digitakt.md#L138) flexmods 1.5: per-project storage and project hooks (OS 1.54, 2026-11-23) |
 | `0x0006005f` | [doc] [digitakt.md:134](../hardware/devices/digitakt.md#L134) T9-KeyScale: addresses for an OS 1.53 port (OS 1.54, 2026-11-20) |
+| `0x00062000` | [doc] [digitakt.md:138](../hardware/devices/digitakt.md#L138) flexmods 1.5: per-project storage and project hooks (OS 1.54, 2026-11-23) |
+| `0x000620ff` | [doc] [digitakt.md:138](../hardware/devices/digitakt.md#L138) flexmods 1.5: per-project storage and project hooks (OS 1.54, 2026-11-23) |
+| `0x0006247f` | [doc] [digitakt.md:138](../hardware/devices/digitakt.md#L138) flexmods 1.5: per-project storage and project hooks (OS 1.54, 2026-11-23) |
 | `0x40000000` | [doc] [digitakt.md:104](../hardware/devices/digitakt.md#L104) Digi CMI on the unit (OS 1.54, 2026-11-12) |
 | `0x40000400` | [doc] [digitakt.md:104](../hardware/devices/digitakt.md#L104) Digi CMI on the unit (OS 1.54, 2026-11-12) |
 | `0x40000438` | [doc] [digitakt.md:13](../hardware/devices/digitakt.md#L13) Where the audio runs (Digiwerk prior-art survey, 2026-10) |
@@ -28,12 +35,15 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x40010b62` | [emu] [digitakt.md:124](../hardware/devices/digitakt.md#L124) Modwerk CC Remap: the incoming-CC path (OS 1.54, Core 2.1, 2026-10-29 to 11-12) |
 | `0x400158d2` | [doc] [digitakt.md:77](../hardware/devices/digitakt.md#L77) elekloader core 4.1-4.3 and compatibility (2026-11-10) |
 | `0x400158ec` | [doc] [digitakt.md:77](../hardware/devices/digitakt.md#L77) elekloader core 4.1-4.3 and compatibility (2026-11-10) |
+| `0x4001a5f0` | [doc] [digitakt.md:138](../hardware/devices/digitakt.md#L138) flexmods 1.5: per-project storage and project hooks (OS 1.54, 2026-11-23) |
+| `0x4001a906` | [doc] [digitakt.md:138](../hardware/devices/digitakt.md#L138) flexmods 1.5: per-project storage and project hooks (OS 1.54, 2026-11-23) |
 | `0x40030954` | [emu] [digitakt.md:124](../hardware/devices/digitakt.md#L124) Modwerk CC Remap: the incoming-CC path (OS 1.54, Core 2.1, 2026-10-29 to 11-12) |
 | `0x40030daa` | [hw] [digitakt.md:92](../hardware/devices/digitakt.md#L92) Modwerk Digi Perform (OS 1.53/1.54, 2026-11-11)<br>[doc] [digitakt.md:93](../hardware/devices/digitakt.md#L93) Modwerk Digi Perform (OS 1.53/1.54, 2026-11-11) |
 | `0x40032d16` | [doc] [digitakt.md:93](../hardware/devices/digitakt.md#L93) Modwerk Digi Perform (OS 1.53/1.54, 2026-11-11) |
 | `0x40032d36` | [doc] [digitakt.md:93](../hardware/devices/digitakt.md#L93) Modwerk Digi Perform (OS 1.53/1.54, 2026-11-11) |
 | `0x400368e0` | [doc] [digitakt.md:93](../hardware/devices/digitakt.md#L93) Modwerk Digi Perform (OS 1.53/1.54, 2026-11-11) |
 | `0x40038f80` | [emu] [digitakt.md:86](../hardware/devices/digitakt.md#L86) Stock compressor, read by Synfact (OS 1.54, 2026-11-20) |
+| `0x4004f1f2` | [doc] [digitakt.md:138](../hardware/devices/digitakt.md#L138) flexmods 1.5: per-project storage and project hooks (OS 1.54, 2026-11-23) |
 | `0x400583fc` | [doc] [digitakt.md:111](../hardware/devices/digitakt.md#L111) LED colours mod on the unit (OS 1.54, 2026-11-16) |
 | `0x40058800` | [doc] [digitakt.md:20](../hardware/devices/digitakt.md#L20) Memory and code placement (core 2.x, elekloader) |
 | `0x400601f0` | [doc] [digitakt.md:87](../hardware/devices/digitakt.md#L87) Stock compressor, read by Synfact (OS 1.54, 2026-11-20) |
@@ -724,7 +734,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0xec074000` | [emu] [digitone.md:131](../hardware/devices/digitone.md#L131) Drum Mode 0.8.2: one set of track edit objects per pattern, the MIDI out path (OS 1.44, 2026-11-18) |
 | `0xfc0b0000` | [emu] [digitone.md:131](../hardware/devices/digitone.md#L131) Drum Mode 0.8.2: one set of track edit objects per pattern, the MIDI out path (OS 1.44, 2026-11-18) |
 
-## Digitone II (573 addresses)
+## Digitone II (575 addresses)
 
 | Address | Facts |
 |---|---|
@@ -836,7 +846,9 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x00b82342` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
 | `0x00b8251b` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12)<br>[doc] [digitone-2-internals.md:334](../hardware/devices/digitone-2-internals.md#L334) digikit finding 158 on DN2 1.12: entry sites and tables (static, 2026-11-22) |
 | `0x00b8265b` | [emu] [digitone-2-internals.md:169](../hardware/devices/digitone-2-internals.md#L169) dn2mk2 v0.51-v0.52 and the DN2's per-track chain (OS 1.11, 2026-11-12) |
+| `0x00b82d1a` | [emu] [digitone-2.md:193](../hardware/devices/digitone-2.md#L193) DN2 mods 2026-11-22/23: SHARC arithmetic cost, master reverb site, stock DSP copy (OS 1.11/1.12) |
 | `0x00b836bc` | [hw] [digitone-2-internals.md:102](../hardware/devices/digitone-2-internals.md#L102) Audio/DSP side |
+| `0x00b8370c` | [emu] [digitone-2.md:193](../hardware/devices/digitone-2.md#L193) DN2 mods 2026-11-22/23: SHARC arithmetic cost, master reverb site, stock DSP copy (OS 1.11/1.12) |
 | `0x00b8482c` | [hw] [digitone-2-internals.md:102](../hardware/devices/digitone-2-internals.md#L102) Audio/DSP side |
 | `0x00b84d5c` | [hw] [digitone-2-internals.md:102](../hardware/devices/digitone-2-internals.md#L102) Audio/DSP side |
 | `0x00b8541d` | [hw] [digitone-2-internals.md:102](../hardware/devices/digitone-2-internals.md#L102) Audio/DSP side |
@@ -1302,7 +1314,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0xfc0cc024` | [hw] [digitone-2.md:102](../hardware/devices/digitone-2.md#L102) Sample memory (dn2mk2) |
 | `0xffffffff` | [hw] [dt2-dn2-sharc-crosscheck.md:14](../hardware/common/dt2-dn2-sharc-crosscheck.md#L14) 1. Shown on both units `[hw]`<br>[hw] [digitone-2-internals.md:119](../hardware/devices/digitone-2-internals.md#L119) More from dnfw's notes (read 2026-11-02)<br>[hw] [digitone-2-os111-reference.md:33](../hardware/devices/digitone-2-os111-reference.md#L33) Free memory |
 
-## Syntakt (421 addresses)
+## Syntakt (437 addresses)
 
 | Address | Facts |
 |---|---|
@@ -1312,6 +1324,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x0001ffff` | [doc] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x00021374` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x00021379` | [doc] [emu] [syntakt.md:179](../hardware/devices/syntakt.md#L179) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x0002138c` | [doc] [emu] [syntakt.md:320](../hardware/devices/syntakt.md#L320) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
 | `0x00022d40` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x000378d8` | [hw] [syntakt.md:183](../hardware/devices/syntakt.md#L183) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x00040000` | [doc] [syntakt.md:234](../hardware/devices/syntakt.md#L234) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
@@ -1329,6 +1342,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x001ffc00` | [hw] [syntakt.md:53](../hardware/devices/syntakt.md#L53) Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41) |
 | `0x001ffe00` | [doc] [syntakt.md:289](../hardware/devices/syntakt.md#L289) digikit on a Syntakt unit: section 7 packed, bootstrap stage, key ids, card capacity, write guard (OS 1.42, 2026-11-19/21)<br>[doc] [syntakt.md:303](../hardware/devices/syntakt.md#L303) digikit on a Syntakt unit: section 7 packed, bootstrap stage, key ids, card capacity, write guard (OS 1.42, 2026-11-19/21) |
 | `0x00200000` | [doc] [hw] [syntakt.md:297](../hardware/devices/syntakt.md#L297) digikit on a Syntakt unit: section 7 packed, bootstrap stage, key ids, card capacity, write guard (OS 1.42, 2026-11-19/21)<br>[doc] [syntakt.md:304](../hardware/devices/syntakt.md#L304) digikit on a Syntakt unit: section 7 packed, bootstrap stage, key ids, card capacity, write guard (OS 1.42, 2026-11-19/21) |
+| `0x002e0200` | [doc] [emu] [syntakt.md:320](../hardware/devices/syntakt.md#L320) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
 | `0x00300000` | [doc] [hw] [syntakt.md:297](../hardware/devices/syntakt.md#L297) digikit on a Syntakt unit: section 7 packed, bootstrap stage, key ids, card capacity, write guard (OS 1.42, 2026-11-19/21)<br>[doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:242](../hardware/devices/syntakt.md#L242) Upgrade receiver, transport state, native bitmaps (OS 1.42, 2026-11-18) |
 | `0x00340000` | [doc] [syntakt.md:233](../hardware/devices/syntakt.md#L233) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0x003a4000` | [hw] [syntakt.md:296](../hardware/devices/syntakt.md#L296) digikit on a Syntakt unit: section 7 packed, bootstrap stage, key ids, card capacity, write guard (OS 1.42, 2026-11-19/21)<br>[doc] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
@@ -1400,13 +1414,18 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x40019036` | [doc] [emu] [syntakt.md:252](../hardware/devices/syntakt.md#L252) trig-seedr's Syntakt notes: pattern data, locks, power-off save, free DDR (OS 1.42, analog-emu, 2026-11-18/19) |
 | `0x4001a300` | [doc] [syntakt.md:76](../hardware/devices/syntakt.md#L76) Audio path |
 | `0x4001a7d4` | [?] [syntakt.md:300](../hardware/devices/syntakt.md#L300) digikit on a Syntakt unit: section 7 packed, bootstrap stage, key ids, card capacity, write guard (OS 1.42, 2026-11-19/21) |
-| `0x40025594` | [doc] [syntakt.md:32](../hardware/devices/syntakt.md#L32) Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware) |
+| `0x4001a8d2` | [doc] [emu] [syntakt.md:320](../hardware/devices/syntakt.md#L320) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
+| `0x4001b168` | [doc] [emu] [syntakt.md:320](../hardware/devices/syntakt.md#L320) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
+| `0x40025594` | [doc] [syntakt.md:32](../hardware/devices/syntakt.md#L32) Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware)<br>[doc] [syntakt.md:322](../hardware/devices/syntakt.md#L322) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
 | `0x40025620` | [doc] [syntakt.md:32](../hardware/devices/syntakt.md#L32) Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware) |
+| `0x400264ca` | [doc] [syntakt.md:322](../hardware/devices/syntakt.md#L322) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
+| `0x400265be` | [doc] [syntakt.md:322](../hardware/devices/syntakt.md#L322) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
 | `0x40027f3a` | [doc] [emu] [syntakt.md:252](../hardware/devices/syntakt.md#L252) trig-seedr's Syntakt notes: pattern data, locks, power-off save, free DDR (OS 1.42, analog-emu, 2026-11-18/19) |
 | `0x40027fa2` | [doc] [emu] [syntakt.md:255](../hardware/devices/syntakt.md#L255) trig-seedr's Syntakt notes: pattern data, locks, power-off save, free DDR (OS 1.42, analog-emu, 2026-11-18/19) |
 | `0x40032b0e` | [doc] [syntakt.md:184](../hardware/devices/syntakt.md#L184) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x40032b72` | [doc] [syntakt.md:184](../hardware/devices/syntakt.md#L184) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x40033b74` | [emu] [syntakt.md:188](../hardware/devices/syntakt.md#L188) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x400341a0` | [doc] [emu] [syntakt.md:320](../hardware/devices/syntakt.md#L320) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
 | `0x4004005c` | [?] [doc] [syntakt.md:238](../hardware/devices/syntakt.md#L238) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:268](../hardware/devices/syntakt.md#L268) Synfact findings: AUDIO memory, MAIN CPU profile, project workers (OS 1.42, 2026-11-18/19) |
 | `0x40040060` | [hw] [syntakt.md:166](../hardware/devices/syntakt.md#L166) Synfact core and SMZ4 banks (OS 1.41, 2026-11-10) |
 | `0x40040850` | [doc] [syntakt.md:268](../hardware/devices/syntakt.md#L268) Synfact findings: AUDIO memory, MAIN CPU profile, project workers (OS 1.42, 2026-11-18/19) |
@@ -1497,8 +1516,10 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x400a38ce` | [doc] [emu] [syntakt.md:222](../hardware/devices/syntakt.md#L222) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[emu] [syntakt.md:271](../hardware/devices/syntakt.md#L271) Synfact findings: AUDIO memory, MAIN CPU profile, project workers (OS 1.42, 2026-11-18/19)<br>[emu] [syntakt.md:272](../hardware/devices/syntakt.md#L272) Synfact findings: AUDIO memory, MAIN CPU profile, project workers (OS 1.42, 2026-11-18/19) |
 | `0x400a4fce` | [emu] [syntakt.md:189](../hardware/devices/syntakt.md#L189) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16)<br>[doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
 | `0x400a5046` | [doc] [syntakt.md:200](../hardware/devices/syntakt.md#L200) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
+| `0x400a64f2` | [doc] [syntakt.md:322](../hardware/devices/syntakt.md#L322) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
 | `0x400a78a0` | [doc] [syntakt.md:281](../hardware/devices/syntakt.md#L281) Synfact findings: FX-bus compressor, kit codecs, real-bank profile (OS 1.42, core 2.4.0, 2026-11-20) |
-| `0x400a78f4` | [doc] [syntakt.md:281](../hardware/devices/syntakt.md#L281) Synfact findings: FX-bus compressor, kit codecs, real-bank profile (OS 1.42, core 2.4.0, 2026-11-20) |
+| `0x400a78f4` | [doc] [emu] [syntakt.md:320](../hardware/devices/syntakt.md#L320) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23)<br>[doc] [syntakt.md:281](../hardware/devices/syntakt.md#L281) Synfact findings: FX-bus compressor, kit codecs, real-bank profile (OS 1.42, core 2.4.0, 2026-11-20) |
+| `0x400a8264` | [doc] [emu] [syntakt.md:320](../hardware/devices/syntakt.md#L320) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
 | `0x400b3384` | [doc] [syntakt.md:281](../hardware/devices/syntakt.md#L281) Synfact findings: FX-bus compressor, kit codecs, real-bank profile (OS 1.42, core 2.4.0, 2026-11-20) |
 | `0x400b639a` | [doc] [syntakt.md:298](../hardware/devices/syntakt.md#L298) digikit on a Syntakt unit: section 7 packed, bootstrap stage, key ids, card capacity, write guard (OS 1.42, 2026-11-19/21) |
 | `0x400bcadc` | [doc] [syntakt.md:298](../hardware/devices/syntakt.md#L298) digikit on a Syntakt unit: section 7 packed, bootstrap stage, key ids, card capacity, write guard (OS 1.42, 2026-11-19/21) |
@@ -1509,7 +1530,10 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x400bd8a0` | [emu] [hw] [syntakt.md:259](../hardware/devices/syntakt.md#L259) trig-seedr's Syntakt notes: pattern data, locks, power-off save, free DDR (OS 1.42, analog-emu, 2026-11-18/19) |
 | `0x400c20ee` | [hw] [syntakt.md:180](../hardware/devices/syntakt.md#L180) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
 | `0x400c2116` | [?] [syntakt.md:300](../hardware/devices/syntakt.md#L300) digikit on a Syntakt unit: section 7 packed, bootstrap stage, key ids, card capacity, write guard (OS 1.42, 2026-11-19/21) |
+| `0x400c2dd6` | [emu] [syntakt.md:321](../hardware/devices/syntakt.md#L321) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
+| `0x400c3062` | [emu] [syntakt.md:321](../hardware/devices/syntakt.md#L321) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
 | `0x400c347c` | [?] [doc] [syntakt.md:239](../hardware/devices/syntakt.md#L239) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
+| `0x400c3582` | [emu] [syntakt.md:321](../hardware/devices/syntakt.md#L321) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
 | `0x400f572c` | [emu] [syntakt.md:275](../hardware/devices/syntakt.md#L275) Synfact findings: AUDIO memory, MAIN CPU profile, project workers (OS 1.42, 2026-11-18/19) |
 | `0x400f5c82` | [doc] [syntakt.md:294](../hardware/devices/syntakt.md#L294) digikit on a Syntakt unit: section 7 packed, bootstrap stage, key ids, card capacity, write guard (OS 1.42, 2026-11-19/21) |
 | `0x400f72be` | [emu] [syntakt.md:244](../hardware/devices/syntakt.md#L244) Upgrade receiver, transport state, native bitmaps (OS 1.42, 2026-11-18) |
@@ -1599,12 +1623,15 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x40348b90` | [doc] [syntakt.md:199](../hardware/devices/syntakt.md#L199) Synfact findings: stock sample blob, OS 1.42 port (OS 1.41/1.42, 2026-11-17) |
 | `0x40350000` | [hw] [syntakt.md:53](../hardware/devices/syntakt.md#L53) Platform: two ColdFires, an FPGA, an analog mixer (SyntHack OS docs, OS 1.41) |
 | `0x403d10d0` | [?] [doc] [syntakt.md:307](../hardware/devices/syntakt.md#L307) digikit on a Syntakt unit: section 7 packed, bootstrap stage, key ids, card capacity, write guard (OS 1.42, 2026-11-19/21) |
+| `0x40600554` | [doc] [emu] [syntakt.md:320](../hardware/devices/syntakt.md#L320) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
+| `0x40607754` | [doc] [emu] [syntakt.md:320](../hardware/devices/syntakt.md#L320) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
 | `0x40653441` | [?] [syntakt.md:300](../hardware/devices/syntakt.md#L300) digikit on a Syntakt unit: section 7 packed, bootstrap stage, key ids, card capacity, write guard (OS 1.42, 2026-11-19/21) |
 | `0x40653442` | [emu] [syntakt.md:258](../hardware/devices/syntakt.md#L258) trig-seedr's Syntakt notes: pattern data, locks, power-off save, free DDR (OS 1.42, analog-emu, 2026-11-18/19) |
 | `0x40a38b18` | [hw] [syntakt.md:183](../hardware/devices/syntakt.md#L183) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16) |
+| `0x40a39b34` | [doc] [emu] [syntakt.md:320](../hardware/devices/syntakt.md#L320) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
 | `0x40a713f0` | [doc] [syntakt.md:281](../hardware/devices/syntakt.md#L281) Synfact findings: FX-bus compressor, kit codecs, real-bank profile (OS 1.42, core 2.4.0, 2026-11-20) |
 | `0x41ad5134` | [doc] [syntakt.md:181](../hardware/devices/syntakt.md#L181) Synfact findings: sequencer, kit slots, views, mixer (OS 1.41, 2026-11-14/16)<br>[doc] [syntakt.md:281](../hardware/devices/syntakt.md#L281) Synfact findings: FX-bus compressor, kit codecs, real-bank profile (OS 1.42, core 2.4.0, 2026-11-20) |
-| `0x41ad6134` | [doc] [syntakt.md:281](../hardware/devices/syntakt.md#L281) Synfact findings: FX-bus compressor, kit codecs, real-bank profile (OS 1.42, core 2.4.0, 2026-11-20) |
+| `0x41ad6134` | [doc] [emu] [syntakt.md:320](../hardware/devices/syntakt.md#L320) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23)<br>[doc] [syntakt.md:281](../hardware/devices/syntakt.md#L281) Synfact findings: FX-bus compressor, kit codecs, real-bank profile (OS 1.42, core 2.4.0, 2026-11-20) |
 | `0x41b9f3c8` | [doc] [syntakt.md:125](../hardware/devices/syntakt.md#L125) How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]` |
 | `0x41b9fa24` | [doc] [syntakt.md:125](../hardware/devices/syntakt.md#L125) How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]` |
 | `0x41bb32b0` | [emu] [syntakt.md:221](../hardware/devices/syntakt.md#L221) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
@@ -1685,6 +1712,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x8000157e` | [doc] [hw] [syntakt.md:293](../hardware/devices/syntakt.md#L293) digikit on a Syntakt unit: section 7 packed, bootstrap stage, key ids, card capacity, write guard (OS 1.42, 2026-11-19/21) |
 | `0x80002000` | [doc] [syntakt.md:33](../hardware/devices/syntakt.md#L33) Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware) |
 | `0x800021b0` | [doc] [syntakt.md:33](../hardware/devices/syntakt.md#L33) Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware) |
+| `0x80002f50` | [doc] [syntakt.md:322](../hardware/devices/syntakt.md#L322) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23) |
 | `0x800030bc` | [doc] [syntakt.md:119](../hardware/devices/syntakt.md#L119) How mods are built on the Syntakt (SyntHack modding guide, worth copying) `[doc]` |
 | `0x80003950` | [doc] [syntakt.md:80](../hardware/devices/syntakt.md#L80) Audio path |
 | `0x80003c40` | [doc] [syntakt.md:33](../hardware/devices/syntakt.md#L33) Syntakt OS 1.41 static-analysis facts (Humgic/syntakt-machine45-research - README and handoff dated 2026-10-28; no hardware run, no firmware) |
@@ -1703,7 +1731,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x8000f670` | [doc] [syntakt.md:102](../hardware/devices/syntakt.md#L102) CPU #2 (the voice CPU, section 7) - memory map from SynCrackd (OS 1.41 and 1.42) `[doc]` |
 | `0x8000ffff` | [hw] [syntakt.md:172](../hardware/devices/syntakt.md#L172) Synfact core and SMZ4 banks (OS 1.41, 2026-11-10) |
 | `0xa40ce100` | [doc] [syntakt.md:273](../hardware/devices/syntakt.md#L273) Synfact findings: AUDIO memory, MAIN CPU profile, project workers (OS 1.42, 2026-11-18/19) |
-| `0xa50ce100` | [doc] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:273](../hardware/devices/syntakt.md#L273) Synfact findings: AUDIO memory, MAIN CPU profile, project workers (OS 1.42, 2026-11-18/19) |
+| `0xa50ce100` | [hw] [syntakt.md:325](../hardware/devices/syntakt.md#L325) Synfact: quick save path, AUDIO CPU per machine, machine menu (OS 1.42, core 2.6, 2026-11-22/23)<br>[doc] [syntakt.md:229](../hardware/devices/syntakt.md#L229) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:273](../hardware/devices/syntakt.md#L273) Synfact findings: AUDIO memory, MAIN CPU profile, project workers (OS 1.42, 2026-11-18/19) |
 | `0xaaaaaaaa` | [emu] [syntakt.md:221](../hardware/devices/syntakt.md#L221) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0xbeefbace` | [doc] [emu] [syntakt.md:230](../hardware/devices/syntakt.md#L230) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
 | `0xec038000` | [doc] [emu] [syntakt.md:220](../hardware/devices/syntakt.md#L220) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18)<br>[doc] [syntakt.md:235](../hardware/devices/syntakt.md#L235) digikit findings: peer CPU, RAM, card, NOR, panel (OS 1.42, static and emulator, 2026-11-18) |
@@ -1753,7 +1781,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x80010000` | [doc] [hw] [analog-heat.md:43](../hardware/devices/analog-heat.md#L43) Analog Heat +FX OS 1.02 - first firmware facts (findings by 70b185, owner of this repo) |
 | `0xfc0b0000` | [doc] [overbridge-usb.md:6](../hardware/common/overbridge-usb.md#L6) Digitone II (digikit finding 42, static, DT2 1.16) |
 
-## Octatrack (MKI, MKII) (483 addresses)
+## Octatrack (MKI, MKII) (499 addresses)
 
 | Address | Facts |
 |---|---|
@@ -1779,6 +1807,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x0008ed80` | [doc] [octatrack.md:276](../hardware/devices/octatrack.md#L276) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x0008ed90` | [emu] [octatrack.md:434](../hardware/devices/octatrack.md#L434) octabam: v0.5 release check, KEYBUS words, window layout, new dynamics (OS 1.40C, 2026-11-22/23) |
 | `0x0008ed91` | [emu] [octatrack.md:434](../hardware/devices/octatrack.md#L434) octabam: v0.5 release check, KEYBUS words, window layout, new dynamics (OS 1.40C, 2026-11-22/23) |
+| `0x0008f3e2` | [emu] [octatrack.md:461](../hardware/devices/octatrack.md#L461) octabam: scene input layer, SAVE TO NEW (OS 1.40C, emulator, 2026-11-23/24) |
 | `0x00095048` | [emu] [octatrack.md:364](../hardware/devices/octatrack.md#L364) KYOTI V1.8BC: a DSP voice per core, Part changes, paste paths (OS 1.40C, 2026-11-17/19)<br>[doc] [octatrack.md:276](../hardware/devices/octatrack.md#L276) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x0009504a` | [doc] [octatrack.md:276](../hardware/devices/octatrack.md#L276) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x0009b312` | [doc] [octatrack.md:276](../hardware/devices/octatrack.md#L276) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
@@ -1796,6 +1825,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x1001aa1e` | [emu] [octatrack.md:285](../hardware/devices/octatrack.md#L285) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x1001aa2e` | [emu] [octatrack.md:386](../hardware/devices/octatrack.md#L386) KYOTI release candidates: spare Part bytes, machine switches, LIVE erase on MIDI (OS 1.40C, 2026-11-19/20) |
 | `0x100a4ece` | [emu] [octatrack.md:285](../hardware/devices/octatrack.md#L285) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
+| `0x100a5530` | [emu] [octatrack.md:461](../hardware/devices/octatrack.md#L461) octabam: scene input layer, SAVE TO NEW (OS 1.40C, emulator, 2026-11-23/24) |
 | `0x100b145e` | [emu] [octatrack.md:364](../hardware/devices/octatrack.md#L364) KYOTI V1.8BC: a DSP voice per core, Part changes, paste paths (OS 1.40C, 2026-11-17/19) |
 | `0x100b14af` | [emu] [hw] [octatrack.md:283](../hardware/devices/octatrack.md#L283) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x100b14cc` | [emu] [octatrack.md:296](../hardware/devices/octatrack.md#L296) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
@@ -1806,6 +1836,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x100b14dd` | [emu] [octatrack.md:296](../hardware/devices/octatrack.md#L296) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x100b14f0` | [emu] [octatrack.md:149](../hardware/devices/octatrack.md#L149) octabam findings (2026-11-11) |
 | `0x100f8378` | [doc] [hw] [octatrack.md:245](../hardware/devices/octatrack.md#L245) Modwerk findings (2026-11-16/17) |
+| `0x100f847c` | [emu] [octatrack.md:462](../hardware/devices/octatrack.md#L462) octabam: scene input layer, SAVE TO NEW (OS 1.40C, emulator, 2026-11-23/24) |
 | `0x100f8480` | [doc] [hw] [octatrack.md:245](../hardware/devices/octatrack.md#L245) Modwerk findings (2026-11-16/17) |
 | `0x100f8598` | [emu] [octatrack.md:364](../hardware/devices/octatrack.md#L364) KYOTI V1.8BC: a DSP voice per core, Part changes, paste paths (OS 1.40C, 2026-11-17/19) |
 | `0x100f85a0` | [doc] [hw] [octatrack.md:245](../hardware/devices/octatrack.md#L245) Modwerk findings (2026-11-16/17) |
@@ -1842,6 +1873,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x400047f0` | [emu] [hw] [octatrack.md:384](../hardware/devices/octatrack.md#L384) KYOTI release candidates: spare Part bytes, machine switches, LIVE erase on MIDI (OS 1.40C, 2026-11-19/20) |
 | `0x40004b0e` | [doc] [octatrack.md:437](../hardware/devices/octatrack.md#L437) Modwerk findings: base 0.7.13 in the field, Grain 0.1.2, stock delay timing (OS 1.40C, 2026-11-22) |
 | `0x40004bc2` | [doc] [octatrack.md:437](../hardware/devices/octatrack.md#L437) Modwerk findings: base 0.7.13 in the field, Grain 0.1.2, stock delay timing (OS 1.40C, 2026-11-22) |
+| `0x40005030` | [hw] [octatrack.md:418](../hardware/devices/octatrack.md#L418) Modwerk findings: CPU meter cost, Grain, emulator meter (OS 1.40C, 2026-11-21) |
 | `0x40005178` | [?] [hw] [octatrack.md:162](../hardware/devices/octatrack.md#L162) Modwerk and octabam findings (2026-11-12)<br>[emu] [octatrack.md:328](../hardware/devices/octatrack.md#L328) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
 | `0x40005ff0` | [emu] [octatrack.md:300](../hardware/devices/octatrack.md#L300) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x40006820` | [emu] [hw] [octatrack.md:283](../hardware/devices/octatrack.md#L283) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
@@ -1859,8 +1891,11 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x4000c40e` | [emu] [octatrack.md:359](../hardware/devices/octatrack.md#L359) KYOTI V1.8BC: a DSP voice per core, Part changes, paste paths (OS 1.40C, 2026-11-17/19) |
 | `0x4000c41e` | [emu] [octatrack.md:359](../hardware/devices/octatrack.md#L359) KYOTI V1.8BC: a DSP voice per core, Part changes, paste paths (OS 1.40C, 2026-11-17/19) |
 | `0x4000c9a4` | [emu] [octatrack.md:300](../hardware/devices/octatrack.md#L300) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
+| `0x4000cf4a` | [doc] [octatrack.md:457](../hardware/devices/octatrack.md#L457) Modwerk base 0.8: frame line, late entries, transport word, Flex notes (OS 1.40C, MKII, 2026-11-21/23) |
 | `0x4000d446` | [emu] [hw] [octatrack.md:283](../hardware/devices/octatrack.md#L283) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
+| `0x4000d486` | [hw] [octatrack.md:418](../hardware/devices/octatrack.md#L418) Modwerk findings: CPU meter cost, Grain, emulator meter (OS 1.40C, 2026-11-21) |
 | `0x4000d9a0` | [doc] [octatrack.md:402](../hardware/devices/octatrack.md#L402) Modwerk findings: bases 0.7.10-0.7.12, unused-module cost, USB Audio as a module (OS 1.40C, 2026-11-19/21) |
+| `0x4000e74c` | [hw] [octatrack.md:451](../hardware/devices/octatrack.md#L451) Modwerk base 0.8: frame line, late entries, transport word, Flex notes (OS 1.40C, MKII, 2026-11-21/23) |
 | `0x4000f450` | [emu] [octatrack.md:149](../hardware/devices/octatrack.md#L149) octabam findings (2026-11-11) |
 | `0x4000faf0` | [emu] [octatrack.md:285](../hardware/devices/octatrack.md#L285) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x4000fd8c` | [emu] [hw] [octatrack.md:387](../hardware/devices/octatrack.md#L387) KYOTI release candidates: spare Part bytes, machine switches, LIVE erase on MIDI (OS 1.40C, 2026-11-19/20) |
@@ -1903,6 +1938,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x40025ac2` | [emu] [octatrack.md:261](../hardware/devices/octatrack.md#L261) TELOS and dspload-ot: boot order, card mount, run-time DSP code (OS 1.40C, 2026-11-14/16) |
 | `0x40026314` | [emu] [hw] [octatrack.md:363](../hardware/devices/octatrack.md#L363) KYOTI V1.8BC: a DSP voice per core, Part changes, paste paths (OS 1.40C, 2026-11-17/19) |
 | `0x40027d64` | [emu] [hw] [octatrack.md:363](../hardware/devices/octatrack.md#L363) KYOTI V1.8BC: a DSP voice per core, Part changes, paste paths (OS 1.40C, 2026-11-17/19) |
+| `0x40027e00` | [emu] [octatrack.md:461](../hardware/devices/octatrack.md#L461) octabam: scene input layer, SAVE TO NEW (OS 1.40C, emulator, 2026-11-23/24) |
 | `0x40027e4c` | [emu] [hw] [octatrack.md:363](../hardware/devices/octatrack.md#L363) KYOTI V1.8BC: a DSP voice per core, Part changes, paste paths (OS 1.40C, 2026-11-17/19) |
 | `0x40028f40` | [emu] [hw] [octatrack.md:363](../hardware/devices/octatrack.md#L363) KYOTI V1.8BC: a DSP voice per core, Part changes, paste paths (OS 1.40C, 2026-11-17/19) |
 | `0x40028fc4` | [emu] [hw] [octatrack.md:363](../hardware/devices/octatrack.md#L363) KYOTI V1.8BC: a DSP voice per core, Part changes, paste paths (OS 1.40C, 2026-11-17/19) |
@@ -1927,6 +1963,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x40031406` | [emu] [octatrack.md:155](../hardware/devices/octatrack.md#L155) Modwerk and octabam findings (2026-11-12) |
 | `0x4003146c` | [emu] [octatrack.md:286](../hardware/devices/octatrack.md#L286) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x40031494` | [emu] [octatrack.md:286](../hardware/devices/octatrack.md#L286) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
+| `0x40031734` | [emu] [octatrack.md:460](../hardware/devices/octatrack.md#L460) octabam: scene input layer, SAVE TO NEW (OS 1.40C, emulator, 2026-11-23/24) |
 | `0x40031944` | [emu] [octatrack.md:155](../hardware/devices/octatrack.md#L155) Modwerk and octabam findings (2026-11-12) |
 | `0x40031d18` | [emu] [octatrack.md:381](../hardware/devices/octatrack.md#L381) KYOTI release candidates: spare Part bytes, machine switches, LIVE erase on MIDI (OS 1.40C, 2026-11-19/20) |
 | `0x40034bd4` | [emu] [octatrack.md:386](../hardware/devices/octatrack.md#L386) KYOTI release candidates: spare Part bytes, machine switches, LIVE erase on MIDI (OS 1.40C, 2026-11-19/20) |
@@ -1951,8 +1988,9 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x4004bd48` | [hw] [octatrack.md:288](../hardware/devices/octatrack.md#L288) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x4004d640` | [emu] [octatrack.md:434](../hardware/devices/octatrack.md#L434) octabam: v0.5 release check, KEYBUS words, window layout, new dynamics (OS 1.40C, 2026-11-22/23) |
 | `0x4004d948` | [doc] [hw] [octatrack.md:404](../hardware/devices/octatrack.md#L404) Modwerk findings: bases 0.7.10-0.7.12, unused-module cost, USB Audio as a module (OS 1.40C, 2026-11-19/21) |
-| `0x40052e98` | [emu] [octatrack.md:237](../hardware/devices/octatrack.md#L237) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
-| `0x40053498` | [emu] [octatrack.md:155](../hardware/devices/octatrack.md#L155) Modwerk and octabam findings (2026-11-12) |
+| `0x4004fc58` | [hw] [octatrack.md:451](../hardware/devices/octatrack.md#L451) Modwerk base 0.8: frame line, late entries, transport word, Flex notes (OS 1.40C, MKII, 2026-11-21/23) |
+| `0x40052e98` | [emu] [octatrack.md:237](../hardware/devices/octatrack.md#L237) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16)<br>[emu] [octatrack.md:460](../hardware/devices/octatrack.md#L460) octabam: scene input layer, SAVE TO NEW (OS 1.40C, emulator, 2026-11-23/24) |
+| `0x40053498` | [emu] [octatrack.md:155](../hardware/devices/octatrack.md#L155) Modwerk and octabam findings (2026-11-12)<br>[emu] [octatrack.md:460](../hardware/devices/octatrack.md#L460) octabam: scene input layer, SAVE TO NEW (OS 1.40C, emulator, 2026-11-23/24) |
 | `0x40054c5c` | [emu] [octatrack.md:172](../hardware/devices/octatrack.md#L172) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
 | `0x40054c80` | [emu] [octatrack.md:172](../hardware/devices/octatrack.md#L172) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
 | `0x40055548` | [emu] [octatrack.md:172](../hardware/devices/octatrack.md#L172) Frame-interrupt timing and MIDI scenes (octabam, 2026-11-13) |
@@ -2015,6 +2053,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x40084854` | [emu] [octatrack.md:299](../hardware/devices/octatrack.md#L299) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x40084d60` | [emu] [hw] [octatrack.md:373](../hardware/devices/octatrack.md#L373) octabam sequencer and editor modules, MKII tooling (OS 1.40C, 2026-11-17/20) |
 | `0x40084dc8` | [emu] [octatrack.md:238](../hardware/devices/octatrack.md#L238) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x40085012` | [emu] [octatrack.md:462](../hardware/devices/octatrack.md#L462) octabam: scene input layer, SAVE TO NEW (OS 1.40C, emulator, 2026-11-23/24) |
 | `0x40085736` | [emu] [octatrack.md:298](../hardware/devices/octatrack.md#L298) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x40085ab6` | [emu] [octatrack.md:299](../hardware/devices/octatrack.md#L299) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x4008cea0` | [emu] [octatrack.md:335](../hardware/devices/octatrack.md#L335) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
@@ -2078,6 +2117,8 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x400ba862` | [emu] [hw] [octatrack.md:287](../hardware/devices/octatrack.md#L287) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x400ba876` | [emu] [hw] [octatrack.md:287](../hardware/devices/octatrack.md#L287) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x400bab6e` | [emu] [octatrack.md:301](../hardware/devices/octatrack.md#L301) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
+| `0x400bb2a2` | [emu] [octatrack.md:460](../hardware/devices/octatrack.md#L460) octabam: scene input layer, SAVE TO NEW (OS 1.40C, emulator, 2026-11-23/24) |
+| `0x400bb2b6` | [emu] [octatrack.md:460](../hardware/devices/octatrack.md#L460) octabam: scene input layer, SAVE TO NEW (OS 1.40C, emulator, 2026-11-23/24) |
 | `0x400bb4ec` | [emu] [octatrack.md:301](../hardware/devices/octatrack.md#L301) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x400bb7b4` | [emu] [octatrack.md:301](../hardware/devices/octatrack.md#L301) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x400bb960` | [emu] [octatrack.md:301](../hardware/devices/octatrack.md#L301) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
@@ -2102,7 +2143,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x400c01f4` | [emu] [octatrack.md:434](../hardware/devices/octatrack.md#L434) octabam: v0.5 release check, KEYBUS words, window layout, new dynamics (OS 1.40C, 2026-11-22/23) |
 | `0x400c01f6` | [emu] [octatrack.md:297](../hardware/devices/octatrack.md#L297) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x400c0688` | [emu] [hw] [octatrack.md:374](../hardware/devices/octatrack.md#L374) octabam sequencer and editor modules, MKII tooling (OS 1.40C, 2026-11-17/20) |
-| `0x400c090a` | [emu] [octatrack.md:301](../hardware/devices/octatrack.md#L301) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
+| `0x400c090a` | [emu] [octatrack.md:301](../hardware/devices/octatrack.md#L301) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18)<br>[emu] [octatrack.md:460](../hardware/devices/octatrack.md#L460) octabam: scene input layer, SAVE TO NEW (OS 1.40C, emulator, 2026-11-23/24) |
 | `0x400c091e` | [emu] [octatrack.md:301](../hardware/devices/octatrack.md#L301) octabam stock reading: save path, Parts, key layers, one-shot mask (OS 1.40C, 2026-11-16/18) |
 | `0x400c0936` | [emu] [octatrack.md:327](../hardware/devices/octatrack.md#L327) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
 | `0x400c0b74` | [emu] [hw] [octatrack.md:336](../hardware/devices/octatrack.md#L336) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
@@ -2127,6 +2168,8 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x400d2ce0` | [doc] [memory-maps.md:98](../hardware/common/memory-maps.md#L98) Details per device |
 | `0x400d2e52` | [hw] [octatrack.md:119](../hardware/devices/octatrack.md#L119) Where code and data may go: KYOTI's cave ledger (OS 1.40C, `reference/kb/caves.md`) |
 | `0x400d5f00` | [hw] [octatrack.md:119](../hardware/devices/octatrack.md#L119) Where code and data may go: KYOTI's cave ledger (OS 1.40C, `reference/kb/caves.md`) |
+| `0x400d6434` | [doc] [octatrack.md:457](../hardware/devices/octatrack.md#L457) Modwerk base 0.8: frame line, late entries, transport word, Flex notes (OS 1.40C, MKII, 2026-11-21/23) |
+| `0x400d6458` | [doc] [octatrack.md:457](../hardware/devices/octatrack.md#L457) Modwerk base 0.8: frame line, late entries, transport word, Flex notes (OS 1.40C, MKII, 2026-11-21/23) |
 | `0x400d64e0` | [doc] [memory-maps.md:98](../hardware/common/memory-maps.md#L98) Details per device |
 | `0x400d7c3c` | [doc] [memory-maps.md:98](../hardware/common/memory-maps.md#L98) Details per device |
 | `0x400d8000` | [hw] [octatrack.md:49](../hardware/devices/octatrack.md#L49) Memory and code placement |
@@ -2218,9 +2261,10 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x80004898` | [hw] [octatrack.md:340](../hardware/devices/octatrack.md#L340) Modwerk Octatrack findings: Part validator, arrangements, hooks, frame load (OS 1.40C, 2026-11-14/18) |
 | `0x800049d8` | [emu] [octatrack.md:327](../hardware/devices/octatrack.md#L327) octabam audio-editor modules and the cycle model (OS 1.40C, 2026-11-14/18) |
 | `0x800064d0` | [emu] [octatrack.md:372](../hardware/devices/octatrack.md#L372) octabam sequencer and editor modules, MKII tooling (OS 1.40C, 2026-11-17/20) |
+| `0x80006500` | [hw] [octatrack.md:450](../hardware/devices/octatrack.md#L450) Modwerk base 0.8: frame line, late entries, transport word, Flex notes (OS 1.40C, MKII, 2026-11-21/23) |
 | `0x800065b2` | [emu] [octatrack.md:280](../hardware/devices/octatrack.md#L280) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
 | `0x800065b6` | [emu] [octatrack.md:280](../hardware/devices/octatrack.md#L280) KYOTI V1.8, Clyps and DIRECT JUMP V7.3 (OS 1.40C, 2026-11-13/16) |
-| `0x800065b8` | [hw] [octatrack.md:232](../hardware/devices/octatrack.md#L232) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
+| `0x800065b8` | [hw] [octatrack.md:232](../hardware/devices/octatrack.md#L232) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16)<br>[hw] [octatrack.md:450](../hardware/devices/octatrack.md#L450) Modwerk base 0.8: frame line, late entries, transport word, Flex notes (OS 1.40C, MKII, 2026-11-21/23) |
 | `0x800065bb` | [hw] [octatrack.md:232](../hardware/devices/octatrack.md#L232) octabam REMOTE and more stock sites (OS 1.40C, 2026-11-14/16) |
 | `0x800065bd` | [hw] [octatrack.md:142](../hardware/devices/octatrack.md#L142) octabam and octamax findings (2026-11-10) |
 | `0x800065bf` | [hw] [octatrack.md:142](../hardware/devices/octatrack.md#L142) octabam and octamax findings (2026-11-10) |
@@ -2241,7 +2285,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0xfc0a0000` | [?] [doc] [octatrack.md:264](../hardware/devices/octatrack.md#L264) TELOS and dspload-ot: boot order, card mount, run-time DSP code (OS 1.40C, 2026-11-14/16) |
 | `0xfff80000` | [hw] [octatrack.md:148](../hardware/devices/octatrack.md#L148) octabam findings (2026-11-11) |
 
-## Analog Rytm (MKI, MKII) (307 addresses)
+## Analog Rytm (MKI, MKII) (308 addresses)
 
 | Address | Facts |
 |---|---|
@@ -2387,6 +2431,7 @@ Data checked 2026-11-23, research snapshot `b15d7f70eef1`.
 | `0x40109bd1` | [doc] [emu] [analog-rytm.md:257](../hardware/devices/analog-rytm.md#L257) Modwerk findings: free DDR, stock MIDI timing, MIDI Engine sites (MKII OS 1.74, 2026-11-17) |
 | `0x40109bf0` | [doc] [emu] [analog-rytm.md:151](../hardware/devices/analog-rytm.md#L151) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
 | `0x40109c24` | [doc] [hw] [analog-rytm.md:108](../hardware/devices/analog-rytm.md#L108) Modwerk Rytm modules and stock behaviour (OS 1.74, 2026-11-10) |
+| `0x4010d0fc` | [hw] [analog-rytm.md:323](../hardware/devices/analog-rytm.md#L323) Improved FLTR: the filter's resonance word and TYP values (MKII OS 1.74, 2026-11-23) |
 | `0x4010d342` | [doc] [emu] [analog-rytm.md:151](../hardware/devices/analog-rytm.md#L151) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
 | `0x4010d3b2` | [doc] [emu] [analog-rytm.md:151](../hardware/devices/analog-rytm.md#L151) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
 | `0x4010d3da` | [doc] [emu] [analog-rytm.md:151](../hardware/devices/analog-rytm.md#L151) Modwerk digital voices, BD ANALOG and Improved AMP (OS 1.74, 2026-11-05 to 11-13) |
@@ -2952,6 +2997,7 @@ Pairs of ranges in [RAM-TENANCY.md](RAM-TENANCY.md) that overlap on the same OS.
 | Octatrack (MKI, MKII) | RAM | 1.40C | two users | Modwerk `0x100ff800-0x100ff900` | octabam MIDI SCENES `0x100fbdf0-0x100ffe00` |
 | Octatrack (MKI, MKII) | RAM | 1.40C | two users | Modwerk `0x100ff900-0x100ffb30` | octabam MIDI SCENES `0x100fbdf0-0x100ffe00` |
 | Octatrack (MKI, MKII) | RAM | 1.40C | two users | Modwerk `0x100ffb30-?` | octabam MIDI SCENES `0x100fbdf0-0x100ffe00` |
+| Octatrack (MKI, MKII) | RAM | 1.40C | two users | Modwerk base 0.8 `0x100f9710-?` | octabam PLOCKS P2 `0x100f8600-0x100fbdc0` |
 | Octatrack (MKI, MKII) | RAM | 1.40C | two users | octabam MIDI SCENES `0x100fbdf0-0x100ffe00` | Modwerk Kits `0x100fbf00-?` |
 | Octatrack (MKI, MKII) | RAM | 1.40C | two users | octabam MIDI SCENES `0x100fbdf0-0x100ffe00` | Modwerk base 0.7.3+ `0x100ffd40-?` |
 | Octatrack (MKI, MKII) | RAM | 1.40C | two users | octabam MIDI SCENES `0x100fbdf0-0x100ffe00` | Modwerk base `0x100fc000-?` |

@@ -16,6 +16,13 @@
     <summary>Six .elemod files picked in the Elekloader shop for the Model:Samples; the build is sent as an OS update. Only the main OS is changed; recovery is the stock OS 1.13 .syx over 5-pin MIDI from the startup menu (FUNC at power-on, TRIG 4). LOCKS counter brings its own layout of the …</summary>
   </entry>
   <entry>
+    <title>Update 2026-11-25: 23 change reports folded, 1 repo added, 2 candidates, 1 ignored, I203-I214, SB38-SB41</title>
+    <link href="https://github.com/70b185/Aggregat/commit/4cb9bb5420c90bb3c0b14a691e064eba1b1acb96"/>
+    <id>https://70b185.github.io/Aggregat/#commit-4cb9bb5420c9</id>
+    <updated>2026-11-25T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>New in the catalogue: VILNIS (west coast machine) (Mod, Digitakt)</title>
     <link href="https://70b185.github.io/Aggregat/?p=vilnis"/>
     <id>https://70b185.github.io/Aggregat/#project-vilnis</id>
@@ -461,13 +468,6 @@
     <title>Update 2026-11-14 (second pass): 9 change reports folded, GLIDE and TERRAIN added, I104-I107, SB24, A65</title>
     <link href="https://github.com/70b185/Aggregat/commit/a9f891d205dc6b168f5bf3108c4407c2e82077d1"/>
     <id>https://70b185.github.io/Aggregat/#commit-a9f891d205dc</id>
-    <updated>2026-11-14T00:00:00Z</updated>
-    <category term="update"/>
-  </entry>
-  <entry>
-    <title>Update 2026-11-14: 22 change reports folded, five repos added, I83-I103, SB20-SB23, A57-A64</title>
-    <link href="https://github.com/70b185/Aggregat/commit/a9906b6a10d6704aacd4dbec228a562d194567aa"/>
-    <id>https://70b185.github.io/Aggregat/#commit-a9906b6a10d6</id>
     <updated>2026-11-14T00:00:00Z</updated>
     <category term="update"/>
   </entry>

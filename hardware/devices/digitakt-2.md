@@ -268,7 +268,7 @@ Clock (1.000 GHz, 666,667 cycles/block), FreeRTOS task map, free reply words, mi
 
 ## Modwerk's Digitakt II plan (GOAL.md, OS 1.17, 2026-11-16) {modwerk-dt2-goal}
 - **USB MIDI in every USB mode:** OS 1.17 offers USB MIDI in MIDI, Audio/MIDI and Overbridge modes, so a SysEx link over it needs no change to the USB descriptors. Modwerk reports that the stock transmit path can wait indefinitely for buffer space, so a link reply must not block when the host stops reading. `[doc]`
-- **Kit data room:** a kit record holds 191 bytes of kit data for all mods together (core 1.1; 143 B on Modwerk's base, see 2026-11-17 below {modwerk-1118}). Open: whether OS 1.17 saves a kit when only a mod's block changed (H20). `[doc]`
+- **Kit data room:** a kit record holds 191 bytes of kit data for all mods together (core 1.1; 143 B on Modwerk's base, see 2026-11-17 below {modwerk-1118}). OS 1.17 does save a kit when only a mod's block changed (2026-11-25 below, {modwerk-1125}). `[doc]`
 - **Recovery floor:** FUNC + TRIG 4 at power-on, then the stock `.syx` over MIDI DIN. `[doc]`
 
 ## Modwerk base 8650bb8a, Euclidean Scale and Mute Latch (OS 1.17, 2026-11-08..17) {modwerk-1118}
@@ -344,6 +344,15 @@ Read once, not checked by a second reader.
 ## digikit's resident core and system package (DT2 1.17, DN2 1.12, Syntakt 1.42; static and emulator, 2026-11-23/24) {digikit-1124}
 - The DIGIKIT menu and the runtime lifecycle left the flashed image for a card file `digikit/system.dksp` (192,856 B), loaded into its own 320 KiB block beside the 512 KiB module arena. A flash alone leaves the unit in core-only mode (no modules, no menu; store and USB upload still answer) until Workbench or the CLI installs the package; the browser flow ends at the flash. Core-only also follows 4 unstable boots in a row or a missing, damaged or incompatible package; SysEx RETRY (0x0b) or a new package clears it, and a core-only boot does not clear the boot counter. The package activation flow has no hardware result yet. `[doc]` {digikit-1124}
 - Stored container sizes after the move: DT2 1,561,952 B (MAIN 1,640,800), DN2 1,973,664 B (MAIN 2,052,480); the flashed part of the runtime went from 278,414 to 130,326 B. `[doc]` {digikit-1124}
+
+
+## digikit device data: rows, value classes, kit sectors, hook contexts (OS 1.17, static, 2026-11-25) {digikit-1125} {modwerk-1125}
+- **Value-class table** (the firmware's second per-parameter-code table, one 0x44-byte object per code, display and lock flags) at `0x4293c040`. `[doc]` {digikit-1125}
+- **Kit library sectors:** kit and project saves write sectors `0x16000-0x17000` (end exclusive). `[doc]` {digikit-1125}
+- **Row templates:** free parameter rows copy stock code `0xd1` (machine parameters) or `0x75` (effect and send knobs); in the 15-word row, word 1 is the mirror index `25 + slot + (slot>>2) x 2`, word 6 is `(0x10+slot)<<16 | (template word 0x18 & 0xffff)`, word 7 is `0x80+slot`. Gap machine rows are types 7-15, reserved types 16-23, the first reserved parameter code is 275, `send_rows = 2`. `[doc]` {digikit-1125}
+- **Hook calling contexts (DT2 1.17 and DN2 1.12):** the LFO tick, read, call, slew and start hooks run in an interrupt (vector 191, IPL 5); the LFO page hooks and the key-event hook run in the UI task. This answers the interrupt-level question above: IPL 5, not 7. `[doc]` {digikit-1125}
+- **The SETTINGS list is built once** in the settings menu's constructor; a row added by a module that later unloads stays in the list, doing nothing, until the list is rebuilt. `[doc]` {digikit-1125}
+- **A kit is saved when only module kit data changed:** on OS 1.17 a save after changing only a module's kit data (Euclidean Scale 0.2.0 on Modwerk's base `8650bb8a`) kept it over a reload; this refutes the former hypothesis H20. `[hw]` (2026-11-25) {modwerk-1125}
 
 ## Gaps
 Memory map beyond the numbers above, DSP memory, machine API, parameter-table layout: not collected yet (see `../MINING.md`).

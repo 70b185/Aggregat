@@ -2,12 +2,13 @@
 
 # Machinedrum (incl. UW)
 
-Data last verified: 2026-11-24
+Data last verified: 2026-11-25
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **C7** (sata1000000) | editor | - | v1.0.0 (tag, 2026-11-24): out of beta | v1.0.0 | 2026-11-24 | [repo](https://github.com/sata1000000/C7) |
 | **Machinedrum WebLoader (MDX user machines)** (gerdtanck) | tool | - | untagged (c0494d8, 2026-11-20); Machinedrum running MDX X.20 | - | 2026-11-20 | [repo](https://github.com/gerdtanck/WebLoader) · [homepage](https://gerdtanck.github.io/WebLoader/) |
 | **Gearmulator MD/MM** (Joe Landers) | emulator | - | mdmm-v0.1.0-alpha.16 (tag, 2026-11-19); alpha.15 (2026-11-18): Machinedrum inter-DSP link as block transfers (-31 % CPU), Record SysEx to File and export shortcuts, +Drive emulation per project, panel control from MIDI; Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-11-19 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.1 (2026-11-13): Monomachine factory reset from your own ROM; the host's Stop is a real stop on the MM, so LOAD SONG works after it; Knob 1-8 as host parameters; several ROM images in one folder; Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-19 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
@@ -27,7 +28,6 @@ Data last verified: 2026-11-24
 | **machinedrum-kit** (Janne Heikkarainen) | research | - | main @ 4ea4729 (2026-10-19); Machinedrum SPS-1UW OS 1.63 (supplied by you) | - | 2026-10-19 | [repo](https://github.com/janne808/machinedrum-kit) |
 | **Machinedrum USR machines (RASP, KOOK, SMSH...)** (SamplesAndSnacks) | mod | - | Machinedrum with MDX X.20 | - | 2026-10-18 | [repo](https://github.com/SamplesAndSnacks/machinedrum-rasp) |
 | **MachineModule (desktop)** (AcidReff) | emulator | - | 0.4.6 (native Apple Silicon JIT) | v0.4.6 | 2026-10-16 | [repo](https://github.com/AcidReff/MachineModule) |
-| **C7** (sata1000000) | editor | - | - | v0.1.0 | 2026-10-10 | [repo](https://github.com/sata1000000/C7) |
 | **ems-machinedrum-firmware** (June Kiff (emuyia)) | mod | - | 26A09-beta (2026-10-09) | 26A09-beta | 2026-10-09 | [repo](https://github.com/emuyia/ems-machinedrum-firmware) · [homepage](https://www.junes.website/goodies/fw-patcher) |
 | **MDS (Machine Dump Standard)** (Justin Mammarella) | library | - | main @ c446179 (2026-10-09); MDX 2.0 (X.20 or later) | - | 2026-10-09 | [repo](https://github.com/jmamma/MDS) |
 | **MDX** (Justin Mammarella, Yatao Li) | mod | - | X.20 B (2026-10-09) | - | 2026-10-09 | [homepage](https://github.com/jmamma/MDX) |
@@ -119,9 +119,9 @@ _Sources: GitHub search 2026-11-02, README_
 
 ### C7
 
-Desktop app controlling the Machinedrum and Monomachine over SysEx/MIDI (kits, sounds, patterns, songs, samples) with a DAW bridge plug-in for automation. GPL-3.0.
+Desktop app controlling the Machinedrum and Monomachine over SysEx/MIDI (kits, sounds, patterns, songs, samples) with a DAW bridge plug-in for automation. GPL-3.0. 2026-11-25: v1.0.0 (2026-11-24) ends the beta; the warning that .c7 files made in the beta may not work afterwards is gone.
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README, tag v1.0.0 (2026-11-25)_
 
 ### ModuleDrum
 

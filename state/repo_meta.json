@@ -483,7 +483,7 @@
  "c0remusic/mmodule": {
   "full_name": "c0remusic/MModule",
   "created": "2026-10-17",
-  "pushed": "2026-11-24",
+  "pushed": "2026-11-25",
   "stars": 14,
   "forks": 0,
   "language": "C++",
@@ -523,7 +523,7 @@
   "full_name": "ceredmeat/DIGITAKT-LED-COLORS",
   "created": "2026-11-06",
   "pushed": "2026-11-23",
-  "stars": 1,
+  "stars": 2,
   "forks": 0,
   "language": "C",
   "fork": false,
@@ -1135,7 +1135,7 @@
  "donmanouche/openbridge-digitone-2": {
   "full_name": "Donmanouche/OpenBridge-Digitone-2",
   "created": "2026-11-12",
-  "pushed": "2026-11-12",
+  "pushed": "2026-11-25",
   "stars": 0,
   "forks": 0,
   "language": "C++",
@@ -1241,7 +1241,7 @@
  "eleklabs/digikit": {
   "full_name": "ElekLabs/digikit",
   "created": "2026-09-08",
-  "pushed": "2026-11-24",
+  "pushed": "2026-11-25",
   "stars": 61,
   "forks": 18,
   "language": "Rust",
@@ -2308,7 +2308,7 @@
  "julesyoungberg/sample-shepherd": {
   "full_name": "julesyoungberg/sample-shepherd",
   "created": "2026-11-07",
-  "pushed": "2026-11-24",
+  "pushed": "2026-11-25",
   "stars": 0,
   "forks": 0,
   "language": "HTML",
@@ -2347,7 +2347,7 @@
  "karigardarsson/digitakt-ii-research": {
   "full_name": "karigardarsson/digitakt-ii-research",
   "created": "2026-10-14",
-  "pushed": "2026-11-06",
+  "pushed": "2026-11-25",
   "stars": 29,
   "forks": 2,
   "language": "Python",
@@ -2945,7 +2945,7 @@
  "repeat98/modwerk": {
   "full_name": "repeat98/modwerk",
   "created": "2026-10-01",
-  "pushed": "2026-11-24",
+  "pushed": "2026-11-25",
   "stars": 70,
   "forks": 173,
   "language": "Python",
@@ -3272,7 +3272,7 @@
   "created": "2026-10-12",
   "pushed": "2026-10-22",
   "stars": 19,
-  "forks": 1,
+  "forks": 2,
   "language": "C",
   "fork": false,
   "license": "CC0-1.0",
@@ -3697,6 +3697,19 @@
   "language": "HTML",
   "fork": false,
   "license": "AGPL-3.0",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-25"
+ },
+ "yanhugman/elektron-ms-mods": {
+  "full_name": "YanHugman/elektron-ms-mods",
+  "created": "2026-11-25",
+  "pushed": "2026-11-25",
+  "stars": 0,
+  "forks": 0,
+  "language": null,
+  "fork": false,
+  "license": "MIT",
   "owner_type": "User",
   "archived": false,
   "seen": "2026-11-25"

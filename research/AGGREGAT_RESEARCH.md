@@ -22,7 +22,7 @@ results by hand, with credit to this project. Taking part is voluntary and can s
 
 | | |
 |---|---|
-| Aggregat state | research map reviewed 2026-11-03, snapshot `b15d7f70eef1` |
+| Aggregat state | research map reviewed 2026-11-03, snapshot `eb0f129dc54e` |
 | Copied on | <date you copied it> |
 
 ## What we work on
@@ -49,7 +49,7 @@ emulator, `doc` = read in code or documents.
 
 ---
 
-# Copied state: Aggregat research, snapshot `b15d7f70eef1` (research map reviewed 2026-11-03)
+# Copied state: Aggregat research, snapshot `eb0f129dc54e` (research map reviewed 2026-11-03)
 
 ## Goals (copied from Aggregat)
 
@@ -144,7 +144,6 @@ emulator, `doc` = read in code or documents.
 | H15 | G2, G3 | On the DN2, a single late DSP block is a one-block dropout that recovers, as on the DT2; the "silence until power cycle" reports came from sustained overload. | DN2 | Provoke single late blocks (a burn loop on a key press) and count them on the DSP side; then hold an overload for seconds. |
 | H16 | G1 | Heat +FX builds need a cold-start test like other ColdFire units: a startup change can pass quick restarts and fail after minutes off (A40). | Heat +FX | For the next startup-touching build: power off for 10 minutes before judging. |
 | H17 | G2, G3 | Code costs on the Heat +FX follow the DT1's ColdFire lessons (EMAC mode switches, D16 hot-path hooks), since both run audio on an MCF5441x ColdFire. | Heat +FX | Measure an audio-ISR hook with and without a MACSR switch per block. |
-| H20 | G8 | DT2 OS 1.17 saves only the kits the user changed, so a module's own kit data that changes by itself is lost unless a stock parameter of that kit changes too. | DT2 | Modwerk publishes a unit procedure: change only module data, save, power-cycle, reload. |
 | H21 | G8 | The Octatrack stall after a PROJECT > SYSTEM walk on Modwerk builds is Modwerk's DSP stall watchdog firing while stock itself holds the frames (USB DISK MODE), not a stock fault. | Octatrack | Make the same walk on a unit with nothing installed, then with the watchdog off. |
 | H22 | G1, G8 | The total freeze in octabam's demand-loader soak (I57) is the ColdFire spinning in one of the frame interrupt's waits that have no time limit, after the DSP stopped taking host words. | Octatrack | Add time limits (with a counter) to both waits and repeat the 118-switch soak. |
 | H29 | G1 | On the Octatrack's ColdFire (MCF5445x), a byte push to `-(sp)` moves SP by 2 and `move.b (a0)+,(0,a0,a1)` uses the incremented a0, as ot_emu models it (GCC assumes otherwise; I117). | Octatrack (any ColdFire device) | Run a tiny probe that executes both forms and logs SP and the written address to the card or a battery-RAM word. |
@@ -204,3 +203,5 @@ emulator, `doc` = read in code or documents.
 | O46 | What stock Digitone II OS 1.11 does with PTN + KEYBOARD |
 | O47 | How many kernel tasks the Digitone II OS 1.12 runs |
 | O48 | Digitone II FLEX single-track take level (dn2mk2) |
+| O49 | Is Octatrack battery RAM `0x100f8f06-0x100f8ffc` free? |
+| O50 | Is Octatrack DSP X `$7a92-$7fff` unreferenced by stock? |

@@ -333,6 +333,16 @@ First digikit images flashed to a Syntakt (one unit, the maintainer's). Facts ma
 ## digikit: container fit with the system package (OS 1.42, static, 2026-11-23/24) {digikit-1124}
 - With the runtime's lifecycle moved to a card file, `patchkit size` gives 1,988,384 B stored against the 2,096,640 B limit (unpacked MAIN 2,153,872). A branch measurement; nothing flashed. `[doc]` {digikit-1124}
 
+
+## trig-seedr and Synfact: playhead bytes, the playing Kit, cursor record (OS 1.42, 2026-11-20/24) {trig-seedr-1125} {synfact-1125} {synpat-1125} {digikit-1125}
+- **Sequencer bytes on 1.42 are the 1.41 ones plus 0x1000:** next step `0x43bd83fc+t`, last step played (playhead, 0 after STOP) `0x43bd8416+t`, count towards the bar `0x43bd853c+t`, the UI's copies `0x444e3370+t`/`0x444e337d+t`; sequencer running byte `0x43bd83bf`, a per-track running byte `0x43bd83cb+4t`. `[emu]` {trig-seedr-1125}
+- **Trigs are prepared one step ahead:** a step written at or behind the playhead is heard on the next loop (A91); a 1-step track never changes its playhead byte, so polling cannot see its loops. Writing one step with every field changed costs about 57,000 instructions (0.3 ms); more than about 20,000 step writes in one tick stall the UI task, and missed UI ticks are made up by quick ones, so counting ticks does not measure work. `[emu]` {trig-seedr-1125}
+- **The playing Kit:** pointer at `*0x43bd843c` (the 1.41 pointer `0x43bd743c` plus 0x1000); sound t at `+0x2a + t x 0x123`, its values at `+0x14 + 2 x slot`, its machine at `+0xa2`. `[doc]` {synfact-1125}
+- **AUDIO-side copies change only when a track plays:** the publish routines `0x400a2e1a`/`0x400a2d3c` copy track state to `0x800021cc` and `0x80002f50`; read another track's state from the playing Kit instead (I213). The routine addresses may follow Synfact's 1.41 naming `[?]`. `[doc]` {synfact-1125}
+- **Synfact's AUDIO cursor record** `{0x454c4301, fn}` sits at `0x4404ff70` from core 2.2 (inside the core's pool service), found through the ABI directory; the old fixed place `0x42100770` was wrong from core 2.2 to 2.6 (I212). `[doc]` {synfact-1125}
+- **A blank project:** a version-0x0D blank project built from an embedded image was written to empty slot 125, read back identical and loaded empty on the unit; only the version and firmware ID come from a user project. `[hw]` {synpat-1125} A Program Change selects a pattern in the loaded project only with PRG CH RECEIVE on and the channel matching. `[doc]` {synpat-1125}
+- **No parameter table rows:** digikit's device data gives the Syntakt `send_rows = 0` and no `[rows]` (it has no parameter table of the DT2/DN2 kind). `[doc]` {digikit-1125}
+
 ## Gaps
 - **Signing:** the HMAC presence in 1.41 versus 1.42 is a conflict, see above.
 - **Free executable storage on CPU #2:** unresolved (machine-45 research).

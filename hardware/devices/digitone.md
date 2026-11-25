@@ -154,6 +154,12 @@ removed on 2026-11-16).
 - **Stock trig keys in other modes:** in MUTE mode (FUNC + BANK) the trig keys play nothing and the track keys mute; in STEP RECORDING (RECORD + STOP) a trig key places its note on the active step and moves one step on. A mod that takes the trig keys changes both unless it hands them back. `[doc]` {drum-mode-1123}
 - **Per-pattern copy looked global on the unit:** with 0.10's rule (a new pattern copies the one you came from) every older pattern seemed to take on/off and notes from the current one. 0.10.3 starts a new pattern with Drum Mode off, default notes and no kit until changed. `[hw]` (unit test) / `[emu]` (0.10.3) {drum-mode-1123}
 
+
+## Drum Mode 0.10.5-0.10.6 on the unit (OS 1.44, 2026-11-24) {drum-mode-1125}
+- **The stock keeps the last page open across a track change:** a Drum Mode page then shows on a MIDI track without Drum Mode (I194; the page now says DRUM MODE IS OFF there). `[hw]` {drum-mode-1125}
+- **Page counter:** the stock counts a mod page in the LFO group, so the LFO page read "LFO (1/2)"; a mod that adds a page there has to draw the whole title bar and its own counter (I211). `[hw]` {drum-mode-1125}
+- **LEDs:** the panel colour table digiemu shows (dark, red, dim red, white, dim white) matches the unit; a white light lit for half a step looked flickery, red for the whole step (as the stock playhead) looked right. Stock chains done the manual's way passed on the unit with Drum Mode. The 1.5 s bank-key release workaround seems to work on the unit; whether the release really goes missing there is still open `[?]`. `[hw]` {drum-mode-1125}
+
 ## Notes
 - digihealth 1.1 brings SYSTEM INFO only; FAST AUDIO is not ported to Digitone. {digihealth}
 - DigiSplash and DigiCandy support Digitone mk1 + Keys at OS 1.43. {digisplash} {digicandy}

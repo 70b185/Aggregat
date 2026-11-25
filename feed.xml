@@ -4,9 +4,17 @@
   <link href="https://70b185.github.io/Aggregat/"/>
   <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
   <id>https://70b185.github.io/Aggregat/</id>
-  <updated>2026-11-24T00:00:00Z</updated>
+  <updated>2026-11-25T00:00:00Z</updated>
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>New in the catalogue: Elektron Model:Samples mods (Yan Hugman) (Mod, Model:Samples)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=ms-mods-yanhugman"/>
+    <id>https://70b185.github.io/Aggregat/#project-ms-mods-yanhugman</id>
+    <updated>2026-11-25T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Six .elemod files picked in the Elekloader shop for the Model:Samples; the build is sent as an OS update. Only the main OS is changed; recovery is the stock OS 1.13 .syx over 5-pin MIDI from the startup menu (FUNC at power-on, TRIG 4). LOCKS counter brings its own layout of the …</summary>
+  </entry>
   <entry>
     <title>New in the catalogue: VILNIS (west coast machine) (Mod, Digitakt)</title>
     <link href="https://70b185.github.io/Aggregat/?p=vilnis"/>
@@ -462,13 +470,5 @@
     <id>https://70b185.github.io/Aggregat/#commit-a9906b6a10d6</id>
     <updated>2026-11-14T00:00:00Z</updated>
     <category term="update"/>
-  </entry>
-  <entry>
-    <title>New in the catalogue: RIFT (second Digitone II firmware) (Mod, Digitone II)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=dn2-rift"/>
-    <id>https://70b185.github.io/Aggregat/#project-dn2-rift</id>
-    <updated>2026-11-13T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>A second Digitone II firmware by the dn2mk2 author, separate from that mod: no Machinedrum or Monomachine machines, starting with one engine, FASCIA (two exciters into two coupled modal bodies, TZFM, ring and frequency shift, a spectral morph, a low-pass gate). Its first commit …</summary>
   </entry>
 </feed>

@@ -193,5 +193,11 @@ Full list, shared with the DT2, in [digitakt-2.md](digitakt-2.md#card-concurrenc
 - **The stock master reverb core is one call away:** RIFT v0.21 replaces the stock FX function's call of the reverb core (`CALL 0xb82d1a (DB)` at `0xb8370c`, SHARC) with a jump to its own plate, keeping the stock REVERB page and controls. Gated in the emulators; not stated on a unit. `[emu]` {dn2-rift-1124}
 - **SAFE MODE with the stock sound:** dn2-wishes' test build v0.69.2-dualboot keeps a copy of stock 1.12's DSP program on the +Drive (sent once over USB; only that exact program is accepted, every sector checked, header written last) and starts it in SAFE MODE; with no copy or a damaged one SAFE MODE stays silent. Not installed on a unit. `[doc]` {dn2-wishes-1124}
 
+
+## OS 1.11 to 1.12 measured, digikit device data (2026-11-24/25) {dn2mk2-1125} {digikit-1125} {dn2-rift-1125}
+- **What 1.12 changed:** `dnfw diff` of 1.11 (build 40059) against 1.12 (build 40062): bootstrap (still at `0x02010000`), updater, the SHARC program and the Outbox 8's firmware are byte-identical; MAIN OS grows by 4,096 bytes and is identical up to `+0x48a86`, shifted after it. The only new text is a main-output routing view, so routing the main outputs through Outbox 8 is ColdFire-only. Going from 1.12 back to 1.11 rewrites MAIN OS only. `[doc]` {dn2mk2-1125}
+- **digikit device data (1.12):** value-class table at `0x4243425c`; kit library sectors `0x2000-0x2100`; machine rows copy `0xd5`, effect and send rows `0x75`; gap rows are types 5-15, the first reserved parameter code is 321, 8 reserved page rows, `send_rows = 2`; the machine-list getter's `jsr` is redirected at site `cf.machine.hook.patch_list_copy`. `[doc]` {digikit-1125}
+- **GLASS cost in RIFT:** about 7,200 cycles a slot a block before v0.22 (fifteen busy tracks cost 279k cycles against an idle frame's 415k, heard as a crushed overload), about 4,200 with the filter state kept in registers, bit-exact. `[doc]` (the unit's cost model) {dn2-rift-1125}
+
 ## Gaps
 `docs/flashing.md`, `docs/mainos-image.md`, `docs/parameter-table-growth.md`, dn2mk2 `docs/SAFETY.md`, and the skill's "hardware rules the emulators cannot check" are the next reads (see `../MINING.md`).

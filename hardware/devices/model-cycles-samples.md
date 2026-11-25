@@ -185,3 +185,8 @@ Supermodel's Syntakt-engine bridge measures the audio function every block and f
 - **The Cycles' mute only holds back the sequencer's trigs:** a voice that sounds without a trig (the Techno Edition's ATMOS drone with GATE on) kept playing on a muted track, even across a pattern change. v1.9 ends such a drone on mute and fades its reverb tail in about a second; trig-played notes ring out as usual (I162). `[doc]` (user report; fix tested in emulation only)
 - **Stock OS 1.13 reads an LFO WAVE value it does not know as RND:** the mod's Turing Machine waves (T3-T16, past RND) saved in a sound play as RND on the official OS. `[doc]`
 - **Lo-fi by rate and bit depth, not samples:** the 707 machine synthesises its six parts at 24 kHz and 8 bits (cymbals 6 bits), the original's grain, with no 707 sample. Tested in emulation only. `[doc]`
+
+
+## Model:Samples 1.13 mods: recovery and LOCKS (2026-11-25) {ms-mods-1125}
+- **Recovery path named by a Model:Samples mod author:** hold FUNC at power-on for the STARTUP MENU, press TRIG 4 (OS UPGRADE) and send the stock OS 1.13 `.syx` over 5-pin MIDI, not USB. The mods change only the main OS. `[doc]` {ms-mods-1125}
+- **LOCKS folder:** holds 20 samples; a pad sample assigned to a lock from the +Drive is loaded a second time (SB41). `[doc]` {ms-mods-1125}

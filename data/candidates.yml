@@ -84,6 +84,35 @@ projects:
       No README yet, so OS, loader, licence and tests are unknown. Found by GitHub search 2026-11-08.
     sources: [GitHub search 2026-11-08]
 
+  - id: digitone-degrader
+    name: Digitone Degrader
+    author: morriess
+    kind: mod
+    devices: [digitone]
+    repo: https://github.com/morriess/Digitone-Degrader
+    status: unverified
+    notes: >
+      Planned lo-fi master-bus effect for the Digitone mk1 (OS 1.44) on elekloader's core-dn1 and fxkit, modelled on the
+      Tonverk manual's description of its Degrader (bit and sample-rate reduction, overdrive, drop-outs, ring modulation,
+      tempo-synced stutters). README (2026-11-24): design phase, no firmware code yet; the repo holds a design spec and a
+      plain C DSP with a desktop WAV renderer. No licence file. Same author as Digitone Drum Mode. Found by GitHub search
+      2026-11-25; list it once a mod build exists.
+    sources: [state/NEW.md 2026-11-25, "README, file list (2026-11-25)"]
+
+  - id: ghostbreak
+    name: Ghostbreak
+    author: pmsorhaindo
+    kind: tool
+    devices: [octatrack]
+    repo: https://github.com/pmsorhaindo/ghostbreak
+    status: unverified
+    notes: >
+      Planned generator of drum breaks written as complete Octatrack projects from the user's own one-shot samples
+      (classification, p-locks and micro-timing, pattern rating). README (2026-11-24): research notes only (groove
+      resources, an Octatrack file-format note, a sample-library survey), no code yet; MIT. Found by GitHub search
+      2026-11-25; list it once a tool exists.
+    sources: [state/NEW.md 2026-11-25, "README (2026-11-25)"]
+
   # ------------------------------------------------------------- Analog Heat
   - id: heatfx-multimode
     name: Analog Heat FX+ MultiMode (beta 0.1)

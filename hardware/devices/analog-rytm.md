@@ -322,3 +322,14 @@ Sidecar 0.4.3: every remote redraw the Sidecar's patched Rytm firmware receives 
 ## Improved FLTR: the filter's resonance word and TYP values (MKII OS 1.74, 2026-11-23) {modwerk-1124}
 - The filter routine `0x4010d0fc` writes cutoff, a signed resonance word and a 3-bit type every block. Resonance words below 0 damp further: band-pass Q 0.62 at 0, 0.24 at `0xf000`, 0.095 at `0xe000`. `[hw]` (module author's rig) {modwerk-1124}
 - MIDI CC 76 stores filter TYP 7-127 unclamped; stock plays such values as PK and shows a blank eighth TYP picture. `[hw]` {modwerk-1124}
+
+
+## elekloader core-ar2 0.20/0.21 and Sidecar 0.5.1.2 (MKII OS 1.74, 2026-11-24) {elekloader-1125} {sidecar-1125}
+- **Stock's USB audio feedback ring:** stock 1.74 rewrites `0x47B47440-0x47B47480` while a host has the USB audio alternate setting selected, so core-ar2 0.21 starts the mods' area at `0x47B48000` (to `0x47FFF000`, 4.7 MB); 0.11-0.20 started at `0x47B10000` and reached the ring once a build passed 221 KB. core-ar2's step tag tables sit at fixed addresses from `0x47938000` (claimed up to `0x47B10000`). `[doc]` {elekloader-1125}
+- **Stored spare bytes:** stock's sound save clears the stored sound's spare bytes, while its kit save leaves the stored kit's spare bytes as they were; a mod's older data survives only if its own detours write it at each save. core-ar2 0.20 hands such data to its mod once at load (`ev_store_adopt`). `[doc]` {elekloader-1125}
+- **Sidecar hello:** the modded Rytm sends its hello only when its USB port comes up; Sidecar 0.5.1.2 also detects the Rytm from ongoing traffic every 2 s (I210, A94). `[doc]` {sidecar-1125}
+
+## trig-seedr TURING: the step clock and live rewrites (MKII OS 1.74, 2026-11-20/24) {trig-seedr-1125}
+- **The step event is one step ahead of the sound:** core-ar2's `ev_seq_step` reports the step the clock just made; polling `core_track_step` agreed with it. Passed steps may be rewritten, never the current or next one (A91). `[emu]`; the live page ran on a unit on 2026-11-24 `[hw]` {trig-seedr-1125}
+- **The sequencer reads pattern A01's object directly** (`0x407dd8e3`), not a copy. One step rewrite costs about 419k instructions on average and 661k at most (about 2.1 ms), 94 % of it in stock's step routines; no missed step in 10 loops at 120 BPM or 27 at 300 BPM. `[emu]` {trig-seedr-1125}
+- **Tempo:** `core_tempo` at `0x40287ffc` (BPM x 120) can be written; the clock follows at its next tick. `[emu]` {trig-seedr-1125}

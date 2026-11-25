@@ -4,7 +4,7 @@
 
 For people (and agents) who build mods: toolchains, emulators, firmware unpackers, protocol libraries and research write-ups. Pair this with [hardware/](../hardware/README.md), which collects the rules and device facts.
 
-Data last verified: 2026-11-24. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
+Data last verified: 2026-11-25. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
 
 
 The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds), [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians). Hardware knowledge for writing mods: [hardware/](../hardware/README.md).
@@ -28,6 +28,7 @@ The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds),
 | **dtdump** (droelfdroelf) | Digitakt (MKI) | 2019 proof of concept of an open Overbridge protocol implementation; points to Overwitch for active work. | repo archived | - | [repo](https://github.com/droelfdroelf/dtdump) |
 | **digitone-syx-toolkit** (emnyeca) | Digitone II | Python CLI (+ Tkinter GUI) to capture, replay, diff and hex-view SysEx, and to generate Digitone II PATTERN .syx from an empty template. | - | - | [repo](https://github.com/emnyeca/digitone-syx-toolkit) |
 | **Digitone II Pattern Commander** (Dissonant Witchcraft) | Digitone II | A free, closed-source browser tool on a soundpack site: it loads Digitone II project files (.dn2prj or SysEx), copies and moves patterns between slots and projects, and … | unverified entry | - | [homepage](https://dissonantwitchcraft.com/tools/digitone-ii-pattern-commander) |
+| **Ghostbreak** (pmsorhaindo) | Octatrack (MKI, MKII) | Planned generator of drum breaks written as complete Octatrack projects from the user's own one-shot samples (classification, p-locks and micro-timing, pattern rating). | unverified entry | - | [repo](https://github.com/pmsorhaindo/ghostbreak) |
 | **selache (SHARC+ toolchain)** (js216 (ElekLabs keeps a fork)) | Digitakt II, Digitone II | Open-source toolchain for SHARC+ DSP (assembler/C compiler), GPL-3.0. | unverified entry | - | [repo](https://github.com/js216/selache) |
 
 ## Emulators

@@ -219,6 +219,7 @@ DSP56300 X-memory words, written `$xxxx` in the projects' notes.
 
 | start | end | user | use | OS | evidence |
 |---|---|---|---|---|---|
+| `0x7c00` | `0x7c4c` | aCiDtRacK OCTA303 SEAM | 303 state (X words); the README calls X `$7a92-$7fff` stock-unreferenced (O50) | 1.40C | `[doc]` {acidtrack-1125} |
 | `0x2840` | `0x2841` | octabam / Modwerk | core-1 load counter | 1.40C | `[doc]` {modwerk-analogbd} |
 | `0x2841` | `0x3201` | Modwerk (Analog BD 0.1.7) | 909 tables and voices | 1.40C | `[doc]` {modwerk-analogbd} |
 | `0x2900` | `0x3d55` | octabam (DLCOPY) | demand-loader staging; doorbell word at `0x2900` = `0xa55a` (overlaps Analog BD's range above in a different build) | 1.40C | `[doc]` {octabam-1115} |
@@ -241,6 +242,8 @@ MEMORY page does not show the loss.
 
 | start | end | user | use | OS | evidence |
 |---|---|---|---|---|---|
+| `0x4ec98000` | `0x4ecb8000` | stock | USB mass-storage host-write banks (2 x 64 KB, picked by `0x460bb3c0 & 1`) | 1.40C | `[doc]` {octabam-1125} |
+| `0x4ecb8000` | ? | stock | USB mass-storage READ staging buffer; contains stock's unused USB-MIDI packet (`0x4ecc8000`) and receive (`0x4ecc9000`) buffers, so a mod that brings those into use corrupts DISK MODE reads (I203) | 1.40C | `[doc]` {octabam-1125} |
 | `0x40a955e0` | `0x40aa5de0` | KYOTI | KYOTI V1.8: RELOAD_FROM_PROJECT and DIRECT JUMP DRAM units, 11 arena pages (end is our sum) | 1.40C | `[doc]` {kyoti-1117} |
 | `0x40a955e0` | `0x41498de0` | KYOTI | KYOTI V1.8C and the CLYPS image: Clyps and DIRECT JUMP code (32,496 B) plus Clyps' buffers (every bank's originals, temp saves, Part shadow), 1,709 arena pages (end is our sum) | 1.40C | `[doc]` {kyoti-1117} {kyoti-clyps-scope} |
 | `0x40a955e0` | `0x414aade0` | KYOTI | KYOTI V1.8BC: DIRECT JUMP (4,012 B at `0x40a955e0`), the BLACKPYRAMIDS_303 runtime (46,268 B from `0x40a9658c`), then Clyps and its buffers, 1,721 arena pages (end is our sum) | 1.40C | `[doc]` {kyoti-1120} |
@@ -272,6 +275,7 @@ MEMORY page does not show the loss.
 | `0x100f9000` | ? | AERIA OS | bring-up logs | AERIA 0.9.5 | `[doc]` {aeria-1120} |
 | `0x100fba00` | ? | AERIA OS | loaded-sample list | AERIA 0.9.5 | `[doc]` {aeria-1120} |
 | `0x100ffd40` | ? | Modwerk base 0.7.3+ | machine map (each machine's module and name); covers octabam KITS' ASSIGN at `0x100ffe00` | 1.40C | `[doc]` {modwerk-1117} |
+| `0x100f8f10` | `0x100f8f20` | Modwerk Songbook (draft) | book state (README: 16 B; TESTING mentions a 20-byte record); Modwerk calls `0x100f8f06-0x100f8ffc` free, but it lies inside octabam PLOCKS P2 (O49) | 1.40C | `[doc]` {modwerk-1125} |
 | `0x100fc000` | ? | Modwerk base | diagnostic incident log (`diaglog`: start, base, set, `shed` and other incidents); size not published | 1.40C | `[emu]` {modwerk-1120} |
 
 ## Analog Four MKII DDR (`analog-four-keys`)
@@ -298,6 +302,10 @@ MEMORY page does not show the loss.
 | `0x403c8b00` | `0x403c8b20` | Modwerk development link | RAM-boot mailbox written over the header of stock's upload buffer just before the software reset (transient) | 1.74 | `[hw]` {modwerk-rytm-link} |
 | `0x8000f774` | ? | Sidecar 0.5.0 | adds offsets to the effective sound words (index 26 + 42 x track + word) every audio block; another mod that writes these words after stage A collides | 1.73/1.74 | `[emu]` {sidecar-mods-1116} |
 | `0x479372e0` | `0x47b47480` | stock | end of heap allocations, 352 B bookkeeping, fixed buffers (mostly a factory test console) to `0x47b47440`, a 16-word DMA list | 1.74 | `[doc]` {modwerk-rytm-1118} |
+| `0x47b47440` | `0x47b47480` | stock | USB audio feedback ring, rewritten while a host has the audio alternate setting selected (the end of the block above) | 1.74 | `[doc]` {elekloader-1125} |
+| `0x47938000` | `0x47b10000` | elekloader (core-ar2 0.11+) | step tag tables at fixed addresses | 1.74 | `[doc]` {elekloader-1125} |
+| `0x47b10000` | `0x47fff000` | elekloader (core-ar2 0.11-0.20) | mods' area (code, tables, payloads, `.bss`); reaches the USB feedback ring once a build passes 221 KB | 1.74 | `[doc]` {elekloader-1125} |
+| `0x47b48000` | `0x47fff000` | elekloader (core-ar2 0.21) | mods' area, 4.7 MB, starting above stock's USB feedback ring | 1.74 | `[doc]` {elekloader-1125} |
 | `0x47b50000` | `0x47c00000` | Modwerk (own linker) | 704 KiB module area for sets over 128 KiB (includes the shared 128 KiB area) | 1.74 | `[hw]` {modwerk-rytm-1118} |
 | `0x47c00000` | `0x47f00000` | Modwerk (own linker, no send-bus base) | extends the 3.7 MiB area; the send bus's work area otherwise ends at `0x47c00000` | 1.74 | `[hw]` {modwerk-rytm-1118} |
 | `0x47feffbc` | `0x47ff0000` | Modwerk development link | RAM-boot diagnostics (68 B) moved here from the top of the mod area; `ident` names the place | 1.74 | `[doc]` {modwerk-rytm-1118} |
@@ -310,6 +318,7 @@ OS 1.42, from digikit's static reading (2026-11-18). The reset clears `0x4033a00
 
 | start | end | user | use | OS | evidence |
 |---|---|---|---|---|---|
+| `0x4404ff70` | ? | Synfact core 2.2+ | AUDIO cursor record `{0x454c4301, fn}` in the pool service, found through the ABI directory (samplers-st used the old `0x42100770` by mistake up to core 2.6, I212) | 1.42 | `[doc]` {synfact-1125} |
 | `0x444e48c0` | `0x454e48c0` | stock | OS heap (buddy allocator, 16 MiB) | 1.42 | `[doc]` {digikit-st-1118} |
 | `0x4584f2c0` | `0x4784f2c0` | stock | sample stage buffer before the upload to the voice CPU (extent inferred) | 1.42 | `[?]` {digikit-st-1118} |
 | `0x4784f2c1` | `0x478af2cb` | stock | section-7 transmit buffer (the voice CPU's program) | 1.42 | `[doc]` {digikit-st-1118} |

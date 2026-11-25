@@ -2,12 +2,13 @@
 
 # Monomachine
 
-Data last verified: 2026-11-24
+Data last verified: 2026-11-25
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **C7** (sata1000000) | editor | - | v1.0.0 (tag, 2026-11-24): out of beta | v1.0.0 | 2026-11-24 | [repo](https://github.com/sata1000000/C7) |
 | **Gearmulator MD/MM** (Joe Landers) | emulator | - | mdmm-v0.1.0-alpha.16 (tag, 2026-11-19); alpha.15 (2026-11-18): Machinedrum inter-DSP link as block transfers (-31 % CPU), Record SysEx to File and export shortcuts, +Drive emulation per project, panel control from MIDI; Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-11-19 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.1 (2026-11-13): Monomachine factory reset from your own ROM; the host's Stop is a real stop on the MM, so LOAD SONG works after it; Knob 1-8 as host parameters; several ROM images in one folder; Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-19 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
 | **OP-XY MNMD** (mmockett) | emulator | - | v1.3.6 (tag, 2026-11-13): MD KIT builds into one firmware with Hexagon's Moth; v1.3.5: the synths play at one loudness, MD KIT raises its quieter machines by up to 6 dB | v1.3.6 | 2026-11-13 | [repo](https://github.com/mmockett/OP-XY-MNMD) |
@@ -16,7 +17,6 @@ Data last verified: 2026-11-24
 | **Monomodule for MPC OS** (sd88me) | emulator | - | v1.0.4 (tag, 2026-11-04) | v1.0.4 | 2026-11-04 | [repo](https://github.com/sd88me/mpc-vst-monomodule) |
 | **BSP Machinedrum** (ABarracu87) | tool | - | - | v0.3.5 | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
 | **Monomachine Lab** (Jick238) | emulator | - | Monomachine OS 1.32B (user-supplied) | v0.1.4 | 2026-10-21 | [repo](https://github.com/Jick238/monomachine-lab) |
-| **C7** (sata1000000) | editor | - | - | v0.1.0 | 2026-10-10 | [repo](https://github.com/sata1000000/C7) |
 | **Monomodule for Schwung** (legsmechanical) | emulator | - | - | v0.1.0-test.5 | 2026-09-28 | [repo](https://github.com/legsmechanical/schwung-monomodule) |
 | **Maschine MD-MM** (sid366) | emulator | - | - | v0.1.1-combined.1 | 2026-09-28 | [repo](https://github.com/sid366/maschine-md-mm-combined) |
 | **Monomodule** (shnolk) | emulator | - | 1.0.0 (2026-09-24); Monomachine OS 1.32B (supplied by you) | release | 2026-09-24 | [repo](https://github.com/shnolk/monomodule) |
@@ -55,9 +55,9 @@ _Sources: altstrument (2026-11-01)_
 
 ### C7
 
-Desktop app controlling the Machinedrum and Monomachine over SysEx/MIDI (kits, sounds, patterns, songs, samples) with a DAW bridge plug-in for automation. GPL-3.0.
+Desktop app controlling the Machinedrum and Monomachine over SysEx/MIDI (kits, sounds, patterns, songs, samples) with a DAW bridge plug-in for automation. GPL-3.0. 2026-11-25: v1.0.0 (2026-11-24) ends the beta; the warning that .c7 files made in the beta may not work afterwards is gone.
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, README, tag v1.0.0 (2026-11-25)_
 
 ### Monomodule for MPC OS
 

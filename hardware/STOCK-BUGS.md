@@ -338,6 +338,42 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Status:** open in stock
 - **Evidence:** `[emu]` (stock code run in octabam's emulator) {octabam-1124}
 
+### SB38. Adding a row at END OF ARR. has no 256-row limit and writes past the arrangement (Octatrack)
+- **Device and OS:** Octatrack, OS 1.40C
+- **Area:** arranger, projects
+- **Symptom:** a 257th row added at the end is written past the 5,652-byte working arrangement, over the next arrangement's name, row count and first row; the next save writes that into the other arrangement's file.
+- **Trigger:** keep adding rows at END OF ARR. past 256. Inserting in the middle stops at 255 with ROW LIMIT REACHED.
+- **Cause:** the insert routine `0x4009e4c8` checks the count (`cmpil #255`, message at `0x4009e5c6`) only on the middle-insert path; the append path at `0x4009e50c` has no check.
+- **Workaround:** stay below 256 rows; octabam's ARR ROW CAP adds the missing check. A saved 256-row arrangement probably loads as 255 rows `[?]`.
+- **Test tip:** keep a backup of the project before you build very long arrangements.
+- **Found by:** octabam (ARR ROW CAP)
+- **Status:** open in stock
+- **Evidence:** `[emu]` (stock fails 3 of the module gate's 7 checks under the emulator port) {octabam-1125}
+
+### SB39. After a LOAD the arranger can stay "running" with nothing playing, and refuses every arrangement (Octatrack)
+- **Device and OS:** Octatrack MKI, OS 1.40C
+- **Area:** arranger, projects
+- **Symptom:** after loading another project, picking an arrangement does nothing.
+- **Trigger:** LOAD of another project (LOAD also switches arranger mode off and saves first).
+- **Cause:** the arranger run state at `0x800066a0` can stay set with nothing playing, so the select routine `0x400a03a0` refuses every choice; stock's reset `0x4009ae48` clears it.
+- **Workaround:** Modwerk's Songbook calls the reset after a load.
+- **Test tip:** a mod that switches arrangements after a load should check this state first.
+- **Found by:** Modwerk (Songbook research)
+- **Status:** open in stock
+- **Evidence:** `[hw]` {modwerk-1125}
+
+### SB40. The stock DELAY reads 16 bytes past its own table (Octatrack)
+- **Device and OS:** Octatrack, OS 1.40C
+- **Area:** effects
+- **Symptom:** none reported; a latent out-of-bounds read.
+- **Trigger:** the DELAY effect's table lookup.
+- **Cause:** the read reaches 16 bytes past the table at `0x400d24d0`.
+- **Workaround:** a mod that places data right after that table should leave those bytes as they are.
+- **Test tip:** none.
+- **Found by:** Modwerk (Scale Quantizer upstream notes)
+- **Status:** open in stock
+- **Evidence:** `[doc]` {modwerk-1125}
+
 ## Analog Rytm
 
 ### SB18. Edits to hidden FX words overwrite the delay's saved TIME (latent)
@@ -436,6 +472,18 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Found by:** Model-TG
 - **Status:** open in stock; fixed by a mod
 - **Evidence:** `[doc]` {model-tg-internals}
+
+### SB41. A pad sample assigned to a lock from the +Drive takes a second LOCKS slot (Model:Samples)
+- **Device and OS:** Model:Samples, OS 1.13
+- **Area:** samples, sample locks
+- **Symptom:** the sample is loaded into the LOCKS folder again and uses one of its 20 slots, though it is already on a pad.
+- **Trigger:** assign a sample that is already on a pad to a sample lock by picking it from the +Drive (picking it from the LOCKS folder does not duplicate it).
+- **Cause:** not read.
+- **Workaround:** pick the sample from the LOCKS folder; Yan Hugman's LOCKS duplicate fix mod prevents the duplicate.
+- **Test tip:** count the LOCKS slots before and after the assignment.
+- **Found by:** ms-mods-yanhugman (LOCKS duplicate fix)
+- **Status:** open in stock; fixed by a mod
+- **Evidence:** `[doc]` {ms-mods-1125}
 
 ## Monomachine
 

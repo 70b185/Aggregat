@@ -24,6 +24,13 @@
     <summary>A Max for Live instrument (Ableton Live 12 Suite, Max 9; macOS and 64-bit Windows) built on ModuleDrum's sound core: 16 tracks, 49 machines of the GND, TRX, EFM, E12 and P-I families, per-track effects, LFOs and master processing, played from MIDI clips or a controller; it has …</summary>
   </entry>
   <entry>
+    <title>Update 2026-11-26: 13 change reports folded, 2 repos added, 4 candidates, I215-I226, SB42, A95-A99</title>
+    <link href="https://github.com/70b185/Aggregat/commit/dbebc7b600366d0a8c4dcb8513161b22471684b9"/>
+    <id>https://70b185.github.io/Aggregat/#commit-dbebc7b60036</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
+  <entry>
     <title>New in the catalogue: Elektron Model:Samples mods (Yan Hugman) (Mod, Model:Samples)</title>
     <link href="https://70b185.github.io/Aggregat/?p=ms-mods-yanhugman"/>
     <id>https://70b185.github.io/Aggregat/#project-ms-mods-yanhugman</id>
@@ -463,13 +470,5 @@
     <updated>2026-11-14T00:00:00Z</updated>
     <category term="project"/>
     <summary>Digitone-style portamento and legato for every audio track of the Digitakt mk1, on the TRIG page's two blank knobs (G PORT, H LEG). Both are trig parameters, kept in the pattern and p-lockable; they reuse the MIDI chord-note fields NOT3 and NOT4, which audio tracks never play, …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: GESTALT (Digitone) (Mod, Digitone)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=gestalt-digitone"/>
-    <id>https://70b185.github.io/Aggregat/#project-gestalt-digitone</id>
-    <updated>2026-11-14T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>Continues PUMP for Digitone in a repo of its own: it carries PUMP's history (2.8-2.10) plus one commit with GESTALT 5.x, which puts a sine wavefolder before the compressor; the mod id is still pump. The old repo digitone-pump is still online at 2.12. elekloader mod. …</summary>
   </entry>
 </feed>

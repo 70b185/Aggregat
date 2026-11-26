@@ -875,7 +875,7 @@
  "de-pattern/dn2-rift": {
   "full_name": "De-Pattern/DN2-Rift",
   "created": "2026-11-12",
-  "pushed": "2026-11-25",
+  "pushed": "2026-11-26",
   "stars": 4,
   "forks": 0,
   "language": "Python",
@@ -888,7 +888,7 @@
  "de-pattern/dn2mk2": {
   "full_name": "De-Pattern/dn2mk2",
   "created": "2026-10-27",
-  "pushed": "2026-11-25",
+  "pushed": "2026-11-26",
   "stars": 16,
   "forks": 2,
   "language": "HTML",
@@ -901,7 +901,7 @@
  "de-pattern/dn2mk2-firmware": {
   "full_name": "De-Pattern/dn2mk2-firmware",
   "created": "2026-10-28",
-  "pushed": "2026-11-25",
+  "pushed": "2026-11-26",
   "stars": 25,
   "forks": 3,
   "language": "Python",
@@ -2308,7 +2308,7 @@
  "julesyoungberg/sample-shepherd": {
   "full_name": "julesyoungberg/sample-shepherd",
   "created": "2026-11-07",
-  "pushed": "2026-11-25",
+  "pushed": "2026-11-26",
   "stars": 0,
   "forks": 0,
   "language": "HTML",
@@ -2340,6 +2340,19 @@
   "language": "C++",
   "fork": false,
   "license": "GPL-3.0",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-26"
+ },
+ "kansuaudio/md-drum-engine": {
+  "full_name": "kansuaudio/md-drum-engine",
+  "created": "2026-11-25",
+  "pushed": "2026-11-25",
+  "stars": 1,
+  "forks": 0,
+  "language": "JavaScript",
+  "fork": false,
+  "license": "AGPL-3.0",
   "owner_type": "User",
   "archived": false,
   "seen": "2026-11-26"
@@ -3202,10 +3215,23 @@
   "archived": false,
   "seen": "2026-11-26"
  },
+ "slingdinger/multi-sampler": {
+  "full_name": "Slingdinger/MULTI-SAMPLER",
+  "created": "2026-11-15",
+  "pushed": "2026-11-26",
+  "stars": 1,
+  "forks": 0,
+  "language": "Assembly",
+  "fork": false,
+  "license": "MIT",
+  "owner_type": "User",
+  "archived": false,
+  "seen": "2026-11-26"
+ },
  "slingdinger/octatrack-step-view": {
   "full_name": "Slingdinger/octatrack-step-view",
   "created": "2026-11-07",
-  "pushed": "2026-11-18",
+  "pushed": "2026-11-26",
   "stars": 3,
   "forks": 0,
   "language": "Assembly",

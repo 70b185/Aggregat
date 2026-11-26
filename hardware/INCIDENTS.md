@@ -947,7 +947,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Seen:** build 2 played the steps backwards, but the trig LEDs' playhead still ran forwards; build 9's per-track modes came back after a project save and power cycle, but not after a power cycle without a save.
 - **Cause (found on the unit, then in the code):** the trig LEDs read the step through their own accessor `0x4008b734`, not the patched sequencer sites; and a power cycle without a save restores kits from their mirror slots, which are only re-encoded when `KitActive::kitChanged` (`0x40172250`) runs after a native kit edit.
 - **Fix:** build 3 patches the accessor as a fifth site; build 10 calls `kitChanged` for the playing kit after each mode change (checked in Unicorn, not yet on the unit).
-- **Status:** LEDs fixed on the unit; mirrors fixed in the emulator only.
+- **Status:** LEDs fixed on the unit; mirrors fixed in the emulator only. 2026-11-25: Synfact core 2.9 found that the KitActive object the fix reached (`0x40a38b18 + 0x378d8`) is in pattern memory, not KitActive; the real one hangs off the application object (pointer `0x444e23f4`, KitActive at `+0x130`), so the vtable check kept the build-10 path from running. Playhead 1.3.1 on core 2.9 (host API 20) uses the real object; host and emulator only {synfact-1126}.
 - **Evidence:** `[hw]` {synfact-1117}
 - **Rule:** E5, A31
 - **Fact:** [devices/syntakt.md](devices/syntakt.md#synfact-findings-sequencer-kit-slots-views-mixer-os-141-2026-11-1416-synfact-1117)
@@ -2184,3 +2184,128 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` {modwerk-1125}
 - **Rule:** A9 (transfer limits), A54 (give the loader a way out of its own recovery state)
 - **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I215. A dn2mk2 build ported to OS 1.12 crashed at start-up (Digitone II, v0.73-t1)
+- **Unit:** Digitone II, stock OS 1.12 with dn2mk2 v0.73-t1 OS112 (a test build; reported by the project, 2026-11-25)
+- **Seen:** the unit crashed during the start-up animation with an exception whose program counter was `0x46708000`.
+- **Cause:** the project says the animation's code was not in RAM. The build was v0.72 moved from 1.11 to 1.12 by a porter that translated edits, address operands and pointers but copied the mod's own chunks to their 1.11 RAM places. On 1.11 dnfw's bootscreen chunk sits at `0x46708000`; on 1.12 that address lies inside stock's DMA buffers (`0x466c0000-0x46709340`), and upstream dnfw moved its 1.12 bootscreen to `0x467e8000` for that reason. That this overlap is the cause is our reading, not the project's `[?]`.
+- **How found:** a tester flashed the build; the full gate on 1.12 (emulator boot from reset included) had passed. The emulator has no DMA traffic into that range.
+- **Fix:** build pulled the same day; releases stay on 1.11 until the start-up crash is found. Recovery: FUNC held at power-on, OS UPGRADE, stock 1.12.
+- **Status:** open.
+- **Evidence:** `[hw]` {dn2mk2-1126}
+- **Rule:** C7 (re-locate RAM chunks against the new OS's stock users), D11
+- **Fact:** [devices/digitone-2.md](devices/digitone-2.md), [RAM-TENANCY.md](RAM-TENANCY.md)
+
+### I216. RIFT's RUBBER filter left a track silent after power-on (Digitone II, v0.24/v0.25)
+- **Unit:** Digitone II, OS 1.11 with RIFT v0.24 or v0.25 (a user's report, 2026-11-25)
+- **Seen:** a track went silent for good when RUBBER was put on it.
+- **Cause:** RUBBER's filter state lives in DDR and was never cleared at power-on; leftover memory (NaN) stayed in its stages, and the DSP safety check zeroed the slot's output every block.
+- **Fix:** v0.26 keeps a magic word with the state and starts clean when it is missing; a slot the safety check zeroes loses its magic too. A unit test fills the state with garbage first.
+- **Status:** fixed in v0.26 (gated in the emulators); the fix is not yet confirmed on a unit.
+- **Evidence:** `[hw]` {dn2-rift-1126}
+- **Rule:** G9 (never read unwritten DDR), G8
+- **Fact:** [devices/digitone-2.md](devices/digitone-2.md)
+
+### I217. A pattern reload brought back the wrong Drum Mode kit (Digitone mk1, Drum Mode 0.10.6)
+- **Unit:** Digitone mk1, OS 1.44, Drum Mode 0.10.6 on elekloader core-dn1 5.4, the author's unit (reported 2026-11-25)
+- **Seen:** after saving a pattern and changing a drum's note, a reload (FUNC + NO or RELOAD FROM PROJ) gave Drum Mode off or another pattern's newest kit instead of the saved notes.
+- **Cause (from the project's notes):** a pattern keeps only its kit's number in the mod's project block, and kits were edited in place, shared and freed, so the kit a saved pattern pointed to could change or be reused after the save. Core also reported the reload before the stock's own checks, and 0.10 let go of the kits at once, so even a reload the stock refused ("Prj must be re-saved!") lost the pattern's kit.
+- **Fix:** 0.11.0 pins the kits of the last 8 saved pattern tracks (never edited in place: an edit makes a copy; the oldest pin goes with `PINS FULL`), cuts the kit limit from 10 to 8 to make room, and swaps the kits only once the pattern has been read back. A 0.10 project's ninth and tenth kit are dropped.
+- **Status:** fixed in 0.11.0, emulator only (test_reload, 7 checks); to be checked on the unit.
+- **Evidence:** `[hw]` (symptom) / `[emu]` (fix) {drum-mode-1126}
+- **Rule:** A95
+- **Fact:** [devices/digitone.md](devices/digitone.md)
+
+### I218. Forcing stock's switch widget past five positions crashed an Octatrack (Modwerk Midiverb)
+- **Unit:** Octatrack MKII, OS 1.40C, a development build of Midiverb I/II on a Modwerk base 0.8.x twin (the owner's unit, 2026-11-25)
+- **Seen:** the unit crashed; its crash record read vector 11 with the program counter at `0x524b00a2`, which is label text taken as an address.
+- **Cause:** the build pointed stock's tick (switch) widget at PROG's 24 labelled values; the widget holds five positions and read past them.
+- **How found:** the crash record on the unit.
+- **Fix:** PROG stays a plain dial; Modwerk's effects guide now says never to force the switch past five positions (wider selects use the wide stepped formatter).
+- **Status:** fixed (the released 0.1.0-experimental does not use the widget).
+- **Evidence:** `[hw]` {modwerk-1126}
+- **Rule:** A97
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I219. RAM boots used up an unconfirmed base update's starts, and the Octatrack went back to its old base (Modwerk)
+- **Unit:** Octatrack, OS 1.40C, Modwerk two-slot base (the owner's unit, 2026-11-20)
+- **Seen:** a base update that was flashed but not yet confirmed was lost: the unit started its previous base again.
+- **Cause:** the boot stub gives an unconfirmed slot two starts, clearing a tries bit at each; a RAM boot's soft reset is a start too, so RAM boots done after the flash spent both starts before the update confirmed itself.
+- **How found:** the unit came back on the old base; read from the boot stub's design.
+- **Fix:** `npm run device -- boot` now refuses while the newest slot is unconfirmed (waits when that update is the base running; `--spend-tries` overrides).
+- **Status:** fixed in the tooling (2026-11-25).
+- **Evidence:** `[hw]` {modwerk-1126}
+- **Rule:** A96
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I220. Midiverb's PROG did not move after a fresh pick, and a replaced trial left the track without reverb (Modwerk, Octatrack)
+- **Unit:** Octatrack MKII, OS 1.40C, Midiverb development builds on a 0.8.2 base draft twin (the owner's unit, 2026-11-25; reported by the owner, then reproduced by an agent over USB)
+- **Seen:** (1) after picking MIDIVERB in FX2 SETUP, PROG did not move until the FX2 page was left and entered again; (2) after a newer trial build replaced an older one on a track running it, no reverb came until the project was reloaded.
+- **Cause:** (1) the base's memory box: the first NO closed only the box and left FX2 SETUP showing, where the effect has no knobs; and for slow turns the page's input layer kept the previous effect's staging, so the base's restage cleared the carried remainder at every detent. (2) a trial's rollback parks the effect: the track's live FX2 id read NONE while its Part still named Midiverb, so a new pick changed nothing; stock gives the id back only at the track's next trig or a project reload.
+- **How found:** the owner's reports, reproduced by driving the unit over USB and reading the frame record.
+- **Fix:** (1) base 0.8.2 draft: NO on that box goes on to stock, and the base stages the input layer too; on twin `6ff8e526` slow detents moved PROG right after a pick. (2) none in the base yet; Midiverb checks a state signature on every call as a guard.
+- **Status:** (1) fixed in the 0.8.2 draft (base 0.8.1 still needs an FX2 re-entry); (2) open in the base (a known beta finding).
+- **Evidence:** `[hw]` {modwerk-1126}
+- **Rule:** A54 (unload or replace a module only while nothing uses it)
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I221. A refused RAM boot left "Upgrade OS now?" on a Model:Cycles, and YES flashed the image (Modwerk)
+- **Unit:** Model:Cycles, OS 1.13, Modwerk development base with its USB MIDI link (a submitter's unit, 2026-11-24)
+- **Seen:** with the link disarmed, `mc_link.py ramboot` uploaded the image with stock's OS upgrade first and the link then refused the boot (`not armed`); the unit kept the upload and asked "Upgrade OS now?". YES there flashed stock 1.13.
+- **Cause:** the tool checked the arm only after the upload; stock's upgrade prompt stays once an image has arrived.
+- **How found:** on the unit.
+- **Fix:** `mc_link.py ramboot` reads the arm first and uploads nothing while the link is disarmed; if the unit asks anyway, answer NO (the running OS stays, no restart).
+- **Status:** fixed in the tool (2026-11-24); checked on the unit (no question left).
+- **Evidence:** `[hw]` {modwerk-1126}
+- **Rule:** A96
+- **Fact:** [devices/model-cycles-samples.md](devices/model-cycles-samples.md)
+
+### I222. A USB program change made DIN's running-status bytes select patterns (octabam USB, Octatrack)
+- **Unit:** Octatrack with octabam's USB module, OS 1.40C (reported by a user, octabam #1248, 2026-11)
+- **Seen:** with a DAW sending program changes over USB and the Octatrack's own MIDI out looped into its DIN input, patterns nobody chose were selected.
+- **Cause:** USB MIDI and DIN MIDI share one stock FIFO and framer with one running status; a USB message (always with its status byte) arriving between a DIN sender's running-status bytes replaced DIN's status, so every later DIN data byte parsed as a program change. Reproduced under the emulator port (DIN `90 3c 64 3d 64`, USB `C0 05`, DIN `3e 64` came out as a string of program changes).
+- **Fix:** the USB decoder runs the framer dry, saves its state with interrupts masked, frames the USB message and puts DIN's state back; USB SysEx and realtime bytes unchanged. Gate `verify_usb_midi_din_mix`.
+- **Status:** fixed in the source (unreleased); not flashed.
+- **Evidence:** `[hw]` (the report), fix `[emu]` {octabam-1126}
+- **Rule:** A50 (state that two inputs share in stock must be saved and restored around anything you inject)
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I223. Clyps drew from the UI tick task and left garbage on the screen after loads (KYOTI, Octatrack MKI)
+- **Unit:** Octatrack MKI, OS 1.40C, KYOTI V1.8BC test image CLB1 (the author, 2026-11-20)
+- **Seen:** after track loads in the Clyps view: blank target cells (even the slot number), garbage text in the source cell, stray pixels.
+- **Cause:** a new cue blink called the Clyps draw routine from the UI tick, which runs in a higher-priority task (priority 3) than the sys task (priority 1) that does all other draws; a tick draw could preempt a sys-task draw half way, sharing its text buffer and surface. The same race had been latent since earlier Clyps versions (one blank summary seen once and not reproduced). The emulator gates could not show it because they call the tick from the main task.
+- **Fix:** the tick only posts a request (one message outstanding) to the sys task's queue and the UI tail draws (CL39b/CL39c); later test images flashed on the same unit showed no drawing faults, and the final V1.8BC (promoted 2026-11-25) passed every test.
+- **Status:** fixed; confirmed on the unit.
+- **Evidence:** `[hw]` {kyoti-1126}
+- **Rule:** A98
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I224. A failed card read left Clyps' reload job busy, and every later card reload did nothing (KYOTI, Octatrack)
+- **Unit:** none; KYOTI Clyps test image CLB5, OS 1.40C, found in the emulator with an injected failed read (2026-11-21)
+- **Seen:** after one card read failed (a bank never saved, an unreadable file), every later card reload request returned silently, with no toast and no change, until a reboot.
+- **Cause:** the job's done hook sat on the success path only, so the busy flag was never cleared after a failure; a reload of a never-saved bank from a paged view made the path reachable.
+- **Fix:** the job's exit clears the busy flag on failure (CL42a) and keeps the target pending, so the next request for the same target reads it again (CL43).
+- **Status:** fixed; emulator only. A user report of "card reloads do nothing" on the unit turned out to be by design (a track that already equals the card lands nothing).
+- **Evidence:** `[emu]` {kyoti-1126}
+- **Rule:** A54 (give a background job a way out of its own failure state)
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I225. A kit bank's confirmation never showed on the unit (Synfact kitload-st, Syntakt)
+- **Unit:** Syntakt, OS 1.42, Synfact core 2.7 with kitload-st 0.2.1 (a contributor's draft, tried on a unit in review, 2026-11-24)
+- **Seen:** after the first YES on a kit row neither the armed row's question nor the OS message popup appeared, so a LOAD or SAVE looked as if it had no confirmation.
+- **Cause:** the stock Menu does not repaint after a row's action, and the OS message popup (`0x400c347c`) is drawn behind an open menu.
+- **Fix:** 0.2.2 sets the view's dirty flag (`0x400ffe22`, view +0x38) when a row is armed, answered or cancelled and asks the next tick for one redraw; 0.2.4 asks in the OS's own ConfirmWindow (as CLEAR TRACK SOUND? does) instead. 0.2.3-0.2.5 not yet on a unit.
+- **Status:** fixed in 0.2.2 on the unit; later versions host and Unicorn tests only.
+- **Evidence:** `[hw]` {synfact-1126}
+- **Rule:** A99
+- **Fact:** [devices/syntakt.md](devices/syntakt.md)
+
+### I226. A custom machine page kept the firmware's knob dial as a mark (Synfact SP WAVETBL, Syntakt)
+- **Unit:** Syntakt, OS 1.42, Synfact core 2.8.0 with a pre-release of SP WAVETBL (wavetable-st), the owner's first unit test, 2026-11-25
+- **Seen:** turning a knob drew the firmware's dial in the lower right corner, past the page's own cleared area (x 125..127), and it stayed there as a mark; the page also cost about 27,600 instructions a draw in the emulator.
+- **Cause:** the machine page cleared only its own area and let the native dial draw; the dial reaches past it.
+- **Fix:** 0.1.0 paints no native dials and draws every control itself, writes pixels straight into the bitmap and redraws a moving position at most every other idle call (about 12,900 instructions a draw in the emulator).
+- **Status:** fixed in 0.1.0; 0.1.0 itself not yet on a unit.
+- **Evidence:** `[hw]` (symptom) / `[emu]` (cost) {synfact-1126}
+- **Rule:** A99
+- **Fact:** [devices/syntakt.md](devices/syntakt.md)

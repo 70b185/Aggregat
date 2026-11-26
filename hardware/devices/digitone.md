@@ -160,6 +160,10 @@ removed on 2026-11-16).
 - **Page counter:** the stock counts a mod page in the LFO group, so the LFO page read "LFO (1/2)"; a mod that adds a page there has to draw the whole title bar and its own counter (I211). `[hw]` {drum-mode-1125}
 - **LEDs:** the panel colour table digiemu shows (dark, red, dim red, white, dim white) matches the unit; a white light lit for half a step looked flickery, red for the whole step (as the stock playhead) looked right. Stock chains done the manual's way passed on the unit with Drum Mode. The 1.5 s bank-key release workaround seems to work on the unit; whether the release really goes missing there is still open `[?]`. `[hw]` {drum-mode-1125}
 
+## Drum Mode 0.11.0: kit pinning, ratchets (OS 1.44, 2026-11-25) {drum-mode-1126}
+- **A pattern reload is announced before the stock checks it:** core-dn1's reload event fires before the stock decides whether it can reload ("Prj must be re-saved!" refuses it), so a mod that swaps its own data on that event loses it on a refused reload; Drum Mode 0.11 swaps only once the pattern is read back ([I217](../INCIDENTS.md#i217-a-pattern-reload-brought-back-the-wrong-drum-mode-kit-digitone-mk1-drum-mode-0106)). `[hw]` (symptom) `[emu]` (cause)
+- **Ratchets without stock retrigs:** the Digitone mk1 has no retrigs; Drum Mode 0.11 sends 2-4 evenly spaced MIDI notes within a step from its own task (following the track's speed and swing), and note repeat at 1/16-1/64 in time with the steps. Whether these notes and the stock's ever collide on the MIDI output is open. `[emu]`
+
 ## Notes
 - digihealth 1.1 brings SYSTEM INFO only; FAST AUDIO is not ported to Digitone. {digihealth}
 - DigiSplash and DigiCandy support Digitone mk1 + Keys at OS 1.43. {digisplash} {digicandy}

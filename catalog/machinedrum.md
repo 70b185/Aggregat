@@ -2,12 +2,13 @@
 
 # Machinedrum (incl. UW)
 
-Data last verified: 2026-11-25
+Data last verified: 2026-11-26
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **MD Drum Engine (Max for Live)** (kansuaudio) | emulator | - | 1.0.5 (2026-11-25) | - | 2026-11-25 | [repo](https://github.com/kansuaudio/md-drum-engine) |
 | **C7** (sata1000000) | editor | - | v1.0.0 (tag, 2026-11-24): out of beta | v1.0.0 | 2026-11-24 | [repo](https://github.com/sata1000000/C7) |
 | **Machinedrum WebLoader (MDX user machines)** (gerdtanck) | tool | - | untagged (c0494d8, 2026-11-20); Machinedrum running MDX X.20 | - | 2026-11-20 | [repo](https://github.com/gerdtanck/WebLoader) · [homepage](https://gerdtanck.github.io/WebLoader/) |
 | **Gearmulator MD/MM** (Joe Landers) | emulator | - | mdmm-v0.1.0-alpha.16 (tag, 2026-11-19); alpha.15 (2026-11-18): Machinedrum inter-DSP link as block transfers (-31 % CPU), Record SysEx to File and export shortcuts, +Drive emulation per project, panel control from MIDI; Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-11-19 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
@@ -138,6 +139,14 @@ The Machinedrum's own DSP code and machine/LFO/mixer maths as a VST2 for Akai MP
 _Related: uses tool `gearmulator-md-mm` (README: checked against gearmulator-md-mm); vendors `moduledrum` (README: ideas and code adapted from ModuleDrum (AGPL-3.0)) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
 _Sources: GitHub search 2026-11-02, README, README (2026-11-18)_
+
+### MD Drum Engine (Max for Live)
+
+A Max for Live instrument (Ableton Live 12 Suite, Max 9; macOS and 64-bit Windows) built on ModuleDrum's sound core: 16 tracks, 49 machines of the GND, TRX, EFM, E12 and P-I families, per-track effects, LFOs and master processing, played from MIDI clips or a controller; it has no sequencer of its own. The user points it at their own Machinedrum UW OS 1.63 file, from which it reads the machine catalogue and parameters; the firmware is not shipped or stored in a Set. Vendors ModuleDrum (pinned commit), dsp56300 and Musashi. No kit or pattern import from a hardware Machinedrum, no direct A/B against the hardware; used in Live on macOS, the Windows build passes its engine tests in CI only. AGPL-3.0. One commit. Found by GitHub search 2026-11-26.
+
+_Related: vendors `moduledrum` (THIRD_PARTY_NOTICES: ModuleDrum mdcore/mnmcore libraries at a pinned commit) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
+
+_Sources: README, THIRD_PARTY_NOTICES.md (2026-11-26)_
 
 ### MachineModule (desktop)
 

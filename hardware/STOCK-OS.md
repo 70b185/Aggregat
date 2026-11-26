@@ -60,7 +60,7 @@ Elektron released Digitakt II 1.17, Digitone II 1.12 and Syntakt 1.42 on the sam
 | 1.11 | [DN2 DT2 firmware research](../p/dn2-dt2-firmware-research/) | patch | - | - |  |
 | 1.11 | [dn2_firmware_explore](../p/dn2-firmware-explore/) | patch | - | - |  |
 | 1.11 | [RIFT (second Digitone II firmware)](../p/dn2-rift/) | patch | - | - |  |
-| 1.11 | [DN2 mk2 Mod (dn2mk2-firmware)](../p/dn2mk2/) | patch | - | - | 1.12 users must go back to 1.11 |
+| 1.11 | [DN2 mk2 Mod (dn2mk2-firmware)](../p/dn2mk2/) | patch | - | - | 1.12 users must go back to 1.11; a test build ported to 1.12 (v0.73-t1, 2026-11-25) crashed a unit at start-up and was pulled, so releases stay on 1.11 |
 
 ### Syntakt: newest OS 1.42 (since 2026-10-01)
 

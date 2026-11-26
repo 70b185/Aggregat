@@ -354,5 +354,13 @@ Read once, not checked by a second reader.
 - **The SETTINGS list is built once** in the settings menu's constructor; a row added by a module that later unloads stays in the list, doing nothing, until the list is rebuilt. `[doc]` {digikit-1125}
 - **A kit is saved when only module kit data changed:** on OS 1.17 a save after changing only a module's kit data (Euclidean Scale 0.2.0 on Modwerk's base `8650bb8a`) kept it over a reload; this refutes the former hypothesis H20. `[hw]` (2026-11-25) {modwerk-1125}
 
+## digikit stock-Delay reference and live parameter words (OS 1.17, emulator and one unit, 2026-11-26) {digikit-1126}
+- **Emulated against real Delay timing:** the same stock-Delay case (a 1 kHz probe sample, Delay send 111, 120 BPM, raw feedback `0x2000`) ran in digikit's emulator and on a physical DT2 with a runtime 0.13.2 development image and the debug module, recorded over USB audio (USB OUT = MAIN). Echo spacing was 64.05 ms emulated (raw TIME `0x027C`) and 62.49 ms on the unit (raw TIME `0x0300`); decay per repeat 6.034 against 6.032 dB. The project calls this a match of the Delay's shape within 2 ms and 1 dB, not bit-exact audio or equal timing at equal raw values. `[hw]` {digikit-1126}
+- **Raw Delay TIME (emulator, 120 BPM):** a fresh project held TIME `0x1700` (echoes 441.3 ms apart); `0x0288` gave 64.90 ms and `0x027C` 64.05 ms. `[emu]` {digikit-1126}
+- **Live parameter words on 1.17** (digikit's device file, from its findings 61 and 81): a track's sample slot is word 28 of the track's Sound record (kit + Sound `0x80`, words counted after Sound + `0x14`); in the live kit FX array, Delay TIME is word 32 and Delay feedback word 35. These are array indices, not MIDI CCs. A debug-module observer read them in the emulator and matched independent memory reads. `[emu]` {digikit-1126}
+- **A stored sample is 16 bytes longer than its payload:** a 19,264-byte upload was stored as 19,280 bytes (the firmware's 16-byte trailer; see the +Drive note above). `[hw]` {digikit-1126}
+- **The top of the input view stack** names the open screen by its vtable; a reused dialog class cannot be told apart this way, and a view that opens and closes within one UI pass may be missed. View-stack bindings exist for DT2 1.17 and DN2 1.12, not for the Syntakt. `[emu]` {digikit-1126}
+- **Host side:** on macOS a USB audio input can enumerate and return only zero samples when the launching app has no microphone permission. `[doc]` {digikit-1126}
+
 ## Gaps
 Memory map beyond the numbers above, DSP memory, machine API, parameter-table layout: not collected yet (see `../MINING.md`).

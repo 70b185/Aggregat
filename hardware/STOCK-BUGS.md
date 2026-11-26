@@ -374,6 +374,18 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Status:** open in stock
 - **Evidence:** `[doc]` {modwerk-1125}
 
+### SB42. A sample path longer than the card allows can lock the sample browser until a power cycle (Octatrack)
+- **Device and OS:** Octatrack, OS 1.40C
+- **Area:** sample browser, card
+- **Symptom:** moving the browser cursor near a file whose full path passes 259 characters can leave the footer reading LOADING... for good and the folder line garbled; the browser then refuses to open on any slot, in any project, until a power cycle.
+- **Trigger:** a sample whose path from the card root (`/` + set name + `/AUDIO/` + folders + file name) is 260 characters or more.
+- **Cause:** the browser builds each path into 260-byte buffers with an unbounded `strcat` and `sprintf`; a longer path runs over the LOADING... flag (`0x460e49f4`) and the current folder (`0x460e4c00`).
+- **Workaround:** keep set, folder and file names short enough that every path stays within 259 characters; octabam's BROWSE PATH GUARD bounds the copies so such a file shows ERR.
+- **Test tip:** a project's `PATH=` (it starts `../AUDIO/`) can be at most 260 minus the set name's length.
+- **Found by:** octabam (BROWSE PATH GUARD, #1258)
+- **Status:** open in stock
+- **Evidence:** `[emu]` (stock fails 14 of the module gate's 36 checks under the emulator port) {octabam-1126}
+
 ## Analog Rytm
 
 ### SB18. Edits to hidden FX words overwrite the delay's saved TIME (latent)

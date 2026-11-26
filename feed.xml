@@ -4,9 +4,25 @@
   <link href="https://70b185.github.io/Aggregat/"/>
   <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
   <id>https://70b185.github.io/Aggregat/</id>
-  <updated>2026-11-25T00:00:00Z</updated>
+  <updated>2026-11-26T00:00:00Z</updated>
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>New in the catalogue: MULTI-SAMPLER (Octatrack multisampler) (Mod, Octatrack)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=multi-sampler"/>
+    <id>https://70b185.github.io/Aggregat/#project-multi-sampler</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>Two octabam modules built into the user's own copy of the OS (no Elektron code in the repo). MULTI is a sixth machine beside STATIC, FLEX, THRU, NEIGHBOR and PICKUP: up to eight voices on one audio track, each with its own sample, pitch, envelope and filter, from a folder of …</summary>
+  </entry>
+  <entry>
+    <title>New in the catalogue: MD Drum Engine (Max for Live) (Emulator, Machinedrum)</title>
+    <link href="https://70b185.github.io/Aggregat/?p=md-drum-engine"/>
+    <id>https://70b185.github.io/Aggregat/#project-md-drum-engine</id>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <category term="project"/>
+    <summary>A Max for Live instrument (Ableton Live 12 Suite, Max 9; macOS and 64-bit Windows) built on ModuleDrum's sound core: 16 tracks, 49 machines of the GND, TRX, EFM, E12 and P-I families, per-track effects, LFOs and master processing, played from MIDI clips or a controller; it has …</summary>
+  </entry>
   <entry>
     <title>New in the catalogue: Elektron Model:Samples mods (Yan Hugman) (Mod, Model:Samples)</title>
     <link href="https://70b185.github.io/Aggregat/?p=ms-mods-yanhugman"/>
@@ -455,20 +471,5 @@
     <updated>2026-11-14T00:00:00Z</updated>
     <category term="project"/>
     <summary>Continues PUMP for Digitone in a repo of its own: it carries PUMP's history (2.8-2.10) plus one commit with GESTALT 5.x, which puts a sine wavefolder before the compressor; the mod id is still pump. The old repo digitone-pump is still online at 2.12. elekloader mod. …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: GESTALT (Digitakt) (Mod, Digitakt)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=gestalt-digitakt"/>
-    <id>https://70b185.github.io/Aggregat/#project-gestalt-digitakt</id>
-    <updated>2026-11-14T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>Master chain in place of the Digitakt's stock compressor: RADS, a Geiger Counter-style wave-table destruction, into the PUMP levelling compressor, on every output. Replaces PUMP for Digitakt (use one or the other). elekloader mod (id gestalt-dt). GPL-2.0-or-later. Found by …</summary>
-  </entry>
-  <entry>
-    <title>Update 2026-11-14 (second pass): 9 change reports folded, GLIDE and TERRAIN added, I104-I107, SB24, A65</title>
-    <link href="https://github.com/70b185/Aggregat/commit/a9f891d205dc6b168f5bf3108c4407c2e82077d1"/>
-    <id>https://70b185.github.io/Aggregat/#commit-a9f891d205dc</id>
-    <updated>2026-11-14T00:00:00Z</updated>
-    <category term="update"/>
   </entry>
 </feed>

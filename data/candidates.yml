@@ -96,8 +96,60 @@ projects:
       Tonverk manual's description of its Degrader (bit and sample-rate reduction, overdrive, drop-outs, ring modulation,
       tempo-synced stutters). README (2026-11-24): design phase, no firmware code yet; the repo holds a design spec and a
       plain C DSP with a desktop WAV renderer. No licence file. Same author as Digitone Drum Mode. Found by GitHub search
-      2026-11-25; list it once a mod build exists.
-    sources: [state/NEW.md 2026-11-25, "README, file list (2026-11-25)"]
+      2026-11-25; list it once a mod build exists. 2026-11-26: check_updates cannot read the repo any more (asks for
+      credentials: private or deleted); not searched for elsewhere.
+    sources: [state/NEW.md 2026-11-25, "README, file list (2026-11-25)", "check_updates 2026-11-26"]
+
+  - id: sidecar-mk1
+    name: Sidecar MK1
+    author: tmk009
+    kind: mod
+    devices: [analog-rytm]
+    repo: https://github.com/tmk009/Sidecar-MK1
+    status: unverified
+    notes: >
+      Repo (created 2026-11-25) hosts only a website for seven digital machines for the Analog Rytm MK1 (machine
+      overview, setup and status guide, screenshots), inspired by trigcondition's Sidecar Expander. Firmware, patches
+      and sound engine are not distributed (yet), so OS, licence of the code and tests are unknown. Found by GitHub
+      search 2026-11-26; list it once something runnable is published.
+    sources: [state/NEW.md 2026-11-26, "README (2026-11-26)"]
+
+  - id: digitn2emu
+    name: DigiTN2EMU
+    author: sunskiefer
+    kind: emulator
+    devices: [digitone-2]
+    repo: https://github.com/sunskiefer/DigiTN2EMU
+    status: unverified
+    notes: >
+      Created 2026-11-25 with a one-line README only: a Digitone II emulator for Akai MPC OS, "bring your own ROM". No
+      code yet. Same author as SyntktEMU. Found by GitHub search 2026-11-26.
+    sources: [state/NEW.md 2026-11-26, "README (2026-11-26)"]
+
+  - id: syntktemu
+    name: SyntktEMU
+    author: sunskiefer
+    kind: emulator
+    devices: [syntakt]
+    repo: https://github.com/sunskiefer/SyntktEMU
+    status: unverified
+    notes: >
+      Created 2026-11-25 with a one-line README only ("Syntakt EMU port"); target platform not stated, probably Akai
+      MPC OS like the same author's DigiTN2EMU [?]. No code yet. Found by GitHub search 2026-11-26.
+    sources: [state/NEW.md 2026-11-26, "README (2026-11-26)"]
+
+  - id: dn1-lab-jickssa
+    name: DN1-LAB 0.2.1 alpha
+    author: Jickssa
+    kind: mod
+    devices: [digitone]
+    repo: https://github.com/Jickssa/DN1-LAB-0.2.1-alpha
+    status: unverified
+    notes: >
+      Created 2026-11-17 by the author of SoundLab-A4-DG; one commit with a licence and a README that holds only the
+      title. The name points at a Digitone (MKI) lab build, but nothing says what it does [?]. Found as a new repo of a
+      catalogued author 2026-11-26.
+    sources: [state/NEW.md 2026-11-26, "README, file list (2026-11-26)"]
 
   - id: ghostbreak
     name: Ghostbreak

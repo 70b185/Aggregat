@@ -4,7 +4,7 @@
 
 For people (and agents) who build mods: toolchains, emulators, firmware unpackers, protocol libraries and research write-ups. Pair this with [hardware/](../hardware/README.md), which collects the rules and device facts.
 
-Data last verified: 2026-11-25. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
+Data last verified: 2026-11-26. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
 
 
 The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds), [MUSICIAN-TOOLS.md](MUSICIAN-TOOLS.md) (tools for musicians). Hardware knowledge for writing mods: [hardware/](../hardware/README.md).
@@ -36,6 +36,7 @@ The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds),
 | Project | Devices | What it is | Note | Version / OS | Links |
 |---|---|---|---|---|---|
 | **digikit** (Em D (GitHub m-dwyer); develops in the ElekLabs organisation repo) <br>_cites elektron-firmware-tool; cites dt2-firmware-research_ | Digitakt II, Digitone II, Syntakt | Native Rust emulator that runs the ColdFire and SHARC+ firmware together, with front panel, display and audio, plus a web panel (WASM core), a Tauri desktop app, the … | - | Digitakt II target 1.17 (emulator also runs 1.16 as … | [repo](https://github.com/ElekLabs/digikit) · [earlier repo](https://github.com/m-dwyer/digikit) |
+| **MD Drum Engine (Max for Live)** (kansuaudio) <br>_vendors code from moduledrum_ | Machinedrum (incl. UW) | A Max for Live instrument (Ableton Live 12 Suite, Max 9; macOS and 64-bit Windows) built on ModuleDrum's sound core: 16 tracks, 49 machines of the GND, TRX, EFM, E12 … | - | 1.0.5 (2026-11-25) | [repo](https://github.com/kansuaudio/md-drum-engine) |
 | **sidecar-emu (Sidecar emulator)** (Iced-Cream) <br>_uses analog-emu; cites sidecar-expander_ | Analog Rytm (MKI, MKII), Analog Four / Analog Keys | QEMU cut down to the Raspberry Pi 4B and the devices Sidecar's engine needs: boots the Sidecar engine image, answers over Ethernet, puts an Analog Rytm MKII stand-in on … | - | - | [repo](https://github.com/Iced-Cream/sidecar-emu) |
 | **Gearmulator MD/MM** (Joe Landers) | Machinedrum (incl. UW), Monomachine | Plug-in and standalone emulation of Machinedrum and Monomachine (Gearmulator fork) booting your own OS file. | - | mdmm-v0.1.0-alpha.16 (tag, 2026-11-19); alpha.15 … | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
 | **OP-XY MNMD** (mmockett) <br>_uses gearmulator-md-mm_ | Machinedrum (incl. UW), Monomachine | Machinedrum and Monomachine engines written from scratch (not an emulation of the chips) for the Teenage Engineering OP-XY on the Open-XY SDK. MIT. v1.3.2 (README … | - | v1.3.6 (tag, 2026-11-13): MD KIT builds into one firmware … | [repo](https://github.com/mmockett/OP-XY-MNMD) |
@@ -55,6 +56,8 @@ The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds),
 | **Maschine MD-MM** (sid366) <br>_fork of gearmulator-md-mm_ | Machinedrum (incl. UW), Monomachine | Fork of gearmulator-md-mm with Native Instruments Maschine MK3 integration. | - | - | [repo](https://github.com/sid366/maschine-md-mm-combined) |
 | **Monomodule** (shnolk) <br>_cites elektron-firmware-tool_ | Monomachine | DAW plug-ins and a SysEx library app running the Monomachine engine in a DSP56300 emulator from your OS file. | - | 1.0.0 (2026-09-24) | [repo](https://github.com/shnolk/monomodule) |
 | **octemu** (Mark Roberts (markandrus)) <br>_uses elektron-firmware-tool; cites octamax; cites octabam_ | Octatrack (MKI, MKII) | Octatrack emulator and development environment for firmware changes. | - | 1.40C | [repo](https://github.com/markandrus/octemu) |
+| **DigiTN2EMU** (sunskiefer) | Digitone II | Created 2026-11-25 with a one-line README only: a Digitone II emulator for Akai MPC OS, "bring your own ROM". No code yet. | unverified entry | - | [repo](https://github.com/sunskiefer/DigiTN2EMU) |
+| **SyntktEMU** (sunskiefer) | Syntakt | Created 2026-11-25 with a one-line README only ("Syntakt EMU port"); target platform not stated, probably Akai MPC OS like the same author's DigiTN2EMU [?]. | unverified entry | - | [repo](https://github.com/sunskiefer/SyntktEMU) |
 
 ## Libraries and protocol implementations
 

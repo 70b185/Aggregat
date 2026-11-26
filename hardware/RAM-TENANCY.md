@@ -31,7 +31,7 @@ static map; it is where every platform below lives. Stock's DMA buffers sit just
 | `0x466b8000` | `0x46701340` | stock | DMA section, including the MMC bounce buffer `0x466f1300-0x46701300` that carries every project save and load | 1.11 | `[doc]` {dnfw-mem-regions} {dn2-cfw-prior} |
 | `0x466c0000` | `0x46709340` | stock | DMA buffers, including a 64 KB MMC bounce buffer | 1.12 | `[doc]` {dn2-cfw-t13} {elekloader-dn2-profile} |
 | `0x47fe0000` | `0x48000000` | stock | stack reserve, 128 KiB below the reset SP `0x48000000` (convention of dnfw and digikit; the stack's real depth is unmeasured) | both | `[doc]` {dnfw-mem-regions} {dn2-cfw-t19} |
-| `0x46708000` | `0x46708140` | dnfw | bootscreen (320 B) | 1.11 | `[doc]` {dnfw-mem-regions} |
+| `0x46708000` | `0x46708140` | dnfw | bootscreen (320 B); inside 1.12's DMA buffers above, so a build ported to 1.12 must move it (dn2mk2's v0.73-t1 crashed at `0x46708000` during the start-up animation, I215) | 1.11 | `[doc]` {dnfw-mem-regions} {dn2mk2-1126} |
 | `0x4670a000` | `0x4670f000` | dnfw | Waverider pages chunk | 1.11 | `[doc]` {dnfw-mem-regions} {dn2mk2-ram} |
 | `0x46710000` | `0x46740000` | dnfw | the platform's data window (runtime of data chunks) | 1.11 | `[doc]` {dnfw-mem-regions} {dn2-caves} |
 | `0x46740000` | `0x467a0000` | dnfw | lfowaves, envelope (chunks at `0x46740000`, `0x46750000`, `0x46780000`; 11,716 B) | 1.11 | `[doc]` {dnfw-mem-regions} |
@@ -212,6 +212,8 @@ The area where Model:Cycles mods place added machines; the Syntakt engine ports 
 | `0x43000000` | `0x43000d4e` | model27 | VOSIM code when it is the only added machine (3,406 B, release 0.75) | 1.13 | `[emu]` {model27-1119} |
 | `0x43036000` | `0x43038170` | model27 | VOSIM far table (8,224 B) and variables, 8,560 B, when it is the only added machine | 1.13 | `[emu]` {model27-1119} |
 | `0x43000000` | `0x43178a84` | model27 | the whole payload with every offered card and VOSIM (release 0.75; replaces the 0.72 end `0x43176c58`) | 1.13 | `[doc]` {model27-1119} |
+| `0x46000000` | ? | Modwerk (Model:Cycles development bases) | RAM-boot mailbox at `0x46000000`, the uploaded container from `0x46000040`; written only at a RAM boot, read once at the next soft reset | 1.13 | `[hw]` {modwerk-1126} |
+| `0x47E00000` | `0x47E40000` | Modwerk (Model:Cycles base on core-mc 0.3) | the 256 KiB core and mod area: release base 646706ff takes 38,214 B `.run` and 115,796 B `.bss`, 96 KB of it the 64 KiB module pool and the upload staging (a development base 42,258 / 116,596 B) | 1.13 | `[hw]` {modwerk-1126} |
 
 ## Octatrack DSP X memory (`octatrack`)
 
@@ -247,6 +249,9 @@ MEMORY page does not show the loss.
 | `0x40a955e0` | `0x40aa5de0` | KYOTI | KYOTI V1.8: RELOAD_FROM_PROJECT and DIRECT JUMP DRAM units, 11 arena pages (end is our sum) | 1.40C | `[doc]` {kyoti-1117} |
 | `0x40a955e0` | `0x41498de0` | KYOTI | KYOTI V1.8C and the CLYPS image: Clyps and DIRECT JUMP code (32,496 B) plus Clyps' buffers (every bank's originals, temp saves, Part shadow), 1,709 arena pages (end is our sum) | 1.40C | `[doc]` {kyoti-1117} {kyoti-clyps-scope} |
 | `0x40a955e0` | `0x414aade0` | KYOTI | KYOTI V1.8BC: DIRECT JUMP (4,012 B at `0x40a955e0`), the BLACKPYRAMIDS_303 runtime (46,268 B from `0x40a9658c`), then Clyps and its buffers, 1,721 arena pages (end is our sum) | 1.40C | `[doc]` {kyoti-1120} |
+| `0x40a955e0` | `0x40aa75e0` | KYOTI | KYOTI V1.8 final promoted 2026-11-25: RELOAD_FROM_PROJECT and DIRECT JUMP with VARISPEED's UI code and EMPTY_PATTERN_LED_FIX in DRAM, 12 arena pages (72 KB; end is our sum) | 1.40C | `[doc]` {kyoti-1126} |
+| `0x40a955e0` | `0x4149bde0` | KYOTI | KYOTI V1.8C final promoted 2026-11-25 (Clyps CL47c, a select box per track and pattern): 1,711 arena pages; the CLYPS image 1,710 (end `0x4149a5e0`); ends are our sums | 1.40C | `[doc]` {kyoti-1126} |
+| `0x40a955e0` | `0x414adde0` | KYOTI | KYOTI V1.8BC final promoted 2026-11-25 (= the flashed test image, all unit tests passed): DIRECT JUMP, the BLACKPYRAMIDS_303 runtime and Clyps, 1,723 arena pages (end is our sum) | 1.40C | `[doc]` {kyoti-1126} |
 | `0x40a955e0` | `0x40a96de0` | KYOTI | VARISPEED_EMUS VEM11 feature image: the guard's UI-task code and the bug fixes' DRAM pieces, one arena page (end is our sum) | 1.40C | `[doc]` {kyoti-1120} |
 | `0x40a955e0` | `0x40a985e0` | KYOTI | VARISPEED_EMUS final promoted 2026-11-20 (`140C_VEM11`, mainos `f3b08c79…`): its UI-task code, PART_CHANGE_CARRYOVER_FIX and the 318 B EMPTY_PATTERN_LED_FIX predicate (at `0x40a963b0` in RC1), two arena pages (end is our sum) | 1.40C | `[doc]` {octatrack-kyoti-fw-1121} |
 

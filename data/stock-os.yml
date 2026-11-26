@@ -112,7 +112,7 @@ devices:
       - {id: digitone-2-mod-hack, use: patch, os: ["1.12"], evidence: "README pins the 1.12 hash"}
       - {id: openbridge-digitone-2, use: runs-on, os: ["1.12"], evidence: "base_os in the catalogue", note: "the unit must run 1.12 or later; nothing is patched"}
       - {id: dn2-firmware-explore, use: patch, os: ["1.11"], evidence: "base_os in the catalogue"}
-      - {id: dn2mk2, use: patch, os: ["1.11"], evidence: "base_os in the catalogue", note: "1.12 users must go back to 1.11"}
+      - {id: dn2mk2, use: patch, os: ["1.11"], evidence: "base_os in the catalogue", note: "1.12 users must go back to 1.11; a test build ported to 1.12 (v0.73-t1, 2026-11-25) crashed a unit at start-up and was pulled, so releases stay on 1.11"}
       - {id: dn2-rift, use: patch, os: ["1.11"], evidence: "base_os in the catalogue"}
       - {id: dn2-dt2-firmware-research, use: patch, os: ["1.11"], evidence: "base_os in the catalogue"}
       - {id: digitone-2-modding-skill, use: analysis, os: ["1.11"], evidence: "base_os in the catalogue"}

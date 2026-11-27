@@ -76,7 +76,8 @@ For now a maintainer merges them by hand during manual updates; nothing is taken
 3. Confirmed: move the fact into the device page with `[hw]` and a source key for the project or issue, update the
    status mark in research/RESEARCH-MAP.md, remove or close the hypothesis or task. Contradicted: add a conflict.
    A failure or a test on a unit (a hang, crash, silence, stall, wrong behaviour, a recovery) also becomes an incident
-   in `hardware/INCIDENTS.md` (rule C11): next free I-number, cause and how it was found, fix, status, evidence. Then
+   in `hardware/INCIDENTS.md` (rule C11), at the end of its group's section (S stock, M mod, E emulator or tool,
+   R recovery and transfer links), not at the end of the file: next free I-number, cause and how it was found, fix, status, evidence. Then
    add a rule to AGENT-RULES.md or add the incident to the rule it confirms, and tag the device-page fact `(I<n>)`.
    A bug in Elektron's own OS (a project writes "stock bug", or it reproduces on the unmodified OS) also goes into
    `hardware/STOCK-BUGS.md` with the next free SB-number (rule C12); stock-bug issues come in with the label

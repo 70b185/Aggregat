@@ -5,6 +5,10 @@ data in RAM that stock leaves alone, and each picked its own addresses. This pag
 new project can pick free space and two mods can be checked for a clash before anyone flashes them. Read with rule area
 G8 (mods that coexist) and [`common/memory-maps.md`](common/memory-maps.md), which explains how the ranges were found.
 
+**Check a whole plan** with `python3 mcp/aggregat_mcp.py --call check_ram '{"device": "DN2", "os_version": "1.12", "ranges":
+["0x46708000-0x46708140"]}'` (also an MCP tool). Run it again after every move to another OS version: stock's DMA
+buffers move, and an emulator gate may not see the clash ([I215](INCIDENTS.md#i215-a-dn2mk2-build-ported-to-os-112-crashed-at-start-up-digitone-ii-v073-t1)).
+
 **Declare yours.** If you ship a mod or a platform for these units, open a pull request that adds your ranges here (or
 a [test result](https://github.com/70b185/Aggregat/issues/new?template=test-result.yml) issue). The table is
 machine-readable: the MCP server's `check_address` and the website's Addresses tab read it, and

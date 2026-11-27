@@ -10,10 +10,11 @@ Aggregat is a second-hand knowledge base: facts, rules and failures collected fr
 firmware and no code from those projects. Custom firmware can brick a unit.
 
 1. **Load the context pack for the device first**: [`export/context/<device>-brief.md`](export/context/README.md)
-   (safety rules, recovery, stock bugs, incidents, open questions, catalogued projects; 2k-11k tokens). Load the full
+   (safety rules, recovery, stock bugs, incidents, open questions, catalogued projects; token counts per device in
+   [`export/context/README.md`](export/context/README.md)). Load the full
    pack `export/context/<device>.md` when you need the hardware facts too. Device slugs are in
    [`data/devices.yml`](data/devices.yml).
-2. **Follow the safety rules (A1-A49) in [`hardware/AGENT-RULES.md`](hardware/AGENT-RULES.md) without exception.**
+2. **Follow every safety rule (section A) in [`hardware/AGENT-RULES.md`](hardware/AGENT-RULES.md) without exception.**
    Above all: never touch the bootstrap or updater section (A1), know and write down the recovery path before
    anything is flashed (A2), verify every image before it is written (A6), gate what you ship (A8), and say "not
    hardware-tested" wherever it is true (A18).
@@ -21,9 +22,10 @@ firmware and no code from those projects. Custom firmware can brick a unit.
    own OS) and [`hardware/INCIDENTS.md`](hardware/INCIDENTS.md) (what went wrong on real units, and why).
 4. **Check what others built** before you build it again: [`research/FEATURE-OVERLAP.md`](research/FEATURE-OVERLAP.md) and
    [`catalog/`](catalog/README.md). Before you place code or data in RAM, check who else uses that range:
-   [`hardware/RAM-TENANCY.md`](hardware/RAM-TENANCY.md) and [`hardware/ADDRESS-MAP.md`](hardware/ADDRESS-MAP.md).
+   [`hardware/RAM-TENANCY.md`](hardware/RAM-TENANCY.md) and [`hardware/ADDRESS-MAP.md`](hardware/ADDRESS-MAP.md). Check your whole RAM plan at once, and again after a move to
+   another OS version: `python3 mcp/aggregat_mcp.py --call check_ram '{"device": "DN2", "os_version": "1.12", "ranges": ["0x46708000-0x46708140"]}'`.
 5. **Query instead of reading** when you need something specific:
-   - the MCP server in [`mcp/`](mcp/README.md) (`search_facts`, `rules_for`, `check_address`, `preflight`, ...), or
+   - the MCP server in [`mcp/`](mcp/README.md) (`search_facts`, `rules_for`, `check_address`, `check_ram`, `preflight`, ...), or
    - SQLite directly: `sqlite3 export/aggregat.sqlite` (tables and example queries in
      [`export/README.md`](export/README.md)).
 

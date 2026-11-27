@@ -300,3 +300,34 @@ def test_validate_catches_bad_stock_os(tmp_path):
                  encoding="utf-8")
     r = subprocess.run([PY, str(dst / "scripts" / "validate.py")], cwd=dst, capture_output=True, text=True)
     assert r.returncode == 1 and "no-such-project" in r.stdout + r.stderr
+
+
+def test_mcp_check_ram(repo, monkeypatch):
+    import importlib
+    monkeypatch.setenv("AGGREGAT_DB", str(repo / "export" / "aggregat.sqlite"))
+    sys.path.insert(0, str(ROOT / "mcp"))
+    import aggregat_mcp
+    importlib.reload(aggregat_mcp)
+    # I215: a chunk kept at its 1.11 place lies inside stock's DMA buffers on 1.12
+    res = aggregat_mcp.check_ram("DN2", ["0x46708000-0x46708140"], "1.12")["results"][0]
+    assert res["hits_stock"] and res["overlaps"][0]["user"] == "stock"
+    # the uncached alias names the same bytes
+    alias = aggregat_mcp.check_ram("DN2", ["0x4e708000+0x140"], "1.12")["results"][0]
+    assert alias["range"] == res["range"] and alias["hits_stock"]
+    # a row for '1.73/1.74' applies to 1.74
+    assert aggregat_mcp.os_matches("1.73/1.74", "1.74") and not aggregat_mcp.os_matches("1.11", "1.12")
+    assert "nothing was checked" in aggregat_mcp.check_ram("Heat", ["0x40000000+4"])["note"]
+    with pytest.raises(ValueError):
+        aggregat_mcp.check_ram("DN2", ["0x20-0x10"])
+
+
+def test_mcp_rules_query(repo, monkeypatch):
+    import importlib
+    monkeypatch.setenv("AGGREGAT_DB", str(repo / "export" / "aggregat.sqlite"))
+    sys.path.insert(0, str(ROOT / "mcp"))
+    import aggregat_mcp
+    importlib.reload(aggregat_mcp)
+    every = aggregat_mcp.rules_for("DN2")["count"]
+    some = aggregat_mcp.rules_for("DN2", query="USB")
+    assert 0 < some["count"] < every
+    assert all("usb" in r["text"].lower() for r in some["rules"])

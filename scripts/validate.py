@@ -216,6 +216,13 @@ def main(sync=False):
     # incidents, stock bugs, rules
     rules = set(re.findall(r"^\*\*([A-G]\d+)\.", (ROOT / "hardware" / "AGENT-RULES.md").read_text(encoding="utf-8"), re.M))
     inc = (ROOT / "hardware" / "INCIDENTS.md").read_text(encoding="utf-8")
+    # new incidents appended at the end of the file all land in the last group (it happened to I185-I240)
+    last = inc.split("\n## ")[-1]
+    nums = sorted(int(n) for n in re.findall(r"(?m)^### I(\d+)\.", inc))
+    tail = {int(n) for n in re.findall(r"(?m)^### I(\d+)\.", last)}
+    if last.startswith("R.") and len(nums) >= 3 and set(nums[-3:]) <= tail:
+        warn("hardware/INCIDENTS.md: the three newest incidents are all under R (recovery); "
+             "put each one at the end of its own group (docs/UPDATING.md)")
     inc_ids = re.findall(r"^### (I\d+)\.", inc, re.M)
     for i in {x for x in inc_ids if inc_ids.count(x) > 1}:
         err(f"hardware/INCIDENTS.md: duplicate incident id {i}")

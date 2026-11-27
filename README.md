@@ -23,7 +23,7 @@ and project managers, nothing that changes firmware) · the same lists as Markdo
 ## Building a mod
 
 - **How the hardware works:** [`hardware/`](hardware/README.md) (the ten things to know first, then one page per
-  device), with about 1,100 facts, each with an evidence tag and a source.
+  device), every fact with an evidence tag and a source.
 - **What went wrong before:** [incidents on real units](hardware/INCIDENTS.md) and
   [bugs in Elektron's own OS](hardware/STOCK-BUGS.md) (check before you blame your mod).
 - **What exists already:** [features built elsewhere and shared building blocks](research/FEATURE-OVERLAP.md),
@@ -44,7 +44,7 @@ known and open per device).
 Point the agent at this repo; it will find [AGENTS.md](AGENTS.md). The short version:
 
 1. **One file per device:** [`export/context/<device>-brief.md`](export/context/README.md) holds the safety rules,
-   recovery, stock bugs, incidents and open questions for that device (2k-11k tokens); `<device>.md` adds every fact.
+   recovery, stock bugs, incidents and open questions for that device ([token counts](export/context/README.md)); `<device>.md` adds every fact.
 2. **Or ask instead of reading:** the [MCP server](mcp/README.md) answers `preflight("DN2", "1.12")`,
    `search_facts("reverb", "DN2")`, `check_address("0x46800000")` from the same data. A clone has a `.mcp.json`, so
    Claude Code offers it by itself; other clients need one line of config.

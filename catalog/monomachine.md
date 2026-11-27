@@ -2,12 +2,13 @@
 
 # Monomachine
 
-Data last verified: 2026-11-26
+Data last verified: 2026-11-27
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **MCL (MegaCommand Live)** (Justin Mammarella) | tool | - | 5.10 (tag, 2026-11-27); 5.02 (2026-06-26) | 5.10 | 2026-11-27 | [repo](https://github.com/jmamma/MCL) · [docs](https://jmamma.github.io/MCL/) · [releases](https://github.com/jmamma/MCL/releases) |
 | **C7** (sata1000000) | editor | - | v1.0.0 (tag, 2026-11-24): out of beta | v1.0.0 | 2026-11-24 | [repo](https://github.com/sata1000000/C7) |
 | **Gearmulator MD/MM** (Joe Landers) | emulator | - | mdmm-v0.1.0-alpha.16 (tag, 2026-11-19); alpha.15 (2026-11-18): Machinedrum inter-DSP link as block transfers (-31 % CPU), Record SysEx to File and export shortcuts, +Drive emulation per project, panel control from MIDI; Machinedrum and Monomachine OS files (supplied by you) | waldorf_ship00 | 2026-11-19 | [repo](https://github.com/joelanders/gearmulator-md-mm) · [homepage](https://github.com/joelanders/gearmulator-md-mm/releases) |
 | **MDMM (Machinedrum and Monomachine Editors)** (radekdymacz) | tool | - | mdmm-v0.9.1 (2026-11-13): Monomachine factory reset from your own ROM; the host's Stop is a real stop on the MM, so LOAD SONG works after it; Knob 1-8 as host parameters; several ROM images in one folder; Machinedrum OS 1.63 and Monomachine OS 1.32B (supplied by you) | waldorf_ship00 | 2026-11-19 | [repo](https://github.com/radekdymacz/mdmm) · [homepage](https://mdmm.dev) |
@@ -20,7 +21,6 @@ Data last verified: 2026-11-26
 | **Monomodule for Schwung** (legsmechanical) | emulator | - | - | v0.1.0-test.5 | 2026-09-28 | [repo](https://github.com/legsmechanical/schwung-monomodule) |
 | **Maschine MD-MM** (sid366) | emulator | - | - | v0.1.1-combined.1 | 2026-09-28 | [repo](https://github.com/sid366/maschine-md-mm-combined) |
 | **Monomodule** (shnolk) | emulator | - | 1.0.0 (2026-09-24); Monomachine OS 1.32B (supplied by you) | release | 2026-09-24 | [repo](https://github.com/shnolk/monomodule) |
-| **MCL (MegaCommand Live)** (Justin Mammarella) | tool | - | 5.02 (2026-06-26) | 5.02 | 2026-06-26 | [repo](https://github.com/jmamma/MCL) · [docs](https://jmamma.github.io/MCL/) · [releases](https://github.com/jmamma/MCL/releases) |
 | **TurboMIDI (C++)** (DatanoiseTV) | library | repo unreachable | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
 
 ## Details
@@ -119,6 +119,6 @@ _Sources: state/NEW.md 2026-11-10, README_
 
 ### MCL (MegaCommand Live)
 
-Firmware for the MegaCommand MIDI controller (DIY MegaCommand and MegaCMD), not for an Elektron box: a sequencer, controller and live performance system built around the Machinedrum, with Analog Four and Monomachine support. Runs on AVR; RP2040/RP2350 ports in progress. MCL 5.00 asks for Machinedrum OS X.13 and Monomachine OS X.01. Long-running project (history since 2017).
+Firmware for the MegaCommand MIDI controller (DIY MegaCommand and MegaCMD), not for an Elektron box: a sequencer, controller and live performance system built around the Machinedrum, with Analog Four and Monomachine support. Runs on AVR; RP2040/RP2350 ports in progress. MCL 5.00 asks for Machinedrum OS X.13 and Monomachine OS X.01. Long-running project (history since 2017). 2026-11-27 (README, manual, tag 5.10): the manual now names Machinedrum MDX X.14 or X.20 (some features need X.20) and Monomachine X.01. With MDX X.20 MCL handles parameters 24-37 (second envelope and LFO, retrig, bus sends, envelope destination), shows USR machine labels, fills from the MD's keys, imports locks on steps without a trig and keeps the extra parameters when it sends a kit. Projects from before 5.00 must first go through a separate upgrader firmware, and projects opened in 5.10 do not open in older MCL. Turbo MIDI on a Machinedrum MK1 should stay at 4x or lower.
 
-_Sources: elektronmods list (2026-11-18), README (2026-11-18), Changelog (2026-11-18)_
+_Sources: elektronmods list (2026-11-18), README (2026-11-18), Changelog (2026-11-18), README, manual, tag 5.10 (2026-11-27)_

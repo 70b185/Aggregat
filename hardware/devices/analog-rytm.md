@@ -338,3 +338,8 @@ Sidecar 0.4.3: every remote redraw the Sidecar's patched Rytm firmware receives 
 - **The step event is one step ahead of the sound:** core-ar2's `ev_seq_step` reports the step the clock just made; polling `core_track_step` agreed with it. Passed steps may be rewritten, never the current or next one (A91). `[emu]`; the live page ran on a unit on 2026-11-24 `[hw]` {trig-seedr-1125}
 - **The sequencer reads pattern A01's object directly** (`0x407dd8e3`), not a copy. One step rewrite costs about 419k instructions on average and 661k at most (about 2.1 ms), 94 % of it in stock's step routines; no missed step in 10 loops at 120 BPM or 27 at 300 BPM. `[emu]` {trig-seedr-1125}
 - **Tempo:** `core_tempo` at `0x40287ffc` (BPM x 120) can be written; the clock follows at its next tick. `[emu]` {trig-seedr-1125}
+
+## Light Taps: pad strikes and the panel driver (MKII OS 1.74, 2026-11-17/27) {modwerk-1127}
+- **A light tap is not a hit for stock:** it posts a key press and, 9-14 ms later, a release, but no strike and no pressure; a firm hit posts its press and strike in the same millisecond. `[hw]` (reported) {modwerk-1127}
+- **Panel-driver sites:** `0x4008232c` posts a strike or pressure, `0x40082492` a key press or release, and `0x40081944` is the driver task (about every 1 ms). A strike record is type 3 (strike code, velocity, timestamp); the driver posts the pad release (type 4) only after a real strike, so a mod that turns a tap into a hit must post the release itself ([I239](../INCIDENTS.md#i239-a-light-tap-with-retrig-kept-its-roll-running-light-taps-analog-rytm-mkii)). `[hw]` {modwerk-1127}
+- **The panel's millisecond counter** is 12 bits wide and wraps every 4,096 ms. `[doc]` {modwerk-1127}

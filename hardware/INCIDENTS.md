@@ -907,6 +907,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) �
 - **Later (2026-11-20):** seen twice more on an MKII. On 2026-11-18 command 3 for `OCTABAM 05.RMX` from image N1 left the boot screen with no USB at 30 s and needed a power cycle, while the same file picked from BRAIN > REMIXES on the panel booted; later commanded boots between BUILD 05 images came back 4 of 4. On 2026-11-19 command 3 sent while BUILD 05's DSP frame count was stopped (I170) did not come back in 150 s; two earlier boots from a stalled DSP (after loader phases, I169) did. `[hw]` {octabam-1120}
 - **Later (2026-11-25):** octabam's FAILURE_MODES infers from the source that REMIX SWITCH masked interrupts in the middle of the frame's DMA chain without checking that the DSP cores had parked; its quiesce step now refuses with DSP STOPPED: REBOOT when no frame arrives within 20 ms. Not yet run on a unit. `[doc]` {octabam-1125}
 - **Later (2026-11-22):** commanded boots sent while the DSP was stalled mostly froze or fell back to the flashed image, which neither the boot screen nor the ring fingerprint shows (only the running image's name does); 39 commanded boots from units whose DSP was counting all came back. `[hw]` {octabam-1122}
+- **Later (2026-11-27):** the boot-screen stop came again once in 170 REMIX SWITCH self-boots on an idle unit, after the switch had begun resetting the USB controller; see [I231](#i231-remix-switch-self-boots-came-back-without-usb-or-stopped-on-syncing-project-or-the-boot-screen-octabam-octatrack-mkii). `[hw]` {octabam-1127}
 - **Status:** open.
 - **Evidence:** `[hw]` {octabam-1116}
 - **Rule:** A2, A40
@@ -2080,7 +2081,8 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) �
 - **Seen:** with 8 recorders and 8 voices a click came on almost every bar start, and the USB audio stream lost 16 frames each time.
 - **Cause:** every bar start made the next frame entry 127-134 µs late; such entries recover by themselves, but the guard's lower edge at 110 µs held them back. Measured on the MKI: entries 146.8 and 149.8 µs late stalled the DSP, one 129.5 µs late ran on.
 - **Fix:** the lower edge moved to 140 µs.
-- **Status:** fixed in source; not flashed.
+- **Later (2026-11-27):** the 140 µs edge let an MKII stall at 135.6 µs, so the edge went back to 110 µs and this click returns on the MKI ([I232](#i232-frame-guards-raised-edge-let-an-octatrack-mkii-stall-octabam)). {octabam-1127}
+- **Status:** superseded: reverted to 110 µs on 2026-11-27 (I232).
 - **Evidence:** `[hw]` (measurements) {octabam-1125}
 - **Rule:** A56 (measure a timing window on each model)
 - **Fact:** [devices/octatrack.md](devices/octatrack.md)
@@ -2090,7 +2092,8 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) �
 - **Seen:** with INPUTS on, Windows 10 showed the audio device with error Code 10; on macOS it worked.
 - **Cause:** the OUT stream is asynchronous with implicit feedback taken from the EP3 IN stream, which Windows' own USB Audio 2.0 class driver does not support.
 - **Fix:** none yet; the docs say keep INPUTS OFF on Windows.
-- **Status:** open
+- **Later (2026-11-27):** USB Audio 0.4.1 uses an adaptive EP3 OUT endpoint; Windows 11 showed the same Code 10 with 0.4.0 and accepts 0.4.1. Windows 10 is not retested. `[hw]` {modwerk-1127}
+- **Status:** fixed on Windows 11; Windows 10 not retested.
 - **Evidence:** `[hw]` (user report) {modwerk-1125}
 - **Rule:** A93
 - **Fact:** [devices/octatrack.md](devices/octatrack.md)
@@ -2308,4 +2311,144 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) �
 - **Status:** fixed in 0.1.0; 0.1.0 itself not yet on a unit.
 - **Evidence:** `[hw]` (symptom) / `[emu]` (cost) {synfact-1126}
 - **Rule:** A99
+- **Fact:** [devices/syntakt.md](devices/syntakt.md)
+
+### I227. RIFT's time guard showed a false CPU marker and left out voices with time to spare (DN2-Rift, Digitone II)
+- **Unit:** Digitone II, OS 1.11, DN2-Rift v0.23-v0.26 (the owner's unit, 2026-11-25)
+- **Seen:** with SPALL the CPU marker stayed on most of the time; with ORGAN it stayed on and nothing was heard; only one CONTOUR voice with FDBK up played at a time.
+- **Cause:** the guard expected every slot of the voice walk to cost at least 60,000 cycles on every block, and every CONTOUR voice with FDBK up its worst case (110,000). Measured costs are far lower (an empty slot 900-2,600 instructions, an ORGAN or SPALL voice under 30,000), so the guard left out the walk's last slots and flagged them while time was still free. Measured with the emulator's profiler and the project's cost model.
+- **Fix:** v0.27 prices each voice at its last block x 1.25 (at least 12,000) and charges the higher floor only on the block that triggers it; in the test runner 93 voices were left out where 244 had been.
+- **Status:** fixed in v0.27 (emulator and cost model); not yet confirmed on a unit.
+- **Evidence:** `[hw]` (symptom) / `[emu]` (costs, fix) {dn2-rift-1127}
+- **Rule:** A44
+- **Fact:** [devices/digitone-2.md](devices/digitone-2.md)
+
+### I228. RIFT's sample voices and SMEAR dropped out under load with time free (DN2-Rift, Digitone II)
+- **Unit:** Digitone II, OS 1.11, DN2-Rift v0.26/v0.27 (users' units and the owner's, 2026-11-26)
+- **Seen:** sample-machine voices dropped out with a few tracks playing; SMEAR cut out after 30 to 50 seconds.
+- **Cause:** the guard asked each sample voice for about twice its cost on every block; SMEAR's shared sampler code could be stopped by the guard's "left out twice" rule and was then never restarted (the project's likely explanation). The release review then found that a retriggered sample voice renders twice on its trigger block, so v0.28's first floors were too low and its gate was restarted.
+- **Fix:** v0.28 prices at last cost x 1.25 with a 64,000-cycle floor on a sample voice's trigger block and 74,000 for SMEAR; SMEAR's shared code always runs, and a skip sets the CPU marker. A new gate case retriggers 16 ONESHOT tracks every fourth block.
+- **Status:** fixed in v0.28 (emulator); the owner's test is pending.
+- **Evidence:** `[hw]` (symptom) / `[emu]` (fix) {dn2-rift-1127}
+- **Rule:** A44
+- **Fact:** [devices/digitone-2.md](devices/digitone-2.md)
+
+### I229. RIFT's RUBBER filter was pulled after users' units went quiet and crackled (DN2-Rift, Digitone II)
+- **Unit:** Digitone II, OS 1.11, DN2-Rift v0.24-v0.27 (users' reports, 2026-11-26)
+- **Seen:** voices went quiet after a few notes, FM Tone crackled, and sound dropped out even in an empty project.
+- **Cause:** not stated. RUBBER had already left a track silent from uncleared DDR state ([I216](#i216-rifts-rubber-filter-left-a-track-silent-after-power-on-digitone-ii-v024v025)).
+- **Fix:** v0.28 switches RUBBER off at build time (no DSP chunk, no guard entry, no walk slot); a saved RUBBER sound loads as Multi-Mode. The code is kept for a slimmer return; its page code is still in the image.
+- **Status:** withdrawn.
+- **Evidence:** `[hw]` (user reports) {dn2-rift-1127}
+- **Rule:** A18, G9
+- **Fact:** [devices/digitone-2.md](devices/digitone-2.md)
+
+### I230. FLEX takes played back about one sequencer tick late (dn2mk2, Digitone II)
+- **Unit:** Digitone II, OS 1.11, dn2mk2 v0.75 and earlier (a tester's measurements on his unit, before 2026-11-26)
+- **Seen:** a take recorded on a step while the pattern played came back late: 41 ms at 60 BPM, 25 ms at 90, 18 ms at 120. Users worked around it with microtime -4/24.
+- **Cause:** while the pattern plays, a step's notes go out about one sequencer tick (1/6 of a step) after the step changes, but on PLAY's first step at once; the recorder started at the step change, so every take began a tick early. Reproduced in the coupled emulator (v0.75: 1,456 samples late at 81 BPM).
+- **Fix:** v0.76 starts the take one tick after the step change, less 2 ms (the 2 ms from the tester's numbers); a new gate step allows 80 samples.
+- **Status:** fixed in v0.76 (emulator); not yet confirmed on a unit. RIFT carries the same FLEX code and has not taken the fix yet.
+- **Evidence:** `[hw]` (measurement) / `[emu]` (fix) {dn2mk2-1127}
+- **Rule:** A100
+- **Fact:** [devices/digitone-2.md](devices/digitone-2.md)
+
+### I231. REMIX SWITCH self-boots came back without USB, or stopped on SYNCING PROJECT or the boot screen (octabam, Octatrack MKII)
+- **Unit:** Octatrack MKII, OS 1.40C, octabam main images, the author's unit (2026-11-26/27)
+- **Seen:** a host told an idle unit (REMOTE command 3) to boot the running image's own `.RMX`; some boots did not come back on USB within 150 s, in three ways: (1) the new image ran with a normal screen and live keys but no USB device, and only a power cycle helped; (2) stock's SYNCING PROJECT dialog stayed up with dead keys; (3) the boot screen stayed up. Without a fix, 6 stops in 22 switches.
+- **Cause:** for kind 1, inferred: the soft reset leaves the USB controller configured, and USBCMD.RS, which only stock's session-valid handler sets, stays 0 in the new image; good boots read BSVIS at the first frame and RS 1 right after. Kinds 2 and 3 unknown; in kind 2 the loader waits without a limit on a stock task's event word.
+- **Fix:** before the soft reset REMIX SWITCH clears RS and sets RST (bounded wait): 3 stops in 170 afterwards (2 without USB, 1 boot screen). A longer delay after the panel command, clearing RS alone, or a 2 s bound on the event wait did not change the rate.
+- **Status:** improved; open.
+- **Evidence:** `[hw]` {octabam-1127}
+- **Rule:** A40, A101
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I232. FRAME GUARD's raised edge let an Octatrack MKII stall (octabam)
+- **Unit:** Octatrack MKII, OS 1.40C, octabam main with FRAME GUARD's lower edge at 140 µs and a frame log, USB capture open (2026-11-26/27)
+- **Seen:** after START or a program change from the host the frame interrupts stopped and the sequencer held, as in [I82](#i82-a-frame-interrupt-entering-about-150-µs-late-stopped-an-octatracks-dsp-frame-exchange).
+- **Cause:** the entry after a 494 µs START frame came 135.6 µs late, under the 140 µs edge that I204 had set for the MKI, so the guard let it through and the DSP's frame exchange stopped.
+- **Fix:** the edge is back at 110 µs (still a build option), which brings back the MKI's bar-start click (I204). The 110 µs edge has not yet run long on the image that stalled.
+- **Status:** reverted in source; open (no single edge fits both models on the data so far).
+- **Evidence:** `[hw]` {octabam-1127}
+- **Rule:** A56
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I233. A retriggered recorder left a stale state, and syncs were refused until a power cycle (Modwerk, Octatrack)
+- **Unit:** Octatrack, OS 1.40C, Modwerk base 0.8.1 (a tester); reproduced on the owner's MKII with a twin (2026-11-26)
+- **Seen:** on a stopped unit, module syncs were refused as unsafe ("stop playback or finish recording") until a power cycle.
+- **Cause:** a recording retriggered while it records moves to the other recorder bank, and STOP clears only that bank, so the old bank keeps state 2 (SB44). The base read any nonzero state row as recording.
+- **Fix:** 0.8.2 reads only the bank the track records into, and the refusal names the busy track.
+- **Status:** fixed on a twin on a unit; not run on the release base.
+- **Evidence:** `[hw]` {modwerk-1127}
+- **Rule:** A102
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I234. A project came up empty at every start after a save (Modwerk, Octatrack)
+- **Unit:** Octatrack, OS 1.40C, Modwerk base 0.8.1 (a tester's report)
+- **Seen:** at every power-up the current bank's Parts and patterns read empty until RELOAD.
+- **Cause:** SB22: one saved value that stock's power-up check had to fix made stock drop the whole bank; the saved project still held the value, so a RELOAD brought it back each time.
+- **Fix:** 0.8.2 runs stock's checks first, keeps their fixes and logs them.
+- **Status:** fixed; the tester's case checked in the emulator only (the value is not known), a clean boot passed on a unit.
+- **Evidence:** `[hw]` (report) / `[emu]` {modwerk-1127}
+- **Rule:** A60
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I235. Sidechain silently stayed the stock COMPRESSOR beside big effects (Modwerk, Octatrack MKII)
+- **Unit:** Octatrack MKII, OS 1.40C, Modwerk 0.8.2 development twins (2026-11-26)
+- **Seen:** with E-Verb and Resonator on DSP core 0, picking COMPRESSOR showed the stock page without KEY, and no message.
+- **Cause:** big effect blocks had been placed in the words Sidechain's engine claims later; no free run could take the code that had to move, so the claim was refused silently.
+- **Fix:** big blocks go under a soft ceiling, and a refused claim shows SIDECHAIN PAUSED / DSP MEMORY.
+- **Status:** fixed on twins.
+- **Evidence:** `[hw]` {modwerk-1127}
+- **Rule:** A103
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I236. The Octatrack left USB after a duplex USB Audio trial was undone on Windows (Modwerk)
+- **Unit:** Octatrack MKII, OS 1.40C, Modwerk base 0.8.1, USB Audio 0.4.1, Windows 11 (2026-11-24)
+- **Seen:** the rollback was clean, but about a second later the unit left USB; Windows showed an unknown device whose port reset failed, and only a power cycle brought it back.
+- **Cause:** unknown. It happened with a kept module set loaded, after 240 s of input; three Undos the next day with an empty set did not repeat it.
+- **Fix:** none.
+- **Status:** open.
+- **Evidence:** `[hw]` {modwerk-1127}
+- **Rule:** A88, A93
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I237. A conditional SHARC return froze a Digitakt II (Modwerk assembler, Morpha)
+- **Unit:** Digitakt II, OS 1.17, a Modwerk development base with the Morpha machine (2026-11-23)
+- **Seen:** setting Morpha's WARP to FOLD froze the unit.
+- **Cause:** Modwerk's own SHARC assembler encoded `IF cond RTS` in a form the chip handled correctly only when the return was taken.
+- **Fix:** the plain form, checked in the emulator; FOLD then passed on the unit with base 948be0c4.
+- **Status:** fixed; confirmed on the unit.
+- **Evidence:** `[hw]` {modwerk-1127}
+- **Rule:** A41
+- **Fact:** [devices/digitakt-2.md](devices/digitakt-2.md)
+
+### I238. Heavy machines priced on light patterns were admitted, then crackled (Modwerk, Octatrack)
+- **Unit:** Octatrack, OS 1.40C (field reports); repriced on the owner's MKII (2026-11-26)
+- **Seen:** busy module sets with FM Synth or UNGEMACH were admitted, then crackled.
+- **Cause:** their prices had been read on light patterns (20.4 and 14.6 points); on a medium pattern they cost 32.8 and 27.1.
+- **Fix:** both repriced on a medium pattern.
+- **Status:** fixed.
+- **Evidence:** `[hw]` {modwerk-1127}
+- **Rule:** A65
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I239. A light tap with retrig kept its roll running (Light Taps, Analog Rytm MKII)
+- **Unit:** Analog Rytm MKII, OS 1.74, Light Taps build LT05 (the module's author, 2026-11-25)
+- **Seen:** with retrig on, a light tap kept its roll running more or less all the time.
+- **Cause:** the panel driver posts a pad release only after a real strike, and a light tap has none, so the module's soft hit was never released.
+- **Fix:** LT06 posts the release itself when the pad is let go.
+- **Status:** fixed.
+- **Evidence:** `[hw]` (reported) {modwerk-1127}
+- **Rule:** A104
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)
+
+### I240. I-cache lock refills masked audio interrupts and clicked (Synfact icache-lock-st, Syntakt)
+- **Unit:** Syntakt, OS 1.42, Synfact core 2.9.0 with a 19-module bank including ICACHE LOCK 0.1 (the owner, 2026-11-26)
+- **Seen:** intermittent clicks on a sustained tone; with only the cache refill bypassed, five minutes of playback without a click.
+- **Cause:** once a second the refill masked interrupts for about 2,300 instructions and 256 cache fills while the codec DMA kept running; in the emulator a delayed audio interrupt could then pick the receive half-buffer that was still filling (the likely cause).
+- **Fix:** 0.1.1 keeps audio interrupts on and defers the refill near either DMA half-buffer edge or while a render interrupt is pending; click-free on the unit with the same CPU saving.
+- **Status:** fixed; confirmed on the unit.
+- **Evidence:** `[hw]` (symptom, fix) / `[emu]` (cause) {synfact-1127}
+- **Rule:** A34
 - **Fact:** [devices/syntakt.md](devices/syntakt.md)

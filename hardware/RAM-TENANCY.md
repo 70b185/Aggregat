@@ -72,6 +72,9 @@ static map; it is where every platform below lives. Stock's DMA buffers sit just
 | `0x47f00000` | `0x47f40000` | elekloader | core-dn2 and every elekloader mod (256 KB, the same area as on the Digitakt II) | 1.12 | `[doc]` {elekloader-dn2-device} {elekloader-dn2-profile} |
 | `0x402fc7a8` | `0x402fd000` | digikit patchkit | `cf.flash_cave` (2,136 B at the end of the flashed MAIN) | 1.12 | `[doc]` {digikit-1118} |
 | `0x402fb7a8` | `0x402fc000` | digikit patchkit | `cf.flash_cave` | 1.11 | `[doc]` {digikit-1118} |
+| `0x467a8000` | `0x467a8688` | DN2-Rift (v0.27) | arpscale code chunk, dnfw's 1.11 layout taken over through dn2mk2 | 1.11 | `[doc]` {dn2-rift-1127} |
+| `0x467b8000` | `0x467b8684` | DN2-Rift (v0.27) | degreetranspose code chunk, same origin | 1.11 | `[doc]` {dn2-rift-1127} |
+| `0x405cd8af` | `0x405cd8b0` | DN2-Rift (v0.27) | ARP OFS IN SCALE switch byte in the stock settings block (dnfw's arpscale byte) | 1.11 | `[doc]` {dn2-rift-1127} |
 
 What this shows (2026-11-11)
 - **On 1.11, `0x46800000` has four claimants**: dnfw (and its fork dn2mk2), cfmod, and armio's transplanted runtime,
@@ -178,6 +181,7 @@ The reset copies `0x40312000-0x4031ff60` to SRAM and clears `0x40312000-0x47e284
 | `0x47fe0000` | `0x47fe1000` | digikit | keep area: crash and hang records that survive a soft reset | both | `[doc]` {digikit-f46} |
 | `0x406658c0` | `0x4066d8c0` | stock | 32 KiB scratch of the +Drive close (firmware-owned) | 1.17 | `[doc]` {digikit-f124} |
 | `0x4066d8c0` | `0x406758c0` | stock / digikit | the firmware's 32 KiB close-hash scratch; digikit's core/plusdrive-write borrows it while it holds the filesystem mutex | 1.17 | `[doc]` {digikit-f124} |
+| `0x80003362` | `0x80003c42` | stock | per-track parameter targets, 71 int16 a track, 16 tracks (end is our sum) | 1.17 | `[emu]` {modwerk-1127} |
 
 ## Digitakt II SHARC L2 (`digitakt-2`)
 
@@ -190,6 +194,9 @@ Stock loads up to `0x2001ab7c`; `0x200fa000-0x200fdfff` is referenced by stock.
 | `0x20080000` | ? | dt2-machine-lab | Plaits code | 1.16 | `[doc]` {dt2-lab-capicola} |
 | `0x200a0000` | ? | dt2-machine-lab | Capicola cold code | 1.16 | `[doc]` {dt2-lab-capicola} |
 | `0x200e0000` | `0x200e8000` | dt2-machine-lab | voice state | 1.16 | `[doc]` {dt2-lab-capicola} |
+| `0x200c0100` | `0x200c3000` | Modwerk Digitakt II base | added-machine selector table, player and frame slots, view state | 1.17 | `[doc]` {modwerk-1127} |
+| `0x200c3000` | `0x200c4800` | Modwerk Digitakt II base (proposed) | effect-slot and filter dispatchers (designs approved, no code yet) | 1.17 | `[doc]` {modwerk-1127} |
+| `0x200d0000` | ? | Modwerk machine modules | machine player code and state | 1.17 | `[doc]` {modwerk-1127} |
 
 ## Model:Cycles SDRAM payload area (`model-cycles`)
 
@@ -254,6 +261,9 @@ MEMORY page does not show the loss.
 | `0x40a955e0` | `0x414adde0` | KYOTI | KYOTI V1.8BC final promoted 2026-11-25 (= the flashed test image, all unit tests passed): DIRECT JUMP, the BLACKPYRAMIDS_303 runtime and Clyps, 1,723 arena pages (end is our sum) | 1.40C | `[doc]` {kyoti-1126} |
 | `0x40a955e0` | `0x40a96de0` | KYOTI | VARISPEED_EMUS VEM11 feature image: the guard's UI-task code and the bug fixes' DRAM pieces, one arena page (end is our sum) | 1.40C | `[doc]` {kyoti-1120} |
 | `0x40a955e0` | `0x40a985e0` | KYOTI | VARISPEED_EMUS final promoted 2026-11-20 (`140C_VEM11`, mainos `f3b08c79…`): its UI-task code, PART_CHANGE_CARRYOVER_FIX and the 318 B EMPTY_PATTERN_LED_FIX predicate (at `0x40a963b0` in RC1), two arena pages (end is our sum) | 1.40C | `[doc]` {octatrack-kyoti-fw-1121} |
+| `0x46c938c4` | ? | stock | track recorder records, 44 B per recorder id | 1.40C | `[emu]` {modwerk-1127} |
+| `0x40a9d850` | ? | Modwerk base 0.8.2 | controller write lease (was `0x40a9d794`/`0x40a9d7b0` in 0.8.1) | 1.40C | `[doc]` {modwerk-1127} |
+| `0x40a955e0` | `0x40a9e8b0` | octabam SCOPE (as Modwerk's Scope draft reads it) | SCOPE's unit, 37,584 B (end is our sum) | 1.40C | `[emu]` {modwerk-1127} |
 
 ## Octatrack battery RAM (`octatrack`)
 
@@ -282,6 +292,7 @@ MEMORY page does not show the loss.
 | `0x100ffd40` | ? | Modwerk base 0.7.3+ | machine map (each machine's module and name); covers octabam KITS' ASSIGN at `0x100ffe00` | 1.40C | `[doc]` {modwerk-1117} |
 | `0x100f8f10` | `0x100f8f20` | Modwerk Songbook (draft) | book state (README: 16 B; TESTING mentions a 20-byte record); Modwerk calls `0x100f8f06-0x100f8ffc` free, but it lies inside octabam PLOCKS P2 (O49) | 1.40C | `[doc]` {modwerk-1125} |
 | `0x100fc000` | ? | Modwerk base | diagnostic incident log (`diaglog`: start, base, set, `shed` and other incidents); size not published | 1.40C | `[emu]` {modwerk-1120} |
+| `0x100d38f0` | ? | stock | track recorder control records, 1,096 B per recorder id; stock rewrites six fields about 1.5 times a frame while a track records | 1.40C | `[emu]` {modwerk-1127} |
 
 ## Analog Four MKII DDR (`analog-four-keys`)
 

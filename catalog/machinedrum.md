@@ -2,12 +2,13 @@
 
 # Machinedrum (incl. UW)
 
-Data last verified: 2026-11-26
+Data last verified: 2026-11-27
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **MCL (MegaCommand Live)** (Justin Mammarella) | tool | - | 5.10 (tag, 2026-11-27); 5.02 (2026-06-26) | 5.10 | 2026-11-27 | [repo](https://github.com/jmamma/MCL) · [docs](https://jmamma.github.io/MCL/) · [releases](https://github.com/jmamma/MCL/releases) |
 | **MD Drum Engine (Max for Live)** (kansuaudio) | emulator | - | 1.0.5 (2026-11-25) | - | 2026-11-25 | [repo](https://github.com/kansuaudio/md-drum-engine) |
 | **C7** (sata1000000) | editor | - | v1.0.0 (tag, 2026-11-24): out of beta | v1.0.0 | 2026-11-24 | [repo](https://github.com/sata1000000/C7) |
 | **Machinedrum WebLoader (MDX user machines)** (gerdtanck) | tool | - | untagged (c0494d8, 2026-11-20); Machinedrum running MDX X.20 | - | 2026-11-20 | [repo](https://github.com/gerdtanck/WebLoader) · [homepage](https://gerdtanck.github.io/WebLoader/) |
@@ -33,7 +34,6 @@ Data last verified: 2026-11-26
 | **MDS (Machine Dump Standard)** (Justin Mammarella) | library | - | main @ c446179 (2026-10-09); MDX 2.0 (X.20 or later) | - | 2026-10-09 | [repo](https://github.com/jmamma/MDS) |
 | **MDX** (Justin Mammarella, Yatao Li) | mod | - | X.20 B (2026-10-09) | - | 2026-10-09 | [homepage](https://github.com/jmamma/MDX) |
 | **Maschine MD-MM** (sid366) | emulator | - | - | v0.1.1-combined.1 | 2026-09-28 | [repo](https://github.com/sid366/maschine-md-mm-combined) |
-| **MCL (MegaCommand Live)** (Justin Mammarella) | tool | - | 5.02 (2026-06-26) | 5.02 | 2026-06-26 | [repo](https://github.com/jmamma/MCL) · [docs](https://jmamma.github.io/MCL/) · [releases](https://github.com/jmamma/MCL/releases) |
 | **Say A! (MCL chromatic A tool)** (BartBral) | tool | - | main @ c241980 (2026-05-21) per altstrument | - | 2026-05-21 | [repo](https://github.com/BartBral/MCL-Chromatic-A-tool) · [web app](https://bartbral.github.io/MCL-Chromatic-A-tool/md-transfer.html) |
 | **MDDT (Machinedrum Data Tool)** (waftlord) | editor | - | V2.0 | v1.0.0 | 2026-01-04 | [repo](https://github.com/waftlord/mddt) · [web](https://wftlrd.uk/mddt/) |
 | **TurboMIDI (C++)** (DatanoiseTV) | library | repo unreachable | - | - | 2025-06-07 | [repo](https://github.com/DatanoiseTV/TurboMidi) |
@@ -254,6 +254,6 @@ _Sources: state/NEW.md 2026-11-14, README (2026-11-13)_
 
 ### MCL (MegaCommand Live)
 
-Firmware for the MegaCommand MIDI controller (DIY MegaCommand and MegaCMD), not for an Elektron box: a sequencer, controller and live performance system built around the Machinedrum, with Analog Four and Monomachine support. Runs on AVR; RP2040/RP2350 ports in progress. MCL 5.00 asks for Machinedrum OS X.13 and Monomachine OS X.01. Long-running project (history since 2017).
+Firmware for the MegaCommand MIDI controller (DIY MegaCommand and MegaCMD), not for an Elektron box: a sequencer, controller and live performance system built around the Machinedrum, with Analog Four and Monomachine support. Runs on AVR; RP2040/RP2350 ports in progress. MCL 5.00 asks for Machinedrum OS X.13 and Monomachine OS X.01. Long-running project (history since 2017). 2026-11-27 (README, manual, tag 5.10): the manual now names Machinedrum MDX X.14 or X.20 (some features need X.20) and Monomachine X.01. With MDX X.20 MCL handles parameters 24-37 (second envelope and LFO, retrig, bus sends, envelope destination), shows USR machine labels, fills from the MD's keys, imports locks on steps without a trig and keeps the extra parameters when it sends a kit. Projects from before 5.00 must first go through a separate upgrader firmware, and projects opened in 5.10 do not open in older MCL. Turbo MIDI on a Machinedrum MK1 should stay at 4x or lower.
 
-_Sources: elektronmods list (2026-11-18), README (2026-11-18), Changelog (2026-11-18)_
+_Sources: elektronmods list (2026-11-18), README (2026-11-18), Changelog (2026-11-18), README, manual, tag 5.10 (2026-11-27)_

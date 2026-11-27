@@ -362,5 +362,17 @@ Read once, not checked by a second reader.
 - **The top of the input view stack** names the open screen by its vtable; a reused dialog class cannot be told apart this way, and a view that opens and closes within one UI pass may be missed. View-stack bindings exist for DT2 1.17 and DN2 1.12, not for the Syntakt. `[emu]` {digikit-1126}
 - **Host side:** on macOS a USB audio input can enumerate and return only zero samples when the launching app has no microphone permission. `[doc]` {digikit-1126}
 
+## Modwerk added machines, linked voices, filter sites (OS 1.17, 2026-11-14/25) {modwerk-1127}
+- **Added machine types:** a machine type 7-10 chosen in the menu, saved and reloaded played on a tester's unit; a base without the module loads such a track as SAMPLE without a crash. `[hw]` (one tester) {modwerk-1127}
+- **Machine dispatch on the DSP:** the DSP reads the raw machine type at `DM(0x255970 + track)` and maps it through a 7-word selector table at `0x2567c0` (its base loaded at `0x1c2731`); nothing bounds the index, so types 7 and up read past the table. `[doc]` The render call at `0x1c6b00` can be redirected to a dispatcher with stock voices byte-identical. `[emu]` {modwerk-1127}
+- **SRC page sample list:** it reads the per-type byte `0x401eda30` at seven places (compared with 6); for an added type the list does not scroll until all seven are answered. `[hw]` {modwerk-1127}
+- **Parameter-table bounds:** raising the bound sent the unit to address 1 in the emulator: 17 of the 56 bound checks guard other 275-entry arrays (such as `0x4293c040 + 0x44*c`). Change only the checks that guard the table you grow. `[emu]` {modwerk-1127}
+- **Per-track parameter targets** are 71 int16 a track from `0x80003362`, indexed by sound slot; knob C (crossfade) reaches the DSP as 0 or 1 only. `[emu]` {modwerk-1127}
+- **DSP frame tail:** the words past word 66 are not free; two extra words a track garbled every track's sound. `[emu]` {modwerk-1127}
+- **Note records** are 0x6c bytes (inserted by `0x4013a98c`, or `0x4013aa66` for a note due now); the frame's note loop loads each at `0x4002dff4`, with the track at +0x10 (16 = none). Held-note source and pitch per track are at `0x47db4310` and `0x47db4560`. `[doc]` {modwerk-1127}
+- **Filter type on the DSP:** `DM(0x255990 + track)`, table base loaded at `0x1c26df`; raw types 6-8 map to 0 (no filter) and 9-10 to 1 and 2; at `0x1c6c13` a field of 7 or more jumps past every filter. Kit load keeps a stored filter type only for 0-5 or `0xff` (`0x400db48e`-`0x400db4a5`). `[doc]` Agrees with digikit's earlier reading. {modwerk-1127}
+- **Stock DSP load:** up to 342,016 busy instructions of 666,667 a block with all 16 trig keys and every track's effects up. `[emu]` {modwerk-1127}
+- **Conditional returns:** an `IF cond RTS` as Modwerk's assembler encoded it froze a unit when the condition failed; the plain form fixed it ([I237](../INCIDENTS.md#i237-a-conditional-sharc-return-froze-a-digitakt-ii-modwerk-assembler-morpha)). `[hw]` {modwerk-1127}
+
 ## Gaps
 Memory map beyond the numbers above, DSP memory, machine API, parameter-table layout: not collected yet (see `../MINING.md`).

@@ -350,3 +350,11 @@ A check on paper; nothing was built.
 
 ## MIDI LFO freeze and its fix (vitel2 digitone2-mods, OS 1.12, 2026-11-18) {dn2-mods-vitel2}
 - **After a new project, MIDI-track LFOs stop sending until a note trig plays on the track** (SB31); a tap on the track's trig key also restarts them, lock-only trigs do not. The fix patches the lane update `0x40137770` and the LFO send loop's destination check `0x4012a340`. Stock sends MIDI LFO CCs while the transport is stopped. `[doc]`
+
+## digikit finding 131: MACHINE SEL rows (DN2 1.12, static and emulator, 2026-11-14/15) {digikit-1127}
+- **Row builder** `0x4005b2c0`; group function `0x40059274` (types 0-3 group 1, type 4 MIDI group 2, others 0). A divider row (`-1`) goes in when the group changes and the previous group is not 0 (`0x4005b372`-`0x4005b39c`); its text comes from `0x4005a874`. `[doc]` {digikit-1127}
+- **Keys:** UP/DOWN (`0x4005b9e8`) skip divider rows (row value from `0x4005b162`) and do not wrap. YES compares the row with the marked machine at view `+0x19c` (`0x4005bb86`): the same row closes without a commit (`0x4005bbee`), another commits through `0x40031880`, so picking the current machine again cannot serve as a trigger. `[emu]` {digikit-1127} RIFT cites `0x4005b162` for OS 1.11 and digikit gives the same address for 1.12; check it on your OS before use. `[?]`
+- **Cursor after a page change:** going between the SYN and FLTR pages copies the marked type value into the cursor's row index, so the cursor can land on the wrong row (SB43). digikit's machines hook puts added machine types in group 1, so they get no divider. `[emu]` {digikit-1127}
+- **MultiChoice paint** (DT2 `0x4011693c`, DN2 `0x401182b0`) reads `selected` (`+0x9c`) only for the highlight, so a start index set before the first paint does not scroll the list. `[doc]` {digikit-1127}
+- **SETTINGS list:** digikit's core rebuilds the stock SETTINGS list once after a live load or unload, so a module's row appears or goes without a project change. `[doc]` {digikit-1127}
+- **Interrupt-context hooks:** digikit refuses a live reload of a service with a hook in interrupt context (lfo, vector 191 at IPL 5), after the unload step of an lfo reload never returned on the Digitone II (cause not found); such a service needs a restart. `[?]` {digikit-1127}

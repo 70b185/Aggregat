@@ -118,6 +118,17 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Status:** open in stock; unconfirmed by us (H53)
 - **Evidence:** `[doc]` {dn2-mods-vitel2}
 
+### SB43. MACHINE SEL can put the cursor on the wrong row after a SYN/FLTR page change (Digitone II)
+- **Device and OS:** Digitone II, OS 1.12
+- **Area:** UI, MACHINE SEL
+- **Symptom:** with FM DRUM marked, going from the FLTR page back to SYN highlights WAVETONE instead of FM DRUM.
+- **Trigger:** LEFT/RIGHT between the SYN and FLTR pages when the marked machine's type number differs from its row number.
+- **Cause:** the page change (`0x4005baa8`, `0x4005bab6`) copies the marked type value (`+0x19c` SYN, `+0x1a0` FLTR) into the cursor's row index (`+0x1a4`); rows are not in type order (FM DRUM is type 2, row 1).
+- **Workaround:** none needed on stock; a mod that adds machines should not rely on where the cursor lands after a page change. Whether the cursor can land on a divider is not checked.
+- **Found by:** digikit (finding 131)
+- **Status:** open; emulator observation and static reading, not yet checked by hand on a unit
+- **Evidence:** `[emu]` {digikit-1127}
+
 ## Digitone mk1
 
 ### SB6. The stock restart does not wait for the +Drive or drain the panel link
@@ -256,6 +267,7 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Test tip:** after any mod that stores bytes in Parts, save, restart twice and check the bank.
 - **Found by:** Modwerk (VECTOR, I95)
 - **Status:** stock behaviour
+- **Later (2026-11-27):** the fix stock's check makes stays only in the battery copy; a RELOAD of a save that still holds the value brings the empty bank back at every start ([I234](INCIDENTS.md#i234-a-project-came-up-empty-at-every-start-after-a-save-modwerk-octatrack)). {modwerk-1127}
 - **Evidence:** `[hw]` (restart with no module) / `[emu]` (stock check called directly) {modwerk-vector}
 
 ### SB26. Probable: TRACK COPY / PASTE leaves the LFO designer behind
@@ -385,6 +397,17 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Found by:** octabam (BROWSE PATH GUARD, #1258)
 - **Status:** open in stock
 - **Evidence:** `[emu]` (stock fails 14 of the module gate's 36 checks under the emulator port) {octabam-1126}
+
+### SB44. A retriggered track recorder leaves its old bank reading "recording" (Octatrack)
+- **Device and OS:** Octatrack MKII, OS 1.40C
+- **Area:** track recorders
+- **Symptom:** after a recording is retriggered while it records and then stopped, the bank it left still reads 2 (recording) until that track records again or the unit restarts.
+- **Trigger:** TRACK + REC twice on a recording track, then STOP.
+- **Cause:** each track has two recorder state rows (`0x80004f1e + 84*(track + 8*bank)`); a retrigger moves the recording to the other bank, and STOP clears only the bank selected by bit t of `0x80004f18`.
+- **Workaround:** read only the selected bank's row (rule A102).
+- **Found by:** Modwerk ([I233](INCIDENTS.md#i233-a-retriggered-recorder-left-a-stale-state-and-syncs-were-refused-until-a-power-cycle-modwerk-octatrack))
+- **Status:** stock behaviour, harmless on stock
+- **Evidence:** `[hw]` {modwerk-1127}
 
 ## Analog Rytm
 

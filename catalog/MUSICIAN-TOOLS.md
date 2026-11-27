@@ -4,7 +4,7 @@
 
 Software for using and managing the devices - editors, sample and project managers, Overbridge audio, screen mirrors, control from a computer or an AI agent. **None of these change the firmware.**
 
-Data last verified: 2026-11-26. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
+Data last verified: 2026-11-27. Generated from `data/projects.yml` (and unverified entries from `data/candidates.yml`). Newest activity first in each table; "Note" says only what we can check (repo gone or archived, entry not yet verified). Device pages with full notes: [INDEX.md](README.md).
 
 
 The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds), [DEV-TOOLS.md](DEV-TOOLS.md) (development tools). Hardware knowledge for writing mods: [hardware/](../hardware/README.md).
@@ -12,9 +12,9 @@ The other lists: [MODS.md](MODS.md) (mods, including complete custom OS builds),
 
 | Project | Kind | Devices | What it is | Note | Version / OS | Links |
 |---|---|---|---|---|---|---|
+| **sample-shepherd** (julesyoungberg) <br>_uses elektroid_ | tool | Digitakt II | Organises a sample library (through Fourier Samples), exports it per device profile and syncs it to a sampler without breaking the projects on it: backs up projects, … | - | - | [repo](https://github.com/julesyoungberg/sample-shepherd) |
 | **OpenBridge - Digitone II** (Donmanouche) | tool | Digitone II | A Linux (x86_64) implementation of Overbridge for the Digitone II, as a VST3 plugin (JUCE; the standalone app was dropped on 2026-11-12): 42 channels of USB audio out … | - | 0.1.5 (tag v0.1.5, 2026-11-25; a 0.1.7 commit followed the … | [repo](https://github.com/Donmanouche/OpenBridge-Digitone-2) |
 | **Tributary** (stampman3000-jpg) | tool | Digitone II | An Overwitch rework that plays Overbridge USB audio on Akai MPC standalone tracks; heard on a Digitone II, holding ~4 ms behind the newest USB sample. | - | v1.3.0 (tag, 2026-11-25): the plugin screen redrawn as a … | [repo](https://github.com/stampman3000-jpg/mpc-tributary) |
-| **sample-shepherd** (julesyoungberg) <br>_uses elektroid_ | tool | Digitakt II | Organises a sample library (through Fourier Samples), exports it per device profile and syncs it to a sampler without breaking the projects on it: backs up projects, … | - | - | [repo](https://github.com/julesyoungberg/sample-shepherd) |
 | **SynPat (Syntakt pattern manager)** (nrdsrfr) | tool | Syntakt | Unofficial tool that copies patterns (with their kits) between Syntakt projects, including across project format versions, and backs up and loads projects over USB … | - | - | [repo](https://github.com/nrdsrfr/synpat) |
 | **C7** (sata1000000) | editor | Machinedrum (incl. UW), Monomachine | Desktop app controlling the Machinedrum and Monomachine over SysEx/MIDI (kits, sounds, patterns, songs, samples) with a DAW bridge plug-in for automation. | - | v1.0.0 (tag, 2026-11-24): out of beta | [repo](https://github.com/sata1000000/C7) |
 | **digi-roll-studio** (zooloo303) <br>_vendors code from elk-herd_ | editor | Digitakt II, Digitone II, Analog Four / Analog Keys | Native Rust desktop sequencer for Digitakt II, Digitone II and Analog Four, built from digi-roll. | - | v0.6.1 (tag, 2026-11-23; v0.6.0 the same day) | [repo](https://github.com/zooloo303/digi-roll-studio) |

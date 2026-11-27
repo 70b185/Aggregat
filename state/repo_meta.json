@@ -888,7 +888,7 @@
  "de-pattern/dn2mk2": {
   "full_name": "De-Pattern/dn2mk2",
   "created": "2026-10-27",
-  "pushed": "2026-11-26",
+  "pushed": "2026-11-27",
   "stars": 16,
   "forks": 2,
   "language": "HTML",
@@ -1241,7 +1241,7 @@
  "eleklabs/digikit": {
   "full_name": "ElekLabs/digikit",
   "created": "2026-09-08",
-  "pushed": "2026-11-26",
+  "pushed": "2026-11-27",
   "stars": 62,
   "forks": 18,
   "language": "Rust",
@@ -2308,7 +2308,7 @@
  "julesyoungberg/sample-shepherd": {
   "full_name": "julesyoungberg/sample-shepherd",
   "created": "2026-11-07",
-  "pushed": "2026-11-26",
+  "pushed": "2026-11-27",
   "stars": 0,
   "forks": 0,
   "language": "HTML",
@@ -3128,7 +3128,7 @@
   "full_name": "shnolk/monomodule",
   "created": "2026-09-24",
   "pushed": "2026-10-10",
-  "stars": 178,
+  "stars": 179,
   "forks": 14,
   "language": "C++",
   "fork": false,

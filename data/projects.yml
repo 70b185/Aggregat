@@ -450,6 +450,7 @@ projects:
     kind: emulator
     devices: [digitakt, digitone]
     repo: https://github.com/elekloader/digiemu
+    license: GPL-2.0
     links:
       forum: https://elektronmods.com/thread-20-digiemu-a-digitakt-and-digitone-emulator
     status: stable
@@ -475,6 +476,7 @@ projects:
     kind: mod
     devices: [digitakt]
     repo: https://github.com/irpina/digineighbor
+    license: GPL-2.0
     links:
       forum: https://elektronmods.com/thread-21-digineighor-a-neighbor-machine-for-the-digitakt-mk1
     status: alpha
@@ -503,6 +505,7 @@ projects:
     kind: mod
     devices: [digitakt]
     repo: https://github.com/soejrd/digisophie
+    license: MIT
     links:
       news: https://www.synthtopia.com/content/2026/09/30/unofficial-mods-for-elektron-digitakt-adds-metallic-percussion-synth-machine/
     status: unknown
@@ -561,6 +564,7 @@ projects:
     kind: mod
     devices: [digitakt]
     repo: https://github.com/sumedho/digirequests
+    license: GPL-2.0
     links:
       cc_names_module: https://github.com/sumedho/digirequests/tree/main/modules/cc-names
     status: unknown
@@ -649,6 +653,7 @@ projects:
     kind: mod
     devices: [digitone]
     repo: https://github.com/DigiAlchemydsp/RingTone
+    license: GPL-2.0
     links:
       releases: https://github.com/DigiAlchemydsp/RingTone/releases
     status: wip
@@ -776,6 +781,7 @@ projects:
     kind: mod
     devices: [model-cycles]
     repo: https://github.com/nzimas/motorcycles
+    license: MIT
     links:
       web_patcher: https://nzimas.github.io/motorcycles/install.html
     status: wip
@@ -935,6 +941,7 @@ projects:
     kind: mod
     devices: [syntakt]
     repo: https://github.com/karigardarsson/Synthack-OS
+    license: MIT
     links:
       release_max: https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-v1.0
       release_builder: https://github.com/karigardarsson/Synthack-OS/releases/tag/syntakt-max-modular-builder-rc1
@@ -1069,6 +1076,7 @@ projects:
     kind: mod
     devices: [digitakt]
     repo: https://github.com/Alez22/digistring
+    license: MIT
     status: released
     tested: unit
     tested_note: "author: v0.8.0 on a Digitakt mk1, OS 1.53 and 1.54"
@@ -1150,6 +1158,7 @@ projects:
     kind: mod
     devices: [digitone]
     repo: https://github.com/DigiAlchemydsp/DRUM-PLUS
+    license: GPL-2.0
     status: released
     tested: unit
     tested_note: "shop: tested on hardware, stable"
@@ -1177,6 +1186,7 @@ projects:
     kind: mod
     devices: [digitakt, digitone]
     repo: https://github.com/DigiAlchemydsp/DigiSplash
+    license: GPL-2.0
     status: unlabeled
     contains: "about 40 boot splash and animation files for Digitakt mk1 and Digitone mk1 in the elekloader shop"
     tested: unit
@@ -1284,6 +1294,7 @@ projects:
     kind: mod
     devices: [digitakt]
     repo: https://github.com/irpina/digislicer
+    license: GPL-2.0
     status: released
     tested: unit
     tested_note: "2.5 on a Digitakt mk1 by the author"
@@ -1389,6 +1400,7 @@ projects:
     kind: mod
     devices: [digitakt, digitone]
     repo: https://github.com/elekloader/digihealth
+    license: GPL-2.0
     status: wip
     tested: unit
     tested_note: "README: measured on a unit (read 2026-11-11)"
@@ -1419,6 +1431,7 @@ projects:
     kind: mod
     devices: [digitakt]
     repo: https://github.com/Alez22/digirta
+    license: MIT
     status: unlabeled
     tested: not-stated
     base_os: "Digitakt mk1 OS 1.53 only"
@@ -1439,6 +1452,7 @@ projects:
     kind: mod
     devices: [digitakt, digitone]
     repo: https://github.com/DigiAlchemydsp/DigiCandy
+    license: GPL-2.0
     status: wip
     tested: unit
     base_os: "Digitakt mk1 OS 1.53; Digitone mk1 + Keys OS 1.43"
@@ -1502,6 +1516,7 @@ projects:
     kind: mod
     devices: [digitone]
     repo: https://github.com/irpina/digitables
+    license: GPL-2.0
     status: released
     tested: partly
     tested_note: "1.3 on a Digitone mk1 (shop); power-up restore and arp with tables not yet checked"
@@ -1566,6 +1581,7 @@ projects:
     kind: mod
     devices: [digitone]
     repo: https://github.com/irpina/digicosm
+    license: GPL-2.0
     status: pre-release
     tested: unit
     tested_note: "README: 0.2 tested on a Digitone mk1 by its author, also in digiemu on 1.43 and 1.44; not yet on a Digitone Keys (read 2026-11-11)"
@@ -1594,6 +1610,7 @@ projects:
     kind: mod
     devices: [digitone]
     repo: https://github.com/irpina/digichroma
+    license: GPL-2.0
     status: pre-release
     tested: emulator
     base_os: "Digitone mk1 OS 1.43 and 1.44 (core-dn1 3.2; source option DIGITONE needs unreleased core-dn1 3.3)"
@@ -2238,6 +2255,7 @@ projects:
     kind: mod
     devices: [syntakt]
     repo: https://github.com/Bezronczek/syntakt-firmware-workbench
+    license: MIT
     status: wip
     tested: emulator
     base_os: "Syntakt OS 1.41 only (other files refused, not changed)"
@@ -2263,6 +2281,7 @@ projects:
     list: musician
     devices: [syntakt]
     repo: https://github.com/sinedied/sympakt
+    license: MIT
     links:
       web_app: https://sinedied.github.io/sympakt/
     status: active
@@ -2357,6 +2376,7 @@ projects:
     kind: research
     devices: []
     repo: https://github.com/roblg/ghidra-dsp56300
+    license: Apache-2.0
     status: unlabeled
     base_os: null
     version: "v0.0.7 (2026-10-08)"
@@ -2746,6 +2766,7 @@ projects:
     kind: mod
     devices: [syntakt]
     repo: https://github.com/Rxuting/sy-fm4
+    license: MIT
     status: wip
     tested: partly
     tested_note: "README: tested on a Syntakt, OS 1.40A; some parts verified in an emulator only (read 2026-11-11)"
@@ -2771,6 +2792,7 @@ projects:
     kind: research
     devices: [syntakt]
     repo: https://github.com/Humgic/syntakt-machine45-research
+    license: MIT
     status: wip
     base_os: "Syntakt OS 1.41"
     version: "main @ 9511030 (2026-10-28), no tagged releases"
@@ -2854,6 +2876,7 @@ projects:
     list: musician
     devices: [digitakt, digitone]
     repo: https://github.com/irpina/digiscreen
+    license: GPL-2.0
     status: active
     base_os: null
     version: "main @ 2faefb1 (2026-10-19), untagged"
@@ -2933,6 +2956,7 @@ projects:
     - analog-rytm
     - analog-four-keys
     repo: https://github.com/bandersong/chopshop
+    license: GPL-3.0
     status: active
     tested: partly
     tested_note: "README: classic CHOP and step-lock worked on an MK1 unit; Control, Sample Focus and the Keys parts not reported on a unit (read 2026-11-11)"
@@ -3110,6 +3134,7 @@ projects:
     devices:
     - machinedrum
     repo: https://github.com/smoothdeveloper/fsdsp56k
+    license: AGPL-3.0
     status: active
     base_os: MDX X.20 for running packed machines on hardware
     version: main @ 2ac9d9b (2026-10-26)
@@ -3169,6 +3194,7 @@ projects:
     devices:
     - machinedrum
     repo: https://github.com/etcetc000/kitbasher
+    license: GPL-3.0
     status: active
     tested: partly
     tested_note: "README: X.14 and the beta firmware tested on hardware; stock OS 1.63 in the emulator only (read 2026-11-11)"
@@ -3195,6 +3221,7 @@ projects:
     devices:
     - machinedrum
     repo: https://github.com/janne808/machinedrum-kit
+    license: GPL-3.0
     status: active
     tested: not-stated
     install: "own toolkit"
@@ -3338,6 +3365,7 @@ projects:
     devices:
     - machinedrum
     repo: https://github.com/murdenihcam/murdenihcam-usr-machines
+    license: GPL-3.0
     status: active
     tested: not-stated
     base_os: MDX X.20 B
@@ -3466,6 +3494,7 @@ projects:
     devices:
     - model-cycles
     repo: https://github.com/robertfrombadlistener/CyclesBridge
+    license: MIT
     status: active
     version: main @ 29b2017 (2026-10-01)
     last_activity: '2026-10-01'
@@ -3724,6 +3753,7 @@ projects:
     devices:
     - model-cycles
     repo: https://github.com/imaf6971/vladiktron-spoke
+    license: GPL-2.0
     status: active
     base_os: '1.13'
     version: v0.1.0 (2026-10-30)
@@ -3777,6 +3807,7 @@ projects:
     - model-samples
     - model-cycles
     repo: https://github.com/scottmetoyer/ms-multi-output
+    license: MIT
     status: active
     tested: partly
     tested_note: "README: the Model:Samples and cross-flash targets verified on hardware; the Model:Cycles target never flashed (read 2026-11-11)"
@@ -4070,6 +4101,7 @@ projects:
     devices:
     - octatrack
     repo: https://github.com/KaiDrange/OctaChainer2
+    license: GPL-3.0
     status: active
     version: v2.0.0 (2026-08-05)
     last_activity: '2026-08-05'
@@ -4114,6 +4146,7 @@ projects:
     devices:
     - octatrack
     repo: https://github.com/devilfish707/Octaplay
+    license: MIT
     status: active
     tested: unit
     tested_note: "README: played on an MKII in test images; not stress-tested (read 2026-11-11)"
@@ -4238,6 +4271,7 @@ projects:
     devices:
     - octatrack
     repo: https://github.com/davidferlay/octatrack-manager
+    license: GPL-3.0
     status: active
     base_os: Projects saved on OS 1.40 or later
     version: v0.50.0 (2026-11-11)
@@ -4262,6 +4296,7 @@ projects:
     devices:
     - octatrack
     repo: https://github.com/timhastie/octatrick
+    license: MIT
     status: active
     tested: unit
     base_os: 1.40C
@@ -4538,6 +4573,7 @@ projects:
     devices:
     - syntakt
     repo: https://github.com/Vuulgaris/syncrackd
+    license: MIT
     status: wip
     tested: unit
     tested_note: "README: alpha; every image tested in emulation and on one unit (read 2026-11-11)"
@@ -4575,6 +4611,7 @@ projects:
     devices:
     - digitone
     repo: https://github.com/irpina/digitide
+    license: GPL-2.0
     status: beta
     tested: unit
     tested_note: "0.2 on a Digitone mk1 by the author; not yet on a Keys"
@@ -4601,6 +4638,7 @@ projects:
     devices:
     - digitone
     repo: https://github.com/irpina/digitriad
+    license: GPL-2.0
     status: beta
     tested: unit
     tested_note: "0.2 on a Digitone mk1 by the author; not yet on a Keys"
@@ -4627,6 +4665,7 @@ projects:
     devices:
     - digitone
     repo: https://github.com/irpina/digireel
+    license: GPL-2.0
     status: beta
     tested: unit
     tested_note: "0.2 on a Digitone mk1 by the author; not yet on a Keys"
@@ -4652,6 +4691,7 @@ projects:
     devices:
     - digitone
     repo: https://github.com/irpina/digihoard
+    license: GPL-2.0
     status: beta
     tested: unit
     tested_note: "0.2 on a Digitone mk1 by the author; not yet on a Keys"
@@ -4678,6 +4718,7 @@ projects:
     devices:
     - digitone
     repo: https://github.com/irpina/digihalo
+    license: GPL-2.0
     status: beta
     tested: unit
     tested_note: "0.2 on a Digitone mk1 by the author; not yet on a Keys"
@@ -4757,6 +4798,7 @@ projects:
     - digitone
     - digitakt
     repo: https://github.com/DigiAlchemydsp/sayit
+    license: GPL-2.0
     status: wip
     tested: emulator
     tested_note: "README: built and checked in the emulator, not yet played on hardware (read 2026-11-11)"
@@ -5186,6 +5228,7 @@ projects:
     - analog-four-keys
     - digitakt
     repo: https://github.com/trigcondition/analog-emu
+    license: MIT
     status: wip
     base_os: Rytm MKII 1.73, MKI 1.74; A4 MKI/MKII 1.56; Syntakt 1.42
     last_activity: '2026-11-01'
@@ -5224,6 +5267,7 @@ projects:
     devices:
     - digitakt
     repo: https://github.com/tonyrewin/reslicer-digitakt
+    license: GPL-2.0
     status: wip
     tested: not-stated
     base_os: Digitakt mk1
@@ -5403,6 +5447,7 @@ projects:
     devices:
     - digitakt
     repo: https://github.com/Horhik/diginular
+    license: GPL-2.0
     status: wip
     tested: unit
     tested_note: "README: has run on one Digitakt mk1, OS 1.54, alongside five other mods; that is all the hardware testing so far (read 2026-11-11)"
@@ -5536,6 +5581,7 @@ projects:
     devices:
     - digitakt
     repo: https://github.com/digitaktplus/trig-pages
+    license: GPL-2.0
     status: wip
     tested: not-stated
     base_os: Digitakt mk1 OS 1.53
@@ -5576,6 +5622,7 @@ projects:
     devices:
     - digitone
     repo: https://github.com/DigiAlchemydsp/DigiAlchemy-GamePack-1
+    license: GPL-2.0
     status: wip
     tested: unit
     tested_note: "shop: tested on hardware, stable"
@@ -5699,6 +5746,7 @@ projects:
     devices:
     - digitakt
     repo: https://github.com/droelfdroelf/dtdump
+    license: MIT
     status: archived
     last_activity: '2024-09-20'
     notes: 2019 proof of concept of an open Overbridge protocol implementation; points to Overwitch for active work.
@@ -5714,6 +5762,7 @@ projects:
     - analog-rytm
     - analog-four-keys
     repo: https://github.com/Iced-Cream/analoghealth
+    license: GPL-2.0
     status: wip
     tested: unit
     tested_note: "1.3 on a Rytm MKII, OS 1.74, in test builds since 2026-10-26"
@@ -5780,6 +5829,7 @@ projects:
     devices:
     - model-cycles
     repo: https://github.com/100demons/cycles-mods
+    license: MIT
     status: active
     tested: partly
     tested_note: "README: a status per engine (tested, emulated, experimental); some engines tested on a Model:Cycles (read 2026-11-11)"
@@ -5843,6 +5893,7 @@ projects:
     devices:
     - analog-rytm
     repo: https://github.com/algonormative/analog-rytm-agent-bridge
+    license: MIT
     status: active
     base_os: Rytm MKII
     last_activity: '2026-09-02'
@@ -5862,6 +5913,7 @@ projects:
     devices:
     - digitone
     repo: https://github.com/irpina/digiprism
+    license: GPL-2.0
     status: wip
     tested: unit
     tested_note: "0.2 on a Digitone mk1 by the author; not yet on a Keys"
@@ -5891,6 +5943,7 @@ projects:
     devices:
     - digitone
     repo: https://github.com/irpina/digiswarm
+    license: GPL-2.0
     status: wip
     tested: unit
     base_os: Digitone mk1 OS 1.43/1.44 (elekloader, fxkit on core-dn1 4.1)
@@ -5920,6 +5973,7 @@ projects:
     devices:
     - analog-four-keys
     repo: https://github.com/hugz202/AE-analog-four-mods
+    license: MIT
     status: wip
     tested: not-stated
     tested_note: "README: the 1.56 port's placement checked in emulator sessions; no unit result stated (read 2026-11-11)"
@@ -6073,6 +6127,7 @@ projects:
     devices:
     - octatrack
     repo: https://github.com/alexandrubelc/rebirth2octatrack
+    license: MIT
     status: wip
     base_os: Octatrack with octabam GARDEN36 or later
     last_activity: '2026-10-29'
@@ -6091,6 +6146,7 @@ projects:
     devices:
     - analog-rytm
     repo: https://github.com/Alina-sul/kitsmith
+    license: MIT
     status: wip
     base_os: Analog Rytm MKII
     last_activity: '2026-09-13'
@@ -6177,6 +6233,7 @@ projects:
     - machinedrum
     - monomachine
     repo: https://github.com/sata1000000/C7
+    license: GPL-3.0
     status: active
     last_activity: '2026-11-24'
     version: "v1.0.0 (tag, 2026-11-24): out of beta"
@@ -6197,6 +6254,7 @@ projects:
     devices:
     - octatrack
     repo: https://github.com/snugsound/OctaLib
+    license: Unlicense
     status: inactive
     last_activity: '2025-02-28'
     notes: Librarian for Octatrack projects (bank swaps and more by rewriting the project files). Unlicense.
@@ -6356,6 +6414,7 @@ projects:
     - machinedrum
     - monomachine
     repo: https://github.com/mmockett/OP-XY-MNMD
+    license: MIT
     status: active
     version: "v1.3.6 (tag, 2026-11-13): MD KIT builds into one firmware with Hexagon's Moth; v1.3.5: the synths play at one loudness, MD KIT raises its quieter machines by up to 6 dB"
     last_activity: '2026-11-13'
@@ -6379,6 +6438,7 @@ projects:
     - machinedrum
     - monomachine
     repo: https://github.com/ABarracu87/bsp-machinedrum
+    license: MIT
     status: active
     last_activity: '2026-11-01'
     notes: Uses an Arturia BeatStep Pro as a front panel for the Gearmulator Machinedrum/Monomachine plug-ins, talking to
@@ -6394,6 +6454,7 @@ projects:
     devices:
     - analog-rytm
     repo: https://github.com/hugz202/AE-analog-rytm-mods
+    license: MIT
     status: wip
     tested: partly
     tested_note: "README: the full image flashed and played on a Rytm MK1, OS 1.73; the 1.74 build not flashed yet (read 2026-11-11)"
@@ -6422,6 +6483,7 @@ projects:
     devices:
     - analog-rytm
     repo: https://github.com/Iced-Cream/rytm-mods-boot-report
+    license: GPL-2.0
     status: active
     base_os: Analog Rytm MKII OS 1.73
     last_activity: '2026-10-13'
@@ -6468,6 +6530,7 @@ projects:
     devices:
     - octatrack
     repo: https://github.com/nordseele/otype
+    license: GPL-3.0
     links:
       docs: https://nordseele.github.io/otype-docs/
     status: wip
@@ -6539,6 +6602,7 @@ projects:
     devices:
     - octatrack
     repo: https://github.com/bryantysinger/octa-bt-pt
+    license: MIT
     status: active
     tested: unit
     tested_note: "README: nothing is exposed as a labelled control unless its behaviour was checked against a real unit (read 2026-11-11)"
@@ -6606,6 +6670,7 @@ projects:
     devices:
     - machinedrum
     repo: https://github.com/SamplesAndSnacks/machinedrum-rasp
+    license: MIT
     status: active
     tested: not-stated
     base_os: Machinedrum with MDX X.20
@@ -6660,6 +6725,7 @@ projects:
     devices:
     - machinedrum
     repo: https://github.com/waftlord/mddt
+    license: Apache-2.0
     links:
       web: https://wftlrd.uk/mddt/
     status: active
@@ -7813,6 +7879,7 @@ projects:
     kind: mod
     devices: [digitone]
     repo: https://github.com/irpina/digisendfx
+    license: GPL-2.0
     status: wip
     base_os: "Digitone mk1 / Keys OS 1.43 and 1.44"
     tested: emulator
@@ -7838,6 +7905,7 @@ projects:
     kind: mod
     devices: [digitone, digitakt]
     repo: https://github.com/DigiAlchemydsp/Flex-Plus
+    license: GPL-2.0
     status: active
     base_os: "Digitone mk1 / Keys OS 1.44 (core-dn1 4.0 + machines 0.2); Digitakt mk1 OS 1.54 (core 4.0 + machine-pages 1.1)"
     version: "1.1 (2026-11-10; elemod files keep the machine revision 1.0)"
@@ -7894,6 +7962,7 @@ projects:
     kind: mod
     devices: [octatrack]
     repo: https://github.com/Slingdinger/octatrack-step-view
+    license: MIT
     status: wip
     base_os: "Octatrack MKI/MKII OS 1.40C"
     tested: partly
@@ -8048,6 +8117,7 @@ projects:
     kind: mod
     devices: [digitone]
     repo: https://github.com/DigiAlchemydsp/ESOTERIKA
+    license: GPL-2.0
     status: active
     tested: unit
     tested_note: "shop: tested on hardware, stable"

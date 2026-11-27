@@ -4,9 +4,16 @@
   <link href="https://70b185.github.io/Aggregat/"/>
   <link rel="self" href="https://70b185.github.io/Aggregat/feed.xml"/>
   <id>https://70b185.github.io/Aggregat/</id>
-  <updated>2026-11-26T00:00:00Z</updated>
+  <updated>2026-11-27T00:00:00Z</updated>
   <author><name>Aggregat</name></author>
   <rights>CC0 1.0; linked projects keep their own licences</rights>
+  <entry>
+    <title>Update 2026-11-27: 14 change reports folded, no new repos, I227-I240, SB43-SB44, A100-A104</title>
+    <link href="https://github.com/70b185/Aggregat/commit/7dac9c20bd089ef434acf3a03669391efc6d23e3"/>
+    <id>https://70b185.github.io/Aggregat/#commit-7dac9c20bd08</id>
+    <updated>2026-11-27T00:00:00Z</updated>
+    <category term="update"/>
+  </entry>
   <entry>
     <title>New in the catalogue: MULTI-SAMPLER (Octatrack multisampler) (Mod, Octatrack)</title>
     <link href="https://70b185.github.io/Aggregat/?p=multi-sampler"/>
@@ -462,13 +469,5 @@
     <updated>2026-11-14T00:00:00Z</updated>
     <category term="project"/>
     <summary>Performance repeats from an always-on buffer of the master mix: with MASHUP mode on (FUNC + SAMPLING) the 16 trig keys play the last few seconds back in time while the sequencer runs on underneath. elekloader mod (id mashup-dt). GPL-2.0-or-later. Found by GitHub search …</summary>
-  </entry>
-  <entry>
-    <title>New in the catalogue: GLIDE (Digitakt) (Mod, Digitakt)</title>
-    <link href="https://70b185.github.io/Aggregat/?p=glide-digitakt"/>
-    <id>https://70b185.github.io/Aggregat/#project-glide-digitakt</id>
-    <updated>2026-11-14T00:00:00Z</updated>
-    <category term="project"/>
-    <summary>Digitone-style portamento and legato for every audio track of the Digitakt mk1, on the TRIG page's two blank knobs (G PORT, H LEG). Both are trig parameters, kept in the pattern and p-lockable; they reuse the MIDI chord-note fields NOT3 and NOT4, which audio tracks never play, …</summary>
   </entry>
 </feed>

@@ -666,7 +666,7 @@
  "claidarremer/digitakt-gestalt": {
   "full_name": "ClaidArremer/digitakt-gestalt",
   "created": "2026-11-13",
-  "pushed": "2026-11-13",
+  "pushed": "2026-11-27",
   "stars": 0,
   "forks": 0,
   "language": "C",
@@ -713,7 +713,8 @@
   "license": "GPL-2.0",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-27"
+  "seen": "2026-11-27",
+  "missing": true
  },
  "claidarremer/digitone-digiseq": {
   "full_name": "ClaidArremer/digitone-digiseq",
@@ -1281,7 +1282,7 @@
   "full_name": "elekloader/elekloader",
   "created": "2026-09-26",
   "pushed": "2026-11-26",
-  "stars": 139,
+  "stars": 140,
   "forks": 22,
   "language": "C",
   "fork": false,
@@ -2113,7 +2114,7 @@
  "jamiew/digitakt-digitone-mcp": {
   "full_name": "jamiew/digitakt-digitone-mcp",
   "created": "2026-02-10",
-  "pushed": "2026-11-24",
+  "pushed": "2026-11-27",
   "stars": 1,
   "forks": 0,
   "language": "Python",
@@ -2192,7 +2193,7 @@
   "full_name": "jmamma/MCL",
   "created": "2017-06-16",
   "pushed": "2026-11-26",
-  "stars": 94,
+  "stars": 95,
   "forks": 15,
   "language": "C++",
   "fork": false,
@@ -2231,7 +2232,7 @@
   "full_name": "joelanders/gearmulator-md-mm",
   "created": "2026-08-26",
   "pushed": "2026-11-26",
-  "stars": 534,
+  "stars": 535,
   "forks": 43,
   "language": "C++",
   "fork": true,
@@ -2867,7 +2868,7 @@
  "nzimas/digirust": {
   "full_name": "nzimas/digirust",
   "created": "2026-10-12",
-  "pushed": "2026-11-26",
+  "pushed": "2026-11-27",
   "stars": 3,
   "forks": 0,
   "language": "Swift",
@@ -2960,7 +2961,7 @@
   "created": "2026-10-01",
   "pushed": "2026-11-27",
   "stars": 70,
-  "forks": 185,
+  "forks": 186,
   "language": "Python",
   "fork": false,
   "license": "NOASSERTION",
@@ -3504,7 +3505,7 @@
  "trigcondition/sidecar-expander": {
   "full_name": "trigcondition/sidecar-expander",
   "created": "2026-10-19",
-  "pushed": "2026-11-24",
+  "pushed": "2026-11-27",
   "stars": 13,
   "forks": 0,
   "language": "JavaScript",
@@ -3530,7 +3531,7 @@
  "trigcondition/sidecar-mods": {
   "full_name": "trigcondition/sidecar-mods",
   "created": "2026-10-19",
-  "pushed": "2026-11-23",
+  "pushed": "2026-11-27",
   "stars": 3,
   "forks": 2,
   "language": "Python",
@@ -3738,7 +3739,8 @@
   "license": "MIT",
   "owner_type": "User",
   "archived": false,
-  "seen": "2026-11-27"
+  "seen": "2026-11-27",
+  "missing": true
  },
  "ycmdynp9vw-coder/terrain-dn2": {
   "full_name": "ycmdynp9vw-coder/terrain-dn2",

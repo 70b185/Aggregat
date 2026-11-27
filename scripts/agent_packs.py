@@ -262,7 +262,7 @@ def main():
         f"{c.get('incidents')} incidents on real units and {c.get('stock_bugs')} bugs in Elektron's own OS. "
         "Metadata only, no firmware. CC0.", "",
         "Everything is second-hand; re-check addresses against the cited source. Evidence: [hw] real unit, [emu] "
-        "emulator only, [doc] stated without a test, [?] inferred. Safety rules A1-A49 apply to every flash.", "",
+        "emulator only, [doc] stated without a test, [?] inferred. All safety rules (section A) apply to every flash.", "",
         "## Start here",
         f"- [AGENTS.md]({raw}AGENTS.md): how agents should use this repository",
         f"- [Agent rules]({raw}hardware/AGENT-RULES.md): safety, legal and process rules, each with its evidence",

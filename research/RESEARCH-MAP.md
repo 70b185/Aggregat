@@ -4,7 +4,7 @@
 
 The aim: whoever starts a research session (alone or with an AI agent) starts where the community's knowledge ends, instead of re-deriving what is already settled. Every line points to where the details and sources are. Phase 1 devices first (Digitakt MKI/II, Digitone MKI/II, Syntakt, Analog Heat); phase 2 follows.
 
-Last reviewed: 2026-11-03. Details and sources: [hardware/](../hardware/README.md) (rules A1-A56 and sections B-G, [INCIDENTS.md](../hardware/INCIDENTS.md), device files, [CONFLICTS.md](../hardware/CONFLICTS.md)). Projects: [MODS.md](../catalog/MODS.md), [DEV-TOOLS.md](../catalog/DEV-TOOLS.md).
+Last reviewed: 2026-11-03. Details and sources: [hardware/](../hardware/README.md) (safety rules (section A) and sections B-G, [INCIDENTS.md](../hardware/INCIDENTS.md), device files, [CONFLICTS.md](../hardware/CONFLICTS.md)). Projects: [MODS.md](../catalog/MODS.md), [DEV-TOOLS.md](../catalog/DEV-TOOLS.md).
 
 ## How to read the status column
 
@@ -27,11 +27,11 @@ This page is the one place where the research of all projects comes together.
 | Layer | What it is | Where |
 |---|---|---|
 | **Goals** (G1-G8) | What the whole community gains, beyond any single mod | [Shared goals](#shared-goals-worth-more-than-any-single-mod) below |
-| **Open questions** | Status ❓/⬜ per device; disagreements between projects (O1-O19) | the device tables below; [CONFLICTS.md](../hardware/CONFLICTS.md) |
-| **Experiments** | Tasks that need research (T1-T24) and inferred facts that need one test on a unit (H1-H65) | [Shared to-do](#shared-to-do); [HYPOTHESES.md](../hardware/HYPOTHESES.md) |
+| **Open questions** | Status ❓/⬜ per device; disagreements between projects (O...) | the device tables below; [CONFLICTS.md](../hardware/CONFLICTS.md) |
+| **Experiments** | Tasks that need research (T...) and inferred facts that need one test on a unit (H...) | [Shared to-do](#shared-to-do); [HYPOTHESES.md](../hardware/HYPOTHESES.md) |
 | **Results** | Facts with evidence tags and sources; rules distilled from them | [hardware/devices/](../hardware/README.md), [AGENT-RULES.md](../hardware/AGENT-RULES.md) |
-| **Incidents** (I1-I66) | What went wrong or was tested on real units, the cause and how it was found, and the rule it taught (rule C11: every failure becomes an incident, every general lesson a rule) | [INCIDENTS.md](../hardware/INCIDENTS.md) |
-| **Stock bugs** (SB1-SB18) | Bugs in Elektron's own OS that projects found while testing, with trigger, workaround and a test tip (rule C12: reproduce on stock before you blame your mod) | [STOCK-BUGS.md](../hardware/STOCK-BUGS.md), [report form](https://github.com/70b185/Aggregat/issues/new?template=stock-bug.yml) |
+| **Incidents** (I...) | What went wrong or was tested on real units, the cause and how it was found, and the rule it taught (rule C11: every failure becomes an incident, every general lesson a rule) | [INCIDENTS.md](../hardware/INCIDENTS.md) |
+| **Stock bugs** (SB...) | Bugs in Elektron's own OS that projects found while testing, with trigger, workaround and a test tip (rule C12: reproduce on stock before you blame your mod) | [STOCK-BUGS.md](../hardware/STOCK-BUGS.md), [report form](https://github.com/70b185/Aggregat/issues/new?template=stock-bug.yml) |
 
 Each goal below lists the questions, tasks and tests that move it. A result goes into the device file, changes the status mark here, and closes the conflict, task or test it answered.
 

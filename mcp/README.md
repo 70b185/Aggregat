@@ -41,10 +41,11 @@ To use a database somewhere else, set `AGGREGAT_DB=/path/to/aggregat.sqlite` in 
 |---|---|
 | `preflight(device, os_version?)` | Before flashing: checklist, key safety rules, recovery facts (and whether recovery is proven on a unit), stock bugs, incidents, mods for that OS |
 | `context_pack(device, brief?)` | The device's context pack as Markdown ([export/context/](../export/context/README.md)) |
-| `search_facts(query, device?, evidence?, limit?)` | Full-text search over about 1,100 hardware facts, `[hw]` first; an address searches the address index |
+| `search_facts(query, device?, evidence?, limit?)` | Full-text search over the hardware facts, `[hw]` first; an address searches the address index |
+| `check_ram(device, ranges, os_version?, space?)` | Check a whole RAM plan against [RAM-TENANCY.md](../hardware/RAM-TENANCY.md): every listed claim each range overlaps, stock first. No overlap does not prove a range is free |
 | `get_fact(id)` | One fact by its stable id, with the sources it cites |
 | `check_address(address, device?, window?)` | Facts at and near an address, and which mod platforms claim that RAM ([RAM-TENANCY.md](../hardware/RAM-TENANCY.md)) |
-| `rules_for(device?, section?, full_text?)` | Safety rules plus the rules that name the device |
+| `rules_for(device?, section?, full_text?, query?)` | Safety rules plus the rules that name the device |
 | `list_stock_bugs(device?)` | Bugs in Elektron's own OS |
 | `list_incidents(device?, query?)` | What went wrong on real units, cause, fix, rule |
 | `find_projects(query?, device?, kind?, tested?)` | Catalogued mods, firmware, loaders, tools |

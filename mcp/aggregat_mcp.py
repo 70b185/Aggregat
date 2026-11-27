@@ -109,16 +109,20 @@ def get_fact(id: str):
             "devices": f["devices"], "addresses": f["addresses"], "text": f["text"], "sources": src}
 
 
-def rules_for(device: str = None, section: str = None, full_text: bool = True):
-    """Agent rules: every safety rule (section A) plus the rules that name the device. section: a letter A-G to filter."""
+def rules_for(device: str = None, section: str = None, full_text: bool = True, query: str = None):
+    """Agent rules: every safety rule (section A) plus the rules that name the device. section: a letter A-G to filter.
+    query: only rules whose text has all these words (the full list is long); it narrows what you read, not what applies."""
     slug = dev_slug(device)
     rs = rows("SELECT id, section, title, text, evidence, devices FROM rules")
+    words = (query or "").lower().split()
     out = []
     for r in rs:
         letter = r["section"][:1]
         if section and letter != section.upper()[:1]:
             continue
         if slug and letter != "A" and slug not in (r["devices"] or "").split(","):
+            continue
+        if words and not all(w in f"{r['title']} {r['text']}".lower() for w in words):
             continue
         out.append({"id": r["id"], "section": r["section"], "evidence": r["evidence"],
                     **({"text": r["text"]} if full_text else {"title": r["title"]})})
@@ -159,15 +163,72 @@ def ram_tenancy():
 def ram_users(device: str, os_version: str = None):
     """The RAM tenancy table for a device: which platform or mod uses which range, and the overlaps between them."""
     slug = dev_slug(device)
-    rs = [r for r in ram_tenancy() if r["device"] == slug and (not os_version or r["os"] in (os_version, "both"))]
+    rs = [r for r in ram_tenancy() if r["device"] == slug and os_matches(r["os"], os_version)]
     clashes = []
     for i, a in enumerate(rs):
         for b in rs[i + 1:]:
             if a["space"] == b["space"] and a["user"] != b["user"] and a["start"] < b["end"] and b["start"] < a["end"] \
-                    and (a["os"] == b["os"] or "both" in (a["os"], b["os"])):
+                    and ("both" in (a["os"], b["os"]) or set(a["os"].split("/")) & set(b["os"].split("/"))):
                 clashes.append({"a": f"{a['user']} {a['range']}", "b": f"{b['user']} {b['range']}", "os": a["os"]})
     return {"device": slug, "os_version": os_version, "ranges": rs, "overlaps": clashes,
             "source": "hardware/RAM-TENANCY.md; add your ranges there"}
+
+
+def os_matches(row_os: str, os_version: str = None):
+    """Does a RAM tenancy row apply to this OS? A row's OS is one version, several ('1.73/1.74') or 'both'."""
+    if not os_version:
+        return True
+    have = {v.strip().lower() for v in (row_os or "").split("/")}
+    return "both" in have or os_version.strip().lower() in have
+
+
+def parse_range(text: str):
+    """'0x46700000-0x46710000' (end exclusive), '0x46700000+0x4000', '0x46700000+16384' or one address."""
+    m = re.fullmatch(r"\s*(0x[0-9a-fA-F]+)\s*(?:([-+])\s*(0x[0-9a-fA-F]+|\d+))?\s*", str(text))
+    if not m:
+        raise ValueError(f"cannot read range {text!r}; write 0xSTART-0xEND (end exclusive) or 0xSTART+SIZE")
+    start = int(m.group(1), 16)
+    n = int(m.group(3), 0) if m.group(3) else None
+    end = start + 1 if n is None else (start + n if m.group(2) == "+" else n)
+    if end <= start:
+        raise ValueError(f"empty range {text!r}")
+    return start, end
+
+
+def check_ram(device: str, ranges: list, os_version: str = None, space: str = None):
+    """Check a whole RAM plan: which listed claims (stock first) does each range overlap? Run it before you place code or
+    data, and again after moving to another OS version. No overlap does NOT prove a range is free (rules A43, A92, D11).
+    ranges: ['0x46708000-0x46708140', '0x467e8000+0x140']. space: part of a space name, e.g. 'SHARC L2'."""
+    slug = dev_slug(device)
+    if not slug:
+        raise ValueError("device is required")
+    if isinstance(ranges, str):
+        ranges = [ranges]
+    claims = [r for r in ram_tenancy() if r["device"] == slug and os_matches(r["os"], os_version)]
+    if space:
+        claims = [r for r in claims if space.lower() in r["space"].lower()]
+    else:       # storage sectors and battery RAM have their own numbering: only on request
+        claims = [r for r in claims if not re.search(r"drive|emmc|battery", r["space"], re.I)]
+    pick = ("user", "space", "range", "os", "use", "evidence", "sources")
+    out = []
+    for text in ranges:
+        start, end = parse_range(text)
+        # Digitakt II / Digitone II: 0x4e...... is the uncached view of 0x46......
+        if slug in ("digitone-2", "digitakt-2") and not space and 0x4E000000 <= start < 0x50000000:
+            start, end = start - 0x08000000, end - 0x08000000
+        hits = sorted((c for c in claims if c["start"] < end and start < c["end"]),
+                      key=lambda c: (c["user"].split()[0] != "stock", c["start"]))
+        # a claim with a start but no size, just below the range, may reach into it
+        open_below = [c for c in claims if c["end"] == c["start"] + 1 and start - 0x10000 <= c["start"] < start]
+        out.append({"range": f"0x{start:08x}-0x{end:08x}", "asked": text,
+                    "hits_stock": any(c["user"].split()[0] == "stock" for c in hits),
+                    "overlaps": [{k: c[k] for k in pick} for c in hits],
+                    "size_unknown_just_below": [{k: c[k] for k in pick} for c in open_below]})
+    return {"device": slug, "os_version": os_version, "claims_compared": len(claims), "results": out,
+            "note": ("No claims are listed for this device and OS: nothing was checked. " if not claims else "")
+                    + ("No OS version given: claims of all versions are mixed. " if not os_version else "")
+                    + "The register is second-hand and incomplete; no overlap does not prove a range is free "
+                      "(hardware/AGENT-RULES.md A43, A92, D11)."}
 
 
 def preflight(device: str, os_version: str = None):
@@ -307,10 +368,12 @@ TOOLS = {
     "get_fact": (get_fact, {"id": {**S, "description": "stable fact id, e.g. digitone-2#3f9a01bc"}}, ["id"]),
     "rules_for": (rules_for, {"device": DEV, "section": {**S, "description": "A safety, B legal, C process, D writing mods, "
                                                                             "E parameter tables, F SysEx, G working method"},
-                              "full_text": B}, []),
+                              "full_text": B, "query": {**S, "description": "only rules containing all these words, e.g. USB"}}, []),
     "check_address": (check_address, {"address": {**S, "description": "hex address, e.g. 0x46800000"}, "device": DEV,
                                       "window": {**I, "description": "also list facts within +- this many bytes (default 256)"}}, ["address"]),
     "ram_users": (ram_users, {"device": DEV, "os_version": {**S, "description": "e.g. 1.11"}}, ["device"]),
+    "check_ram": (check_ram, {"device": DEV, "ranges": {"type": "array", "items": S, "description": "0xSTART-0xEND (end exclusive) or 0xSTART+SIZE"},
+                              "os_version": {**S, "description": "e.g. 1.12"}, "space": {**S, "description": "e.g. SHARC L2"}}, ["device", "ranges"]),
     "preflight": (preflight, {"device": DEV, "os_version": {**S, "description": "e.g. 1.12"}}, ["device"]),
     "find_projects": (find_projects, {"query": S, "device": DEV, "kind": S, "tested": S, "limit": I}, []),
     "list_stock_bugs": (list_stock_bugs, {"device": DEV}, []),
@@ -348,7 +411,8 @@ def handle(msg):
             result = {"protocolVersion": want if want in PROTOCOLS else PROTOCOLS[0],
                       "capabilities": {"tools": {"listChanged": False}}, "serverInfo": SERVER,
                       "instructions": "Aggregat: second-hand knowledge about Elektron hardware for mod developers. "
-                                      "Start with preflight or context_pack for the device; follow safety rules A1-A49; "
+                                      "Start with preflight or context_pack for the device; follow every section A safety rule; "
+                                      "check your RAM plan with check_ram; "
                                       "prefer [hw] evidence; cite facts by their id."}
         elif method == "ping":
             result = {}

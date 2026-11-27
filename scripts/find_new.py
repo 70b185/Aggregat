@@ -22,7 +22,8 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
-QUERIES = ["digitakt", "digitone", "syntakt", "analog heat elektron", "elektron firmware", "elektron mod",
+QUERIES = ["digitakt", "digitone", "syntakt", "analog heat elektron", "heatfx", "heat fx elektron", "analog heat mkii",
+           "elektron firmware", "elektron mod",
            "elektron sysex", "digitakt ii", "digitone ii", "elekloader", "elektron os", "overbridge",
            "elektron transfer", "octatrack", "analog rytm", "analog four", "elektron model", "modded-cycles",
            "model:cycles mod", "model:samples mod", "machinedrum", "monomachine", "topic:digitakt", "topic:digitone", "topic:elektron"]
@@ -30,7 +31,9 @@ QUERIES = ["digitakt", "digitone", "syntakt", "analog heat elektron", "elektron 
 
 # File contents only Elektron projects carry: stock OS file names and addresses from the device pages.
 CODE_QUERIES = ["Digitakt_II_OS1", "Digitone_II_OS1", "Syntakt_OS1", "Digitakt_OS1", "Digitone_OS1",
-                "Model_Cycles_OS", "Model_Samples_OS", "Analog_Heat_OS", "Octatrack_OS", "0x403117c4", "elemod",
+                "Model_Cycles_OS", "Model_Samples_OS", "Octatrack_OS", "0x403117c4", "elemod",
+                # Analog Heat: Elektron's +FX file is Analog-HeatFX_OS1.02.syx, dn2-cfw renames it Analog-Heat+FX_OS1.02.syx
+                "Analog-Heat_OS", "Analog-HeatFX_OS", "Analog-Heat+FX_OS", "Analog-Heat_MKII_OS",
                 "filename:AGGREGAT_RESEARCH.md"]   # projects that take part in the research (research/PARTICIPANTS.md)
 
 
@@ -54,7 +57,7 @@ def known_repos():
 
 # Name or description must point at Elektron gear for a catalogued author's new repo to be listed (their other
 # repos - other brands, games, tools - are noise). "digi" catches names like Digi2Core with an empty description.
-ELEKTRON = re.compile(r"elektron|digitakt|digitone|syntakt|octatrack|rytm|analog[ _-]?(four|keys|heat)|"
+ELEKTRON = re.compile(r"elektron|digitakt|digitone|syntakt|octatrack|rytm|analog[ _-]?(four|keys|heat)|heat[ _+-]?fx|"
                       r"model[ :_-]?(cycles|samples)|machinedrum|monomachine|elekloader|elemod|overbridge|tonverk|"
                       r"(^|[^a-z])(digi|dt[12]|dn[12]|ot[ _-]?mk|ar[12]|a4)", re.I)
 

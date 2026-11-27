@@ -300,3 +300,47 @@ def test_validate_catches_bad_stock_os(tmp_path):
                  encoding="utf-8")
     r = subprocess.run([PY, str(dst / "scripts" / "validate.py")], cwd=dst, capture_output=True, text=True)
     assert r.returncode == 1 and "no-such-project" in r.stdout + r.stderr
+
+
+MYBB_THREAD = """<html><body>
+<div class="post " style="" id="post_301"><a href="https://github.com/someone/heatfx-mod">repo</a></div>
+<div class="post " style="" id="post_305">see https://github.com/orgs/elektron and github.com/a/b.git</div>
+<div class="pagination"><a href="thread-92-analog-heat-fx-multimode-beta-0-1.html?page=2">2</a>
+<a href="showthread.php?tid=92&amp;page=3">3</a><a href="thread-17.html?page=9">other thread</a></div>
+<span>Users browsing this thread: 4 Guest(s)</span></body></html>"""
+
+
+def test_page_fingerprint_counts_posts_pages_and_repo_links():
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import check_updates as cu
+    url = "https://elektronmods.com/thread-92-analog-heat-fx-multimode-beta-0-1"
+    files = cu.page_fingerprint(MYBB_THREAD, url)
+    assert set(files) == {"post 301", "post 305", "pages 3", "link github.com/someone/heatfx-mod"}
+    # online users and other threads' pages do not count
+    assert cu.page_fingerprint(MYBB_THREAD.replace("4 Guest", "9 Guest"), url) == files
+    with pytest.raises(RuntimeError):
+        cu.page_fingerprint("<html>no posts</html>", url)
+
+
+def test_check_page_reports_new_posts_and_links():
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import check_updates as cu
+    t = {"repo": "https://elektronmods.com/thread-92-x", "watch": ["posts"], "kind": "page"}
+    first = cu.check_page("p", t, None, fetch=lambda u: MYBB_THREAD)
+    assert first["status"] == "new"
+    prev = {"head": first["head"], "files": first["files"]}
+    assert cu.check_page("p", t, prev, fetch=lambda u: MYBB_THREAD)["status"] == "unchanged"
+    more = MYBB_THREAD.replace("</body>", '<div id="post_310">https://github.com/x/y</div></body>')
+    r = cu.check_page("p", t, prev, fetch=lambda u: more)
+    assert r["status"] == "changed" and r["added"] == ["link github.com/x/y", "post 310"]
+    def down(u):
+        raise OSError("blocked")
+    assert cu.check_page("p", t, prev, fetch=down)["status"] == "error"
+
+
+def test_forum_only_candidates_are_watched():
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import check_updates as cu
+    targets, _ = cu.load_targets()
+    assert targets["heatfx-multimode"]["kind"] == "page"
+    assert cu.is_page("https://elektronmods.com/thread-92-x") and not cu.is_page("https://elektronauts.com/t/x")

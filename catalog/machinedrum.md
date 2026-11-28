@@ -2,12 +2,13 @@
 
 # Machinedrum (incl. UW)
 
-Data last verified: 2026-11-27
+Data last verified: 2026-11-28
 
 > Phase 2: catalogue imported from altstrument on 2026-11-01 (metadata only); no hardware notes yet.
 
 | Project | Kind | Note | Version / OS | Latest tag (auto) | Last seen | Links |
 |---|---|---|---|---|---|---|
+| **ModuleDrum** (K-X420) | emulator | - | v1.5.0 (tag, 2026-11-27) | v1.5.0 | 2026-11-27 | [repo](https://github.com/K-X420/ModuleDrum) |
 | **MCL (MegaCommand Live)** (Justin Mammarella) | tool | - | 5.10 (tag, 2026-11-27); 5.02 (2026-06-26) | 5.10 | 2026-11-27 | [repo](https://github.com/jmamma/MCL) · [docs](https://jmamma.github.io/MCL/) · [releases](https://github.com/jmamma/MCL/releases) |
 | **MD Drum Engine (Max for Live)** (kansuaudio) | emulator | - | 1.0.5 (2026-11-25) | - | 2026-11-25 | [repo](https://github.com/kansuaudio/md-drum-engine) |
 | **C7** (sata1000000) | editor | - | v1.0.0 (tag, 2026-11-24): out of beta | v1.0.0 | 2026-11-24 | [repo](https://github.com/sata1000000/C7) |
@@ -21,7 +22,6 @@ Data last verified: 2026-11-27
 | **DBX-DR (dark drone for MDX)** (MonCalamari) | mod | - | Machinedrum MKI/MKII running MDX X.20 (MDS 1.1) | drone-v0.5 | 2026-11-07 | [repo](https://github.com/MonCalamari/DBX-DR) |
 | **DBX-K2 (resonator kick for MDX)** (MonCalamari) | mod | - | kick2-v0.9 (2026-11-06): HOLD replaces colour, pitch 38-160 Hz, saturation always on; v0.7 first release the same day; Machinedrum MKI/MKII running MDX X.20 | kick2-v0.9 | 2026-11-06 | [repo](https://github.com/MonCalamari/DBX-K2) |
 | **mds-tools (MDS packer and certifier)** (Justin Mammarella) | tool | - | main @ 983600a (2026-11-03); MDX 2.0 USR machines (Machinedrum MKI and MKII) | - | 2026-11-03 | [repo](https://github.com/jmamma/mds-tools) |
-| **ModuleDrum** (K-X420) | emulator | - | - | v1.4.1 | 2026-11-01 | [repo](https://github.com/K-X420/ModuleDrum) |
 | **BSP Machinedrum** (ABarracu87) | tool | - | - | v0.3.5 | 2026-11-01 | [repo](https://github.com/ABarracu87/bsp-machinedrum) |
 | **MoDule (MD Drums)** (c0remusic) | emulator | - | - | module-v0.1.2 | 2026-10-29 | [repo](https://github.com/c0remusic/MModule) |
 | **fsdsp56k** (smoothdeveloper) | tool | - | main @ 2ac9d9b (2026-10-26); MDX X.20 for running packed machines on hardware | - | 2026-10-26 | [repo](https://github.com/smoothdeveloper/fsdsp56k) · [homepage](https://smoothdeveloper.github.io/fsdsp56k/) |
@@ -126,11 +126,11 @@ _Sources: GitHub search 2026-11-02, README, README, tag v1.0.0 (2026-11-25)_
 
 ### ModuleDrum
 
-Chip-level Machinedrum emulation as a DAW plug-in that runs the user's own OS and DSP programs, with the sequencer and a library. Fork of Monomodule and still builds the Monomodule plug-ins. AGPL-3.0.
+Chip-level Machinedrum emulation as a DAW plug-in that runs the user's own OS and DSP programs, with the sequencer and a library. Fork of Monomodule and still builds the Monomodule plug-ins. AGPL-3.0. 2026-11-28 (tag v1.5.0, README): the plug-in adds trig conditions, micro-timing, retrigs and trigless locks, Octatrack-style scenes and a crossfader, Rytm-style sound pool locks and a library for Machinedrum and Monomachine SysEx dumps; the globals now apply EXTENDED MODE, LOCAL and the input triggers. Scenes and the sound pool are not in .syx exports.
 
 _Related: fork of `monomodule` (README); cites `elektron-firmware-tool` (README credits) - see [PROJECT-FAMILIES.md](PROJECT-FAMILIES.md)_
 
-_Sources: GitHub search 2026-11-02, README_
+_Sources: GitHub search 2026-11-02, README, tag v1.5.0, README (2026-11-28)_
 
 ### Machinemodule for MPC OS
 

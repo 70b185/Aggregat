@@ -409,6 +409,17 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Status:** stock behaviour, harmless on stock
 - **Evidence:** `[hw]` {modwerk-1127}
 
+### SB46. The power-up check of the current Part fixes only one of its two copies (Octatrack)
+- **Device and OS:** Octatrack MKI/MKII, OS 1.40C
+- **Area:** power-up restore, Parts
+- **Symptom:** none seen; latent. With a damaged Part byte, the CS1 copy is clamped to 3 but the SRAM copy keeps the bad value.
+- **Trigger:** a battery-RAM Part byte above 3 at power-up.
+- **Cause:** stock keeps the current Part in SRAM `0x80000003` and in CS1 `0x100b14cf`. The restore copies CS1 to SRAM first (`0x4001fb4c`), then the clamp at `0x4000fda8` (called from `0x40025770` at `0x4001fb78`) fixes CS1 only; 94 stock readers use the SRAM copy.
+- **Workaround:** a mod that reads the Part from SRAM should clamp it to 0-3 itself.
+- **Found by:** Modwerk (read from stock while moving its Part read to SRAM)
+- **Status:** open in stock
+- **Evidence:** `[doc]` {modwerk-1128}
+
 ## Analog Rytm
 
 ### SB18. Edits to hidden FX words overwrite the delay's saved TIME (latent)
@@ -493,6 +504,17 @@ Devices: [Digitone II](#digitone-ii) · [Digitone mk1](#digitone-mk1) · [Octatr
 - **Found by:** Modwerk (Pad Pressure Fix module)
 - **Status:** open in stock
 - **Evidence:** `[doc]` (module README; the module's fix is reported on its author's unit) {modwerk-1123}
+
+### SB45. A pattern save silently drops p-locks past 71 lock rows (Analog Rytm MKII)
+- **Device and OS:** Analog Rytm MKII, OS 1.74
+- **Area:** sequencer, p-locks, project save
+- **Symptom:** a lock that makes a pattern need more than 71 lock rows plays, but is gone after the next save and load, with no warning.
+- **Trigger:** fill a pattern's lock rows (a lock index with fine resolution costs two rows), add one more lock, save the project, load it again.
+- **Cause:** the full pattern rebuild (`0x40009216`, used by SAVE PROJECT) writes at most 71 lock rows (check at `0x400092a2`); it walks lock index 0-41 outer and track 0-12 inner and skips a two-row index whole when it would pass 71, so the send-FX words 38-41 are dropped first.
+- **Workaround:** a mod that adds locks should count rows the way the save does and refuse with stock's LOCK MEM FULL! message (Rytm firmware 0.5.2 does this through `0x400acbd2`). UNDO and RELOAD TRACK can still push a pattern past 71 rows.
+- **Found by:** Sidecar | Expander (design notes 0025 and 0029)
+- **Status:** open in stock; trig-seedr saw a lock past 71 rows survive SAVE PATTERN and RELOAD (O52)
+- **Evidence:** `[emu]` {sidecar-mods-1128}
 
 ## Model:Cycles
 

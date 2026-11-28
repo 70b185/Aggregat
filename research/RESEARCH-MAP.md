@@ -28,7 +28,7 @@ This page is the one place where the research of all projects comes together.
 |---|---|---|
 | **Goals** (G1-G8) | What the whole community gains, beyond any single mod | [Shared goals](#shared-goals-worth-more-than-any-single-mod) below |
 | **Open questions** | Status ❓/⬜ per device; disagreements between projects (O1-O19) | the device tables below; [CONFLICTS.md](../hardware/CONFLICTS.md) |
-| **Experiments** | Tasks that need research (T1-T24) and inferred facts that need one test on a unit (H1-H65) | [Shared to-do](#shared-to-do); [HYPOTHESES.md](../hardware/HYPOTHESES.md) |
+| **Experiments** | Tasks that need research (T1-T24) and inferred facts that need one test on a unit (H1-H70) | [Shared to-do](#shared-to-do); [HYPOTHESES.md](../hardware/HYPOTHESES.md) |
 | **Results** | Facts with evidence tags and sources; rules distilled from them | [hardware/devices/](../hardware/README.md), [AGENT-RULES.md](../hardware/AGENT-RULES.md) |
 | **Incidents** (I1-I66) | What went wrong or was tested on real units, the cause and how it was found, and the rule it taught (rule C11: every failure becomes an incident, every general lesson a rule) | [INCIDENTS.md](../hardware/INCIDENTS.md) |
 | **Stock bugs** (SB1-SB18) | Bugs in Elektron's own OS that projects found while testing, with trigger, workaround and a test tip (rule C12: reproduce on stock before you blame your mod) | [STOCK-BUGS.md](../hardware/STOCK-BUGS.md), [report form](https://github.com/70b185/Aggregat/issues/new?template=stock-bug.yml) |

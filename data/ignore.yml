@@ -322,3 +322,4 @@ ignore:
   - gvegasol/syntaktika   # website for a Grasshopper (Rhino) plugin; no device, firmware or mod (2026-11-24)
   - antonelse/uc33e-mappings   # MIDI mappings for a Behringer UC33e controller (one of them for a Machinedrum); a controller setup, no firmware, mod or tool for the device (2026-11-24)
   - gvegasol/syntaktika-site   # website for the Grasshopper (Rhino) plugin Syntaktika; no device, firmware or mod (2026-11-25)
+  - cemergin/digitone-fm-bible   # an FM sound-design course for the stock Digitone II (lessons, a browser listening lab); no firmware, mod or tool for the device (2026-11-28)

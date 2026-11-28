@@ -1,4 +1,4 @@
-# RAM tenancy: who uses which memory (Digitone II, Digitakt II, Model:Cycles, Octatrack, Analog Rytm, Syntakt)
+# RAM tenancy: who uses which memory (Digitone II, Digitone mk1, Digitakt II, Model:Cycles, Octatrack, Analog Rytm, Syntakt)
 
 Task T23 of the [research map](../research/RESEARCH-MAP.md), first full pass 2026-11-11. Every mod platform puts its code and
 data in RAM that stock leaves alone, and each picked its own addresses. This page lists every range we could find, so a
@@ -182,6 +182,9 @@ The reset copies `0x40312000-0x4031ff60` to SRAM and clears `0x40312000-0x47e284
 | `0x406658c0` | `0x4066d8c0` | stock | 32 KiB scratch of the +Drive close (firmware-owned) | 1.17 | `[doc]` {digikit-f124} |
 | `0x4066d8c0` | `0x406758c0` | stock / digikit | the firmware's 32 KiB close-hash scratch; digikit's core/plusdrive-write borrows it while it holds the filesystem mutex | 1.17 | `[doc]` {digikit-f124} |
 | `0x80003362` | `0x80003c42` | stock | per-track parameter targets, 71 int16 a track, 16 tracks (end is our sum) | 1.17 | `[emu]` {modwerk-1127} |
+| `0x80000200` | `0x80000a00` | stock | USB transfer descriptor pool, 32 descriptors of 64 B (free head at `0x40965b1c`); not for mods | 1.17 | `[doc]` {modwerk-1128} |
+| `0x4fe3c000` | ? | stock | USB ring (uncached view) | 1.17 | `[doc]` {modwerk-1128} |
+| `0x47db406c` | ? | stock | USB MIDI mutex | 1.17 | `[doc]` {modwerk-1128} |
 
 ## Digitakt II SHARC L2 (`digitakt-2`)
 
@@ -222,6 +225,22 @@ The area where Model:Cycles mods place added machines; the Syntakt engine ports 
 | `0x46000000` | ? | Modwerk (Model:Cycles development bases) | RAM-boot mailbox at `0x46000000`, the uploaded container from `0x46000040`; written only at a RAM boot, read once at the next soft reset | 1.13 | `[hw]` {modwerk-1126} |
 | `0x47E00000` | `0x47E40000` | Modwerk (Model:Cycles base on core-mc 0.3) | the 256 KiB core and mod area: release base 646706ff takes 38,214 B `.run` and 115,796 B `.bss`, 96 KB of it the 64 KiB module pool and the upload staging (a development base 42,258 / 116,596 B) | 1.13 | `[hw]` {modwerk-1126} |
 
+## Digitone mk1 DDR (`digitone`)
+
+The ranges the imported Digitone mk1 modules in Modwerk declare for their bulk buffers (each module's README), and
+the elekloader core's own use. Not checked on a unit by Modwerk.
+
+| start | end | user | use | OS | evidence |
+|---|---|---|---|---|---|
+| `0x43ec0000` | `0x44000000` | elekloader core-dn1 5.x | the 1.25 MB area shared by every mod's code and data | 1.43/1.44 | `[doc]` {modwerk-1128} |
+| `0x44000000` | `0x45b00000` | DigiSwarm 0.2.0 | effect bulk buffer, 27 MB | 1.43/1.44 | `[doc]` {modwerk-1128} |
+| `0x44200000` | ? | elekloader core-dn1 5.4 (`core_stock_info`) | copy of the OS image made before the OS runs; inside DigiSwarm's range (O53) | 1.43/1.44 | `[doc]` {modwerk-1128} |
+| `0x45b00000` | `0x46200000` | DigiPrism 0.2.0 | effect bulk buffer, 7 MB | 1.43/1.44 | `[doc]` {modwerk-1128} |
+| `0x46200000` | `0x47300000` | DigiHoard 0.2.0 | effect bulk buffer, 17 MB | 1.43/1.44 | `[doc]` {modwerk-1128} |
+| `0x47300000` | `0x47700000` | DigiTide 0.2.0 | effect bulk buffer, 4 MB | 1.43/1.44 | `[doc]` {modwerk-1128} |
+| `0x47700000` | `0x47900000` | DigiReel 0.2.0 | effect bulk buffer, 2 MB | 1.43/1.44 | `[doc]` {modwerk-1128} |
+| `0x47b00000` | `0x47be0000` | DigiTriad 0.2.0 | effect bulk buffer, 0.9 MB | 1.43/1.44 | `[doc]` {modwerk-1128} |
+
 ## Octatrack DSP X memory (`octatrack`)
 
 DSP56300 X-memory words, written `$xxxx` in the projects' notes.
@@ -243,6 +262,8 @@ DSP56300 X-memory words, written `$xxxx` in the projects' notes.
 | `0x33dcb` | `0x33e55` | octabam (DLCOPY) | the demand-loader copier in the shared window (138 words; `0x33dc3..0x33e4d` in `test/dlspike`) | 1.40C | `[doc]` {octabam-1123} |
 | `0x33e55` | `0x33e70` | octabam (KEYBUS) | KEYBUS's tap code, 27 words, one copy for both payloads (`octabam`, `octabam-verbs`); the loader stub `window_loader` follows at `0x33e70` | 1.40C | `[doc]` {octabam-1123} |
 | `0x7b04` | `0x7bfc` | KYOTI BLACKPYRAMIDS_303 (V1.8BC) | the 303 voice's X run 1, inside SPRING REV's five X records (both payloads); voice Y `$7a5..$feb`, SIDE-CHAIN Y `$7df0..$7fff` | 1.40C | `[doc]` {kyoti-1120} |
+| `0x7c00` | `0x7d00` | octabam (OCTA303 SEAM, test remix only) | per-voice state and control blocks, four blocks of 64 words; wider than aCiDtRacK's own SEAM row above, same basis (O50) | 1.40C | `[doc]` {octabam-1128} |
+| `0x4840` | ? | octabam (OCTA303 SEAM and other modules' tables) | the stock DJ EQ curve bank, reused for 2,755 words of SEAM tables in remixes that leave DJ EQ out | 1.40C | `[doc]` {octabam-1128} |
 
 ## Octatrack ColdFire DDR (`octatrack`)
 
@@ -264,6 +285,7 @@ MEMORY page does not show the loss.
 | `0x46c938c4` | ? | stock | track recorder records, 44 B per recorder id | 1.40C | `[emu]` {modwerk-1127} |
 | `0x40a9d850` | ? | Modwerk base 0.8.2 | controller write lease (was `0x40a9d794`/`0x40a9d7b0` in 0.8.1) | 1.40C | `[doc]` {modwerk-1127} |
 | `0x40a955e0` | `0x40a9e8b0` | octabam SCOPE (as Modwerk's Scope draft reads it) | SCOPE's unit, 37,584 B (end is our sum) | 1.40C | `[emu]` {modwerk-1127} |
+| `0x46c95000` | ? | stock | USB transfer descriptor pool; slots 4-15 carry the mass-storage replies, and stock's ring reset never clears slot 15 (I241); not for mods | 1.40C | `[hw]` {modwerk-1128} |
 
 ## Octatrack battery RAM (`octatrack`)
 
@@ -327,6 +349,8 @@ MEMORY page does not show the loss.
 | `0x47feffbc` | `0x47ff0000` | Modwerk development link | RAM-boot diagnostics (68 B) moved here from the top of the mod area; `ident` names the place | 1.74 | `[doc]` {modwerk-rytm-1118} |
 | `0x800067f8` | `0x80006bf8` | stock / Sidecar 0.5.1.1 | sample layer output S, 128 B per voice; stock's sample_render writes every voice every block, Sidecar's mixer detour zeroes S of voices under a Sidecar machine | 1.73/1.74 | `[emu]` {sidecar-mods-1123} |
 | `0x80005b30` | `0x80005e10` | stock / Sidecar 0.5.1.1 | sample voice records, 92 B per voice; Sidecar clears +40 (playing) and +44..+91 (filter state) of skipped voices | 1.73/1.74 | `[emu]` {sidecar-mods-1123} |
+| `0x47c00000` | `0x47f00000` | Sidecar 0.5.2 (Rytm firmware, pool `sidecar_buffers`) | 3 MB declared as the bundle's buffer region; UI and MIDI task buffers only, never read by the audio interrupt, each zeroed on first use (DDR holds noise at power-on); claims so far: remote UI shadow, staging, text and UX buffers `0x47c00000-0x47c04080`, send-FX UI `0x47c04080-0x47c07210`; the same range as Modwerk's own-linker area above (O51); inside elekloader core-ar2 0.11-0.21's mods' area, but Sidecar refuses every core newer than 0.1 | 1.74 | `[emu]` (Sidecar's canary) {sidecar-mods-1128} |
+| `0x8000ed74` | `0x8000ed78` | stock (read by Sidecar 0.5.2) | QUICK PERF mute gate, copied each audio block from kit+2495 | 1.74 | `[emu]` {sidecar-mods-1128} |
 
 ## Syntakt MAIN DDR (`syntakt`)
 

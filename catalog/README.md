@@ -2,7 +2,7 @@
 
 # Index by device
 
-Data last verified: 2026-11-27. Repo fingerprints: see state/CHANGES.md
+Data last verified: 2026-11-28. Repo fingerprints: see state/CHANGES.md
 
 | Device | Verified | Unverified candidates | Requests / resources |
 |---|---|---|---|

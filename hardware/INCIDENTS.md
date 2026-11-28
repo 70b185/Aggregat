@@ -2075,6 +2075,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[doc]` {octabam-1125}
 - **Rule:** A92
 - **Fact:** [devices/octatrack.md](devices/octatrack.md)
+- **Update 2026-11-28:** measured on an MKII: a pre-fix image corrupted 79 of 3,306 blocks (65 of them with `0f f8 00 00`), the fixed image and the flashed release candidate R1 none. It needs 1 MB host reads with the cache bypassed; 64 KB reads do not trigger it. Status: fixed, `[hw]` {octabam-1128}
 
 ### I204. FRAME GUARD clicked on nearly every bar on an Octatrack MKI (octabam)
 - **Unit:** Octatrack MKI, OS 1.40C, octabam FRAME GUARD, November 2026
@@ -2362,6 +2363,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` {octabam-1127}
 - **Rule:** A40, A101
 - **Fact:** [devices/octatrack.md](devices/octatrack.md)
+- **Update 2026-11-28:** the stops are two failures, neither a boot stall: a SYNCING PROJECT hang with dead keys, and a unit that keeps running without USB. Variant images (a 16x longer panel wait, RS cleared before a 10x longer delay, a 2 s sync limit) still stopped. On R1, 12 of 12 round-robin switches came back. A fix sends the panel's reset message before the reset on an MKI too (not tested on an MKI). `[hw]` {octabam-1128}
 
 ### I232. FRAME GUARD's raised edge let an Octatrack MKII stall (octabam)
 - **Unit:** Octatrack MKII, OS 1.40C, octabam main with FRAME GUARD's lower edge at 140 Âµs and a frame log, USB capture open (2026-11-26/27)
@@ -2372,6 +2374,7 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` {octabam-1127}
 - **Rule:** A56
 - **Fact:** [devices/octatrack.md](devices/octatrack.md)
+- **Update 2026-11-28:** at 110 Âµs no stall in about 30 program changes, against 3 in about 30 at 140 Âµs; too few to count. `[hw]` {octabam-1128}
 
 ### I233. A retriggered recorder left a stale state, and syncs were refused until a power cycle (Modwerk, Octatrack)
 - **Unit:** Octatrack, OS 1.40C, Modwerk base 0.8.1 (a tester); reproduced on the owner's MKII with a twin (2026-11-26)
@@ -2452,3 +2455,143 @@ Groups: [S. Stock firmware bugs and limits](#s-stock-firmware-bugs-and-limits) Â
 - **Evidence:** `[hw]` (symptom, fix) / `[emu]` (cause) {synfact-1127}
 - **Rule:** A34
 - **Fact:** [devices/syntakt.md](devices/syntakt.md)
+
+### I241. A stale USB disk reply froze the UI and USB until a power cycle (Modwerk, Octatrack MKII)
+- **Unit:** Octatrack MKII, OS 1.40C, Modwerk 0.8.2-code twin, a USB Audio 0.4.2 install about a minute after a rollback (the owner, 2026-11-26)
+- **Seen:** the screen and USB froze while audio kept running; only a power cycle helped. The freeze record showed the PC at `0x4001cc30`, interrupt level 4.
+- **Cause:** stock's mass-storage reply sender (`0x4001cc2c`) takes transfer descriptors 4-15 of the pool at `0x46c95000` in turn and spins until the next one is inactive. A bus reset during a primed reply left a descriptor active, and stock's ring reset clears slots 4-14 but never 15; with macOS polling, the ring reached the stale slot within about 8 s. Found from the freeze record and stock's code.
+- **Fix:** base 0.8.3's bus-reset hook flushes the mass-storage endpoint and clears every send slot; 30 layout reconnects ran with no freeze (before: 1 in about 25).
+- **Status:** fixed in base 0.8.3 (development twins)
+- **Evidence:** `[hw]` {modwerk-1128}
+- **Rule:** A105
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I242. A host port reset met the base's own reconnect, and USB stayed dead until a power cycle (Modwerk, Octatrack MKII)
+- **Unit:** Octatrack MKII, OS 1.40C, Modwerk 0.8.2/0.8.3 twins, a Mac with a USB 2.0 hub (the owner, 2026-11-26/27)
+- **Seen:** after an install, PLAY or rollback the unit stayed off USB; a replug and the attach watchdog did not help. Seen 3 times, about once in 5-32 cycles; about 1 in 30 cycles in the known-issue count.
+- **Cause:** when the hub resets the port about 0.3 s after the unit leaves the bus, the controller stays in port reset or attached with its old address. Measured from the log records.
+- **Fix:** base 0.8.3 stays off the bus for 10 s before a forced reconnect: 69 reconnects with no drop. A second way in is still open and shipped as a known issue.
+- **Status:** partly fixed
+- **Evidence:** `[hw]` {modwerk-1128}
+- **Rule:** A106
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I243. The attach watchdog never re-offered a unit that had an address but no configuration (Modwerk, Octatrack)
+- **Unit:** Octatrack MKII, OS 1.40C, Modwerk base 0.8.2 (the owner, 2026-11-26)
+- **Seen:** four times the unit ran for about 26 minutes off USB; macOS had dropped it from its device tree.
+- **Cause:** the watchdog took an assigned USB address as proof of enumeration; a host can address a device and then give up on it.
+- **Fix:** base 0.8.3 keys the watchdog on SET_CONFIGURATION. That it heals on a unit is not shown yet.
+- **Status:** fixed in source; healing not yet seen on a unit
+- **Evidence:** `[hw]` {modwerk-1128}
+- **Rule:** A106
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I244. USB Audio buzzed on macOS after about three minutes (Modwerk USB Audio 0.4.1, Octatrack MKII)
+- **Unit:** Octatrack MKII, OS 1.40C, USB Audio 0.4.1, macOS (the owner, 2026-11)
+- **Seen:** after about 3 minutes the recording buzzed, with sidebands at 44100/512 Hz.
+- **Cause:** with an adaptive OUT and an asynchronous IN, macOS runs both in one I/O cycle; the output slid about 2.6 frames a second until stale buffers were played. The unit's clock measured about 54 ppm slow against the Mac.
+- **Fix:** 0.4.2 sends at the host's nominal rate and trims in the ring; procedure steps 6-10 passed on the MKII with macOS.
+- **Status:** fixed in 0.4.2
+- **Evidence:** `[hw]` {modwerk-1128}
+- **Rule:** A107
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I245. A trial of the SEQ draft could not be rolled back (Modwerk, Octatrack MKII)
+- **Unit:** Octatrack MKII, OS 1.40C, SEQ draft fix22 on a Modwerk base (the author, 2026-11)
+- **Seen:** after SEQ had been used, the loader refused to remove it (needs recovery); a power cycle brought back the flashed base.
+- **Cause:** two faults: a key handler clobbered `%d2`, in which stock's key dispatcher `0x40031734` keeps the key number, so a held flag stayed routed to the module; and a stock layer pushed above the module's layer kept a link to it after stock popped it, so the loader's UI walk saw the module as still open. Found in the emulator, the fix confirmed on the unit.
+- **Fix:** fix36 saves the registers and unlinks the layer; procedure steps 6-10 passed on the unit on 2026-11-27.
+- **Status:** fixed
+- **Evidence:** `[hw]` {modwerk-1128}
+- **Rule:** A108
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I246. Seven Combo amps pushed DSP core 0 over its limit (Modwerk draft, Octatrack MKII)
+- **Unit:** Octatrack MKII, OS 1.40C, Combo draft on a RAM twin (the developer, 2026-11)
+- **Seen:** the optimised build failed the device test: core 0 peaked at 995 per mille against a limit of 900 with seven instances.
+- **Cause:** an FX2 instance on core 0 gets its buffer in the shared window, where coefficient reads cost about twice as much; core 1 did not show it.
+- **Fix:** the coefficients moved into core-private X state: 740-768 per mille; seven instances admitted, the eighth refused for CPU.
+- **Status:** fixed
+- **Evidence:** `[hw]` {modwerk-1128}
+- **Rule:** A109
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I247. A digital voice kept rendering for ever once it had played (Mono Synth, Analog Rytm MKII)
+- **Unit:** Analog Rytm MKII, OS 1.74, Mono Synth build SM02 booted from RAM (the module's author, 2026-11-27)
+- **Seen:** voices that had played kept rendering at rest: about 9,000 blocks a second for six voices.
+- **Cause:** a free-running oscillator never falls below the base's -102 dB silence check, and stock's amp record stays in state 3 (decay) at rest, never -1, so neither shows that the amp has closed.
+- **Fix:** SM04 estimates the amp's decay from its rate word and ends the hit itself: 0 blocks a second at rest, while a voice at DEC INF still renders.
+- **Status:** fixed (RAM boot only; no flash, save or power cycle)
+- **Evidence:** `[hw]` {modwerk-1128}
+- **Rule:** A110
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)
+
+### I248. Large Rytm module sets froze a unit on a livestream (Modwerk, Analog Rytm MKII)
+- **Unit:** Analog Rytm MKII, OS 1.74, a Modwerk set with many modules (a user, 2026-11)
+- **Seen:** the unit froze during a livestream with no warning.
+- **Cause:** not given; the modules' CPU costs had not been measured on a unit.
+- **Fix:** set pages now warn when modules have no CPU cost measured on a unit.
+- **Status:** cause open; warning shipped
+- **Evidence:** `[hw]` (reported) {modwerk-1128}
+- **Rule:** A8
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)
+
+### I249. USB DISK MODE from the cable was refused after the Octatrack sat idle (octabam REMOTE, MKII)
+- **Unit:** Octatrack MKII, OS 1.40C, octabam R1 and W4 images (the author, 2026-11-18/27)
+- **Seen:** the unit logged the host's DISK MODE command and a bank write, then about 3 s later a new project and bank 0, and the card never mounted. It kept refusing for 14 tries over 8 minutes and 20 minutes more; a panel key press cleared it at once (3 of 3), a REMIX SWITCH did not. After a key press it worked for about 216 s, then refused again. A request 3 s after a switch missed 3 of 4; 15-30 s after a switch it worked 6 of 6.
+- **Cause:** unknown. Ruled out: the screen saver (its counter at `0x460d1a50` read awake, and zeroing it did not help), the watchdog, the sequencer and the audio capture. Whether the panel's own DISK MODE is affected is not known (H69).
+- **Fix:** the host waits 15 s after a switch and retries for up to 8 minutes; a panel key press is the way out.
+- **Status:** open; worked around
+- **Evidence:** `[hw]` {octabam-1128}
+- **Rule:** A111
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I250. Edits written to the current bank over DISK MODE never reached the unit (octabam, Octatrack MKII)
+- **Unit:** Octatrack MKII, OS 1.40C, octabam loader (the author, 2026-11-27)
+- **Seen:** after the host wrote project files over USB DISK MODE, the unit kept playing the old version of the bank that was current.
+- **Cause:** leaving DISK MODE reloads every bank except the current one, which keeps its old RAM copy. Seen on the unit; stock behaviour.
+- **Fix:** the loader sends a program change to bank H before it leaves DISK MODE.
+- **Status:** worked around
+- **Evidence:** `[hw]` {octabam-1128}
+- **Rule:** A112
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)
+
+### I251. A scene-edit gesture on a Sidecar machine's SRC view opened the pool list instead of locking (Rytm firmware 0.5.2 rc3, Analog Rytm MKII)
+- **Unit:** Analog Rytm MKII, OS 1.74, Rytm firmware 0.5.2 rc3 with Sidecar 0.5.2 (the maintainer, 2026-11-26/27)
+- **Seen:** with PAGE + T15/T16 held on a Sidecar machine's SRC view, turning the source knob opened the pool list, and no readout showed.
+- **Cause:** the list code ran before the scene-edit path, and the readout was drawn only when no host frame was up. Found by reading the code after the unit report.
+- **Fix:** rc4 makes the source word not lockable while a side is held and draws the readout over the view.
+- **Status:** fixed in 0.5.2
+- **Evidence:** `[hw]` {sidecar-mods-1128}
+- **Rule:** A104
+- **Fact:** [devices/analog-rytm.md](devices/analog-rytm.md)
+
+### I252. SMEAR SIZE 121-127 gave odd loop lengths (DN2-Rift, Digitone II)
+- **Unit:** Digitone II, OS 1.11, DN2-Rift v0.28 or earlier (a tester, 2026-11)
+- **Seen:** loops came out at odd lengths at the top of SMEAR's SIZE range.
+- **Cause:** SIZE kept WaveTone's coarse 0-127 range, so 121-127 scaled to 128-134 and read past SMEAR's 128-entry table. Found from the tester's report and the code.
+- **Fix:** v0.29 uses a fine 0.00-120.00 range and the DSP caps the value at 127; a project saved above 120 plays the whole loop.
+- **Status:** fixed in v0.29 (emulator only)
+- **Evidence:** `[hw]` (tester's symptom), cause `[doc]` {dn2-rift-1128}
+- **Rule:** A72
+- **Fact:** [devices/digitone-2.md](devices/digitone-2.md)
+
+### I253. A DIGIDRUM kick dropped out next to SPALL (DN2-Rift, Digitone II)
+- **Unit:** Digitone II, OS 1.11, DN2-Rift v0.28 (a tester, 2026-11)
+- **Seen:** a DIGIDRUM kick played beside SPALL was left out most of the time.
+- **Cause:** the time guard reserved 60,000 cycles for every drum hit, though a kick costs about 28,000; the heaviest types (SD VINTAGE, CP, CY) cost 40,000-49,000.
+- **Fix:** v0.29 prices each drum type: a 36,000-cycle floor, and 62,000 on the trigger block of SD VINTAGE, CP or CY.
+- **Status:** fixed in v0.29 (emulator only)
+- **Evidence:** `[hw]` (tester's symptom) {dn2-rift-1128}
+- **Rule:** A44
+- **Fact:** [devices/digitone-2.md](devices/digitone-2.md)
+
+### I254. A RAM boot right after a finished recovery failed (Modwerk, Octatrack MKII)
+- **Unit:** Octatrack MKII, OS 1.40C, Modwerk 0.8.3 twins (the owner, 2026-11-26/27)
+- **Seen:** a RAM boot started right after a recovery that had finished reported boot failed and needed a power cycle; a twin with a controller reset never came up. RAM boots fail to come up on USB about one time in six anyway.
+- **Cause:** not known.
+- **Fix:** power-cycle after a recovery before the next RAM boot.
+- **Status:** open
+- **Evidence:** `[hw]` {modwerk-1128}
+- **Rule:** A96
+- **Fact:** [devices/octatrack.md](devices/octatrack.md)

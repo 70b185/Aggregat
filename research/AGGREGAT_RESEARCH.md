@@ -22,7 +22,7 @@ results by hand, with credit to this project. Taking part is voluntary and can s
 
 | | |
 |---|---|
-| Aggregat state | research map reviewed 2026-11-03, snapshot `eb0f129dc54e` |
+| Aggregat state | research map reviewed 2026-11-03, snapshot `85e9e1256aad` |
 | Copied on | <date you copied it> |
 
 ## What we work on
@@ -49,7 +49,7 @@ emulator, `doc` = read in code or documents.
 
 ---
 
-# Copied state: Aggregat research, snapshot `eb0f129dc54e` (research map reviewed 2026-11-03)
+# Copied state: Aggregat research, snapshot `85e9e1256aad` (research map reviewed 2026-11-03)
 
 ## Goals (copied from Aggregat)
 
@@ -128,6 +128,9 @@ emulator, `doc` = read in code or documents.
 | H60 | G7 | A stock Syntakt (OS 1.42) keeps an unsaved trig edit across a power-off once its supercap is charged: the power-off handler writes the working state only when byte `0x43be3154` is set, which happens when PPDSDR_G bit 3 (supercap charged) reads high. | Syntakt | Leave the unit on for a few minutes, add a trig without saving, switch off and on: is the trig there? Repeat right after a cold start. Partly seen 2026-11-19: on one unit running trig-seedr (stock save path) an applied and a pending take survived a power off {trig-seedr-1121}; a plain stock unit and a power off right after a cold start are still open. |
 | H61 | G7 | Syntakt OS 1.42 has no parameter-lock row limit (unlike the Rytm's 72 rows a pattern): each track's lock store is a full 64-step x 71-id matrix and the set routine counts no rows. | Syntakt | Lock several SYN, FLTR and AMP parameters on every step of several tracks; look for any refusal. |
 | H66 | G1 | A Syntakt (OS 1.42) whose MAIN unpack runs away in the bootstrap (I183, a hang at the logo) still reaches the STARTUP menu with FUNC held at power-on, because the bootstrap reads the keys before it copies and unpacks section 3 (read on the DT2 bootstrap, finding 01). | Syntakt | Next time a build hangs at the logo: hold FUNC at power-on, choose TRIG 4 and send stock over DIN; report whether the menu came up. Do not provoke the hang for this. |
+| H68 | G7 | On stock Octatrack OS 1.40C, a host bus reset while the unit sends a USB DISK MODE reply can freeze the UI, because stock's ring reset never clears transfer descriptor slot 15. | Octatrack | On a stock unit in USB DISK MODE, have the host reset the port (unplug and replug the hub, or a bus reset) repeatedly while it reads; see whether the UI ever freezes. |
+| H69 | G7 | On stock Octatrack OS 1.40C, USB DISK MODE is refused after the unit sits idle for a few minutes, and only a panel key event clears it (not the screen saver). | Octatrack | Leave a stock unit idle 5 minutes, then enter USB DISK MODE from the panel; also try it after 30 s idle; see whether the card mounts each time. |
+| H70 | G7 | On stock Digitakt OS 1.54, a step whose word has bit 0x0004 set never fires; what sets the bit is not known. | Digitakt | Copy, paste, mute and slide steps on a stock unit, dump the pattern over SysEx and look for the bit on steps that stopped playing. |
 | H6 | G8 | The DT2's SHARC DDR above the sample pool window (`0x9d22b9c8` up to `0xa0000000`, about 46 MB) is never written by stock, as the DN2's tail `0x80531000-0xa0000000` is not. | DT2 | dnfw's method: fill the range with a pattern at boot, then scan it during heavy playback, pattern and kit changes, FX extremes, sample loads and a save. Expect a reserved top part for Capicola builds only. |
 | H7 | G3 | The DT2's ColdFire runs the same FreeRTOS layout as the DN2: higher priority numbers run first, prio 0 never runs, prio 1 is the idle loop; the main task's stack is barely used. | DT2 | With the USB probe: find the ready table and the running-task pointer, sample them 60 times. |
 | H8 | G8 | The DN2's digikit flash cave `0x402fb7a8` (2,136 B on 1.11) keeps its bytes through a cold boot, as the DT2's `0x403117c4` does. | DN2 | A canary in the cave, read back after a cold boot and after playback. Combine with H9. |
@@ -205,3 +208,6 @@ emulator, `doc` = read in code or documents.
 | O48 | Digitone II FLEX single-track take level (dn2mk2) |
 | O49 | Is Octatrack battery RAM `0x100f8f06-0x100f8ffc` free? |
 | O50 | Is Octatrack DSP X `$7a92-$7fff` unreferenced by stock? |
+| O51 | Who may use Analog Rytm MKII DDR `0x47c00000-0x47f00000`? |
+| O52 | Does a Rytm MKII p-lock past 71 lock rows survive a save? |
+| O53 | Is Digitone mk1 DDR from `0x44000000` free for an effect's bulk buffer under core-dn1 5.4? |

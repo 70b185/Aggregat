@@ -164,6 +164,13 @@ removed on 2026-11-16).
 - **A pattern reload is announced before the stock checks it:** core-dn1's reload event fires before the stock decides whether it can reload ("Prj must be re-saved!" refuses it), so a mod that swaps its own data on that event loses it on a refused reload; Drum Mode 0.11 swaps only once the pattern is read back ([I217](../INCIDENTS.md#i217-a-pattern-reload-brought-back-the-wrong-drum-mode-kit-digitone-mk1-drum-mode-0106)). `[hw]` (symptom) `[emu]` (cause)
 - **Ratchets without stock retrigs:** the Digitone mk1 has no retrigs; Drum Mode 0.11 sends 2-4 evenly spaced MIDI notes within a step from its own task (following the track's speed and swing), and note repeat at 1/16-1/64 in time with the steps. Whether these notes and the stock's ever collide on the MIDI output is open. `[emu]`
 
+## Modwerk's Digitone imports: seq-events, MUTINY, scales, core 5.4 hooks (OS 1.43/1.44, 2026-11-27) {modwerk-1128}
+- **Step fire (seq-events):** 15 jsr sites in the step fire; on OS 1.44 among them the audio step load `0x40094532`, trig test `0x40094580`, notes `0x4009461e`, locks `0x400947ce`, velocity `0x4009480a`, the MIDI step load `0x400948d4` and velocity `0x40094bc2`; the sequencer re-arm is at `0x40094be2`. The 1.43 sites are the same code 0x20 lower. In digiemu the fire reads the active pattern pointer, also on the first step after a switch (one run). `[emu]`
+- **MUTINY:** one 6-byte site at `0x40094688` (held-step LEN, OS 1.44); 26,004 B code and 69,712 B BSS; its project record MUT2 is 116 B, and MUTINY and DigiTables fit together with 20 B to spare. Stock OS 1.44 keeps the core's project-data area through save and load. `[hw]` (the author's unit)
+- **Scale table:** 12 of OS 1.44's 35 scales have no interval entries (pentatonic minor and major, blues, combo minor, persian, iwato, in-sen, hirajoshi, pelog, whole-half and half-whole diminished, spanish). `[doc]`
+- **core-dn1 5.4 hooks:** `ev_midi_cc` (3.2+, a nonzero return takes the CC), `ev_key_leds` (3.3+, the first setter wins), `ev_note_queue` (4.1+, one step ahead, with p-locks and play time) and the `core_audio` table (3.2+). Core 5.4 patches the project serialize and new-project routines (`0x4000eb10`, `0x4001570e` on 1.44), the same sites as KitBank 0.2.0, so the two cannot share a build. `[doc]`
+- **Effect-pedal bulk RAM** as the imported modules declare it: see [RAM-TENANCY.md](../RAM-TENANCY.md#digitone-mk1-ddr-digitone) and O53. `[doc]`
+
 ## Notes
 - digihealth 1.1 brings SYSTEM INFO only; FAST AUDIO is not ported to Digitone. {digihealth}
 - DigiSplash and DigiCandy support Digitone mk1 + Keys at OS 1.43. {digisplash} {digicandy}
